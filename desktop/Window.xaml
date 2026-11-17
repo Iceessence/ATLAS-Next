@@ -4,7 +4,7 @@
   <Style TargetType="TextBlock"><Setter Property="TextWrapping" Value="Wrap"/></Style>
  </Window.Resources>
  <DockPanel>
-  <Border DockPanel.Dock="Top" Background="#15342F" Padding="24,16"><DockPanel><TextBlock DockPanel.Dock="Right" Text="LOCAL  /  CPU" Foreground="#C1DDCA" VerticalAlignment="Center"/><TextBlock Text="ATLAS Next" Foreground="White" FontSize="24" FontWeight="SemiBold"/></DockPanel></Border>
+  <Border DockPanel.Dock="Top" Background="#15342F" Padding="24,16"><DockPanel><Button x:Name="EmergencyStop" DockPanel.Dock="Right" Margin="18,0,0,0" Content="Stop all tasks" Click="StopAllTasks"/><TextBlock DockPanel.Dock="Right" Text="LOCAL  /  CPU" Foreground="#C1DDCA" VerticalAlignment="Center"/><TextBlock Text="ATLAS Next" Foreground="White" FontSize="24" FontWeight="SemiBold"/></DockPanel></Border>
   <Grid Margin="20"><Grid.ColumnDefinitions><ColumnDefinition Width="185"/><ColumnDefinition Width="16"/><ColumnDefinition/></Grid.ColumnDefinitions>
    <DockPanel><TextBlock DockPanel.Dock="Top" Text="Task history" FontWeight="SemiBold" Margin="0,0,0,10"/><ListBox x:Name="History" AutomationProperties.Name="Task history" DisplayMemberPath="Request" SelectionChanged="SelectTask" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/></DockPanel>
    <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto"><StackPanel Margin="5,0,12,12">

@@ -62,5 +62,11 @@ internal sealed class Engine(string profile) : IDisposable
         journal.Save(task);
         return task;
     }
+    public int StopAll()
+    {
+        var waiting=History().Where(task=>task.State=="review").ToList();
+        foreach(var task in waiting) Finish(task.Id,true);
+        return waiting.Count;
+    }
     public void Dispose()=>journal.Dispose();
 }

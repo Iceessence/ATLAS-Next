@@ -49,6 +49,12 @@ public partial class WorkWindow : Window
     private void Submit(object sender,RoutedEventArgs e)=>Handle(()=>Refresh(engine.Submit(Guid.NewGuid(),Prompt.Text)));
     private void FinishTask(object sender,RoutedEventArgs e)=>Handle(()=>Refresh(engine.Finish(current!.Id)));
     private void CancelTask(object sender,RoutedEventArgs e)=>Handle(()=>Refresh(engine.Finish(current!.Id,true)));
+    private void StopAllTasks(object sender,RoutedEventArgs e)=>Handle(()=>
+    {
+        int stopped=engine.StopAll();
+        Refresh(engine.History().FirstOrDefault());
+        Notice.Text=$"Stopped {stopped} pending tasks.";
+    });
     private void ExportTask(object sender,RoutedEventArgs e)=>Handle(()=>
     {
         string folder=Path.Combine(profile,"exports");

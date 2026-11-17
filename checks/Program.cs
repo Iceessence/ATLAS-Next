@@ -65,6 +65,8 @@ internal static class Checks
             Check(receipt.State=="completed" && receipt.Evidence?.Id=="fact.retention","real WPF find, verify and export handlers");
             Click(window,"Search"); Click(window,"Stop");
             Check(((TextBlock)window.FindName("Status")).Text=="cancelled","real WPF stop control");
+            Click(window,"Search"); Click(window,"Search"); Click(window,"EmergencyStop");
+            Check(!engine.History().Any(task=>task.State=="review"),"global stop cancels all pending tasks");
             window.Close();
             var path=Path.Combine(Assets.Root,"library","retention.json");
             var bytes=File.ReadAllBytes(path);
