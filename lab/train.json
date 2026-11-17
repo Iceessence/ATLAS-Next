@@ -1,0 +1,37 @@
+{
+  "origin": "rule_label",
+  "rights": "ATLAS-original synthetic fixture",
+  "projects": [
+    "ledger",
+    "signal",
+    "beacon",
+    "journal",
+    "harbor",
+    "pixel",
+    "roster",
+    "map"
+  ],
+  "templates": {
+    "fact": [
+      "What is the {topic} limit?",
+      "Which version does {topic} use?",
+      "State the default for {topic}.",
+      "Where is the {topic} archive?",
+      "Give the retention duration for {topic}."
+    ],
+    "procedure": [
+      "How do I rebuild {topic}?",
+      "List the steps to recover {topic}.",
+      "Show the {topic} restore guide.",
+      "Give instructions to configure {topic}.",
+      "Walk me through repairing {topic}."
+    ],
+    "clarify": [
+      "Something about {topic}.",
+      "Help with {topic}.",
+      "{topic} please.",
+      "I have a {topic} question.",
+      "Look at {topic}."
+    ]
+  }
+}

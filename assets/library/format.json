@@ -1,0 +1,17 @@
+{
+  "id": "fact.format",
+  "version": 1,
+  "type": "fact",
+  "title": "Export file format",
+  "body": "An exported task receipt is a UTF-8 JSON file.",
+  "terms": [
+    "format",
+    "receipt",
+    "encoding",
+    "json"
+  ],
+  "scope": "public-demo",
+  "origin": "ATLAS authored fixture",
+  "trust": "reviewable fixture",
+  "source": "ATLAS Next demo handbook §3"
+}

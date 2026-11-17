@@ -1,0 +1,18 @@
+{
+  "id": "procedure.restore",
+  "version": 1,
+  "type": "procedure",
+  "title": "Restore an archive",
+  "body": "1. Select a verified snapshot.\n2. Restore it into a fresh workspace.\n3. Compare the restored manifest digest with the snapshot receipt.",
+  "terms": [
+    "archive",
+    "restore",
+    "recover",
+    "recovery",
+    "snapshot"
+  ],
+  "scope": "public-demo",
+  "origin": "ATLAS authored fixture",
+  "trust": "reviewable fixture",
+  "source": "ATLAS Next demo handbook §2"
+}

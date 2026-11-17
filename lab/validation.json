@@ -1,0 +1,22 @@
+{
+  "origin": "rule_label",
+  "rights": "ATLAS-original synthetic fixture",
+  "projects": [
+    "lighthouse",
+    "atlasbook"
+  ],
+  "templates": {
+    "fact": [
+      "What version is approved for {topic}?",
+      "State {topic} size."
+    ],
+    "procedure": [
+      "Explain how to restore {topic}.",
+      "Which steps verify {topic}?"
+    ],
+    "clarify": [
+      "Discuss {topic}.",
+      "Maybe {topic}?"
+    ]
+  }
+}

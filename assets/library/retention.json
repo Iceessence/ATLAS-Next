@@ -1,0 +1,18 @@
+{
+  "id": "fact.retention",
+  "version": 1,
+  "type": "fact",
+  "title": "Archive retention",
+  "body": "The demonstration archive retains completed exports for 30 days.",
+  "terms": [
+    "archive",
+    "retention",
+    "exports",
+    "expiry",
+    "days"
+  ],
+  "scope": "public-demo",
+  "origin": "ATLAS authored fixture",
+  "trust": "reviewable fixture",
+  "source": "ATLAS Next demo handbook §1"
+}
