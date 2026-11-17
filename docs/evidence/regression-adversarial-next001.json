@@ -1,0 +1,527 @@
+{
+  "review": "NEXT-001",
+  "candidate_commit": "7d319bc33be94c747f15fbc6f52d873379b51282",
+  "head_commit_reviewed": "72799cad478df3deac467e4bb5c72e364ac571d2",
+  "reviewer": "Gemini Hydrogen",
+  "generated_at_utc": "2026-11-17T23:32:51.5996121+00:00",
+  "adversarial_check_1_relevance_vs_source_integrity": {
+    "reproduced": true,
+    "summary": "Query 'How long is the archive retention policy?' is routed by Routing.Rule to 'procedure' because 'how' is checked before 'retention'/'policy'. Library.Find restricts candidates to Type == 'procedure' and selects 'procedure.restore' on the single shared term 'archive' (score=1). Engine.Finish verifies only file integrity/scope/type-match-to-specialist and stamps verification='release hash, scope and version checked' on the wrong answer (archive restoration steps instead of fact.retention's 30-day retention rule). Shadow model actually proposed 'fact' (98.0%).",
+    "packaged_ui_reproduction": {
+      "reviewUi": {
+        "status": "review",
+        "summary": "A matching record is ready for verification.",
+        "sourceInfo": "procedure.restore \u00b7 revision 1\nATLAS Next demo handbook \u00a72 \u00b7 reviewable fixture",
+        "routingInfo": "Active rule: deterministic-route-v1 \u2192 procedure\nOriginal model: atlas-native-route-v1 \u2192 fact (98.0%)\nStatus: shadow \u00b7 SHA-256 6b9b23fcf890807f\u2026\nCPU inference 73 \u00b5s \u00b7 process 144 MiB"
+      },
+      "completedUi": {
+        "status": "completed",
+        "summary": "1. Select a verified snapshot.\n2. Restore it into a fresh workspace.\n3. Compare the restored manifest digest with the snapshot receipt.",
+        "sourceInfo": "procedure.restore \u00b7 revision 1\nATLAS Next demo handbook \u00a72 \u00b7 reviewable fixture",
+        "routingInfo": "Active rule: deterministic-route-v1 \u2192 procedure\nOriginal model: atlas-native-route-v1 \u2192 fact (98.0%)\nStatus: shadow \u00b7 SHA-256 6b9b23fcf890807f\u2026\nCPU inference 73 \u00b5s \u00b7 process 144 MiB"
+      },
+      "exportedReceipt": {
+        "id": "42df0e16-540d-4957-9ea1-1594ba0e4498",
+        "request": "How long is the archive retention policy?",
+        "schema": 1,
+        "kind": "knowledge.lookup",
+        "authority": "local desktop owner",
+        "scope": "public-demo",
+        "dependencies": [],
+        "capability": "read pinned public catalog",
+        "budget": "2048 chars / 1 record / 1 MiB per asset / CPU",
+        "inferenceMicroseconds": 73,
+        "processWorkingSetBytes": 151306240,
+        "router": "deterministic-route-v1",
+        "specialist": "procedure",
+        "proposal": {
+          "model": "atlas-native-route-v1",
+          "origin": "original",
+          "qualification": "shadow",
+          "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+          "route": "fact",
+          "probability": 0.9801393685463855
+        },
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "evidence": {
+          "id": "procedure.restore",
+          "version": 1,
+          "digest": "3ac0979a0986d7158474a6f3d22baaf32d19210af5943ed1e0b815b4f85ff0a1",
+          "source": "ATLAS Next demo handbook \u00a72",
+          "type": "procedure",
+          "origin": "ATLAS authored fixture",
+          "trust": "reviewable fixture"
+        },
+        "result": "1. Select a verified snapshot.\n2. Restore it into a fresh workspace.\n3. Compare the restored manifest digest with the snapshot receipt.",
+        "events": [
+          {
+            "state": "queued",
+            "at": "2026-11-17T15:33:10.5649368-08:00"
+          },
+          {
+            "state": "review",
+            "at": "2026-11-17T15:33:10.5680794-08:00"
+          },
+          {
+            "state": "completed",
+            "at": "2026-11-17T15:33:12.7581861-08:00"
+          }
+        ],
+        "state": "completed"
+      }
+    },
+    "engine_probe_matrix": [
+      {
+        "query": "How long is the archive retention policy?",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "procedure",
+        "proposalRoute": "fact",
+        "proposalProb": 0.9801393685463855,
+        "evidenceId": "procedure.restore",
+        "evidenceType": "procedure",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "1. Select a verified snapshot.\n2. Restore it into a fresh workspace.\n3. Compare the restored manifest digest with the snapshot receipt."
+      },
+      {
+        "query": "How long will the archive retention policy keep exports?",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "procedure",
+        "proposalRoute": "fact",
+        "proposalProb": 0.7919298044237939,
+        "evidenceId": "procedure.restore",
+        "evidenceType": "procedure",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "1. Select a verified snapshot.\n2. Restore it into a fresh workspace.\n3. Compare the restored manifest digest with the snapshot receipt."
+      },
+      {
+        "query": "How many days is archive retention?",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "procedure",
+        "proposalRoute": "fact",
+        "proposalProb": 0.8320919906095543,
+        "evidenceId": "procedure.restore",
+        "evidenceType": "procedure",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "1. Select a verified snapshot.\n2. Restore it into a fresh workspace.\n3. Compare the restored manifest digest with the snapshot receipt."
+      },
+      {
+        "query": "How long will atlasprint keep its archive?",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "procedure",
+        "proposalRoute": "clarify",
+        "proposalProb": 0.6648898646353026,
+        "evidenceId": "procedure.restore",
+        "evidenceType": "procedure",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "1. Select a verified snapshot.\n2. Restore it into a fresh workspace.\n3. Compare the restored manifest digest with the snapshot receipt."
+      },
+      {
+        "query": "How is an export receipt formatted?",
+        "submittedState": "needs clarification",
+        "finalState": "needs clarification",
+        "router": "deterministic-route-v1",
+        "specialist": "procedure",
+        "proposalRoute": "fact",
+        "proposalProb": 0.5065435448333142,
+        "evidenceId": null,
+        "evidenceType": null,
+        "authorization": "no matching scoped record",
+        "verification": "no evidence",
+        "result": "Specify a supported archive or export question, or enter a catalog ID."
+      },
+      {
+        "query": "What is the archive restoration?",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "fact",
+        "proposalRoute": "fact",
+        "proposalProb": 0.9960979242063436,
+        "evidenceId": "fact.retention",
+        "evidenceType": "fact",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "The demonstration archive retains completed exports for 30 days."
+      },
+      {
+        "query": "What is the retention policy for uranium?",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "fact",
+        "proposalRoute": "fact",
+        "proposalProb": 0.9988480891311607,
+        "evidenceId": "fact.retention",
+        "evidenceType": "fact",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "The demonstration archive retains completed exports for 30 days."
+      },
+      {
+        "query": "Name the archive format.",
+        "submittedState": "needs clarification",
+        "finalState": "needs clarification",
+        "router": "deterministic-route-v1",
+        "specialist": "clarify",
+        "proposalRoute": "fact",
+        "proposalProb": 0.8932020050159772,
+        "evidenceId": null,
+        "evidenceType": null,
+        "authorization": "no matching scoped record",
+        "verification": "no evidence",
+        "result": "Specify a supported archive or export question, or enter a catalog ID."
+      },
+      {
+        "query": "What is the archive retention policy?",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "fact",
+        "proposalRoute": "fact",
+        "proposalProb": 0.9977019332111416,
+        "evidenceId": "fact.retention",
+        "evidenceType": "fact",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "The demonstration archive retains completed exports for 30 days."
+      },
+      {
+        "query": "How do I restore an archive?",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "procedure",
+        "proposalRoute": "procedure",
+        "proposalProb": 0.989388260364088,
+        "evidenceId": "procedure.restore",
+        "evidenceType": "procedure",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "1. Select a verified snapshot.\n2. Restore it into a fresh workspace.\n3. Compare the restored manifest digest with the snapshot receipt."
+      },
+      {
+        "query": "fact.retention",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "fact",
+        "proposalRoute": "fact",
+        "proposalProb": 0.6395510479584879,
+        "evidenceId": "fact.retention",
+        "evidenceType": "fact",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "The demonstration archive retains completed exports for 30 days."
+      },
+      {
+        "query": "FACT.RETENTION",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "fact",
+        "proposalRoute": "fact",
+        "proposalProb": 0.6395510479584879,
+        "evidenceId": "fact.retention",
+        "evidenceType": "fact",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "The demonstration archive retains completed exports for 30 days."
+      },
+      {
+        "query": "procedure.restore",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "procedure",
+        "proposalRoute": "clarify",
+        "proposalProb": 0.487294721109327,
+        "evidenceId": "procedure.restore",
+        "evidenceType": "procedure",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "1. Select a verified snapshot.\n2. Restore it into a fresh workspace.\n3. Compare the restored manifest digest with the snapshot receipt."
+      },
+      {
+        "query": "fact.format",
+        "submittedState": "review",
+        "finalState": "completed",
+        "router": "deterministic-route-v1",
+        "specialist": "fact",
+        "proposalRoute": "clarify",
+        "proposalProb": 0.6540541513170363,
+        "evidenceId": "fact.format",
+        "evidenceType": "fact",
+        "authorization": "allowed public-demo record read",
+        "verification": "release hash, scope and version checked",
+        "result": "An exported task receipt is a UTF-8 JSON file."
+      }
+    ]
+  },
+  "adversarial_check_2_startup_and_journal_recovery": {
+    "reproduced": true,
+    "summary": "One malformed JSON record, 0-byte/truncated JSON, JSON null/{}, schema/id mismatch, null events, or invalid filename (e.g. 'corrupt.json' or hyphenated GUID) causes Journal constructor to throw and blocks application startup ('ATLAS Next startup failed'), preventing access to valid completed/pending tasks. If a valid 'review' record precedes a corrupt record in directory order, Journal mutates the valid task to 'interrupted' before throwing. Valid JSON with 'events': [] or short 'proposal.sha256' (<16 chars) passes Journal constructor and crashes WorkWindow startup. Orphaned '.json.pending' files without a committed '.json' are silently ignored and remain orphaned; valid 'queued'/'review' '.json' paired with '.json.pending' recovers to 'interrupted' while leaving '.pending' on disk.",
+    "packaged_exe_startup_probes": [
+      {
+        "testCase": "malformed_json_with_valid_task",
+        "mainWindowOpened": false,
+        "statusText": null,
+        "startupFailedDialog": "ATLAS Next startup failed",
+        "startupFailedMessage": "'c' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 0 | BytePositionInLine: 1.",
+        "exitedEarly": false
+      },
+      {
+        "testCase": "invalid_filename",
+        "mainWindowOpened": false,
+        "statusText": null,
+        "startupFailedDialog": "ATLAS Next startup failed",
+        "startupFailedMessage": "Guid should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).",
+        "exitedEarly": false
+      },
+      {
+        "testCase": "empty_events_array",
+        "mainWindowOpened": false,
+        "statusText": null,
+        "startupFailedDialog": "ATLAS Next startup failed",
+        "startupFailedMessage": "Sequence contains no elements",
+        "exitedEarly": false
+      },
+      {
+        "testCase": "interrupted_pending_alongside_review",
+        "mainWindowOpened": true,
+        "statusText": "interrupted",
+        "startupFailedDialog": null,
+        "startupFailedMessage": null,
+        "exitedEarly": false
+      }
+    ],
+    "engine_and_window_probes": [
+      {
+        "testCase": "malformed_json_alone",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.Text.Json.JsonException",
+        "exceptionMessage": "'n' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 0 | BytePositionInLine: 1.",
+        "remainingFiles": [
+          "65f2e2c5bf5446a98435d5362f5babaf.json"
+        ]
+      },
+      {
+        "testCase": "malformed_json_with_valid_completed_and_review",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.Text.Json.JsonException",
+        "exceptionMessage": "'b' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 0 | BytePositionInLine: 1.",
+        "remainingFiles": [
+          "00000000000000000000000000000001.json",
+          "6163e979ba7943cca5375c9b99269d5c.json",
+          "8a7095c432ca4e2dab44e3457228a650.json"
+        ]
+      },
+      {
+        "testCase": "review_ordered_before_corrupt_partial_mutation",
+        "startupSucceeded": false,
+        "exception": "JsonException: 'b' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 0 | BytePositionInLine: 1.",
+        "firstTaskStateAfterFailedStartup": "interrupted"
+      },
+      {
+        "testCase": "empty_zero_byte_json",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.Text.Json.JsonException",
+        "exceptionMessage": "The input does not contain any JSON tokens. Expected the input to start with a valid JSON token, when isFinalBlock is true. Path: $ | LineNumber: 0 | BytePositionInLine: 0.",
+        "remainingFiles": [
+          "f8195a9f71bf47d58ef2613ff7772577.json"
+        ]
+      },
+      {
+        "testCase": "truncated_json",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.Text.Json.JsonException",
+        "exceptionMessage": "Expected end of string, but instead reached end of data. Path: $.id | LineNumber: 0 | BytePositionInLine: 11.",
+        "remainingFiles": [
+          "ffb90a6cb06345cd8ddc28148646dbb8.json"
+        ]
+      },
+      {
+        "testCase": "json_null_literal",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.IO.InvalidDataException",
+        "exceptionMessage": "Unexpected task identity or schema",
+        "remainingFiles": [
+          "e479cb89dbcc4a35b7d97b340de887d8.json"
+        ]
+      },
+      {
+        "testCase": "json_empty_object",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.IO.InvalidDataException",
+        "exceptionMessage": "Unexpected task identity or schema",
+        "remainingFiles": [
+          "c71e08b048a44a8db1310ceabe0b5e95.json"
+        ]
+      },
+      {
+        "testCase": "schema_version_mismatch",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.IO.InvalidDataException",
+        "exceptionMessage": "Unexpected task identity or schema",
+        "remainingFiles": [
+          "928841f25529423f9900f0437c74b66c.json"
+        ]
+      },
+      {
+        "testCase": "task_id_filename_mismatch",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.IO.InvalidDataException",
+        "exceptionMessage": "Unexpected task identity or schema",
+        "remainingFiles": [
+          "6c88c09b302940e788dc88294eafe999.json"
+        ]
+      },
+      {
+        "testCase": "empty_events_array",
+        "startupSucceeded": false,
+        "failedStage": "WorkWindow",
+        "exceptionType": "System.InvalidOperationException",
+        "exceptionMessage": "Sequence contains no elements",
+        "remainingFiles": [
+          "0871d0d357ce4f72a3f6d7e4b00b1d3e.json"
+        ]
+      },
+      {
+        "testCase": "null_events_property",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.ArgumentNullException",
+        "exceptionMessage": "Value cannot be null. (Parameter 'source')",
+        "remainingFiles": [
+          "53546dccf2a844a6b35feb8daee9bfa5.json"
+        ]
+      },
+      {
+        "testCase": "short_proposal_sha256_ui_slice",
+        "startupSucceeded": false,
+        "failedStage": "WorkWindow",
+        "exceptionType": "System.ArgumentOutOfRangeException",
+        "exceptionMessage": "Index and length must refer to a location within the string. (Parameter 'length')",
+        "remainingFiles": [
+          "cd5a5c1b7e844ff781434c2c8525501f.json"
+        ]
+      },
+      {
+        "testCase": "invalid_filename_non_guid",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.FormatException",
+        "exceptionMessage": "Guid should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).",
+        "remainingFiles": [
+          "corrupt.json"
+        ]
+      },
+      {
+        "testCase": "invalid_filename_hyphenated_guid",
+        "startupSucceeded": false,
+        "failedStage": "Engine",
+        "exceptionType": "System.FormatException",
+        "exceptionMessage": "Guid should contain 32 digits with 4 dashes (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).",
+        "remainingFiles": [
+          "6ca8b378-3b49-4783-8352-579bc05beca5.json"
+        ]
+      },
+      {
+        "testCase": "non_json_stray_file_ignored",
+        "startupSucceeded": true,
+        "failedStage": null,
+        "exceptionType": null,
+        "exceptionMessage": null,
+        "recoveredTaskCount": 0,
+        "taskStates": [],
+        "remainingFiles": [
+          "notes.txt"
+        ]
+      },
+      {
+        "testCase": "interrupted_pending_only_truncated",
+        "startupSucceeded": true,
+        "failedStage": null,
+        "exceptionType": null,
+        "exceptionMessage": null,
+        "recoveredTaskCount": 0,
+        "taskStates": [],
+        "remainingFiles": [
+          "ee1acec2d1324e4283db7a8b856ab684.json.pending"
+        ]
+      },
+      {
+        "testCase": "interrupted_pending_only_complete_queued",
+        "startupSucceeded": true,
+        "failedStage": null,
+        "exceptionType": null,
+        "exceptionMessage": null,
+        "recoveredTaskCount": 0,
+        "taskStates": [],
+        "remainingFiles": [
+          "f4fa0243b2ce4f2fb6bcac6673ef9b0a.json.pending"
+        ]
+      },
+      {
+        "testCase": "interrupted_queued_plus_truncated_pending",
+        "startupSucceeded": true,
+        "failedStage": null,
+        "exceptionType": null,
+        "exceptionMessage": null,
+        "recoveredTaskCount": 1,
+        "taskStates": [
+          {
+            "id": "f3a807be-f62c-41fe-abed-b247e37fa854",
+            "state": "interrupted",
+            "request": "queued then crash",
+            "result": "Application closed before completion.",
+            "verification": "incomplete"
+          }
+        ],
+        "remainingFiles": [
+          "f3a807bef62c41feabedb247e37fa854.json"
+        ]
+      },
+      {
+        "testCase": "interrupted_review_plus_complete_pending",
+        "startupSucceeded": true,
+        "failedStage": null,
+        "exceptionType": null,
+        "exceptionMessage": null,
+        "recoveredTaskCount": 1,
+        "taskStates": [
+          {
+            "id": "d904cebb-38be-49bb-8264-9ca6f3e1f4e9",
+            "state": "interrupted",
+            "request": "review then crash before move",
+            "result": "Application closed before completion.",
+            "verification": "incomplete"
+          }
+        ],
+        "remainingFiles": [
+          "d904cebb38be49bb82649ca6f3e1f4e9.json"
+        ]
+      }
+    ]
+  }
+}
