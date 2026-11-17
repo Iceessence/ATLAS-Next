@@ -48,6 +48,8 @@ internal sealed class Routing
     public static string Rule(string text)
     {
         var words=Assets.Tokens(text).ToHashSet();
+        if(words.Overlaps(["retention","duration","policy","format","formatted","encoding","expiry","days","retained","kept"]) ||
+            words.Contains("how") && words.Overlaps(["long","many"])) return "fact";
         if(words.Overlaps(["how","steps","procedure","restore","rebuild","guide","instructions","recover","walkthrough","configure"]))
             return "procedure";
         if(words.Overlaps(["what","which","limit","policy","duration","where","size","version","when","retention","default"]))

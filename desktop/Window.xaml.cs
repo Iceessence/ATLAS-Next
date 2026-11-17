@@ -15,6 +15,7 @@ public partial class WorkWindow : Window
         InitializeComponent();
         this.engine=engine;
         this.profile=profile;
+        RecoveryInfo.Text=engine.RecoveryNotice;
         Refresh(engine.History().FirstOrDefault());
     }
     private void Refresh(Work? work)
@@ -31,6 +32,7 @@ public partial class WorkWindow : Window
         if(task==null) return;
         Status.Text=task.State;
         Summary.Text=task.Result ?? (task.State=="review" ? "A matching record is ready for verification." : "No result delivered.");
+        ChecksInfo.Text=$"Source integrity: {task.SourceIntegrity} · Answer relevance: {task.AnswerRelevance}";
         SourceInfo.Text=task.Evidence is {} e ? $"{e.Id} · revision {e.Version}\n{e.Source} · {e.Trust}" : "";
         RoutingInfo.Text=task.Proposal is {} p ? $"Active rule: {task.Router} → {task.Specialist}\nOriginal model: {p.Model} → {p.Route} ({p.Probability:P1})\nStatus: {p.Qualification} · SHA-256 {p.Sha256[..16]}…\nCPU inference {task.InferenceMicroseconds} µs · process {task.ProcessWorkingSetBytes/1048576} MiB" : "Model inference unavailable.";
         Verify.IsEnabled=Stop.IsEnabled=task.State=="review";

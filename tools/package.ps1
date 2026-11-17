@@ -1,5 +1,6 @@
 param([string]$DotnetRoot = "$env:ProgramFiles\dotnet", [string]$RuntimeVersion = "10.0.12")
 $ErrorActionPreference = 'Stop'
+Add-Type -AssemblyName System.IO.Compression.FileSystem
 $repo = Split-Path $PSScriptRoot -Parent
 $out = Join-Path $repo 'out'
 $stage = Join-Path $out ("stage-" + [guid]::NewGuid().ToString("N"))
@@ -20,12 +21,16 @@ try {
     }
     Copy-Item -LiteralPath 'tools\ATLAS Next.cmd' -Destination $stage
     $hashes = foreach ($file in Get-ChildItem -LiteralPath $stage -Recurse -File) {
-        [pscustomobject]@{path=[IO.Path]::GetRelativePath($stage,$file.FullName);sha256=(Get-FileHash -LiteralPath $file.FullName).Hash}
+        [pscustomobject]@{path=$file.FullName.Substring($stage.Length + 1);sha256=(Get-FileHash -LiteralPath $file.FullName).Hash}
     }
-    $hashes | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $stage 'inventory.json') -Encoding utf8
+    [IO.File]::WriteAllText((Join-Path $stage 'inventory.json'),($hashes | ConvertTo-Json),[Text.UTF8Encoding]::new($false))
     $tempZip = "$stage.zip"
     [IO.Compression.ZipFile]::CreateFromDirectory($stage,$tempZip,[IO.Compression.CompressionLevel]::Fastest,$false)
     $zip = Join-Path $out 'ATLAS-Next-win-x64.zip'
-    [IO.File]::Move($tempZip,$zip,$true)
+    if ([IO.File]::Exists($zip)) {
+        [IO.File]::Replace($tempZip,$zip,[System.Management.Automation.Language.NullString]::Value)
+    } else {
+        [IO.File]::Move($tempZip,$zip)
+    }
     Get-FileHash $zip | Format-List
 } finally { Pop-Location }

@@ -32,9 +32,13 @@ internal sealed class Library
     public Hit? Find(string query,string route)
     {
         var words=Assets.Tokens(query).ToHashSet();
-        var matches=paths.Values.Select(Load).Where(x=>x.Record.Type==route)
-            .Select(x=>(hit:x, score:x.Record.Terms.Count(words.Contains)))
-            .Where(x=>x.score>0).OrderByDescending(x=>x.score).Take(2).ToArray();
-        return matches.Length==0 || matches.Length==2 && matches[0].score==matches[1].score ? null : matches[0].hit;
+        // A shared domain noun such as "archive" does not distinguish catalog entries.
+        var matches=paths.Values.Select(Load).Where(hit=>hit.Record.Id switch {
+            "fact.retention" => words.Overlaps(["retention","retained","retains","kept","keep","expiry","days","duration"]),
+            "fact.format" => words.Overlaps(["format","formatted","encoding"]),
+            "procedure.restore" => words.Overlaps(["restore","recover","recovery","restoration"]),
+            _ => false
+        }).ToArray();
+        return matches.Length==1 && matches[0].Record.Type==route ? matches[0] : null;
     }
 }

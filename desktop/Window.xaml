@@ -8,6 +8,7 @@
   <Grid Margin="20"><Grid.ColumnDefinitions><ColumnDefinition Width="185"/><ColumnDefinition Width="16"/><ColumnDefinition/></Grid.ColumnDefinitions>
    <DockPanel><TextBlock DockPanel.Dock="Top" Text="Task history" FontWeight="SemiBold" Margin="0,0,0,10"/><ListBox x:Name="History" AutomationProperties.Name="Task history" DisplayMemberPath="Request" SelectionChanged="SelectTask" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/></DockPanel>
    <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto"><StackPanel Margin="5,0,12,12">
+    <TextBlock x:Name="RecoveryInfo" Foreground="#85451F" AutomationProperties.LiveSetting="Polite"/>
     <TextBlock Text="Search the local handbook" FontSize="28" FontWeight="SemiBold" Foreground="#163D35"/>
     <TextBlock Margin="0,4,0,12" Foreground="#425C52" Text="Ask about archive retention, archive recovery or export format. You can also enter a record ID."/>
     <TextBox x:Name="Prompt" AutomationProperties.Name="Request" MaxLength="2048" Padding="10" TextWrapping="Wrap" Text="What is the archive retention policy?"/>
@@ -15,6 +16,7 @@
     <Border Background="White" BorderBrush="#CBD6CE" BorderThickness="1" Padding="16" CornerRadius="5"><StackPanel>
      <TextBlock x:Name="Status" FontSize="18" FontWeight="SemiBold" Text="Ready"/>
      <TextBlock x:Name="Summary" Margin="0,8,0,0" Text="A matching record can be reviewed and verified before delivery."/>
+     <TextBlock x:Name="ChecksInfo" Margin="0,8,0,0"/>
      <TextBlock x:Name="SourceInfo" Foreground="#486056" Margin="0,8,0,0"/>
     </StackPanel></Border>
     <WrapPanel Margin="0,12,0,16"><Button x:Name="Verify" Content="Verify and finish" IsEnabled="False" Click="FinishTask"/><Button x:Name="Export" Content="Export receipt" IsEnabled="False" Click="ExportTask"/></WrapPanel>
