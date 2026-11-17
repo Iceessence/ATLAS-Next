@@ -24,7 +24,12 @@ function Launch {
 }
 function Control($window,$id){
     $condition=[System.Windows.Automation.PropertyCondition]::new([System.Windows.Automation.AutomationElement]::AutomationIdProperty,$id)
-    $elem=$window.FindFirst([System.Windows.Automation.TreeScope]::Descendants,$condition)
+    $deadline=[DateTime]::UtcNow.AddSeconds(5)
+    do {
+        $elem=$window.FindFirst([System.Windows.Automation.TreeScope]::Descendants,$condition)
+        if($elem){return $elem}
+        Start-Sleep -Milliseconds 75
+    } while ([DateTime]::UtcNow -lt $deadline)
     if(!$elem){throw "Missing control $id"}
     return $elem
 }
