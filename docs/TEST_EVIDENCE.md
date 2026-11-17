@@ -1,5 +1,21 @@
 # Author test evidence
 
+## NEXT-001R repair candidate
+
+A clean local clone of `87acbccf36d8c5e1916db84c1e4a2f2f122d3d14` on Windows 11 Pro x64 built with .NET SDK 10.0.401 and the installed 10.0.12 desktop runtime. The first new duration regression failed on the NEXT-001 implementation. All required author commands passed on the committed repair candidate.
+
+| Check | Observed result |
+| --- | --- |
+| Offline Release build with cleared package sources | 0 warnings and 0 errors. [Build output](evidence/next-001r/build.txt) |
+| Windows checks | 40 passed, 0 failed, 0 skipped. A valid same-type replacement citation passed source integrity and failed answer relevance. A locked file during startup preflight left existing files intact. A second run recovered the healthy review and preserved all 20 quarantined originals. [Check output](evidence/next-001r/windows-checks.txt) |
+| Python integrity and public evaluation | 3 integrity tests passed. With one BLAS thread, the original model and linear comparator each scored 54/72, the frozen NEXT-001 reference rule 48/72, and exemplar matching 42/72. This benchmark measures synthetic route labels. The new delivery verifier is exercised by the Windows checks. [Integrity output](evidence/next-001r/integrity.txt) · [Full public evaluation](evidence/next-001r/public-evaluation.json) |
+| Windows PowerShell 5.1.26100.9818 | Packaging and verification both passed. ZIP 80,186,910 bytes, SHA-256 `ffc1bfe9b7cb6e1ad71a7ef9bec9087f4faeb59c51e24e907b7fa4e1c6404d7`. [Package](evidence/next-001r/package-ps51.txt) · [Three launches](evidence/next-001r/verify-ps51.txt) · [Exported receipt](evidence/next-001r/receipt-ps51.json) |
+| PowerShell 7.6.9 | Packaging and verification both passed. Canonical ZIP 94,789,796 bytes, SHA-256 `9aad994a249b3fc92cdfaa9c6b0fbb217f15de6ea9b48bd7d167f8c3e4d11281`. [Package](evidence/next-001r/package-ps7.txt) · [Three launches](evidence/next-001r/verify-ps7.txt) · [Exported receipt](evidence/next-001r/receipt-ps7.json) |
+
+Both ZIPs passed 491 inventory hashes and loaded their own CoreCLR. Each packaged window returned the 30-day fact, displayed both verdicts, exported the receipt, reopened completed history, cancelled a task and recovered a killed review alongside five damaged files. The original PowerShell 5.1 invocation encountered a local script-policy refusal before execution. The documented process-local `RemoteSigned` invocation worked without elevation. Build scripts and tests ran on the same interactive workstation. A clean disconnected OS, private evaluation, signing and guest isolation remain unverified.
+
+## Historical NEXT-001 author run
+
 Product candidate **7d319bc33be94c747f15fbc6f52d873379b51282**, Windows 11 Pro x64, .NET SDK 10.0.401, desktop runtime 10.0.12. All receipts here are author evidence. The documented purpose of the tests is bounded local research and package validation.
 
 | Command or probe | Observed result |

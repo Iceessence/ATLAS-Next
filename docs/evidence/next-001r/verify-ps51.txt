@@ -1,0 +1,5 @@
+PowerShell 5.1.26100.9818 verified ZIP FFC1BFE9B7CB6E1AD71A7EF9BEC9087F4F4AEB59C51E24E907B7FA4E1C6404D7
+PASS 491 inventory hashes, private runtime, PID/title window discovery on 3 launches
+PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery
+PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts
+Evidence: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-112bf0921bd44b088f2ddf2c3b5e929c\profile\exports\b61d7c55ec414de795d1b294463ec814-de4258d70dd94a968bacdd1b3e6aedb3.json

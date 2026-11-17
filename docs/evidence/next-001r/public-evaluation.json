@@ -1,0 +1,566 @@
+{
+  "protocol": "public synthetic routing, disjoint topic and template splits",
+  "provenance": "rule_label",
+  "heldout_sha256": "9b922cc33dc00e4c458569aed02b976c0e068397a3dabffacec6ab42ad2af1c7",
+  "n": 72,
+  "results": {
+    "rule": {
+      "correct": 48,
+      "accuracy": 0.6666666666666666,
+      "macro_f1": 0.6551226551226551,
+      "confusion": [
+        [
+          12,
+          6,
+          6
+        ],
+        [
+          0,
+          12,
+          12
+        ],
+        [
+          0,
+          0,
+          24
+        ]
+      ],
+      "p50_us": 1.5,
+      "p95_us": 2.1350000000000007,
+      "failures": [
+        {
+          "prompt": "How long will atlasprint keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "Name the atlasprint format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for atlasprint.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Walk me through the atlasprint setup.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "How long will mosaic keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "Name the mosaic format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for mosaic.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Walk me through the mosaic setup.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "How long will rangefinder keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "Name the rangefinder format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for rangefinder.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Walk me through the rangefinder setup.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "How long will kestrel keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "Name the kestrel format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for kestrel.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Walk me through the kestrel setup.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "How long will relay keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "Name the relay format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for relay.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Walk me through the relay setup.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "How long will heliostat keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "Name the heliostat format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for heliostat.",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Walk me through the heliostat setup.",
+          "expected": "procedure",
+          "actual": "clarify"
+        }
+      ]
+    },
+    "exemplar": {
+      "correct": 42,
+      "accuracy": 0.5833333333333334,
+      "macro_f1": 0.5555555555555555,
+      "confusion": [
+        [
+          6,
+          0,
+          18
+        ],
+        [
+          6,
+          12,
+          6
+        ],
+        [
+          0,
+          0,
+          24
+        ]
+      ],
+      "p50_us": 35.7,
+      "p95_us": 51.58500000000001,
+      "failures": [
+        {
+          "prompt": "How long will atlasprint keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Name the atlasprint format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Report the atlasprint version.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the atlasprint archive?",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for atlasprint.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will mosaic keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Name the mosaic format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Report the mosaic version.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the mosaic archive?",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for mosaic.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will rangefinder keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Name the rangefinder format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Report the rangefinder version.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the rangefinder archive?",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for rangefinder.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will kestrel keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Name the kestrel format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Report the kestrel version.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the kestrel archive?",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for kestrel.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will relay keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Name the relay format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Report the relay version.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the relay archive?",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for relay.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will heliostat keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Name the heliostat format.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Report the heliostat version.",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the heliostat archive?",
+          "expected": "procedure",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "Explain the recovery process for heliostat.",
+          "expected": "procedure",
+          "actual": "fact"
+        }
+      ]
+    },
+    "native": {
+      "correct": 54,
+      "accuracy": 0.75,
+      "macro_f1": 0.7438747856866325,
+      "confusion": [
+        [
+          18,
+          5,
+          1
+        ],
+        [
+          12,
+          12,
+          0
+        ],
+        [
+          0,
+          0,
+          24
+        ]
+      ],
+      "p50_us": 19.2,
+      "p95_us": 31.235000000000007,
+      "failures": [
+        {
+          "prompt": "How long will atlasprint keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the atlasprint archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for atlasprint.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will mosaic keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "What steps restore the mosaic archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for mosaic.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will rangefinder keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "What steps restore the rangefinder archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for rangefinder.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will kestrel keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "What steps restore the kestrel archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for kestrel.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will relay keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "What steps restore the relay archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for relay.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will heliostat keep its archive?",
+          "expected": "fact",
+          "actual": "procedure"
+        },
+        {
+          "prompt": "What steps restore the heliostat archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for heliostat.",
+          "expected": "procedure",
+          "actual": "fact"
+        }
+      ]
+    },
+    "linear": {
+      "correct": 54,
+      "accuracy": 0.75,
+      "macro_f1": 0.7407407407407408,
+      "confusion": [
+        [
+          18,
+          0,
+          6
+        ],
+        [
+          12,
+          12,
+          0
+        ],
+        [
+          0,
+          0,
+          24
+        ]
+      ],
+      "p50_us": 17.9,
+      "p95_us": 32.845000000000006,
+      "failures": [
+        {
+          "prompt": "How long will atlasprint keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the atlasprint archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for atlasprint.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will mosaic keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the mosaic archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for mosaic.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will rangefinder keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the rangefinder archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for rangefinder.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will kestrel keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the kestrel archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for kestrel.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will relay keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the relay archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for relay.",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "How long will heliostat keep its archive?",
+          "expected": "fact",
+          "actual": "clarify"
+        },
+        {
+          "prompt": "What steps restore the heliostat archive?",
+          "expected": "procedure",
+          "actual": "fact"
+        },
+        {
+          "prompt": "Explain the recovery process for heliostat.",
+          "expected": "procedure",
+          "actual": "fact"
+        }
+      ]
+    }
+  },
+  "qualified": false,
+  "qualification_reason": "Public synthetic labels and related templates. Independent outcome qualification unavailable.",
+  "native_minus_rule_pp": 8.333333333333337,
+  "native_minus_linear_pp": 0.0
+}
