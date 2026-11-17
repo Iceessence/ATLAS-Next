@@ -72,7 +72,16 @@ try {
     Wait-State $window 'review'
     Invoke-Control $window 'Stop'
     Wait-State $window 'cancelled'
-    "Package verified: $($inventory.Count) files; private runtime; real window; completion, export, relaunch and cancellation"
+    # Terminate only the process returned by this test's private extracted launcher.
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    if($proc.Path -ne (Join-Path $payload 'app\AtlasNext.exe')){throw 'Unexpected process path'}
+    $proc.Kill()
+    if(!$proc.WaitForExit(5000)){throw 'Crash fixture shutdown timeout'}
+    $proc=Launch
+    $window=[System.Windows.Automation.AutomationElement]::FromHandle($proc.MainWindowHandle)
+    Wait-State $window 'interrupted'
+    "Package verified: $($inventory.Count) files; private runtime; real window; completion, export, relaunch, cancellation and forced process restart"
     "Evidence: $($file.FullName)"
 } finally {
     if(!$proc.HasExited){[void]$proc.CloseMainWindow(); if(!$proc.WaitForExit(5000)){$proc.Kill()}}
