@@ -1,0 +1,22 @@
+PASS 1: all public golden logits-derived predictions match Python to 1e-10
+PASS 2: altered checkpoint refused
+PASS 3: persisted scoped fact proposal
+PASS 4: local original CPU inference
+PASS 5: idempotent task submission
+PASS 6: conflicting retry refused
+PASS 7: verified actual record body
+PASS 8: late cancellation preserves completed evidence
+PASS 9: procedure retrieval
+PASS 10: cancel prevents delivery
+PASS 11: no evidence handling
+PASS 12: out of corpus abstention
+PASS 13: exact ID retrieval
+PASS 14: second writer denied
+PASS 15: request budget enforced
+PASS 16: pending review safely recovered
+PASS 17: completed result survives reopen
+PASS 18: real WPF find, verify and export handlers
+PASS 19: real WPF stop control
+PASS 20: global stop cancels all pending tasks
+PASS 21: modified evidence blocks delivery
+All 21 checks passed. Temporary profile: C:\Users\ppawe\AppData\Local\Temp\atlas-next-check-a46cb4def3f043a7aa9c0bf75fb0c8cc
