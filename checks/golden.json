@@ -1,0 +1,362 @@
+[
+  {
+    "prompt": "How long will atlasprint keep its archive?",
+    "route": "clarify",
+    "probability": 0.6648898646353026
+  },
+  {
+    "prompt": "What is the default retention for atlasprint?",
+    "route": "fact",
+    "probability": 0.9984692876190242
+  },
+  {
+    "prompt": "Name the atlasprint format.",
+    "route": "fact",
+    "probability": 0.571648687599863
+  },
+  {
+    "prompt": "Report the atlasprint version.",
+    "route": "fact",
+    "probability": 0.9282696887049976
+  },
+  {
+    "prompt": "What steps restore the atlasprint archive?",
+    "route": "fact",
+    "probability": 0.8157978687670201
+  },
+  {
+    "prompt": "Explain the recovery process for atlasprint.",
+    "route": "fact",
+    "probability": 0.7986775190658486
+  },
+  {
+    "prompt": "How should I configure atlasprint?",
+    "route": "procedure",
+    "probability": 0.9071904192212925
+  },
+  {
+    "prompt": "Walk me through the atlasprint setup.",
+    "route": "procedure",
+    "probability": 0.784298035591824
+  },
+  {
+    "prompt": "I am thinking about atlasprint.",
+    "route": "clarify",
+    "probability": 0.9743361942274641
+  },
+  {
+    "prompt": "Take a look into atlasprint.",
+    "route": "clarify",
+    "probability": 0.9940089217309283
+  },
+  {
+    "prompt": "Can you help me with atlasprint?",
+    "route": "clarify",
+    "probability": 0.9943010876089704
+  },
+  {
+    "prompt": "atlasprint seems odd.",
+    "route": "clarify",
+    "probability": 0.9932214464135634
+  },
+  {
+    "prompt": "How long will mosaic keep its archive?",
+    "route": "procedure",
+    "probability": 0.6046567339415978
+  },
+  {
+    "prompt": "What is the default retention for mosaic?",
+    "route": "fact",
+    "probability": 0.9991055312238096
+  },
+  {
+    "prompt": "Name the mosaic format.",
+    "route": "fact",
+    "probability": 0.7438140521619537
+  },
+  {
+    "prompt": "Report the mosaic version.",
+    "route": "fact",
+    "probability": 0.9679363309512403
+  },
+  {
+    "prompt": "What steps restore the mosaic archive?",
+    "route": "fact",
+    "probability": 0.8503908181872123
+  },
+  {
+    "prompt": "Explain the recovery process for mosaic.",
+    "route": "fact",
+    "probability": 0.7881023456121032
+  },
+  {
+    "prompt": "How should I configure mosaic?",
+    "route": "procedure",
+    "probability": 0.9783590358033215
+  },
+  {
+    "prompt": "Walk me through the mosaic setup.",
+    "route": "procedure",
+    "probability": 0.8246099747953561
+  },
+  {
+    "prompt": "I am thinking about mosaic.",
+    "route": "clarify",
+    "probability": 0.8866096397245445
+  },
+  {
+    "prompt": "Take a look into mosaic.",
+    "route": "clarify",
+    "probability": 0.9762571167604509
+  },
+  {
+    "prompt": "Can you help me with mosaic?",
+    "route": "clarify",
+    "probability": 0.9794016395483292
+  },
+  {
+    "prompt": "mosaic seems odd.",
+    "route": "clarify",
+    "probability": 0.9581364246253152
+  },
+  {
+    "prompt": "How long will rangefinder keep its archive?",
+    "route": "procedure",
+    "probability": 0.6997173442825699
+  },
+  {
+    "prompt": "What is the default retention for rangefinder?",
+    "route": "fact",
+    "probability": 0.999078854827625
+  },
+  {
+    "prompt": "Name the rangefinder format.",
+    "route": "fact",
+    "probability": 0.7144425520577092
+  },
+  {
+    "prompt": "Report the rangefinder version.",
+    "route": "fact",
+    "probability": 0.963822256545445
+  },
+  {
+    "prompt": "What steps restore the rangefinder archive?",
+    "route": "fact",
+    "probability": 0.8245967935319294
+  },
+  {
+    "prompt": "Explain the recovery process for rangefinder.",
+    "route": "fact",
+    "probability": 0.750683735381141
+  },
+  {
+    "prompt": "How should I configure rangefinder?",
+    "route": "procedure",
+    "probability": 0.9860219416147288
+  },
+  {
+    "prompt": "Walk me through the rangefinder setup.",
+    "route": "procedure",
+    "probability": 0.8551255567880219
+  },
+  {
+    "prompt": "I am thinking about rangefinder.",
+    "route": "clarify",
+    "probability": 0.8286920900650983
+  },
+  {
+    "prompt": "Take a look into rangefinder.",
+    "route": "clarify",
+    "probability": 0.9662384612474461
+  },
+  {
+    "prompt": "Can you help me with rangefinder?",
+    "route": "clarify",
+    "probability": 0.9699168424810136
+  },
+  {
+    "prompt": "rangefinder seems odd.",
+    "route": "clarify",
+    "probability": 0.930321653784073
+  },
+  {
+    "prompt": "How long will kestrel keep its archive?",
+    "route": "procedure",
+    "probability": 0.6143176414269842
+  },
+  {
+    "prompt": "What is the default retention for kestrel?",
+    "route": "fact",
+    "probability": 0.9990361099463035
+  },
+  {
+    "prompt": "Name the kestrel format.",
+    "route": "fact",
+    "probability": 0.7225921868318702
+  },
+  {
+    "prompt": "Report the kestrel version.",
+    "route": "fact",
+    "probability": 0.9645049099951185
+  },
+  {
+    "prompt": "What steps restore the kestrel archive?",
+    "route": "fact",
+    "probability": 0.8377672500838624
+  },
+  {
+    "prompt": "Explain the recovery process for kestrel.",
+    "route": "fact",
+    "probability": 0.7741612673583683
+  },
+  {
+    "prompt": "How should I configure kestrel?",
+    "route": "procedure",
+    "probability": 0.9776381483525363
+  },
+  {
+    "prompt": "Walk me through the kestrel setup.",
+    "route": "procedure",
+    "probability": 0.8355513104307726
+  },
+  {
+    "prompt": "I am thinking about kestrel.",
+    "route": "clarify",
+    "probability": 0.88856179507984
+  },
+  {
+    "prompt": "Take a look into kestrel.",
+    "route": "clarify",
+    "probability": 0.9779288293797829
+  },
+  {
+    "prompt": "Can you help me with kestrel?",
+    "route": "clarify",
+    "probability": 0.9799972878120375
+  },
+  {
+    "prompt": "kestrel seems odd.",
+    "route": "clarify",
+    "probability": 0.9602890716915686
+  },
+  {
+    "prompt": "How long will relay keep its archive?",
+    "route": "procedure",
+    "probability": 0.764158960934326
+  },
+  {
+    "prompt": "What is the default retention for relay?",
+    "route": "fact",
+    "probability": 0.998806043890647
+  },
+  {
+    "prompt": "Name the relay format.",
+    "route": "fact",
+    "probability": 0.6122736520210135
+  },
+  {
+    "prompt": "Report the relay version.",
+    "route": "fact",
+    "probability": 0.9448627362187978
+  },
+  {
+    "prompt": "What steps restore the relay archive?",
+    "route": "fact",
+    "probability": 0.7596915338749866
+  },
+  {
+    "prompt": "Explain the recovery process for relay.",
+    "route": "fact",
+    "probability": 0.6639137965259634
+  },
+  {
+    "prompt": "How should I configure relay?",
+    "route": "procedure",
+    "probability": 0.9890870858563613
+  },
+  {
+    "prompt": "Walk me through the relay setup.",
+    "route": "procedure",
+    "probability": 0.89797902327119
+  },
+  {
+    "prompt": "I am thinking about relay.",
+    "route": "clarify",
+    "probability": 0.791885376810262
+  },
+  {
+    "prompt": "Take a look into relay.",
+    "route": "clarify",
+    "probability": 0.962390803730876
+  },
+  {
+    "prompt": "Can you help me with relay?",
+    "route": "clarify",
+    "probability": 0.9649024717155458
+  },
+  {
+    "prompt": "relay seems odd.",
+    "route": "clarify",
+    "probability": 0.9132478987824074
+  },
+  {
+    "prompt": "How long will heliostat keep its archive?",
+    "route": "procedure",
+    "probability": 0.7064794315552002
+  },
+  {
+    "prompt": "What is the default retention for heliostat?",
+    "route": "fact",
+    "probability": 0.9988154987735799
+  },
+  {
+    "prompt": "Name the heliostat format.",
+    "route": "fact",
+    "probability": 0.6181961358266638
+  },
+  {
+    "prompt": "Report the heliostat version.",
+    "route": "fact",
+    "probability": 0.9460447730819855
+  },
+  {
+    "prompt": "What steps restore the heliostat archive?",
+    "route": "fact",
+    "probability": 0.7692010496310264
+  },
+  {
+    "prompt": "Explain the recovery process for heliostat.",
+    "route": "fact",
+    "probability": 0.6810149817053229
+  },
+  {
+    "prompt": "How should I configure heliostat?",
+    "route": "procedure",
+    "probability": 0.9851129087715106
+  },
+  {
+    "prompt": "Walk me through the heliostat setup.",
+    "route": "procedure",
+    "probability": 0.8910888468409063
+  },
+  {
+    "prompt": "I am thinking about heliostat.",
+    "route": "clarify",
+    "probability": 0.8471276742165705
+  },
+  {
+    "prompt": "Take a look into heliostat.",
+    "route": "clarify",
+    "probability": 0.9726246418667023
+  },
+  {
+    "prompt": "Can you help me with heliostat?",
+    "route": "clarify",
+    "probability": 0.9737538736127461
+  },
+  {
+    "prompt": "heliostat seems odd.",
+    "route": "clarify",
+    "probability": 0.9444349373402529
+  }
+]

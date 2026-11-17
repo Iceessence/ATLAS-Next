@@ -1,0 +1,32 @@
+{
+  "origin": "rule_label",
+  "rights": "ATLAS-original synthetic fixture",
+  "projects": [
+    "atlasprint",
+    "mosaic",
+    "rangefinder",
+    "kestrel",
+    "relay",
+    "heliostat"
+  ],
+  "templates": {
+    "fact": [
+      "How long will {topic} keep its archive?",
+      "What is the default retention for {topic}?",
+      "Name the {topic} format.",
+      "Report the {topic} version."
+    ],
+    "procedure": [
+      "What steps restore the {topic} archive?",
+      "Explain the recovery process for {topic}.",
+      "How should I configure {topic}?",
+      "Walk me through the {topic} setup."
+    ],
+    "clarify": [
+      "I am thinking about {topic}.",
+      "Take a look into {topic}.",
+      "Can you help me with {topic}?",
+      "{topic} seems odd."
+    ]
+  }
+}

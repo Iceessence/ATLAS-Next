@@ -1,0 +1,42 @@
+{
+  "id": "atlas-native-route-v1",
+  "origin": "original",
+  "qualification": "shadow",
+  "routes": [
+    "fact",
+    "procedure",
+    "clarify"
+  ],
+  "checkpoint_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+  "parameters": 4163,
+  "selected_seed": 19,
+  "trials": [
+    {
+      "seed": 19,
+      "validation_accuracy": 1.0,
+      "seconds": 0.1576915000041481
+    },
+    {
+      "seed": 37,
+      "validation_accuracy": 0.9166666666666666,
+      "seconds": 0.02131720000761561
+    },
+    {
+      "seed": 73,
+      "validation_accuracy": 0.8333333333333334,
+      "seconds": 0.02163719999953173
+    }
+  ],
+  "training_commit": "d14e993720b65b3a5db882b686c0d918634debe4",
+  "train_sha256": "c35dc52d345a6ac933ac4f604bd7f6f4a47a3d7be46e09398c61e09c0b620275",
+  "validation_sha256": "03be25ac74debfe06657afbd7ae96d6a26f129f538d735509e4a4edd79fe3e55",
+  "train_count": 120,
+  "validation_count": 12,
+  "label_origin": "rule_label",
+  "architecture": "hashed-binary-tanh-MLP",
+  "optimizer": "full batch gradient descent, 250 steps, learning rate 0.55",
+  "device": "CPU",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "threads": "1"
+}
