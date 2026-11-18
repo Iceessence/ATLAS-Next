@@ -229,22 +229,31 @@ try {
     Wait-State $window 'needs clarification'
     if((Control $window 'ResearchInfo').Current.Name -notlike '*contradiction*'){throw 'Packaged contradiction check failed'}
     "PASS native file picker imports, exact source span and contradictory sources withheld"
-    Import-Document $session 'Sample.cs' "class Sensor {`r`n    public int Read(int channel) => channel;`r`n}"
+    Import-Document $session 'Sample.cs' "class Sensor {`r`n    public int Read(int channel) => channel;`r`n}`r`nclass Gauge {`r`n    /// <summary>Reads the gauge.</summary>`r`n    public int Read() => 2;`r`n}"
     $promptBox=(Control $window 'Prompt').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern)
     foreach($turn in @(
-        @{Request='Where is Read defined?';Expected='Read'},
-        @{Request='What is its signature?';Expected='public int Read(int channel)'}
+        @{Request='Where is Sensor.Read defined?';Expected='Read';Line=2},
+        @{Request='What is its signature?';Expected='public int Read(int channel)';Line=2},
+        @{Request='Locate Gauge.Read';Expected='Read';Line=6},
+        @{Request='Show its documentation.';Expected='/// <summary>Reads the gauge.</summary>';Line=5},
+        @{Request='Locate Sensor.Read';Expected='Read';Line=2},
+        @{Request='What is its enclosing type?';Expected='Sensor';Line=1}
     )){
         $promptBox.SetValue($turn.Request)
         Invoke-Control $window 'Search'
         Wait-State $window 'review'
         Invoke-Control $window 'Verify'
         Wait-State $window 'completed'
-        if((Control $window 'Summary').Current.Name -ne $turn.Expected -or (Control $window 'SourceInfo').Current.Name -notlike '*Sample.cs*line 2,*'){
+        if((Control $window 'Summary').Current.Name -ne $turn.Expected -or (Control $window 'SourceInfo').Current.Name -notlike "*Sample.cs*line $($turn.Line),*"){
             throw "Packaged source conversation failed: $($turn.Request)"
         }
     }
-    "PASS packaged C# definition and selected signature follow-up from Sample.cs line 2"
+    $promptBox.SetValue('Locate Read')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'needs clarification'
+    $ambiguity=(Control $window 'ResearchInfo').Current.Name
+    if($ambiguity -notlike '*ambiguous*' -or $ambiguity -notlike '*Gauge.Read*' -or $ambiguity -notlike '*Sensor.Read*'){throw 'Missing qualified locations'}
+    "PASS packaged qualified definitions, signature, documentation, enclosing type and ambiguity locations"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"

@@ -338,6 +338,7 @@ internal static class Checks
         CheckRecovery(Path.Combine(root,"mixed"));
         CheckDocuments(Path.Combine(root,"import"));
         CodeChecks.Run(Path.Combine(root,"code"),Check);
+        CodeChecks.Depth(Path.Combine(root,"depth"),Check);
         Console.WriteLine($"All {count} checks passed. Temporary profile: {root}");
         return 0;
     }

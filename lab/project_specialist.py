@@ -77,7 +77,7 @@ def features(question, document, idf):
 
 def observe(case, proposal, scratch_dir=None):
     clock = time.perf_counter_ns()
-    proc = probe(case["question"],case["documents"],scratch_dir=scratch_dir,proposed_document=proposal)
+    proc = probe(case["question"],case["documents"],scratch_dir=scratch_dir,proposed_document=proposal,extensions=case.get("extensions"))
     wall = (time.perf_counter_ns()-clock)/1e6
     if proc.returncode:
         raise RuntimeError(f"{case['id']} probe failed: {proc.stderr[-500:]}")

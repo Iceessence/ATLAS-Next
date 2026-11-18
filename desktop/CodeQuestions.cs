@@ -2,47 +2,68 @@ using System.Text.RegularExpressions;
 
 namespace AtlasNext;
 
-internal sealed record CodeQuestion(string? Name,bool FollowUp)
+internal sealed record SelectedDefinition(CodeQuestion Request,Passage Passage);
+internal sealed record CodeQuestion(string? Name,string? Qualifier,string Type,string? Extension=null)
 {
-    private const string Identifier=@"(?<name>[\p{L}_][\p{L}\p{N}\p{M}_]*)";
-    private static readonly Regex Locate=new(@"\A(?:please )?(?:where is (?:the symbol )?"+Identifier+
-        @" (?:defined|declared)|(?:locate|find the definition of) "+Identifier+@")(?:,? please)?[?.!]?\z",
-        RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
-    private static readonly Regex Signature=new(@"\A(?:please )?(?:what is its signature|show (?:me )?its signature|what is its declaration signature)(?:,? please)?[?.!]?\z",
-        RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+    public bool FollowUp=>Type!="code.definition";
+    private const string Id=@"[\p{L}_][\p{L}\p{N}\p{M}_]*";
+    private const string Symbol=@"(?:(?<owner>"+Id+@")\.)?(?<name>"+Id+")";
+    private const RegexOptions Options=RegexOptions.IgnoreCase|RegexOptions.CultureInvariant;
+    private static readonly Regex Locate=new(@"\A(?:please )?(?:where is (?:the symbol )?"+Symbol+
+        @" (?:defined|declared)|(?:locate|find the definition of) "+Symbol+@")(?:,? please)?[?.!]?\z",Options);
+    private static readonly Regex Follow=new(@"\A(?:please )?(?:what is|show(?: me)?) its (?<relation>signature|declaration signature|documentation|docstring|xml documentation|summary|enclosing type|enclosing class)(?:,? please)?[?.!]?\z",Options);
 
     public static CodeQuestion? Parse(string request)
     {
         string query=Regex.Replace(request.Trim(),@"\s+"," ");
-        if(Signature.IsMatch(query)) return new(null,true);
+        var follow=Follow.Match(query);
+        if(follow.Success) return follow.Groups["relation"].Value.ToLowerInvariant() switch {
+            "signature" or "declaration signature"=>new(null,null,"code.signature"),
+            "docstring"=>new(null,null,"code.documentation",".py"),
+            "xml documentation"=>new(null,null,"code.documentation",".cs"),
+            "documentation"=>new(null,null,"code.documentation"),
+            "summary"=>new(null,null,"code.summary",".cs"),
+            "enclosing class"=>new(null,null,"code.class"),
+            _=>new(null,null,"code.container")
+        };
         var locate=Locate.Match(query);
-        return locate.Success ? new(locate.Groups["name"].Value,false) : null;
+        return locate.Success ? new(locate.Groups["name"].Value,locate.Groups["owner"].Success ? locate.Groups["owner"].Value : null,"code.definition") : null;
     }
 
-    // A signature uses only the explicitly selected completed definition. Re-read
-    // the parent receipt and resolve its citation against this project's active data.
-    public static Passage? Parent(Work? parent,string project,IReadOnlyList<Passage> active)
+    private bool Matches(Passage p)=>p.Citation.Type=="code.definition" && p.Symbol==Name && (Qualifier==null || Qualifier==p.Qualifier);
+
+    public static SelectedDefinition? Parent(Work? parent,string project,IReadOnlyList<Passage> active)
     {
-        if(parent is not {State:"completed",Specialist:"code.definition",Authorization:"allowed scoped record read",
+        if(parent is not {State:"completed",Kind:"code.lookup",ResearchReview.Verdict:"supported",Specialist:"code.definition",Authorization:"allowed scoped record read",
             Scope:"owner-local",SourceIntegrity:"passed",AnswerRelevance:"supported",Evidence:{} cite} ||
-            parent.Project!=project || Parse(parent.Request) is not {FollowUp:false,Name:{} name}) return null;
-        return active.FirstOrDefault(p=>p.Symbol==name && p.Citation.Type=="code.definition" && p.Citation==cite);
+            parent.Project!=project || parent.PrimaryCandidateId!=cite.Id || !parent.ResearchReview.Sources.Contains(cite) || Parse(parent.Request) is not {FollowUp:false} original) return null;
+        var passage=active.FirstOrDefault(p=>original.Matches(p) && p.Citation==cite);
+        return passage==null || parent.Result!=passage.Value ? null : new(original,passage);
     }
 
-    public Finding Verify(IReadOnlyList<Passage> active,Passage? parent)
+    public Finding Verify(IReadOnlyList<Passage> active,SelectedDefinition? parent)
     {
-        string? requested=FollowUp ? parent?.Symbol : Name;
-        string type=FollowUp ? "code.signature" : "code.definition";
-        var matches=active.Where(p=>p.Symbol!=null && p.Symbol==requested && p.Citation.Type==type).Take(9).ToArray();
-        var citations=matches.Take(8).Select(p=>p.Citation).ToArray();
-        Finding Stop(string verdict,string detail)=>new(new(verdict,detail,"active project revisions","owner-selected source",citations),null);
-        if(matches.Length==0) return Stop("unsupported",FollowUp ?
-            "Select a completed definition from the current source revision first." : "No declaration matches this identifier in the active project.");
-        if(matches.Length!=1) return Stop("ambiguous","Multiple active declarations use that identifier.");
-        var match=matches[0];
-        if(FollowUp && (parent!.Citation.Id!=match.Citation.Id || parent.Citation.Version!=match.Citation.Version ||
-            parent.Citation.Digest!=match.Citation.Digest)) return Stop("unsupported","The selected declaration revision changed.");
+        Finding Stop(string verdict,string detail,Citation[] sources)=>new(new(verdict,detail,"active project revisions","owner-selected source",sources),null);
+        if(FollowUp && parent==null) return Stop("unsupported","Select a completed definition from the current source revision first.",[]);
+        var lookup=FollowUp ? parent!.Request : this;
+        var definitions=active.Where(lookup.Matches).Take(9).ToArray();
+        if(definitions.Length==0) return Stop("unsupported","No declaration matches this identifier in the active project.",[]);
+        if(definitions.Length>1) {
+            var shown=definitions.Take(8).ToArray();
+            var locations=shown.Select(p=>$"{(p.Qualifier==null ? "" : p.Qualifier+".")}{p.Symbol} in {p.Citation.Source}, line {p.Citation.Span!.Line} ({p.Citation.Id[..Math.Min(12,p.Citation.Id.Length)]})");
+            return Stop("ambiguous","Multiple declarations match. "+string.Join("; ",locations)+(definitions.Length>8 ? ". Additional matches omitted." : "."),
+                shown.Select(p=>p.Citation).ToArray());
+        }
+        var definition=definitions[0];
+        var match=definition;
+        if(FollowUp) {
+            if(parent!.Passage.Citation!=definition.Citation) return Stop("unsupported","The selected declaration revision changed.",[]);
+            match=active.FirstOrDefault(p=>p.Citation.Id==definition.Citation.Id && p.Citation.Version==definition.Citation.Version &&
+                p.Citation.Digest==definition.Citation.Digest && p.DefinitionStart==definition.DefinitionStart && p.Citation.Type==Type &&
+                (Extension==null || p.Citation.Source.EndsWith(Extension,StringComparison.OrdinalIgnoreCase)));
+            if(match==null) return Stop("unsupported","This declaration has no supported source span for that follow-up.",[]);
+        }
         return new(new("supported","Unique source declaration supports the requested identifier and turn.",
-            "active project revision","owner-selected source",citations),Research.FromPassage(match));
+            "active project revision","owner-selected source",[match.Citation]),Research.FromPassage(match));
     }
 }

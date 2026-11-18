@@ -9,7 +9,7 @@ using Microsoft.Win32.SafeHandles;
 namespace AtlasNext;
 
 internal record SpanAnchor(string Path,int Line,int Start,int Length);
-internal record Passage(string Subject,string Value,Citation Citation,DateOnly? ValidThrough,bool InstalledAudit=false,string? Symbol=null);
+internal record Passage(string Subject,string Value,Citation Citation,DateOnly? ValidThrough,bool InstalledAudit=false,string? Symbol=null,string? Qualifier=null,int? DefinitionStart=null);
 internal record Imported(string Id,int Version,string Name,int Claims);
 
 internal sealed class Documents(string profile,string project="default")
@@ -152,15 +152,21 @@ internal sealed class Documents(string profile,string project="default")
         string ext=Path.GetExtension(relative).ToLowerInvariant();
         if(ext is ".cs" or ".py") {
             string owned=Path.GetRelativePath(profile,Path.Combine(root,relative));
+            int count=0;
             foreach(var d in SourceDeclarations.Read(text,ext)) {
-                void Add(string type,int start,int end,int line) {
-                    var anchor=new SpanAnchor(owned,line,start,end-start);
+                if(++count>256) throw new InvalidDataException("Source exceeds 256 declarations.");
+                void Add(string type,SourcePart? part) {
+                    if(part==null) return;
+                    var anchor=new SpanAnchor(owned,part.Line,part.Start,part.End-part.Start);
                     var citation=new Citation(id,version,digest,Path.GetFileName(relative),type,"owner import","owner-selected source",anchor);
-                    claims.Add(new(d.Name,text[start..end],citation,null,Symbol:d.Name));
+                    claims.Add(new(d.Name,text[part.Start..part.End],citation,null,Symbol:d.Name,Qualifier:d.Qualifier,DefinitionStart:d.Identifier.Start));
                 }
-                Add("code.definition",d.NameStart,d.NameEnd,d.NameLine);
-                Add("code.signature",d.Start,d.End,d.Line);
-                if(claims.Count>512) throw new InvalidDataException("Source exceeds 256 declarations.");
+                Add("code.definition",d.Identifier);
+                Add("code.signature",d.Header);
+                Add("code.container",d.Container);
+                if(d.ContainerIsClass) Add("code.class",d.Container);
+                Add("code.documentation",d.Documentation);
+                Add("code.summary",d.Summary);
             }
             return claims;
         }

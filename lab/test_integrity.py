@@ -41,6 +41,14 @@ class Integrity(unittest.TestCase):
         self.assertNotEqual(local_search(source,"probe")[1],signature)
         self.assertEqual(oracle(source, "missing"), [None,None])
 
+    def test_qualified_comparator_pins_scope_and_overloads(self):
+        from code_depth import CONTROL, CASES, FIXTURE, gold, search
+        cases=[row for row in CASES if row[0]==CONTROL]
+        self.assertTrue(any(row[3]=="ambiguous" for row in cases))
+        for _,symbol,follow,loc,detail in cases:
+            self.assertEqual(search(FIXTURE,symbol,follow),[gold(FIXTURE,loc),gold(FIXTURE,detail)])
+        self.assertEqual(search(FIXTURE,"Gamma.Scan","Show its documentation."),["unsupported","unsupported"])
+
     def test_outcome_suite_provenance_and_digest(self):
         cases, _ = load_suite(PUBLIC)
         self.assertTrue(all(c["origin"] == "author_fixture" for c in cases))

@@ -432,5 +432,57 @@
       "verdict": "ambiguous",
       "sources": 2
     }
+  },
+  {
+    "id": "qualified-source",
+    "question": "Where is West.mark defined?",
+    "documents": [
+      "class East:\n    def mark(self): pass\nclass West:\n    def mark(self): pass\n"
+    ],
+    "extensions": [
+      ".py"
+    ],
+    "origin": "author_fixture",
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 0,
+      "answer": "mark",
+      "line": 4,
+      "start": 57,
+      "length": 4
+    }
+  },
+  {
+    "id": "ambiguous-source",
+    "question": "Locate mark",
+    "documents": [
+      "class East:\n    def mark(self): pass\nclass West:\n    def mark(self): pass\n"
+    ],
+    "extensions": [
+      ".py"
+    ],
+    "origin": "author_fixture",
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "ambiguous",
+      "sources": 2
+    }
+  },
+  {
+    "id": "missing-qualified-source",
+    "question": "Locate North.mark",
+    "documents": [
+      "class East:\n    def mark(self): pass\nclass West:\n    def mark(self): pass\n"
+    ],
+    "extensions": [
+      ".py"
+    ],
+    "origin": "author_fixture",
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "unsupported",
+      "sources": 0
+    }
   }
 ]

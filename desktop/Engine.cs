@@ -49,11 +49,11 @@ internal sealed class Engine(string profile) : IDisposable
             Finding finding;
             if(UseCode(code,passages,request)) {
                 var parent=ReadParent(parentId,passages);
-                var passage=Routing.ProjectCode(request,eligible,parent,code!.FollowUp);
-                route=code.FollowUp ? "code.signature" : "code.definition";
+                var passage=Routing.ProjectCode(request,eligible,parent?.Passage,code!.Type);
+                route=code.Type;
                 candidate=passage==null ? null : Research.FromPassage(passage);
                 finding=code.Verify(passages,parent);
-                task=task with {Kind="code.lookup"};
+                task=task with {Kind="code.lookup",Dependencies=parentId.HasValue ? [parentId.Value.ToString("N")] : []};
             } else {
                 if(exact==null) {
                     var passage=Routing.ProjectFact(request,eligible.Where(p=>p.Symbol==null));
@@ -89,7 +89,7 @@ internal sealed class Engine(string profile) : IDisposable
                 System.Text.RegularExpressions.RegexOptions.IgnoreCase) ||
             !active.Any(p=>p.Subject==Research.Subject(code.Name+" declaration line")));
 
-    private Passage? ReadParent(Guid? id,IReadOnlyList<Passage> active)=>
+    private SelectedDefinition? ReadParent(Guid? id,IReadOnlyList<Passage> active)=>
         id==null ? null : CodeQuestion.Parent(journal.Read(id.Value),Project,active);
 
     public Work Finish(Guid id,bool cancel=false)
@@ -110,7 +110,7 @@ internal sealed class Engine(string profile) : IDisposable
                     task.Specialist!=source.Record.Type) throw new InvalidDataException("Source failed verification");
                 var code=CodeQuestion.Parse(task.Request);
                 var finding=UseCode(code,active,task.Request)
-                    ? code!.Verify(active,ReadParent(task.ParentTaskId,active))
+                    ? code!.Verify(active,task.ParentTaskId is {} parentId && task.Dependencies is [var dependency] && dependency==parentId.ToString("N") ? ReadParent(parentId,active) : null)
                     : Research.Assess(task.Request,library,active.Where(p=>p.Symbol==null).ToArray());
                 task=task with {SourceIntegrity="passed",ResearchReview=finding.Assessment};
                 if(finding.Source!=null && finding.Assessment.Sources.Contains(cited))

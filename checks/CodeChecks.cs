@@ -4,6 +4,89 @@ using AtlasNext;
 
 internal static class CodeChecks
 {
+    public static void Depth(string root,Action<bool,string> check)
+    {
+        Directory.CreateDirectory(root);
+        string profile=Path.Combine(root,"profile");
+        using var engine=new Engine(profile);
+        engine.SelectProject("depth");
+        void Import(string name,string source) {
+            string path=Path.Combine(root,name);
+            File.WriteAllText(path,source,new UTF8Encoding(true));
+            engine.Import(path);
+        }
+        Work Ask(string request,Guid? parent=null,string? restrict=null)=>
+            engine.Finish(engine.Submit(Guid.NewGuid(),request,restrict,parent).Id);
+        void Exact(Work work,string result,int line,string name) {
+            var cite=work.Evidence;
+            string bytes=cite?.Span is {} s ? Encoding.UTF8.GetString(File.ReadAllBytes(Path.Combine(profile,s.Path))) : "";
+            check(work is {State:"completed",AnswerRelevance:"supported",SourceIntegrity:"passed"} &&
+                cite?.Span is {} span && span.Line==line && work.Result==result && bytes.Substring(span.Start,span.Length)==result,name);
+        }
+        Import("meters.cs","// 🔧\r\nclass First {\r\n    /// <summary>Alpha.</summary>\r\n    /// <remarks>More.</remarks>\r\n"+
+            "    [System.Obsolete]\r\n    public void Scan() { void Local() {} }\r\n}\r\n"+
+            "struct Second {\r\n    public void Scan() {}\r\n}\r\nclass Multiple { void Scan() {} void Scan(int n) {} }\r\n"+
+            "class Detached {\r\n    /// <summary>Detached.</summary>\r\n\r\n    void Probe() {}\r\n}\r\n");
+        var ambiguous=Ask("Locate Scan");
+        check(ambiguous is {State:"needs clarification",ResearchReview.Verdict:"ambiguous",ResearchReview.Sources.Length:4} &&
+              ambiguous.Result!.Contains("First.Scan") && ambiguous.Result.Contains("Second.Scan"),"bare repeats report qualified source locations");
+        var first=Ask("Where is First.Scan defined?");
+        Exact(first,"Scan",6,"unique qualified Roslyn method and UTF-16 identifier");
+        Exact(Ask("Show its documentation.",first.Id),"/// <summary>Alpha.</summary>\r\n    /// <remarks>More.</remarks>",3,"XML documentation preserves source markup and CRLF");
+        Exact(Ask("What is its summary?",first.Id),"<summary>Alpha.</summary>",3,"XML summary excludes remarks");
+        Exact(Ask("What is its enclosing type?",first.Id),"First",2,"C# enclosing type has independent source span");
+        var second=Ask("Locate Second.Scan");
+        Exact(Ask("What is its enclosing type?",second.Id),"Second",8,"struct type context");
+        check(Ask("What is its enclosing class?",second.Id).State=="needs clarification","struct cannot verify a class request");
+        check(Ask("Show its docstring.",first.Id).State=="needs clarification","language-specific docstring requires Python");
+        check(Ask("Locate Multiple.Scan") is {State:"needs clarification",ResearchReview.Verdict:"ambiguous"},"qualified overloads still ambiguous");
+        check(Ask("Locate First.Local").State=="needs clarification","C# local function is not a member of its containing type");
+        var detached=Ask("Locate Detached.Probe");
+        check(Ask("Show its documentation.",detached.Id).State=="needs clarification","blank line detaches C# documentation");
+        var denied=Ask("Locate First.Scan",restrict:"not-an-eligible-source");
+        check(denied is {State:"needs clarification",Evidence:null,ResearchReview.Verdict:"supported"},"qualification cannot widen Primary authority");
+        Import("reader.py","# 📚\r\nclass Reader:\r\n    def read(\r\n        self):\r\n        # attachment\r\n        r\"\"\"Read\r\n        safely.\"\"\"\r\n"+
+            "        def helper(): return 1\r\n        return helper()\r\nclass Writer:\r\n\tdef read(self): 'Other.'; return 2\r\n"+
+            "\tdef late(self):\r\n\t\tx = 1\r\n\t\t'Later literal'\r\ndef free(): pass\r\n");
+        var reader=Ask("Locate Reader.read");
+        Exact(reader,"read",3,"qualified Python multiline method");
+        Exact(Ask("Show its docstring.",reader.Id),"r\"\"\"Read\r\n        safely.\"\"\"",6,"raw Python docstring keeps delimiters and source offsets");
+        Exact(Ask("What is its enclosing class?",reader.Id),"Reader",2,"Python enclosing class");
+        var writer=Ask("Locate Writer.read");
+        Exact(Ask("Show its documentation.",writer.Id),"'Other.'",11,"inline Python docstring in tab-indented class");
+        check(Ask("Locate Reader.helper").State=="needs clarification" && Ask("Locate Writer.free").State=="needs clarification","Python nested function and dedent preserve ownership");
+        check(Ask("Show its documentation.",Ask("Locate Writer.late").Id).State=="needs clarification","later Python string expression cannot serve as docstring");
+        check(Ask("Show its XML documentation.",reader.Id).State=="needs clarification","language-specific XML requires C#");
+        check(Ask("What is its enclosing type?",Ask("Locate free").Id).State=="needs clarification","module function has no enclosing class");
+        foreach(var request in new[]{"Locate reader.read","Locate Reader.read outside this project","Locate Outer.Reader.read"})
+            check(Ask(request).State=="needs clarification","unsupported qualified request: "+request);
+        var pending=engine.Submit(Guid.NewGuid(),"Show its documentation.",null,reader.Id);
+        var wrong=Ask("Show its documentation.",writer.Id);
+        string taskPath=Path.Combine(profile,"tasks",pending.Id.ToString("N")+".json");
+        File.WriteAllText(taskPath,System.Text.Json.JsonSerializer.Serialize(pending with {Evidence=wrong.Evidence},Assets.Json));
+        check(engine.Finish(pending.Id).State=="needs clarification","authentic same-file documentation substitution withheld");
+        var sameContainer=engine.Submit(Guid.NewGuid(),"What is its enclosing type?",null,writer.Id);
+        var other=Ask("Locate Writer.late");
+        File.WriteAllText(Path.Combine(profile,"tasks",sameContainer.Id.ToString("N")+".json"),
+            System.Text.Json.JsonSerializer.Serialize(sameContainer with {ParentTaskId=other.Id},Assets.Json));
+        check(engine.Finish(sameContainer.Id).State=="needs clarification","changed parent refused even with identical container span");
+        var delayed=engine.Submit(Guid.NewGuid(),"Show its documentation.",null,reader.Id);
+        Import("reader.py","class Reader:\n    def read(self): 'Revised.'\n");
+        check(engine.Finish(delayed.Id).State=="failed" && Ask("Show its documentation.",reader.Id).State=="needs clarification","new revision invalidates pending and selected documentation");
+        Exact(Ask("Show its documentation.",Ask("Locate Reader.read").Id),"'Revised.'",2,"fresh parent obtains new documentation");
+        Import("also.cs","namespace Other { class First { public void Scan() {} } }");
+        check(Ask("Locate First.Scan") is {State:"needs clarification",ResearchReview.Verdict:"ambiguous",ResearchReview.Sources.Length:2},
+            "qualified duplicate owner and member in different files stays ambiguous");
+        check(Ask("Show its documentation.",first.Id) is {State:"needs clarification",ResearchReview.Verdict:"ambiguous"},
+            "duplicate definition with no documentation still invalidates unique documentation selection");
+        Import("many.cs",string.Join("\n",Enumerable.Range(0,12).Select(n=>$"class Channel{n} {{ void Poll() {{}} }}")));
+        var capped=Ask("Locate Poll");
+        check(capped is {State:"needs clarification",Evidence:null,ResearchReview.Sources.Length:8} &&
+            capped.Result!.Contains("Additional matches omitted"),"ambiguity lists at most eight cited locations");
+        engine.SelectProject("elsewhere");
+        check(Ask("Show its documentation.",first.Id).State=="needs clarification","foreign project parent cannot authorize documentation");
+    }
+
     public static void Run(string root,Action<bool,string> check)
     {
         Directory.CreateDirectory(root);

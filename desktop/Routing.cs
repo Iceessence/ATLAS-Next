@@ -106,19 +106,23 @@ internal sealed class Routing
         return terms;
     }
 
-    public static Passage? ProjectCode(string request,IEnumerable<Passage> eligible,Passage? parent,bool signature)
+    public static Passage? ProjectCode(string request,IEnumerable<Passage> eligible,Passage? parent,string type)
     {
-        if(signature)
-            return parent==null ? null : eligible.FirstOrDefault(p=>p.Symbol==parent.Symbol &&
-                p.Citation.Id==parent.Citation.Id && p.Citation.Type=="code.signature");
+        if(type!="code.definition")
+            return parent==null ? null : eligible.FirstOrDefault(p=>p.DefinitionStart==parent.DefinitionStart &&
+                p.Citation.Id==parent.Citation.Id && p.Citation.Type==type);
         // Resolve a Primary proposal against eligible identifiers only. Research
         // independently parses the entire request and checks all active definitions.
         var tail=System.Text.RegularExpressions.Regex.Replace(request.Trim(),@"(?:,? please)?[?.!]?\z","",
             System.Text.RegularExpressions.RegexOptions.IgnoreCase);
         tail=System.Text.RegularExpressions.Regex.Replace(tail,@"\s+(?:defined|declared)\z","",
             System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-        var token=System.Text.RegularExpressions.Regex.Match(tail,@"[\p{L}_][\p{L}\p{N}\p{M}_]*\z");
-        if(token.Success) return eligible.FirstOrDefault(p=>p.Citation.Type=="code.definition" && p.Symbol==token.Value);
+        var token=System.Text.RegularExpressions.Regex.Match(tail,@"[\p{L}_][\p{L}\p{N}\p{M}_]*(?:\.[\p{L}_][\p{L}\p{N}\p{M}_]*)?\z");
+        if(token.Success) {
+            var parts=token.Value.Split('.');
+            return eligible.FirstOrDefault(p=>p.Citation.Type=="code.definition" && p.Symbol==parts[^1] &&
+                (parts.Length==1 || p.Qualifier==parts[0]));
+        }
         return null;
     }
 

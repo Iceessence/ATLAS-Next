@@ -7,24 +7,46 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace AtlasNext;
 
-internal record SourceDeclaration(string Name,int NameStart,int NameEnd,int Start,int End,int NameLine,int Line);
+internal record SourcePart(int Start,int End,int Line);
+internal record SourceDeclaration(string Name,SourcePart Identifier,SourcePart Header,string? Qualifier,
+    SourcePart? Container,bool ContainerIsClass,SourcePart? Documentation,SourcePart? Summary);
+
 
 internal static class SourceDeclarations
 {
+    private sealed record Declaration(string Name,TextSpan Identifier,TextSpan Header,string? Qualifier,
+        TextSpan? Container,bool ContainerIsClass,TextSpan? Documentation,TextSpan? Summary=null);
+
     public static IEnumerable<SourceDeclaration> Read(string source,string extension)
     {
-        // Strip only the transport BOM. Every offset returned to Documents includes it.
         int bom=source.StartsWith('\uFEFF') ? 1 : 0;
         var text=SourceText.From(source[bom..]);
-        var declarations=extension==".cs" ? CSharp(text) : Python(text);
-        foreach(var (name,identifier,header) in declarations) {
-            if(header.Length>8192) throw new InvalidDataException("Declaration header exceeds 8192 characters.");
-            yield return new(name,bom+identifier.Start,bom+identifier.End,bom+header.Start,bom+header.End,
-                text.Lines.GetLineFromPosition(identifier.Start).LineNumber+1,text.Lines.GetLineFromPosition(header.Start).LineNumber+1);
+        SourcePart Anchor(TextSpan s)=>new(bom+s.Start,bom+s.End,text.Lines.GetLineFromPosition(s.Start).LineNumber+1);
+        SourcePart? Optional(TextSpan? s)=>s is {Length:>0 and <=16384} value ? Anchor(value) : null;
+        foreach(var d in extension==".cs" ? CSharp(text) : Python(text)) {
+            if(d.Header.Length>8192) throw new InvalidDataException("Declaration header exceeds 8192 characters.");
+            yield return new(d.Name,Anchor(d.Identifier),Anchor(d.Header),d.Qualifier,
+                Optional(d.Container),d.ContainerIsClass,Optional(d.Documentation),Optional(d.Summary));
         }
     }
 
-    private static IEnumerable<(string,TextSpan,TextSpan)> CSharp(SourceText text)
+    private static (TextSpan? Doc,TextSpan? Summary) CSharpDocumentation(SyntaxNode node,SourceText text)
+    {
+        foreach(var trivia in node.GetLeadingTrivia().Reverse()) {
+            if(trivia.IsKind(SyntaxKind.WhitespaceTrivia)) continue;
+            if(!trivia.IsKind(SyntaxKind.SingleLineDocumentationCommentTrivia) ||
+                trivia.GetStructure() is not DocumentationCommentTriviaSyntax doc) break;
+            var raw=text.ToString(trivia.FullSpan);
+            int first=raw.IndexOf("///",StringComparison.Ordinal);
+            if(first<0) break;
+            var block=TextSpan.FromBounds(trivia.FullSpan.Start+first,trivia.FullSpan.Start+raw.TrimEnd('\r','\n').Length);
+            var summaries=doc.Content.OfType<XmlElementSyntax>().Where(e=>e.StartTag.Name.ToString()=="summary").ToArray();
+            return (block,summaries is [var summary] && !summary.ContainsDiagnostics ? summary.Span : null);
+        }
+        return (null,null);
+    }
+
+    private static IEnumerable<Declaration> CSharp(SourceText text)
     {
         var tree=CSharpSyntaxTree.ParseText(text);
         var root=tree.GetRoot();
@@ -43,7 +65,11 @@ internal static class SourceDeclarations
             // type and constraints up to the last token before the body.
             var first=node.ChildNodesAndTokens().First(n=>!n.IsKind(SyntaxKind.AttributeList)).Span.Start;
             int end=boundary.GetPreviousToken().Span.End;
-            yield return (id.ValueText,id.Span,TextSpan.FromBounds(first,end));
+            var container=node.Ancestors().OfType<BaseTypeDeclarationSyntax>().FirstOrDefault();
+            string? qualifier=node.Parent is BaseTypeDeclarationSyntax direct && node is not MethodDeclarationSyntax {ExplicitInterfaceSpecifier:not null}
+                ? direct.Identifier.ValueText : null;
+            var (doc,summary)=CSharpDocumentation(node,text);
+            yield return new(id.ValueText,id.Span,TextSpan.FromBounds(first,end),qualifier,container?.Identifier.Span,container is ClassDeclarationSyntax || container is RecordDeclarationSyntax record && !record.ClassOrStructKeyword.IsKind(SyntaxKind.StructKeyword),doc,summary);
         }
     }
 
@@ -52,7 +78,35 @@ internal static class SourceDeclarations
     // Reject an unsupported lexical construct before publishing any part of a file.
     private static readonly Regex PythonHead=new(@"\G(?:(?:async[ \t]+)?def|class)[ \t]+(?<id>[\p{L}_][\p{L}\p{N}\p{M}_]*)",
         RegexOptions.CultureInvariant);
-    private static IEnumerable<(string,TextSpan,TextSpan)> Python(SourceText source)
+    private sealed record Scope(int Indent,bool Class,string Name,TextSpan Identifier);
+    private static int Indent(string text,int start,int end)
+    {
+        int column=0;
+        for(int i=start;i<end && text[i] is ' ' or '\t';i++)
+            column=text[i]=='\t' ? column+8-column%8 : column+1;
+        return column;
+    }
+
+    private static TextSpan? PythonDocumentation(string text,int colon,int headerIndent)
+    {
+        int i=colon+1,lineStart=-1;
+        while(i<text.Length) {
+            if(text[i] is ' ' or '\t') { i++; continue; }
+            if(text[i]=='#') { while(i<text.Length && text[i] is not ('\r' or '\n')) i++; continue; }
+            if(text[i] is '\r' or '\n') { lineStart=++i; continue; }
+            break;
+        }
+        if(i>=text.Length || lineStart>=0 && Indent(text,lineStart,i)<=headerIndent) return null;
+        int start=i;
+        if(text[i] is 'r' or 'R' or 'u' or 'U') i++;
+        if(i>=text.Length || text[i] is not ('\'' or '"')) return null;
+        int end=AfterString(text,i);
+        i=end;
+        while(i<text.Length && text[i] is ' ' or '\t') i++;
+        return i==text.Length || text[i] is '#' or ';' or '\r' or '\n' ? TextSpan.FromBounds(start,end) : null;
+    }
+
+    private static IEnumerable<Declaration> Python(SourceText source)
     {
         string text=source.ToString();
         foreach(var line in source.Lines.Take(2)) {
@@ -62,7 +116,8 @@ internal static class SourceDeclarations
         }
         var nesting=new Stack<char>();
         bool statementStart=true;
-        int header=-1;
+        int header=-1,headerIndent=0;
+        var scopes=new Stack<Scope>();
         Group? name=null;
         for(int i=0;i<text.Length;) {
             char c=text[i];
@@ -81,9 +136,13 @@ internal static class SourceDeclarations
                 continue;
             }
             if(statementStart) {
+                int lineStart=source.Lines.GetLineFromPosition(i).Start;
+                int indent=Indent(text,lineStart,i);
+                while(scopes.TryPeek(out var scope) && indent<=scope.Indent) scopes.Pop();
                 var match=PythonHead.Match(text,i);
                 if(match.Success) {
                     header=i;
+                    headerIndent=indent;
                     name=match.Groups["id"];
                     int after=name.Index+name.Length;
                     while(after<text.Length && text[after] is ' ' or '\t') after++;
@@ -101,7 +160,12 @@ internal static class SourceDeclarations
                     throw new InvalidDataException("Unbalanced Python delimiters.");
             }
             else if(c==':' && nesting.Count==0 && header>=0) {
-                yield return (name!.Value,new TextSpan(name.Index,name.Length),TextSpan.FromBounds(header,i+1));
+                var identifier=new TextSpan(name!.Index,name.Length);
+                var container=scopes.FirstOrDefault(s=>s.Class);
+                string? qualifier=scopes.TryPeek(out var direct) && direct.Class ? direct.Name : null;
+                yield return new(name.Value,identifier,TextSpan.FromBounds(header,i+1),qualifier,
+                    container?.Identifier,container!=null,PythonDocumentation(text,i,headerIndent));
+                scopes.Push(new(headerIndent,text.AsSpan(header).StartsWith("class"),name.Value,identifier));
                 header=-1;
             }
             i++;

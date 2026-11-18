@@ -61,13 +61,14 @@ def score(case, run):
             allowed = [expect["document"], *expect.get("equivalent_documents", [])]
             idx = next((i for i in allowed if run["ids"][i] == cite.get("id")), expect["document"])
             source = case["documents"][idx]
+            extension = case["extensions"][idx] if "extensions" in case else ".md"
             anchor = cite.get("span") or {}
             start, length = expect["start"], expect["length"]
             fragment = source.encode("utf-16-le")[2*start:2*(start+length)].decode("utf-16-le")
             checks.update(document=cite.get("id") == run["ids"][idx],
                           version=cite.get("version") == 1,
                           digest=cite.get("digest") == sha(source.encode("utf-8")),
-                          path=Path(anchor.get("path", "")).name == f"source-{idx}.md",
+                          path=Path(anchor.get("path", "")).name == f"source-{idx}{extension}",
                           span=(anchor.get("line"), anchor.get("start"), anchor.get("length")) ==
                                (expect["line"], start, length),
                           extract=fragment == work["result"])
@@ -80,10 +81,10 @@ def score(case, run):
     return checks
 
 
-def probe(question, documents, scratch_dir=None, proposed_document=None):
+def probe(question, documents, scratch_dir=None, proposed_document=None, extensions=None):
     """Exercise the real host. A proposal may only narrow the available Primary documents."""
     exe = ROOT / "checks/bin/Release/net10.0-windows/AtlasNext.Checks.exe"
-    payload = {"question": question, "documents": documents, "proposedDocument": proposed_document}
+    payload = {"question": question, "documents": documents, "proposedDocument": proposed_document, "extensions": extensions}
     scratch = str(scratch_dir or Path(tempfile.gettempdir()).resolve())
     # The owned revision includes two full digests. On Windows nested custodian
     # folders can exceed MAX_PATH during Python's recursive temporary cleanup.
@@ -114,7 +115,7 @@ def main():
     trials = []
     for case in cases:
         started = time.perf_counter()
-        run = probe(case["question"], case["documents"], manifest.parent if external else None)
+        run = probe(case["question"], case["documents"], manifest.parent if external else None, extensions=case.get("extensions"))
         if run.returncode:
             trials.append(dict(id=case["id"], passed=False, origin=case["origin"], process_ms=1000*(time.perf_counter()-started), error=run.stderr[-1500:]))
             continue
