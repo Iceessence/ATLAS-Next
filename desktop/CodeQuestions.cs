@@ -11,7 +11,7 @@ internal sealed record CodeQuestion(string? Name,string? Qualifier,string Type,s
     private const RegexOptions Options=RegexOptions.IgnoreCase|RegexOptions.CultureInvariant;
     private static readonly Regex Locate=new(@"\A(?:please )?(?:where is (?:the symbol )?"+Symbol+
         @" (?:defined|declared)|(?:locate|find the definition of) "+Symbol+@")(?:,? please)?[?.!]?\z",Options);
-    private static readonly Regex Follow=new(@"\A(?:please )?(?:what is|show(?: me)?) its (?<relation>signature|declaration signature|documentation|docstring|xml documentation|summary|enclosing type|enclosing class)(?:,? please)?[?.!]?\z",Options);
+    private static readonly Regex Follow=new(@"\A(?:please )?(?:what is|show(?: me)?) its (?<relation>signature|declaration signature|documentation|docstring|xml documentation|summary|enclosing type|enclosing class|enclosing namespace|namespace)(?:,? please)?[?.!]?\z",Options);
 
     public static CodeQuestion? Parse(string request)
     {
@@ -23,6 +23,7 @@ internal sealed record CodeQuestion(string? Name,string? Qualifier,string Type,s
             "xml documentation"=>new(null,null,"code.documentation",".cs"),
             "documentation"=>new(null,null,"code.documentation"),
             "summary"=>new(null,null,"code.summary",".cs"),
+            "namespace" or "enclosing namespace"=>new(null,null,"code.namespace",".cs"),
             "enclosing class"=>new(null,null,"code.class"),
             _=>new(null,null,"code.container")
         };

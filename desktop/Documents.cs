@@ -167,6 +167,7 @@ internal sealed class Documents(string profile,string project="default")
                 if(d.ContainerIsClass) Add("code.class",d.Container);
                 Add("code.documentation",d.Documentation);
                 Add("code.summary",d.Summary);
+                Add("code.namespace",d.Namespace);
             }
             return claims;
         }

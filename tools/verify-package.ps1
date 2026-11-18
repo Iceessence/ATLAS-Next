@@ -229,7 +229,7 @@ try {
     Wait-State $window 'needs clarification'
     if((Control $window 'ResearchInfo').Current.Name -notlike '*contradiction*'){throw 'Packaged contradiction check failed'}
     "PASS native file picker imports, exact source span and contradictory sources withheld"
-    Import-Document $session 'Sample.cs' "class Sensor {`r`n    public int Read(int channel) => channel;`r`n}`r`nclass Gauge {`r`n    /// <summary>Reads the gauge.</summary>`r`n    public int Read() => 2;`r`n}"
+    Import-Document $session 'Sample.cs' "namespace UI.Sample; class Sensor {`r`n    public int Read(int channel) => channel;`r`n}`r`nclass Gauge {`r`n    /// <summary>Reads the gauge.</summary>`r`n    public int Read() => 2;`r`n}"
     $promptBox=(Control $window 'Prompt').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern)
     foreach($turn in @(
         @{Request='Where is Sensor.Read defined?';Expected='Read';Line=2},
@@ -237,7 +237,9 @@ try {
         @{Request='Locate Gauge.Read';Expected='Read';Line=6},
         @{Request='Show its documentation.';Expected='/// <summary>Reads the gauge.</summary>';Line=5},
         @{Request='Locate Sensor.Read';Expected='Read';Line=2},
-        @{Request='What is its enclosing type?';Expected='Sensor';Line=1}
+        @{Request='What is its enclosing type?';Expected='Sensor';Line=1},
+        @{Request='Locate Sensor.Read';Expected='Read';Line=2},
+        @{Request='What is its enclosing namespace?';Expected='UI.Sample';Line=1}
     )){
         $promptBox.SetValue($turn.Request)
         Invoke-Control $window 'Search'
@@ -253,7 +255,7 @@ try {
     Wait-State $window 'needs clarification'
     $ambiguity=(Control $window 'ResearchInfo').Current.Name
     if($ambiguity -notlike '*ambiguous*' -or $ambiguity -notlike '*Gauge.Read*' -or $ambiguity -notlike '*Sensor.Read*'){throw 'Missing qualified locations'}
-    "PASS packaged qualified definitions, signature, documentation, enclosing type and ambiguity locations"
+    "PASS packaged qualified definitions, signature, documentation, enclosing type, namespace and ambiguity locations"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"

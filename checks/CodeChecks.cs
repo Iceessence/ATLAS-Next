@@ -74,6 +74,12 @@ internal static class CodeChecks
         Import("reader.py","class Reader:\n    def read(self): 'Revised.'\n");
         check(engine.Finish(delayed.Id).State=="failed" && Ask("Show its documentation.",reader.Id).State=="needs clarification","new revision invalidates pending and selected documentation");
         Exact(Ask("Show its documentation.",Ask("Locate Reader.read").Id),"'Revised.'",2,"fresh parent obtains new documentation");
+        Import("namespaced.cs","namespace Example.Signals;\nclass Antenna { void Read() {} }");
+        var antenna=Ask("Locate Antenna.Read");
+        Exact(Ask("What is its enclosing namespace?",antenna.Id),"Example.Signals",1,"file-scoped namespace uses exact qualified source span");
+        Import("nested.cs","namespace Outer { namespace Inner { class NestedReceiver { void Tune() {} } } }");
+        check(Ask("What is its namespace?",Ask("Locate NestedReceiver.Tune").Id).State=="needs clarification",
+            "separately declared nested namespace has no single qualified source span");
         Import("also.cs","namespace Other { class First { public void Scan() {} } }");
         check(Ask("Locate First.Scan") is {State:"needs clarification",ResearchReview.Verdict:"ambiguous",ResearchReview.Sources.Length:2},
             "qualified duplicate owner and member in different files stays ambiguous");

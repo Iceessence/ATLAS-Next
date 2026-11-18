@@ -9,13 +9,13 @@ namespace AtlasNext;
 
 internal record SourcePart(int Start,int End,int Line);
 internal record SourceDeclaration(string Name,SourcePart Identifier,SourcePart Header,string? Qualifier,
-    SourcePart? Container,bool ContainerIsClass,SourcePart? Documentation,SourcePart? Summary);
+    SourcePart? Container,bool ContainerIsClass,SourcePart? Documentation,SourcePart? Summary,SourcePart? Namespace);
 
 
 internal static class SourceDeclarations
 {
     private sealed record Declaration(string Name,TextSpan Identifier,TextSpan Header,string? Qualifier,
-        TextSpan? Container,bool ContainerIsClass,TextSpan? Documentation,TextSpan? Summary=null);
+        TextSpan? Container,bool ContainerIsClass,TextSpan? Documentation,TextSpan? Summary=null,TextSpan? Namespace=null);
 
     public static IEnumerable<SourceDeclaration> Read(string source,string extension)
     {
@@ -26,7 +26,7 @@ internal static class SourceDeclarations
         foreach(var d in extension==".cs" ? CSharp(text) : Python(text)) {
             if(d.Header.Length>8192) throw new InvalidDataException("Declaration header exceeds 8192 characters.");
             yield return new(d.Name,Anchor(d.Identifier),Anchor(d.Header),d.Qualifier,
-                Optional(d.Container),d.ContainerIsClass,Optional(d.Documentation),Optional(d.Summary));
+                Optional(d.Container),d.ContainerIsClass,Optional(d.Documentation),Optional(d.Summary),Optional(d.Namespace));
         }
     }
 
@@ -68,8 +68,11 @@ internal static class SourceDeclarations
             var container=node.Ancestors().OfType<BaseTypeDeclarationSyntax>().FirstOrDefault();
             string? qualifier=node.Parent is BaseTypeDeclarationSyntax direct && node is not MethodDeclarationSyntax {ExplicitInterfaceSpecifier:not null}
                 ? direct.Identifier.ValueText : null;
+            // A qualified namespace can be quoted exactly from a single declaration.
+            // Nested blocks with separate names have no contiguous fully qualified span.
+            var namespaces=node.Ancestors().OfType<BaseNamespaceDeclarationSyntax>().Take(2).ToArray();
             var (doc,summary)=CSharpDocumentation(node,text);
-            yield return new(id.ValueText,id.Span,TextSpan.FromBounds(first,end),qualifier,container?.Identifier.Span,container is ClassDeclarationSyntax || container is RecordDeclarationSyntax record && !record.ClassOrStructKeyword.IsKind(SyntaxKind.StructKeyword),doc,summary);
+            yield return new(id.ValueText,id.Span,TextSpan.FromBounds(first,end),qualifier,container?.Identifier.Span,container is ClassDeclarationSyntax || container is RecordDeclarationSyntax record && !record.ClassOrStructKeyword.IsKind(SyntaxKind.StructKeyword),doc,summary,namespaces is [var ns] ? ns.Name.Span : null);
         }
     }
 
