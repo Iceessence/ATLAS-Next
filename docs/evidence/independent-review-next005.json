@@ -1,0 +1,246 @@
+{
+  "review": "NEXT-005",
+  "verdict": "ACCEPTED_WITH_LIMITATIONS",
+  "selected_next_milestone": "Continue Roadmap Option A (read-only local coding depth: container-qualified duplicate/overload disambiguation and docstring/enclosing-type follow-up) ahead of Option C specialist refit or Option B isolated research; keep Option D execution disabled.",
+  "reviewer": "Gemini Hydrogen",
+  "reviewed_at_utc": "2026-11-18T16:44:43.3540793Z",
+  "frozen_product": "42bf5a6979540f5c6e3d0d59893b0b288b1f6300",
+  "preregistered_public_protocol": "a219e95b3313ffbfc666ce8b764053e28f239abb",
+  "author_transfer_head": "14e3206df116db4db5a1d22bc5a4bafa83ab2225",
+  "prior_review_commit": "837702c495dd0576d430c1cec0ea34f6e9ef82d2",
+  "environment": {
+    "os": "Microsoft Windows 11 Pro 10.0.26300 (Build 26300, 64-bit)",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_desktop_runtime_installed": "10.0.12",
+    "powershell_5_1": "5.1.26100.9818 (-NoProfile -ExecutionPolicy RemoteSigned)",
+    "powershell_7": "7.6.9 (cached)",
+    "python": "3.12.14 with numpy 2.3.5 (cached; OPENBLAS_NUM_THREADS=1)"
+  },
+  "isolation_and_diff_checks": {
+    "protocol_preceded_product": true,
+    "product_to_transfer_docs_and_evidence_only": true,
+    "atlas_next_deps_targets": [
+      "AtlasNext/1.0.0",
+      "Microsoft.CodeAnalysis.CSharp/5.9.0.0",
+      "Microsoft.CodeAnalysis/5.9.0.0"
+    ],
+    "roslyn_source": "Offline .NET SDK MSBuildToolsPath Roslyn bincore assemblies (no NuGet network restore)",
+    "legacy_repo_head": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "legacy_repo_untouched_by_review": true,
+    "execution_capability": "read owner-imported text",
+    "external_inference_calls_per_task": 0
+  },
+  "author_commands_independent_rerun": {
+    "dotnet_build_release": {
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0
+    },
+    "atlas_next_checks_exe": {
+      "status": "PASS",
+      "passed": 117,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_test_integrity": {
+      "status": "PASS",
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_project_audit": {
+      "status": "PASS",
+      "distributions": 10
+    },
+    "python_public_outcomes": {
+      "status": "PASS",
+      "passed": 28,
+      "total": 28
+    },
+    "python_evaluate_routing": {
+      "status": "PASS",
+      "scores": {
+        "rule": "48/72",
+        "exemplar": "42/72",
+        "native": "54/72",
+        "linear": "54/72"
+      },
+      "reproduced_p95_us": {
+        "rule": 2.445,
+        "exemplar": 41.82,
+        "native": 26.38,
+        "linear": 19.625
+      },
+      "native_qualification": "shadow"
+    },
+    "frozen_project_specialist_benchmark": {
+      "refitted": false,
+      "shadow_checkpoint_sha256": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+      "public_evaluation_16": {
+        "host": "16/16",
+        "tfidf": "16/16",
+        "linear": "14/16",
+        "native": "15/16",
+        "wrong_deliveries": 0,
+        "host_p50_engine_us": 112931.3,
+        "host_p95_engine_us": 115184.2,
+        "host_p50_process_ms": 288.37825,
+        "peak_host_working_set": 76050432
+      },
+      "public_constructed_28": {
+        "suite_sha256": "5c4c73dd3f33185c06c26a0ddd3aa02b268b3bf1eccc525933189ef85369cf77",
+        "host": "28/28",
+        "tfidf": "28/28",
+        "linear": "27/28 (missed argument-relation; 4 abstentions)",
+        "native": "28/28 (3 expected abstentions)",
+        "wrong_deliveries": 0
+      }
+    },
+    "public_code_navigation_8_conversations": {
+      "search_matches_a219e95_outcomes": true,
+      "search": {
+        "conversations_complete": "6/8",
+        "verified_deliveries": "10/12",
+        "wrong_deliveries": 2,
+        "correct_abstentions": "4/4",
+        "median_wall_ms": 0.3056,
+        "max_working_set_bytes": 26316800
+      },
+      "host": {
+        "conversations_complete": "8/8",
+        "verified_deliveries": "12/12",
+        "wrong_deliveries": 0,
+        "correct_abstentions": "4/4",
+        "median_cold_wall_ms": 220.36755,
+        "median_definition_turn_ms": 53.6,
+        "median_signature_turn_ms": 20.64,
+        "max_working_set_bytes": 46653440
+      }
+    }
+  },
+  "packaging_and_cross_shell_verification": {
+    "shipped_ps7_zip": {
+      "path": "out/ATLAS-Next-win-x64.zip",
+      "bytes": 112761107,
+      "sha256": "40f2741548285b675e64d457375f10104e8984dd88dbfbafd2756623558ca568",
+      "zip_entries": 520,
+      "inventory_hashed_files": 519,
+      "roslyn_files_included": 28,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_two_turn_code_ui_under_pwsh_7_6_9": "PASS"
+    },
+    "shipped_ps51_zip": {
+      "path": "out/ATLAS-Next-win-x64-ps51.zip",
+      "bytes": 95115295,
+      "sha256": "87bd4040ee05b8a2067db5d5bfa395d5c5287a3409199f04c63a0af2dbe6e103",
+      "zip_entries": 520,
+      "inventory_hashed_files": 519,
+      "roslyn_files_included": 28,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_two_turn_code_ui_under_ps_5_1": "PASS"
+    },
+    "disposable_clone_repackage_pwsh7": {
+      "bytes": 112761161,
+      "sha256": "b188ab7c2a56a9ac9c1cec70a4e728fdfceffe7546e2b68f9a2656ee66f10638",
+      "zip_entries": 520,
+      "inventory_hashed_files": 519,
+      "shadow_checkpoint_excluded": true,
+      "verify_under_pwsh_7_6_9": "PASS"
+    },
+    "disposable_clone_repackage_ps51": {
+      "bytes": 95115351,
+      "sha256": "7788829ac492671b0d19aab3dd158f1327a966a921b2fe797b2e4cf71f895c8f",
+      "zip_entries": 520,
+      "inventory_hashed_files": 519,
+      "shadow_checkpoint_excluded": true,
+      "verify_under_ps_5_1": "PASS"
+    }
+  },
+  "protected_factual_replays": {
+    "next002_protected_suite": {
+      "suite_sha256": "d9ca9752f9134151adb44c5fd85ae380dc206f4365c7a3aefbc170eece1649de",
+      "outcomes_runner": "13/13",
+      "policies": "host 13/13, tfidf 13/13, linear 13/13, native 13/13",
+      "wrong_deliveries": 0
+    },
+    "next003_protected_suite": {
+      "suite_sha256": "cee21ea14676c53f19ed610068ae298827cc914d1bc9fc2f37615f1b33888839",
+      "outcomes_runner": "18/20 (10/12 observed, 8/8 controls)",
+      "policies": "host 18/20, tfidf 18/20, linear 18/20 (2 abstentions), native 18/20 (1 abstention)",
+      "wrong_deliveries": 0
+    },
+    "next004_protected_suite": {
+      "suite_sha256": "86dbf6029514b2d07dcfe978899c007777b0e02ce91a991a815f9cc6a46050f8",
+      "outcomes_runner": "24/24 (12/12 observed, 12/12 controls)",
+      "policies": "host 24/24, tfidf 24/24, linear 18/24 (12 abstentions), native 21/24 (9 abstentions)",
+      "wrong_deliveries": 0
+    }
+  },
+  "independent_source_navigation_evaluation": {
+    "scope": "external_custodian_directory_private_inputs_retained",
+    "report_sha256": "6284c36ef4bce74b60d93b0fcbb46008be04c717d74e028948b90b0228c8f30d",
+    "conversations_total": 16,
+    "turns_total": 32,
+    "provenance": {
+      "observed_code_outcome": {
+        "conversations": 8,
+        "python_unfamiliar_module": "4/4 ATLAS host vs 2/4 local search (receipt custodian-code-receipt-1: e550058ff312451ea9818ff28f189d7f1992c8a5e705576f9bb3fc9408cb1f21)",
+        "csharp_unfamiliar_module": "4/4 ATLAS host vs 4/4 local search (receipt custodian-code-receipt-2: 8693696afe495481db2c1700757f49948539b1ec99e192edec791477d55cdcc2)"
+      },
+      "custodian_fixture": {
+        "conversations": 8,
+        "python_controls": "4/4 ATLAS host vs 2/4 local search (multiline async+lambda, class, triple-quote ghost, cross-class collision)",
+        "csharp_controls": "4/4 ATLAS host vs 3/4 local search (multiline generic+where with attribute exclusion, record;, block/string ghost, overload collision)"
+      }
+    },
+    "search_comparator": {
+      "conversations_complete": "11/16",
+      "verified_deliveries": "16/20",
+      "wrong_deliveries": 6,
+      "correct_abstentions": "10/12",
+      "median_wall_ms": 0.26,
+      "max_working_set_bytes": 29077504,
+      "failure_modes": "Truncated 3 multiline signatures, matched 1 signature into attribute header, and delivered 2 false positives on a docstring 'def' ghost."
+    },
+    "atlas_host": {
+      "conversations_complete": "16/16",
+      "verified_deliveries": "20/20",
+      "wrong_deliveries": 0,
+      "correct_abstentions": "12/12",
+      "median_cold_wall_ms": 217.81,
+      "median_definition_turn_ms": 49.88,
+      "median_signature_turn_ms": 17.59,
+      "max_working_set_bytes": 54988800,
+      "external_inference_calls": 0
+    },
+    "real_python_ecosystem_import_sample": {
+      "files_tested": 12,
+      "cleanly_imported": 11,
+      "rejected": 1,
+      "rejection_reason": "Valid 165 KB file with 264 declarations cleanly refused under the 256-declaration limit."
+    }
+  },
+  "independent_csharp_adversarial_probes": {
+    "passed": 34,
+    "total": 34,
+    "summary": [
+      "Verified NEXT-004 edge repairs beyond public fixtures: multi-qualifier stripped-token factual collisions, 'which value is recorded for', non-lookup relation tie-breaker, and courtesy-suffix literal ambiguity all succeeded cleanly with 0 wrong deliveries.",
+      "Verified text-vs-code precedence: a matching text 'declaration line' claim resolves prior to source import, and safely withholds once source code enters the active project.",
+      "Verified Roslyn C# navigation across records ending in semicolons, multiline generic+where signatures excluding attributes, multiline interface declarations, expression-bodied local functions, comment/string/property/ctor exclusion, overload ambiguity, #if preprocessor rejection, and >256 declaration caps.",
+      "Verified Python lexical navigation across plain 'class Name:', decorated multiline async defs with lambda colons and return annotations, docstring/comment ghosts, nested f-string single-quote expressions, and clean InvalidDataException refusal for latin-1 encoding cookies, non-ASCII identifiers, nested-brace f-strings, and multiline f-string expressions.",
+      "Verified Engine/Journal security on code.signature turns: tampered Authorization, tampered Scope, and swapped authentic code.signature citations are all refused or withheld at Engine.Finish."
+    ]
+  },
+  "language_coverage_and_limitations": {
+    "accepted_scope": "NEXT-005 read-only, offline local source navigation (`42bf5a6979540f5c6e3d0d59893b0b288b1f6300`): Roslyn C# syntax-tree and bounded Python lexical declaration indexing, unique identifier location, explicitly anchored signature follow-up with revision/digest/parent-ID checks, NEXT-004 factual edge fixes, and portable ZIP packaging.",
+    "limitations": [
+      "C# uses Roslyn syntax trees without semantic compilation; conditional compilation (#if), syntax errors, >256 declarations, constructors, properties, fields, events, and delegates are excluded/refused.",
+      "Python uses a bounded lexical scanner rather than a full Python AST; non-UTF-8 coding headers, non-ASCII identifiers, nested-brace or multiline f-string expressions, and >256 declarations are refused cleanly.",
+      "Code lookup supports single exact case-sensitive identifiers; duplicate names across classes, files, or overloads withhold as ambiguous with no Type.Member qualified disambiguation yet.",
+      "Follow-ups only support declaration signature inspection anchored to an active completed code.definition task; docstrings, fields, call references, and multi-file cross-references remain unsupported.",
+      "Desktop router assets/native.json (6b9b23fc..., 54/72 synthetic routing) and lab project-specialist.shadow.json (5c476024..., 15/16 eval, 28/28 controls) remain unpromoted shadow models; execution remains disabled."
+    ]
+  }
+}
