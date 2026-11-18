@@ -95,12 +95,19 @@ def main():
     cases, digest = load_suite(manifest)
     exe = ROOT / "checks/bin/Release/net10.0-windows/AtlasNext.Checks.exe"
     trials = []
+    scratch = str(manifest.parent if external else Path(tempfile.gettempdir()).resolve())
+    # The owned revision includes two full digests. On Windows nested custodian
+    # folders can exceed MAX_PATH during Python's recursive temporary cleanup.
+    extended = "\\\\?\\"
+    if os.name == "nt" and not scratch.startswith("\\\\"):
+        scratch = extended + scratch
     for case in cases:
         started = time.perf_counter()
-        with tempfile.TemporaryDirectory(dir=manifest.parent if external else None) as workspace:
+        with tempfile.TemporaryDirectory(dir=scratch) as workspace:
+            work_path = workspace.removeprefix(extended) if os.name == "nt" else workspace
             run = subprocess.run([str(exe), "--outcome"], capture_output=True, encoding="utf-8",
                                  input=json.dumps({k: case[k] for k in ("question", "documents")}),
-                                 env={**os.environ, "ATLAS_OUTCOME_WORK": workspace}, timeout=60)
+                                 env={**os.environ, "ATLAS_OUTCOME_WORK": work_path}, timeout=60)
         if run.returncode:
             trials.append(dict(id=case["id"], passed=False, origin=case["origin"], process_ms=1000*(time.perf_counter()-started), error=run.stderr[-1500:]))
             continue
