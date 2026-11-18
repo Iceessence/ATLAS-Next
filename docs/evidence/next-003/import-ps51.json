@@ -1,0 +1,85 @@
+{
+  "id": "4b26e144-9582-4a4d-b3c4-889d418a92c2",
+  "request": "What is the restore signal colour?",
+  "schema": 1,
+  "project": "package-check",
+  "kind": "knowledge.lookup",
+  "authority": "local desktop owner",
+  "scope": "owner-local",
+  "dependencies": [],
+  "capability": "read owner-imported text",
+  "budget": "2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",
+  "inferenceMicroseconds": 2538,
+  "processWorkingSetBytes": 195219456,
+  "router": "deterministic-route-v4",
+  "primaryCandidateId": "doc-5c76a42d83c7a3425160fd863cee87907d7cc70f174af83914837b0c59b9746b",
+  "specialist": "fact",
+  "proposal": {
+    "model": "atlas-native-route-v1",
+    "origin": "original",
+    "qualification": "shadow",
+    "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "route": "fact",
+    "probability": 0.9678654166223009
+  },
+  "authorization": "allowed scoped record read",
+  "verification": "source and answer checked",
+  "sourceIntegrity": "passed",
+  "answerRelevance": "supported",
+  "researchReview": {
+    "verdict": "supported",
+    "detail": "Exact subject and lookup intent supported by the listed source passages.",
+    "freshness": "active revision; undated source",
+    "trust": "owner-selected text",
+    "sources": [
+      {
+        "id": "doc-5c76a42d83c7a3425160fd863cee87907d7cc70f174af83914837b0c59b9746b",
+        "version": 1,
+        "digest": "0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac",
+        "source": "channel.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-5c76a42d83c7a3425160fd863cee87907d7cc70f174af83914837b0c59b9746b\\00000001-0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac\\channel.md",
+          "line": 2,
+          "start": 41,
+          "length": 5
+        }
+      }
+    ],
+    "requestRelevance": "supported",
+    "factualSupport": "stated by cited sources"
+  },
+  "evidence": {
+    "id": "doc-5c76a42d83c7a3425160fd863cee87907d7cc70f174af83914837b0c59b9746b",
+    "version": 1,
+    "digest": "0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac",
+    "source": "channel.md",
+    "type": "fact",
+    "origin": "owner import",
+    "trust": "owner-selected text",
+    "span": {
+      "path": "projects\\project-package-check\\knowledge\\doc-5c76a42d83c7a3425160fd863cee87907d7cc70f174af83914837b0c59b9746b\\00000001-0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac\\channel.md",
+      "line": 2,
+      "start": 41,
+      "length": 5
+    }
+  },
+  "result": "amber",
+  "events": [
+    {
+      "state": "queued",
+      "at": "2026-11-18T04:29:22.9447656+00:00"
+    },
+    {
+      "state": "review",
+      "at": "2026-11-18T04:29:22.981423+00:00"
+    },
+    {
+      "state": "completed",
+      "at": "2026-11-18T04:29:23.0567022+00:00"
+    }
+  ],
+  "state": "completed"
+}

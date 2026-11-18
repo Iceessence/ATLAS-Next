@@ -1,0 +1,352 @@
+{
+  "product": "c1b09d61adc31871d9c3fa818e7f3b3c56c3b4cc",
+  "checkout": "618f870b92d97d1fa1998aff00d0717b1a554cae",
+  "trials": [
+    {
+      "id": "openpyxl-1",
+      "question": "Please give me the workbook loader parameters.",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "filename, read_only, keep_vba, data_only, keep_links, rich_text",
+      "verdict": "supported",
+      "selected": 3,
+      "citation": {
+        "path": "knowledge\\doc-ff4b8c485e5aa922106de77c77dfa6acf67f0fca631e37c7b3dc066209922011\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
+        "line": 2,
+        "start": 62,
+        "length": 63
+      },
+      "failed": [],
+      "engine_us": 75965.2,
+      "process_ms": 522.0979,
+      "working_set": 54898688
+    },
+    {
+      "id": "openpyxl-2",
+      "question": "State the restore manifest digest.",
+      "primary_document": null,
+      "ok": false,
+      "state": "needs clarification",
+      "result": "Primary could not resolve a source for this request.",
+      "verdict": "supported",
+      "selected": null,
+      "citation": null,
+      "failed": [
+        "state",
+        "integrity",
+        "relevance",
+        "answer",
+        "document",
+        "version",
+        "digest",
+        "path",
+        "span",
+        "extract"
+      ],
+      "engine_us": 68397.6,
+      "process_ms": 238.2173,
+      "working_set": 54042624
+    },
+    {
+      "id": "openpyxl-3",
+      "question": "Which value is recorded for declared dependency count?",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "1",
+      "verdict": "supported",
+      "selected": 0,
+      "citation": {
+        "path": "knowledge\\doc-867b1167165fb4b4d3d1dcfe8b4b5c3ca15a0f920c8d4352b8df136726124404\\00000001-f39564969e6dba9dd98e8be7320fcb35f0ec07a7d0488613e6d3dfcacbed36fe\\source-0.md",
+        "line": 4,
+        "start": 105,
+        "length": 1
+      },
+      "failed": [],
+      "engine_us": 78906.2,
+      "process_ms": 244.2214,
+      "working_set": 53641216
+    },
+    {
+      "id": "openpyxl-4",
+      "question": "Which arguments does the workbook loader accept?",
+      "primary_document": null,
+      "ok": false,
+      "state": "needs clarification",
+      "result": "No current source explicitly supports the requested subject and intent.",
+      "verdict": "unsupported",
+      "selected": null,
+      "citation": null,
+      "failed": [
+        "state",
+        "verdict",
+        "integrity",
+        "relevance",
+        "answer",
+        "document",
+        "version",
+        "digest",
+        "path",
+        "span",
+        "extract"
+      ],
+      "engine_us": 71046.9,
+      "process_ms": 246.328,
+      "working_set": 53620736
+    },
+    {
+      "id": "pydantic-1",
+      "question": "What is the model export declaration line?",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "472",
+      "verdict": "supported",
+      "selected": 1,
+      "citation": {
+        "path": "knowledge\\doc-75f6178c8845bbfa75fcbc45081a7a52541deeada697a582f494bcb18f690ffa\\00000001-d7f5fd7790bd642d51e69e6e9e663a6482ddacf1a44d045acc7f543bb184aca2\\source-1.md",
+        "line": 3,
+        "start": 287,
+        "length": 3
+      },
+      "failed": [],
+      "engine_us": 81320.4,
+      "process_ms": 282.5926,
+      "working_set": 55963648
+    },
+    {
+      "id": "pydantic-2",
+      "question": "Give me the pure library flag.",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "true",
+      "verdict": "supported",
+      "selected": 1,
+      "citation": {
+        "path": "knowledge\\doc-7a6a69e289357143e0b99f857ba9fa0750b198eb3d7dcdb20caa3a97393b3ec7\\00000001-38aebd27732bd924038f433c7a25806460ceaa44a8c2f073befd92541b27b2a7\\source-1.md",
+        "line": 4,
+        "start": 125,
+        "length": 4
+      },
+      "failed": [],
+      "engine_us": 79898.1,
+      "process_ms": 257.531,
+      "working_set": 55955456
+    },
+    {
+      "id": "pydantic-3",
+      "question": "Name the checked payload files.",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "112",
+      "verdict": "supported",
+      "selected": 2,
+      "citation": {
+        "path": "knowledge\\doc-8772985683f29d81e554fbd6ec91a511e2581aeeeb10efa74ca3af42f243e347\\00000001-d40f2b832fb8e88d5b42cd440af0ed08fa57eb4f1c1e806d26333f7cd434f427\\source-2.md",
+        "line": 3,
+        "start": 150,
+        "length": 3
+      },
+      "failed": [],
+      "engine_us": 75222.1,
+      "process_ms": 247.1612,
+      "working_set": 55869440
+    },
+    {
+      "id": "pydantic-4",
+      "question": "Which value is recorded for the Python requirement?",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": ">=3.10",
+      "verdict": "supported",
+      "selected": 0,
+      "citation": {
+        "path": "knowledge\\doc-314a1c8371be3915fbaec1b80c5bcfbf0aa78b4d6a820ec5237b3c01e5c26522\\00000001-dab29da2cd1de0251501b0e919198a2f5a0ca82edfb7cc9553c6079a530a52a4\\source-0.md",
+        "line": 5,
+        "start": 128,
+        "length": 6
+      },
+      "failed": [],
+      "engine_us": 74268.7,
+      "process_ms": 243.8723,
+      "working_set": 56188928
+    },
+    {
+      "id": "python-pptx-1",
+      "question": "Which value is recorded for presentation opener source digest?",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "22b1b16b7e59eadc99071681ba49f244e7661ca348f1751aefb5d4eb6c411453",
+      "verdict": "supported",
+      "selected": 3,
+      "citation": {
+        "path": "knowledge\\doc-845753e368e7a2e3e2aad4fa25b7a976a96257b1fd6dc2c1a28d927f883ca484\\00000001-19e15b06ef867d59c1e3e3a31cb678b70bd68ac006407e39518db609f1a632c0\\source-3.md",
+        "line": 4,
+        "start": 150,
+        "length": 64
+      },
+      "failed": [],
+      "engine_us": 84197.6,
+      "process_ms": 272.8458,
+      "working_set": 53452800
+    },
+    {
+      "id": "python-pptx-2",
+      "question": "Give me the missing payload files.",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "0",
+      "verdict": "supported",
+      "selected": 2,
+      "citation": {
+        "path": "knowledge\\doc-1324ab4a5e8c54c6a4ef1e1f47504aa00ae69f06197b7f9b54dad2dce1811223\\00000001-26827ddbbb5968b92e528093b50e8b8d1ac0b403bb2e7717b5bb0dfc1608f476\\source-2.md",
+        "line": 5,
+        "start": 207,
+        "length": 1
+      },
+      "failed": [],
+      "engine_us": 79577.6,
+      "process_ms": 249.0276,
+      "working_set": 53907456
+    },
+    {
+      "id": "python-pptx-3",
+      "question": "What is the published name?",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "python-pptx",
+      "verdict": "supported",
+      "selected": 0,
+      "citation": {
+        "path": "knowledge\\doc-0ab74ddfa7906e13275774660d0f9b6055a2baec5121f461010fd5f8141f64d2\\00000001-af40adb7f2785adea1adc7fdc5595d1bd773b64ec024b784cff690860f095ec9\\source-0.md",
+        "line": 2,
+        "start": 49,
+        "length": 11
+      },
+      "failed": [],
+      "engine_us": 76835,
+      "process_ms": 243.0254,
+      "working_set": 53780480
+    },
+    {
+      "id": "python-pptx-4",
+      "question": "State the wheel compatibility tags.",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "py3-none-any",
+      "verdict": "supported",
+      "selected": 0,
+      "citation": {
+        "path": "knowledge\\doc-7d8c6536c1cc557dd221d9f2bb5d95cbc397735b28e51aa976e1e30a10a18959\\00000001-2b9f53cbf09fa406b2071e0dc07009e1094427580652f431a0982f2d60f4e535\\source-0.md",
+        "line": 3,
+        "start": 99,
+        "length": 12
+      },
+      "failed": [],
+      "engine_us": 74656.5,
+      "process_ms": 237.2543,
+      "working_set": 53764096
+    },
+    {
+      "id": "xlsxwriter-1",
+      "question": "Name the workbook constructor declaration line.",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "64",
+      "verdict": "supported",
+      "selected": 1,
+      "citation": {
+        "path": "knowledge\\doc-cc7d5f86c5e7ca512b9e3215d9c5594f97166cb94c33649e592ee55590705dfc\\00000001-747a992d931e37367925fb96df49f57b79fe23d0a8dcc526ddfa9c39343bba5c\\source-1.md",
+        "line": 3,
+        "start": 132,
+        "length": 2
+      },
+      "failed": [],
+      "engine_us": 77644.9,
+      "process_ms": 254.9425,
+      "working_set": 53837824
+    },
+    {
+      "id": "xlsxwriter-2",
+      "question": "Please state the release version.",
+      "primary_document": null,
+      "ok": true,
+      "state": "completed",
+      "result": "3.2.9",
+      "verdict": "supported",
+      "selected": 0,
+      "citation": {
+        "path": "knowledge\\doc-e6f02402dc1d0ffddd9e333a4f0f4da38473058d4ca71acd8b7a966b1a6a24b2\\00000001-2476991eab48ee7c21cbfff9005e41c294b216e500f602bb4e33733478518568\\source-0.md",
+        "line": 3,
+        "start": 76,
+        "length": 5
+      },
+      "failed": [],
+      "engine_us": 73868.3,
+      "process_ms": 235.0912,
+      "working_set": 53989376
+    },
+    {
+      "id": "xlsxwriter-3",
+      "question": "What is the restore manifest digest?",
+      "primary_document": null,
+      "ok": false,
+      "state": "needs clarification",
+      "result": "Primary could not resolve a source for this request.",
+      "verdict": "supported",
+      "selected": null,
+      "citation": null,
+      "failed": [
+        "state",
+        "integrity",
+        "relevance",
+        "answer",
+        "document",
+        "version",
+        "digest",
+        "path",
+        "span",
+        "extract"
+      ],
+      "engine_us": 72001.5,
+      "process_ms": 239.3552,
+      "working_set": 53874688
+    },
+    {
+      "id": "xlsxwriter-4",
+      "question": "How many installed files did the audit check?",
+      "primary_document": null,
+      "ok": false,
+      "state": "needs clarification",
+      "result": "No current source explicitly supports the requested subject and intent.",
+      "verdict": "unsupported",
+      "selected": null,
+      "citation": null,
+      "failed": [
+        "state",
+        "verdict",
+        "integrity",
+        "relevance",
+        "answer",
+        "document",
+        "version",
+        "digest",
+        "path",
+        "span",
+        "extract"
+      ],
+      "engine_us": 63953.9,
+      "process_ms": 233.2921,
+      "working_set": 53817344
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+host: 13/13 external outcomes
+tfidf: 13/13 external outcomes
+linear: 12/13 external outcomes
+native: 12/13 external outcomes

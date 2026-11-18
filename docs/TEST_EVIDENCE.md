@@ -1,5 +1,40 @@
 # Author test evidence
 
+## NEXT-003 author verification
+
+Candidate `bb015a42205b8c2b6e4ad4cefae99a6b116099dd` on local main, built and verified in a fresh disposable clone. The previously accepted implementation was `c1b09d6`; its documentation and review checkout was `618f870`. Under the original code, the added regression for “What is the restore manifest entries?” failed before the fix. The current app resolves the imported subject and verifies the answer from the full project. If Primary has no eligible source, a supported Research finding still withholds delivery. A revoked journal authorization also blocks delivery.
+
+| Clean-clone command or workflow | Recorded result |
+| --- | --- |
+| `dotnet build checks -c Release --configfile NuGet.Config` | 0 warnings and 0 errors. SDK 10.0.401, WindowsDesktop runtime 10.0.12, no external NuGet libraries. [Build](evidence/next-003/build.txt) |
+| `checks/bin/Release/net10.0-windows/AtlasNext.Checks.exe` | 71/71 passed, including imported procedure vocabulary, retained handbook procedures, unknown-plus-definite claims, project isolation and source/authorization checks. [Windows results](evidence/next-003/windows-checks.txt) |
+| `python -B lab/test_integrity.py`, `python -B lab/outcomes.py` | 8/8 integrity checks and 13/13 public constructed end-to-end cases. [Integrity](evidence/next-003/integrity.txt) · [Fixture results](evidence/next-003/public-fixtures.json) |
+| `python -B lab/evaluate.py` | Frozen synthetic routing suite, rule 48/72, exemplar 42/72, original desktop model 54/72 and linear 54/72. [Routing results](evidence/next-003/synthetic-routing.json) |
+| `python -B lab/project_audit.py` | Re-read ten installed public project distributions, verified archived source observations against current bytes, and reproduced their published metadata, payload check counts and API signatures. The audit observed hash mismatches in the installed NumPy, Pillow and lxml distributions. Their receipts identify the affected relative files and observed hashes. The cause was outside this experiment. [Audit replay](evidence/next-003/audit.txt) · [Provenance and split protocol](../lab/project_data/README.md) |
+| `python -B lab/project_specialist.py fit` | A second fit reproduced the frozen lab checkpoint byte-for-byte, SHA-256 `8f3cfcc1e06aa7a447851dd203509f83e68f92c5265b89afecdf0b9957fbfd14`. Original network 6 inputs, 6 hidden units, 1 output (49 weights and biases). Logistic comparator has 7 parameters. Four training projects, 16 authored questions, 64 actual in-scope source proposals, 14 exact downstream successes. Two validation projects and 8 questions. Seeds 11, 37 and 73 and all three cutoffs are recorded. Selected seed 73, cutoff 0.5. Its fit took 38.0 ms with 19,912 bytes of traced peak allocation. [Measured targets, costs and all validation trials](evidence/next-003/fitting.json) |
+| `python -B lab/project_specialist.py evaluate` | Four previously unseen upstream projects, 16 independently checkable author outcomes. Results below. Each measured action exercised real import, submit and finish in a disposable profile. Policies choosing the same proposal reuse that measured action. [Per-case results, costs and calibration](evidence/next-003/benchmark.json) |
+| `python -B lab/project_specialist.py blind --manifest <external-manifest> --report <fresh-external-report>` | Exercised using an author-owned copy of the public fixtures outside the checkout. The temporary profiles were removed. The comparison was 13/13 for host and TF-IDF, 12/13 for both learned policies. No custodian inputs were used in this run. [External-mode smoke test](evidence/next-003/external-author-smoke.txt) |
+
+**Held-out project outcomes.** The historical host passed 12/16. The repaired host passed 14/16 on the same questions, including both previously missed restore-manifest lookups. To repeat the historical run, build the Release checks in a disposable clone at `618f870`. In the new candidate's `lab/` Python environment, point `outcomes.ROOT` to the historical clone and call `project_specialist.observe(case, None)` for each `project_cases.cases("evaluation")` row. Inputs and oracle remain those of NEXT-003. [Historical replay](evidence/next-003/next002-accepted-baseline.json)
+
+| Policy | Correct document / 16 | Correct completed answer / 16 | Wrong deliveries | Withheld | p50 / p95 scorer µs | Top-document Brier / ECE |
+| --- | ---: | ---: | ---: | ---: | --- | --- |
+| Repaired deterministic host | 14 | 14 | 0 | 2 | In host | — |
+| TF-IDF cosine | 16 | 14 | 0 | 2 | 244 / 317 | — |
+| Learned linear comparator | 14 | 14 | 0 | 2 | 288 / 375 | 0.00293 / 0.04762 |
+| ATLAS-original shadow specialist | 14 | 14 | 0 | 2 | 266 / 290 | 0.00017 / 0.01193 |
+
+The host's p50/p95 lookup times were 73.4/114.5 ms. The selected native policy's measured actions took 74.8/131.0 ms in the host, with median cold-process time 243.1 ms and maximum sampled host working set 56,135,680 bytes. Python 3.12.14, NumPy 2.3.5 and one OpenBLAS thread were used. Small-sample calibration describes only these requests. The linear and native policies each abstained twice. TF-IDF proposed a document each time, and the host withheld twice. All policies missed “Which arguments does the workbook loader accept?” and “How many installed files did the audit check?” because the verifier could not establish support under its question grammar. Both learned policies also abstained on an answerable declarative sentence in the constructed stress suite. The model features favor colon-delimited claims. The recorded failures remain in the evaluation.
+
+**Windows packaging.** The commands in both 64-bit shells were `-NoProfile -ExecutionPolicy RemoteSigned -File tools/package.ps1` and `-NoProfile -ExecutionPolicy RemoteSigned -File tools/verify-package.ps1 -Zip out/ATLAS-Next-win-x64.zip`. Each checked 491 payload hashes, the private runtime, three launches, crash recovery and quarantine, native import, project-scoped lookup, export and contradiction withholding. The question “What is the restore signal colour?” returned `amber` at line 2, UTF-16 [41, 46). Both packages contained the original advisory desktop checkpoint and excluded the experimental specialist. [Package model inspection](evidence/next-003/package-models.txt)
+
+| Shell | ZIP bytes | SHA-256 | Evidence |
+| --- | ---: | --- | --- |
+| Windows PowerShell 5.1.26100.9818 | 80,203,430 | `02af933421839f641f88afa44b6420393271aaad27a6a622610391d7c89fbe46` | [Build](evidence/next-003/package-ps51.txt) · [UI verification](evidence/next-003/verify-ps51.txt) · [Exported receipt](evidence/next-003/import-ps51.json) |
+| PowerShell 7.6.9 | 94,809,381 | `79385d62acbe8dbee589f4f50e14376482dd577865341e5d367b605fc0ac5703` | [Build](evidence/next-003/package-ps7.txt) · [UI verification](evidence/next-003/verify-ps7.txt) · [Exported receipt](evidence/next-003/import-ps7.json) |
+
+The observed source values were collected by the author from real installed artifacts. Questions and document projections were authored for this workflow. The four unseen test projects share the same distribution-audit format. These results provide no independent model qualification or evidence of general coding performance. The lab checkpoint stays in shadow. A clean disconnected OS without the installed desktop runtime, production signing and isolated guest execution remain open.
+
 ## NEXT-002 author verification
 
 Exact product candidate `c1b09d61adc31871d9c3fa818e7f3b3c56c3b4cc` in a fresh local clone on Windows 11 Pro x64. SDK 10.0.401, bundled WindowsDesktop runtime 10.0.12, cached Python 3.12.14, NumPy 2.3.5 and `OPENBLAS_NUM_THREADS=1`. The working tree in the verification clone was clean after the suite.
