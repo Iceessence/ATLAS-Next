@@ -4,6 +4,11 @@ namespace AtlasNext;
 
 internal record Assessment(string Verdict,string Detail,string Freshness,string Trust,Citation[] Sources)
 {
+    public string RequestRelevance => Verdict switch {
+        "supported" => "supported",
+        "contradiction" or "stale" or "insufficient" or "ambiguous" => "subject and intent matched",
+        _ => "unsupported"
+    };
     public string FactualSupport => Verdict=="supported" ? "stated by cited sources" : "insufficient for delivery";
 }
 internal record Finding(Assessment Assessment,Hit? Source);

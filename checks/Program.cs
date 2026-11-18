@@ -121,7 +121,7 @@ internal static class Checks
             File.WriteAllText(second,"Orion colour is green.");
             e.Import(second);
             var conflict=e.Finish(waiting.Id);
-            Check(conflict is {State:"needs clarification",SourceIntegrity:"passed",ResearchReview.Verdict:"contradiction"} &&
+            Check(conflict is {State:"needs clarification",SourceIntegrity:"passed",AnswerRelevance:"subject and intent matched",ResearchReview.Verdict:"contradiction"} &&
                 conflict.ResearchReview.Sources.Length==2,"delivery rechecks new contradicting source and withholds answer");
             File.WriteAllText(second,"Orion colour: blå");
             e.Import(second);

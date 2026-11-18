@@ -51,7 +51,8 @@ internal sealed class Engine(string profile) : IDisposable
             var finding=Research.Assess(request,library,passages);
             task=task with {Proposal=proposed,Specialist=route,Router="deterministic-route-v3",ResearchReview=finding.Assessment};
             if(candidate==null || candidate.Citation!=finding.Source?.Citation)
-                task=(task with {Authorization="no matching scoped record",Verification="answer withheld",AnswerRelevance="unsupported",
+                task=(task with {Authorization="no matching scoped record",Verification="answer withheld",
+                    AnswerRelevance=finding.Source==null ? finding.Assessment.RequestRelevance : "unsupported",
                     Result=finding.Source==null ? finding.Assessment.Detail : "Primary could not resolve a source for this request."}).At("needs clarification");
             else
                 task=(task with {Authorization="allowed scoped record read",Scope=candidate.Record.Scope,
@@ -89,13 +90,13 @@ internal sealed class Engine(string profile) : IDisposable
                 else {
                     if(finding.Source!=null) task=task with {ResearchReview=finding.Assessment with {
                         Verdict="unsupported",Detail="The selected citation does not support this request."}};
-                    task=(task with {AnswerRelevance="unsupported",Verification="answer withheld",
+                    task=(task with {AnswerRelevance=task.ResearchReview!.RequestRelevance,Verification="answer withheld",
                         Result=task.ResearchReview!.Detail}).At("needs clarification");
                 }
             }
             catch(Exception ex) when(ex is IOException or InvalidDataException or UnauthorizedAccessException)
             {
-                task=(task with {Result=ex.Message,SourceIntegrity="failed",Verification="failed"}).At("failed");
+                task=(task with {Result=ex.Message,SourceIntegrity="failed",ResearchReview=null,Verification="failed"}).At("failed");
             }
         }
         journal.Save(task);
