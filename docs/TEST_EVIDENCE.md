@@ -1,5 +1,32 @@
 # Author test evidence
 
+## NEXT-006 author verification
+
+Frozen product `c0e138f63ef342d5ff38a6bce1dd9cd579d1b01c` builds on NEXT-005 product `42bf5a6979540f5c6e3d0d59893b0b288b1f6300`, independent decision `4fa37b1`. Commit `148a62e1585d8118dc79512c97c1a70d5181a147` froze the local-search comparator, source digests, requests, inspected expected spans and scoring protocol before product changes. The candidate receives only the source, basename, symbol, follow-up and repeat count. [Protocol](../lab/code-depth-protocol.md) · [Original comparator results](evidence/next-006/search-baseline.json)
+
+| Provenance | Conversations completed by each policy | Exact deliveries | Correct withholds | Wrong deliveries |
+| --- | ---: | ---: | ---: | ---: |
+| Installed .NET MCP Server template and python-dateutil, author-written requests | 8/8 | 10 | 6 | 0 |
+| Constructed C# duplicate-class and overload controls | 5/5 | 4 | 6 | 0 |
+| Total for each of ordinary search and ATLAS | 13/13 | 14 | 12 | 0 |
+
+In a fresh clone, `python -B lab/code_depth.py search out/search.json` and `python -B lab/code_depth.py host out/code-depth.json` reproduced the outcomes across four repetitions per case. The ordinary comparator tied the host and cost less. Both used zero per-task external inference. External developer assistance authored the public protocol and product changes. These data provide no basis for model promotion. [Complete comparator results](evidence/next-006/search.json) · [Complete host results and source provenance](evidence/next-006/code-depth.json)
+
+After import, the median first definition and follow-up took **49.27 ms** and **17.06 ms**. Warm medians were **12.39 ms** and **13.91 ms**. Fresh host process, import, four conversations and cleanup together took **308.85 ms** median, reaching **52.91 MiB** sampled working set. The Python comparator measured both operations together in an existing process at **0.0197 ms** first lookup and **0.0156 ms** warm, reaching **24.54 MiB** sampled working set. Energy and sustained multi-project throughput were unmeasured.
+
+| Clean-clone command or workflow | Recorded outcome |
+| --- | --- |
+| `dotnet build checks -c Release --configfile NuGet.Config`, then `AtlasNext.Checks.exe` | Zero warnings/errors, 150/150 checks. Includes 33 additions over NEXT-005 for ownership, bounded location feedback, attached versus detached docs, language-specific follow-ups, namespace bounds, parent and citation substitution, revision and project isolation. [Build](evidence/next-006/build.txt) · [Windows checks](evidence/next-006/windows-checks.txt) |
+| Cached Python with `-B` on `lab/test_integrity.py`, `lab/outcomes.py`, `lab/project_audit.py` and `lab/evaluate.py` | 11/11 integrity, 31/31 public controls, ten distribution receipts reproduced, original shadow router 54/72 synthetic. [Integrity](evidence/next-006/integrity.txt) · [Controls](evidence/next-006/outcomes.json) · [Audit](evidence/next-006/audit.txt) · [Router](evidence/next-006/evaluation.json) |
+| `lab/code_navigation.py host out/code-navigation.json` | NEXT-005 public replay passed 8/8 conversations, twelve expected deliveries and four withholds. [Earlier protocol replay](evidence/next-006/code-navigation.json) |
+| `OPENBLAS_NUM_THREADS=1`, `lab/project_specialist.py evaluate` | Host/TF-IDF/linear/native achieved 16/16/14/15 successes out of 16 measured cases and 31/31/29/30 successes out of 31 public controls, zero wrong deliveries. Frozen model bytes match NEXT-005. [Shadow comparison](evidence/next-006/benchmark.json) |
+| Windows PowerShell 5.1.26100.9818 | 95,122,989 bytes. SHA-256 `61f7f221a06a605af618208b68637bada2e8e54c5db115ac058daf22338f0a2f`. [Verification](evidence/next-006/verify-ps51.txt) · [Nine packaged UI task receipts](evidence/next-006/code-ui-ps51.json) |
+| PowerShell 7.6.9 | 112,770,972 bytes. SHA-256 `d700d866925afcc647046b6bf81e178387636b76fc1878c39df0b6f7067364ae`. [Verification](evidence/next-006/verify-ps7.txt) · [Nine packaged UI task receipts](evidence/next-006/code-ui-ps7.json) |
+
+Each shell ran `-NoProfile -ExecutionPolicy RemoteSigned -File tools/package.ps1` then `tools/verify-package.ps1 -Zip out/ATLAS-Next-win-x64.zip`. Each verified 519 inventory entries and the private runtime. The WPF workflow exercised qualification, signature, documentation, enclosing type, namespace and ambiguous-location feedback, as well as cancellation, restart and quarantine. The lab checkpoint stays outside both ZIPs. The verification clone remained clean.
+
+Coverage is bounded to one direct type qualifier. Overloads and duplicate qualified names withhold. The selected parent must be a completed current definition. Attached documentation returns original source spelling. Unsupported Python expressions and nested C# namespaces lacking a single fully qualified span can withhold. This small public comparison and one workstation do not establish general coding superiority. Independent new and protected outcomes belong to Hydrogen.
+
 ## NEXT-005 author verification
 
 Frozen public protocol and ordinary search baseline `a219e95b3313ffbfc666ce8b764053e28f239abb` preceded product `42bf5a6979540f5c6e3d0d59893b0b288b1f6300`. Source navigation runs locally on explicitly imported files. For a follow-up the owner selects a completed definition in project history. Submit and Finish check the current project, unique declaration and revision. The signature receipt links back to the selected task. [Protocol](../lab/code-navigation-protocol.md) · [Frozen comparator](evidence/next-005/search-baseline.json)

@@ -1,0 +1,151 @@
+PASS 1: all public golden logits-derived predictions match Python to 1e-10
+PASS 2: altered checkpoint refused
+PASS 3: persisted scoped fact proposal
+PASS 4: local original CPU inference
+PASS 5: idempotent task submission
+PASS 6: conflicting retry refused
+PASS 7: verified actual record body
+PASS 8: late cancellation preserves completed evidence
+PASS 9: scope and intent for 'How long is the archive retention policy?'
+PASS 10: scope and intent for 'How long will the archive retention policy keep exports?'
+PASS 11: scope and intent for 'How many days is archive retention?'
+PASS 12: scope and intent for 'How is an export receipt formatted?'
+PASS 13: scope and intent for 'Name the archive format.'
+PASS 14: scope and intent for 'What is the archive restoration?'
+PASS 15: scope and intent for 'What is the retention policy for uranium?'
+PASS 16: scope and intent for 'How long will atlasprint keep its archive?'
+PASS 17: scope and intent for 'How many exports are in the archive?'
+PASS 18: scope and intent for 'What is the archive retention policy and receipt format?'
+PASS 19: scope and intent for 'How do I change the archive retention policy?'
+PASS 20: scope and intent for 'What is the archive retention policy for 水?'
+PASS 21: delivery rejects an authentic same-type citation for the wrong subject
+PASS 22: procedure retrieval
+PASS 23: cancel prevents delivery
+PASS 24: no evidence handling
+PASS 25: out of corpus abstention
+PASS 26: exact ID retrieval
+PASS 27: second writer denied
+PASS 28: request budget enforced
+PASS 29: pending review safely recovered
+PASS 30: completed result survives reopen
+PASS 31: real WPF find, verify and export handlers
+PASS 32: real WPF stop control
+PASS 33: global stop cancels all pending tasks
+PASS 34: modified evidence blocks delivery
+PASS 35: preflight I/O failure leaves every fixture and pending review untouched
+PASS 36: mixed corrupt profile recovers complete healthy history
+PASS 37: legacy completion preserved byte-for-byte with relevance unassessed
+PASS 38: all 20 corrupt and pending originals preserved byte-for-byte
+PASS 39: mixed-profile recovery counts visible in real window
+PASS 40: second restart preserves quarantine and adds no recovery events
+PASS 41: idempotent owner import and stable identity
+PASS 42: UTF-8 BOM, surrogate pair and CRLF preserved with exact UTF-16 value span
+PASS 43: research verdict retains trust and declared validity
+PASS 44: Research support cannot override a Primary source restriction
+PASS 45: research evidence cannot replace host authorization
+PASS 46: paraphrase issued before changing Scope
+PASS 47: delivery rejects a changed Scope
+PASS 48: paraphrase issued before changing Specialist
+PASS 49: delivery rejects a changed Specialist
+PASS 50: delivery rechecks new contradicting source and withholds answer
+PASS 51: independent documents agreeing on one value
+PASS 52: expired matching source withholds delivery
+PASS 53: pinned and imported sources compared on the same claim
+PASS 54: restored paraphrase retrieves procedure
+PASS 55: changed selection creates immutable revision under same document ID
+PASS 56: active revision supersedes old claim
+PASS 57: owned copy independent of subsequent edits to selected path
+PASS 58: altered owned source blocked at finish
+PASS 59: reject encoding.txt
+PASS 60: reject binary.md
+PASS 61: reject oversize.txt
+PASS 62: reject script.ps1
+PASS 63: affirmative imported lookup: What is the restore manifest entries?
+PASS 64: affirmative imported lookup: Name the configure guide title.
+PASS 65: affirmative imported lookup: Which value is recorded for the recovery steps count?
+PASS 66: whole request and exact UTF-16 evidence for Which parameters does the primary decoder take, please?
+PASS 67: whole request and exact UTF-16 evidence for Where is the secondary decoder declared?
+PASS 68: whole request and exact UTF-16 evidence for What Ruby version does the package require?
+PASS 69: whole request and exact UTF-16 evidence for Which tool generated the wheel?
+PASS 70: whole request and exact UTF-16 evidence for How many installed files did the audit check?
+PASS 71: whole request and exact UTF-16 evidence for What is the configure guide title recorded as?
+PASS 72: unsupported constraint withheld for Which parameters does the secondary decoder take?
+PASS 73: unsupported constraint withheld for Which parameters does the primary decoder take in recovery mode?
+PASS 74: unsupported constraint withheld for Where is the secondary decoder declared and who owns it?
+PASS 75: unsupported constraint withheld for How many modified installed files did the audit check?
+PASS 76: unsupported constraint withheld for What Ruby version does the previous installation require?
+PASS 77: unsupported constraint withheld for What is the configure guide title recorded as in production?
+PASS 78: missing relation evidence withheld for How many installed files did the audit check?
+PASS 79: missing relation evidence withheld for What Ruby version does the package require?
+PASS 80: missing relation evidence withheld for Where is the secondary decoder declared?
+PASS 81: helper and literal project name collision requires clarification
+PASS 82: generic imported subject cannot displace a handbook procedure
+PASS 83: unanswered definition withheld
+PASS 84: definite value plus unconfirmed value is insufficient
+PASS 85: project isolation for history and retrieval
+PASS 86: task delivery confined to its issuing project
+PASS 87: named project produces resolvable project-local citations
+PASS 88: switching back restores original project scope
+PASS 89: unknown value is insufficient factual support
+PASS 90: reject hard-linked file without elevation
+PASS 91: index rebuilt from owned revisions after restart
+PASS 92: Python name span includes BOM, CRLF, astral prefix
+PASS 93: selected Python method supplies exact multiline signature
+PASS 94: C# syntax tree locates method exactly
+PASS 95: C# header excludes attributes, body and comments
+PASS 96: withhold unsupported code request Where is Ghost defined?
+PASS 97: withhold unsupported code request Locate read
+PASS 98: withhold unsupported code request Where is Read defined in production?
+PASS 99: withhold unsupported code request Where is the class Read defined?
+PASS 100: withhold unsupported code request What is its signature?
+PASS 101: Python class declaration lookup
+PASS 102: C# class declaration lookup
+PASS 103: only completed definitions anchor follow-ups
+PASS 104: Research cannot bypass restricted code retrieval
+PASS 105: fuller exact subject survives search-term collision
+PASS 106: courtesy suffix retains literal ambiguity
+PASS 107: source declarations never become text claims
+PASS 108: authentic signature withheld after selected parent substitution
+PASS 109: delivery rechecks definitions added after submission
+PASS 110: narrowed Primary cannot hide duplicate definitions
+PASS 111: new immutable source revision
+PASS 112: pending and new follow-ups both refuse superseded parent
+PASS 113: fresh lookup uses changed revision
+PASS 114: code context isolated across projects
+PASS 115: invalid import leaves the healthy revision active
+PASS 116: same method name in two types requires clarification
+PASS 117: explicitly selected completed definition survives restart
+PASS 118: bare repeats report qualified source locations
+PASS 119: unique qualified Roslyn method and UTF-16 identifier
+PASS 120: XML documentation preserves source markup and CRLF
+PASS 121: XML summary excludes remarks
+PASS 122: C# enclosing type has independent source span
+PASS 123: struct type context
+PASS 124: struct cannot verify a class request
+PASS 125: language-specific docstring requires Python
+PASS 126: qualified overloads still ambiguous
+PASS 127: C# local function is not a member of its containing type
+PASS 128: blank line detaches C# documentation
+PASS 129: qualification cannot widen Primary authority
+PASS 130: qualified Python multiline method
+PASS 131: raw Python docstring keeps delimiters and source offsets
+PASS 132: Python enclosing class
+PASS 133: inline Python docstring in tab-indented class
+PASS 134: Python nested function and dedent preserve ownership
+PASS 135: later Python string expression cannot serve as docstring
+PASS 136: language-specific XML requires C#
+PASS 137: module function has no enclosing class
+PASS 138: unsupported qualified request: Locate reader.read
+PASS 139: unsupported qualified request: Locate Reader.read outside this project
+PASS 140: unsupported qualified request: Locate Outer.Reader.read
+PASS 141: authentic same-file documentation substitution withheld
+PASS 142: changed parent refused even with identical container span
+PASS 143: new revision invalidates pending and selected documentation
+PASS 144: fresh parent obtains new documentation
+PASS 145: file-scoped namespace uses exact qualified source span
+PASS 146: separately declared nested namespace has no single qualified source span
+PASS 147: qualified duplicate owner and member in different files stays ambiguous
+PASS 148: duplicate definition with no documentation still invalidates unique documentation selection
+PASS 149: ambiguity lists at most eight cited locations
+PASS 150: foreign project parent cannot authorize documentation
+All 150 checks passed. Temporary profile: C:\Users\ppawe\AppData\Local\Temp\atlas-next-check-8664bc6aecf64ee8bb090cfb9e08ef2b

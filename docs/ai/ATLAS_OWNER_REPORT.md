@@ -1,5 +1,11 @@
 # ATLAS Next owner report
 
+**NEXT-006 is pending independent review.** Candidate `c0e138f63ef342d5ff38a6bce1dd9cd579d1b01c` supports direct `Type.Member` lookups in selected C# and Python files. Ambiguous names display up to eight source locations. Selecting a completed definition allows a cited follow-up about attached documentation, enclosing type, an XML summary or a directly citable C# namespace. Answers recheck the parent and active revision. [Author evidence](../TEST_EVIDENCE.md) · [Canonical handoff](ATLAS_HANDOFF.md)
+
+ATLAS and preregistered ordinary search both completed 13/13 public conversations with 14 correct deliveries, 12 correct withholds and zero wrong answers. Eight conversations used pinned installed source and five used constructed C# controls. Ordinary search was faster. Clean-clone verification passed 150 Windows checks, 11 integrity checks, 31 public controls and both packaged UI runs. Both original models remain shadow-only. [Public source outcomes](../evidence/next-006/code-depth.json)
+
+## Previous independent decision
+
 **NEXT-005 is accepted with limitations after Gemini Hydrogen’s independent review.** Frozen product `42bf5a6979540f5c6e3d0d59893b0b288b1f6300` (preregistered baseline `a219e95b3313ffbfc666ce8b764053e28f239abb`, author transfer `14e3206df116db4db5a1d22bc5a4bafa83ab2225`) passed independent clean-clone builds and checks (`117/117` Windows checks, `10/10` Python integrity tests, `28/28` factual fixtures, `10/10` distribution audits, `54/72` shadow router benchmark, `16/16/14/15` frozen specialist eval + `28/28/27/28` controls, `8/8` vs `6/8` public Python code conversations), plus both Windows PowerShell 5.1 (`87bd4040...`) and PowerShell 7.6.9 (`40f27415...`) packaged two-turn C# UI runs. [Independent NEXT-005 review](../evidence/independent-review-next005.json) · [Canonical handoff](ATLAS_HANDOFF.md)
 
 **Independent verification of code navigation, security, and historical regressions (`0` wrong deliveries across all runs):**
