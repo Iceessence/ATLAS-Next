@@ -49,14 +49,45 @@ internal sealed class Routing
     // project identifier has no authority to turn a value lookup into a procedure.
     public static Passage? ProjectFact(string request,IEnumerable<Passage> candidates)
     {
-        var query=System.Text.RegularExpressions.Regex.Replace(request.TrimEnd('?', '.', '!').Trim().ToLowerInvariant(),@"\s+"," ");
-        foreach(var p in candidates.OrderByDescending(p=>p.Subject.Length))
-        {
-            if(!query.EndsWith(" "+p.Subject,StringComparison.Ordinal)) continue;
-            var framing=query[..^p.Subject.Length].TrimEnd();
-            if(Rule(framing)!="procedure") return p;
+        var query=System.Text.RegularExpressions.Regex.Replace(request.Trim().ToLowerInvariant(),@"\s+"," ");
+        query=System.Text.RegularExpressions.Regex.Replace(query,@"(?:,? please)?[?.!]?\z","");
+        var passages=candidates.OrderByDescending(p=>p.Subject.Length).ToArray();
+        // Prefer the most specific full-content proposal before a literal suffix
+        // (for example a separate "wheel" claim beside "wheel generator").
+        if(System.Text.RegularExpressions.Regex.IsMatch(query,@"^(?:please )?(?:what|which|where|how many)\b")) {
+            var requested=SearchTerms(query);
+            var matched=passages.FirstOrDefault(p=>requested.Count>0 && SearchTerms(p.Subject).SetEquals(requested));
+            if(matched!=null) return matched;
         }
+        foreach(var p in passages) {
+            if(!query.EndsWith(" "+p.Subject,StringComparison.Ordinal)) continue;
+            if(Rule(query[..^p.Subject.Length])!="procedure") return p;
+        }
+
         return null;
+    }
+
+    private static HashSet<string> SearchTerms(string text)
+    {
+        var terms=new HashSet<string>();
+        foreach(System.Text.RegularExpressions.Match word in System.Text.RegularExpressions.Regex.Matches(text,@"[\p{L}\p{N}_-]+")) {
+            var term=word.Value switch {
+                "please" or "what" or "which" or "how" or "many" or "was" or "is" or "does" or "did" or
+                "the" or "this" or "to" or "of" or "on" or "as" or "set" or "recorded" or "listed" or
+                "value" or "setting" or "for" or "accept" or "take" or "installation" or "package" or "audit" or "number" => "",
+                "arguments" => "parameters",
+                "version" when text.Contains(" require",StringComparison.Ordinal) => "",
+                "require" => "requirement",
+                "tool" or "backend" or "produced" or "built" or "generated" => "generator",
+                "installed" => "payload",
+                "check" => "checked",
+                "defined" or "declared" => "declaration",
+                "where" => "line",
+                _=>word.Value
+            };
+            if(term.Length>0) terms.Add(term);
+        }
+        return terms;
     }
 
     public static string Rule(string text)

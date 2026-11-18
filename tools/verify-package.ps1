@@ -204,7 +204,7 @@ try {
     Wait-State $window 'Ready'
     if((Control $window 'ProjectLabel').Current.Name -ne 'Active project: package-check'){throw 'Project selection failed'}
     Import-Document $session 'channel.md' "# Local handbook`r`nRestore signal colour: amber"
-    (Control $window 'Prompt').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).SetValue('What is the restore signal colour?')
+    (Control $window 'Prompt').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).SetValue('What is the restore signal colour set to, please?')
     Invoke-Control $window 'Search'
     Wait-State $window 'review'
     Invoke-Control $window 'Verify'

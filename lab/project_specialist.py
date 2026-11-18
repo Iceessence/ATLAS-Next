@@ -38,14 +38,33 @@ def cosine(q, d, idf):
     return sum(v*b.get(w,0) for w,v in a.items())/norm if norm else 0.0
 
 
+# Match the two supported imported-claim syntaxes. Headings, validity metadata,
+# and fenced examples may contain text that looks exactly like an active claim.
+CLAIM = re.compile(r"(?:- )?([^\W_][\w -]{0,95}?)(?::[ \t]+| is )\S.{0,511}?\s*$")
+
+
+def claim_keys(document):
+    fence = None
+    for line in document.removeprefix("\ufeff").splitlines():
+        marker = re.match(r"^\s*(~{3,}|\x60{3,})", line)
+        if marker:
+            run = marker[1]
+            if fence is None:
+                fence = run
+            elif run.startswith(fence) and line.strip() == run:
+                fence = None
+            continue
+        if fence is None and not line.casefold().startswith("valid through:"):
+            match = CLAIM.fullmatch(line)
+            if match:
+                yield match[1]
+
+
 def features(question, document, idf):
     q = tokens(question)
     words = set(q)
     scores = []
-    for line in document.splitlines():
-        key, sep, _ = line.partition(":")
-        if not sep:
-            continue
+    for key in claim_keys(document):
         ts = tokens(key)
         overlap = words.intersection(ts)
         grams = lambda s: {s[i:i+3] for i in range(len(s)-2)}
@@ -111,6 +130,13 @@ def predict(x, model):
     return sigmoid(np.tanh(scores)@model["v"]+model["c"] if model["v"] else scores.ravel())
 
 
+def proposal_scores(policy, row, idf, model):
+    if policy == "tfidf":
+        query = tokens(row["question"])
+        return np.array([cosine(query, tokens(doc), idf) for doc in row["documents"]])
+    return predict(np.array([features(row["question"], doc, idf) for doc in row["documents"]]), model)
+
+
 def evaluate(rows, replay, idf, model=None, policy="native", threshold=0.5):
     trials = []
     for row in rows:
@@ -119,8 +145,7 @@ def evaluate(rows, replay, idf, model=None, policy="native", threshold=0.5):
             choice = None
             probability = None
         else:
-            x = np.array([features(row["question"],d,idf) for d in row["documents"]])
-            p = x[:,0] if policy=="tfidf" else predict(x,model)
+            p = proposal_scores(policy,row,idf,model)
             choice = int(np.argmax(p))
             probability = float(p[choice])
             if probability < threshold:
@@ -219,9 +244,8 @@ def compare_suite(bundle, manifest, scratch_dir=None):
             start = time.perf_counter_ns()
             choice = None
             if policy != "host" and case["documents"]:
-                x = np.array([features(case["question"],d,bundle["idf"]) for d in case["documents"]])
                 spec = bundle["policies"].get(policy,{})
-                scores = x[:,0] if policy=="tfidf" else predict(x,spec["weights"])
+                scores = proposal_scores(policy,case,bundle["idf"],spec.get("weights"))
                 choice = int(np.argmax(scores)) if max(scores)>=spec.get("threshold",0) else -1
             scoring_us=(time.perf_counter_ns()-start)/1000 if policy!="host" else None
             if choice not in cache:

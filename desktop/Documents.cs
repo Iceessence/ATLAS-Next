@@ -9,7 +9,7 @@ using Microsoft.Win32.SafeHandles;
 namespace AtlasNext;
 
 internal record SpanAnchor(string Path,int Line,int Start,int Length);
-internal record Passage(string Subject,string Value,Citation Citation,DateOnly? ValidThrough);
+internal record Passage(string Subject,string Value,Citation Citation,DateOnly? ValidThrough,bool InstalledAudit=false);
 internal record Imported(string Id,int Version,string Name,int Claims);
 
 internal sealed class Documents(string profile,string project="default")
@@ -152,6 +152,7 @@ internal sealed class Documents(string profile,string project="default")
         DateOnly? valid=null;
         int line=0;
         string? fence=null;
+        bool installedAudit=false;
         foreach(Match row in Regex.Matches(text,@"[^\r\n]*(?:\r\n|\r|\n|\z)")) {
             line++;
             string raw=row.Value.TrimEnd('\r','\n');
@@ -165,6 +166,11 @@ internal sealed class Documents(string profile,string project="default")
                 continue;
             }
             if(fence!=null) continue;
+            if(Regex.IsMatch(content,@"^\s*#{1,6}(?:\s|$)")) {
+                installedAudit=Regex.IsMatch(content.Trim(),@"^#{1,6}\s+(?:[\w.-]+ — )?Installed payload audit$",
+                    RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+                continue;
+            }
             if(content.StartsWith("Valid through:",StringComparison.OrdinalIgnoreCase)) {
                 if(valid!=null || !DateOnly.TryParseExact(content[14..].Trim(),"yyyy-MM-dd",CultureInfo.InvariantCulture,DateTimeStyles.None,out var date))
                     throw new InvalidDataException("Supply one Valid through date in yyyy-MM-dd form.");
@@ -177,7 +183,7 @@ internal sealed class Documents(string profile,string project="default")
             string subject=Research.Subject(match.Groups["key"].Value);
             var anchor=new SpanAnchor(Path.GetRelativePath(profile,Path.Combine(root,relative)),line,row.Index+bom+value.Index,value.Length);
             var citation=new Citation(id,version,digest,Path.GetFileName(relative),"fact","owner import","owner-selected text",anchor);
-            claims.Add(new(subject,value.Value,citation,null));
+            claims.Add(new(subject,value.Value,citation,null,installedAudit));
             if(claims.Count>256) throw new InvalidDataException("Document exceeds 256 indexed claims.");
         }
         return claims.Select(p=>p with {ValidThrough=valid}).ToList();

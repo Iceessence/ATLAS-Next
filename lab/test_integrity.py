@@ -94,6 +94,13 @@ class Integrity(unittest.TestCase):
                 blind(Path(work)/"manifest.json",output)
             self.assertEqual(output.read_text(),"preserve")
 
+    def test_claim_key_features_respect_import_syntax(self):
+        from project_specialist import claim_keys, features
+        sample = "\ufeff# Notes\n~~~\nOther flag: red\n~~~\nValid through: 2030-03-02\n- Active flag is blue."
+        self.assertEqual(list(claim_keys(sample)), ["Active flag"])
+        question = "What is the active flag?"
+        self.assertEqual(features(question, sample, {})[1:], features(question, "Active flag: blue", {})[1:])
+
     def test_project_model_is_lab_only(self):
         from project_audit import DATA
         from project_specialist import CHECKPOINT, features, predict

@@ -26,7 +26,7 @@ internal static class Relevance
                 $@"(?:(?:how (?:do (?:i|we)|can (?:i|we)|to) |(?:show me )?(?:the )?(?:steps|instructions) to )?(?:restore|recover) {Snapshot}|(?:archive|snapshot) recovery (?:steps|procedure)|how (?:is {Snapshot}|are archives) (?:restored|recovered))",
             _ => null
         };
-        return question!=null && Regex.IsMatch(query,@"\A(?:please )?"+question+@"[?.!]?\z",
+        return question!=null && Regex.IsMatch(query,@"\A(?:please )?"+question+@"(?:,? please)?[?.!]?\z",
             RegexOptions.CultureInvariant | RegexOptions.NonBacktracking);
     }
 }

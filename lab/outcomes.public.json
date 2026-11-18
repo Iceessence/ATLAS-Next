@@ -191,5 +191,124 @@
       "sources": 3
     },
     "origin": "author_fixture"
+  },
+  {
+    "id": "trailing-helper",
+    "question": "What is the restore schedule set to, please?",
+    "documents": [
+      "# Owner notes 📌\r\nRestore schedule: mañana"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 0,
+      "line": 2,
+      "start": 36,
+      "length": 6,
+      "answer": "mañana"
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "recorded-after-subject",
+    "question": "Which primary latch mode was recorded?",
+    "documents": [
+      "# Owner notes 📌\r\nPrimary latch mode: standby"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 0,
+      "line": 2,
+      "start": 38,
+      "length": 7,
+      "answer": "standby"
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "argument-relation",
+    "question": "Which arguments does the secondary resolver accept?",
+    "documents": [
+      "# Owner notes 📌\r\nSecondary resolver parameters: uri, base"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 0,
+      "line": 2,
+      "start": 49,
+      "length": 9,
+      "answer": "uri, base"
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "declared-at",
+    "question": "Which line is the restore handler declared on?",
+    "documents": [
+      "# Owner notes 📌\r\nRestore handler declaration line: 312"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 0,
+      "line": 2,
+      "start": 52,
+      "length": 3,
+      "answer": "312"
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "modifier-relation",
+    "question": "Which arguments does the secondary resolver accept?",
+    "documents": [
+      "Primary resolver parameters: uri"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "unsupported",
+      "sources": 0
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "unscoped-count",
+    "question": "How many installed files did the audit check?",
+    "documents": [
+      "# Other audit\nChecked payload files: 4"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "insufficient",
+      "sources": 1
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "helper-constraint",
+    "question": "What is the restore schedule set to for the next release?",
+    "documents": [
+      "Restore schedule: weekly"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "unsupported",
+      "sources": 0
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "pinned-helper",
+    "question": "How is the export receipt formatted, please?",
+    "documents": [],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "record": "fact.format",
+      "answer": "An exported task receipt is a UTF-8 JSON file."
+    },
+    "origin": "author_fixture"
   }
 ]

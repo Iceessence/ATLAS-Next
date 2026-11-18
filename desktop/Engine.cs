@@ -52,7 +52,7 @@ internal sealed class Engine(string profile) : IDisposable
                 }
             }
             var finding=Research.Assess(request,library,passages);
-            task=task with {Proposal=proposed,Specialist=route,PrimaryCandidateId=candidate?.Citation.Id,Router="deterministic-route-v4",ResearchReview=finding.Assessment};
+            task=task with {Proposal=proposed,Specialist=route,PrimaryCandidateId=candidate?.Citation.Id,Router="deterministic-route-v5",ResearchReview=finding.Assessment};
             if(candidate==null || finding.Source==null || !finding.Assessment.Sources.Contains(candidate.Citation))
                 task=(task with {Authorization="no matching scoped record",Verification="answer withheld",
                     AnswerRelevance=finding.Source==null ? finding.Assessment.RequestRelevance : "unsupported",

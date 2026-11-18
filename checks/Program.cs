@@ -123,6 +123,13 @@ internal static class Checks
             File.WriteAllText(Path.Combine(profile,"tasks",revoked.Id.ToString("N")+".json"),
                 JsonSerializer.Serialize(revoked with {Authorization="pending"},Assets.Json));
             Check(e.Finish(revoked.Id).State=="failed","research evidence cannot replace host authorization");
+            foreach(var field in new[]{"Scope","Specialist"}) {
+                var issued=e.Submit(Guid.NewGuid(),"What is the Orion colour set to, please?");
+                Check(issued.State=="review",$"paraphrase issued before changing {field}");
+                var altered=field=="Scope" ? issued with {Scope="public-demo"} : issued with {Specialist="procedure"};
+                File.WriteAllText(Path.Combine(profile,"tasks",issued.Id.ToString("N")+".json"),JsonSerializer.Serialize(altered,Assets.Json));
+                Check(e.Finish(issued.Id).State=="failed",$"delivery rejects a changed {field}");
+            }
             var waiting=e.Submit(Guid.NewGuid(),question);
             var second=Path.Combine(root,"second.txt");
             File.WriteAllText(second,"Orion colour is green.");
@@ -171,6 +178,40 @@ internal static class Checks
                 ("Name the configure guide title.","Amber"),("Which value is recorded for the recovery steps count?","6")})
                 Check(Ask(e,prompt) is {State:"completed",Specialist:"fact"} found && found.Result==value,
                     $"affirmative imported lookup: {prompt}");
+            var relations=Path.Combine(root,"relations.md");
+            const string relationText="# Repair notes 🔧\r\nPrimary decoder parameters: α, β\r\n"+
+                "Secondary decoder declaration line: 71\r\nRuby requirement: >=3.2\r\n"+
+                "Wheel generator: forge 2\r\nWheel: legacy\r\n# Installed payload audit\r\nChecked payload files: 17";
+            File.WriteAllText(relations,relationText);
+            e.Import(relations);
+            foreach(var (prompt,value) in new[]{
+                ("Which parameters does the primary decoder take, please?","α, β"),
+                ("Where is the secondary decoder declared?","71"),
+                ("What Ruby version does the package require?",">=3.2"),
+                ("Which tool generated the wheel?","forge 2"),
+                ("How many installed files did the audit check?","17"),
+                ("What is the configure guide title recorded as?","Amber")}) {
+                var answer=Ask(e,prompt);
+                Check(answer is {State:"completed",ResearchReview.Verdict:"supported",Evidence.Span:{} anchor} &&
+                    answer.Result==value && File.ReadAllText(Path.Combine(profile,anchor.Path)).Substring(anchor.Start,anchor.Length)==value,
+                    $"whole request and exact UTF-16 evidence for {prompt}");
+            }
+            foreach(var prompt in new[]{"Which parameters does the secondary decoder take?",
+                "Which parameters does the primary decoder take in recovery mode?",
+                "Where is the secondary decoder declared and who owns it?",
+                "How many modified installed files did the audit check?",
+                "What Ruby version does the previous installation require?",
+                "What is the configure guide title recorded as in production?"})
+                Check(Ask(e,prompt) is {State:"needs clarification",Evidence:null},$"unsupported constraint withheld for {prompt}");
+            File.WriteAllText(relations,"# Download audit\nChecked payload files: 99\nRuby requirement: enabled\nSecondary decoder declaration line: unknown");
+            e.Import(relations);
+            foreach(var prompt in new[]{"How many installed files did the audit check?","What Ruby version does the package require?",
+                "Where is the secondary decoder declared?"})
+                Check(Ask(e,prompt) is {State:"needs clarification",ResearchReview.Verdict:"insufficient"},$"missing relation evidence withheld for {prompt}");
+            File.WriteAllText(relations,"Local switch: amber\nLocal switch set to: violet");
+            e.Import(relations);
+            Check(Ask(e,"What is the local switch set to?") is {State:"needs clarification",ResearchReview.Verdict:"ambiguous"},
+                "helper and literal project name collision requires clarification");
             Check(Ask(e,"How do I restore an archive?").Evidence?.Id=="procedure.restore",
                 "generic imported subject cannot displace a handbook procedure");
             Check(Ask(e,"What is the archive restoration?").State=="needs clarification","unanswered definition withheld");
