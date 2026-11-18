@@ -1,0 +1,1 @@
+Trained on 64 measured proposals across four upstream families, 16 successful.

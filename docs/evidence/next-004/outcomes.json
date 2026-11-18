@@ -1,0 +1,1259 @@
+{
+  "suite_sha256": "7bf86a623666e75b12e5cb5acb5490931afb2b49f21d93da9f7e044975cb8124",
+  "scope": "author-public",
+  "passed": 21,
+  "total": 21,
+  "trials": [
+    {
+      "id": "unicode",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "document": true,
+        "version": true,
+        "digest": true,
+        "path": true,
+        "span": true,
+        "extract": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "document": 0,
+        "line": 2,
+        "start": 25,
+        "length": 7,
+        "answer": "c\u00e9ladon"
+      },
+      "result": "c\u00e9ladon",
+      "evidence": {
+        "id": "doc-1d3aebfb7c9a661da24780a0700f63db362b274104a81734c76a261c142ba1cb",
+        "version": 1,
+        "digest": "ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939",
+        "source": "source-0.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "knowledge\\doc-1d3aebfb7c9a661da24780a0700f63db362b274104a81734c76a261c142ba1cb\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
+          "line": 2,
+          "start": 25,
+          "length": 7
+        }
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "active revision; undated source",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-1d3aebfb7c9a661da24780a0700f63db362b274104a81734c76a261c142ba1cb",
+            "version": 1,
+            "digest": "ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-1d3aebfb7c9a661da24780a0700f63db362b274104a81734c76a261c142ba1cb\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
+              "line": 2,
+              "start": 25,
+              "length": 7
+            }
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 96457.8,
+      "process_ms": 253.47240001428872,
+      "working_set_bytes": 74108928
+    },
+    {
+      "id": "predicate",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "document": true,
+        "version": true,
+        "digest": true,
+        "path": true,
+        "span": true,
+        "extract": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "document": 0,
+        "line": 1,
+        "start": 19,
+        "length": 10,
+        "answer": "six ticks."
+      },
+      "result": "six ticks.",
+      "evidence": {
+        "id": "doc-1e5f39cfbeb49eb55b4c9ab2faf0904017906c1d4cc45ca30c68164e00c03e1f",
+        "version": 1,
+        "digest": "b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6",
+        "source": "source-0.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "knowledge\\doc-1e5f39cfbeb49eb55b4c9ab2faf0904017906c1d4cc45ca30c68164e00c03e1f\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
+          "line": 1,
+          "start": 19,
+          "length": 10
+        }
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "active revision; undated source",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-1e5f39cfbeb49eb55b4c9ab2faf0904017906c1d4cc45ca30c68164e00c03e1f",
+            "version": 1,
+            "digest": "b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-1e5f39cfbeb49eb55b4c9ab2faf0904017906c1d4cc45ca30c68164e00c03e1f\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
+              "line": 1,
+              "start": 19,
+              "length": 10
+            }
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 96105.8,
+      "process_ms": 246.19959999108687,
+      "working_set_bytes": 74285056
+    },
+    {
+      "id": "equal",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "document": true,
+        "version": true,
+        "digest": true,
+        "path": true,
+        "span": true,
+        "extract": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "document": 0,
+        "line": 1,
+        "start": 13,
+        "length": 7,
+        "answer": "evening",
+        "equivalent_documents": [
+          1
+        ]
+      },
+      "result": "evening",
+      "evidence": {
+        "id": "doc-8707fed7842de42cab42e4bdc67ef89bfe32761a9d8b61db6070f2e7de355367",
+        "version": 1,
+        "digest": "a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a",
+        "source": "source-1.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "knowledge\\doc-8707fed7842de42cab42e4bdc67ef89bfe32761a9d8b61db6070f2e7de355367\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-1.md",
+          "line": 1,
+          "start": 13,
+          "length": 7
+        }
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "active revision; undated source",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-8707fed7842de42cab42e4bdc67ef89bfe32761a9d8b61db6070f2e7de355367",
+            "version": 1,
+            "digest": "a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a",
+            "source": "source-1.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-8707fed7842de42cab42e4bdc67ef89bfe32761a9d8b61db6070f2e7de355367\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-1.md",
+              "line": 1,
+              "start": 13,
+              "length": 7
+            }
+          },
+          {
+            "id": "doc-d6c3f157678fa08a1161b493cc89f2b8db2b18412e4c4e2b1e7fb179a9e58acc",
+            "version": 1,
+            "digest": "a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-d6c3f157678fa08a1161b493cc89f2b8db2b18412e4c4e2b1e7fb179a9e58acc\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
+              "line": 1,
+              "start": 13,
+              "length": 7
+            }
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 99826.7,
+      "process_ms": 254.40309999976307,
+      "working_set_bytes": 73736192
+    },
+    {
+      "id": "conflict",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "contradiction",
+        "sources": 2
+      },
+      "result": "Active sources give different definite values for the same subject.",
+      "evidence": null,
+      "research": {
+        "verdict": "contradiction",
+        "detail": "Active sources give different definite values for the same subject.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [
+          {
+            "id": "doc-a380abe6f4eab1f719736056a41bbd308f0d21b788db5891b55aecbdff2d6d34",
+            "version": 1,
+            "digest": "3c054c102068c323ecdcd49337285ff1aa29f1863ab22c5ed43e8f3f14c85d5c",
+            "source": "source-1.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-a380abe6f4eab1f719736056a41bbd308f0d21b788db5891b55aecbdff2d6d34\\00000001-3c054c102068c323ecdcd49337285ff1aa29f1863ab22c5ed43e8f3f14c85d5c\\source-1.md",
+              "line": 1,
+              "start": 16,
+              "length": 7
+            }
+          },
+          {
+            "id": "doc-be023ba9d996d7049e9e73399b83f5f89421d9304140963c85182eda9ee0b3cb",
+            "version": 1,
+            "digest": "6593742f73e6f525328d2359d73d49f94f4f64589405867a9a9df494f1872db8",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-be023ba9d996d7049e9e73399b83f5f89421d9304140963c85182eda9ee0b3cb\\00000001-6593742f73e6f525328d2359d73d49f94f4f64589405867a9a9df494f1872db8\\source-0.md",
+              "line": 1,
+              "start": 16,
+              "length": 7
+            }
+          }
+        ],
+        "requestRelevance": "subject and intent matched",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 101469.3,
+      "process_ms": 267.63080002274364,
+      "working_set_bytes": 73912320
+    },
+    {
+      "id": "handbook-conflict",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "contradiction",
+        "sources": 2
+      },
+      "result": "Active sources give different definite values for the same subject.",
+      "evidence": null,
+      "research": {
+        "verdict": "contradiction",
+        "detail": "Active sources give different definite values for the same subject.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [
+          {
+            "id": "fact.retention",
+            "version": 1,
+            "digest": "3c4f51ca67d734573a02e468b46c5b56f0f15e3499f3312b064b9216f8658ba6",
+            "source": "ATLAS Next demo handbook \u00a71",
+            "type": "fact",
+            "origin": "ATLAS authored fixture",
+            "trust": "reviewable fixture",
+            "span": null
+          },
+          {
+            "id": "doc-9a618cde435069baad671cea0af2c88c3d0dab76b725887364f861f1e4305e11",
+            "version": 1,
+            "digest": "88737aa120aae7ca4a92fc3d1b03b455c9d51a5ef5d3750b56018acc4424462f",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-9a618cde435069baad671cea0af2c88c3d0dab76b725887364f861f1e4305e11\\00000001-88737aa120aae7ca4a92fc3d1b03b455c9d51a5ef5d3750b56018acc4424462f\\source-0.md",
+              "line": 1,
+              "start": 26,
+              "length": 7
+            }
+          }
+        ],
+        "requestRelevance": "subject and intent matched",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 93346.8,
+      "process_ms": 248.3864999958314,
+      "working_set_bytes": 73342976
+    },
+    {
+      "id": "other-subject",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "unsupported",
+        "sources": 0
+      },
+      "result": "No current source explicitly supports the requested subject and intent.",
+      "evidence": null,
+      "research": {
+        "verdict": "unsupported",
+        "detail": "No current source explicitly supports the requested subject and intent.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [],
+        "requestRelevance": "unsupported",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 92041.4,
+      "process_ms": 240.7731999992393,
+      "working_set_bytes": 74006528
+    },
+    {
+      "id": "extra-intent",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "unsupported",
+        "sources": 0
+      },
+      "result": "No current source explicitly supports the requested subject and intent.",
+      "evidence": null,
+      "research": {
+        "verdict": "unsupported",
+        "detail": "No current source explicitly supports the requested subject and intent.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [],
+        "requestRelevance": "unsupported",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 92900.2,
+      "process_ms": 245.3500000119675,
+      "working_set_bytes": 74035200
+    },
+    {
+      "id": "expired",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "stale",
+        "sources": 1
+      },
+      "result": "A matching source is past its declared validity date.",
+      "evidence": null,
+      "research": {
+        "verdict": "stale",
+        "detail": "A matching source is past its declared validity date.",
+        "freshness": "expired",
+        "trust": "see cited source metadata",
+        "sources": [
+          {
+            "id": "doc-f8da411f0a1e441b442e2c960f4daa5734860ba67aed33c41e4c2755d000e1eb",
+            "version": 1,
+            "digest": "57450b808c5365d5995a778c49eae2ae4c67509422cf72fdc4406b0c6a88c1d9",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-f8da411f0a1e441b442e2c960f4daa5734860ba67aed33c41e4c2755d000e1eb\\00000001-57450b808c5365d5995a778c49eae2ae4c67509422cf72fdc4406b0c6a88c1d9\\source-0.md",
+              "line": 2,
+              "start": 38,
+              "length": 5
+            }
+          }
+        ],
+        "requestRelevance": "subject and intent matched",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 91040.7,
+      "process_ms": 252.12189997546375,
+      "working_set_bytes": 75030528
+    },
+    {
+      "id": "fence",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "unsupported",
+        "sources": 0
+      },
+      "result": "No current source explicitly supports the requested subject and intent.",
+      "evidence": null,
+      "research": {
+        "verdict": "unsupported",
+        "detail": "No current source explicitly supports the requested subject and intent.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [],
+        "requestRelevance": "unsupported",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 101410.1,
+      "process_ms": 240.85319999721833,
+      "working_set_bytes": 73916416
+    },
+    {
+      "id": "handbook",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "record": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "record": "fact.retention",
+        "answer": "The demonstration archive retains completed exports for 30 days."
+      },
+      "result": "The demonstration archive retains completed exports for 30 days.",
+      "evidence": {
+        "id": "fact.retention",
+        "version": 1,
+        "digest": "3c4f51ca67d734573a02e468b46c5b56f0f15e3499f3312b064b9216f8658ba6",
+        "source": "ATLAS Next demo handbook \u00a71",
+        "type": "fact",
+        "origin": "ATLAS authored fixture",
+        "trust": "reviewable fixture",
+        "span": null
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "pinned revision",
+        "trust": "reviewable fixture",
+        "sources": [
+          {
+            "id": "fact.retention",
+            "version": 1,
+            "digest": "3c4f51ca67d734573a02e468b46c5b56f0f15e3499f3312b064b9216f8658ba6",
+            "source": "ATLAS Next demo handbook \u00a71",
+            "type": "fact",
+            "origin": "ATLAS authored fixture",
+            "trust": "reviewable fixture",
+            "span": null
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 129038.6,
+      "process_ms": 226.54180001700297,
+      "working_set_bytes": 71917568
+    },
+    {
+      "id": "configure-flag",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "document": true,
+        "version": true,
+        "digest": true,
+        "path": true,
+        "span": true,
+        "extract": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "document": 1,
+        "line": 1,
+        "start": 16,
+        "length": 5,
+        "answer": "local"
+      },
+      "result": "local",
+      "evidence": {
+        "id": "doc-ddf0ddec519678425b9b55c92233ffac0012c0dba5c0e82c385d6040a97cefeb",
+        "version": 1,
+        "digest": "c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7",
+        "source": "source-1.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "knowledge\\doc-ddf0ddec519678425b9b55c92233ffac0012c0dba5c0e82c385d6040a97cefeb\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
+          "line": 1,
+          "start": 16,
+          "length": 5
+        }
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "active revision; undated source",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-ddf0ddec519678425b9b55c92233ffac0012c0dba5c0e82c385d6040a97cefeb",
+            "version": 1,
+            "digest": "c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7",
+            "source": "source-1.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-ddf0ddec519678425b9b55c92233ffac0012c0dba5c0e82c385d6040a97cefeb\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
+              "line": 1,
+              "start": 16,
+              "length": 5
+            }
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 103488.2,
+      "process_ms": 272.00789999915287,
+      "working_set_bytes": 74063872
+    },
+    {
+      "id": "unconfirmed-restore",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "insufficient",
+        "sources": 2
+      },
+      "result": "At least one matching source leaves the value unconfirmed.",
+      "evidence": null,
+      "research": {
+        "verdict": "insufficient",
+        "detail": "At least one matching source leaves the value unconfirmed.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [
+          {
+            "id": "doc-b24b16f968272e55f0dc9cb8f57eec10a7c78196d82cd5da60c415b8fd217114",
+            "version": 1,
+            "digest": "c000fc9c300c2d873d96c9c6b9dff3fb6cc0b46236d9fdc4b926c64c8bc9afc6",
+            "source": "source-1.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-b24b16f968272e55f0dc9cb8f57eec10a7c78196d82cd5da60c415b8fd217114\\00000001-c000fc9c300c2d873d96c9c6b9dff3fb6cc0b46236d9fdc4b926c64c8bc9afc6\\source-1.md",
+              "line": 1,
+              "start": 16,
+              "length": 12
+            }
+          },
+          {
+            "id": "doc-f5dcf9541c64de24ad4d21c9c088d19b418d8d36ea81b2fa2166eef9d8a2353a",
+            "version": 1,
+            "digest": "8afb7dd1108866b84f543a74f2f0174ac27c9b96706314e9a903fb10edc2f927",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-f5dcf9541c64de24ad4d21c9c088d19b418d8d36ea81b2fa2166eef9d8a2353a\\00000001-8afb7dd1108866b84f543a74f2f0174ac27c9b96706314e9a903fb10edc2f927\\source-0.md",
+              "line": 1,
+              "start": 16,
+              "length": 4
+            }
+          }
+        ],
+        "requestRelevance": "subject and intent matched",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 98946.9,
+      "process_ms": 258.83529998827726,
+      "working_set_bytes": 74338304
+    },
+    {
+      "id": "definite-conflict-with-unknown",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "contradiction",
+        "sources": 3
+      },
+      "result": "Active sources give different definite values for the same subject.",
+      "evidence": null,
+      "research": {
+        "verdict": "contradiction",
+        "detail": "Active sources give different definite values for the same subject.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [
+          {
+            "id": "doc-1215c37d609bd9f29f07bf43aab0efc0f443823d395a2e519976a5fd36e87df9",
+            "version": 1,
+            "digest": "4bd54bf02bb20a11a85af29ebd144ef4e74450d6860ab4cac7d4b97e0d98a21c",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-1215c37d609bd9f29f07bf43aab0efc0f443823d395a2e519976a5fd36e87df9\\00000001-4bd54bf02bb20a11a85af29ebd144ef4e74450d6860ab4cac7d4b97e0d98a21c\\source-0.md",
+              "line": 1,
+              "start": 17,
+              "length": 3
+            }
+          },
+          {
+            "id": "doc-1d1f7bd5e2012b2317ab6d10629fea1094be73cf890dd7bc7f14f088162c914a",
+            "version": 1,
+            "digest": "c66a4450cb96609f4937452840520ee2d80a9f83fa73218c0cd8935d70a44f8c",
+            "source": "source-2.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-1d1f7bd5e2012b2317ab6d10629fea1094be73cf890dd7bc7f14f088162c914a\\00000001-c66a4450cb96609f4937452840520ee2d80a9f83fa73218c0cd8935d70a44f8c\\source-2.md",
+              "line": 1,
+              "start": 17,
+              "length": 7
+            }
+          },
+          {
+            "id": "doc-4baca2a53f72b5198879f2b1c93f26e4289e4db24b76cc450b1b46049a2a4875",
+            "version": 1,
+            "digest": "8dfc9339835678aae91f86a45f58c6739ba70148bd86995490a4e64aa78896a5",
+            "source": "source-1.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-4baca2a53f72b5198879f2b1c93f26e4289e4db24b76cc450b1b46049a2a4875\\00000001-8dfc9339835678aae91f86a45f58c6739ba70148bd86995490a4e64aa78896a5\\source-1.md",
+              "line": 1,
+              "start": 17,
+              "length": 4
+            }
+          }
+        ],
+        "requestRelevance": "subject and intent matched",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 98054.6,
+      "process_ms": 275.7221999927424,
+      "working_set_bytes": 73601024
+    },
+    {
+      "id": "trailing-helper",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "document": true,
+        "version": true,
+        "digest": true,
+        "path": true,
+        "span": true,
+        "extract": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "document": 0,
+        "line": 2,
+        "start": 36,
+        "length": 6,
+        "answer": "ma\u00f1ana"
+      },
+      "result": "ma\u00f1ana",
+      "evidence": {
+        "id": "doc-a00e2cc8064eccca0734ec351589a4e9ae44e4b6b50d029f25a4181eac4a8579",
+        "version": 1,
+        "digest": "0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b",
+        "source": "source-0.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "knowledge\\doc-a00e2cc8064eccca0734ec351589a4e9ae44e4b6b50d029f25a4181eac4a8579\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
+          "line": 2,
+          "start": 36,
+          "length": 6
+        }
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "active revision; undated source",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-a00e2cc8064eccca0734ec351589a4e9ae44e4b6b50d029f25a4181eac4a8579",
+            "version": 1,
+            "digest": "0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-a00e2cc8064eccca0734ec351589a4e9ae44e4b6b50d029f25a4181eac4a8579\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
+              "line": 2,
+              "start": 36,
+              "length": 6
+            }
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 98271,
+      "process_ms": 250.363400002243,
+      "working_set_bytes": 73981952
+    },
+    {
+      "id": "recorded-after-subject",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "document": true,
+        "version": true,
+        "digest": true,
+        "path": true,
+        "span": true,
+        "extract": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "document": 0,
+        "line": 2,
+        "start": 38,
+        "length": 7,
+        "answer": "standby"
+      },
+      "result": "standby",
+      "evidence": {
+        "id": "doc-3d378619d5b2b8ae97be240efad6004f7470746177a9e9d6772830c342edd3a9",
+        "version": 1,
+        "digest": "142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f",
+        "source": "source-0.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "knowledge\\doc-3d378619d5b2b8ae97be240efad6004f7470746177a9e9d6772830c342edd3a9\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
+          "line": 2,
+          "start": 38,
+          "length": 7
+        }
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "active revision; undated source",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-3d378619d5b2b8ae97be240efad6004f7470746177a9e9d6772830c342edd3a9",
+            "version": 1,
+            "digest": "142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-3d378619d5b2b8ae97be240efad6004f7470746177a9e9d6772830c342edd3a9\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
+              "line": 2,
+              "start": 38,
+              "length": 7
+            }
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 102962.9,
+      "process_ms": 257.3349000012968,
+      "working_set_bytes": 73842688
+    },
+    {
+      "id": "argument-relation",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "document": true,
+        "version": true,
+        "digest": true,
+        "path": true,
+        "span": true,
+        "extract": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "document": 0,
+        "line": 2,
+        "start": 49,
+        "length": 9,
+        "answer": "uri, base"
+      },
+      "result": "uri, base",
+      "evidence": {
+        "id": "doc-a45c3949ed3b228946d8278112594cda92e136ed6f87020a9a9155af94e317bb",
+        "version": 1,
+        "digest": "79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4",
+        "source": "source-0.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "knowledge\\doc-a45c3949ed3b228946d8278112594cda92e136ed6f87020a9a9155af94e317bb\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
+          "line": 2,
+          "start": 49,
+          "length": 9
+        }
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "active revision; undated source",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-a45c3949ed3b228946d8278112594cda92e136ed6f87020a9a9155af94e317bb",
+            "version": 1,
+            "digest": "79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-a45c3949ed3b228946d8278112594cda92e136ed6f87020a9a9155af94e317bb\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
+              "line": 2,
+              "start": 49,
+              "length": 9
+            }
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 99648.8,
+      "process_ms": 262.7867999835871,
+      "working_set_bytes": 73887744
+    },
+    {
+      "id": "declared-at",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "document": true,
+        "version": true,
+        "digest": true,
+        "path": true,
+        "span": true,
+        "extract": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "document": 0,
+        "line": 2,
+        "start": 52,
+        "length": 3,
+        "answer": "312"
+      },
+      "result": "312",
+      "evidence": {
+        "id": "doc-4697120bceb225090039af12fc6526f17aabe49394262724f60acac4b7abfc15",
+        "version": 1,
+        "digest": "d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32",
+        "source": "source-0.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "knowledge\\doc-4697120bceb225090039af12fc6526f17aabe49394262724f60acac4b7abfc15\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
+          "line": 2,
+          "start": 52,
+          "length": 3
+        }
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "active revision; undated source",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-4697120bceb225090039af12fc6526f17aabe49394262724f60acac4b7abfc15",
+            "version": 1,
+            "digest": "d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-4697120bceb225090039af12fc6526f17aabe49394262724f60acac4b7abfc15\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
+              "line": 2,
+              "start": 52,
+              "length": 3
+            }
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 99422.9,
+      "process_ms": 261.87029998982325,
+      "working_set_bytes": 74080256
+    },
+    {
+      "id": "modifier-relation",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "unsupported",
+        "sources": 0
+      },
+      "result": "No current source explicitly supports the requested subject and intent.",
+      "evidence": null,
+      "research": {
+        "verdict": "unsupported",
+        "detail": "No current source explicitly supports the requested subject and intent.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [],
+        "requestRelevance": "unsupported",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 91678.1,
+      "process_ms": 243.52600000565872,
+      "working_set_bytes": 73564160
+    },
+    {
+      "id": "unscoped-count",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "insufficient",
+        "sources": 1
+      },
+      "result": "The payload count lacks installed-payload audit context.",
+      "evidence": null,
+      "research": {
+        "verdict": "insufficient",
+        "detail": "The payload count lacks installed-payload audit context.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [
+          {
+            "id": "doc-b9f2fe793f7505db025ff63eba1a6f0bb653290cddf544b797134288f16d69fa",
+            "version": 1,
+            "digest": "aa8b3b5a9d26530aba817854a8403db32d3f2ae8db899ff45134a118e016753d",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-b9f2fe793f7505db025ff63eba1a6f0bb653290cddf544b797134288f16d69fa\\00000001-aa8b3b5a9d26530aba817854a8403db32d3f2ae8db899ff45134a118e016753d\\source-0.md",
+              "line": 2,
+              "start": 37,
+              "length": 1
+            }
+          }
+        ],
+        "requestRelevance": "subject and intent matched",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 93094.8,
+      "process_ms": 245.0185999914538,
+      "working_set_bytes": 73617408
+    },
+    {
+      "id": "helper-constraint",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "withheld": true,
+        "source_count": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "needs clarification",
+      "expected": {
+        "state": "needs clarification",
+        "verdict": "unsupported",
+        "sources": 0
+      },
+      "result": "No current source explicitly supports the requested subject and intent.",
+      "evidence": null,
+      "research": {
+        "verdict": "unsupported",
+        "detail": "No current source explicitly supports the requested subject and intent.",
+        "freshness": "undetermined",
+        "trust": "see cited source metadata",
+        "sources": [],
+        "requestRelevance": "unsupported",
+        "factualSupport": "insufficient for delivery"
+      },
+      "engine_us": 90031.5,
+      "process_ms": 241.76449998049065,
+      "working_set_bytes": 74461184
+    },
+    {
+      "id": "pinned-helper",
+      "passed": true,
+      "checks": {
+        "state": true,
+        "verdict": true,
+        "advisory": true,
+        "integrity": true,
+        "relevance": true,
+        "answer": true,
+        "record": true
+      },
+      "origin": "author_fixture",
+      "outcome_receipt": null,
+      "state": "completed",
+      "expected": {
+        "state": "completed",
+        "verdict": "supported",
+        "record": "fact.format",
+        "answer": "An exported task receipt is a UTF-8 JSON file."
+      },
+      "result": "An exported task receipt is a UTF-8 JSON file.",
+      "evidence": {
+        "id": "fact.format",
+        "version": 1,
+        "digest": "333b18ffe5ba819b04270696cb3d50be3c7df5f22555a83211cfc3e4af985ba5",
+        "source": "ATLAS Next demo handbook \u00a73",
+        "type": "fact",
+        "origin": "ATLAS authored fixture",
+        "trust": "reviewable fixture",
+        "span": null
+      },
+      "research": {
+        "verdict": "supported",
+        "detail": "Exact subject and lookup intent supported by the listed source passages.",
+        "freshness": "pinned revision",
+        "trust": "reviewable fixture",
+        "sources": [
+          {
+            "id": "fact.format",
+            "version": 1,
+            "digest": "333b18ffe5ba819b04270696cb3d50be3c7df5f22555a83211cfc3e4af985ba5",
+            "source": "ATLAS Next demo handbook \u00a73",
+            "type": "fact",
+            "origin": "ATLAS authored fixture",
+            "trust": "reviewable fixture",
+            "span": null
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "engine_us": 112382.6,
+      "process_ms": 210.76679998077452,
+      "working_set_bytes": 70492160
+    }
+  ]
+}

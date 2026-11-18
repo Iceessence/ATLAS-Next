@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  Restored C:\Users\ppawe\AppData\Local\Temp\a3-4f97ee98\desktop\AtlasNext.csproj (in 51 ms).
+  Restored C:\Users\ppawe\AppData\Local\Temp\a3-4f97ee98\checks\AtlasNext.Checks.csproj (in 57 ms).
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\a3-4f97ee98\desktop\bin\Release\net10.0-windows\AtlasNext.dll
+  AtlasNext.Checks -> C:\Users\ppawe\AppData\Local\Temp\a3-4f97ee98\checks\bin\Release\net10.0-windows\AtlasNext.Checks.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.49

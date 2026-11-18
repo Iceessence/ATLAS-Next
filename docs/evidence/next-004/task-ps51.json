@@ -1,0 +1,75 @@
+{
+  "id": "bacaff3c-0aab-49a6-b108-cebb212811bd",
+  "request": "How long is the archive retention policy?",
+  "schema": 1,
+  "project": "default",
+  "kind": "knowledge.lookup",
+  "authority": "local desktop owner",
+  "scope": "public-demo",
+  "dependencies": [],
+  "capability": "read pinned public catalog",
+  "budget": "2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",
+  "inferenceMicroseconds": 7408,
+  "processWorkingSetBytes": 122748928,
+  "router": "deterministic-route-v5",
+  "primaryCandidateId": "fact.retention",
+  "specialist": "fact",
+  "proposal": {
+    "model": "atlas-native-route-v1",
+    "origin": "original",
+    "qualification": "shadow",
+    "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "route": "fact",
+    "probability": 0.9801393685463855
+  },
+  "authorization": "allowed scoped record read",
+  "verification": "source and answer checked",
+  "sourceIntegrity": "passed",
+  "answerRelevance": "supported",
+  "researchReview": {
+    "verdict": "supported",
+    "detail": "Exact subject and lookup intent supported by the listed source passages.",
+    "freshness": "pinned revision",
+    "trust": "reviewable fixture",
+    "sources": [
+      {
+        "id": "fact.retention",
+        "version": 1,
+        "digest": "3c4f51ca67d734573a02e468b46c5b56f0f15e3499f3312b064b9216f8658ba6",
+        "source": "ATLAS Next demo handbook \u00A71",
+        "type": "fact",
+        "origin": "ATLAS authored fixture",
+        "trust": "reviewable fixture",
+        "span": null
+      }
+    ],
+    "requestRelevance": "supported",
+    "factualSupport": "stated by cited sources"
+  },
+  "evidence": {
+    "id": "fact.retention",
+    "version": 1,
+    "digest": "3c4f51ca67d734573a02e468b46c5b56f0f15e3499f3312b064b9216f8658ba6",
+    "source": "ATLAS Next demo handbook \u00A71",
+    "type": "fact",
+    "origin": "ATLAS authored fixture",
+    "trust": "reviewable fixture",
+    "span": null
+  },
+  "result": "The demonstration archive retains completed exports for 30 days.",
+  "events": [
+    {
+      "state": "queued",
+      "at": "2026-11-18T15:42:40.8677049+00:00"
+    },
+    {
+      "state": "review",
+      "at": "2026-11-18T15:42:40.9714733+00:00"
+    },
+    {
+      "state": "completed",
+      "at": "2026-11-18T15:42:41.0671049+00:00"
+    }
+  ],
+  "state": "completed"
+}

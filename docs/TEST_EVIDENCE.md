@@ -1,5 +1,37 @@
 # Author test evidence
 
+## NEXT-004 author verification
+
+Frozen product `0f57a164dc2f1437c633a7b574d350e4aced4642`, based on accepted product `bb015a42205b8c2b6e4ad4cefae99a6b116099dd` and independent handoff `3f227d4`. A fresh local clone built with `dotnet build checks -c Release --configfile NuGet.Config` produced zero warnings and errors. The checks executable passed 91/91 on Windows. This includes the original 71 checks, UTF-16 extraction across non-BMP text, paraphrases, literal-name ambiguity, unsupported modifiers, numeric and contextual evidence, project scope, journal recovery and delivery authority. The two reviewer-controlled suites remain in Hydrogen’s custody. [Build](evidence/next-004/build.txt) · [Windows checks](evidence/next-004/windows-checks.txt)
+
+Cached Python with `-B` ran `lab/test_integrity.py` (9/9), `lab/evaluate.py` (original synthetic router 54/72), `lab/outcomes.py` (21/21 constructed host outcomes) and `lab/project_audit.py` (all ten archived installed-project observations reproduced, including the previously documented 20 NumPy, 8 Pillow and 7 lxml digest discrepancies). Measured source values have upstream receipts. Questions and document projections are author-written. Neither the fixture additions nor private cases entered fitting. [Integrity](evidence/next-004/integrity.txt) · [Routing](evidence/next-004/evaluation.json) · [Fixture receipts](evidence/next-004/outcomes.json) · [Source audit](evidence/next-004/audit.txt)
+
+`OPENBLAS_NUM_THREADS=1` and `lab/project_specialist.py fit` reproduced the candidate checkpoint byte-for-byte, SHA-256 `5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07`. Four training families, 16 questions and 64 host proposals yielded 16 successful targets (previously 14). Validation used two other families and eight questions. Both selected cutoffs in the lab comparison are 0.5. The 49-parameter network selected seed 11, with 34.7 ms fit time and 19,824 peak bytes traced by Python. No runtime learning or policy promotion. [Fit and validation trials](evidence/next-004/fitting.json) · [Byte comparison](evidence/next-004/refit-digest.txt)
+
+| Frozen candidate policy | Correct document / 16 | Verified completions / 16 | Constructed outcomes / 21 | Wrong deliveries across both sets | Top-document Brier | p95 scoring µs | p95 host ms | Peak host working set MiB |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Deterministic host | 16 | 16 | 21 | 0 | — | Included in host | 110.5 | 72.1 |
+| TF-IDF | 16 | 16 | 21 | 0 | — | 100 | 113.9 | 72.5 |
+| Linear | 14 | 14 | 20 | 0 | 0.06255 | 448 | 113.9 | 72.5 |
+| Native | 15 | 15 | 21 | 0 | 0.03764 | 318 | 113.9 | 72.5 |
+
+`lab/project_specialist.py evaluate` ran all four policies on identical inputs and real host outcomes. The native policy withheld the correct document for the XlsxWriter file count (0.310 confidence). Linear also withheld the openpyxl parameters (0.384) and the constructed argument-relation case. Both now pass the original predicate-syntax fixture. The host and TF-IDF have no probability forecast. Native improved on linear and its own frozen predecessor but supplies no additional completed task over either deterministic baseline. These four unfamiliar upstream families share one audit workflow. Reported timing is a single workstation observation with overlapping verification jobs. Median cold-process time was 276–282 ms. Energy, VRAM, sustained warm-session latency and general coding usefulness were unmeasured. The host’s historical p95 was 78.2 ms with a 53.4 MiB peak, so the added coverage also has an observed cost. [Complete trials, calibration bins and costs](evidence/next-004/benchmark.json)
+
+| Same 16 measured / 21 constructed inputs | Host | TF-IDF | Linear | Native |
+| --- | ---: | ---: | ---: | ---: |
+| Accepted NEXT-003 executable and original policies | 14 / 15 | 14 / 15 | 14 / 14 | 14 / 14 |
+| NEXT-004 executable and original policies | 16 / 21 | 16 / 21 | 14 / 18 | 14 / 18 |
+| NEXT-004 executable and refitted policies | 16 / 21 | 16 / 21 | 14 / 20 | 15 / 21 |
+
+To reproduce the historical controls, clone accepted product `bb015a4` separately, build its Release checks and copy only the frozen candidate’s two public outcomes JSON files into that disposable checkout. Run the original `project_specialist.benchmark()` with the original checkpoint and feature extractor. Repeat in that checkout with `outcomes.ROOT` set to the frozen candidate build root to change only the executable. The original native Brier was 0.12028 on the repaired host. All historical and candidate comparisons had zero wrong deliveries. Earlier independent results apply to their respective historical revisions. [Original host and policies](evidence/next-004/old-policy-old-host.json) · [Original policies against repaired host](evidence/next-004/old-policy-new-host.json) · [Earlier independent review](evidence/independent-review-next003.json)
+
+| Shell running package.ps1 and verify-package.ps1 | Bytes | Verified local ZIP SHA-256 |
+| --- | ---: | --- |
+| Windows PowerShell 5.1.26100.9818 | 80,208,498 | `ab6960506785351502408a4899b556240f10996072f42788e2061634a211358f` |
+| PowerShell 7.6.9 | 94,815,329 | `60edd2e022920f7ab9b2fb383815d17dfa23a1857804956cc1d4812f11fdcc30` |
+
+Each shell used `-NoProfile -ExecutionPolicy RemoteSigned`, built its own ZIP and verified 491 inventory entries and the private runtime across three packaged launches. The packaged app imported an owner-selected file, answered “What is the restore signal colour set to, please?” with “amber”, exported its citation, and withheld delivery after a conflicting import. Reopen, cancellation, interruption and quarantine also passed. The lab checkpoint is absent from both ZIPs. The clone stayed clean. These runs used the same Windows workstation. Clean offline OS deployment, production signing and execution isolation remain open. [5.1 verification](evidence/next-004/verify-ps51.txt) · [5.1 receipt](evidence/next-004/import-ps51.json) · [7 verification](evidence/next-004/verify-ps7.txt) · [7 receipt](evidence/next-004/import-ps7.json)
+
 ## NEXT-003 author verification
 
 Candidate `bb015a42205b8c2b6e4ad4cefae99a6b116099dd` on local main, built and verified in a fresh disposable clone. The previously accepted implementation was `c1b09d6`; its documentation and review checkout was `618f870`. Under the original code, the added regression for “What is the restore manifest entries?” failed before the fix. The current app resolves the imported subject and verifies the answer from the full project. If Primary has no eligible source, a supported Research finding still withholds delivery. A revoked journal authorization also blocks delivery.
