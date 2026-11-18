@@ -1,5 +1,11 @@
 # ATLAS Next owner report
 
+**NEXT-005 is pending independent review.** The packaged Windows app can locate a case-sensitive class, method or function in an owner-selected C# or Python file, then show its exact declaration signature when the owner selects that verified result. Receipts retain the file revision, digest, line and UTF-16 span. Imports and conversations stay in the selected project. [Author verification](../TEST_EVIDENCE.md) · [Canonical handoff](ATLAS_HANDOFF.md)
+
+Across eight public two-turn conversations on pinned pyhumps and pdf2image source files, ATLAS delivered all 12 answerable turns correctly and correctly withheld four. Ordinary line search completed six conversations and truncated two multiline signatures. The host's median cold two-turn process time was 212 ms. These author-run cases demonstrate bounded navigation, with no external inference per task. They measure neither general coding ability nor independent specialist superiority. Both native policies remain in shadow. Clean-clone verification passed 117 Windows checks, 10 Python integrity tests, 28 factual fixtures and packaged UI verification in PowerShell 5.1 and 7.6.9. [Exact source trials](../evidence/next-005/code-navigation.json)
+
+## Previous independent decision
+
 **NEXT-004 is accepted with limitations after Gemini Hydrogen’s independent review.** Frozen product `0f57a164dc2f1437c633a7b574d350e4aced4642` (author transfer `3ae7a039031b476a325df6508bbcec1feadb8529`) passed clean-clone offline verification (`91/91` Windows checks, `9/9` Python integrity tests, `21/21` public outcomes, `0` external NuGet libraries), reproduced all 10 distribution audits and the byte-identical `OPENBLAS_NUM_THREADS=1` shadow checkpoint (`5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07`), reproduced both `bb015a4` historical controls, and passed cross-shell UI package verification under both Windows PowerShell 5.1 (`ab696050...`) and PowerShell 7.6.9 (`60edd2e0...`). Both shipped and freshly rebuilt ZIPs exclude the lab shadow checkpoint while retaining the advisory `assets/native.json` model (`6b9b23fc...`). [Independent NEXT-004 review](../evidence/independent-review-next004.json) · [Canonical handoff](ATLAS_HANDOFF.md)
 
 **Public and protected evaluation outcomes (`0` wrong deliveries across all runs):**

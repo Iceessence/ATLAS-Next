@@ -14,13 +14,19 @@ The default profile is `%LOCALAPPDATA%\ATLAS Next\profile`. History and exported
 
 ## Use a project document
 
-Enter a short project name and choose **Open project**, then **Import TXT or Markdown**. The native picker authorizes one local file for that project. The app starts in `default`. Open a named project again to resume its history. The three demonstration handbook records are shared. Files and lookup history from other projects are excluded from the active lookup. Project scope is an application boundary within the owner's OS account.
+Enter a short project name and choose **Open project**, then **Import project file**. The native picker authorizes one local file for that project. The app starts in `default`. Open a named project again to resume its history. The three demonstration handbook records are shared. Files and lookup history from other projects are excluded from the active lookup. Project scope is an application boundary within the owner's OS account.
 
 For example, import a UTF-8 document containing `Signal colour: amber`, then ask “What is the signal colour?” Choose **Verify and finish** and **Export receipt**. The receipt identifies the project, source name, owned revision path, SHA-256 and the exact value span. Character positions are zero-based UTF-16 offsets, including any leading BOM and original line endings. Line numbers start at one. Re-importing the same selected path with new bytes creates another immutable revision. Selecting a different original path creates a distinct document.
 
 Research & Verification reads explicit, single-line `Subject: value` or `Subject is value.` statements, including Markdown list items. Text in fenced code blocks supplies no claims. An optional `Valid through: yyyy-MM-dd` applies to the document. An undated claim is reported as undated. The supported forms include “What is …?”, “Name …” and “Which value is recorded for …?”. Competing values for the same recognized subject, expired evidence and insufficient support withhold delivery. A completed lookup reports what a source says. It does not independently establish the real-world truth of a statement or grant permission to execute it. The bounded grammar does not evaluate general prose, logical entailment, or all aliases and contradictions.
 
-Each project accepts up to 32 local TXT/Markdown documents, each at most 256 KiB and 256 indexed claims. Plaintext copies and receipts stay in the local profile. Linked paths and malformed UTF-8 are rejected. Imports never enter model training.
+Each project accepts up to 32 local TXT, Markdown, Python or C# files, each at most 256 KiB and 256 claims or declarations. Plaintext copies and receipts stay in the local profile. Linked paths and malformed UTF-8 are rejected. Imports never enter model training.
+
+## Ask about a source declaration
+
+Import a UTF-8 `.cs` or `.py` file into a named project. Ask “Where is Parse defined?” or “Locate Parse”, using the exact identifier and capitalization. Choose **Verify and finish** to see the source file, revision, line, digest and identifier span. With that completed definition selected in history, ask “What is its signature?” and verify the second turn. The receipt includes the selected parent task and the full cited header. If the file changes, re-import it and locate the symbol again. Duplicate names require clarification.
+
+C# uses the build SDK’s bundled Roslyn syntax reader. Python indexes lexical class and function headers, including methods and multiline declarations. The supported Python subset uses ASCII identifiers, UTF-8 comments and strings, ordinary parameters and bounded interpolation. Conditional C# compilation and unsupported Python lexical constructs can block an import. This lookup measures source declarations. General conversation, type inference, building and running project code are outside its scope.
 
 ## Evaluate actual lookup outcomes
 

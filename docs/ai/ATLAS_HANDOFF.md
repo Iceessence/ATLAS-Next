@@ -2,32 +2,21 @@
 
 | Field | Current assignment |
 | --- | --- |
-| Task | NEXT-005 read-only local code conversation (Roadmap Option A) + frozen C baseline |
-| State | ASSIGNED_FOR_DEVELOPMENT |
-| Next writer | GPT-6.2 Astra |
-| Accepted baseline | `0f57a164dc2f1437c633a7b574d350e4aced4642` (author transfer `3ae7a039031b476a325df6508bbcec1feadb8529`), NEXT-004 accepted with limitations |
-| Independent review receipt | [`docs/evidence/independent-review-next004.json`](../evidence/independent-review-next004.json) |
-| Windows PowerShell 5.1 ZIP (verified) | `out/ATLAS-Next-win-x64-ps51.zip`, SHA-256 `ab6960506785351502408a4899b556240f10996072f42788e2061634a211358f` (excludes lab shadow checkpoint) |
-| Canonical PowerShell 7 ZIP (verified) | `out/ATLAS-Next-win-x64.zip`, SHA-256 `60edd2e022920f7ab9b2fb383815d17dfa23a1857804956cc1d4812f11fdcc30` (excludes lab shadow checkpoint) |
-| Native routing model | `assets/native.json` (`6b9b23fc...`, 4,163 params) remains strictly `shadow` / advisory (54/72 synthetic routing) |
-| Lab document specialist | `lab/project-specialist.shadow.json` (`5c476024...`, 49 params) remains strictly `shadow` outside ZIPs (15/16 public eval, 21/21 public stress, 21/24 fresh NEXT-004 blind) |
+| Task | NEXT-005 independent review of read-only local source conversations |
+| State | PENDING_INDEPENDENT_REVIEW |
+| Next writer | Gemini Hydrogen |
+| Frozen product | `42bf5a6979540f5c6e3d0d59893b0b288b1f6300` on local main |
+| Public baseline frozen first | `a219e95b3313ffbfc666ce8b764053e28f239abb` |
+| Accepted baseline | NEXT-004 product `0f57a164dc2f1437c633a7b574d350e4aced4642`, independent review `837702c495dd0576d430c1cec0ea34f6e9ef82d2` |
+| Windows PowerShell 5.1 ZIP | `out/ATLAS-Next-win-x64-ps51.zip`, SHA-256 `87bd4040ee05b8a2067db5d5bfa395d5c5287a3409199f04c63a0af2dbe6e103` |
+| PowerShell 7 ZIP | `out/ATLAS-Next-win-x64.zip`, SHA-256 `40f2741548285b675e64d457375f10104e8984dd88dbfbafd2756623558ca568` |
+| Model status | Desktop original router `6b9b23fc…` advisory. Lab project specialist `5c476024…` shadow outside both ZIPs. Neither was refitted. |
 
-## Review Findings from NEXT-004 (Gemini Hydrogen)
+## Assignment for Hydrogen
 
-1. **Verified progress:** Clean-clone rebuild (`0` warnings/errors, `0` NuGet dependencies), `91/91` Windows checks, `9/9` integrity tests, `21/21` public outcomes, `10/10` distribution audits, byte-exact `OPENBLAS_NUM_THREADS=1` refit (`5c476024...`), `16/16/14/15` public project outcomes, `21/21/20/21` public stress outcomes, `bb015a4` historical controls, and PS 5.1 + PS 7.6.9 packaging/UI verification all passed.
-2. **Protected & fresh external challenge suites (`0` wrong deliveries across 57 external cases):** Replays passed `13/13` across all four policies on NEXT-002 and `18/20` on NEXT-003 (`native` abstentions dropped `4 -> 1`). On the new 24-case NEXT-004 external blind suite (`12` observed outcomes across unseen packages/builds + `12` fresh constructed controls), deterministic `host` and `tfidf` reached **`24/24`**, while `native` reached **`21/24`** (`3` false abstentions) and `linear` reached **`18/24`** (`6` false abstentions).
-3. **Adversarial & cost findings:** `17/17` direct C# adversarial probes confirmed `# Installed payload audit` heading reset (`insufficient`), compound version constraint acceptance (`>=5.1,<5.5`), swapped citation/tamper/project isolation, and named-project corrupt recovery. Two non-unsafe false-abstention edge bugs were observed: `Routing.SearchTerms` dropping words (`package`, `audit`, `number`, `value`, `setting`, `installation`) causes longer co-existing claims to mismatch Research, and `Research.LiteralLookup` omitting `, please` misses collision disambiguation in favor of Primary/Research mismatch. Cold lookup latency increased from `~74–76 ms` (`NEXT-003`) to `~109 ms` (`~72.4 MiB` peak working set).
+1. Independently reproduce the exact candidate in a fresh clone, including all Windows, Python, pinned public code conversation and baseline comparisons. Verify both shipped ZIPs and clean cross-shell rebuilds. Exercise actual definition and follow-up UI, revision/line/UTF-16 spans, parent IDs, project authorization, duplicate withholding and crash recovery. [Commands and exact author evidence](../TEST_EVIDENCE.md) · [Baseline protocol](../../lab/code-navigation-protocol.md)
+2. Replay the previous protected factual suites under your custody; challenge both NEXT-004 edge repairs and run new independent source conversations on unfamiliar files. Include misleading strings and comments, class/method collisions, multiline signatures, revision changes, an authentic swapped parent or citation, project switches and extra constraints. Use real source observations separately from constructed safety controls. Keep private inputs and expectations outside this checkout.
+3. Report exact correct completions, abstentions, wrong deliveries, source integrity, costs, scope limitations and use of external assistance. Author observed 8/8 public conversations versus local search 6/8, 117/117 Windows checks, 10/10 integrity tests, 28/28 factual controls and both packaged two-turn UI runs. Assess C# and Python language coverage independently.
+4. Commit the independent receipt, owner report and verdict locally on main. Assign a bounded repair if needed. On acceptance choose the next measurable owner-useful slice, identify the next writer and return the assignment to Astra through this file and the existing session where available. Preserve evaluator custody, shadow status, read-only operation, and the independent repositories. No push.
 
-## Roadmap Selection & Bounded Assignment to GPT-6.2 Astra (NEXT-005)
-
-Selected milestone from [Roadmap](../ROADMAP.md): **Option A — Local conversation and coding assistance (read-only and offline)**, with **Option C**'s independent scoring protocol frozen prior to any specialist refit, **Option B**'s citation/freshness hygiene preserved locally, and **Option D**'s execution disabled.
-
-1. **Bounded source-file symbol lookup & scoped follow-up (Option A):** Allow an owner to select/import real project source files (e.g., C# and Python files under existing size/UTF-8/link/project boundaries, strictly read-only — no execution, no auto-editing) and run a two-step read-only project conversation:
-   - Locate where a symbol (class/method/function) is defined, citing exact file revision, digest, declaration line, and UTF-16 span.
-   - Answer a scoped follow-up in the active project (e.g., its parameters/signature or enclosing source declaration) with exact revision and line citations.
-   - Safely withhold `ambiguous` (duplicate symbol definitions across files/types) or `unsupported` (unknown symbols, cross-project bleed, extra constraints) with **0 wrong deliveries**, and update cleanly across immutable new revisions when the selected source file changes.
-2. **Cleanly fix the two verified false-abstention edge bugs without regression:** Align `Routing.ProjectFact` subject collision handling with `Research` (avoid stripping distinguishing qualifiers like `package`/`audit`/`number` when an exact or fuller match exists, or validate against exact subject match) and normalize `, please` before `LiteralLookup`, adding regression checks in `checks/` and `lab/outcomes.public.json`.
-3. **Freeze the Option C baseline & local-search comparator first:** Establish an inspectable ordinary local-search baseline and record verified completions, wrong deliveries, safe abstentions, latency (cold & warm if measured), memory working set, and reference/external assistance across at least two unfamiliar codebases using public/author fixtures only (keeping Hydrogen's private evaluation suites untouched). Keep `assets/native.json` and `lab/project-specialist.shadow.json` strictly `shadow` / advisory.
-4. **Package, verify, and return for review:** Rebuild both Windows ZIPs under Windows PowerShell 5.1 and PowerShell 7.6.9, run `verify-package.ps1` across both, update `checks/`, `lab/test_integrity.py`, `docs/TEST_EVIDENCE.md`, `docs/ai/ATLAS_OWNER_REPORT.md`, and this handoff (`State = PENDING_INDEPENDENT_REVIEW`, `Next writer = Gemini Hydrogen`). Commit code separately from transfer docs/evidence locally on `main` (do not push).
-
-Keep `C:\ATLAS\Entire ATLAS`, PLATZ Engine, and FORGE untouched; keep executable automation disabled and Windows privileges unchanged.
+[Owner report](ATLAS_OWNER_REPORT.md) · [Previous independent receipt](../evidence/independent-review-next004.json) · [Owner priorities](../ROADMAP.md)

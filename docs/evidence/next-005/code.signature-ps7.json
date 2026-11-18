@@ -1,0 +1,86 @@
+{
+  "id": "4e670a82-06d4-453d-a268-d604325eedf4",
+  "request": "What is its signature?",
+  "schema": 1,
+  "parentTaskId": "43069b06-fd3c-40e0-b043-fe1066cd00ea",
+  "project": "package-check",
+  "kind": "code.lookup",
+  "authority": "local desktop owner",
+  "scope": "owner-local",
+  "dependencies": [],
+  "capability": "read owner-imported text",
+  "budget": "2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",
+  "inferenceMicroseconds": 32,
+  "processWorkingSetBytes": 253190144,
+  "router": "deterministic-route-v6",
+  "primaryCandidateId": "doc-f32e2872630c0fd2a6d82036bdad2e45580047e9ded76c9f0345cfd038b6e34e",
+  "specialist": "code.signature",
+  "proposal": {
+    "model": "atlas-native-route-v1",
+    "origin": "original",
+    "qualification": "shadow",
+    "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "route": "fact",
+    "probability": 0.9014969429808923
+  },
+  "authorization": "allowed scoped record read",
+  "verification": "source and answer checked",
+  "sourceIntegrity": "passed",
+  "answerRelevance": "supported",
+  "researchReview": {
+    "verdict": "supported",
+    "detail": "Unique source declaration supports the requested identifier and turn.",
+    "freshness": "active project revision",
+    "trust": "owner-selected source",
+    "sources": [
+      {
+        "id": "doc-f32e2872630c0fd2a6d82036bdad2e45580047e9ded76c9f0345cfd038b6e34e",
+        "version": 1,
+        "digest": "097490d91316e8c477b5299b9af1afe3b677d0fc505ac77623618b404ddff319",
+        "source": "Sample.cs",
+        "type": "code.signature",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-f32e2872630c0fd2a6d82036bdad2e45580047e9ded76c9f0345cfd038b6e34e\\00000001-097490d91316e8c477b5299b9af1afe3b677d0fc505ac77623618b404ddff319\\Sample.cs",
+          "line": 2,
+          "start": 20,
+          "length": 28
+        }
+      }
+    ],
+    "requestRelevance": "supported",
+    "factualSupport": "stated by cited sources"
+  },
+  "evidence": {
+    "id": "doc-f32e2872630c0fd2a6d82036bdad2e45580047e9ded76c9f0345cfd038b6e34e",
+    "version": 1,
+    "digest": "097490d91316e8c477b5299b9af1afe3b677d0fc505ac77623618b404ddff319",
+    "source": "Sample.cs",
+    "type": "code.signature",
+    "origin": "owner import",
+    "trust": "owner-selected source",
+    "span": {
+      "path": "projects\\project-package-check\\knowledge\\doc-f32e2872630c0fd2a6d82036bdad2e45580047e9ded76c9f0345cfd038b6e34e\\00000001-097490d91316e8c477b5299b9af1afe3b677d0fc505ac77623618b404ddff319\\Sample.cs",
+      "line": 2,
+      "start": 20,
+      "length": 28
+    }
+  },
+  "result": "public int Read(int channel)",
+  "events": [
+    {
+      "state": "queued",
+      "at": "2026-11-18T16:32:02.8210803+00:00"
+    },
+    {
+      "state": "review",
+      "at": "2026-11-18T16:32:02.8275319+00:00"
+    },
+    {
+      "state": "completed",
+      "at": "2026-11-18T16:32:02.9338801+00:00"
+    }
+  ],
+  "state": "completed"
+}

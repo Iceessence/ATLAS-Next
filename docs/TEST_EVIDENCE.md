@@ -1,5 +1,30 @@
 # Author test evidence
 
+## NEXT-005 author verification
+
+Frozen public protocol and ordinary search baseline `a219e95b3313ffbfc666ce8b764053e28f239abb` preceded product `42bf5a6979540f5c6e3d0d59893b0b288b1f6300`. Source navigation runs locally on explicitly imported files. For a follow-up the owner selects a completed definition in project history. Submit and Finish check the current project, unique declaration and revision. The signature receipt links back to the selected task. [Protocol](../lab/code-navigation-protocol.md) · [Frozen comparator](evidence/next-005/search-baseline.json)
+
+| Two pinned unfamiliar Python codebases, eight conversations | Correct cited deliveries / 12 answerable turns | Wrong deliveries | Correct abstentions / 4 | Complete conversations / 8 |
+| --- | ---: | ---: | ---: | ---: |
+| Ordinary anchored declaration-line search | 10 | 2 | 4 | 6 |
+| Frozen host and verifier | 12 | 0 | 4 | 8 |
+
+Replayed in a new checkout with cached Python 3.12.14. `python -B lab/code_navigation.py search out/search.json` and `python -B lab/code_navigation.py host out/code-navigation.json` read installed pyhumps 3.8.0 and pdf2image 1.17.0 sources by pinned digest. Python AST and tokenization independently supply expected identifier and header spans. The two search failures returned only the first line of multiline signatures. Requests and harness are author-written. Both approaches used zero external inference calls per case. External developer assistance produced the implementation and public experiment. These observations are ineligible for training or private qualification. The benchmark covers two Python files. C# coverage comes from Windows and packaged UI controls. [Search replay](evidence/next-005/search.json) · [Host trials, exact text, costs and expectations](evidence/next-005/code-navigation.json)
+
+Median in-process local search took 0.29 ms per conversation and sampled up to 25.4 MiB working set. The cold two-turn host probe took 211.9 ms median including process startup and file import, sampling up to 44.4 MiB. Inside the probe, after import, definition and follow-up submit/finish times had medians of 51.2 ms and 19.1 ms respectively. The measurements use different process boundaries. They establish an accuracy gain on these inputs at a higher observed cost. Energy, long sessions, large codebases and general coding productivity remain unmeasured.
+
+| Clean-clone author verification | Result |
+| --- | --- |
+| `dotnet build checks -c Release --configfile NuGet.Config` and `AtlasNext.Checks.exe` | 0 warnings/errors, 117/117. Includes duplicates across files and types, project isolation, swapped follow-up parent, stale revisions, BOM/CRLF/UTF-16, restart, comments, source-vs-text separation, restricted proposals and both NEXT-004 edge repairs. [Build](evidence/next-005/build.txt) · [Checks](evidence/next-005/windows-checks.txt) |
+| `python -B lab/test_integrity.py`, `lab/outcomes.py`, `lab/project_audit.py`, `lab/evaluate.py` | 10/10 integrity, 28/28 author fixtures, all ten distribution receipts reproduced, original shadow router 54/72 synthetic. [Integrity](evidence/next-005/integrity.txt) · [Fixtures](evidence/next-005/outcomes.json) · [Audit](evidence/next-005/audit.txt) · [Routing](evidence/next-005/evaluation.json) |
+| `OPENBLAS_NUM_THREADS=1` and `lab/project_specialist.py evaluate` | No refit. Host/TF-IDF/linear/native completed 16/16/14/15 of 16 public measured cases, and passed 28/28/27/28 of 28 constructed controls. Zero wrong deliveries. [Frozen-policy results](evidence/next-005/benchmark.json) |
+| Windows PowerShell 5.1.26100.9818, `package.ps1` then `verify-package.ps1` | 95,115,295 bytes, SHA-256 `87bd4040ee05b8a2067db5d5bfa395d5c5287a3409199f04c63a0af2dbe6e103`. [Verification](evidence/next-005/verify-ps51.txt) · [Definition](evidence/next-005/code.definition-ps51.json) · [Follow-up](evidence/next-005/code.signature-ps51.json) |
+| PowerShell 7.6.9, same workflow | 112,761,107 bytes, SHA-256 `40f2741548285b675e64d457375f10104e8984dd88dbfbafd2756623558ca568`. [Verification](evidence/next-005/verify-ps7.txt) · [Definition](evidence/next-005/code.definition-ps7.json) · [Follow-up](evidence/next-005/code.signature-ps7.json) |
+
+Both shells used `-NoProfile -ExecutionPolicy RemoteSigned`. Each ZIP verified 519 inventoried files and passed the actual file picker, source conversation, restart, contradiction and quarantine checks. Both packages include SDK-derived Roslyn syntax assemblies and localized resources. The original router is advisory, and the lab checkpoint stays outside the ZIP. The checks launcher initially lacked a runtime dependency entry for the parser in development. Shared SDK references for both entry points fixed that failure. The final clone stayed clean.
+
+C# uses a syntax tree without compilation or project-wide type resolution and refuses conditional compilation and syntax errors. Python recognizes a bounded lexical subset and does not certify complete Python syntax or runtime binding. Header imports can reject unsupported extensions of the grammar. Identifiers are case-sensitive, overloaded or duplicate names withhold, and a changed parent requires a new lookup. These are owner-selected files, not automatic repository inspection. Independent protected outcomes for this milestone belong to Hydrogen.
+
 ## NEXT-004 author verification
 
 Frozen product `0f57a164dc2f1437c633a7b574d350e4aced4642`, based on accepted product `bb015a42205b8c2b6e4ad4cefae99a6b116099dd` and independent handoff `3f227d4`. A fresh local clone built with `dotnet build checks -c Release --configfile NuGet.Config` produced zero warnings and errors. The checks executable passed 91/91 on Windows. This includes the original 71 checks, UTF-16 extraction across non-BMP text, paraphrases, literal-name ambiguity, unsupported modifiers, numeric and contextual evidence, project scope, journal recovery and delivery authority. The two reviewer-controlled suites remain in Hydrogen’s custody. [Build](evidence/next-004/build.txt) · [Windows checks](evidence/next-004/windows-checks.txt)
