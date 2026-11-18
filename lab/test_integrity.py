@@ -83,6 +83,17 @@ class Integrity(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate_receipt(dict(receipt,**{key:value}), "numpy")
 
+    def test_blind_comparison_refuses_public_or_existing_destinations(self):
+        from project_specialist import blind
+        with tempfile.TemporaryDirectory() as work:
+            output=Path(work)/"report.json"
+            with self.assertRaises(ValueError):
+                blind(PUBLIC,output)
+            output.write_text("preserve")
+            with self.assertRaises(ValueError):
+                blind(Path(work)/"manifest.json",output)
+            self.assertEqual(output.read_text(),"preserve")
+
     def test_project_model_is_lab_only(self):
         from project_audit import DATA
         from project_specialist import CHECKPOINT, features, predict

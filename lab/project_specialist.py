@@ -56,9 +56,9 @@ def features(question, document, idf):
     return [cosine(q,tokens(document),idf), *np.max(scores or [[0]*5],axis=0)]
 
 
-def observe(case, proposal):
+def observe(case, proposal, scratch_dir=None):
     clock = time.perf_counter_ns()
-    proc = probe(case["question"],case["documents"],proposed_document=proposal)
+    proc = probe(case["question"],case["documents"],scratch_dir=scratch_dir,proposed_document=proposal)
     wall = (time.perf_counter_ns()-clock)/1e6
     if proc.returncode:
         raise RuntimeError(f"{case['id']} probe failed: {proc.stderr[-500:]}")
@@ -137,10 +137,10 @@ def evaluate(rows, replay, idf, model=None, policy="native", threshold=0.5):
     summary = dict(total=n,route_correct=sum(t["route_correct"] for t in trials),
                    useful=sum(t["ok"] for t in trials),delivered=len(delivered),
                    wrong_deliveries=sum(not t["ok"] for t in delivered),
-                   proposed_abstentions=sum(t["proposal"]==-1 for t in trials),
+                   proposed_abstentions=sum(t["proposal"] in (-1,None) for t in trials),
                    host_withheld=n-len(delivered),coverage=len(delivered)/n,
-                   p50_scoring_us=float(np.median([t["scoring_us"] for t in trials])),
-                   p95_scoring_us=float(np.percentile([t["scoring_us"] for t in trials],95)),
+                   p50_scoring_us=None if policy=="host" else float(np.median([t["scoring_us"] for t in trials])),
+                   p95_scoring_us=None if policy=="host" else float(np.percentile([t["scoring_us"] for t in trials],95)),
                    p50_engine_us=float(np.median([t["engine_us"] for t in trials])),
                    p95_engine_us=float(np.percentile([t["engine_us"] for t in trials],95)),
                    p50_process_ms=float(np.median([t["process_ms"] for t in trials])),
@@ -208,25 +208,27 @@ def fit_experiment():
     print(f"Trained on {len(y)} measured proposals across four upstream families, {int(y.sum())} successful.")
 
 
-def stress_suite(bundle):
-    # These are public constructed regressions. Their results never enter fitting or seed selection.
-    rows, digest = load_suite(PUBLIC)
+def compare_suite(bundle, manifest, scratch_dir=None):
+    # Evaluation only. Expectations enter the scorer after inference.
+    rows, digest = load_suite(manifest)
     report = {}
     for case in rows:
         cache = {}
         trials = {}
         for policy in ("host","tfidf","linear","native"):
+            start = time.perf_counter_ns()
             choice = None
             if policy != "host" and case["documents"]:
                 x = np.array([features(case["question"],d,bundle["idf"]) for d in case["documents"]])
                 spec = bundle["policies"].get(policy,{})
                 scores = x[:,0] if policy=="tfidf" else predict(x,spec["weights"])
                 choice = int(np.argmax(scores)) if max(scores)>=spec.get("threshold",0) else -1
+            scoring_us=(time.perf_counter_ns()-start)/1000 if policy!="host" else None
             if choice not in cache:
-                cache[choice] = observe(case,choice)
-            trials[policy] = dict(proposal=choice,**cache[choice])
+                cache[choice] = observe(case,choice,scratch_dir)
+            trials[policy] = dict(proposal=choice,scoring_us=scoring_us,origin=case["origin"],**cache[choice])
         report[case["id"]]=trials
-    return dict(origin="author_fixture",suite_sha256=digest,trials=report)
+    return dict(suite_sha256=digest,trials=report)
 
 
 def benchmark():
@@ -242,14 +244,39 @@ def benchmark():
         print(policy,result[policy]["summary"])
     save(OUT/"benchmark.json",dict(qualification="shadow",checkpoint_sha256=sha(CHECKPOINT.read_bytes()),
                                   evaluation_pins=sha((DATA/"evaluation/pins.json").read_bytes()),results=result,
-                                  constructed_stress_suite=stress_suite(bundle)))
+                                  constructed_stress_suite=compare_suite(bundle,PUBLIC)))
     return result
+
+
+def blind(manifest, report):
+    manifest, report = manifest.resolve(), report.resolve()
+    if any(path.is_relative_to(ROOT) for path in (manifest,report)) or report.exists():
+        raise ValueError("Supply an external manifest and a fresh external report path")
+    bundle = json.loads(CHECKPOINT.read_bytes())
+    if bundle["qualification"]!="shadow":
+        raise ValueError("Invalid checkpoint qualification")
+    results = compare_suite(bundle,manifest,manifest.parent)
+    results.update(checkpoint_sha256=sha(CHECKPOINT.read_bytes()),qualification="shadow",scope="external")
+    with report.open("x",encoding="utf-8") as stream:
+        json.dump(results,stream,indent=2,allow_nan=False)
+    for name in ("host","tfidf","linear","native"):
+        passed=sum(t[name]["ok"] for t in results["trials"].values())
+        print(f"{name}: {passed}/{len(results['trials'])} external outcomes")
 
 
 if __name__=="__main__":
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command",choices=["fit","evaluate"])
+    parser.add_argument("command",choices=["fit","evaluate","blind"])
+    parser.add_argument("--manifest",type=Path)
+    parser.add_argument("--report",type=Path)
     args=parser.parse_args()
+    if (args.command=="blind")!=(args.manifest is not None and args.report is not None) or ((args.manifest is None)!=(args.report is None)):
+        parser.error("Only blind evaluation accepts --manifest and --report, both are required")
     if os.environ.get("OPENBLAS_NUM_THREADS")!="1":
         parser.error("Set OPENBLAS_NUM_THREADS=1 for repeatable CPU conditions")
-    fit_experiment() if args.command=="fit" else benchmark()
+    if args.command=="fit":
+        fit_experiment()
+    elif args.command=="evaluate":
+        benchmark()
+    else:
+        blind(args.manifest,args.report)
