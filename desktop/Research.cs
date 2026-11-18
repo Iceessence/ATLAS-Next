@@ -74,7 +74,7 @@ internal static class Research
 
     public static string CatalogSubject(Hit hit)=>HandbookClaim(hit).Key;
 
-    public static Hit FromPassage(Passage p)=>new(new Knowledge(p.Citation.Id,p.Citation.Version,"fact",p.Subject,
+    public static Hit FromPassage(Passage p)=>new(new Knowledge(p.Citation.Id,p.Citation.Version,p.Citation.Type,p.Subject,
         p.Value,[],"owner-local",p.Citation.Origin,p.Citation.Trust,p.Citation.Source),p.Citation);
 
     public static Finding Assess(string request,Library library,IReadOnlyList<Passage> documents)
@@ -90,9 +90,10 @@ internal static class Research
         // A helper can itself be part of a literal indexed name. If both
         // readings have evidence, a user must disambiguate before delivery.
         string normalized=Regex.Replace(request.Trim().ToLowerInvariant(),@"\s+"," ");
-        var literal=LiteralLookup.Match(normalized);
-        string? other=literal.Success ? Subject(literal.Groups["entity"].Value) : null;
-        var alternative=other!=null && other!=subject ? documents.Where(p=>p.Subject==other).ToArray() : [];
+        string courteous=Regex.Replace(normalized,@"(?:,? please)?[?.!]?\z","");
+        var otherKeys=new[]{normalized,courteous}.Distinct().Select(s=>LiteralLookup.Match(s))
+            .Where(m=>m.Success).Select(m=>Subject(m.Groups["entity"].Value)).Where(key=>key!=subject).ToHashSet();
+        var alternative=documents.Where(p=>otherKeys.Contains(p.Subject)).ToArray();
         if(alternative.Length>0) {
             var both=passages.Concat(alternative).Select(p=>p.Citation);
             if(handbook!=null) both=both.Prepend(handbook.Citation);

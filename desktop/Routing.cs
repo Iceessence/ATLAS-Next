@@ -52,11 +52,27 @@ internal sealed class Routing
         var query=System.Text.RegularExpressions.Regex.Replace(request.Trim().ToLowerInvariant(),@"\s+"," ");
         query=System.Text.RegularExpressions.Regex.Replace(query,@"(?:,? please)?[?.!]?\z","");
         var passages=candidates.OrderByDescending(p=>p.Subject.Length).ToArray();
+        // Preserve source qualifiers before applying search-term aliases. Use whole
+        // noun phrases so "wheel" alone cannot eclipse a backend/generator question.
+        var lookup=System.Text.RegularExpressions.Regex.Match(query,
+            @"\A(?:please )?(?:what is(?: the value of)?|which value is recorded for|state|name|give me) (?:the )?(?<subject>.+?)\z");
+        if(lookup.Success) {
+            var phrase=lookup.Groups["subject"].Value;
+            var literal=passages.FirstOrDefault(p=>p.Subject==phrase);
+            if(literal!=null) return literal;
+            phrase=System.Text.RegularExpressions.Regex.Replace(phrase,@" (?:set to|listed as|recorded as)\z","");
+            literal=passages.FirstOrDefault(p=>p.Subject==phrase);
+            if(literal!=null) return literal;
+        }
         // Prefer the most specific full-content proposal before a literal suffix
         // (for example a separate "wheel" claim beside "wheel generator").
         if(System.Text.RegularExpressions.Regex.IsMatch(query,@"^(?:please )?(?:what|which|where|how many)\b")) {
             var requested=SearchTerms(query);
-            var matched=passages.FirstOrDefault(p=>requested.Count>0 && SearchTerms(p.Subject).SetEquals(requested));
+            var words=query.Split(' ').ToHashSet(StringComparer.Ordinal);
+            string phrase=" "+query+" ";
+            var matched=passages.Where(p=>requested.Count>0 && SearchTerms(p.Subject).SetEquals(requested))
+                .OrderByDescending(p=>phrase.Contains(" "+p.Subject+" ",StringComparison.Ordinal))
+                .ThenBy(p=>p.Subject.Split(' ').Count(w=>!words.Contains(w))).FirstOrDefault();
             if(matched!=null) return matched;
         }
         foreach(var p in passages) {
@@ -88,6 +104,22 @@ internal sealed class Routing
             if(term.Length>0) terms.Add(term);
         }
         return terms;
+    }
+
+    public static Passage? ProjectCode(string request,IEnumerable<Passage> eligible,Passage? parent,bool signature)
+    {
+        if(signature)
+            return parent==null ? null : eligible.FirstOrDefault(p=>p.Symbol==parent.Symbol &&
+                p.Citation.Id==parent.Citation.Id && p.Citation.Type=="code.signature");
+        // Resolve a Primary proposal against eligible identifiers only. Research
+        // independently parses the entire request and checks all active definitions.
+        var tail=System.Text.RegularExpressions.Regex.Replace(request.Trim(),@"(?:,? please)?[?.!]?\z","",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        tail=System.Text.RegularExpressions.Regex.Replace(tail,@"\s+(?:defined|declared)\z","",
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        var token=System.Text.RegularExpressions.Regex.Match(tail,@"[\p{L}_][\p{L}\p{N}\p{M}_]*\z");
+        if(token.Success) return eligible.FirstOrDefault(p=>p.Citation.Type=="code.definition" && p.Symbol==token.Value);
+        return null;
     }
 
     public static string Rule(string text)

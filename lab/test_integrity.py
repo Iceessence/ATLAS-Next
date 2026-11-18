@@ -31,6 +31,16 @@ class Integrity(unittest.TestCase):
                 for other in partition[i+1:]:
                     self.assertFalse(group & other)
 
+    def test_code_baseline_keeps_multiline_oracle_independent(self):
+        from code_navigation import FILES, local_search, oracle
+        self.assertEqual(len({row[0] for row in FILES}), 2)
+        source = "# 🧭\r\ndef probe(\r\n    x: str,\r\n):\r\n    return x\r\n"
+        location, signature = oracle(source, "probe")
+        self.assertEqual(location, dict(line=2,start=10,length=5,text="probe"))
+        self.assertEqual(signature["text"], "def probe(\r\n    x: str,\r\n):")
+        self.assertNotEqual(local_search(source,"probe")[1],signature)
+        self.assertEqual(oracle(source, "missing"), [None,None])
+
     def test_outcome_suite_provenance_and_digest(self):
         cases, _ = load_suite(PUBLIC)
         self.assertTrue(all(c["origin"] == "author_fixture" for c in cases))

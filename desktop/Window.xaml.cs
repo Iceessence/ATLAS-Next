@@ -60,7 +60,7 @@ public partial class WorkWindow : Window
         try { action(); }
         catch(Exception ex) { Notice.Text=ex.Message; }
     }
-    private void Submit(object sender,RoutedEventArgs e)=>Handle(()=>Refresh(engine.Submit(Guid.NewGuid(),Prompt.Text)));
+    private void Submit(object sender,RoutedEventArgs e)=>Handle(()=>Refresh(engine.Submit(Guid.NewGuid(),Prompt.Text,null,current?.Id)));
     private void FinishTask(object sender,RoutedEventArgs e)=>Handle(()=>Refresh(engine.Finish(current!.Id)));
     private void CancelTask(object sender,RoutedEventArgs e)=>Handle(()=>Refresh(engine.Finish(current!.Id,true)));
     private void StopAllTasks(object sender,RoutedEventArgs e)=>Handle(()=>
@@ -79,11 +79,11 @@ public partial class WorkWindow : Window
     });
     private void ImportFile(object sender,RoutedEventArgs e)=>Handle(()=>
     {
-        var dialog=new Microsoft.Win32.OpenFileDialog {Title="Import local text",Filter="Text and Markdown|*.txt;*.md",
+        var dialog=new Microsoft.Win32.OpenFileDialog {Title="Import local text",Filter="Supported project files|*.txt;*.md;*.cs;*.py|C# and Python|*.cs;*.py|Text and Markdown|*.txt;*.md",
             CheckFileExists=true,Multiselect=false,DereferenceLinks=false};
         if(dialog.ShowDialog(this)!=true) return;
         var doc=engine.Import(dialog.FileName);
-        Notice.Text=$"Imported {doc.Name}, revision {doc.Version}. Indexed {doc.Claims} claims. {doc.Id}";
+        Notice.Text=$"Imported {doc.Name}, revision {doc.Version}. Indexed {doc.Claims} passages. {doc.Id}";
     });
     private void ExportTask(object sender,RoutedEventArgs e)=>Handle(()=>
     {

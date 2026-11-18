@@ -249,6 +249,7 @@ internal static class Checks
 
     [STAThread] static int Main(string[] args)
     {
+        if(args is ["--code-probe",string scratch]) return OutcomeProbe.Code(scratch);
         if(args is ["--outcome"]) return OutcomeProbe.Run();
         var root=Path.Combine(Path.GetTempPath(),"atlas-next-check-"+Guid.NewGuid().ToString("N"));
         var router=new Routing();
@@ -336,6 +337,7 @@ internal static class Checks
         }
         CheckRecovery(Path.Combine(root,"mixed"));
         CheckDocuments(Path.Combine(root,"import"));
+        CodeChecks.Run(Path.Combine(root,"code"),Check);
         Console.WriteLine($"All {count} checks passed. Temporary profile: {root}");
         return 0;
     }

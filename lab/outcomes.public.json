@@ -310,5 +310,127 @@
       "answer": "An exported task receipt is a UTF-8 JSON file."
     },
     "origin": "author_fixture"
+  },
+  {
+    "id": "distinct-package",
+    "origin": "author_fixture",
+    "question": "What is the sensor mode set to, please?",
+    "documents": [
+      "Sensor package mode: beta",
+      "Sensor mode: alpha"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 1,
+      "line": 1,
+      "start": 13,
+      "length": 5,
+      "answer": "alpha"
+    }
+  },
+  {
+    "id": "distinct-audit",
+    "origin": "author_fixture",
+    "question": "What is the sensor mode set to, please?",
+    "documents": [
+      "Sensor audit mode: beta",
+      "Sensor mode: alpha"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 1,
+      "line": 1,
+      "start": 13,
+      "length": 5,
+      "answer": "alpha"
+    }
+  },
+  {
+    "id": "distinct-number",
+    "origin": "author_fixture",
+    "question": "What is the sensor mode set to, please?",
+    "documents": [
+      "Sensor number mode: beta",
+      "Sensor mode: alpha"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 1,
+      "line": 1,
+      "start": 13,
+      "length": 5,
+      "answer": "alpha"
+    }
+  },
+  {
+    "id": "distinct-value",
+    "origin": "author_fixture",
+    "question": "What is the sensor mode set to, please?",
+    "documents": [
+      "Sensor value mode: beta",
+      "Sensor mode: alpha"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 1,
+      "line": 1,
+      "start": 13,
+      "length": 5,
+      "answer": "alpha"
+    }
+  },
+  {
+    "id": "distinct-setting",
+    "origin": "author_fixture",
+    "question": "What is the sensor mode set to, please?",
+    "documents": [
+      "Sensor setting mode: beta",
+      "Sensor mode: alpha"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 1,
+      "line": 1,
+      "start": 13,
+      "length": 5,
+      "answer": "alpha"
+    }
+  },
+  {
+    "id": "distinct-installation",
+    "origin": "author_fixture",
+    "question": "What is the sensor mode set to, please?",
+    "documents": [
+      "Sensor installation mode: beta",
+      "Sensor mode: alpha"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 1,
+      "line": 1,
+      "start": 13,
+      "length": 5,
+      "answer": "alpha"
+    }
+  },
+  {
+    "id": "collision-polite",
+    "origin": "author_fixture",
+    "question": "What is the sensor mode set to, please?",
+    "documents": [
+      "Sensor mode set to: alpha",
+      "Sensor mode: red"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "ambiguous",
+      "sources": 2
+    }
   }
 ]

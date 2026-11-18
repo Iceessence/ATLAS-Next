@@ -7,6 +7,7 @@ internal record TaskEvent(string State,DateTimeOffset At);
 internal sealed record Work(Guid Id,string Request)
 {
     public int Schema { get; init; }=1;
+    public Guid? ParentTaskId { get; init; }
     public string Project { get; init; }="default";
     public string Kind { get; init; }="knowledge.lookup";
     public string Authority { get; init; }="local desktop owner";

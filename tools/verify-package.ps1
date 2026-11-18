@@ -229,6 +229,22 @@ try {
     Wait-State $window 'needs clarification'
     if((Control $window 'ResearchInfo').Current.Name -notlike '*contradiction*'){throw 'Packaged contradiction check failed'}
     "PASS native file picker imports, exact source span and contradictory sources withheld"
+    Import-Document $session 'Sample.cs' "class Sensor {`r`n    public int Read(int channel) => channel;`r`n}"
+    $promptBox=(Control $window 'Prompt').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern)
+    foreach($turn in @(
+        @{Request='Where is Read defined?';Expected='Read'},
+        @{Request='What is its signature?';Expected='public int Read(int channel)'}
+    )){
+        $promptBox.SetValue($turn.Request)
+        Invoke-Control $window 'Search'
+        Wait-State $window 'review'
+        Invoke-Control $window 'Verify'
+        Wait-State $window 'completed'
+        if((Control $window 'Summary').Current.Name -ne $turn.Expected -or (Control $window 'SourceInfo').Current.Name -notlike '*Sample.cs*line 2,*'){
+            throw "Packaged source conversation failed: $($turn.Request)"
+        }
+    }
+    "PASS packaged C# definition and selected signature follow-up from Sample.cs line 2"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"

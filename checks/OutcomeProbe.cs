@@ -8,6 +8,30 @@ internal static class OutcomeProbe
 {
     internal record Input(string Question,string[] Documents,int? ProposedDocument=null);
 
+    internal record CodeInput(string Name,string Source,string Symbol);
+    public static int Code(string root)
+    {
+        Console.InputEncoding=new UTF8Encoding(false);
+        Console.OutputEncoding=new UTF8Encoding(false);
+        var input=JsonSerializer.Deserialize<CodeInput>(Console.In.ReadToEnd(),Assets.Json)!;
+        if(!Directory.Exists(root) || Directory.EnumerateFileSystemEntries(root).Any() ||
+            Path.GetFileName(input.Name)!=input.Name || Path.GetExtension(input.Name) is not (".cs" or ".py"))
+            throw new ArgumentException("Expected an empty test directory and a source basename.");
+        string path=Path.Combine(root,input.Name);
+        File.WriteAllText(path,input.Source,new UTF8Encoding(false));
+        using var engine=new Engine(Path.Combine(root,"profile"));
+        engine.Import(path);
+        var timer=Stopwatch.StartNew();
+        var first=engine.Finish(engine.Submit(Guid.NewGuid(),"Where is "+input.Symbol+" defined?").Id);
+        double definitionMs=timer.Elapsed.TotalMilliseconds;
+        timer.Restart();
+        var second=engine.Finish(engine.Submit(Guid.NewGuid(),"What is its signature?",null,first.Id).Id);
+        double signatureMs=timer.Elapsed.TotalMilliseconds;
+        Console.WriteLine(JsonSerializer.Serialize(new {turns=new[]{first,second},turnMs=new[]{definitionMs,signatureMs},
+            workingSetBytes=Environment.WorkingSet},Assets.Json));
+        return 0;
+    }
+
     public static int Run()
     {
         Console.InputEncoding=new UTF8Encoding(false);

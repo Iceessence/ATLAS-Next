@@ -9,7 +9,7 @@ using Microsoft.Win32.SafeHandles;
 namespace AtlasNext;
 
 internal record SpanAnchor(string Path,int Line,int Start,int Length);
-internal record Passage(string Subject,string Value,Citation Citation,DateOnly? ValidThrough,bool InstalledAudit=false);
+internal record Passage(string Subject,string Value,Citation Citation,DateOnly? ValidThrough,bool InstalledAudit=false,string? Symbol=null);
 internal record Imported(string Id,int Version,string Name,int Claims);
 
 internal sealed class Documents(string profile,string project="default")
@@ -82,7 +82,7 @@ internal sealed class Documents(string profile,string project="default")
     {
         string path=Path.GetFullPath(selected);
         string ext=Path.GetExtension(path).ToLowerInvariant();
-        if(ext is not (".txt" or ".md")) throw new InvalidDataException("Select a TXT or Markdown document.");
+        if(ext is not (".txt" or ".md" or ".cs" or ".py")) throw new InvalidDataException("Select a TXT, Markdown, C# or Python file.");
         var bytes=ReadFile(path);
         string digest=Convert.ToHexStringLower(SHA256.HashData(bytes));
         string id="doc-"+Convert.ToHexStringLower(SHA256.HashData(Utf8.GetBytes(path.ToUpperInvariant())));
@@ -149,6 +149,21 @@ internal sealed class Documents(string profile,string project="default")
     private List<Passage> Parse(string id,int version,string digest,string relative,string text)
     {
         var claims=new List<Passage>();
+        string ext=Path.GetExtension(relative).ToLowerInvariant();
+        if(ext is ".cs" or ".py") {
+            string owned=Path.GetRelativePath(profile,Path.Combine(root,relative));
+            foreach(var d in SourceDeclarations.Read(text,ext)) {
+                void Add(string type,int start,int end,int line) {
+                    var anchor=new SpanAnchor(owned,line,start,end-start);
+                    var citation=new Citation(id,version,digest,Path.GetFileName(relative),type,"owner import","owner-selected source",anchor);
+                    claims.Add(new(d.Name,text[start..end],citation,null,Symbol:d.Name));
+                }
+                Add("code.definition",d.NameStart,d.NameEnd,d.NameLine);
+                Add("code.signature",d.Start,d.End,d.Line);
+                if(claims.Count>512) throw new InvalidDataException("Source exceeds 256 declarations.");
+            }
+            return claims;
+        }
         DateOnly? valid=null;
         int line=0;
         string? fence=null;

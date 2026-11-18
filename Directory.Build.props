@@ -1,0 +1,7 @@
+<Project>
+  <ItemGroup>
+    <!-- Both runtime entry points need the same offline syntax-tree assemblies in their .deps.json. -->
+    <Reference Include="Microsoft.CodeAnalysis" HintPath="$(MSBuildToolsPath)/Roslyn/bincore/Microsoft.CodeAnalysis.dll" Private="true" />
+    <Reference Include="Microsoft.CodeAnalysis.CSharp" HintPath="$(MSBuildToolsPath)/Roslyn/bincore/Microsoft.CodeAnalysis.CSharp.dll" Private="true" />
+  </ItemGroup>
+</Project>

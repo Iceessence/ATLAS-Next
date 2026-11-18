@@ -25,13 +25,15 @@ internal sealed class Engine(string profile) : IDisposable
 
     // A source restriction can only narrow Primary retrieval. The benchmark uses it
     // in fresh disposable profiles. Verification always sees the entire project.
-    internal Work Submit(Guid id,string request,string? primaryDocument)
+    internal Work Submit(Guid id,string request,string? primaryDocument,Guid? selectedTask=null)
     {
         request=request.Trim();
         if(request.Length is 0 or >2048) throw new ArgumentException("Enter a request of 1–2048 characters.");
+        var code=CodeQuestion.Parse(request);
+        Guid? parentId=code?.FollowUp==true ? selectedTask : null;
         var old=journal.Read(id);
-        if(old!=null) return old.Project==Project && old.Request==request ? old : throw new InvalidOperationException("Conflicting task identity");
-        var task=(new Work(id,request) {Project=Project}).At("queued");
+        if(old!=null) return old.Project==Project && old.Request==request && old.ParentTaskId==parentId ? old : throw new InvalidOperationException("Conflicting task identity");
+        var task=(new Work(id,request) {Project=Project,ParentTaskId=parentId}).At("queued");
         journal.Save(task);
         try
         {
@@ -43,16 +45,26 @@ internal sealed class Engine(string profile) : IDisposable
             var route=exact?.Record.Type ?? Routing.Rule(request);
             var candidate=exact ?? library.Find(request,route);
             var passages=documents.Active();
-            if(exact==null) {
-                var eligible=primaryDocument==null ? passages : passages.Where(p=>p.Citation.Id==primaryDocument);
-                var passage=Routing.ProjectFact(request,eligible);
-                if(passage!=null && (candidate==null || passage.Subject!=Research.CatalogSubject(candidate))) {
-                    route="fact";
-                    candidate=Research.FromPassage(passage);
+            var eligible=primaryDocument==null ? passages : passages.Where(p=>p.Citation.Id==primaryDocument);
+            Finding finding;
+            if(UseCode(code,passages,request)) {
+                var parent=ReadParent(parentId,passages);
+                var passage=Routing.ProjectCode(request,eligible,parent,code!.FollowUp);
+                route=code.FollowUp ? "code.signature" : "code.definition";
+                candidate=passage==null ? null : Research.FromPassage(passage);
+                finding=code.Verify(passages,parent);
+                task=task with {Kind="code.lookup"};
+            } else {
+                if(exact==null) {
+                    var passage=Routing.ProjectFact(request,eligible.Where(p=>p.Symbol==null));
+                    if(passage!=null && (candidate==null || passage.Subject!=Research.CatalogSubject(candidate))) {
+                        route="fact";
+                        candidate=Research.FromPassage(passage);
+                    }
                 }
+                finding=Research.Assess(request,library,passages.Where(p=>p.Symbol==null).ToArray());
             }
-            var finding=Research.Assess(request,library,passages);
-            task=task with {Proposal=proposed,Specialist=route,PrimaryCandidateId=candidate?.Citation.Id,Router="deterministic-route-v5",ResearchReview=finding.Assessment};
+            task=task with {Proposal=proposed,Specialist=route,PrimaryCandidateId=candidate?.Citation.Id,Router="deterministic-route-v6",ResearchReview=finding.Assessment};
             if(candidate==null || finding.Source==null || !finding.Assessment.Sources.Contains(candidate.Citation))
                 task=(task with {Authorization="no matching scoped record",Verification="answer withheld",
                     AnswerRelevance=finding.Source==null ? finding.Assessment.RequestRelevance : "unsupported",
@@ -69,6 +81,17 @@ internal sealed class Engine(string profile) : IDisposable
         journal.Save(task);
         return task;
     }
+    // Preserve existing named text lookups when the project has no code for that
+    // identifier. Explicit source commands and contextual turns always use code verification.
+    private static bool UseCode(CodeQuestion? code,IReadOnlyList<Passage> active,string request)=>
+        code!=null && (code.FollowUp || active.Any(p=>p.Symbol!=null) ||
+            !System.Text.RegularExpressions.Regex.IsMatch(request,@"\A(?:please\s+)?where\s+is\s+[\p{L}_][\p{L}\p{N}\p{M}_]*\s+(?:defined|declared)\b",
+                System.Text.RegularExpressions.RegexOptions.IgnoreCase) ||
+            !active.Any(p=>p.Subject==Research.Subject(code.Name+" declaration line")));
+
+    private Passage? ReadParent(Guid? id,IReadOnlyList<Passage> active)=>
+        id==null ? null : CodeQuestion.Parent(journal.Read(id.Value),Project,active);
+
     public Work Finish(Guid id,bool cancel=false)
     {
         var task=journal.Read(id) ?? throw new ArgumentException("Task missing");
@@ -85,7 +108,10 @@ internal sealed class Engine(string profile) : IDisposable
                 var source=passage!=null ? Research.FromPassage(passage) : library.Exact(cited.Id);
                 if(task.Authorization!="allowed scoped record read" || source==null || source.Citation!=cited || task.Scope!=source.Record.Scope ||
                     task.Specialist!=source.Record.Type) throw new InvalidDataException("Source failed verification");
-                var finding=Research.Assess(task.Request,library,active);
+                var code=CodeQuestion.Parse(task.Request);
+                var finding=UseCode(code,active,task.Request)
+                    ? code!.Verify(active,ReadParent(task.ParentTaskId,active))
+                    : Research.Assess(task.Request,library,active.Where(p=>p.Symbol==null).ToArray());
                 task=task with {SourceIntegrity="passed",ResearchReview=finding.Assessment};
                 if(finding.Source!=null && finding.Assessment.Sources.Contains(cited))
                     task=(task with {AnswerRelevance="supported",Result=source.Record.Body,
