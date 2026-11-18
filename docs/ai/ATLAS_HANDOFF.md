@@ -2,21 +2,21 @@
 
 | Field | Current assignment |
 | --- | --- |
-| Task | NEXT-006 independent review of qualified member lookups and selected documentation/container follow-ups |
-| State | PENDING_INDEPENDENT_REVIEW |
-| Next writer | Gemini Hydrogen |
-| Frozen product | `c0e138f63ef342d5ff38a6bce1dd9cd579d1b01c` |
-| Preregistered public protocol | `148a62e1585d8118dc79512c97c1a70d5181a147`, committed before product changes |
-| Accepted baseline | NEXT-005 product `42bf5a6979540f5c6e3d0d59893b0b288b1f6300`, verdict `4fa37b129acdf6b04c8c36e771e927e40aaf65d9` |
-| Windows PowerShell 5.1 ZIP | `out/ATLAS-Next-win-x64-ps51.zip`, SHA-256 `61f7f221a06a605af618208b68637bada2e8e54c5db115ac058daf22338f0a2f` |
-| PowerShell 7 ZIP | `out/ATLAS-Next-win-x64.zip`, SHA-256 `d700d866925afcc647046b6bf81e178387636b76fc1878c39df0b6f7067364ae` |
+| Task | NEXT-007 practical multi-file coding assistance, authorized local research synthesis, and eligible native outcome ledger |
+| State | ASSIGNED_FOR_DEVELOPMENT |
+| Next writer | GPT-6.2 Astra |
+| Accepted baseline | NEXT-006 product `c0e138f63ef342d5ff38a6bce1dd9cd579d1b01c`, independent review `docs/evidence/independent-review-next006.json` (`ACCEPTED_WITH_LIMITATIONS`) |
+| Preregistered public protocol | Freeze a preregistered NEXT-007 comparator commit before product code changes |
+| Windows PowerShell 5.1 ZIP | `out/ATLAS-Next-win-x64-ps51.zip`, verified SHA-256 `61f7f221a06a605af618208b68637bada2e8e54c5db115ac058daf22338f0a2f` |
+| PowerShell 7 ZIP | `out/ATLAS-Next-win-x64.zip`, verified SHA-256 `d700d866925afcc647046b6bf81e178387636b76fc1878c39df0b6f7067364ae` |
 | Model status | Desktop router `6b9b23fc…` advisory, project checkpoint `5c476024…` lab-only. Both retain their original bytes and shadow status. |
 
-## Assignment for Gemini Hydrogen
+## Assignment for GPT-6.2 Astra (NEXT-007)
 
-1. Verify local Git history, preregistration and the frozen product in a clean checkout. Reproduce the Windows and Python checks, NEXT-005 public source replay, NEXT-006 comparison, public factual controls, distribution audits and previous frozen shadow evaluations. Verify shipped ZIPs, clean builds and actual packaged UI under Windows PowerShell 5.1 and PowerShell 7. [Commands, results and receipts](../TEST_EVIDENCE.md)
-2. Replay the previous protected factual and code suites in evaluator custody. Run fresh C# and Python qualified conversations on unfamiliar sources. Exercise duplicate qualified names and overloads, the eight-location cap, lexical ownership, detached or misleading documentation, XML summary versus remarks, enclosing class/type/namespace, selected parent/citation substitution, stale revision and project switches. Keep private inputs and labels outside the development checkout.
-3. Report correct deliveries, wrong deliveries, abstentions, real versus constructed outcomes, cold and warm timings, sampled working set and external assistance. On the public comparison the host and ordinary comparator each achieved 13/13 conversations, 14 correct deliveries, 12 correct withholds and zero wrong deliveries. No native-model promotion is proposed. [Comparator](../evidence/next-006/search.json) · [Candidate](../evidence/next-006/code-depth.json)
-4. Commit your independent verdict, receipt, owner report and next writer locally. If blocking defects appear, assign a bounded repair. After acceptance prioritize practical coding assistance, authorized autonomous research and independently verified native-model improvement in the next milestone decision. Keep isolation, eligibility and model-qualification prerequisites in place. Return the assignment to Astra via this handoff and the existing session where available. No push, executable automation, privilege changes or edits to legacy ATLAS, PLATZ Engine or FORGE.
+1. **Preregister before code:** Commit a fresh preregistered public NEXT-007 baseline/comparator (multi-file coding references + overload disambiguation + local multi-document research synthesis) before modifying desktop/host product code.
+2. **Practical Coding Assistance (Option A completion):** Add parameter-arity/type qualification for overloaded declarations (`Type.Member()` vs `Type.Member(int)`, bounded cleanly without speculative guessing) and read-only cross-file reference / call-site citations across an imported multi-file project, preserving zero-wrong-delivery withholding on ambiguity, scope/project switches, and stale revisions.
+3. **Authorized Local Research (Option B start):** Support bounded local multi-document claim synthesis with strict per-claim provenance (exact file path, revision/digest, span, and freshness/conflict status — distinguishing verified, stale, and conflicting claims and keeping retrieved text strictly as data with zero network calls).
+4. **Eligible Outcome Ledger (Option C prerequisite):** Record a reproducible, schema-validated eligible outcome/failure ledger from real Option A + B runs (without promoting or retraining shadow models on the host until independently evaluated).
+5. **Boundaries & Package Verification:** Keep host execution disabled (`read owner-imported text`), Windows privileges unchanged, legacy ATLAS (`C:\ATLAS\Entire ATLAS`), PLATZ Engine, and FORGE untouched, and both native models in `shadow` mode. Produce clean Windows PowerShell 5.1 and PowerShell 7 ZIPs, verify UI end-to-end on both shells, and hand back with `State = PENDING_INDEPENDENT_REVIEW` and `Next writer = Gemini Hydrogen`.
 
-[Owner report](ATLAS_OWNER_REPORT.md) · [Previous independent receipt](../evidence/independent-review-next005.json) · [Roadmap](../ROADMAP.md)
+[Owner report](ATLAS_OWNER_REPORT.md) · [Independent NEXT-006 receipt](../evidence/independent-review-next006.json) · [Roadmap](../ROADMAP.md)

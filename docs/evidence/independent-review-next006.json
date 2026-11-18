@@ -1,0 +1,232 @@
+{
+  "review": "NEXT-006",
+  "verdict": "ACCEPTED_WITH_LIMITATIONS",
+  "selected_next_milestone": "NEXT-007: Practical Multi-File Coding Assistance, Authorized Local Research & Eligible Native Outcome Ledger (Option A overload/arity disambiguation + read-only cross-file reference lookup; Option B local multi-document synthesis with provenance/staleness checks; Option C eligible outcome/failure ledger; zero network, zero host execution, models shadow-only).",
+  "reviewer": "Gemini Hydrogen",
+  "reviewed_at_utc": "2026-11-18T23:04:37.436252Z",
+  "frozen_product": "c0e138f63ef342d5ff38a6bce1dd9cd579d1b01c",
+  "preregistered_public_protocol": "148a62e1585d8118dc79512c97c1a70d5181a147",
+  "author_transfer_head": "b6b525971730de23dae518d3dabbfef0366f354e",
+  "prior_review_commit": "4fa37b129acdf6b04c8c36e771e927e40aaf65d9",
+  "environment": {
+    "os": "Microsoft Windows 11 Pro 10.0.26300 (Build 26300, 64-bit)",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_desktop_runtime_installed": "10.0.12",
+    "powershell_5_1": "5.1.26100.9818 (-NoProfile -ExecutionPolicy RemoteSigned)",
+    "powershell_7": "7.6.9 (cached)",
+    "python": "3.12.14 with numpy 2.3.5 (cached; OPENBLAS_NUM_THREADS=1)"
+  },
+  "isolation_and_diff_checks": {
+    "protocol_preceded_product": true,
+    "product_to_transfer_docs_and_evidence_only": true,
+    "legacy_repo_head": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "legacy_repo_untouched_by_review": true,
+    "execution_capability": "read owner-imported text",
+    "external_inference_calls_per_task": 0
+  },
+  "author_commands_independent_rerun": {
+    "dotnet_build_release": {
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0
+    },
+    "atlas_next_checks_exe": {
+      "status": "PASS",
+      "passed": 150,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_test_integrity": {
+      "status": "PASS",
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_project_audit": {
+      "status": "PASS",
+      "distributions": 10
+    },
+    "python_public_outcomes": {
+      "status": "PASS",
+      "passed": 31,
+      "total": 31
+    },
+    "python_evaluate_routing": {
+      "status": "PASS",
+      "scores": {
+        "rule": "48/72",
+        "exemplar": "42/72",
+        "native": "54/72",
+        "linear": "54/72"
+      },
+      "reproduced_p95_us": {
+        "rule": 2.045,
+        "exemplar": 46.51,
+        "native": 34.115,
+        "linear": 17.7
+      },
+      "native_qualification": "shadow"
+    },
+    "frozen_project_specialist_benchmark": {
+      "refitted": false,
+      "shadow_checkpoint_sha256": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+      "public_evaluation_16": {
+        "host": "16/16",
+        "tfidf": "16/16",
+        "linear": "14/16",
+        "linear_brier": 0.06255,
+        "linear_ece": 0.09853,
+        "native": "15/16",
+        "native_brier": 0.03764,
+        "native_ece": 0.06683,
+        "wrong_deliveries": 0,
+        "host_p50_engine_us": 114075.65,
+        "host_p95_engine_us": 117689.275,
+        "host_p50_process_ms": 292.7037,
+        "peak_host_working_set": 76189696
+      },
+      "public_controls_31": {
+        "suite_sha256": "ef207ce82af59748220220771860bc5563b97f62c5b25d7c02ddb9dbe388a883",
+        "host": "31/31",
+        "tfidf": "31/31",
+        "linear": "29/31",
+        "native": "30/31",
+        "wrong_deliveries": 0
+      }
+    },
+    "next005_code_navigation_replay": {
+      "status": "PASS",
+      "conversations": "8/8",
+      "exact_deliveries": "12/12",
+      "correct_withholds": "4/4",
+      "wrong_deliveries": 0,
+      "median_wall_ms": 224.70,
+      "max_working_set": 48259072
+    },
+    "next006_public_code_depth": {
+      "search_matched_pinned_148a62e": true,
+      "search": {
+        "conversations": "13/13",
+        "exact_deliveries": "14/14",
+        "correct_withholds": "12/12",
+        "wrong_deliveries": 0,
+        "first_ms": [0.0294],
+        "warm_ms": [0.0169],
+        "max_sampled_working_set": 25776128
+      },
+      "host": {
+        "conversations": "13/13",
+        "exact_deliveries": "14/14",
+        "correct_withholds": "12/12",
+        "wrong_deliveries": 0,
+        "first_ms": [52.3215, 17.0897],
+        "warm_ms": [12.717, 15.0925],
+        "cold_4conv_wall_median_ms": 328.0,
+        "max_sampled_working_set": 55541760,
+        "external_inference_calls": 0
+      }
+    }
+  },
+  "packaged_verification": {
+    "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "shipped_ps7": {
+      "status": "PASS",
+      "shell": "pwsh 7.6.9",
+      "zip_sha256": "d700d866925afcc647046b6bf81e178387636b76fc1878c39df0b6f7067364ae",
+      "bytes": 112770972,
+      "entries": 520,
+      "inventoried_hashes": 519,
+      "roslyn_files": 28,
+      "shadow_promoted": []
+    },
+    "shipped_ps51": {
+      "status": "PASS",
+      "shell": "powershell 5.1.26100.9818",
+      "zip_sha256": "61f7f221a06a605af618208b68637bada2e8e54c5db115ac058daf22338f0a2f",
+      "bytes": 95122989,
+      "entries": 520,
+      "inventoried_hashes": 519,
+      "roslyn_files": 28,
+      "shadow_promoted": []
+    },
+    "fresh_rebuild_ps7": {
+      "status": "PASS",
+      "shell": "pwsh 7.6.9",
+      "zip_sha256": "e077a9a447e8bcdb4aa3370b2b9e6ffbdfaa3f1aeba1f987e29e25054b490c6c",
+      "bytes": 112771024,
+      "entries": 520,
+      "inventoried_hashes": 519,
+      "shadow_promoted": []
+    },
+    "fresh_rebuild_ps51": {
+      "status": "PASS",
+      "shell": "powershell 5.1.26100.9818",
+      "zip_sha256": "b39cbc351fca3bfa80a6184713ce0f537b7f62adde49d109be5b616efcdfaf7b",
+      "bytes": 95123072,
+      "entries": 520,
+      "inventoried_hashes": 519,
+      "shadow_promoted": []
+    }
+  },
+  "independent_custodian_and_adversarial_checks": {
+    "protected_replays": {
+      "next002_13": {"host": "13/13", "tfidf": "13/13", "linear": "13/13", "native": "13/13", "wrong_deliveries": 0},
+      "next003_20": {"host": "18/20", "tfidf": "18/20", "linear": "18/20", "native": "18/20", "wrong_deliveries": 0},
+      "next004_24": {"host": "24/24", "tfidf": "24/24", "linear": "18/24", "native": "21/24", "wrong_deliveries": 0},
+      "next005_code_8": {"host": "8/8", "wrong_deliveries": 0}
+    },
+    "direct_adversarial_probes": {
+      "status": "PASS",
+      "passed": 22,
+      "failed": 0,
+      "covered": [
+        "duplicate qualified member ambiguity across files",
+        "10-declaration 8-source cap with omitted-match notice",
+        "lexical nested-type and explicit-interface ownership boundaries",
+        "detached // breaking XML documentation",
+        "XML <summary> vs full XML <remarks>",
+        "struct enclosing-type vs class withholding",
+        "file-scoped vs nested namespace withholding",
+        "Python # comment before raw r''' docstring",
+        "Python fake docstring after assignment and f-string rejection",
+        "parent-task, evidence-substitution, stale-revision, and foreign-project withholding"
+      ]
+    },
+    "custodian_qualified_code_depth_suite": {
+      "report_sha256": "39c1ada82343ea8ede9a076d74f6241f169db4625fbe3ff53c34a6c236eb141e",
+      "source_receipts": [
+        {"receipt_id": "custodian-code6-receipt-1", "sha256": "ae03463db30759f0165b70a3431d33d39ae5c998162e30d20ec6a462845edfd6"},
+        {"receipt_id": "custodian-code6-receipt-2", "sha256": "10af2498c5d86afdcd7ae3500750789930021643939fbaf9e51301a2e605ed07"}
+      ],
+      "host": {
+        "conversations": "16/16",
+        "observed_real_outcomes": "8/8",
+        "custodian_controls": "8/8",
+        "exact_deliveries": 20,
+        "correct_withholds": 12,
+        "wrong_deliveries": 0,
+        "first_ms": [52.6706, 19.0551],
+        "warm_ms": [14.0595, 17.1097],
+        "max_working_set": 61341696,
+        "external_inference_calls": 0
+      },
+      "ordinary_search_comparator": {
+        "conversations": "6/16",
+        "observed_real_outcomes": "3/8",
+        "custodian_controls": "3/8",
+        "exact_deliveries": 6,
+        "correct_withholds": 12,
+        "wrong_deliveries": 0,
+        "first_ms": [0.1449],
+        "warm_ms": [0.1392],
+        "max_working_set": 25849856
+      }
+    }
+  },
+  "limitations": [
+    "Method overloads within the same enclosing type (e.g. Scan() vs Scan(int n)) still withhold as ambiguous because parameter-type/arity qualification is not yet supported.",
+    "Code navigation remains single-file per lookup rather than resolving cross-file call sites or references across an imported multi-file project.",
+    "Both native models (6b9b23fc... and 5c476024...) remain strictly shadow/advisory with no independent qualification basis for promotion yet.",
+    "Option D isolated VM/guest execution remains unverified on this host and disabled (`read owner-imported text`)."
+  ]
+}
