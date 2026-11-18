@@ -7,6 +7,8 @@ using AtlasNext;
 
 internal static class Checks
 {
+    [System.Runtime.InteropServices.DllImport("kernel32.dll",CharSet=System.Runtime.InteropServices.CharSet.Unicode)]
+    static extern bool CreateHardLink(string link,string existing,IntPtr reserved);
     static int count;
     static void Check(bool ok,string name)
     {
@@ -92,8 +94,98 @@ internal static class Checks
             "second restart preserves quarantine and adds no recovery events");
     }
 
-    [STAThread] static int Main()
+    static void CheckDocuments(string root)
     {
+        Directory.CreateDirectory(root);
+        string path=Path.Combine(root,"policy.md");
+        string profile=Path.Combine(root,"profile");
+        Work Ask(Engine e,string q)=>e.Finish(e.Submit(Guid.NewGuid(),q).Id);
+        string question="Which value is recorded for the Orion colour?";
+        const string text="# Notes 🚀\r\nOrion colour: blå\r\nValid through: 2099-01-01\r\n";
+        File.WriteAllText(path,text,new System.Text.UTF8Encoding(true));
+        string stable;
+        using(var e=new Engine(profile)) {
+            var doc=e.Import(path);
+            stable=doc.Id;
+            Check(doc.Version==1 && e.Import(path)==doc,"idempotent owner import and stable identity");
+            var work=Ask(e,question);
+            var span=work.Evidence?.Span;
+            Check(work is {State:"completed",Result:"blå",Scope:"owner-local"} && span is {Line:2} &&
+                ("\uFEFF"+text).Substring(span.Start,span.Length)=="blå" &&
+                File.ReadAllBytes(path).SequenceEqual(File.ReadAllBytes(Path.Combine(profile,span.Path))),
+                "UTF-8 BOM, surrogate pair and CRLF preserved with exact UTF-16 value span");
+            Check(work.ResearchReview is {Verdict:"supported",Trust:"owner-selected text"} &&
+                work.ResearchReview.Freshness.Contains("2099-01-01"),"research verdict retains trust and declared validity");
+            var waiting=e.Submit(Guid.NewGuid(),question);
+            var second=Path.Combine(root,"second.txt");
+            File.WriteAllText(second,"Orion colour is green.");
+            e.Import(second);
+            var conflict=e.Finish(waiting.Id);
+            Check(conflict is {State:"needs clarification",SourceIntegrity:"passed",ResearchReview.Verdict:"contradiction"} &&
+                conflict.ResearchReview.Sources.Length==2,"delivery rechecks new contradicting source and withholds answer");
+            File.WriteAllText(second,"Orion colour: blå");
+            e.Import(second);
+            Check(Ask(e,question).ResearchReview is {Verdict:"supported",Sources.Length:2},"independent documents agreeing on one value");
+            File.WriteAllText(second,"Orion colour: blå\nValid through: 2000-01-01");
+            e.Import(second);
+            Check(Ask(e,question).ResearchReview?.Verdict=="stale","expired matching source withholds delivery");
+            File.WriteAllText(second,"Archive retention: 90 days");
+            e.Import(second);
+            Check(Ask(e,"What is the archive retention policy?").ResearchReview is {Verdict:"contradiction",Sources.Length:2},
+                "pinned and imported sources compared on the same claim");
+            Check(Ask(e,"How are archives restored?").Evidence?.Id=="procedure.restore","restored paraphrase retrieves procedure");
+            File.WriteAllText(path,"Orion colour: violet");
+            var revision=e.Import(path);
+            Check(revision.Id==stable && revision.Version==2 && File.Exists(Path.Combine(profile,span!.Path)),
+                "changed selection creates immutable revision under same document ID");
+            var current=Ask(e,question);
+            Check(current.Result=="violet" && current.Evidence?.Version==2,"active revision supersedes old claim");
+            File.WriteAllText(path,"Original file was later edited");
+            Check(Ask(e,question).Result=="violet","owned copy independent of subsequent edits to selected path");
+            var pending=e.Submit(Guid.NewGuid(),question);
+            string stored=Path.Combine(profile,current.Evidence!.Span!.Path);
+            var original=File.ReadAllBytes(stored);
+            try { File.AppendAllText(stored,"!"); Check(e.Finish(pending.Id).State=="failed","altered owned source blocked at finish"); }
+            finally { File.WriteAllBytes(stored,original); }
+            void Reject(string name,byte[] bytes) {
+                string bad=Path.Combine(root,name);
+                File.WriteAllBytes(bad,bytes);
+                try { e.Import(bad); throw new Exception("Unsafe import accepted"); }
+                catch(InvalidDataException) { Check(true,$"reject {name}"); }
+            }
+            Reject("encoding.txt",[0xff,0xfe]);
+            Reject("binary.md",[0]);
+            Reject("oversize.txt",new byte[256*1024+1]);
+            Reject("script.ps1",[42]);
+            var privateTask=e.Submit(Guid.NewGuid(),question);
+            e.SelectProject("lunar");
+            Check(!e.History().Any() && Ask(e,question).State=="needs clarification","project isolation for history and retrieval");
+            try { e.Finish(privateTask.Id); throw new Exception("Cross-project finish"); }
+            catch(InvalidOperationException){Check(true,"task delivery confined to its issuing project");}
+            var lunar=Path.Combine(root,"lunar.md");
+            File.WriteAllText(lunar,"Orion colour: red");
+            e.Import(lunar);
+            var red=Ask(e,question);
+            Check(red is {Result:"red",Project:"lunar"} && File.Exists(Path.Combine(profile,red.Evidence!.Span!.Path)),
+                "named project produces resolvable project-local citations");
+            e.SelectProject("default");
+            Check(e.Finish(privateTask.Id).Result=="violet","switching back restores original project scope");
+            File.WriteAllText(second,"Telemetry interval: TBD");
+            e.Import(second);
+            Check(Ask(e,"What is the telemetry interval?").ResearchReview?.Verdict=="insufficient",
+                "unknown value is insufficient factual support");
+            var hard=Path.Combine(root,"alias.txt");
+            if(!CreateHardLink(hard,path,IntPtr.Zero)) throw new IOException("Cannot create hard-link fixture");
+            try { e.Import(hard); throw new Exception("Accepted hard link"); }
+            catch(InvalidDataException) { Check(true,"reject hard-linked file without elevation"); }
+        }
+        using var reopened=new Engine(profile);
+        Check(Ask(reopened,question) is {Result:"violet",Evidence.Version:2},"index rebuilt from owned revisions after restart");
+    }
+
+    [STAThread] static int Main(string[] args)
+    {
+        if(args is ["--outcome"]) return OutcomeProbe.Run();
         var root=Path.Combine(Path.GetTempPath(),"atlas-next-check-"+Guid.NewGuid().ToString("N"));
         var router=new Routing();
         using var golden=JsonDocument.Parse(File.ReadAllBytes(Path.Combine(AppContext.BaseDirectory,"golden.json")));
@@ -179,6 +271,7 @@ internal static class Checks
             finally {File.WriteAllBytes(path,bytes);}
         }
         CheckRecovery(Path.Combine(root,"mixed"));
+        CheckDocuments(Path.Combine(root,"import"));
         Console.WriteLine($"All {count} checks passed. Temporary profile: {root}");
         return 0;
     }

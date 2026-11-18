@@ -1,6 +1,6 @@
 # Architecture
 
-A single unelevated WPF process calls the trusted C# Engine. Release-pinned arrays supply local neural inference. The offline lab trains and evaluates separately. The desktop exposes a single read-only handbook operation. There is no shell, network provider, arbitrary path tool or guest execution interface exposed to a model.
+A single unelevated WPF process calls the trusted C# Engine. Release-pinned arrays supply local neural inference. The offline lab trains and evaluates separately. The outcome probe in the checks executable exercises the same import, submit and finish paths as WPF. The desktop exposes a scoped read-only lookup plus owner-triggered file import. There is no shell, network provider, arbitrary path tool or guest execution interface exposed to a model.
 
 | Owner | Runtime contract |
 | --- | --- |
@@ -8,6 +8,8 @@ A single unelevated WPF process calls the trusted C# Engine. Release-pinned arra
 | Engine | Submit a bounded request with a GUID, persist queued state, obtain a model proposal, select the allowed deterministic route and resolve an eligible source. Finish or cancel an existing ID. StopAll cancels every pending review. |
 | Routing | Digest- and shape-checked 256-input, 16-hidden, 3-output CPU forward pass. Immutable shadow binding. Active deterministic policy is limited to public handbook lookup. |
 | Library and Assets | Rebuild an in-memory catalog from pinned release records on startup. Resolve exact IDs directly. Otherwise identify distinguishing terms across all three records and require a single candidate consistent with the proposed route. Reopen and digest-check a selected record on completion. Scope, revision, type and digest must still match. |
+| Documents | The owner selects a local TXT or Markdown file into the active project. Check links, encoding and byte budget, publish immutable file revisions by rename and rebuild passage candidates from the latest owned revisions. Cite profile-relative path, version, digest, line and UTF-16 offsets. |
+| Research | Independently determine the requested subject, check literal support, trust and declared validity, and compare active imported and handbook claims. Recompute this assessment at delivery. |
 | Relevance | Match the whole original request against question forms supported by the cited handbook revision, or its exact catalog ID. Engine checks this before review and again against the reopened source at delivery. Unrecognized subjects, modifiers and conflicting intents request clarification. |
 | Journal | One Windows profile writer holds an exclusive handle. One UTF-8 JSON per task contains input, authority, scope, dependencies, limits, specialist, model, result, evidence, verification, event sequence, memory and time sampling. Validate the full startup inventory before changes. Preserve malformed and pending files in quarantine, then commit each interrupted transition by stage, flush and same-volume rename. Restart completes remaining work. |
 | Lab | Offline Python builds a fixed-feature original MLP and linear comparator. Typed origin whitelist and loader accept only public rule labels for this experiment. Pinned corpora and generated golden outputs exercise parity in C#. |

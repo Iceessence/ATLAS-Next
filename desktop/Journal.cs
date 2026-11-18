@@ -7,6 +7,7 @@ internal record TaskEvent(string State,DateTimeOffset At);
 internal sealed record Work(Guid Id,string Request)
 {
     public int Schema { get; init; }=1;
+    public string Project { get; init; }="default";
     public string Kind { get; init; }="knowledge.lookup";
     public string Authority { get; init; }="local desktop owner";
     public string Scope { get; init; }="public-demo";
@@ -22,6 +23,7 @@ internal sealed record Work(Guid Id,string Request)
     public string Verification { get; init; }="pending";
     public string SourceIntegrity { get; init; }="not checked";
     public string AnswerRelevance { get; init; }="not checked";
+    public Assessment? ResearchReview { get; init; }
     public Citation? Evidence { get; init; }
     public string? Result { get; init; }
     public TaskEvent[] Events { get; init; }=[];
@@ -104,7 +106,9 @@ internal sealed class Journal : IDisposable
             task.Events is not {Length:>0} || task.Events.Any(e=>e==null || e.At==default) ||
             !ValidTimeline(task.Events) ||
             task.Proposal is {} p && (p.Sha256 is not {Length:64} || !p.Sha256.All(Uri.IsHexDigit)) ||
-            task.Evidence is {} citation && string.IsNullOrWhiteSpace(citation.Id) ||
+            task.ResearchReview is {} assessment && (assessment.Sources is not {Length:<=8} ||
+                assessment.Sources.Any(c=>c==null || !ValidCitation(c))) ||
+            task.Evidence is {} citation && !ValidCitation(citation) ||
             task.State is "review" or "completed" && task.Evidence==null ||
             task.State=="completed" && string.IsNullOrEmpty(task.Result) ||
             root.TryGetProperty("state",out var state) &&
@@ -112,6 +116,10 @@ internal sealed class Journal : IDisposable
             throw new InvalidDataException("Malformed task record");
         return task;
     }
+
+    private static bool ValidCitation(Citation c)=>!string.IsNullOrWhiteSpace(c.Id) &&
+        (c.Span==null || c.Span is {Line:>0,Start:>=0,Length:>0} &&
+            (long)c.Span.Start+c.Span.Length<=256*1024 && !string.IsNullOrWhiteSpace(c.Span.Path));
 
     private static bool ValidTimeline(TaskEvent[] events) => events.Select(e=>e.State).ToArray() switch {
         ["queued"] or ["queued","interrupted" or "failed" or "needs clarification" or "review"] => true,

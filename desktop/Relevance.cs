@@ -19,7 +19,7 @@ internal static class Relevance
         var query=Regex.Replace(request.Trim().ToLowerInvariant(),@"\s+"," ");
         string? question=(hit.Record.Id, hit.Record.Version) switch {
             ("fact.retention",1) =>
-                $@"(?:(?:(?:what|how long) is |how many days is )?{Retention}|how long (?:will|does) (?:{Archive}|{Retention}) (?:keep|retain) {Exports}|(?:how long|for how many days) are {Exports} (?:kept|retained)(?: in {Archive})?)",
+                $@"(?:(?:(?:what|how long) is |state |how many days is )?{Retention}|how long (?:will|does) (?:{Archive}|{Retention}) (?:keep|retain) {Exports}|(?:how long|(?:for )?how many days) are {Exports} (?:kept|retained)(?: in {Archive})?)",
             ("fact.format",1) =>
                 $@"(?:(?:what is|name) (?:the )?(?:archive|export(?: receipt)?|receipt) (?:file )?(?:format|encoding)|how is {Receipt} (?:formatted|encoded)|what (?:file )?format is {Receipt}(?: in)?|(?:what is )?the (?:format|encoding) of {Receipt})",
             ("procedure.restore",1) =>

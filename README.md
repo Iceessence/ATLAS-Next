@@ -12,6 +12,22 @@ Extract the entire `out/ATLAS-Next-win-x64.zip` into a writable local folder and
 
 The default profile is `%LOCALAPPDATA%\ATLAS Next\profile`. History and exported receipts include request text in plaintext. Use public demonstration questions. Tests use new temporary profiles. At startup ATLAS preserves malformed records and interrupted writes under `quarantine` in the profile, grouped by recovery batch and reason. The window reports recovered tasks and the number of preserved files. Older receipts retain their original result and display “not checked” for verdicts they never recorded. The directory override `ATLAS_NEXT_PROFILE` is a trusted operator setting.
 
+## Use a project document
+
+Enter a short project name and choose **Open project**, then **Import TXT or Markdown**. The native picker authorizes one local file for that project. The app starts in `default`. Open a named project again to resume its history. The three demonstration handbook records are shared. Files and lookup history from other projects are excluded from the active lookup. Project scope is an application boundary within the owner's OS account.
+
+For example, import a UTF-8 document containing `Signal colour: amber`, then ask “What is the signal colour?” Choose **Verify and finish** and **Export receipt**. The receipt identifies the project, source name, owned revision path, SHA-256 and the exact value span. Character positions are zero-based UTF-16 offsets, including any leading BOM and original line endings. Line numbers start at one. Re-importing the same selected path with new bytes creates another immutable revision. Selecting a different original path creates a distinct document.
+
+Research & Verification reads explicit, single-line `Subject: value` or `Subject is value.` statements, including Markdown list items. Text in fenced code blocks supplies no claims. An optional `Valid through: yyyy-MM-dd` applies to the document. An undated claim is reported as undated. The supported forms include “What is …?”, “Name …” and “Which value is recorded for …?”. Competing values for the same recognized subject, expired evidence and insufficient support withhold delivery. A completed lookup reports what a source says. It does not independently establish the real-world truth of a statement or grant permission to execute it. The bounded grammar does not evaluate general prose, logical entailment, or all aliases and contradictions.
+
+Each project accepts up to 32 local TXT/Markdown documents, each at most 256 KiB and 256 indexed claims. Plaintext copies and receipts stay in the local profile. Linked paths and malformed UTF-8 are rejected. Imports never enter model training.
+
+## Evaluate actual lookup outcomes
+
+After the Release checks build, run `python -B lab/outcomes.py` for the public, author-created suite. For a blind run, the custodian invokes `python -B lab/outcomes.py --manifest <private-manifest> --report <fresh-private-report>`. Keep both outside the checkout in custodian-controlled storage. The manifest pins a sibling UTF-8 JSON suite by SHA-256. [Public case format](lab/outcomes.public.json) · [Manifest example](lab/outcomes.manifest.json)
+
+Each case has separate questions, source texts, expectations and provenance. Declare `author_fixture`, `custodian_fixture`, or `observed_project_outcome`. An observed outcome additionally requires an `outcome_receipt` with a sibling filename and SHA-256. An external path or matching digest alone cannot establish independent custody or empirical truth. The runner gives the isolated test process only the question and texts, scores the real engine's receipt and records failures, lookup latency and process memory. Custodians retain their suite, labels and detailed reports. Only independently attested results qualify as independent evidence.
+
 ## Build from a fresh checkout
 
 Use an interactive Windows x64 desktop, 64-bit Windows PowerShell 5.1 or PowerShell 7, .NET SDK 10.0.401 (or compatible patch) with WindowsDesktop reference packs, and the matching .NET/WindowsDesktop 10.0.12 runtime folders for bundling. Package sources are cleared in NuGet.Config. From the repo root:

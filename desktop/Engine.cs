@@ -8,15 +8,26 @@ internal sealed class Engine(string profile) : IDisposable
     private readonly Routing routing=new();
     private readonly Library library=new();
     private readonly Journal journal=new(profile);
+    private Documents documents=new(profile);
+    public string Project { get; private set; }="default";
+    public void SelectProject(string name)
+    {
+        name=name.Trim().ToLowerInvariant();
+        if(!System.Text.RegularExpressions.Regex.IsMatch(name,@"\A[a-z][a-z0-9-]{0,31}\z"))
+            throw new ArgumentException("Use a project name of 1–32 letters, digits or hyphens, starting with a letter.");
+        documents=new Documents(profile,name);
+        Project=name;
+    }
+    public Imported Import(string path)=>documents.Import(path);
     public string RecoveryNotice => journal.RecoveryNotice;
-    public IEnumerable<Work> History()=>journal.History().OrderByDescending(w=>w.Events.Last().At);
+    public IEnumerable<Work> History()=>journal.History().Where(w=>w.Project==Project).OrderByDescending(w=>w.Events.Last().At);
     public Work Submit(Guid id,string request)
     {
         request=request.Trim();
         if(request.Length is 0 or >2048) throw new ArgumentException("Enter a request of 1–2048 characters.");
         var old=journal.Read(id);
-        if(old!=null) return old.Request==request ? old : throw new InvalidOperationException("Conflicting task identity");
-        var task=new Work(id,request).At("queued");
+        if(old!=null) return old.Project==Project && old.Request==request ? old : throw new InvalidOperationException("Conflicting task identity");
+        var task=(new Work(id,request) {Project=Project}).At("queued");
         journal.Save(task);
         try
         {
@@ -24,17 +35,30 @@ internal sealed class Engine(string profile) : IDisposable
             var proposed=routing.Infer(request);
             clock.Stop();
             task=task with {InferenceMicroseconds=(long)clock.Elapsed.TotalMicroseconds, ProcessWorkingSetBytes=Environment.WorkingSet};
-            var hit=library.Exact(request);
-            var route=hit?.Record.Type ?? Routing.Rule(request);
-            task=task with {Proposal=proposed,Specialist=route,Router="deterministic-route-v2"};
-            if(route is "fact" or "procedure") hit??=library.Find(request,route);
-            if(hit==null || !Relevance.Supports(request,hit))
-                task=(task with {Authorization="no matching scoped record",Verification="no evidence",AnswerRelevance="unsupported",
-                    Result="Specify a supported archive or export question, or enter a catalog ID."}).At("needs clarification");
+            var exact=library.Exact(request);
+            var route=exact?.Record.Type ?? Routing.Rule(request);
+            var candidate=exact ?? library.Find(request,route);
+            var passages=documents.Active();
+            if(exact==null && route!="procedure") {
+                var words=Assets.Tokens(request).ToHashSet();
+                var passage=passages.Where(p=>Assets.Tokens(p.Subject).All(words.Contains))
+                    .OrderByDescending(p=>p.Subject.Length).FirstOrDefault();
+                if(passage!=null && (candidate==null || passage.Subject!=Research.CatalogSubject(candidate))) {
+                    route="fact";
+                    candidate=Research.FromPassage(passage);
+                }
+            }
+            var finding=Research.Assess(request,library,passages);
+            task=task with {Proposal=proposed,Specialist=route,Router="deterministic-route-v3",ResearchReview=finding.Assessment};
+            if(candidate==null || candidate.Citation!=finding.Source?.Citation)
+                task=(task with {Authorization="no matching scoped record",Verification="answer withheld",AnswerRelevance="unsupported",
+                    Result=finding.Source==null ? finding.Assessment.Detail : "Primary could not resolve a source for this request."}).At("needs clarification");
             else
-                task=(task with {Authorization="allowed public-demo record read",Evidence=hit.Citation}).At("review");
+                task=(task with {Authorization="allowed scoped record read",Scope=candidate.Record.Scope,
+                    Capability=candidate.Citation.Span==null ? task.Capability : "read owner-imported text",
+                    Budget="2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",Evidence=candidate.Citation}).At("review");
         }
-        catch(Exception ex) when(ex is IOException or InvalidDataException)
+        catch(Exception ex) when(ex is IOException or InvalidDataException or UnauthorizedAccessException)
         {
             task=(task with {Result=ex.Message,Verification="failed"}).At("failed");
         }
@@ -44,24 +68,32 @@ internal sealed class Engine(string profile) : IDisposable
     public Work Finish(Guid id,bool cancel=false)
     {
         var task=journal.Read(id) ?? throw new ArgumentException("Task missing");
+        if(task.Project!=Project) throw new InvalidOperationException("Task belongs to a different project.");
         if(task.State!="review") return task;
         if(cancel) task=(task with {Verification="cancelled before delivery",Result=null}).At("cancelled");
         else
         {
             try
             {
-                var source=library.Exact(task.Evidence!.Id);
-                if(source==null || source.Citation!=task.Evidence || task.Scope!=source.Record.Scope ||
+                var cited=task.Evidence!;
+                var active=documents.Active();
+                var passage=cited.Span==null ? null : active.FirstOrDefault(p=>p.Citation==cited);
+                var source=passage!=null ? Research.FromPassage(passage) : library.Exact(cited.Id);
+                if(source==null || source.Citation!=cited || task.Scope!=source.Record.Scope ||
                     task.Specialist!=source.Record.Type) throw new InvalidDataException("Source failed verification");
-                task=task with {SourceIntegrity="passed"};
-                if(Relevance.Supports(task.Request,source))
+                var finding=Research.Assess(task.Request,library,active);
+                task=task with {SourceIntegrity="passed",ResearchReview=finding.Assessment};
+                if(finding.Source!=null && finding.Assessment.Sources.Contains(cited))
                     task=(task with {AnswerRelevance="supported",Result=source.Record.Body,
                         Verification="source and answer checked"}).At("completed");
-                else
+                else {
+                    if(finding.Source!=null) task=task with {ResearchReview=finding.Assessment with {
+                        Verdict="unsupported",Detail="The selected citation does not support this request."}};
                     task=(task with {AnswerRelevance="unsupported",Verification="answer withheld",
-                        Result="This record does not answer the requested subject and intent."}).At("needs clarification");
+                        Result=task.ResearchReview!.Detail}).At("needs clarification");
+                }
             }
-            catch(Exception ex) when(ex is IOException or InvalidDataException)
+            catch(Exception ex) when(ex is IOException or InvalidDataException or UnauthorizedAccessException)
             {
                 task=(task with {Result=ex.Message,SourceIntegrity="failed",Verification="failed"}).At("failed");
             }
@@ -71,8 +103,8 @@ internal sealed class Engine(string profile) : IDisposable
     }
     public int StopAll()
     {
-        var waiting=History().Where(task=>task.State=="review").ToList();
-        foreach(var task in waiting) Finish(task.Id,true);
+        var waiting=journal.History().Where(task=>task.State=="review").ToList();
+        foreach(var task in waiting) journal.Save((task with {Verification="cancelled before delivery",Result=null}).At("cancelled"));
         return waiting.Count;
     }
     public void Dispose()=>journal.Dispose();

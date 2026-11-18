@@ -3,6 +3,18 @@ $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 Add-Type -AssemblyName UIAutomationClient
 Add-Type -AssemblyName UIAutomationTypes
+# Some Windows UIA providers expose native common-dialog controls as generic panes.
+# Use their scoped HWNDs for the two native messages when managed patterns are absent.
+Add-Type -TypeDefinition @"
+using System;
+using System.Runtime.InteropServices;
+public static class AtlasTestDialog {
+    [DllImport("user32.dll", CharSet=CharSet.Unicode)]
+    public static extern IntPtr SendMessage(IntPtr hwnd, uint msg, IntPtr wparam, string text);
+    [DllImport("user32.dll")]
+    public static extern bool PostMessage(IntPtr hwnd, uint msg, IntPtr wparam, IntPtr lparam);
+}
+"@
 $root=Join-Path ([IO.Path]::GetTempPath()) ("atlas-next-package-"+[guid]::NewGuid().ToString("N"))
 $payload=Join-Path $root "extracted"
 [IO.Compression.ZipFile]::ExtractToDirectory((Resolve-Path $Zip).Path,$payload)
@@ -27,7 +39,12 @@ function Launch {
                 [System.Windows.Automation.PropertyCondition]::new($automation::NameProperty,'ATLAS Next'),
                 [System.Windows.Automation.PropertyCondition]::new($automation::ControlTypeProperty,[System.Windows.Automation.ControlType]::Window))
             $window=$automation::RootElement.FindFirst([System.Windows.Automation.TreeScope]::Children,$condition)
-            if($window){return [pscustomobject]@{Process=$proc; Window=$window}}
+            if($window){
+                $ready=[System.Windows.Automation.PropertyCondition]::new($automation::AutomationIdProperty,'Status')
+                if($window.FindFirst([System.Windows.Automation.TreeScope]::Descendants,$ready)){
+                    return [pscustomobject]@{Process=$proc; Window=$window}
+                }
+            }
         }
         Start-Sleep -Milliseconds 100
     } while ([DateTime]::UtcNow -lt $limit)
@@ -55,6 +72,51 @@ function Wait-State($window,$wanted){
         Start-Sleep -Milliseconds 100
     }while([DateTime]::UtcNow -lt $limit)
     throw "Expected task state $wanted"
+}
+function Import-Document($session,$name,$content){
+    $path=Join-Path $root $name
+    [IO.File]::WriteAllText($path,$content,[Text.UTF8Encoding]::new($false))
+    Invoke-Control $session.Window 'Import'
+    $automation=[System.Windows.Automation.AutomationElement]
+    $condition=[System.Windows.Automation.AndCondition]::new(
+        [System.Windows.Automation.PropertyCondition]::new($automation::ProcessIdProperty,[int]$session.Process.Id),
+        [System.Windows.Automation.PropertyCondition]::new($automation::NameProperty,'Import local text'))
+    $limit=[DateTime]::UtcNow.AddSeconds(10)
+    do {
+        $dialog=$session.Window.FindFirst([System.Windows.Automation.TreeScope]::Descendants,$condition)
+        if(!$dialog){$dialog=$automation::RootElement.FindFirst([System.Windows.Automation.TreeScope]::Children,$condition)}
+        if($dialog){break}
+        Start-Sleep -Milliseconds 75
+    } while ([DateTime]::UtcNow -lt $limit)
+    if(!$dialog){throw 'Native import dialog unavailable'}
+    try {
+        $fields=[System.Windows.Automation.AndCondition]::new(
+            [System.Windows.Automation.PropertyCondition]::new($automation::AutomationIdProperty,'1148'),
+            [System.Windows.Automation.PropertyCondition]::new($automation::ClassNameProperty,'Edit'))
+        do {
+            $edit=$dialog.FindFirst([System.Windows.Automation.TreeScope]::Descendants,$fields)
+            if($edit){break}
+            Start-Sleep -Milliseconds 75
+        } while([DateTime]::UtcNow -lt $limit)
+        $open=Control $dialog '1'
+        if(!$edit -or $edit.Current.ProcessId -ne $session.Process.Id -or $open.Current.ProcessId -ne $session.Process.Id){
+            throw 'Could not identify the packaged process file picker controls'
+        }
+        if([AtlasTestDialog]::SendMessage([IntPtr]$edit.Current.NativeWindowHandle,12,[IntPtr]::Zero,$path) -eq [IntPtr]::Zero){
+            throw 'Could not populate native file name'
+        }
+        if(![AtlasTestDialog]::PostMessage([IntPtr]$dialog.Current.NativeWindowHandle,273,[IntPtr]1,[IntPtr]$open.Current.NativeWindowHandle)){
+            throw 'Could not select fixture'
+        }
+    } catch {
+        $dialog.GetCurrentPattern([System.Windows.Automation.WindowPattern]::Pattern).Close()
+        throw
+    }
+    do {
+        if((Control $session.Window 'Notice').Current.Name -like "Imported $name,*"){return}
+        Start-Sleep -Milliseconds 75
+    } while ([DateTime]::UtcNow -lt $limit)
+    throw "Import failed for $name"
 }
 function Close-Session($session){
     $session.Window.GetCurrentPattern([System.Windows.Automation.WindowPattern]::Pattern).Close()
@@ -137,11 +199,44 @@ try {
     foreach($item in $preserved){
         if((Get-FileHash -LiteralPath $item.FullName).Hash -ne $fixtures[$item.Name]){throw "Changed quarantine file $($item.Name)"}
     }
+    (Control $window 'ProjectName').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).SetValue('package-check')
+    Invoke-Control $window 'SwitchProject'
+    Wait-State $window 'Ready'
+    if((Control $window 'ProjectLabel').Current.Name -ne 'Active project: package-check'){throw 'Project selection failed'}
+    Import-Document $session 'channel.md' "# Local handbook`r`nSignal colour: amber"
+    (Control $window 'Prompt').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).SetValue('What is the signal colour?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'Summary').Current.Name -ne 'amber' -or
+       (Control $window 'SourceInfo').Current.Name -notlike '*line 2, characters*' -or
+       (Control $window 'ResearchInfo').Current.Name -notlike '*Research & Verification: supported*'){throw 'Packaged import span failed'}
+    Invoke-Control $window 'Export'
+    $importExports=Join-Path $env:ATLAS_NEXT_PROFILE 'exports\project-package-check'
+    $limit=[DateTime]::UtcNow.AddSeconds(8)
+    do {
+        $spanFile=Get-ChildItem -LiteralPath $importExports -Filter '*.json' -ErrorAction SilentlyContinue | Select-Object -First 1
+        if($spanFile){
+            try { $spanReceipt=[IO.File]::ReadAllText($spanFile.FullName) | ConvertFrom-Json; break } catch [IO.IOException] {}
+        }
+        Start-Sleep -Milliseconds 100
+    } while([DateTime]::UtcNow -lt $limit)
+    if($spanReceipt.project -ne 'package-check' -or $spanReceipt.result -ne 'amber' -or $spanReceipt.evidence.span.line -ne 2){throw 'Project receipt export failed'}
+    "Imported receipt: $($spanFile.FullName)"
+    Import-Document $session 'other.txt' 'Signal colour: blue'
+    Invoke-Control $window 'Search'
+    Wait-State $window 'needs clarification'
+    if((Control $window 'ResearchInfo').Current.Name -notlike '*contradiction*'){throw 'Packaged contradiction check failed'}
+    "PASS native file picker imports, exact source span and contradictory sources withheld"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"
     "PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts"
     "Evidence: $($file.FullName)"
+} catch {
+    if(!$proc.HasExited){$proc.Kill(); [void]$proc.WaitForExit(5000)}
+    throw
 } finally {
     if(!$proc.HasExited){
         try { Close-Session $session } finally { if(!$proc.HasExited){$proc.Kill()} }

@@ -1,0 +1,148 @@
+[
+  {
+    "id": "unicode",
+    "question": "Which value is recorded for the delta signal?",
+    "documents": [
+      "# Note 🌊\r\nDelta signal: céladon\r\n"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 0,
+      "line": 2,
+      "start": 25,
+      "length": 7,
+      "answer": "céladon"
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "predicate",
+    "question": "Give me the beacon interval.",
+    "documents": [
+      "Beacon interval is six ticks."
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 0,
+      "line": 1,
+      "start": 19,
+      "length": 10,
+      "answer": "six ticks."
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "equal",
+    "question": "Name the orbit label.",
+    "documents": [
+      "Orbit label: evening",
+      "Orbit label: evening"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 0,
+      "line": 1,
+      "start": 13,
+      "length": 7,
+      "answer": "evening",
+      "equivalent_documents": [
+        1
+      ]
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "conflict",
+    "question": "State the pulse interval.",
+    "documents": [
+      "Pulse interval: 7 ticks",
+      "Pulse interval: 8 ticks"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "contradiction",
+      "sources": 2
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "handbook-conflict",
+    "question": "How long is the archive retention policy?",
+    "documents": [
+      "Archive retention period: 14 days"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "contradiction",
+      "sources": 2
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "other-subject",
+    "question": "What is the lunar beacon interval?",
+    "documents": [
+      "Solar beacon interval: two ticks"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "unsupported",
+      "sources": 0
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "extra-intent",
+    "question": "What is the beacon interval and cost?",
+    "documents": [
+      "Beacon interval: two ticks"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "unsupported",
+      "sources": 0
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "expired",
+    "question": "What is the radio band?",
+    "documents": [
+      "Valid through: 2001-01-01\nRadio band: azure"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "stale",
+      "sources": 1
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "fence",
+    "question": "What is the gate colour?",
+    "documents": [
+      "```txt\nGate colour: teal\n```"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "unsupported",
+      "sources": 0
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "handbook",
+    "question": "Please state the archive retention duration.",
+    "documents": [],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "record": "fact.retention",
+      "answer": "The demonstration archive retains completed exports for 30 days."
+    },
+    "origin": "author_fixture"
+  }
+]
