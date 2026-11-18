@@ -1,0 +1,408 @@
+{
+  "review": "NEXT-004",
+  "verdict": "ACCEPTED_WITH_LIMITATIONS",
+  "selected_next_milestone": "Roadmap Option A: Local conversation and coding assistance (read-only and offline, with Option C independent scoring prerequisites frozen before implementation)",
+  "reviewer": "Gemini Hydrogen",
+  "reviewed_at_utc": "2026-11-18T15:57:53.1083915Z",
+  "frozen_product": "0f57a164dc2f1437c633a7b574d350e4aced4642",
+  "author_transfer_head": "3ae7a039031b476a325df6508bbcec1feadb8529",
+  "prior_review_commit": "3f227d4",
+  "environment": {
+    "os": "Microsoft Windows 11 Pro 10.0.26300 (Build 26300, 64-bit)",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_desktop_runtime_installed": "10.0.12",
+    "powershell_5_1": "5.1.26100.9818 (-NoProfile -ExecutionPolicy RemoteSigned)",
+    "powershell_7": "7.6.9 (cached)",
+    "python": "3.12.14 with numpy 2.3.5 (cached; OPENBLAS_NUM_THREADS=1)"
+  },
+  "isolation_and_diff_checks": {
+    "product_to_transfer_docs_and_evidence_only": true,
+    "nuget_external_libraries_count": 0,
+    "atlas_next_deps_targets": [
+      "AtlasNext/1.0.0"
+    ],
+    "legacy_repo_head": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "legacy_repo_untouched_by_review": true,
+    "execution_capability": "read owner-imported text"
+  },
+  "author_commands_independent_rerun": {
+    "dotnet_build_release": {
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0
+    },
+    "atlas_next_checks_exe": {
+      "status": "PASS",
+      "passed": 91,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_test_integrity": {
+      "status": "PASS",
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_evaluate_routing": {
+      "status": "PASS",
+      "scores": {
+        "rule": "48/72",
+        "exemplar": "42/72",
+        "native": "54/72",
+        "linear": "54/72"
+      },
+      "reproduced_p95_us": {
+        "rule": 2.545,
+        "exemplar": 39.445,
+        "native": 24.535,
+        "linear": 19.345
+      },
+      "native_qualification": "shadow"
+    },
+    "python_public_outcomes": {
+      "status": "PASS",
+      "passed": 21,
+      "total": 21
+    },
+    "python_project_audit": {
+      "status": "PASS",
+      "distributions": 10,
+      "mismatches_match_archived_receipts": {
+        "numpy": 20,
+        "pillow": 8,
+        "lxml": 7
+      }
+    }
+  },
+  "packaging_and_cross_shell_verification": {
+    "shipped_ps7_zip": {
+      "path": "out/ATLAS-Next-win-x64.zip",
+      "bytes": 94815329,
+      "sha256": "60edd2e022920f7ab9b2fb383815d17dfa23a1857804956cc1d4812f11fdcc30",
+      "zip_entries": 492,
+      "inventory_hashed_files": 491,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_under_pwsh_7_6_9": "PASS"
+    },
+    "shipped_ps51_zip": {
+      "path": "out/ATLAS-Next-win-x64-ps51.zip",
+      "bytes": 80208498,
+      "sha256": "ab6960506785351502408a4899b556240f10996072f42788e2061634a211358f",
+      "zip_entries": 492,
+      "inventory_hashed_files": 491,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_under_ps_5_1": "PASS"
+    },
+    "disposable_clone_repackage_pwsh7": {
+      "bytes": 94815396,
+      "sha256": "d8709900bfe1df509dbc298b4bda11dbc75883977208efb50156f914e1d3ffd4",
+      "zip_entries": 492,
+      "inventory_hashed_files": 491,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_under_pwsh_7_6_9": "PASS"
+    },
+    "disposable_clone_repackage_ps51": {
+      "bytes": 80208535,
+      "sha256": "adc32ea1ad2cbf366a43f685a431503e741c568850a2f94e2602f5f5642883ae",
+      "zip_entries": 492,
+      "inventory_hashed_files": 491,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_under_ps_5_1": "PASS"
+    }
+  },
+  "shadow_refit_and_public_benchmarks": {
+    "openblas_num_threads": 1,
+    "reproduced_checkpoint_sha256": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+    "exact_byte_match_with_repo_checkpoint": true,
+    "training_proposals": 64,
+    "training_host_passes": 16,
+    "validation_useful_all_trials": "8/8",
+    "selected_cutoff_linear": 0.5,
+    "selected_cutoff_native": 0.5,
+    "selected_seed_native": 11,
+    "qualification": "shadow",
+    "public_evaluation_16": {
+      "host": {
+        "route_correct": 16,
+        "useful": 16,
+        "wrong_deliveries": 0,
+        "proposed_abstentions": 0,
+        "p50_engine_us": 108876.85,
+        "p95_engine_us": 112021.325,
+        "p50_process_ms": 282.01625,
+        "peak_host_working_set": 75616256
+      },
+      "tfidf": {
+        "route_correct": 16,
+        "useful": 16,
+        "wrong_deliveries": 0,
+        "proposed_abstentions": 0,
+        "p50_scoring_us": 47.9,
+        "p95_scoring_us": 81.25,
+        "p50_engine_us": 108454.45,
+        "p95_engine_us": 112042.675,
+        "p50_process_ms": 279.279,
+        "peak_host_working_set": 75911168
+      },
+      "linear": {
+        "route_correct": 14,
+        "useful": 14,
+        "wrong_deliveries": 0,
+        "proposed_abstentions": 2,
+        "misses": [
+          "openpyxl-4",
+          "xlsxwriter-4"
+        ],
+        "p50_scoring_us": 272.25,
+        "p95_scoring_us": 365.175,
+        "top_candidate_brier": 0.06254831836992278,
+        "ece": 0.09853221002154794
+      },
+      "native": {
+        "route_correct": 15,
+        "useful": 15,
+        "wrong_deliveries": 0,
+        "proposed_abstentions": 1,
+        "misses": [
+          "xlsxwriter-4"
+        ],
+        "p50_scoring_us": 297.1,
+        "p95_scoring_us": 532.15,
+        "top_candidate_brier": 0.03764230614967519,
+        "ece": 0.06682825495443676
+      }
+    },
+    "public_constructed_21": {
+      "suite_sha256": "7bf86a623666e75b12e5cb5acb5490931afb2b49f21d93da9f7e044975cb8124",
+      "host": "21/21",
+      "tfidf": "21/21",
+      "linear": "20/21 (missed argument-relation via false abstention; 4 proposed abstentions)",
+      "native": "21/21 (predicate regression resolved; 3 expected abstentions)",
+      "wrong_deliveries_across_all_policies": 0
+    },
+    "historical_bb015a4_controls": {
+      "old_policy_old_host": {
+        "eval_16": "14/16/14/14 (host/tfidf/linear/native), 0 wrong deliveries",
+        "stress_21": "15/15/14/14"
+      },
+      "old_policy_new_host": {
+        "eval_16": "16/16/14/14 (linear Brier 0.10388, native Brier 0.12028), 0 wrong deliveries",
+        "stress_21": "21/21/18/18"
+      }
+    }
+  },
+  "protected_challenge_replays": {
+    "next002_protected_suite": {
+      "suite_sha256": "d9ca9752f9134151adb44c5fd85ae380dc206f4365c7a3aefbc170eece1649de",
+      "total": 13,
+      "provenance": {
+        "observed_project_outcome": 2,
+        "custodian_fixture": 11
+      },
+      "outcomes_runner": "13/13",
+      "policies": {
+        "host": {
+          "passed": 13,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 0,
+          "p50_engine_us": 96679.2,
+          "p95_engine_us": 100397.8,
+          "p50_process_ms": 250.3,
+          "max_working_set": 75476992
+        },
+        "tfidf": {
+          "passed": 13,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 0,
+          "p50_scoring_us": 48.6,
+          "p50_engine_us": 98542.1,
+          "p95_engine_us": 101515.8,
+          "p50_process_ms": 251.37,
+          "max_working_set": 75526144
+        },
+        "linear": {
+          "passed": 13,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 0,
+          "p50_scoring_us": 130.4,
+          "p50_engine_us": 98542.1,
+          "p95_engine_us": 101515.8,
+          "p50_process_ms": 251.37,
+          "max_working_set": 75526144
+        },
+        "native": {
+          "passed": 13,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 0,
+          "p50_scoring_us": 61.7,
+          "p50_engine_us": 98542.1,
+          "p95_engine_us": 101515.8,
+          "p50_process_ms": 251.37,
+          "max_working_set": 75526144
+        }
+      }
+    },
+    "next003_protected_suite": {
+      "suite_sha256": "cee21ea14676c53f19ed610068ae298827cc914d1bc9fc2f37615f1b33888839",
+      "total": 20,
+      "provenance": {
+        "observed_project_outcome": 12,
+        "custodian_fixture": 8
+      },
+      "outcomes_runner": "18/20 (10/12 observed, 8/8 controls)",
+      "policies": {
+        "host": {
+          "passed": 18,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 0,
+          "p50_engine_us": 101749.1,
+          "p95_engine_us": 109740.9,
+          "p50_process_ms": 271.9,
+          "max_working_set": 76009472
+        },
+        "tfidf": {
+          "passed": 18,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 0,
+          "p50_scoring_us": 83.2,
+          "p50_engine_us": 103049.4,
+          "p95_engine_us": 109548.3,
+          "p50_process_ms": 270.4,
+          "max_working_set": 76144640
+        },
+        "linear": {
+          "passed": 18,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 2,
+          "abstention_misses": 2,
+          "wrong_proposal_misses": 0,
+          "p50_scoring_us": 333.6,
+          "p50_engine_us": 103049.4,
+          "p95_engine_us": 109548.3,
+          "p50_process_ms": 270.78,
+          "max_working_set": 76144640
+        },
+        "native": {
+          "passed": 18,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 1,
+          "abstention_misses": 1,
+          "wrong_proposal_misses": 0,
+          "p50_scoring_us": 208.5,
+          "p50_engine_us": 103049.4,
+          "p95_engine_us": 109548.3,
+          "p50_process_ms": 270.78,
+          "max_working_set": 76144640
+        }
+      },
+      "non_leaking_miss_note": "Both remaining misses are wording variants outside the NEXT-004 relation templates (explicit package naming in version requirement and omitted category word before 'files'), safely withheld by Research as unsupported (0 wrong deliveries)."
+    }
+  },
+  "fresh_next004_external_challenge_suite": {
+    "scope": "external_custodian_directory_private_inputs_retained",
+    "suite_sha256": "86dbf6029514b2d07dcfe978899c007777b0e02ce91a991a815f9cc6a46050f8",
+    "total": 24,
+    "outcomes_runner": "24/24",
+    "provenance_breakdown": {
+      "observed_project_outcome": {
+        "count": 12,
+        "host_passed": 12,
+        "tfidf_passed": 12,
+        "linear_passed": 7,
+        "native_passed": 10,
+        "receipts": [
+          {
+            "id": "custodian-observed-receipt-1",
+            "sha256": "696f7bd5962905a85b551dcb5ff2fc13bebc4a9aba7bddec0e5e25aab0326ff3"
+          },
+          {
+            "id": "custodian-observed-receipt-2",
+            "sha256": "af32181fb2d64737e8f96535a73028df220f5864623a170d52d2e363ebca6426"
+          },
+          {
+            "id": "custodian-observed-receipt-3",
+            "sha256": "401814987cf645eb80226a35d6921ac31f851bb164e0e6028e1cda59d358e41b"
+          }
+        ],
+        "description": "12 unseen observed project outcomes across 3 new measured targets outside train/val/eval and NEXT-003 suites, exercising parameter, declaration-line, version-requirement, installed-audit-count, wheel-generator, trailing-helper, and value-listing relations."
+      },
+      "custodian_fixture": {
+        "count": 12,
+        "host_passed": 12,
+        "tfidf_passed": 12,
+        "linear_passed": 11,
+        "native_passed": 11,
+        "description": "12 constructed controls covering natural relations with trailing helpers, modifier protection, extra trailing constraint rejection, mid-document Installed payload audit heading reset, non-version requirement insufficiency, non-numeric line insufficiency, literal helper collision ambiguity, definite+unconfirmed insufficiency, and mixed stale relation."
+      }
+    },
+    "policies": {
+      "host": {
+        "passed": 24,
+        "wrong_deliveries": 0,
+        "proposed_abstentions": 0,
+        "p50_engine_us": 102640.8,
+        "p95_engine_us": 109125.3,
+        "p50_process_ms": 270.2,
+        "max_working_set": 75460608
+      },
+      "tfidf": {
+        "passed": 24,
+        "wrong_deliveries": 0,
+        "proposed_abstentions": 0,
+        "p50_scoring_us": 72.2,
+        "p50_engine_us": 102806.1,
+        "p95_engine_us": 110360.8,
+        "p50_process_ms": 263.88,
+        "max_working_set": 75767808
+      },
+      "linear": {
+        "passed": 18,
+        "wrong_deliveries": 0,
+        "proposed_abstentions": 12,
+        "abstention_misses": 6,
+        "wrong_proposal_misses": 0,
+        "p50_scoring_us": 268.4,
+        "p50_engine_us": 98682.9,
+        "p95_engine_us": 108862.3,
+        "p50_process_ms": 259.17,
+        "max_working_set": 75767808
+      },
+      "native": {
+        "passed": 21,
+        "wrong_deliveries": 0,
+        "proposed_abstentions": 9,
+        "abstention_misses": 3,
+        "wrong_proposal_misses": 0,
+        "p50_scoring_us": 219.1,
+        "p50_engine_us": 99416.8,
+        "p95_engine_us": 108862.3,
+        "p50_process_ms": 263.34,
+        "max_working_set": 75767808
+      }
+    },
+    "non_leaking_miss_note": "Host and TF-IDF completed 24/24 with 0 wrong deliveries. Native missed 3 answerable relation cases via false abstention (-1): both installed-payload audit-count observations and one backend-builder relation. Linear missed 6 via false abstention (-1) across argument, version-requirement, audit-count, and generator relations."
+  },
+  "independent_csharp_adversarial_probes": {
+    "passed": 17,
+    "total": 17,
+    "findings": [
+      "Verified mid-document heading reset after '# Installed payload audit' safely withholds payload counts as 'insufficient'.",
+      "Verified compound version constraint parsing ('>=5.1,<5.5'), declaration-line modifier protection, pinned retention, unclear 'archive restoration' withholding, swapped authentic imported citation rejection ('SourceIntegrity=passed', 'AnswerRelevance=unsupported'), tampered Authorization/Scope/Specialist refusal at Engine.Finish, cross-project task and document isolation, and named-project corrupt journal recovery.",
+      "Discovered non-unsafe false-abstention edge case: Routing.SearchTerms unconditionally drops tokens like 'package', 'audit', 'installation', 'number', 'value', 'setting', so distinct subjects differing only by a dropped token (ordered longest-first) cause Primary to propose the wrong doc while Research selects the exact subject, resulting in safe withholding ('Primary could not resolve a source') rather than delivery.",
+      "Discovered non-unsafe helper collision nuance: Research.LiteralLookup does not strip ', please', so asking with ', please' when both 'Subject' and 'Subject set to' exist yields safe withholding via Primary/Research mismatch instead of Research's 'ambiguous' verdict."
+    ]
+  },
+  "roadmap_comparison_and_selection": {
+    "selected_option": "A",
+    "comparison": {
+      "A_local_conversation_and_coding": "SELECTED for NEXT-005 (read-only and offline, paired with C's frozen independent scoring protocol before work). Advances real owner usefulness on unfamiliar project source files with multi-turn symbol lookup + parameter follow-up and exact file revision/line citations, accumulating eligible outcomes needed before refitting models.",
+      "B_authorized_research": "Deferred as standalone next step until multi-file source symbol workflows work cleanly locally and an isolated network/fetch boundary exists; B's local source-revision and citation discipline remains enforced inside A.",
+      "C_native_training": "Premature as primary driver because deterministic host (16/16 eval, 24/24 NEXT-004 external) already meets or beats shadow models (native 15/16 eval, 21/24 external). Protocol prerequisites are frozen during A so recurring real failures can later be evaluated rigorously.",
+      "D_isolated_execution": "Blocked because execution remains disabled and no independently inspected/qualified disposable guest boundary exists (Get-VM unauthorized)."
+    }
+  }
+}
