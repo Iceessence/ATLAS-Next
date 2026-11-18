@@ -1,0 +1,303 @@
+{
+  "policy": "host",
+  "origin": "author-public source observation",
+  "external_inference_calls": 0,
+  "author_and_evaluator_assistance": "external developer authored requests, harness and implementation",
+  "turns": 16,
+  "verified_deliveries": 12,
+  "wrong_deliveries": 0,
+  "correct_abstentions": 4,
+  "conversations_correct": 8,
+  "median_wall_ms": 259.11695,
+  "max_working_set": 50626560,
+  "trials": [
+    {
+      "project": "pyhumps",
+      "version": "3.8.0",
+      "path": "humps/main.py",
+      "source_sha256": "d026ffe1c1642424f4195ed52b17569e802f32ebef664061181aa28adad7bb43",
+      "symbol": "pascalize",
+      "expected": [
+        {
+          "line": 14,
+          "start": 310,
+          "length": 9,
+          "text": "pascalize"
+        },
+        {
+          "line": 14,
+          "start": 306,
+          "length": 27,
+          "text": "def pascalize(str_or_iter):"
+        }
+      ],
+      "actual": [
+        {
+          "line": 14,
+          "start": 310,
+          "length": 9,
+          "text": "pascalize"
+        },
+        {
+          "line": 14,
+          "start": 306,
+          "length": 27,
+          "text": "def pascalize(str_or_iter):"
+        }
+      ],
+      "wall_ms": 278.8817,
+      "turn_ms": [
+        60.3519,
+        25.8183
+      ],
+      "working_set": 48148480
+    },
+    {
+      "project": "pyhumps",
+      "version": "3.8.0",
+      "path": "humps/main.py",
+      "source_sha256": "d026ffe1c1642424f4195ed52b17569e802f32ebef664061181aa28adad7bb43",
+      "symbol": "decamelize",
+      "expected": [
+        {
+          "line": 96,
+          "start": 2614,
+          "length": 10,
+          "text": "decamelize"
+        },
+        {
+          "line": 96,
+          "start": 2610,
+          "length": 28,
+          "text": "def decamelize(str_or_iter):"
+        }
+      ],
+      "actual": [
+        {
+          "line": 96,
+          "start": 2614,
+          "length": 10,
+          "text": "decamelize"
+        },
+        {
+          "line": 96,
+          "start": 2610,
+          "length": 28,
+          "text": "def decamelize(str_or_iter):"
+        }
+      ],
+      "wall_ms": 274.481,
+      "turn_ms": [
+        57.4798,
+        26.2985
+      ],
+      "working_set": 47939584
+    },
+    {
+      "project": "pyhumps",
+      "version": "3.8.0",
+      "path": "humps/main.py",
+      "source_sha256": "d026ffe1c1642424f4195ed52b17569e802f32ebef664061181aa28adad7bb43",
+      "symbol": "_process_keys",
+      "expected": [
+        {
+          "line": 219,
+          "start": 5901,
+          "length": 13,
+          "text": "_process_keys"
+        },
+        {
+          "line": 219,
+          "start": 5897,
+          "length": 35,
+          "text": "def _process_keys(str_or_iter, fn):"
+        }
+      ],
+      "actual": [
+        {
+          "line": 219,
+          "start": 5901,
+          "length": 13,
+          "text": "_process_keys"
+        },
+        {
+          "line": 219,
+          "start": 5897,
+          "length": 35,
+          "text": "def _process_keys(str_or_iter, fn):"
+        }
+      ],
+      "wall_ms": 246.3867,
+      "turn_ms": [
+        58.228,
+        22.689
+      ],
+      "working_set": 48222208
+    },
+    {
+      "project": "pyhumps",
+      "version": "3.8.0",
+      "path": "humps/main.py",
+      "source_sha256": "d026ffe1c1642424f4195ed52b17569e802f32ebef664061181aa28adad7bb43",
+      "symbol": "absent_symbol",
+      "expected": [
+        null,
+        null
+      ],
+      "actual": [
+        null,
+        null
+      ],
+      "wall_ms": 225.1082,
+      "turn_ms": [
+        44.003,
+        11.5153
+      ],
+      "working_set": 48078848
+    },
+    {
+      "project": "pdf2image",
+      "version": "1.17.0",
+      "path": "pdf2image/pdf2image.py",
+      "source_sha256": "3118a70fcc5375b312909808537db2fb1683c81bba4e8eb84696f182e669dd8f",
+      "symbol": "convert_from_path",
+      "expected": [
+        {
+          "line": 37,
+          "start": 816,
+          "length": 17,
+          "text": "convert_from_path"
+        },
+        {
+          "line": 37,
+          "start": 812,
+          "length": 726,
+          "text": "def convert_from_path(\n    pdf_path: Union[str, PurePath],\n    dpi: int = 200,\n    output_folder: Union[str, PurePath] = None,\n    first_page: int = None,\n    last_page: int = None,\n    fmt: str = \"ppm\",\n    jpegopt: Dict = None,\n    thread_count: int = 1,\n    userpw: str = None,\n    ownerpw: str = None,\n    use_cropbox: bool = False,\n    strict: bool = False,\n    transparent: bool = False,\n    single_file: bool = False,\n    output_file: Any = uuid_generator(),\n    poppler_path: Union[str, PurePath] = None,\n    grayscale: bool = False,\n    size: Union[Tuple, int] = None,\n    paths_only: bool = False,\n    use_pdftocairo: bool = False,\n    timeout: int = None,\n    hide_annotations: bool = False,\n) -> List[Image.Image]:"
+        }
+      ],
+      "actual": [
+        {
+          "line": 37,
+          "start": 816,
+          "length": 17,
+          "text": "convert_from_path"
+        },
+        {
+          "line": 37,
+          "start": 812,
+          "length": 726,
+          "text": "def convert_from_path(\n    pdf_path: Union[str, PurePath],\n    dpi: int = 200,\n    output_folder: Union[str, PurePath] = None,\n    first_page: int = None,\n    last_page: int = None,\n    fmt: str = \"ppm\",\n    jpegopt: Dict = None,\n    thread_count: int = 1,\n    userpw: str = None,\n    ownerpw: str = None,\n    use_cropbox: bool = False,\n    strict: bool = False,\n    transparent: bool = False,\n    single_file: bool = False,\n    output_file: Any = uuid_generator(),\n    poppler_path: Union[str, PurePath] = None,\n    grayscale: bool = False,\n    size: Union[Tuple, int] = None,\n    paths_only: bool = False,\n    use_pdftocairo: bool = False,\n    timeout: int = None,\n    hide_annotations: bool = False,\n) -> List[Image.Image]:"
+        }
+      ],
+      "wall_ms": 258.1474,
+      "turn_ms": [
+        67.6687,
+        22.1508
+      ],
+      "working_set": 50626560
+    },
+    {
+      "project": "pdf2image",
+      "version": "1.17.0",
+      "path": "pdf2image/pdf2image.py",
+      "source_sha256": "3118a70fcc5375b312909808537db2fb1683c81bba4e8eb84696f182e669dd8f",
+      "symbol": "pdfinfo_from_path",
+      "expected": [
+        {
+          "line": 525,
+          "start": 19111,
+          "length": 17,
+          "text": "pdfinfo_from_path"
+        },
+        {
+          "line": 525,
+          "start": 19107,
+          "length": 239,
+          "text": "def pdfinfo_from_path(\n    pdf_path: str,\n    userpw: str = None,\n    ownerpw: str = None,\n    poppler_path: str = None,\n    rawdates: bool = False,\n    timeout: int = None,\n    first_page: int = None,\n    last_page: int = None,\n) -> Dict:"
+        }
+      ],
+      "actual": [
+        {
+          "line": 525,
+          "start": 19111,
+          "length": 17,
+          "text": "pdfinfo_from_path"
+        },
+        {
+          "line": 525,
+          "start": 19107,
+          "length": 239,
+          "text": "def pdfinfo_from_path(\n    pdf_path: str,\n    userpw: str = None,\n    ownerpw: str = None,\n    poppler_path: str = None,\n    rawdates: bool = False,\n    timeout: int = None,\n    first_page: int = None,\n    last_page: int = None,\n) -> Dict:"
+        }
+      ],
+      "wall_ms": 260.0865,
+      "turn_ms": [
+        66.9091,
+        22.1543
+      ],
+      "working_set": 50450432
+    },
+    {
+      "project": "pdf2image",
+      "version": "1.17.0",
+      "path": "pdf2image/pdf2image.py",
+      "source_sha256": "3118a70fcc5375b312909808537db2fb1683c81bba4e8eb84696f182e669dd8f",
+      "symbol": "_parse_format",
+      "expected": [
+        {
+          "line": 462,
+          "start": 17135,
+          "length": 13,
+          "text": "_parse_format"
+        },
+        {
+          "line": 462,
+          "start": 17131,
+          "length": 88,
+          "text": "def _parse_format(fmt: str, grayscale: bool = False) -> Tuple[str, str, Callable, bool]:"
+        }
+      ],
+      "actual": [
+        {
+          "line": 462,
+          "start": 17135,
+          "length": 13,
+          "text": "_parse_format"
+        },
+        {
+          "line": 462,
+          "start": 17131,
+          "length": 88,
+          "text": "def _parse_format(fmt: str, grayscale: bool = False) -> Tuple[str, str, Callable, bool]:"
+        }
+      ],
+      "wall_ms": 265.97,
+      "turn_ms": [
+        66.2995,
+        22.9202
+      ],
+      "working_set": 50368512
+    },
+    {
+      "project": "pdf2image",
+      "version": "1.17.0",
+      "path": "pdf2image/pdf2image.py",
+      "source_sha256": "3118a70fcc5375b312909808537db2fb1683c81bba4e8eb84696f182e669dd8f",
+      "symbol": "absent_symbol",
+      "expected": [
+        null,
+        null
+      ],
+      "actual": [
+        null,
+        null
+      ],
+      "wall_ms": 245.4155,
+      "turn_ms": [
+        60.6375,
+        14.2767
+      ],
+      "working_set": 50089984
+    }
+  ]
+}

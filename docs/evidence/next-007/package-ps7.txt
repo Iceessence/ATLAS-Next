@@ -1,0 +1,8 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\a7-a28d8418\desktop\bin\Release\net10.0-windows\AtlasNext.dll
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\a7-a28d8418\out\stage-2a991ed98d2140a093330683469b2bf0\app\
+
+Algorithm : SHA256
+Hash      : F88664F6B9A0119F9F7760F523F4AA10853C5602F69B313DBE4B3775902265B0
+Path      : C:\Users\ppawe\AppData\Local\Temp\a7-a28d8418\out\ATLAS-Next-win-x64.zip

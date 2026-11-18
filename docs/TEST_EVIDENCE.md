@@ -1,5 +1,35 @@
 # Author test evidence
 
+## NEXT-007 author verification
+
+Frozen product `2011be05e61a7c7107bce3496cb0bf072e262341` follows accepted NEXT-006 product `c0e138f63ef342d5ff38a6bce1dd9cd579d1b01c` and Hydrogen's independent decision `d07f42065ed7e4f8271a2a00a71931054f981d6d`. The public comparison was frozen in `6c6d6a4a5d424e94f7031406a4ee6cf3eae6d9b5` before product changes. Windows 11 Pro build 26300, .NET SDK 10.0.401, bundled runtime 10.0.12 and cached Python 3.12.14 were used. Separate clean clones built the two packages. [Protocol](../lab/project-work-protocol.md) · [Frozen search](evidence/next-007/search-baseline.json)
+
+| Provenance and policy | Exact deliveries | Correct withholds | Wrong deliveries | False abstentions |
+| --- | ---: | ---: | ---: | ---: |
+| Five public tasks on real sources and recorded measurements, both policies | 4 | 1 | 0 | 0 |
+| Twelve constructed controls, ordinary search | 3 | 7 | 2 | 0 |
+| Twelve constructed controls, ATLAS | 4 | 8 | 0 | 0 |
+| Total, ordinary search | 7 | 8 | 2 | 0 |
+| Total, ATLAS | 8 | 9 | 0 | 0 |
+
+All four repetitions per case reproduced the outcome. Search mistook a string and shadowed receiver for C# calls in one control and delivered a shadowed call in another. Both methods withheld the public Python call request. The ledger retains that negative capability result and four observed deliveries from author-written tasks against real sources or measured records. Ledger validation rejected training eligibility, omitted negative evidence and a forged source digest. Both measured policies used zero per-task external inference calls. The historical real measurements and new app receipts are public author evidence. Independent outcome labels and protected suites remain in evaluator custody. [Host trial receipts](evidence/next-007/project-work.json) · [Eligible outcome ledger](evidence/next-007/eligible-outcomes.json) · [Replay and validation](evidence/next-007/comparison-validate.txt)
+
+ATLAS measured **49.65 ms** median first task and **11.88 ms** warm, including submit, verify and journal writes. Median wall time for process start, import and four tasks was **246.62 ms**, with **113.64 MiB** maximum sampled working set. Ordinary search in an existing process measured **0.0186 ms** first and **0.0124 ms** warm with **24.86 MiB** sampled working set. Search timing excludes file loading. The public cases do not establish a real-source accuracy gain. [Timing receipts](evidence/next-007/project-work.txt) · [Search replay](evidence/next-007/search-repeat.json)
+
+| Command or workflow | Recorded outcome |
+| --- | --- |
+| `dotnet build checks -c Release --configfile NuGet.Config` and `checks/bin/Release/net10.0-windows/AtlasNext.Checks.exe` | 0 warnings and errors, 185/185 checks. Includes 35 focused checks beyond NEXT-006. [Build](evidence/next-007/build.txt) · [Windows checks](evidence/next-007/windows-checks.txt) |
+| `python -B lab/test_integrity.py`, `lab/outcomes.py --report out/outcomes.json`, `lab/project_audit.py`, `lab/evaluate.py` | 11/11 integrity, 31/31 prior public controls, 10 distribution observations reproduced, 54/72 synthetic shadow routing. The audit reproduced previously observed payload hash mismatches in NumPy, Pillow and lxml. [Integrity](evidence/next-007/integrity.txt) · [Controls](evidence/next-007/outcomes.json) · [Audit](evidence/next-007/audit.txt) · [Routing](evidence/next-007/evaluation.json) |
+| `python -B lab/code_navigation.py host out/code-navigation.json` and `lab/code_depth.py host out/code-depth.json` | 8/8 NEXT-005 and 13/13 NEXT-006 conversations, zero wrong deliveries. [NEXT-005 replay](evidence/next-007/code-navigation.json) · [NEXT-006 replay](evidence/next-007/code-depth.json) |
+| `OPENBLAS_NUM_THREADS=1` and `python -B lab/project_specialist.py evaluate` | Host/TF-IDF/linear/native achieved 16/16/14/15 out of 16 measured outcomes and 31/31/29/30 out of 31 controls. Both original model files have identical digests to NEXT-006 and remain shadow-only. [Frozen evaluation](evidence/next-007/benchmark.json) |
+| `python -B lab/project_work.py search out/search-repeat.json`, `lab/project_work_host.py out/project-work.json out/eligible-outcomes.json` and the same host command with `--verify-only` | Public comparison above. The validator checked all five real-source rows, four measured repeats per row and distinct eligibility. [Validator output](evidence/next-007/ledger.txt) |
+| Windows PowerShell 5.1.26100.9818 package and real WPF verification | 95,138,781 bytes, SHA-256 `44db16f05d8c5b88734f5c2d5342f611bdecd4a75370929f97c2b82284228c35`. [UI and inventory log](evidence/next-007/verify-ps51.txt) · [Four UI receipts](evidence/next-007/packaged-ps51.json) |
+| PowerShell 7.6.9 package and real WPF verification | 112,789,041 bytes, SHA-256 `f88664f6b9a0119f9f7760f523f4aa10853c5602f69b313dbe4b3775902265b0`. [UI and inventory log](evidence/next-007/verify-ps7.txt) · [Four UI receipts](evidence/next-007/packaged-ps7.json) |
+
+Each shell ran `-NoProfile -ExecutionPolicy RemoteSigned -File tools/package.ps1`, then `tools/verify-package.ps1 -Zip out/ATLAS-Next-win-x64.zip`. Each verified 519 inventory hashes and used the included Windows runtime. The ZIP entries match the complete inventory. The desktop test covered the earlier handbooks, code follow-ups and recovery, then actual imported overload, cross-file invocation, research claim provenance and revision-change workflows.
+
+C# call verification is scoped to the current imported compilation with a fixed runtime metadata set. It examines bound direct invocations in other imported C# files and can omit dynamic calls, conditional access and calls requiring extra project build context. Typed lookup uses declared nongeneric simple parameter spellings, with exact case. Python arity covers simple positional declarations and counts receivers. Research is extractive over two to four explicit keys in TXT/Markdown and at most eight matching passages. Undated evidence is identified as such. The result verifies literal support against active imported copies, with the exact profile-relative paths, digests, revisions and spans. The author ran only public suites. Independent unfamiliar-source and protected regressions remain pending.
+
 ## NEXT-006 author verification
 
 Frozen product `c0e138f63ef342d5ff38a6bce1dd9cd579d1b01c` builds on NEXT-005 product `42bf5a6979540f5c6e3d0d59893b0b288b1f6300`, independent decision `4fa37b1`. Commit `148a62e1585d8118dc79512c97c1a70d5181a147` froze the local-search comparator, source digests, requests, inspected expected spans and scoring protocol before product changes. The candidate receives only the source, basename, symbol, follow-up and repeat count. [Protocol](../lab/code-depth-protocol.md) · [Original comparator results](evidence/next-006/search-baseline.json)

@@ -1,0 +1,491 @@
+{
+  "filename": "ATLAS-Next-win-x64-ps51.zip",
+  "bytes": 95138781,
+  "sha256": "44db16f05d8c5b88734f5c2d5342f611bdecd4a75370929f97c2b82284228c35",
+  "inventory_entries": 519,
+  "task_receipts": [
+    {
+      "id": "fcb7f0dc-b111-49e8-8169-24b3ca28ca16",
+      "request": "Where is Meter.Read(int) defined?",
+      "schema": 1,
+      "parentTaskId": null,
+      "project": "package-check",
+      "kind": "code.lookup",
+      "authority": "local desktop owner",
+      "scope": "owner-local",
+      "dependencies": [],
+      "capability": "read owner-imported text",
+      "budget": "2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",
+      "inferenceMicroseconds": 42,
+      "processWorkingSetBytes": 272162816,
+      "router": "deterministic-route-v6",
+      "primaryCandidateId": "doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537",
+      "specialist": "code.definition",
+      "proposal": {
+        "model": "atlas-native-route-v1",
+        "origin": "original",
+        "qualification": "shadow",
+        "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+        "route": "fact",
+        "probability": 0.9818469731246017
+      },
+      "authorization": "allowed scoped record read",
+      "verification": "source and answer checked",
+      "sourceIntegrity": "passed",
+      "answerRelevance": "supported",
+      "researchReview": {
+        "verdict": "supported",
+        "detail": "Unique source declaration supports the requested identifier and turn.",
+        "freshness": "active project revision",
+        "trust": "owner-selected source",
+        "sources": [
+          {
+            "id": "doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537",
+            "version": 1,
+            "digest": "8fcb0ec867697c2e29bd7d4b120d7f58c01f729be9496304eb2ad1839f6adc11",
+            "source": "Meter.cs",
+            "type": "code.definition",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "projects\\project-package-check\\knowledge\\doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537\\00000001-8fcb0ec867697c2e29bd7d4b120d7f58c01f729be9496304eb2ad1839f6adc11\\Meter.cs",
+              "line": 4,
+              "start": 109,
+              "length": 4
+            }
+          }
+        ],
+        "claims": null,
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "evidence": {
+        "id": "doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537",
+        "version": 1,
+        "digest": "8fcb0ec867697c2e29bd7d4b120d7f58c01f729be9496304eb2ad1839f6adc11",
+        "source": "Meter.cs",
+        "type": "code.definition",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537\\00000001-8fcb0ec867697c2e29bd7d4b120d7f58c01f729be9496304eb2ad1839f6adc11\\Meter.cs",
+          "line": 4,
+          "start": 109,
+          "length": 4
+        }
+      },
+      "result": "Read",
+      "events": [
+        {
+          "state": "queued",
+          "at": "2026-11-18T23:41:35.9669627+00:00"
+        },
+        {
+          "state": "review",
+          "at": "2026-11-18T23:41:35.9835227+00:00"
+        },
+        {
+          "state": "completed",
+          "at": "2026-11-18T23:41:36.058375+00:00"
+        }
+      ],
+      "state": "completed"
+    },
+    {
+      "id": "c6528ec5-ff52-42a2-aca6-1c8e20731294",
+      "request": "Where is Meter.Read(int) called?",
+      "schema": 1,
+      "parentTaskId": null,
+      "project": "package-check",
+      "kind": "code.calls",
+      "authority": "local desktop owner",
+      "scope": "owner-local",
+      "dependencies": [],
+      "capability": "read owner-imported text",
+      "budget": "2048 chars / 32 documents / 256 KiB per import / 8 evidence passages / CPU",
+      "inferenceMicroseconds": 24,
+      "processWorkingSetBytes": 272293888,
+      "router": "deterministic-route-v7",
+      "primaryCandidateId": "doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537",
+      "specialist": "code.calls",
+      "proposal": {
+        "model": "atlas-native-route-v1",
+        "origin": "original",
+        "qualification": "shadow",
+        "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+        "route": "fact",
+        "probability": 0.9778761984367019
+      },
+      "authorization": "allowed scoped record read",
+      "verification": "source and answer checked",
+      "sourceIntegrity": "passed",
+      "answerRelevance": "supported",
+      "researchReview": {
+        "verdict": "supported",
+        "detail": "These cross-file invocations bind to the declaration in the imported C# source set.",
+        "freshness": "active project revisions",
+        "trust": "owner-selected source",
+        "sources": [
+          {
+            "id": "doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537",
+            "version": 1,
+            "digest": "8fcb0ec867697c2e29bd7d4b120d7f58c01f729be9496304eb2ad1839f6adc11",
+            "source": "Meter.cs",
+            "type": "code.definition",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "projects\\project-package-check\\knowledge\\doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537\\00000001-8fcb0ec867697c2e29bd7d4b120d7f58c01f729be9496304eb2ad1839f6adc11\\Meter.cs",
+              "line": 4,
+              "start": 109,
+              "length": 4
+            }
+          },
+          {
+            "id": "doc-16918c1c44bfbb4b4ff63ccf0e976e31dfe54ce99750d01ee2fe5fb4fe71bebd",
+            "version": 1,
+            "digest": "7e81195b90b555034d99f9531ff17e68d14c988c9338df62e9229f712eca71ca",
+            "source": "Caller.cs",
+            "type": "code.calls",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "projects\\project-package-check\\knowledge\\doc-16918c1c44bfbb4b4ff63ccf0e976e31dfe54ce99750d01ee2fe5fb4fe71bebd\\00000001-7e81195b90b555034d99f9531ff17e68d14c988c9338df62e9229f712eca71ca\\Caller.cs",
+              "line": 1,
+              "start": 29,
+              "length": 26
+            }
+          }
+        ],
+        "claims": null,
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "evidence": {
+        "id": "doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537",
+        "version": 1,
+        "digest": "8fcb0ec867697c2e29bd7d4b120d7f58c01f729be9496304eb2ad1839f6adc11",
+        "source": "Meter.cs",
+        "type": "code.definition",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-a28c353d258d2cc1ae21d742c7f544e649d6ec7ee3aa138cd95a50dde11d0537\\00000001-8fcb0ec867697c2e29bd7d4b120d7f58c01f729be9496304eb2ad1839f6adc11\\Meter.cs",
+          "line": 4,
+          "start": 109,
+          "length": 4
+        }
+      },
+      "result": "Caller.cs, line 1: PackageProbe.Meter.Read(2)",
+      "events": [
+        {
+          "state": "queued",
+          "at": "2026-11-18T23:41:36.1754359+00:00"
+        },
+        {
+          "state": "review",
+          "at": "2026-11-18T23:41:36.3457814+00:00"
+        },
+        {
+          "state": "completed",
+          "at": "2026-11-18T23:41:36.4139404+00:00"
+        }
+      ],
+      "state": "completed"
+    },
+    {
+      "id": "a9b66fdf-4bfc-43c0-8776-75c08e4ecc52",
+      "request": "Compare project claims: Package channel | Package retention",
+      "schema": 1,
+      "parentTaskId": null,
+      "project": "package-check",
+      "kind": "research.compare",
+      "authority": "local desktop owner",
+      "scope": "owner-local",
+      "dependencies": [],
+      "capability": "read owner-imported text",
+      "budget": "2048 chars / 32 documents / 256 KiB per import / 8 evidence passages / CPU",
+      "inferenceMicroseconds": 23,
+      "processWorkingSetBytes": 316751872,
+      "router": "deterministic-route-v7",
+      "primaryCandidateId": "doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a",
+      "specialist": "research.compare",
+      "proposal": {
+        "model": "atlas-native-route-v1",
+        "origin": "original",
+        "qualification": "shadow",
+        "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+        "route": "clarify",
+        "probability": 0.6171240459638527
+      },
+      "authorization": "allowed scoped record read",
+      "verification": "source and answer checked",
+      "sourceIntegrity": "passed",
+      "answerRelevance": "supported",
+      "researchReview": {
+        "verdict": "supported",
+        "detail": "Every requested key has explicit support in the listed local passages.",
+        "freshness": "active project revisions",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a",
+            "version": 1,
+            "digest": "863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+            "source": "release.txt",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "projects\\project-package-check\\knowledge\\doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a\\00000001-863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278\\release.txt",
+              "line": 1,
+              "start": 17,
+              "length": 6
+            }
+          },
+          {
+            "id": "doc-6553eb910da87d5ec2c6bad348108dd0ae19379eee91355f8b865af50f55cd5c",
+            "version": 1,
+            "digest": "eb34ff77454190f71d4f1fd6cbd00799d6c0916572911627e1aa379315ce9946",
+            "source": "limits.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "projects\\project-package-check\\knowledge\\doc-6553eb910da87d5ec2c6bad348108dd0ae19379eee91355f8b865af50f55cd5c\\00000001-eb34ff77454190f71d4f1fd6cbd00799d6c0916572911627e1aa379315ce9946\\limits.md",
+              "line": 1,
+              "start": 19,
+              "length": 6
+            }
+          }
+        ],
+        "claims": [
+          {
+            "subject": "package channel",
+            "verdict": "supported",
+            "freshness": "active revision; undated source",
+            "sources": [
+              {
+                "id": "doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a",
+                "version": 1,
+                "digest": "863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+                "source": "release.txt",
+                "type": "fact",
+                "origin": "owner import",
+                "trust": "owner-selected text",
+                "span": {
+                  "path": "projects\\project-package-check\\knowledge\\doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a\\00000001-863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278\\release.txt",
+                  "line": 1,
+                  "start": 17,
+                  "length": 6
+                }
+              }
+            ]
+          },
+          {
+            "subject": "package retention",
+            "verdict": "supported",
+            "freshness": "active revision; undated source",
+            "sources": [
+              {
+                "id": "doc-6553eb910da87d5ec2c6bad348108dd0ae19379eee91355f8b865af50f55cd5c",
+                "version": 1,
+                "digest": "eb34ff77454190f71d4f1fd6cbd00799d6c0916572911627e1aa379315ce9946",
+                "source": "limits.md",
+                "type": "fact",
+                "origin": "owner import",
+                "trust": "owner-selected text",
+                "span": {
+                  "path": "projects\\project-package-check\\knowledge\\doc-6553eb910da87d5ec2c6bad348108dd0ae19379eee91355f8b865af50f55cd5c\\00000001-eb34ff77454190f71d4f1fd6cbd00799d6c0916572911627e1aa379315ce9946\\limits.md",
+                  "line": 1,
+                  "start": 19,
+                  "length": 6
+                }
+              }
+            ]
+          }
+        ],
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "evidence": {
+        "id": "doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a",
+        "version": 1,
+        "digest": "863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+        "source": "release.txt",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a\\00000001-863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278\\release.txt",
+          "line": 1,
+          "start": 17,
+          "length": 6
+        }
+      },
+      "result": "package channel: stable\npackage retention: 2 days",
+      "events": [
+        {
+          "state": "queued",
+          "at": "2026-11-18T23:41:39.2135713+00:00"
+        },
+        {
+          "state": "review",
+          "at": "2026-11-18T23:41:39.2308741+00:00"
+        },
+        {
+          "state": "completed",
+          "at": "2026-11-18T23:41:39.3034315+00:00"
+        }
+      ],
+      "state": "completed"
+    },
+    {
+      "id": "7972ac74-9aa5-40ac-b542-a91f3c5207bc",
+      "request": "Compare project claims: Package channel | Package retention",
+      "schema": 1,
+      "parentTaskId": null,
+      "project": "package-check",
+      "kind": "research.compare",
+      "authority": "local desktop owner",
+      "scope": "owner-local",
+      "dependencies": [],
+      "capability": "read owner-imported text",
+      "budget": "2048 chars / 32 documents / 256 KiB per import / 8 evidence passages / CPU",
+      "inferenceMicroseconds": 26,
+      "processWorkingSetBytes": 315879424,
+      "router": "deterministic-route-v7",
+      "primaryCandidateId": "doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a",
+      "specialist": "research.compare",
+      "proposal": {
+        "model": "atlas-native-route-v1",
+        "origin": "original",
+        "qualification": "shadow",
+        "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+        "route": "clarify",
+        "probability": 0.6171240459638527
+      },
+      "authorization": "allowed scoped record read",
+      "verification": "answer withheld",
+      "sourceIntegrity": "not checked",
+      "answerRelevance": "subject and intent matched",
+      "researchReview": {
+        "verdict": "stale",
+        "detail": "The scoped evidence changed after review. Submit a fresh task.",
+        "freshness": "revision or supporting set changed",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a",
+            "version": 1,
+            "digest": "863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+            "source": "release.txt",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "projects\\project-package-check\\knowledge\\doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a\\00000001-863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278\\release.txt",
+              "line": 1,
+              "start": 17,
+              "length": 6
+            }
+          },
+          {
+            "id": "doc-6553eb910da87d5ec2c6bad348108dd0ae19379eee91355f8b865af50f55cd5c",
+            "version": 1,
+            "digest": "eb34ff77454190f71d4f1fd6cbd00799d6c0916572911627e1aa379315ce9946",
+            "source": "limits.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "projects\\project-package-check\\knowledge\\doc-6553eb910da87d5ec2c6bad348108dd0ae19379eee91355f8b865af50f55cd5c\\00000001-eb34ff77454190f71d4f1fd6cbd00799d6c0916572911627e1aa379315ce9946\\limits.md",
+              "line": 1,
+              "start": 19,
+              "length": 6
+            }
+          }
+        ],
+        "claims": [
+          {
+            "subject": "package channel",
+            "verdict": "supported",
+            "freshness": "active revision; undated source",
+            "sources": [
+              {
+                "id": "doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a",
+                "version": 1,
+                "digest": "863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+                "source": "release.txt",
+                "type": "fact",
+                "origin": "owner import",
+                "trust": "owner-selected text",
+                "span": {
+                  "path": "projects\\project-package-check\\knowledge\\doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a\\00000001-863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278\\release.txt",
+                  "line": 1,
+                  "start": 17,
+                  "length": 6
+                }
+              }
+            ]
+          },
+          {
+            "subject": "package retention",
+            "verdict": "stale",
+            "freshness": "source revision changed",
+            "sources": [
+              {
+                "id": "doc-6553eb910da87d5ec2c6bad348108dd0ae19379eee91355f8b865af50f55cd5c",
+                "version": 1,
+                "digest": "eb34ff77454190f71d4f1fd6cbd00799d6c0916572911627e1aa379315ce9946",
+                "source": "limits.md",
+                "type": "fact",
+                "origin": "owner import",
+                "trust": "owner-selected text",
+                "span": {
+                  "path": "projects\\project-package-check\\knowledge\\doc-6553eb910da87d5ec2c6bad348108dd0ae19379eee91355f8b865af50f55cd5c\\00000001-eb34ff77454190f71d4f1fd6cbd00799d6c0916572911627e1aa379315ce9946\\limits.md",
+                  "line": 1,
+                  "start": 19,
+                  "length": 6
+                }
+              }
+            ]
+          }
+        ],
+        "requestRelevance": "subject and intent matched",
+        "factualSupport": "insufficient for delivery"
+      },
+      "evidence": {
+        "id": "doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a",
+        "version": 1,
+        "digest": "863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+        "source": "release.txt",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-656fa9325a0cce079da39c6968d0bb7572e6d6b0c02783d979350820f76f802a\\00000001-863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278\\release.txt",
+          "line": 1,
+          "start": 17,
+          "length": 6
+        }
+      },
+      "result": "The scoped evidence changed after review. Submit a fresh task.",
+      "events": [
+        {
+          "state": "queued",
+          "at": "2026-11-18T23:41:39.410393+00:00"
+        },
+        {
+          "state": "review",
+          "at": "2026-11-18T23:41:39.4190858+00:00"
+        },
+        {
+          "state": "needs clarification",
+          "at": "2026-11-18T23:41:40.86895+00:00"
+        }
+      ],
+      "state": "needs clarification"
+    }
+  ]
+}

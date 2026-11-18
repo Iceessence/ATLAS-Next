@@ -1,0 +1,12 @@
+PASS all 17 search replay verdicts, classifications and exact citations match the preregistered baseline
+PASS ledger rejects promotion/source eligibility
+PASS ledger rejects missing negative outcome
+PASS ledger rejects wrong independent source digest
+real-cs-definition exact_delivery exact_delivery supported
+real-cs-calls exact_delivery exact_delivery supported
+real-py-arity exact_delivery exact_delivery supported
+real-py-dynamic correct_withhold correct_withhold unsupported
+real-research exact_delivery exact_delivery supported
+bound-calls wrong_delivery exact_delivery supported
+shadowed wrong_delivery correct_withhold unsupported
+Search first/warm ms, sampled bytes: 0.018600025214254856 0.012399978004395962 26062848

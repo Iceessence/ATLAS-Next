@@ -1,0 +1,9 @@
+  Determining projects to restore...
+  Restored C:\Users\ppawe\AppData\Local\Temp\a7-a28d8418-51\desktop\AtlasNext.csproj (in 47 ms).
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\a7-a28d8418-51\desktop\bin\Release\net10.0-windows\AtlasNext.dll
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\a7-a28d8418-51\out\stage-89797f79d8204915aa1ef4f823d7899e\app\
+
+
+Algorithm : SHA256
+Hash      : 44DB16F05D8C5B88734F5C2D5342F611BDECD4A75370929F97C2B82284228C35
+Path      : C:\Users\ppawe\AppData\Local\Temp\a7-a28d8418-51\out\ATLAS-Next-win-x64.zip
