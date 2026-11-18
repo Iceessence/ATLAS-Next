@@ -1,0 +1,561 @@
+{
+  "policy": "search",
+  "conversations": 13,
+  "complete": 13,
+  "exact_deliveries": 14,
+  "wrong_deliveries": 0,
+  "correct_withholds": 12,
+  "first_ms": [
+    0.0194
+  ],
+  "warm_ms": [
+    0.0161
+  ],
+  "max_sampled_working_set": 25767936,
+  "external_inference_calls": 0,
+  "trials": [
+    {
+      "file": "RandomNumberTools.cs",
+      "symbol": "RandomNumberTools.GetRandomNumber",
+      "follow": "What is its enclosing type?",
+      "expected": [
+        {
+          "line": 12,
+          "start": 398,
+          "length": 15,
+          "text": "GetRandomNumber"
+        },
+        {
+          "line": 8,
+          "start": 242,
+          "length": 17,
+          "text": "RandomNumberTools"
+        }
+      ],
+      "actual": [
+        {
+          "line": 12,
+          "start": 398,
+          "length": 15,
+          "text": "GetRandomNumber"
+        },
+        {
+          "line": 8,
+          "start": 242,
+          "length": 17,
+          "text": "RandomNumberTools"
+        }
+      ],
+      "ms": [
+        [
+          0.1697
+        ],
+        [
+          0.0214
+        ],
+        [
+          0.0177
+        ],
+        [
+          0.0163
+        ]
+      ],
+      "four_conversations_wall_ms": 0.3654,
+      "rss": 25567232,
+      "source_sha256": "481650c139bcdd26f6e23d90d154ca599c50291c75b307d1387129132f3311e1",
+      "origin": "observed_source_author_request"
+    },
+    {
+      "file": "RandomNumberTools.cs",
+      "symbol": "RandomNumberTools.GetRandomNumber",
+      "follow": "Show its documentation.",
+      "expected": [
+        {
+          "line": 12,
+          "start": 398,
+          "length": 15,
+          "text": "GetRandomNumber"
+        },
+        "unsupported"
+      ],
+      "actual": [
+        {
+          "line": 12,
+          "start": 398,
+          "length": 15,
+          "text": "GetRandomNumber"
+        },
+        "unsupported"
+      ],
+      "ms": [
+        [
+          0.0194
+        ],
+        [
+          0.0174
+        ],
+        [
+          0.0154
+        ],
+        [
+          0.0377
+        ]
+      ],
+      "four_conversations_wall_ms": 0.1094,
+      "rss": 25571328,
+      "source_sha256": "481650c139bcdd26f6e23d90d154ca599c50291c75b307d1387129132f3311e1",
+      "origin": "observed_source_author_request"
+    },
+    {
+      "file": "RandomNumberTools.cs",
+      "symbol": "RandomNumberTools",
+      "follow": "Show its documentation.",
+      "expected": [
+        {
+          "line": 8,
+          "start": 242,
+          "length": 17,
+          "text": "RandomNumberTools"
+        },
+        {
+          "line": 4,
+          "start": 68,
+          "length": 157,
+          "text": "/// <summary>\r\n/// Sample MCP tools for demonstration purposes.\r\n/// These tools can be invoked by MCP clients to perform various operations.\r\n/// </summary>"
+        }
+      ],
+      "actual": [
+        {
+          "line": 8,
+          "start": 242,
+          "length": 17,
+          "text": "RandomNumberTools"
+        },
+        {
+          "line": 4,
+          "start": 68,
+          "length": 157,
+          "text": "/// <summary>\r\n/// Sample MCP tools for demonstration purposes.\r\n/// These tools can be invoked by MCP clients to perform various operations.\r\n/// </summary>"
+        }
+      ],
+      "ms": [
+        [
+          0.0196
+        ],
+        [
+          0.0174
+        ],
+        [
+          0.0161
+        ],
+        [
+          0.0159
+        ]
+      ],
+      "four_conversations_wall_ms": 0.0799,
+      "rss": 25571328,
+      "source_sha256": "481650c139bcdd26f6e23d90d154ca599c50291c75b307d1387129132f3311e1",
+      "origin": "observed_source_author_request"
+    },
+    {
+      "file": "RandomNumberTools.cs",
+      "symbol": "Other.GetRandomNumber",
+      "follow": "What is its enclosing type?",
+      "expected": [
+        "unsupported",
+        "unsupported"
+      ],
+      "actual": [
+        "unsupported",
+        "unsupported"
+      ],
+      "ms": [
+        [
+          0.0146
+        ],
+        [
+          0.0138
+        ],
+        [
+          0.0133
+        ],
+        [
+          0.0132
+        ]
+      ],
+      "four_conversations_wall_ms": 0.0636,
+      "rss": 25571328,
+      "source_sha256": "481650c139bcdd26f6e23d90d154ca599c50291c75b307d1387129132f3311e1",
+      "origin": "observed_source_author_request"
+    },
+    {
+      "file": "relativedelta.py",
+      "symbol": "relativedelta.normalized",
+      "follow": "Show its documentation.",
+      "expected": [
+        {
+          "line": 284,
+          "start": 10905,
+          "length": 10,
+          "text": "normalized"
+        },
+        {
+          "line": 285,
+          "start": 10931,
+          "length": 329,
+          "text": "\"\"\"\n        Return a version of this object represented entirely using integer\n        values for the relative attributes.\n\n        >>> relativedelta(days=1.5, hours=2).normalized()\n        relativedelta(days=+1, hours=+14)\n\n        :return:\n            Returns a :class:`dateutil.relativedelta.relativedelta` object.\n        \"\"\""
+        }
+      ],
+      "actual": [
+        {
+          "line": 284,
+          "start": 10905,
+          "length": 10,
+          "text": "normalized"
+        },
+        {
+          "line": 285,
+          "start": 10931,
+          "length": 329,
+          "text": "\"\"\"\n        Return a version of this object represented entirely using integer\n        values for the relative attributes.\n\n        >>> relativedelta(days=1.5, hours=2).normalized()\n        relativedelta(days=+1, hours=+14)\n\n        :return:\n            Returns a :class:`dateutil.relativedelta.relativedelta` object.\n        \"\"\""
+        }
+      ],
+      "ms": [
+        [
+          0.726
+        ],
+        [
+          0.7443
+        ],
+        [
+          0.7178
+        ],
+        [
+          0.6926
+        ]
+      ],
+      "four_conversations_wall_ms": 2.8965,
+      "rss": 25726976,
+      "source_sha256": "73dc3c523083fb4a1b8300fb428a6196b4948caaaa0800789230c7fa360bf992",
+      "origin": "observed_source_author_request"
+    },
+    {
+      "file": "relativedelta.py",
+      "symbol": "relativedelta.normalized",
+      "follow": "What is its enclosing type?",
+      "expected": [
+        {
+          "line": 284,
+          "start": 10905,
+          "length": 10,
+          "text": "normalized"
+        },
+        {
+          "line": 16,
+          "start": 288,
+          "length": 13,
+          "text": "relativedelta"
+        }
+      ],
+      "actual": [
+        {
+          "line": 284,
+          "start": 10905,
+          "length": 10,
+          "text": "normalized"
+        },
+        {
+          "line": 16,
+          "start": 288,
+          "length": 13,
+          "text": "relativedelta"
+        }
+      ],
+      "ms": [
+        [
+          0.8307
+        ],
+        [
+          0.7252
+        ],
+        [
+          0.7103
+        ],
+        [
+          0.6784
+        ]
+      ],
+      "four_conversations_wall_ms": 2.9794,
+      "rss": 25735168,
+      "source_sha256": "73dc3c523083fb4a1b8300fb428a6196b4948caaaa0800789230c7fa360bf992",
+      "origin": "observed_source_author_request"
+    },
+    {
+      "file": "relativedelta.py",
+      "symbol": "relativedelta._set_months",
+      "follow": "Show its documentation.",
+      "expected": [
+        {
+          "line": 274,
+          "start": 10612,
+          "length": 11,
+          "text": "_set_months"
+        },
+        "unsupported"
+      ],
+      "actual": [
+        {
+          "line": 274,
+          "start": 10612,
+          "length": 11,
+          "text": "_set_months"
+        },
+        "unsupported"
+      ],
+      "ms": [
+        [
+          0.7067
+        ],
+        [
+          0.7301
+        ],
+        [
+          0.7247
+        ],
+        [
+          0.6919
+        ]
+      ],
+      "four_conversations_wall_ms": 2.8769,
+      "rss": 25747456,
+      "source_sha256": "73dc3c523083fb4a1b8300fb428a6196b4948caaaa0800789230c7fa360bf992",
+      "origin": "observed_source_author_request"
+    },
+    {
+      "file": "relativedelta.py",
+      "symbol": "relativedelta.weeks",
+      "follow": "What is its enclosing type?",
+      "expected": [
+        "ambiguous",
+        "unsupported"
+      ],
+      "actual": [
+        "ambiguous",
+        "unsupported"
+      ],
+      "ms": [
+        [
+          0.6939
+        ],
+        [
+          0.7122
+        ],
+        [
+          0.6787
+        ],
+        [
+          0.6842
+        ]
+      ],
+      "four_conversations_wall_ms": 2.7888,
+      "rss": 25755648,
+      "source_sha256": "73dc3c523083fb4a1b8300fb428a6196b4948caaaa0800789230c7fa360bf992",
+      "origin": "observed_source_author_request"
+    },
+    {
+      "file": "Owners.cs",
+      "symbol": "Alpha.Count",
+      "follow": "Show its documentation.",
+      "expected": [
+        {
+          "line": 5,
+          "start": 86,
+          "length": 5,
+          "text": "Count"
+        },
+        {
+          "line": 4,
+          "start": 35,
+          "length": 35,
+          "text": "/// <summary>Alpha count.</summary>"
+        }
+      ],
+      "actual": [
+        {
+          "line": 5,
+          "start": 86,
+          "length": 5,
+          "text": "Count"
+        },
+        {
+          "line": 4,
+          "start": 35,
+          "length": 35,
+          "text": "/// <summary>Alpha count.</summary>"
+        }
+      ],
+      "ms": [
+        [
+          0.0152
+        ],
+        [
+          0.0108
+        ],
+        [
+          0.0098
+        ],
+        [
+          0.0096
+        ]
+      ],
+      "four_conversations_wall_ms": 0.055,
+      "rss": 25755648,
+      "source_sha256": "e5a72337a42cbfa5cd4456cd24611808e7f4cc01cc9d38431b71e38b61bb431f",
+      "origin": "author_fixture"
+    },
+    {
+      "file": "Owners.cs",
+      "symbol": "Beta.Count",
+      "follow": "What is its enclosing type?",
+      "expected": [
+        {
+          "line": 9,
+          "start": 130,
+          "length": 5,
+          "text": "Count"
+        },
+        {
+          "line": 7,
+          "start": 108,
+          "length": 4,
+          "text": "Beta"
+        }
+      ],
+      "actual": [
+        {
+          "line": 9,
+          "start": 130,
+          "length": 5,
+          "text": "Count"
+        },
+        {
+          "line": 7,
+          "start": 108,
+          "length": 4,
+          "text": "Beta"
+        }
+      ],
+      "ms": [
+        [
+          0.0112
+        ],
+        [
+          0.0096
+        ],
+        [
+          0.0094
+        ],
+        [
+          0.0092
+        ]
+      ],
+      "four_conversations_wall_ms": 0.0497,
+      "rss": 25759744,
+      "source_sha256": "e5a72337a42cbfa5cd4456cd24611808e7f4cc01cc9d38431b71e38b61bb431f",
+      "origin": "author_fixture"
+    },
+    {
+      "file": "Owners.cs",
+      "symbol": "Count",
+      "follow": "Show its documentation.",
+      "expected": [
+        "ambiguous",
+        "unsupported"
+      ],
+      "actual": [
+        "ambiguous",
+        "unsupported"
+      ],
+      "ms": [
+        [
+          0.0102
+        ],
+        [
+          0.0079
+        ],
+        [
+          0.0076
+        ],
+        [
+          0.0074
+        ]
+      ],
+      "four_conversations_wall_ms": 0.0412,
+      "rss": 25763840,
+      "source_sha256": "e5a72337a42cbfa5cd4456cd24611808e7f4cc01cc9d38431b71e38b61bb431f",
+      "origin": "author_fixture"
+    },
+    {
+      "file": "Owners.cs",
+      "symbol": "Beta.Scan",
+      "follow": "What is its enclosing type?",
+      "expected": [
+        "ambiguous",
+        "unsupported"
+      ],
+      "actual": [
+        "ambiguous",
+        "unsupported"
+      ],
+      "ms": [
+        [
+          0.0087
+        ],
+        [
+          0.0079
+        ],
+        [
+          0.0077
+        ],
+        [
+          0.0076
+        ]
+      ],
+      "four_conversations_wall_ms": 0.0415,
+      "rss": 25763840,
+      "source_sha256": "e5a72337a42cbfa5cd4456cd24611808e7f4cc01cc9d38431b71e38b61bb431f",
+      "origin": "author_fixture"
+    },
+    {
+      "file": "Owners.cs",
+      "symbol": "Alpha",
+      "follow": "Show its documentation.",
+      "expected": [
+        "ambiguous",
+        "unsupported"
+      ],
+      "actual": [
+        "ambiguous",
+        "unsupported"
+      ],
+      "ms": [
+        [
+          0.0093
+        ],
+        [
+          0.0076
+        ],
+        [
+          0.0162
+        ],
+        [
+          0.0078
+        ]
+      ],
+      "four_conversations_wall_ms": 0.0512,
+      "rss": 25767936,
+      "source_sha256": "e5a72337a42cbfa5cd4456cd24611808e7f4cc01cc9d38431b71e38b61bb431f",
+      "origin": "author_fixture"
+    }
+  ]
+}
