@@ -2,25 +2,29 @@
 
 | Field | Current assignment |
 | --- | --- |
-| Task | NEXT-003 independent review |
-| State | PENDING_INDEPENDENT_REVIEW |
-| Next writer | Gemini Hydrogen |
-| Product candidate | `bb015a42205b8c2b6e4ad4cefae99a6b116099dd` on local `main` in `C:\ATLAS\ATLAS-Next` |
-| Prior review | `618f870b92d97d1fa1998aff00d0717b1a554cae`, NEXT-002 accepted with limitations |
-| Windows PowerShell 5.1 ZIP | `out/ATLAS-Next-win-x64-ps51.zip`, SHA-256 `02af933421839f641f88afa44b6420393271aaad27a6a622610391d7c89fbe46` |
-| Canonical PowerShell 7 ZIP | `out/ATLAS-Next-win-x64.zip`, SHA-256 `79385d62acbe8dbee589f4f50e14376482dd577865341e5d367b605fc0ac5703` |
-| Lab checkpoint | `lab/project-specialist.shadow.json`, SHA-256 `8f3cfcc1e06aa7a447851dd203509f83e68f92c5265b89afecdf0b9957fbfd14`, outside both packages |
-| Author verification | 71/71 Windows, 8/8 Python integrity, 13/13 public fixture host outcomes. Both Windows package/UI runs passed. |
-| Public observed outcomes | Historical host 12/16, current host 14/16. TF-IDF, linear and native each delivered 14/16. No model promotion. |
+| Task | NEXT-004 verified paraphrase & Research coverage |
+| State | ASSIGNED_FOR_DEVELOPMENT |
+| Next writer | GPT-6.2 Astra |
+| Accepted baseline | `bb015a42205b8c2b6e4ad4cefae99a6b116099dd` (author evidence `185a144a97e00f56d99bb4eae1388ec8b356208c`), NEXT-003 accepted with limitations |
+| Independent review receipt | [`docs/evidence/independent-review-next003.json`](../evidence/independent-review-next003.json) |
+| Windows PowerShell 5.1 ZIP (verified) | `out/ATLAS-Next-win-x64-ps51.zip`, SHA-256 `02af933421839f641f88afa44b6420393271aaad27a6a622610391d7c89fbe46` (excludes lab shadow checkpoint) |
+| Canonical PowerShell 7 ZIP (verified) | `out/ATLAS-Next-win-x64.zip`, SHA-256 `79385d62acbe8dbee589f4f50e14376482dd577865341e5d367b605fc0ac5703` (excludes lab shadow checkpoint) |
+| Native routing model | `assets/native.json` (`6b9b23fc...`, 4,163 params) remains strictly `shadow` / advisory (54/72 synthetic routing) |
+| Lab document specialist | `lab/project-specialist.shadow.json` (`8f3cfcc1...`, 49 params) remains strictly `shadow` outside ZIPs (14/16 public eval, 12/13 public stress, 18/20 external blind) |
 
-## Assignment to Gemini Hydrogen
+## Review Findings from NEXT-003 (Gemini Hydrogen)
 
-Verify the exact implementation in a disposable clone. Confirm that the subsequent transfer commit contains documentation and evidence only. [Author evidence and commands](../TEST_EVIDENCE.md) · [Experiment protocol and data splits](../../lab/project_data/README.md) · [Owner report](ATLAS_OWNER_REPORT.md) · [Previous independent verdict](../evidence/independent-review-next002.json)
+1. **Verified gains:** All author counts reproduced cleanly (`71/71` Windows checks, `8/8` Python integrity, `13/13` public outcomes, `12/16 -> 14/16` public evaluation outcomes, `12/13 -> 13/13` NEXT-002 custodian suite replay, byte-identical `OPENBLAS_NUM_THREADS=1` shadow checkpoint refit, `20/20` independent adversarial C# security/isolation probes + named-project corrupt recovery, and both PS 5.1 and PS 7.6.9 cross-shell packaging/UI runs). Note on `lab/project_audit.py`: verified mismatched `RECORD` entries on `numpy` (`20`), `pillow` (`8`), and `lxml` (`7`) are runtime binary overlays (`+15,664` bytes on compiled binaries), while all 10 pure-Python source files match SHA-256 digests and AST line numbers.
+2. **External custodian blind suite (`20` cases, `0` wrong deliveries):** `18/20` passed across `host`, `tfidf`, `linear`, and `native` (`10/12` unseen real `observed_project_outcome` trials across `certifi`, `charset-normalizer`, and disposable `bb015a4` build/ZIP/router receipts; `8/8` constructed controls).
+3. **Why model promotion remains blocked:** Both public evaluation (`openpyxl-4`, `xlsxwriter-4`) and custodian observed outcomes (`2/12` misses) fail because `Research.RequestedSubject` and `Routing.ProjectFact` reject naturally phrased factual questions outside `<Prefix> <Subject>`. Meanwhile `tfidf` already routed `16/16` public evaluation docs cleanly (`100%` route accuracy), and the 49-param shadow MLP merely predicts host deliverability while false-abstaining on the single-doc `predicate` fixture (`12/13` vs `host` `13/13`).
 
-1. Rebuild offline and rerun Windows checks, Python integrity, public synthetic routing, public fixture outcomes, both packaging shells and packaged UI verification. Retest NEXT-002's private failure from custodian storage. Probe fresh fact subjects containing action words, actual procedural requests, unconfirmed plus definite claims, contradictions, stale evidence and cross-project requests. Verify that a supported Research verdict and a shadow proposal cannot grant permission, conceal conflicting evidence, or bypass authorization at delivery.
-2. Reproduce the audit of the ten named upstream distributions against their archived versions. Inspect selected original files directly. Verify the code signature/line, RECORD hash, actual payload counts and each source span. Preserve the distinction between measured facts, authored questions, derived documents, constructed stresses and synthetic route labels. Audit family splits, absence of private-input training paths and byte-exact shadow refit with `OPENBLAS_NUM_THREADS=1`.
-3. Re-run the historical host and four current policies on the public unfamiliar-project split, including all recorded misses. Review seed selection on validation, route choice, useful delivery, confidence/abstention, resource measurements and limits. Confirm that only the established advisory model ships.
-4. Use genuinely new custodian-controlled project observations and separate constructed controls. Keep hidden documents, questions, expectations and detailed reports outside the checkout. From the candidate clone, run `python -B lab/project_specialist.py blind --manifest <external-manifest> --report <fresh-external-report>` for frozen host/TF-IDF/linear/native comparisons, and `lab/outcomes.py` for the host-only runner. The manifest and provenance contract are in the README. Report shareable suite and candidate identities, provenance counts, correct routing and verified completion, false deliveries, abstentions, costs and representative failures. State which counts were independently reproduced and which remain author evidence.
-5. Commit your independent verdict and a shareable receipt, then update the owner report and this file as the sole next writer. Assign bounded repairs if required. Following acceptance, prioritize evidence-supported improvements in handling real project questions over adding another model. Keep the native policies advisory. A small public tie or calibration difference does not justify promotion.
+## Bounded Assignment to GPT-6.2 Astra (NEXT-004)
 
-The scope remains an unelevated local Windows research candidate with a bounded question/claim grammar. Keep executable automation disabled and Windows privileges unchanged. Leave legacy ATLAS, PLATZ Engine and FORGE untouched. Preserve the separate PLATZ Technologies product boundaries and the existing single-writer handoff.
+Improve **verified natural-language factual handling** inside `Research` and `Primary` without weakening any safety, source-integrity, contradiction, staleness, modifier, or authorization guarantee:
+
+1. **Expand deterministic Research & Primary matching for bounded factual paraphrases** (including natural question forms seen in `pillow-4`, `packaging-4`, `openpyxl-4`, `xlsxwriter-4`, and trailing helper words after a valid subject) so genuinely supported facts in owner-imported or pinned docs verify with exact UTF-16 spans and receipts rather than failing `unsupported`.
+2. **Preserve zero wrong deliveries & strict safety regressions:** Prove that modifier mismatches (`primary` vs `secondary`), vague terms (`"What is the archive restoration?"`), definite+unconfirmed (`insufficient`), contradictions, stale sources, action words in fact subjects vs `procedure.restore`, and tampered `Authorization`/`Scope`/`Specialist` still withhold or refuse delivery cleanly.
+3. **Re-benchmark on updated measured outcomes (shadow only):** Once `Research` handles safe paraphrases deterministically, re-run `lab/project_specialist.py` (`fit` and `evaluate` with `OPENBLAS_NUM_THREADS=1`), verify `linear`/`native` no longer break the `predicate` constructed case, and measure whether `native` adds real end-to-end usefulness or calibration value over `host` and `tfidf`. Preserve existing train/validation/evaluation family splits and provenance tags cleanly; keep both native models `shadow` unless genuinely justified for separate review.
+4. **Add checks, rebuild both Windows ZIPs (PS 7 + PS 5.1), verify cleanly, and return for independent review:** Update Windows `checks/`, `lab/outcomes.public.json`, `docs/TEST_EVIDENCE.md`, `docs/ai/ATLAS_OWNER_REPORT.md`, and this handoff (setting `State` to `PENDING_INDEPENDENT_REVIEW` and `Next writer` to `Gemini Hydrogen`). Commit product changes separately from author evidence/handoff commits locally on `main` (do not push).
+
+Keep `C:\ATLAS\Entire ATLAS`, PLATZ Engine, and FORGE untouched; keep executable automation disabled and Windows privileges unchanged.

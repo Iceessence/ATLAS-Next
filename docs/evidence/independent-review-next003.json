@@ -1,0 +1,431 @@
+{
+  "review": "NEXT-003",
+  "verdict": "ACCEPTED_WITH_LIMITATIONS",
+  "reviewer": "Gemini Hydrogen",
+  "reviewed_at_utc": "2026-11-18T04:47:39.3801434Z",
+  "product_candidate": "bb015a42205b8c2b6e4ad4cefae99a6b116099dd",
+  "author_evidence_head": "185a144a97e00f56d99bb4eae1388ec8b356208c",
+  "prior_review_commit": "618f870b92d97d1fa1998aff00d0717b1a554cae",
+  "environment": {
+    "os": "Microsoft Windows 11 Pro 10.0.26300 (Build 26300, 64-bit)",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_desktop_runtime_installed": "10.0.12",
+    "powershell_5_1": "5.1.26100.9818 (-NoProfile -ExecutionPolicy RemoteSigned)",
+    "powershell_7": "7.6.9 (cached)",
+    "python": "3.12.14 with numpy 2.3.5 (cached; OPENBLAS_NUM_THREADS=1)"
+  },
+  "isolation_and_diff_checks": {
+    "candidate_to_head_docs_and_evidence_only": true,
+    "nuget_external_libraries_count": 0,
+    "atlas_next_deps_targets": [
+      "AtlasNext/1.0.0"
+    ],
+    "legacy_repo_head": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "legacy_repo_untouched_by_review": true,
+    "execution_capability": "read owner-imported text"
+  },
+  "author_commands_independent_rerun": {
+    "dotnet_build_release": {
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0
+    },
+    "atlas_next_checks_exe": {
+      "status": "PASS",
+      "passed": 71,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_test_integrity": {
+      "status": "PASS",
+      "passed": 8,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_evaluate_routing": {
+      "status": "PASS",
+      "scores": {
+        "rule": "48/72",
+        "exemplar": "42/72",
+        "native": "54/72",
+        "linear": "54/72"
+      },
+      "reproduced_p95_us": {
+        "rule": 2.1,
+        "exemplar": 47.925,
+        "native": 21.645,
+        "linear": 17.4
+      },
+      "native_qualification": "shadow"
+    },
+    "python_public_outcomes": {
+      "status": "PASS",
+      "passed": 13,
+      "total": 13
+    }
+  },
+  "packaging_and_cross_shell_verification": {
+    "shipped_ps7_zip": {
+      "path": "out/ATLAS-Next-win-x64.zip",
+      "bytes": 94809381,
+      "sha256": "79385d62acbe8dbee589f4f50e14376482dd577865341e5d367b605fc0ac5703",
+      "zip_entries": 492,
+      "inventory_hashed_files": 491,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_under_pwsh_7_6_9": "PASS"
+    },
+    "shipped_ps51_zip": {
+      "path": "out/ATLAS-Next-win-x64-ps51.zip",
+      "bytes": 80203430,
+      "sha256": "02af933421839f641f88afa44b6420393271aaad27a6a622610391d7c89fbe46",
+      "zip_entries": 492,
+      "inventory_hashed_files": 491,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_under_ps_5_1": "PASS"
+    },
+    "disposable_clone_repackage_pwsh7": {
+      "sha256": "68769167dceb772454119b17e083b26dd4b15a801c9b3471bb045961ddf20a2a",
+      "zip_entries": 492,
+      "inventory_hashed_files": 491,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_under_pwsh_7_6_9": "PASS"
+    },
+    "disposable_clone_repackage_ps51": {
+      "sha256": "2b1018646ace5658032bb2b68dee3e81111ec93aec6124d22965dc1e8f06d28a",
+      "zip_entries": 492,
+      "inventory_hashed_files": 491,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "shadow_checkpoint_excluded": true,
+      "verify_under_ps_5_1": "PASS"
+    }
+  },
+  "lab_audit_and_shadow_experiment": {
+    "project_audit_reproduced": true,
+    "audited_distributions_count": 10,
+    "train_families": [
+      {
+        "family": "numpy",
+        "version": "2.3.5",
+        "checked": 920,
+        "mismatches": 20,
+        "missing": 0,
+        "excluded": 412,
+        "implementation_sha256_match": true,
+        "declaration_line": 695
+      },
+      {
+        "family": "pillow",
+        "version": "13.0.0",
+        "checked": 121,
+        "mismatches": 8,
+        "missing": 0,
+        "excluded": 98,
+        "implementation_sha256_match": true,
+        "declaration_line": 2332
+      },
+      {
+        "family": "pypdf",
+        "version": "6.21.4",
+        "checked": 65,
+        "mismatches": 0,
+        "missing": 0,
+        "excluded": 60,
+        "implementation_sha256_match": true,
+        "declaration_line": 127
+      },
+      {
+        "family": "packaging",
+        "version": "26.3",
+        "checked": 29,
+        "mismatches": 0,
+        "missing": 0,
+        "excluded": 23,
+        "implementation_sha256_match": true,
+        "declaration_line": 408
+      }
+    ],
+    "validation_families": [
+      {
+        "family": "python-docx",
+        "version": "1.2.0",
+        "checked": 125,
+        "mismatches": 0,
+        "missing": 0,
+        "excluded": 96,
+        "implementation_sha256_match": true,
+        "declaration_line": 19
+      },
+      {
+        "family": "lxml",
+        "version": "6.1.1",
+        "checked": 179,
+        "mismatches": 7,
+        "missing": 0,
+        "excluded": 30,
+        "implementation_sha256_match": true,
+        "declaration_line": 86
+      }
+    ],
+    "evaluation_families": [
+      {
+        "family": "openpyxl",
+        "version": "3.1.5",
+        "checked": 196,
+        "mismatches": 0,
+        "missing": 0,
+        "excluded": 191,
+        "implementation_sha256_match": true,
+        "declaration_line": 316
+      },
+      {
+        "family": "pydantic",
+        "version": "2.14.3",
+        "checked": 112,
+        "mismatches": 0,
+        "missing": 0,
+        "excluded": 107,
+        "implementation_sha256_match": true,
+        "declaration_line": 472
+      },
+      {
+        "family": "python-pptx",
+        "version": "1.0.2",
+        "checked": 116,
+        "mismatches": 0,
+        "missing": 0,
+        "excluded": 102,
+        "implementation_sha256_match": true,
+        "declaration_line": 21
+      },
+      {
+        "family": "xlsxwriter",
+        "version": "3.2.9",
+        "checked": 48,
+        "mismatches": 0,
+        "missing": 0,
+        "excluded": 45,
+        "implementation_sha256_match": true,
+        "declaration_line": 64
+      }
+    ],
+    "record_mismatch_inspection": "Inspected mismatched RECORD entries for numpy, pillow, and lxml directly on disk; mismatches are compiled .pyd/.dll/.exe binaries larger by +15,664 bytes relative to wheel RECORD sizes, while pure-Python inspected modules match recorded SHA-256 digests and AST line numbers.",
+    "shadow_refit_reproduction": {
+      "openblas_num_threads": 1,
+      "reproduced_checkpoint_sha256": "8f3cfcc1e06aa7a447851dd203509f83e68f92c5265b89afecdf0b9957fbfd14",
+      "exact_byte_match_with_repo_checkpoint": true,
+      "training_proposals": 64,
+      "training_host_passes": 14,
+      "validation_questions": 8,
+      "validation_host_useful": 7,
+      "idf_terms": 105,
+      "linear_parameters": 7,
+      "native_parameters": 49,
+      "native_selected_seed": 73,
+      "native_selected_cutoff": 0.5,
+      "qualification": "shadow",
+      "train_pins_sha256": "cb118ef6acb8fa4de07c97a43148af7417024929911afec442a46c0dedc82ec1",
+      "validation_pins_sha256": "0ab9a569007bbf00cd6370ff8197aa9f308b7a260743f861deefd60430f9bd6c"
+    },
+    "historical_618f870_evaluation_replay": {
+      "passed": 12,
+      "total": 16,
+      "wrong_deliveries": 0,
+      "matches_author_baseline_outcomes": true,
+      "missed_ids": [
+        "openpyxl-2",
+        "openpyxl-4",
+        "xlsxwriter-3",
+        "xlsxwriter-4"
+      ]
+    },
+    "public_evaluation_benchmark": {
+      "evaluation_pins_sha256": "ef527183409ff12393d213ad2081410e4a630e75ab0cc341f6363faddd9eed4c",
+      "total": 16,
+      "policies": {
+        "host": {
+          "route_correct": 14,
+          "useful": 14,
+          "delivered": 14,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 2,
+          "host_withheld": 2,
+          "p50_scoring_us": null,
+          "p50_engine_us": 73790.25,
+          "p95_engine_us": 90648.175,
+          "p50_process_ms": 239.5552,
+          "peak_host_working_set": 56111104,
+          "misses": [
+            "openpyxl-4",
+            "xlsxwriter-4"
+          ]
+        },
+        "tfidf": {
+          "route_correct": 16,
+          "useful": 14,
+          "delivered": 14,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 0,
+          "host_withheld": 2,
+          "p50_scoring_us": 241.1,
+          "p95_scoring_us": 346.275,
+          "p50_engine_us": 72603.65,
+          "p50_process_ms": 237.2082,
+          "peak_host_working_set": 56037376,
+          "misses": [
+            "openpyxl-4",
+            "xlsxwriter-4"
+          ]
+        },
+        "linear": {
+          "route_correct": 14,
+          "useful": 14,
+          "delivered": 14,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 2,
+          "host_withheld": 2,
+          "p50_scoring_us": 255.6,
+          "p95_scoring_us": 294.8,
+          "p50_engine_us": 72603.65,
+          "p50_process_ms": 237.2082,
+          "peak_host_working_set": 56037376,
+          "top_candidate_brier": 0.002926212131325305,
+          "ece": 0.047623263012262954,
+          "misses": [
+            "openpyxl-4",
+            "xlsxwriter-4"
+          ]
+        },
+        "native": {
+          "route_correct": 14,
+          "useful": 14,
+          "delivered": 14,
+          "wrong_deliveries": 0,
+          "proposed_abstentions": 2,
+          "host_withheld": 2,
+          "p50_scoring_us": 242.4,
+          "p95_scoring_us": 276.725,
+          "p50_engine_us": 72603.65,
+          "p50_process_ms": 237.2082,
+          "peak_host_working_set": 56037376,
+          "top_candidate_brier": 0.00017115084105234025,
+          "ece": 0.011933663061358504,
+          "misses": [
+            "openpyxl-4",
+            "xlsxwriter-4"
+          ]
+        }
+      }
+    },
+    "public_constructed_stress_suite": {
+      "suite_sha256": "998882d8a2582d3133c30c8a34ff91ee126092168a9468f7d23a4b7f94379e9b",
+      "total": 13,
+      "host_passed": 13,
+      "tfidf_passed": 13,
+      "linear_passed": 12,
+      "native_passed": 12,
+      "linear_and_native_miss": "predicate (false abstention on Subject-is-value syntax)",
+      "wrong_deliveries": 0
+    }
+  },
+  "next002_replay_and_adversarial_probes": {
+    "next002_custodian_suite_replay": {
+      "suite_sha256": "d9ca9752f9134151adb44c5fd85ae380dc206f4365c7a3aefbc170eece1649de",
+      "prior_next002_passed": "12/13",
+      "current_next003_passed": "13/13",
+      "resolved_case": "cust-procedure-keyword-in-fact-subject"
+    },
+    "independent_csharp_adversarial_probes": {
+      "passed": 20,
+      "total": 20,
+      "checks": [
+        "Action keywords ('restore', 'configure', 'cancel') in fact subjects resolve with exact spans without displacing 'procedure.restore'.",
+        "Ambiguous 'What is the archive restoration?' stays withheld; 'How long is the archive retention policy?' returns pinned 30 days and yields contradiction when contradicted by an owner import.",
+        "Trailing words after fact subject and non-handbook procedures are safely withheld as unsupported.",
+        "Invalid or cross-project primaryDocument proposals cannot override Research or deliver evidence.",
+        "Definite + 'undetermined' reports 'insufficient' (not 'contradiction' or 'supported'); mixed stale + active agreement reports 'stale'.",
+        "Tampered journal Authorization, Scope, or Specialist on pending tasks is refused at Engine.Finish.",
+        "Cross-project isolation holds for Submit, Finish, and named-project corrupt journal recovery."
+      ]
+    }
+  },
+  "custodian_blind_outcome_evaluation": {
+    "scope": "external_custodian_directory_private_inputs_retained",
+    "suite_sha256": "cee21ea14676c53f19ed610068ae298827cc914d1bc9fc2f37615f1b33888839",
+    "total": 20,
+    "outcomes_runner_passed": 18,
+    "four_policy_blind_totals": {
+      "host": "18/20",
+      "tfidf": "18/20",
+      "linear": "18/20",
+      "native": "18/20"
+    },
+    "wrong_deliveries_across_all_policies": 0,
+    "provenance_breakdown": {
+      "observed_project_outcome": {
+        "passed": 10,
+        "total": 12,
+        "receipts": [
+          {
+            "file": "certifi_audit_receipt.json",
+            "sha256": "e733a90707b227ddbd12f27dc14921b36df2ad9053387e8c8a38a4cf860a9d32"
+          },
+          {
+            "file": "charset_normalizer_audit_receipt.json",
+            "sha256": "d7ef2f8489f0ed9d57fa37e37b7c19e90a87de4004062c3ec246fee1dbb753b4"
+          },
+          {
+            "file": "atlas_bb015a4_audit_receipt.json",
+            "sha256": "3fa42c15bfcb166e825754190facc3e285dbe2d0f86d27d69a6f3042b9a827af"
+          }
+        ],
+        "description": "12 trials across 3 disjoint real projects measured outside the author families: installed certifi 2026.10.19, installed charset-normalizer 3.5.2, and disposable bb015a4 build/package/router receipts."
+      },
+      "custodian_fixture": {
+        "passed": 8,
+        "total": 8,
+        "description": "Constructed adversarial controls: action words in fact subjects, UTF-8 BOM/CRLF/surrogate-pair span, definite+unconfirmed, cross-doc conflict, mixed stale+active, modifier mismatch, and unclear restoration."
+      }
+    },
+    "costs": {
+      "host": {
+        "median_engine_us": 70509.7,
+        "max_engine_us": 74654.3,
+        "median_process_ms": 234.61,
+        "max_process_ms": 430.21,
+        "peak_working_set_bytes": 56152064
+      },
+      "tfidf": {
+        "median_scoring_us": 294.0,
+        "median_engine_us": 70434.6,
+        "median_process_ms": 236.75,
+        "peak_working_set_bytes": 56147968
+      },
+      "linear": {
+        "median_scoring_us": 321.9,
+        "median_engine_us": 70434.6,
+        "median_process_ms": 238.0,
+        "peak_working_set_bytes": 56147968,
+        "proposed_abstentions": 4
+      },
+      "native": {
+        "median_scoring_us": 222.7,
+        "median_engine_us": 70434.6,
+        "median_process_ms": 238.0,
+        "peak_working_set_bytes": 56147968,
+        "proposed_abstentions": 4
+      }
+    },
+    "non_leaking_failure_summary": "All 2 misses occurred on naturally phrased questions over unseen observed_project_outcome distributions whose exact-subject facts existed in the candidate docs; host safely withheld both as unsupported (0 wrong deliveries), tfidf selected the expected candidate document on both, and linear/native abstained (-1)."
+  },
+  "accepted_scope_and_limitations": {
+    "accepted_scope": "NEXT-003 local Windows 11 x64 evaluation foundation (`bb015a42205b8c2b6e4ad4cefae99a6b116099dd`): deterministic Research, Primary, and Host delivery gates with fixed action-keyword subject disambiguation, definite-vs-unconfirmed separation, persistent Authorization recheck at Engine.Finish, offline portable ZIP packages excluding the lab shadow checkpoint, and reproducible audit/shadow lab harness.",
+    "limitations": [
+      "Deterministic Research.RequestedSubject and Routing.ProjectFact still require exact prefix-plus-subject phrasing without trailing helper words or natural-language paraphrases, capping end-to-end useful delivery at 14/16 on public evaluation and 18/20 (10/12 observed project outcomes) on the external custodian blind suite even when tfidf proposes the right document.",
+      "The 49-parameter shadow checkpoint predicts host deliverability rather than semantic answerability, ties host and the 7-parameter linear baseline on unseen project outcomes (14/16 public, 18/20 external), and false-abstains on the single-document 'predicate' fixture (12/13 vs host 13/13); it must remain strictly shadow-only outside packages alongside the shadow 4,163-parameter native routing model.",
+      "Execution/automation remains disabled (`read owner-imported text`); clean Windows without .NET 10.0.12 desktop runtime, code signing, privileged symlinks, and Hyper-V guest automation remain outside verified scope."
+    ]
+  }
+}
