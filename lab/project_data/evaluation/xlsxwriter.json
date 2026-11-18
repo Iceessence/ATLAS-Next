@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "xlsxwriter",
+  "version": "3.2.9",
+  "record_path": "xlsxwriter-3.2.9.dist-info/RECORD",
+  "record_sha256": "5cbdaa04191174f3dfff04e1838f7a283b60cebb3435951c79e205bf06d9c669",
+  "metadata_sha256": "10d504f188e087f07a06b9038ed0535f37ac072c232e60c075ddb0aedb7b7d78",
+  "wheel_sha256": "227f454cdc5e3fad0a9d3906c3bc24ea624f61dfdd4128c46665dd05d30223ef",
+  "implementation": "xlsxwriter/workbook.py",
+  "symbol": "Workbook.__init__",
+  "implementation_sha256": "4b4a3820b4877ef31920ce13630d66aabf4aed5e9f9c7a7a7e27694276b7e2f9",
+  "counts": {
+    "checked": 48,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 45
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "xlsxwriter",
+      "Release version": "3.2.9",
+      "Declared dependency count": "0",
+      "Python requirement": ">=3.8"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "setuptools (75.8.0)",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "5cbdaa04191174f3dfff04e1838f7a283b60cebb3435951c79e205bf06d9c669",
+      "Checked payload files": "48",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "Workbook constructor parameters": "self, filename, options",
+      "Workbook constructor declaration line": "64",
+      "Workbook constructor source digest": "4b4a3820b4877ef31920ce13630d66aabf4aed5e9f9c7a7a7e27694276b7e2f9"
+    }
+  }
+}

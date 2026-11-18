@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "pydantic",
+  "version": "2.14.3",
+  "record_path": "pydantic-2.14.3.dist-info/RECORD",
+  "record_sha256": "e592a19df82b4cced3186929a00c7727e47fcf3a6087d13fef57e82b478551f4",
+  "metadata_sha256": "c3eb8984172bedc8e056655e1419351f4497374a91b7b709dbc4a1340f50e1e9",
+  "wheel_sha256": "da266b2640c891e0e1d24f528a428ca85b913feb9aea66f822bd40b04478044c",
+  "implementation": "pydantic/main.py",
+  "symbol": "BaseModel.model_dump",
+  "implementation_sha256": "a18a2ea6fe02abd1035dd56b35006fd29b0c90227f71d77e45fa0e52aed5aee7",
+  "counts": {
+    "checked": 112,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 107
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "pydantic",
+      "Release version": "2.14.3",
+      "Declared dependency count": "6",
+      "Python requirement": ">=3.10"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "hatchling 1.33.0",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "e592a19df82b4cced3186929a00c7727e47fcf3a6087d13fef57e82b478551f4",
+      "Checked payload files": "112",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "Model export parameters": "self, mode, include, exclude, context, by_alias, exclude_unset, exclude_defaults, exclude_none, exclude_computed_fields, round_trip, warnings, fallback, serialize_as_any, polymorphic_serialization",
+      "Model export declaration line": "472",
+      "Model export source digest": "a18a2ea6fe02abd1035dd56b35006fd29b0c90227f71d77e45fa0e52aed5aee7"
+    }
+  }
+}

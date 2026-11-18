@@ -1,0 +1,74 @@
+{
+  "openpyxl": [
+    [
+      "Please give me the workbook loader parameters.",
+      "Workbook loader parameters"
+    ],
+    [
+      "State the restore manifest digest.",
+      "Restore manifest digest"
+    ],
+    [
+      "Which value is recorded for declared dependency count?",
+      "Declared dependency count"
+    ],
+    [
+      "Which arguments does the workbook loader accept?",
+      "Workbook loader parameters"
+    ]
+  ],
+  "pydantic": [
+    [
+      "What is the model export declaration line?",
+      "Model export declaration line"
+    ],
+    [
+      "Give me the pure library flag.",
+      "Pure library flag"
+    ],
+    [
+      "Name the checked payload files.",
+      "Checked payload files"
+    ],
+    [
+      "Which value is recorded for the Python requirement?",
+      "Python requirement"
+    ]
+  ],
+  "python-pptx": [
+    [
+      "Which value is recorded for presentation opener source digest?",
+      "Presentation opener source digest"
+    ],
+    [
+      "Give me the missing payload files.",
+      "Missing payload files"
+    ],
+    [
+      "What is the published name?",
+      "Published name"
+    ],
+    [
+      "State the wheel compatibility tags.",
+      "Wheel compatibility tags"
+    ]
+  ],
+  "xlsxwriter": [
+    [
+      "Name the workbook constructor declaration line.",
+      "Workbook constructor declaration line"
+    ],
+    [
+      "Please state the release version.",
+      "Release version"
+    ],
+    [
+      "What is the restore manifest digest?",
+      "Restore manifest digest"
+    ],
+    [
+      "How many installed files did the audit check?",
+      "Checked payload files"
+    ]
+  ]
+}

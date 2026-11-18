@@ -1,0 +1,77 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "pillow",
+  "version": "13.0.0",
+  "record_path": "pillow-13.0.0.dist-info/RECORD",
+  "record_sha256": "867953b9283a8e37a5289cfbb27da204af4fe5c5031ae921f01a733d96e32a09",
+  "metadata_sha256": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5",
+  "wheel_sha256": "b2601f60075ce318a1cf4b08f2b52cc397e708f776ca360504cd2ea7a3a21031",
+  "implementation": "PIL/Image.py",
+  "symbol": "Image.resize",
+  "implementation_sha256": "6646cf8a0aa91c440293112934d0e0802cd90c207a07137281a1926c3465e23f",
+  "counts": {
+    "checked": 121,
+    "mismatched": 8,
+    "missing": 0,
+    "excluded": 98
+  },
+  "disagreements": [
+    [
+      "PIL/_avif.cp312-win_amd64.pyd",
+      "27a1c579961e6e3a34da01c4777474f4ead6550d67afd95167f2dd14a4703ce4"
+    ],
+    [
+      "PIL/_imaging.cp312-win_amd64.pyd",
+      "0b678b3e5d6b98341a6c2282b6c78a5420419a87e000ba88b03a978c3b0a407e"
+    ],
+    [
+      "PIL/_imagingcms.cp312-win_amd64.pyd",
+      "fbbfa622eebc3530df3b4aaaeddc03ee486aee09c7f9971262966d3e70da482c"
+    ],
+    [
+      "PIL/_imagingft.cp312-win_amd64.pyd",
+      "4c6edcc7245e4abb17b7569117a6ee8412a5cd51b6e31bed963832fe27177661"
+    ],
+    [
+      "PIL/_imagingmath.cp312-win_amd64.pyd",
+      "607ba17cdf50d6f90770402221794214137120c378db22760bc8926faf70cf96"
+    ],
+    [
+      "PIL/_imagingmorph.cp312-win_amd64.pyd",
+      "916277fdb0f2ec0d77fff965746d2693092fe6bf1ac1c6808d5a2e761e2f31c6"
+    ],
+    [
+      "PIL/_imagingtk.cp312-win_amd64.pyd",
+      "06f4adeddacfe1ac92878a1374325ad9ce1e7f91e32cc9d6473de0b26b88aa66"
+    ],
+    [
+      "PIL/_webp.cp312-win_amd64.pyd",
+      "25cfd35dc46527f425f323290e1433ac2422aa25554d262716df27ae8f9ca42e"
+    ]
+  ],
+  "groups": {
+    "Release metadata": {
+      "Published name": "pillow",
+      "Release version": "13.0.0",
+      "Declared dependency count": "26",
+      "Python requirement": ">=3.11"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "setuptools (84.2.1)",
+      "Wheel compatibility tags": "cp312-cp312-win_amd64",
+      "Pure library flag": "false"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "867953b9283a8e37a5289cfbb27da204af4fe5c5031ae921f01a733d96e32a09",
+      "Checked payload files": "121",
+      "Payload hash mismatches": "8",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "Image resize parameters": "self, size, resample, box, reducing_gap",
+      "Image resize declaration line": "2332",
+      "Image resize source digest": "6646cf8a0aa91c440293112934d0e0802cd90c207a07137281a1926c3465e23f"
+    }
+  }
+}

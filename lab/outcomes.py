@@ -80,6 +80,24 @@ def score(case, run):
     return checks
 
 
+def probe(question, documents, scratch_dir=None, proposed_document=None):
+    """Exercise the real host. A proposal may only narrow the available Primary documents."""
+    exe = ROOT / "checks/bin/Release/net10.0-windows/AtlasNext.Checks.exe"
+    payload = {"question": question, "documents": documents, "proposedDocument": proposed_document}
+    scratch = str(scratch_dir or Path(tempfile.gettempdir()).resolve())
+    # The owned revision includes two full digests. On Windows nested custodian
+    # folders can exceed MAX_PATH during Python's recursive temporary cleanup.
+    extended = "\\\\?\\"
+    if os.name == "nt" and not scratch.startswith("\\\\"):
+        scratch = extended + scratch
+    with tempfile.TemporaryDirectory(dir=scratch) as workspace:
+        work_path = workspace.removeprefix(extended) if os.name == "nt" else workspace
+        run = subprocess.run([str(exe), "--outcome"], capture_output=True, encoding="utf-8",
+                             input=json.dumps(payload),
+                             env={**os.environ, "ATLAS_OUTCOME_WORK": work_path}, timeout=60)
+    return run
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path, default=PUBLIC)
@@ -93,21 +111,10 @@ def main():
     if report == manifest or report.exists() and external:
         parser.error("Use a fresh external report path")
     cases, digest = load_suite(manifest)
-    exe = ROOT / "checks/bin/Release/net10.0-windows/AtlasNext.Checks.exe"
     trials = []
-    scratch = str(manifest.parent if external else Path(tempfile.gettempdir()).resolve())
-    # The owned revision includes two full digests. On Windows nested custodian
-    # folders can exceed MAX_PATH during Python's recursive temporary cleanup.
-    extended = "\\\\?\\"
-    if os.name == "nt" and not scratch.startswith("\\\\"):
-        scratch = extended + scratch
     for case in cases:
         started = time.perf_counter()
-        with tempfile.TemporaryDirectory(dir=scratch) as workspace:
-            work_path = workspace.removeprefix(extended) if os.name == "nt" else workspace
-            run = subprocess.run([str(exe), "--outcome"], capture_output=True, encoding="utf-8",
-                                 input=json.dumps({k: case[k] for k in ("question", "documents")}),
-                                 env={**os.environ, "ATLAS_OUTCOME_WORK": work_path}, timeout=60)
+        run = probe(case["question"], case["documents"], manifest.parent if external else None)
         if run.returncode:
             trials.append(dict(id=case["id"], passed=False, origin=case["origin"], process_ms=1000*(time.perf_counter()-started), error=run.stderr[-1500:]))
             continue

@@ -44,3 +44,17 @@ On a host with a restricted default script policy, invoke each local script in i
 The last check opens real test windows, exports a receipt and force-closes one disposable packaged test session. Packaging produces a fresh stage and ZIP under ignored `out/`. Build and test profiles are disposable. For research reproduction use Python 3.12.14 with NumPy 2.3.5 installed. In a disposable clone run `python -B lab/test_integrity.py`, `python -B lab/evaluate.py` and, for retraining, set `OPENBLAS_NUM_THREADS=1` and run `python -B lab/train.py`. Retraining rewrites model files and timing metadata there. App manifests are pinned to the released bytes. [Independent review assignment](docs/ai/ATLAS_HANDOFF.md)
 
 [Owner report](docs/ai/ATLAS_OWNER_REPORT.md) · [Product vision](docs/PRODUCT_VISION.md) · [Architecture](docs/ARCHITECTURE.md) · [Decisions](docs/DECISIONS.md) · [Requirements](docs/REQUIREMENTS.md) · [Roadmap](docs/ROADMAP.md)
+
+## Reproduce the NEXT-003 shadow experiment
+
+The desktop uses Primary to propose a permitted source in the selected project. It interprets the request framing separately from the matched project subject. Research checks all active sources independently before the host authorizes review and again at delivery. A document restriction in the checks executable can only narrow Primary's proposal. Project selection, authorization, contradiction checks and the native model qualification remain host decisions.
+
+The development lab includes a source-document specialist for project lookups. Its checkpoint stays under `lab/`. To reproduce on the recorded Python environment, build the Release checks, set `OPENBLAS_NUM_THREADS=1` and run the following from the repository root.
+
+```powershell
+python -B lab/project_audit.py
+python -B lab/project_specialist.py fit
+python -B lab/project_specialist.py evaluate
+```
+
+The audit independently rereads the ten named public distributions at the versions recorded in their receipts. It hashes their installed payloads against eligible wheel RECORD entries, inspects package metadata and reads the actual declaration of a named API from source. This replay requires the measured installations. Fitting and evaluation require only the archived public receipts, NumPy and the checks executable. Fitting writes its candidate and every seed trial under `out/project-specialist/`. Evaluation uses the frozen lab checkpoint. [Experiment protocol](lab/project_data/README.md)

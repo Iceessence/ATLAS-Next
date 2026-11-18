@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "python-pptx",
+  "version": "1.0.2",
+  "record_path": "python_pptx-1.0.2.dist-info/RECORD",
+  "record_sha256": "c644b01c36e437c1f5ca7662cd8806a2d48870efbcd4c162b37ab249701105d3",
+  "metadata_sha256": "d38c6af5f1817cc528706264d8343cd1c95dbdec5672f29b944f54f79134a3a2",
+  "wheel_sha256": "4749dceaa4f1ba82e4ed2840dbf63e51690df1975f0c11b607a12aa73d965dbb",
+  "implementation": "pptx/api.py",
+  "symbol": "Presentation",
+  "implementation_sha256": "22b1b16b7e59eadc99071681ba49f244e7661ca348f1751aefb5d4eb6c411453",
+  "counts": {
+    "checked": 116,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 102
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "python-pptx",
+      "Release version": "1.0.2",
+      "Declared dependency count": "4",
+      "Python requirement": ">=3.8"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "setuptools (72.1.0)",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "c644b01c36e437c1f5ca7662cd8806a2d48870efbcd4c162b37ab249701105d3",
+      "Checked payload files": "116",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "Presentation opener parameters": "pptx",
+      "Presentation opener declaration line": "21",
+      "Presentation opener source digest": "22b1b16b7e59eadc99071681ba49f244e7661ca348f1751aefb5d4eb6c411453"
+    }
+  }
+}

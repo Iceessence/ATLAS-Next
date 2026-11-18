@@ -203,8 +203,8 @@ try {
     Invoke-Control $window 'SwitchProject'
     Wait-State $window 'Ready'
     if((Control $window 'ProjectLabel').Current.Name -ne 'Active project: package-check'){throw 'Project selection failed'}
-    Import-Document $session 'channel.md' "# Local handbook`r`nSignal colour: amber"
-    (Control $window 'Prompt').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).SetValue('What is the signal colour?')
+    Import-Document $session 'channel.md' "# Local handbook`r`nRestore signal colour: amber"
+    (Control $window 'Prompt').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).SetValue('What is the restore signal colour?')
     Invoke-Control $window 'Search'
     Wait-State $window 'review'
     Invoke-Control $window 'Verify'
@@ -224,7 +224,7 @@ try {
     } while([DateTime]::UtcNow -lt $limit)
     if($spanReceipt.project -ne 'package-check' -or $spanReceipt.result -ne 'amber' -or $spanReceipt.evidence.span.line -ne 2){throw 'Project receipt export failed'}
     "Imported receipt: $($spanFile.FullName)"
-    Import-Document $session 'other.txt' 'Signal colour: blue'
+    Import-Document $session 'other.txt' 'Restore signal colour: blue'
     Invoke-Control $window 'Search'
     Wait-State $window 'needs clarification'
     if((Control $window 'ResearchInfo').Current.Name -notlike '*contradiction*'){throw 'Packaged contradiction check failed'}

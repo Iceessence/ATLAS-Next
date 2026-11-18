@@ -6,7 +6,7 @@ using AtlasNext;
 
 internal static class OutcomeProbe
 {
-    internal record Input(string Question,string[] Documents);
+    internal record Input(string Question,string[] Documents,int? ProposedDocument=null);
 
     public static int Run()
     {
@@ -24,7 +24,10 @@ internal static class OutcomeProbe
             ids.Add(engine.Import(path).Id);
         }
         var timer=Stopwatch.StartNew();
-        var answer=engine.Finish(engine.Submit(Guid.NewGuid(),input.Question).Id);
+        string? restriction=input.ProposedDocument switch {
+            null=>null, -1=>"", int n when n>=0 && n<ids.Count=>ids[n], _=>throw new InvalidDataException("Invalid proposal")
+        };
+        var answer=engine.Finish(engine.Submit(Guid.NewGuid(),input.Question,restriction).Id);
         timer.Stop();
         Console.WriteLine(JsonSerializer.Serialize(new { answer,ids,elapsedUs=timer.Elapsed.TotalMicroseconds,
             workingSetBytes=Environment.WorkingSet },Assets.Json));

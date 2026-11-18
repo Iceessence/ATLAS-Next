@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "pypdf",
+  "version": "6.21.4",
+  "record_path": "pypdf-6.21.4.dist-info/RECORD",
+  "record_sha256": "cdc2d34411457eb49c91c47fdd2814a96572461c918380e8d33234e86d5f77f7",
+  "metadata_sha256": "383b3d4cd588005f67afc74b113cbe19ea008691cdf18db3795601116a3d8139",
+  "wheel_sha256": "acb244f0e2cf0596f3eedab1b35c83fb003e0036b511ce4fb9853e63f3cd5832",
+  "implementation": "pypdf/_reader.py",
+  "symbol": "PdfReader.__init__",
+  "implementation_sha256": "55bbb1b10a5721a7bad12954a598f6f8beaaacd138d2f771cd97e8b99a1d0514",
+  "counts": {
+    "checked": 65,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 60
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "pypdf",
+      "Release version": "6.21.4",
+      "Declared dependency count": "25",
+      "Python requirement": ">=3.9"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "flit 4.2.0",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "cdc2d34411457eb49c91c47fdd2814a96572461c918380e8d33234e86d5f77f7",
+      "Checked payload files": "65",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "PDF reader constructor parameters": "self, stream, strict, password, root_object_recovery_limit, xref_stream_maximum_entries",
+      "PDF reader constructor declaration line": "127",
+      "PDF reader constructor source digest": "55bbb1b10a5721a7bad12954a598f6f8beaaacd138d2f771cd97e8b99a1d0514"
+    }
+  }
+}

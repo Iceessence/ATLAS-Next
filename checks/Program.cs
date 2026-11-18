@@ -116,6 +116,13 @@ internal static class Checks
                 "UTF-8 BOM, surrogate pair and CRLF preserved with exact UTF-16 value span");
             Check(work.ResearchReview is {Verdict:"supported",Trust:"owner-selected text"} &&
                 work.ResearchReview.Freshness.Contains("2099-01-01"),"research verdict retains trust and declared validity");
+            var narrowed=e.Submit(Guid.NewGuid(),question,"absent-from-project");
+            Check(narrowed is {State:"needs clarification",Evidence:null,ResearchReview.Verdict:"supported"},
+                "Research support cannot override a Primary source restriction");
+            var revoked=e.Submit(Guid.NewGuid(),question);
+            File.WriteAllText(Path.Combine(profile,"tasks",revoked.Id.ToString("N")+".json"),
+                JsonSerializer.Serialize(revoked with {Authorization="pending"},Assets.Json));
+            Check(e.Finish(revoked.Id).State=="failed","research evidence cannot replace host authorization");
             var waiting=e.Submit(Guid.NewGuid(),question);
             var second=Path.Combine(root,"second.txt");
             File.WriteAllText(second,"Orion colour is green.");
@@ -157,6 +164,22 @@ internal static class Checks
             Reject("binary.md",[0]);
             Reject("oversize.txt",new byte[256*1024+1]);
             Reject("script.ps1",[42]);
+            var terms=Path.Combine(root,"terms.txt");
+            File.WriteAllText(terms,"Restore manifest entries: 17\nConfigure guide title: Amber\nRecovery steps count: 6\nArchive: file");
+            e.Import(terms);
+            foreach(var (prompt,value) in new[]{("What is the restore manifest entries?","17"),
+                ("Name the configure guide title.","Amber"),("Which value is recorded for the recovery steps count?","6")})
+                Check(Ask(e,prompt) is {State:"completed",Specialist:"fact"} found && found.Result==value,
+                    $"affirmative imported lookup: {prompt}");
+            Check(Ask(e,"How do I restore an archive?").Evidence?.Id=="procedure.restore",
+                "generic imported subject cannot displace a handbook procedure");
+            Check(Ask(e,"What is the archive restoration?").State=="needs clarification","unanswered definition withheld");
+            File.WriteAllText(second,"Orion colour: undetermined");
+            e.Import(second);
+            Check(Ask(e,question) is {State:"needs clarification",ResearchReview.Verdict:"insufficient"},
+                "definite value plus unconfirmed value is insufficient");
+            File.WriteAllText(second,"Separate claim: other");
+            e.Import(second);
             var privateTask=e.Submit(Guid.NewGuid(),question);
             e.SelectProject("lunar");
             Check(!e.History().Any() && Ask(e,question).State=="needs clarification","project isolation for history and retrieval");

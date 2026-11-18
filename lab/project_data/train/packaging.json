@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "packaging",
+  "version": "26.3",
+  "record_path": "packaging-26.3.dist-info/RECORD",
+  "record_sha256": "a2cd431afc6ca596c9bf35faf2b902709cad9c48a55d264a71c71e70c6cb2e7a",
+  "metadata_sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763",
+  "wheel_sha256": "1b68144734c4b66791f27add5d425f3620775585718a03d0f9b110ba3a4d88db",
+  "implementation": "packaging/version.py",
+  "symbol": "Version.__init__",
+  "implementation_sha256": "558b2fb50fd198c660a4c082f96b8919c565911b6b4b6e07f34b6b60c074be97",
+  "counts": {
+    "checked": 29,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 23
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "packaging",
+      "Release version": "26.3",
+      "Declared dependency count": "0",
+      "Python requirement": ">=3.9"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "flit 3.12.0",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "a2cd431afc6ca596c9bf35faf2b902709cad9c48a55d264a71c71e70c6cb2e7a",
+      "Checked payload files": "29",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "Version parser constructor parameters": "self, version",
+      "Version parser constructor declaration line": "408",
+      "Version parser constructor source digest": "558b2fb50fd198c660a4c082f96b8919c565911b6b4b6e07f34b6b60c074be97"
+    }
+  }
+}

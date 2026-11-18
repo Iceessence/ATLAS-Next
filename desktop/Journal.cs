@@ -17,6 +17,7 @@ internal sealed record Work(Guid Id,string Request)
     public long? InferenceMicroseconds { get; init; }
     public long? ProcessWorkingSetBytes { get; init; }
     public string Router { get; init; }="deterministic-route-v1";
+    public string? PrimaryCandidateId { get; init; }
     public string? Specialist { get; init; }
     public Recommendation? Proposal { get; init; }
     public string Authorization { get; init; }="pending";

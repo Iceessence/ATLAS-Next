@@ -1,0 +1,7 @@
+{
+  "numpy.json": "a42d08b3d955bcf968bb2e612dc68d8ba18aea4e008708246fb75165a6782612",
+  "packaging.json": "04ae03e2f0a6ccfcd5da5dbec9dacaed42339865500edf1c3a96dc823b09d593",
+  "pillow.json": "7ce0cb961f67f3f39ccb5612a78475de026ce56f9e7b4db33e5727f23aa724a7",
+  "pypdf.json": "bc2e5ec23d662a0305357b2860722df325c591636598137eaec0d9eb67da064a",
+  "requests.json": "54db3bc47a64092d901d7ae9d1a8f5901effff44e2ef13b2001618ad2a8958bf"
+}

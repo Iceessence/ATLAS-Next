@@ -21,7 +21,11 @@ internal sealed class Engine(string profile) : IDisposable
     public Imported Import(string path)=>documents.Import(path);
     public string RecoveryNotice => journal.RecoveryNotice;
     public IEnumerable<Work> History()=>journal.History().Where(w=>w.Project==Project).OrderByDescending(w=>w.Events.Last().At);
-    public Work Submit(Guid id,string request)
+    public Work Submit(Guid id,string request)=>Submit(id,request,null);
+
+    // A source restriction can only narrow Primary retrieval. The benchmark uses it
+    // in fresh disposable profiles. Verification always sees the entire project.
+    internal Work Submit(Guid id,string request,string? primaryDocument)
     {
         request=request.Trim();
         if(request.Length is 0 or >2048) throw new ArgumentException("Enter a request of 1–2048 characters.");
@@ -39,18 +43,17 @@ internal sealed class Engine(string profile) : IDisposable
             var route=exact?.Record.Type ?? Routing.Rule(request);
             var candidate=exact ?? library.Find(request,route);
             var passages=documents.Active();
-            if(exact==null && route!="procedure") {
-                var words=Assets.Tokens(request).ToHashSet();
-                var passage=passages.Where(p=>Assets.Tokens(p.Subject).All(words.Contains))
-                    .OrderByDescending(p=>p.Subject.Length).FirstOrDefault();
+            if(exact==null) {
+                var eligible=primaryDocument==null ? passages : passages.Where(p=>p.Citation.Id==primaryDocument);
+                var passage=Routing.ProjectFact(request,eligible);
                 if(passage!=null && (candidate==null || passage.Subject!=Research.CatalogSubject(candidate))) {
                     route="fact";
                     candidate=Research.FromPassage(passage);
                 }
             }
             var finding=Research.Assess(request,library,passages);
-            task=task with {Proposal=proposed,Specialist=route,Router="deterministic-route-v3",ResearchReview=finding.Assessment};
-            if(candidate==null || candidate.Citation!=finding.Source?.Citation)
+            task=task with {Proposal=proposed,Specialist=route,PrimaryCandidateId=candidate?.Citation.Id,Router="deterministic-route-v4",ResearchReview=finding.Assessment};
+            if(candidate==null || finding.Source==null || !finding.Assessment.Sources.Contains(candidate.Citation))
                 task=(task with {Authorization="no matching scoped record",Verification="answer withheld",
                     AnswerRelevance=finding.Source==null ? finding.Assessment.RequestRelevance : "unsupported",
                     Result=finding.Source==null ? finding.Assessment.Detail : "Primary could not resolve a source for this request."}).At("needs clarification");
@@ -80,7 +83,7 @@ internal sealed class Engine(string profile) : IDisposable
                 var active=documents.Active();
                 var passage=cited.Span==null ? null : active.FirstOrDefault(p=>p.Citation==cited);
                 var source=passage!=null ? Research.FromPassage(passage) : library.Exact(cited.Id);
-                if(source==null || source.Citation!=cited || task.Scope!=source.Record.Scope ||
+                if(task.Authorization!="allowed scoped record read" || source==null || source.Citation!=cited || task.Scope!=source.Record.Scope ||
                     task.Specialist!=source.Record.Type) throw new InvalidDataException("Source failed verification");
                 var finding=Research.Assess(task.Request,library,active);
                 task=task with {SourceIntegrity="passed",ResearchReview=finding.Assessment};

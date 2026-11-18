@@ -144,5 +144,52 @@
       "answer": "The demonstration archive retains completed exports for 30 days."
     },
     "origin": "author_fixture"
+  },
+  {
+    "id": "configure-flag",
+    "question": "Name the configure flag.",
+    "documents": [
+      "Recovery notes: routine",
+      "Configure flag: local"
+    ],
+    "expect": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 1,
+      "line": 1,
+      "start": 16,
+      "length": 5,
+      "answer": "local"
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "unconfirmed-restore",
+    "question": "What is the restore method?",
+    "documents": [
+      "Restore method: copy",
+      "Restore method: undetermined"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "insufficient",
+      "sources": 2
+    },
+    "origin": "author_fixture"
+  },
+  {
+    "id": "definite-conflict-with-unknown",
+    "question": "State the recovery window.",
+    "documents": [
+      "Recovery window: ten",
+      "Recovery window: nine",
+      "Recovery window: unknown"
+    ],
+    "expect": {
+      "state": "needs clarification",
+      "verdict": "contradiction",
+      "sources": 3
+    },
+    "origin": "author_fixture"
   }
 ]

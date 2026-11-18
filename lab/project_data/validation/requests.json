@@ -1,0 +1,38 @@
+{
+  "python-docx": [
+    [
+      "What is the document opener declaration line?",
+      "Document opener declaration line"
+    ],
+    [
+      "Please state the wheel generator.",
+      "Wheel generator"
+    ],
+    [
+      "Name the restore manifest digest.",
+      "Restore manifest digest"
+    ],
+    [
+      "Give me the Python requirement.",
+      "Python requirement"
+    ]
+  ],
+  "lxml": [
+    [
+      "State the CSS selector constructor parameters.",
+      "CSS selector constructor parameters"
+    ],
+    [
+      "What is the payload hash mismatches?",
+      "Payload hash mismatches"
+    ],
+    [
+      "Which value is recorded for the wheel compatibility tags?",
+      "Wheel compatibility tags"
+    ],
+    [
+      "Where is the CSS selector constructor defined?",
+      "CSS selector constructor declaration line"
+    ]
+  ]
+}

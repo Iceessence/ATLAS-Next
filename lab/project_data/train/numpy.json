@@ -1,0 +1,125 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "numpy",
+  "version": "2.3.5",
+  "record_path": "numpy-2.3.5.dist-info/RECORD",
+  "record_sha256": "c1fdcf67ac3c0d21d28fa01ce496d28287c4e4ab947344491d2d04207d7cdbb1",
+  "metadata_sha256": "7f8a1bfc2b82fee89e1ceef1038aa174ee814832b54c39b4b1b93028ce3f27b1",
+  "wheel_sha256": "e743de01ba6503a3e4234858398a1e69c07d512d51e8482ec9f3a7b1c707d165",
+  "implementation": "numpy/lib/_npyio_impl.py",
+  "symbol": "savez_compressed",
+  "implementation_sha256": "218e0341ef006312b0d92469a0162e4abb61d2f9b777a922485d965da9e8521d",
+  "counts": {
+    "checked": 920,
+    "mismatched": 20,
+    "missing": 0,
+    "excluded": 412
+  },
+  "disagreements": [
+    [
+      "numpy.libs/libscipy_openblas64_-9e3e5a4229c1ca39f10dc82bba9e2b2b.dll",
+      "751e95d05a177d97407e5a09695b11dcc6120280dbc24e1835879582843bda83"
+    ],
+    [
+      "numpy/_core/_multiarray_tests.cp312-win_amd64.pyd",
+      "db0b9444797d8574af864451c9ff7c2ffca9e10e247c97d586166b25e3de2c19"
+    ],
+    [
+      "numpy/_core/_multiarray_umath.cp312-win_amd64.pyd",
+      "bf66958c6cab7e5ca2c09e97029eb51faf6070b5c0089333a52df132ffbc5030"
+    ],
+    [
+      "numpy/_core/_operand_flag_tests.cp312-win_amd64.pyd",
+      "4ab9809d55644d1bb2a53126e37af1f8ed34a387bdfbcb65672dc124e4e01725"
+    ],
+    [
+      "numpy/_core/_rational_tests.cp312-win_amd64.pyd",
+      "cb0ef395345f1d908dea183872e349ccbcdc20d6521db2dd07f32ed72dd98420"
+    ],
+    [
+      "numpy/_core/_simd.cp312-win_amd64.pyd",
+      "308d66e8b22b08ec8a5440e2ddec52a63dd322ada7b84c10107481d0d5012b07"
+    ],
+    [
+      "numpy/_core/_struct_ufunc_tests.cp312-win_amd64.pyd",
+      "89d60ffaf4d459439d5e165e4e21eda9326a22a9525a4bc008974039c8245efa"
+    ],
+    [
+      "numpy/_core/_umath_tests.cp312-win_amd64.pyd",
+      "f12a70601b9c7e41c278f435784a2231e848c7b227b2cd5ff9669180195d86f9"
+    ],
+    [
+      "numpy/fft/_pocketfft_umath.cp312-win_amd64.pyd",
+      "993e58d6074f1c9b65fbd92f8c8d2f6f4cdb8f9344b59863d4fb3476289acc5e"
+    ],
+    [
+      "numpy/linalg/_umath_linalg.cp312-win_amd64.pyd",
+      "a47891b3bc32c9919ca1bad36f039030e1dc1131bfa45ad7e46c7cc9aab47bf7"
+    ],
+    [
+      "numpy/linalg/lapack_lite.cp312-win_amd64.pyd",
+      "8bec2b9f468e108299d60ff2dcf0f9a4e48ee306e6171f71e67433e2f59e4985"
+    ],
+    [
+      "numpy/random/_bounded_integers.cp312-win_amd64.pyd",
+      "df5d015bf5e250c51353745aeaa0bf6b3d7c507f26898bda47bca256da1fad31"
+    ],
+    [
+      "numpy/random/_common.cp312-win_amd64.pyd",
+      "5b63306a9b3f420c9b7546291ec3840505383ae5c92ec43cf11529089c2f222f"
+    ],
+    [
+      "numpy/random/_generator.cp312-win_amd64.pyd",
+      "47296f066bbe45dd4ce46fffa7a444956e83ab2bd0a5d410c340a07f9d52104c"
+    ],
+    [
+      "numpy/random/_mt19937.cp312-win_amd64.pyd",
+      "258c7e789d723aeb3971f94fc8c0ca28f832a9b960a6fab822ceeefa454536a7"
+    ],
+    [
+      "numpy/random/_pcg64.cp312-win_amd64.pyd",
+      "c15665a0723be0b714b79ac9fa0aa7bfae1522f6e308ef1804e3a67989412a4d"
+    ],
+    [
+      "numpy/random/_philox.cp312-win_amd64.pyd",
+      "7c69498971e09c5bd6af44ec518495d4397f03773494940a4c39b0505ec04f42"
+    ],
+    [
+      "numpy/random/_sfc64.cp312-win_amd64.pyd",
+      "2790590fbca87bafbc4f06488ed3650cacc998fcd7bf12920168bf45e28069d9"
+    ],
+    [
+      "numpy/random/bit_generator.cp312-win_amd64.pyd",
+      "cf5d7d2af56d61b7fbf7ea378da7ffc22b28685a1fb58d09df38123acb59fe33"
+    ],
+    [
+      "numpy/random/mtrand.cp312-win_amd64.pyd",
+      "d593f8d4d1f7f35cf0cf71d4f2304f6db3fab4f53944d6dd7c121b89e9863211"
+    ]
+  ],
+  "groups": {
+    "Release metadata": {
+      "Published name": "numpy",
+      "Release version": "2.3.5",
+      "Declared dependency count": "0",
+      "Python requirement": ">=3.11"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "meson",
+      "Wheel compatibility tags": "cp312-cp312-win_amd64",
+      "Pure library flag": "false"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "c1fdcf67ac3c0d21d28fa01ce496d28287c4e4ab947344491d2d04207d7cdbb1",
+      "Checked payload files": "920",
+      "Payload hash mismatches": "20",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "Compressed archive writer parameters": "file, *args, allow_pickle, **kwds",
+      "Compressed archive writer declaration line": "695",
+      "Compressed archive writer source digest": "218e0341ef006312b0d92469a0162e4abb61d2f9b777a922485d965da9e8521d"
+    }
+  }
+}

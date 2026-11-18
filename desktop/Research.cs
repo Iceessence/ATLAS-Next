@@ -68,11 +68,13 @@ internal static class Research
         var values=passages.Select(p=>p.Value).ToList();
         if(handbook!=null) values.Add(HandbookClaim(handbook).Value);
         static string Normalize(string v)=>Regex.Replace(v.Trim().TrimEnd('.').TrimEnd(),@"\s+"," ");
-        if(values.Select(Normalize).Distinct(StringComparer.OrdinalIgnoreCase).Skip(1).Any())
-            return Stop("contradiction","Active sources give different values for the same subject.");
-        if(values.Any(v=>Regex.IsMatch(v.Trim(),@"\A(?:unknown|none recorded|unconfirmed|undetermined|not specified|tbd|to be determined|n/a|\?)[.!]?\z",
-            RegexOptions.IgnoreCase | RegexOptions.CultureInvariant)))
-            return Stop("insufficient","The source does not supply a definite value for this subject.");
+        bool Unconfirmed(string v)=>Regex.IsMatch(v.Trim(),@"\A(?:unknown|none recorded|unconfirmed|undetermined|not specified|tbd|to be determined|n/a|\?)[.!]?\z",
+            RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+        var definite=values.Where(v=>!Unconfirmed(v)).ToArray();
+        if(definite.Select(Normalize).Distinct(StringComparer.OrdinalIgnoreCase).Skip(1).Any())
+            return Stop("contradiction","Active sources give different definite values for the same subject.");
+        if(definite.Length!=values.Count)
+            return Stop("insufficient","At least one matching source leaves the value unconfirmed.");
         var chosen=handbook ?? FromPassage(passages[0]);
         string freshness=passages.Length==0 ? "pinned revision" : passages.Any(p=>p.ValidThrough==null) ?
             "active revision; undated source" : $"active revision; valid through {passages.Min(p=>p.ValidThrough):yyyy-MM-dd}";

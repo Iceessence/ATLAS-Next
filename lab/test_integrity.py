@@ -62,6 +62,39 @@ class Integrity(unittest.TestCase):
         self.assertFalse(result["span"])
         self.assertFalse(result["verdict"])
 
+    def test_project_measurement_and_family_boundaries(self):
+        from project_cases import cases, validate_receipt
+        from project_audit import PROJECTS, DATA
+        splits = {name: cases(name) for name in PROJECTS}
+        for name, rows_for_split in splits.items():
+            for other, other_rows in splits.items():
+                if other != name:
+                    for key in ("family","question"):
+                        self.assertFalse({r[key] for r in rows_for_split} & {r[key] for r in other_rows})
+            for row in rows_for_split:
+                ev = row["outcome_receipt"]
+                self.assertEqual(ev["sha256"], sha((DATA/name/ev["file"]).read_bytes()))
+                expected = row["expect"]
+                raw = row["documents"][expected["document"]].encode("utf-16-le")
+                a = 2*expected["start"]
+                self.assertEqual(raw[a:a+2*expected["length"]].decode("utf-16-le"), expected["answer"])
+        receipt=json.loads((DATA/"train"/"numpy.json").read_bytes())
+        for key,value in [("origin","author_fixture"),("origin","rule_label"),("custody","custodian")]:
+            with self.assertRaises(ValueError):
+                validate_receipt(dict(receipt,**{key:value}), "numpy")
+
+    def test_project_model_is_lab_only(self):
+        from project_audit import DATA
+        from project_specialist import CHECKPOINT, features, predict
+        import numpy as np
+        model = json.loads(CHECKPOINT.read_bytes())
+        self.assertEqual(model["qualification"],"shadow")
+        self.assertEqual(model["source_pins"],{s:sha((DATA/s/"pins.json").read_bytes()) for s in ("train","validation")})
+        self.assertFalse((ROOT/"assets"/CHECKPOINT.name).exists())
+        x = np.array([features("Name the restore flag.","Restore flag: active",model["idf"])])
+        for policy in model["policies"].values():
+            self.assertTrue(np.all((predict(x,policy["weights"])>=0) & (predict(x,policy["weights"])<=1)))
+
     def test_checkpoint_and_lineage(self):
         manifest=json.loads((ROOT/"assets/native.manifest.json").read_text())
         self.assertEqual(digest(ROOT/"assets/native.json"),manifest["checkpoint_sha256"])

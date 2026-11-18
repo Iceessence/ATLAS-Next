@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "python-docx",
+  "version": "1.2.0",
+  "record_path": "python_docx-1.2.0.dist-info/RECORD",
+  "record_sha256": "849046fd5c3d0d1667b43abd999c0b319d6d67a0db65d00d6c219643903e972a",
+  "metadata_sha256": "4c4cc819ebe6de4aca44daccfd3f9173e6f46d9ed900ad1c388ff9efb7b6b1d7",
+  "wheel_sha256": "ff309ddcdd65ebd02bc724dbf2bcc4a0ff53a5b61792a44548d383e4ebb19d3b",
+  "implementation": "docx/api.py",
+  "symbol": "Document",
+  "implementation_sha256": "d77539ea23d2336b4c44311bd373a64994240c03e6c068dfc68b189164b6b5c7",
+  "counts": {
+    "checked": 125,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 96
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "python-docx",
+      "Release version": "1.2.0",
+      "Declared dependency count": "2",
+      "Python requirement": ">=3.9"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "setuptools (80.9.0)",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "849046fd5c3d0d1667b43abd999c0b319d6d67a0db65d00d6c219643903e972a",
+      "Checked payload files": "125",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "Document opener parameters": "docx",
+      "Document opener declaration line": "19",
+      "Document opener source digest": "d77539ea23d2336b4c44311bd373a64994240c03e6c068dfc68b189164b6b5c7"
+    }
+  }
+}

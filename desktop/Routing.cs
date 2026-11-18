@@ -45,6 +45,20 @@ internal sealed class Routing
             manifest.Routes[index],1/logits.Sum(x=>Math.Exp(x-max)));
     }
 
+    // Interpret the part of the request outside the project subject. A word in a
+    // project identifier has no authority to turn a value lookup into a procedure.
+    public static Passage? ProjectFact(string request,IEnumerable<Passage> candidates)
+    {
+        var query=System.Text.RegularExpressions.Regex.Replace(request.TrimEnd('?', '.', '!').Trim().ToLowerInvariant(),@"\s+"," ");
+        foreach(var p in candidates.OrderByDescending(p=>p.Subject.Length))
+        {
+            if(!query.EndsWith(" "+p.Subject,StringComparison.Ordinal)) continue;
+            var framing=query[..^p.Subject.Length].TrimEnd();
+            if(Rule(framing)!="procedure") return p;
+        }
+        return null;
+    }
+
     public static string Rule(string text)
     {
         var words=Assets.Tokens(text).ToHashSet();

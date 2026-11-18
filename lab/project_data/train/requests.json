@@ -1,0 +1,74 @@
+{
+  "numpy": [
+    [
+      "State the compressed archive writer parameters.",
+      "Compressed archive writer parameters"
+    ],
+    [
+      "What is the wheel generator?",
+      "Wheel generator"
+    ],
+    [
+      "Give me the checked payload files.",
+      "Checked payload files"
+    ],
+    [
+      "Name the published name.",
+      "Published name"
+    ]
+  ],
+  "pillow": [
+    [
+      "Which value is recorded for the image resize declaration line?",
+      "Image resize declaration line"
+    ],
+    [
+      "State the payload hash mismatches.",
+      "Payload hash mismatches"
+    ],
+    [
+      "Name the wheel compatibility tags.",
+      "Wheel compatibility tags"
+    ],
+    [
+      "What Python version does this installation require?",
+      "Python requirement"
+    ]
+  ],
+  "pypdf": [
+    [
+      "What is the PDF reader constructor source digest?",
+      "PDF reader constructor source digest"
+    ],
+    [
+      "Which value is recorded for the restore manifest digest?",
+      "Restore manifest digest"
+    ],
+    [
+      "Give me the declared dependency count.",
+      "Declared dependency count"
+    ],
+    [
+      "State the pure library flag.",
+      "Pure library flag"
+    ]
+  ],
+  "packaging": [
+    [
+      "Name the version parser constructor parameters.",
+      "Version parser constructor parameters"
+    ],
+    [
+      "What is the release version?",
+      "Release version"
+    ],
+    [
+      "Which value is recorded for missing payload files?",
+      "Missing payload files"
+    ],
+    [
+      "Which backend produced this wheel?",
+      "Wheel generator"
+    ]
+  ]
+}

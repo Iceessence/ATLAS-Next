@@ -1,0 +1,73 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "lxml",
+  "version": "6.1.1",
+  "record_path": "lxml-6.1.1.dist-info/RECORD",
+  "record_sha256": "f445b213a033ee0ea09dadea3d20c791c4399f0026e62c2e02266ed12cdc69af",
+  "metadata_sha256": "0b6279dfca6a89d340c72bfdec06aac78e9879845ac900d043ed65d0b9648bae",
+  "wheel_sha256": "ad1e507ec59c665de6adae409920fb15dd1dcd0c59de51c2a43a3bd0891f0cae",
+  "implementation": "lxml/cssselect.py",
+  "symbol": "CSSSelector.__init__",
+  "implementation_sha256": "babefb355b13936e3eb7fd40168e448df12aca17aec34d41446fbf39be430d06",
+  "counts": {
+    "checked": 179,
+    "mismatched": 7,
+    "missing": 0,
+    "excluded": 30
+  },
+  "disagreements": [
+    [
+      "lxml/_elementpath.cp312-win_amd64.pyd",
+      "44c81e2582b6168cd619682b636f364269de99be86975ab137340a8d26b3761f"
+    ],
+    [
+      "lxml/builder.cp312-win_amd64.pyd",
+      "b4fa10b71b6467b4ed89e50b5cedfd2d3dce9e0d0216e536f2871a9e8c160ad7"
+    ],
+    [
+      "lxml/etree.cp312-win_amd64.pyd",
+      "2cd6f7f498c06f6f0cc54d64a80b0e8b042f6734c07e8292e8623d6adfdc0aa7"
+    ],
+    [
+      "lxml/html/_difflib.cp312-win_amd64.pyd",
+      "a3b138480a27c73a93e85b442606a7f56cbc3c3e5194c96b7209364f938cf436"
+    ],
+    [
+      "lxml/html/diff.cp312-win_amd64.pyd",
+      "04da11a77c7a7096cb477cfb0c7d6e2b86210a809d1eeb3397751a3e726bd487"
+    ],
+    [
+      "lxml/objectify.cp312-win_amd64.pyd",
+      "54341989a762a5d1429c7d30d6dc80527c98cc22ecbf7a2456863d55fd30cfc7"
+    ],
+    [
+      "lxml/sax.cp312-win_amd64.pyd",
+      "1278178a411cf9f720ca96ea7d9871426a9b41ff40d60aee9758ced17051f536"
+    ]
+  ],
+  "groups": {
+    "Release metadata": {
+      "Published name": "lxml",
+      "Release version": "6.1.1",
+      "Declared dependency count": "4",
+      "Python requirement": ">=3.8"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "setuptools (82.0.1)",
+      "Wheel compatibility tags": "cp312-cp312-win_amd64",
+      "Pure library flag": "false"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "f445b213a033ee0ea09dadea3d20c791c4399f0026e62c2e02266ed12cdc69af",
+      "Checked payload files": "179",
+      "Payload hash mismatches": "7",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "CSS selector constructor parameters": "self, css, namespaces, translator",
+      "CSS selector constructor declaration line": "86",
+      "CSS selector constructor source digest": "babefb355b13936e3eb7fd40168e448df12aca17aec34d41446fbf39be430d06"
+    }
+  }
+}
