@@ -1,0 +1,7 @@
+Imported receipt: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-45c7df2c22ec4d5e8159c7304421c00a\profile\exports\project-package-check\5956cda18e144f008b23b0c976c15911-7609ca2c18fc4baba4a2c1dd756176c2.json
+PASS native file picker imports, exact source span and contradictory sources withheld
+PowerShell 7.6.9 verified ZIP CA8295ABF60B120D8C66F483A87CA05EC4435CB94CE7CBBF59C13957BC6406FE
+PASS 491 inventory hashes, private runtime, PID/title window discovery on 3 launches
+PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery
+PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts
+Evidence: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-45c7df2c22ec4d5e8159c7304421c00a\profile\exports\9f1d46d756e84aefae27164c54a31dc9-43edcb43ba0549878c342f6b642e4f19.json

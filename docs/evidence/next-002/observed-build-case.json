@@ -1,0 +1,23 @@
+[
+  {
+    "question": "Which value is recorded for the release warnings?",
+    "expect": {
+      "verdict": "supported",
+      "document": 0,
+      "answer": "0",
+      "length": 1,
+      "start": 18,
+      "line": 1,
+      "state": "completed"
+    },
+    "id": "release-warnings",
+    "outcome_receipt": {
+      "sha256": "e64e791f6c6a48a8358e0404a28148694956f5c5749fd58ddf08bf8daec610bf",
+      "file": "build.txt"
+    },
+    "origin": "observed_project_outcome",
+    "documents": [
+      "Release warnings: 0"
+    ]
+  }
+]

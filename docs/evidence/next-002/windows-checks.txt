@@ -1,0 +1,64 @@
+PASS 1: all public golden logits-derived predictions match Python to 1e-10
+PASS 2: altered checkpoint refused
+PASS 3: persisted scoped fact proposal
+PASS 4: local original CPU inference
+PASS 5: idempotent task submission
+PASS 6: conflicting retry refused
+PASS 7: verified actual record body
+PASS 8: late cancellation preserves completed evidence
+PASS 9: scope and intent for 'How long is the archive retention policy?'
+PASS 10: scope and intent for 'How long will the archive retention policy keep exports?'
+PASS 11: scope and intent for 'How many days is archive retention?'
+PASS 12: scope and intent for 'How is an export receipt formatted?'
+PASS 13: scope and intent for 'Name the archive format.'
+PASS 14: scope and intent for 'What is the archive restoration?'
+PASS 15: scope and intent for 'What is the retention policy for uranium?'
+PASS 16: scope and intent for 'How long will atlasprint keep its archive?'
+PASS 17: scope and intent for 'How many exports are in the archive?'
+PASS 18: scope and intent for 'What is the archive retention policy and receipt format?'
+PASS 19: scope and intent for 'How do I change the archive retention policy?'
+PASS 20: scope and intent for 'What is the archive retention policy for 水?'
+PASS 21: delivery rejects an authentic same-type citation for the wrong subject
+PASS 22: procedure retrieval
+PASS 23: cancel prevents delivery
+PASS 24: no evidence handling
+PASS 25: out of corpus abstention
+PASS 26: exact ID retrieval
+PASS 27: second writer denied
+PASS 28: request budget enforced
+PASS 29: pending review safely recovered
+PASS 30: completed result survives reopen
+PASS 31: real WPF find, verify and export handlers
+PASS 32: real WPF stop control
+PASS 33: global stop cancels all pending tasks
+PASS 34: modified evidence blocks delivery
+PASS 35: preflight I/O failure leaves every fixture and pending review untouched
+PASS 36: mixed corrupt profile recovers complete healthy history
+PASS 37: legacy completion preserved byte-for-byte with relevance unassessed
+PASS 38: all 20 corrupt and pending originals preserved byte-for-byte
+PASS 39: mixed-profile recovery counts visible in real window
+PASS 40: second restart preserves quarantine and adds no recovery events
+PASS 41: idempotent owner import and stable identity
+PASS 42: UTF-8 BOM, surrogate pair and CRLF preserved with exact UTF-16 value span
+PASS 43: research verdict retains trust and declared validity
+PASS 44: delivery rechecks new contradicting source and withholds answer
+PASS 45: independent documents agreeing on one value
+PASS 46: expired matching source withholds delivery
+PASS 47: pinned and imported sources compared on the same claim
+PASS 48: restored paraphrase retrieves procedure
+PASS 49: changed selection creates immutable revision under same document ID
+PASS 50: active revision supersedes old claim
+PASS 51: owned copy independent of subsequent edits to selected path
+PASS 52: altered owned source blocked at finish
+PASS 53: reject encoding.txt
+PASS 54: reject binary.md
+PASS 55: reject oversize.txt
+PASS 56: reject script.ps1
+PASS 57: project isolation for history and retrieval
+PASS 58: task delivery confined to its issuing project
+PASS 59: named project produces resolvable project-local citations
+PASS 60: switching back restores original project scope
+PASS 61: unknown value is insufficient factual support
+PASS 62: reject hard-linked file without elevation
+PASS 63: index rebuilt from owned revisions after restart
+All 63 checks passed. Temporary profile: C:\Users\ppawe\AppData\Local\Temp\atlas-next-check-6df2d6fef8e246ce81f48c6f56c994f4

@@ -1,0 +1,81 @@
+{
+  "id": "e67daa59-9f82-44af-8563-0fe8f78ff137",
+  "request": "What is the signal colour?",
+  "schema": 1,
+  "project": "package-check",
+  "kind": "knowledge.lookup",
+  "authority": "local desktop owner",
+  "scope": "public-demo",
+  "dependencies": [],
+  "capability": "read pinned public catalog",
+  "budget": "2048 chars / 1 record / 1 MiB per asset / CPU",
+  "inferenceMicroseconds": 80,
+  "processWorkingSetBytes": 197181440,
+  "router": "deterministic-route-v3",
+  "specialist": "fact",
+  "proposal": {
+    "model": "atlas-native-route-v1",
+    "origin": "original",
+    "qualification": "shadow",
+    "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "route": "fact",
+    "probability": 0.9920130717063723
+  },
+  "authorization": "no matching scoped record",
+  "verification": "answer withheld",
+  "sourceIntegrity": "not checked",
+  "answerRelevance": "subject and intent matched",
+  "researchReview": {
+    "verdict": "contradiction",
+    "detail": "Active sources give different values for the same subject.",
+    "freshness": "undetermined",
+    "trust": "see cited source metadata",
+    "sources": [
+      {
+        "id": "doc-35f481b85e49ffd42e94a55c29eff2f2f9731f9c8fb86829746a4bd33e5868ff",
+        "version": 1,
+        "digest": "292f6bb2c44f62623ae63e90c8240146f76c267924ac133947788c5cf7fce979",
+        "source": "other.txt",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-35f481b85e49ffd42e94a55c29eff2f2f9731f9c8fb86829746a4bd33e5868ff\\00000001-292f6bb2c44f62623ae63e90c8240146f76c267924ac133947788c5cf7fce979\\other.txt",
+          "line": 1,
+          "start": 15,
+          "length": 4
+        }
+      },
+      {
+        "id": "doc-464a1c31447b230df0d7da6dae77e6cd1201a66f540050c12f588b22600401dd",
+        "version": 1,
+        "digest": "efd49cd770776db81d5337a98619943bddb9b57f2d01e2a322bdddee97b1699d",
+        "source": "channel.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-464a1c31447b230df0d7da6dae77e6cd1201a66f540050c12f588b22600401dd\\00000001-efd49cd770776db81d5337a98619943bddb9b57f2d01e2a322bdddee97b1699d\\channel.md",
+          "line": 2,
+          "start": 33,
+          "length": 5
+        }
+      }
+    ],
+    "requestRelevance": "subject and intent matched",
+    "factualSupport": "insufficient for delivery"
+  },
+  "evidence": null,
+  "result": "Active sources give different values for the same subject.",
+  "events": [
+    {
+      "state": "queued",
+      "at": "2026-11-18T03:51:55.9143478+00:00"
+    },
+    {
+      "state": "needs clarification",
+      "at": "2026-11-18T03:51:55.9213209+00:00"
+    }
+  ],
+  "state": "needs clarification"
+}

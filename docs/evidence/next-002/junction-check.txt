@@ -1,0 +1,14 @@
+$ErrorActionPreference='Stop'
+$root=Join-Path $env:TEMP ('atlas-002-link-'+[guid]::NewGuid().ToString('N'))
+$real=New-Item -ItemType Directory -Path (Join-Path $root 'source')
+[IO.File]::WriteAllText((Join-Path $real 'a.txt'),'Interval: 30 days')
+$proxy=New-Item -ItemType Junction -Path (Join-Path $root 'alias') -Target $real
+$a=[Reflection.Assembly]::LoadFrom((Resolve-Path 'checks/bin/Release/net10.0-windows/AtlasNext.dll'))
+$t=$a.GetType('AtlasNext.Documents',$true)
+$obj=$t.GetConstructors([Reflection.BindingFlags]'Public,NonPublic,Instance')[0].Invoke([object[]]@([string](Join-Path $root 'profile'),'default'))
+try {$t.GetMethod('Import').Invoke($obj,[object[]]@([string](Join-Path $proxy 'a.txt')));throw 'Junction accepted'}
+catch {if($_.Exception.GetBaseException().Message -ne 'Linked paths are outside the document store.'){throw}}
+if(Test-Path (Join-Path $root 'profile')){throw 'Wrote profile before validation'}
+'PASS directory junction denied before any knowledge store write.'
+
+PASS directory junction denied before any knowledge store write.

@@ -1,0 +1,84 @@
+{
+  "id": "7900943a-5ae6-4631-9eb8-84f14b6e9503",
+  "request": "What is the signal colour?",
+  "schema": 1,
+  "project": "package-check",
+  "kind": "knowledge.lookup",
+  "authority": "local desktop owner",
+  "scope": "owner-local",
+  "dependencies": [],
+  "capability": "read owner-imported text",
+  "budget": "2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",
+  "inferenceMicroseconds": 2602,
+  "processWorkingSetBytes": 182849536,
+  "router": "deterministic-route-v3",
+  "specialist": "fact",
+  "proposal": {
+    "model": "atlas-native-route-v1",
+    "origin": "original",
+    "qualification": "shadow",
+    "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "route": "fact",
+    "probability": 0.9920130717063723
+  },
+  "authorization": "allowed scoped record read",
+  "verification": "source and answer checked",
+  "sourceIntegrity": "passed",
+  "answerRelevance": "supported",
+  "researchReview": {
+    "verdict": "supported",
+    "detail": "Exact subject and lookup intent supported by the listed source passages.",
+    "freshness": "active revision; undated source",
+    "trust": "owner-selected text",
+    "sources": [
+      {
+        "id": "doc-c1c37b7eb94ac51b9697b79e8aa876c293326000f37f5ab61de03e7000d8befb",
+        "version": 1,
+        "digest": "efd49cd770776db81d5337a98619943bddb9b57f2d01e2a322bdddee97b1699d",
+        "source": "channel.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-c1c37b7eb94ac51b9697b79e8aa876c293326000f37f5ab61de03e7000d8befb\\00000001-efd49cd770776db81d5337a98619943bddb9b57f2d01e2a322bdddee97b1699d\\channel.md",
+          "line": 2,
+          "start": 33,
+          "length": 5
+        }
+      }
+    ],
+    "requestRelevance": "supported",
+    "factualSupport": "stated by cited sources"
+  },
+  "evidence": {
+    "id": "doc-c1c37b7eb94ac51b9697b79e8aa876c293326000f37f5ab61de03e7000d8befb",
+    "version": 1,
+    "digest": "efd49cd770776db81d5337a98619943bddb9b57f2d01e2a322bdddee97b1699d",
+    "source": "channel.md",
+    "type": "fact",
+    "origin": "owner import",
+    "trust": "owner-selected text",
+    "span": {
+      "path": "projects\\project-package-check\\knowledge\\doc-c1c37b7eb94ac51b9697b79e8aa876c293326000f37f5ab61de03e7000d8befb\\00000001-efd49cd770776db81d5337a98619943bddb9b57f2d01e2a322bdddee97b1699d\\channel.md",
+      "line": 2,
+      "start": 33,
+      "length": 5
+    }
+  },
+  "result": "amber",
+  "events": [
+    {
+      "state": "queued",
+      "at": "2026-11-18T03:51:44.8492311+00:00"
+    },
+    {
+      "state": "review",
+      "at": "2026-11-18T03:51:44.8901173+00:00"
+    },
+    {
+      "state": "completed",
+      "at": "2026-11-18T03:51:44.9707357+00:00"
+    }
+  ],
+  "state": "completed"
+}

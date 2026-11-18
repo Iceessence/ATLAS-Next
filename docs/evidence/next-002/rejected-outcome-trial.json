@@ -1,0 +1,90 @@
+{
+  "reason": "The author fixture required document 0 even though document 1 contained the identical expected passage. The grader rejected a correct citation. Both allowed document indices are now declared in that case.",
+  "trial": {
+    "id": "equal",
+    "passed": false,
+    "checks": {
+      "state": true,
+      "verdict": true,
+      "advisory": true,
+      "integrity": true,
+      "relevance": true,
+      "answer": true,
+      "document": false,
+      "version": true,
+      "digest": true,
+      "path": false,
+      "span": true,
+      "extract": true
+    },
+    "origin": "author_fixture",
+    "outcome_receipt": null,
+    "state": "completed",
+    "expected": {
+      "state": "completed",
+      "verdict": "supported",
+      "document": 0,
+      "line": 1,
+      "start": 13,
+      "length": 7,
+      "answer": "evening"
+    },
+    "result": "evening",
+    "evidence": {
+      "id": "doc-250f2fd3c1c886a76d5ed05f15deb7aba588832aa0b8a8a673a820822ab32ae3",
+      "version": 1,
+      "digest": "a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a",
+      "source": "source-1.md",
+      "type": "fact",
+      "origin": "owner import",
+      "trust": "owner-selected text",
+      "span": {
+        "path": "knowledge\\doc-250f2fd3c1c886a76d5ed05f15deb7aba588832aa0b8a8a673a820822ab32ae3\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-1.md",
+        "line": 1,
+        "start": 13,
+        "length": 7
+      }
+    },
+    "research": {
+      "verdict": "supported",
+      "detail": "Exact subject and lookup intent supported by the listed source passages.",
+      "freshness": "active revision; undated source",
+      "trust": "owner-selected text",
+      "sources": [
+        {
+          "id": "doc-250f2fd3c1c886a76d5ed05f15deb7aba588832aa0b8a8a673a820822ab32ae3",
+          "version": 1,
+          "digest": "a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a",
+          "source": "source-1.md",
+          "type": "fact",
+          "origin": "owner import",
+          "trust": "owner-selected text",
+          "span": {
+            "path": "knowledge\\doc-250f2fd3c1c886a76d5ed05f15deb7aba588832aa0b8a8a673a820822ab32ae3\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-1.md",
+            "line": 1,
+            "start": 13,
+            "length": 7
+          }
+        },
+        {
+          "id": "doc-27363eaa4bb27b9d8d8da166a9af7d870e13e36dda582e9f5fb749022f210841",
+          "version": 1,
+          "digest": "a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a",
+          "source": "source-0.md",
+          "type": "fact",
+          "origin": "owner import",
+          "trust": "owner-selected text",
+          "span": {
+            "path": "knowledge\\doc-27363eaa4bb27b9d8d8da166a9af7d870e13e36dda582e9f5fb749022f210841\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
+            "line": 1,
+            "start": 13,
+            "length": 7
+          }
+        }
+      ]
+    },
+    "engine_us": 67528.4,
+    "process_ms": 214.46419999119826,
+    "working_set_bytes": 52703232
+  }
+}

@@ -1,5 +1,25 @@
 # Author test evidence
 
+## NEXT-002 author verification
+
+Exact product candidate `c1b09d61adc31871d9c3fa818e7f3b3c56c3b4cc` in a fresh local clone on Windows 11 Pro x64. SDK 10.0.401, bundled WindowsDesktop runtime 10.0.12, cached Python 3.12.14, NumPy 2.3.5 and `OPENBLAS_NUM_THREADS=1`. The working tree in the verification clone was clean after the suite.
+
+| Command or workflow | Observed result |
+| --- | --- |
+| `dotnet build checks -c Release --configfile NuGet.Config` | 0 warnings, 0 errors, no external NuGet libraries. [Build](evidence/next-002/build.txt) |
+| `checks/bin/Release/net10.0-windows/AtlasNext.Checks.exe` | 63/63 passed. Includes UTF-8 BOM, CRLF, supplementary Unicode, revision replacement and tamper, idempotency, project switching and cross-project refusal, stale and conflicting claims, insufficient values, invalid input and hard links. A separate probe rejected an ancestor junction before creating a store. [Windows checks](evidence/next-002/windows-checks.txt) · [Junction probe](evidence/next-002/junction-check.txt) |
+| `python -B lab/test_integrity.py` and `python -B lab/evaluate.py` | 5/5 integrity checks. Frozen routing benchmark scored rule 48/72, exemplar 42/72, native 54/72 and linear 54/72. [Tests](evidence/next-002/integrity.txt) · [Evaluation](evidence/next-002/public-routing.json) |
+| `python -B lab/outcomes.py` | 10/10 public end-to-end cases passed. The scorer checks actual engine receipt, record or exact source span, verdict and result. Each trial records elapsed time and working set, including expected abstentions. [Full trials](evidence/next-002/public-outcomes.json) |
+| `python -B lab/outcomes.py --manifest <external-manifest> --report <fresh-external-report>` | 1/1 author-run case grounded in this candidate's observed zero-warning build. The question was scored against the release-build receipt digest. The temporary case profile was removed. [Case and provenance](evidence/next-002/observed-build-case.json) · [Actual outcome](evidence/next-002/observed-build-outcome.json) |
+| Windows PowerShell 5.1.26100.9818, package and UI verification | 80,202,719 bytes. SHA-256 `5ed0da16ba1a0066a614e936aa83972cac8c3c4fa81e97e4177639547c90f3f5`. [Package](evidence/next-002/package-ps51.txt) · [Verification](evidence/next-002/verify-ps51.txt) · [Export](evidence/next-002/span-receipt-ps51.json) |
+| PowerShell 7.6.9, package and UI verification | 94,808,548 bytes. SHA-256 `ca8295abf60b120d8c66f483a87ca05ec4435cb94ce7cbbf59c13957bc6406fe`. [Package](evidence/next-002/package-ps7.txt) · [Verification](evidence/next-002/verify-ps7.txt) · [Export](evidence/next-002/span-receipt-ps7.json) |
+
+Both shell runs used `-NoProfile -ExecutionPolicy RemoteSigned -File tools/package.ps1`, then `-NoProfile -ExecutionPolicy RemoteSigned -File tools/verify-package.ps1 -Zip out/ATLAS-Next-win-x64.zip`. Each verified 491 hashes, private CoreCLR and three real launches. In project `package-check`, the picker imported `channel.md`. The app returned `amber` from line 2, UTF-16 offsets [33, 38). Importing `other.txt` with a different value withheld delivery while reporting that the subject and intent matched. [Persisted contradiction](evidence/next-002/packaged-contradiction.json)
+
+**Development failures.** An early grader rejected the second of two equally valid citations. The case now declares both allowed documents. A nested external workspace exposed a Windows long-path cleanup failure. The runner now supplies extended paths to the temporary-directory cleanup. Early native-picker checks missed WPF readiness and assumed the common dialog exposed an edit pattern. The final harness waits for the WPF status control, scopes the native picker by process and locates the Windows file-name control. An initial hard-link fixture used an unavailable .NET API and was replaced with the Windows file API. [Rejected trial](evidence/next-002/rejected-outcome-trial.json)
+
+**Qualification limits.** Author-created fixtures and the observed build case are author evidence. Imported claims are attributed statements under the bounded grammar. External truth, broad semantic reasoning, model improvement and confidential evaluator custody require independent evidence. Project partitioning operates within the same trusted Windows account. Fresh disconnected OS, signing and guest execution remain open.
+
 ## NEXT-001R repair candidate
 
 A clean local clone of `87acbccf36d8c5e1916db84c1e4a2f2f122d3d14` on Windows 11 Pro x64 built with .NET SDK 10.0.401 and the installed 10.0.12 desktop runtime. The first new duration regression failed on the NEXT-001 implementation. All required author commands passed on the committed repair candidate.
