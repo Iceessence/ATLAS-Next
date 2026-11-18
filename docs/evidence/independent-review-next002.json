@@ -1,0 +1,196 @@
+{
+  "review": "NEXT-002",
+  "verdict": "ACCEPTED_WITH_LIMITATIONS",
+  "reviewer": "Gemini Hydrogen",
+  "reviewed_at_utc": "2026-11-18T04:00:20.4968655+00:00",
+  "product_candidate": "c1b09d61adc31871d9c3fa818e7f3b3c56c3b4cc",
+  "author_evidence_head": "7ef54fe5077a7ae4670e84769b0c98178e298dd1",
+  "prior_review_commit": "4d9a6370815321878d4672200dcec49fed5379f4",
+  "environment": {
+    "os": "Microsoft Windows 11 Pro 10.0.26300 (Build 26300, 64-bit)",
+    "dotnet_sdk": "10.0.401",
+    "dotnet_desktop_runtime_installed": "10.0.12",
+    "powershell_5_1": "5.1.26100.9818 (-ExecutionPolicy RemoteSigned)",
+    "powershell_7": "7.6.9 (cached)",
+    "python": "3.12.14 with numpy 2.3.5 (cached)"
+  },
+  "isolation_and_diff_checks": {
+    "candidate_to_head_docs_and_evidence_only": true,
+    "assets_and_frozen_routing_data_unchanged": true,
+    "nuget_external_libraries_count": 0,
+    "legacy_repo_head": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "legacy_repo_untouched": true,
+    "guest_preflight_read_only": "Get-VM authorization denied (executionAuthorized = false; automation disabled)"
+  },
+  "author_commands_independent_rerun": {
+    "dotnet_build_release": {
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0
+    },
+    "atlas_next_checks_exe": {
+      "status": "PASS",
+      "passed": 63,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_test_integrity": {
+      "status": "PASS",
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0
+    },
+    "python_evaluate_routing": {
+      "status": "PASS",
+      "scores": {
+        "rule": "48/72",
+        "exemplar": "42/72",
+        "native": "54/72",
+        "linear": "54/72"
+      },
+      "reproduced_p95_us": {
+        "rule": 2.19,
+        "exemplar": 42.295,
+        "native": 26.545,
+        "linear": 21.435
+      },
+      "native_qualification": "shadow"
+    },
+    "python_public_outcomes": {
+      "status": "PASS",
+      "passed": 10,
+      "total": 10
+    }
+  },
+  "packaging_and_cross_shell_verification": {
+    "shipped_ps7_zip": {
+      "path": "out/ATLAS-Next-win-x64.zip",
+      "bytes": 94808548,
+      "sha256": "ca8295abf60b120d8c66f483a87ca05ec4435cb94ce7cbbf59c13957bc6406fe",
+      "verify_under_pwsh_7_6_9": "PASS"
+    },
+    "shipped_ps51_zip": {
+      "path": "out/ATLAS-Next-win-x64-ps51.zip",
+      "bytes": 80202719,
+      "sha256": "5ed0da16ba1a0066a614e936aa83972cac8c3c4fa81e97e4177639547c90f3f5",
+      "verify_under_ps_5_1": "PASS"
+    },
+    "disposable_clone_repackage_ps51": {
+      "sha256": "51b10c62922db0c72df500b6455f42a0236ccfbf7c9e1fc0b9993fbd0dcd27b1",
+      "verify_under_ps_5_1": "PASS"
+    },
+    "disposable_clone_repackage_pwsh7": {
+      "sha256": "545cb4f2f5588bc3683b2ddb9215cd8985b9966d553e9782529089fedb4369f5",
+      "verify_under_pwsh_7_6_9": "PASS"
+    }
+  },
+  "independent_adversarial_probes": {
+    "boundary_and_import_checks": {
+      "passed": 26,
+      "total": 26,
+      "note": "File symlink creation skipped under unprivileged host policy; ancestor junctions (source and profile), hard links, UNC, ADS, truncated UTF-8, control chars, empty/oversize/max bounds, claim/document limits, valid-through parsing, project-name validation, re-import versioning, post-import edit isolation, and UTF-8 BOM/CRLF/emoji UTF-16 span offsets all passed."
+    },
+    "research_and_delivery_probes": {
+      "same_source_contradiction_withheld": true,
+      "insufficient_tbd_na_unknown_withheld": true,
+      "research_rejects_partial_subject_from_primary": true,
+      "research_independent_of_primary_on_procedure_keyword": true,
+      "substituted_authentic_import_citation_withheld": true,
+      "stale_source_added_before_finish_withheld": true,
+      "definite_plus_undetermined_sources_classified_as_contradiction_withheld": true,
+      "more_than_8_passages_ambiguous_capped_at_8": true,
+      "next001r_mixed_quarantine_and_legacy_receipt_survived": true
+    },
+    "packaged_ui_import_span_and_isolation": {
+      "projectSwitched": "Active project: alpha-proj",
+      "importV1Notice": "Imported telemetry.md, revision 1. Indexed 2 claims. doc-90ffa3873e3827421e3785f4f854171c9f1bb6adfda78f133807dceee646ee27",
+      "bomCrlfEmojiSpanCheck": {
+        "line": 2,
+        "start": 27,
+        "length": 9,
+        "slicedText": "4.2 L/min",
+        "resultText": "4.2 L/min",
+        "bytesIdentical": true,
+        "digestMatches": true,
+        "researchText": "Research & Verification: supported\nExact subject and lookup intent supported by the listed source passages.\nSupport: stated by cited sources\nFreshness: active revision; valid through 2099-12-31 \u00b7 Trust: owner-selected text\ntelemetry.md, line 2 \u00b7 08904b95ab53535aec01298e4f76e20870fd352d7b375d148560a3bc2b49b575"
+      },
+      "insufficientUi": {
+        "status": "needs clarification",
+        "summary": "The source does not supply a definite value for this subject.",
+        "checks": "Source integrity: not checked \u00b7 Answer relevance: subject and intent matched",
+        "research": "Research & Verification: insufficient\nThe source does not supply a definite value for this subject.\nSupport: insufficient for delivery\nFreshness: undetermined \u00b7 Trust: see cited source metadata\ntelemetry.md, line 3 \u00b7 08904b95ab53535aec01298e4f76e20870fd352d7b375d148560a3bc2b49b575"
+      },
+      "importV2Notice": "Imported telemetry.md, revision 2. Indexed 1 claims. doc-90ffa3873e3827421e3785f4f854171c9f1bb6adfda78f133807dceee646ee27",
+      "v2AfterPostEdit": {
+        "summary": "5.0 L/min",
+        "sourceInfo": "doc-90ffa3873e3827421e3785f4f854171c9f1bb6adfda78f133807dceee646ee27 \u00b7 revision 2\ntelemetry.md \u00b7 owner-selected text\nprojects\\project-alpha-proj\\knowledge\\doc-90ffa3873e3827421e3785f4f854171c9f1bb6adfda78f133807dceee646ee27\\00000002-1526675fa68bc4fd14010dc4be704633e8dd7ba19f3f3444c5fd70bf4a5c68e0\\telemetry.md \u00b7 line 1, characters [14, 23)"
+      },
+      "betaProjectIsolated": {
+        "projectLabel": "Active project: beta-proj",
+        "status": "needs clarification",
+        "research": "Research & Verification: unsupported\nNo current source explicitly supports the requested subject and intent.\nSupport: insufficient for delivery\nFreshness: undetermined \u00b7 Trust: see cited source metadata\n"
+      },
+      "staleImportNotice": "Imported old.txt, revision 1. Indexed 1 claims. doc-26f271bdd3c55167f48829f99b40e3a6edb6974c5c5ebcbf2789d67f534f7075",
+      "staleUi": {
+        "status": "needs clarification",
+        "summary": "A matching source is past its declared validity date.",
+        "research": "Research & Verification: stale\nA matching source is past its declared validity date.\nSupport: insufficient for delivery\nFreshness: expired \u00b7 Trust: see cited source metadata\nold.txt, line 2 \u00b7 444ee5b27fd1cf7905d80a46c3dae4f156feec9754afc5379da54969fd345fb0\ntelemetry.md, line 1 \u00b7 1526675fa68bc4fd14010dc4be704633e8dd7ba19f3f3444c5fd70bf4a5c68e0"
+      }
+    }
+  },
+  "custodian_blind_outcome_evaluation": {
+    "scope": "external_custodian_directory_private_inputs_retained",
+    "suite_sha256": "d9ca9752f9134151adb44c5fd85ae380dc206f4365c7a3aefbc170eece1649de",
+    "passed": 12,
+    "total": 13,
+    "provenance_breakdown": {
+      "custodian_fixture_constructed": {
+        "passed": 10,
+        "total": 11,
+        "description": "Independently authored blind test fixtures testing UTF-8 BOM/CRLF/emoji list spans, 'is' predicates, multi-doc agreement, same-doc and handbook-vs-doc contradictions, mixed stale validity, N/A insufficiency, tilde fenced-code ignore, modifier rejection, >8 passage ambiguity, and procedure-keyword conflict in fact subjects."
+      },
+      "observed_project_outcome_real_tasks": {
+        "passed": 2,
+        "total": 2,
+        "receipts": [
+          {
+            "file": "hydrogen_build_receipt.txt",
+            "sha256": "51762ac671e35760db1e9b05e7b08eaa30ce84455bbb96e550731c96ef805bfc"
+          },
+          {
+            "file": "hydrogen_checks_receipt.txt",
+            "sha256": "97fdc2f71de0369e679f5cab090b1e9d0a08d943faf36eecbab129e0b9590c15"
+          }
+        ],
+        "description": "Grounded in real clean-clone dotnet build (0 warnings) and AtlasNext.Checks.exe (63/63 passed) receipts captured by the independent reviewer."
+      }
+    },
+    "costs": {
+      "engine_us_min": 51939.5,
+      "engine_us_median": 61990.4,
+      "engine_us_max": 70230.2,
+      "process_ms_min": 187.73820000933483,
+      "process_ms_median": 207.02020000317134,
+      "process_ms_max": 217.60199998971075,
+      "working_set_bytes_min": 50991104,
+      "working_set_bytes_max": 53903360
+    },
+    "representative_failures": [
+      {
+        "case_id": "cust-procedure-keyword-in-fact-subject",
+        "origin": "custodian_fixture",
+        "observed_behavior": "Research & Verification independently assessed 'supported' with the exact source span, whereas Primary Routing.Rule routed to 'procedure' due to a procedure keyword in the requested subject and Engine skipped imported documents, safely withholding delivery ('needs clarification', 'Primary could not resolve a source for this request.')."
+      }
+    ]
+  },
+  "accepted_scope_and_limitations": {
+    "accepted_scope": "Bounded NEXT-002 local Windows 11 x64 evaluation foundation: pinned 3-record handbook + owner-selected project-scoped UTF-8 TXT/Markdown imports with immutable revisions and exact UTF-16 spans, deterministic Research & Verification claim/contradiction/staleness/sufficiency checks, shadow-only 4,163-parameter MLP, external custodian outcome harness, and offline portable ZIP packaging.",
+    "limitations": [
+      "Primary Routing.Rule vs Engine imported-claim handoff causes safe false-abstention ('Primary could not resolve a source for this request.') when an imported fact subject contains a procedure keyword (e.g., 'restore', 'configure', 'guide', 'recovery') even though Research & Verification marks the claim 'supported' (12/13 custodian blind outcome suite).",
+      "Contradiction check precedes insufficiency check in Research.Assess, so combining a definite value with an 'undetermined' value across two active sources reports 'contradiction' rather than partial/unconfirmed support (still safely withheld).",
+      "Bounded grammar handles explicit single-line 'Subject: value' / 'Subject is value.' claims and affirmative lookup templates; general prose, aliases, and external world truth remain unsupported.",
+      "Original native CPU model stays shadow-only (54/72 on public synthetic routing, tied with linear baseline); no learned policy promotion authorized.",
+      "Clean disconnected Windows OS without .NET 10.0.12 desktop runtime, release signing, unprivileged file symlink creation (OS privilege gated), and Hyper-V guest isolation (Get-VM authorization denied) remain untested/blocked."
+    ]
+  }
+}
