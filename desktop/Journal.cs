@@ -109,7 +109,8 @@ internal sealed class Journal : IDisposable
             !ValidTimeline(task.Events) ||
             task.Proposal is {} p && (p.Sha256 is not {Length:64} || !p.Sha256.All(Uri.IsHexDigit)) ||
             task.ResearchReview is {} assessment && (assessment.Sources is not {Length:<=8} ||
-                assessment.Sources.Any(c=>c==null || !ValidCitation(c))) ||
+                assessment.Sources.Any(c=>c==null || !ValidCitation(c)) ||
+                assessment.Claims is {} claims && !ValidClaims(claims,assessment.Sources)) ||
             task.Evidence is {} citation && !ValidCitation(citation) ||
             task.State is "review" or "completed" && task.Evidence==null ||
             task.State=="completed" && string.IsNullOrEmpty(task.Result) ||
@@ -118,6 +119,15 @@ internal sealed class Journal : IDisposable
             throw new InvalidDataException("Malformed task record");
         return task;
     }
+
+    private static bool ValidClaims(ClaimAssessment[] claims,Citation[] sources)=>
+        claims.Length is >=2 and <=4 &&
+        claims.All(c=>c!=null && !string.IsNullOrWhiteSpace(c.Subject) && c.Subject.Length<=96 &&
+            c.Verdict is "supported" or "stale" or "insufficient" or "contradiction" &&
+            !string.IsNullOrWhiteSpace(c.Freshness) && c.Sources is {Length:<=8} &&
+            c.Sources.All(s=>s!=null && ValidCitation(s))) &&
+        claims.Select(c=>c.Subject).Distinct(StringComparer.Ordinal).Count()==claims.Length &&
+        claims.SelectMany(c=>c.Sources).SequenceEqual(sources);
 
     private static bool ValidCitation(Citation c)=>!string.IsNullOrWhiteSpace(c.Id) &&
         (c.Span==null || c.Span is {Line:>0,Start:>=0,Length:>0} &&

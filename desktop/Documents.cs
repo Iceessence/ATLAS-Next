@@ -9,8 +9,16 @@ using Microsoft.Win32.SafeHandles;
 namespace AtlasNext;
 
 internal record SpanAnchor(string Path,int Line,int Start,int Length);
-internal record Passage(string Subject,string Value,Citation Citation,DateOnly? ValidThrough,bool InstalledAudit=false,string? Symbol=null,string? Qualifier=null,int? DefinitionStart=null);
+internal record Passage(string Subject,string Value,Citation Citation,DateOnly? ValidThrough,bool InstalledAudit=false,string? Symbol=null,string? Qualifier=null,int? DefinitionStart=null,ParameterShape? Parameters=null,string? LiteralSubject=null);
 internal record Imported(string Id,int Version,string Name,int Claims);
+
+internal record OwnedSource(string Id,int Version,string Digest,string Path,string Text)
+{
+    public string Name=>System.IO.Path.GetFileName(Path);
+    public string Extension=>System.IO.Path.GetExtension(Path).ToLowerInvariant();
+    public Citation Cite(string type,int line,int start,int length,string trust)=>
+        new(Id,Version,Digest,Name,type,"owner import",trust,new(Path,line,start,length));
+}
 
 internal sealed class Documents(string profile,string project="default")
 {
@@ -98,7 +106,7 @@ internal sealed class Documents(string profile,string project="default")
         if(!same) version=checked(version+1);
         string revision=Path.Combine(directory,$"{version:D8}-{digest}");
         string name=Path.GetFileName(path);
-        var claims=Parse(id,version,digest,Path.GetRelativePath(root,Path.Combine(revision,name)),Decode(bytes));
+        var claims=Parse(new(id,version,digest,Path.GetRelativePath(profile,Path.Combine(revision,name)),Decode(bytes)));
         if(same) _=ReadRevision(directory); // Verify an idempotent re-import before reporting success.
         else {
             // Only fully written revision directories are published into the active index.
@@ -124,42 +132,43 @@ internal sealed class Documents(string profile,string project="default")
         return (path,v,fields[1]);
     }
 
-    public IReadOnlyList<Passage> Active()
+    public IReadOnlyList<Passage> Active()=>Sources().SelectMany(Parse).ToArray();
+
+    public IReadOnlyList<OwnedSource> Sources()
     {
         if(!Directory.Exists(root)) return [];
         CheckLocalPath(root);
         var folders=Directory.GetDirectories(root,"doc-*").Order(StringComparer.Ordinal).ToArray();
         if(folders.Length>MaxDocuments) throw new InvalidDataException("Too many stored documents.");
-        return folders.SelectMany(ReadRevision).ToList();
+        return folders.Select(ReadRevision).OfType<OwnedSource>().ToArray();
     }
 
-    private List<Passage> ReadRevision(string directory)
+    private OwnedSource? ReadRevision(string directory)
     {
         CheckLocalPath(directory);
-        if(Latest(directory) is not {} rev) return [];
+        if(Latest(directory) is not {} rev) return null;
         CheckLocalPath(rev.Path);
         var files=Directory.GetFiles(rev.Path);
         if(files.Length!=1) throw new InvalidDataException("Incomplete knowledge revision.");
         var bytes=ReadFile(files[0]);
         if(!string.Equals(Convert.ToHexStringLower(SHA256.HashData(bytes)),rev.Digest,StringComparison.Ordinal))
             throw new InvalidDataException("Stored document digest mismatch.");
-        return Parse(Path.GetFileName(directory),rev.Version,rev.Digest,Path.GetRelativePath(root,files[0]),Decode(bytes));
+        return new(Path.GetFileName(directory),rev.Version,rev.Digest,Path.GetRelativePath(profile,files[0]),Decode(bytes));
     }
 
-    private List<Passage> Parse(string id,int version,string digest,string relative,string text)
+    public static List<Passage> Parse(OwnedSource source)
     {
         var claims=new List<Passage>();
-        string ext=Path.GetExtension(relative).ToLowerInvariant();
+        string text=source.Text, ext=source.Extension;
         if(ext is ".cs" or ".py") {
-            string owned=Path.GetRelativePath(profile,Path.Combine(root,relative));
             int count=0;
             foreach(var d in SourceDeclarations.Read(text,ext)) {
                 if(++count>256) throw new InvalidDataException("Source exceeds 256 declarations.");
                 void Add(string type,SourcePart? part) {
                     if(part==null) return;
-                    var anchor=new SpanAnchor(owned,part.Line,part.Start,part.End-part.Start);
-                    var citation=new Citation(id,version,digest,Path.GetFileName(relative),type,"owner import","owner-selected source",anchor);
-                    claims.Add(new(d.Name,text[part.Start..part.End],citation,null,Symbol:d.Name,Qualifier:d.Qualifier,DefinitionStart:d.Identifier.Start));
+                    var citation=source.Cite(type,part.Line,part.Start,part.End-part.Start,"owner-selected source");
+                    claims.Add(new(d.Name,text[part.Start..part.End],citation,null,Symbol:d.Name,Qualifier:d.Qualifier,
+                        DefinitionStart:d.Identifier.Start,Parameters:d.Parameters));
                 }
                 Add("code.definition",d.Identifier);
                 Add("code.signature",d.Header);
@@ -202,10 +211,10 @@ internal sealed class Documents(string profile,string project="default")
             var match=Claim.Match(content);
             if(!match.Success) continue;
             var value=match.Groups["value"];
-            string subject=Research.Subject(match.Groups["key"].Value);
-            var anchor=new SpanAnchor(Path.GetRelativePath(profile,Path.Combine(root,relative)),line,row.Index+bom+value.Index,value.Length);
-            var citation=new Citation(id,version,digest,Path.GetFileName(relative),"fact","owner import","owner-selected text",anchor);
-            claims.Add(new(subject,value.Value,citation,null,installedAudit));
+            string key=match.Groups["key"].Value;
+            string subject=Research.Subject(key);
+            var citation=source.Cite("fact",line,row.Index+bom+value.Index,value.Length,"owner-selected text");
+            claims.Add(new(subject,value.Value,citation,null,installedAudit,LiteralSubject:Research.LiteralSubject(key)));
             if(claims.Count>256) throw new InvalidDataException("Document exceeds 256 indexed claims.");
         }
         return claims.Select(p=>p with {ValidThrough=valid}).ToList();

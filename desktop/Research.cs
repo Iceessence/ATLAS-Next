@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace AtlasNext;
 
-internal record Assessment(string Verdict,string Detail,string Freshness,string Trust,Citation[] Sources)
+internal record Assessment(string Verdict,string Detail,string Freshness,string Trust,Citation[] Sources,ClaimAssessment[]? Claims=null)
 {
     public string RequestRelevance => Verdict switch {
         "supported" => "supported",
@@ -15,9 +15,11 @@ internal record Finding(Assessment Assessment,Hit? Source);
 
 internal static class Research
 {
+    public static string LiteralSubject(string text)=>Regex.Replace(text.Trim().ToLowerInvariant(),@"\s+"," ");
+
     public static string Subject(string text)
     {
-        string key=Regex.Replace(text.Trim().ToLowerInvariant(),@"\s+"," ");
+        string key=LiteralSubject(text);
         if(key.StartsWith("the ")) key=key[4..];
         return key switch {
             "archive retention policy" or "archive retention duration" or "archive retention period" => "archive retention",
@@ -77,6 +79,21 @@ internal static class Research
     public static Hit FromPassage(Passage p)=>new(new Knowledge(p.Citation.Id,p.Citation.Version,p.Citation.Type,p.Subject,
         p.Value,[],"owner-local",p.Citation.Origin,p.Citation.Trust,p.Citation.Source),p.Citation);
 
+    private static bool Unconfirmed(string value)=>Regex.IsMatch(value.Trim(),
+        @"\A(?:unknown|none recorded|unconfirmed|undetermined|not specified|tbd|to be determined|n/a|\?)[.!]?\z",
+        RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
+
+    public static string ValueVerdict(IReadOnlyList<string> values,bool stale,bool literal=true)
+    {
+        if(stale) return "stale";
+        static string Normalize(string value)=>Regex.Replace(value.Trim().TrimEnd('.').TrimEnd(),@"\s+"," ");
+        var definite=values.Where(v=>!Unconfirmed(v)).ToArray();
+        var comparable=literal ? definite : definite.Select(Normalize);
+        if(comparable.Distinct(literal ? StringComparer.Ordinal : StringComparer.OrdinalIgnoreCase).Skip(1).Any())
+            return "contradiction";
+        return definite.Length==0 || definite.Length!=values.Count ? "insufficient" : "supported";
+    }
+
     public static Finding Assess(string request,Library library,IReadOnlyList<Passage> documents)
     {
         // Verify the subject independently of Primary's route, including when a caller
@@ -112,13 +129,10 @@ internal static class Research
         if(passages.Any(p=>p.ValidThrough<today)) return Stop("stale","A matching source is past its declared validity date.","expired");
         var values=passages.Select(p=>p.Value).ToList();
         if(handbook!=null) values.Add(HandbookClaim(handbook).Value);
-        static string Normalize(string v)=>Regex.Replace(v.Trim().TrimEnd('.').TrimEnd(),@"\s+"," ");
-        bool Unconfirmed(string v)=>Regex.IsMatch(v.Trim(),@"\A(?:unknown|none recorded|unconfirmed|undetermined|not specified|tbd|to be determined|n/a|\?)[.!]?\z",
-            RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
-        var definite=values.Where(v=>!Unconfirmed(v)).ToArray();
-        if(definite.Select(Normalize).Distinct(StringComparer.OrdinalIgnoreCase).Skip(1).Any())
+        var valueVerdict=ValueVerdict(values,false,literal:false);
+        if(valueVerdict=="contradiction")
             return Stop("contradiction","Active sources give different definite values for the same subject.");
-        if(definite.Length!=values.Count)
+        if(valueVerdict=="insufficient")
             return Stop("insufficient","At least one matching source leaves the value unconfirmed.");
         if(lookup?.Numeric==true && values.Any(v=>!Regex.IsMatch(v.Trim(),@"\A[0-9]+\.?\z",RegexOptions.CultureInvariant)))
             return Stop("insufficient","The requested number is not explicitly stated.");

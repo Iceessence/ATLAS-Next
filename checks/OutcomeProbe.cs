@@ -37,6 +37,35 @@ internal static class OutcomeProbe
         return 0;
     }
 
+    internal record ProjectInput(string Question,Dictionary<string,string> Files);
+    public static int Project(string root)
+    {
+        Console.InputEncoding=new UTF8Encoding(false);
+        Console.OutputEncoding=new UTF8Encoding(false);
+        var input=JsonSerializer.Deserialize<ProjectInput>(Console.In.ReadToEnd(),Assets.Json)!;
+        if(!Directory.Exists(root) || Directory.EnumerateFileSystemEntries(root).Any() ||
+            input.Files.Count is <1 or >32 || input.Files.Keys.Any(name=>Path.GetFileName(name)!=name))
+            throw new ArgumentException("Expected an empty workspace and 1 to 32 source basenames.");
+        using var engine=new Engine(Path.Combine(root,"profile"));
+        var ids=new Dictionary<string,string>();
+        foreach(var (name,source) in input.Files) {
+            string path=Path.Combine(root,name);
+            File.WriteAllText(path,source,new UTF8Encoding(false));
+            ids.Add(name,engine.Import(path).Id);
+        }
+        var runs=new List<object>();
+        for(int i=0;i<4;i++) {
+            var timer=Stopwatch.StartNew();
+            var queued=engine.Submit(Guid.NewGuid(),input.Question);
+            var completed=engine.Finish(queued.Id);
+            timer.Stop();
+            runs.Add(new {submitted=queued.State,delivered=completed,ms=timer.Elapsed.TotalMilliseconds,
+                workingSetBytes=Environment.WorkingSet});
+        }
+        Console.WriteLine(JsonSerializer.Serialize(new {ids,runs},Assets.Json));
+        return 0;
+    }
+
     public static int Run()
     {
         Console.InputEncoding=new UTF8Encoding(false);

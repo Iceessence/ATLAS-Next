@@ -256,6 +256,46 @@ try {
     $ambiguity=(Control $window 'ResearchInfo').Current.Name
     if($ambiguity -notlike '*ambiguous*' -or $ambiguity -notlike '*Gauge.Read*' -or $ambiguity -notlike '*Sensor.Read*'){throw 'Missing qualified locations'}
     "PASS packaged qualified definitions, signature, documentation, enclosing type, namespace and ambiguity locations"
+    $meter = @('namespace PackageProbe;',
+        'public static class Meter {',
+        '    public static int Read() => 0;',
+        '    public static int Read(int channel) => channel;',
+        '}') -join [char]10
+    Import-Document $session 'Meter.cs' $meter
+    Import-Document $session 'Caller.cs' 'class Caller { int Read() => PackageProbe.Meter.Read(2); }'
+    $promptBox.SetValue('Where is Meter.Read(int) defined?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'SourceInfo').Current.Name -notlike '*Meter.cs*line 4,*'){throw 'Packaged overload lookup failed'}
+    $promptBox.SetValue('Where is Meter.Read(int) called?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'Summary').Current.Name -ne 'Caller.cs, line 1: PackageProbe.Meter.Read(2)' -or
+       (Control $window 'ResearchInfo').Current.Name -notlike '*Caller.cs*line 1, characters*'){throw 'Packaged bound call lookup failed'}
+    Import-Document $session 'release.txt' 'Package channel: stable'
+    Import-Document $session 'limits.md' 'Package retention: 2 days'
+    $promptBox.SetValue('Compare project claims: Package channel | Package retention')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'Summary').Current.Name -notlike '*package channel: stable*package retention: 2 days*' -or
+       (Control $window 'ResearchInfo').Current.Name -notlike '*package channel*release.txt*package retention*limits.md*'){
+        throw 'Packaged research per-claim provenance failed'
+    }
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Import-Document $session 'limits.md' 'Package retention: 3 days'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'needs clarification'
+    if((Control $window 'ResearchInfo').Current.Name -notlike '*stale*package retention*stale*limits.md*'){
+        throw 'Packaged changed-source research check failed'
+    }
+    "PASS packaged overload selection, cross-file call binding, per-claim research provenance and stale-revision withholding"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"

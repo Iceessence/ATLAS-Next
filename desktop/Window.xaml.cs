@@ -44,13 +44,19 @@ public partial class WorkWindow : Window
             SourceInfo.Text+=$"\n{span.Path} · line {span.Line}, characters [{span.Start}, {span.Start+span.Length})";
         ResearchInfo.Text=task.ResearchReview is {} review ?
             $"Research & Verification: {review.Verdict}\n{review.Detail}\nSupport: {review.FactualSupport}\nFreshness: {review.Freshness} · Trust: {review.Trust}\n"+
-            string.Join("\n",review.Sources.Select(c=>c.Span is {} s ? $"{c.Source}, line {s.Line} · {c.Digest}" : c.Source)) :
+            (review.Claims is {} claims ? string.Join("\n",claims.Select(c=>
+                $"{c.Subject} · {c.Verdict} · {c.Freshness}\n"+string.Join("\n",c.Sources.Select(DescribeSource)))) :
+                string.Join("\n",review.Sources.Select(DescribeSource))) :
             "Research & Verification: no assessment recorded.";
         RoutingInfo.Text=task.Proposal is {} p ? $"Active rule: {task.Router} → {task.Specialist}\nOriginal model: {p.Model} → {p.Route} ({p.Probability:P1})\nStatus: {p.Qualification} · SHA-256 {p.Sha256[..16]}…\nCPU inference {task.InferenceMicroseconds} µs · process {task.ProcessWorkingSetBytes/1048576} MiB" : "Model inference unavailable.";
         Verify.IsEnabled=Stop.IsEnabled=task.State=="review";
         Export.IsEnabled=true;
         Notice.Text="";
     }
+    private static string DescribeSource(Citation citation)=>citation.Span is {} span ?
+        $"{span.Path}, line {span.Line}, characters [{span.Start}, {span.Start+span.Length}) · revision {citation.Version} · {citation.Digest}" :
+        citation.Source;
+
     private void SelectTask(object sender,System.Windows.Controls.SelectionChangedEventArgs e)
     {
         if(!refreshing && History.SelectedItem is Work work) ShowTask(work);

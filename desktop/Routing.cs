@@ -113,15 +113,18 @@ internal sealed class Routing
                 p.Citation.Id==parent.Citation.Id && p.Citation.Type==type);
         // Resolve a Primary proposal against eligible identifiers only. Research
         // independently parses the entire request and checks all active definitions.
-        var tail=System.Text.RegularExpressions.Regex.Replace(request.Trim(),@"(?:,? please)?[?.!]?\z","",
+        var normalized=System.Text.RegularExpressions.Regex.Replace(request.Trim(),@"\s+"," ");
+        var tail=System.Text.RegularExpressions.Regex.Replace(normalized,@"(?:,? please)?[?.!]?\z","",
             System.Text.RegularExpressions.RegexOptions.IgnoreCase);
         tail=System.Text.RegularExpressions.Regex.Replace(tail,@"\s+(?:defined|declared)\z","",
             System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-        var token=System.Text.RegularExpressions.Regex.Match(tail,@"[\p{L}_][\p{L}\p{N}\p{M}_]*(?:\.[\p{L}_][\p{L}\p{N}\p{M}_]*)?\z");
+        var token=System.Text.RegularExpressions.Regex.Match(tail,@"(?<symbol>[\p{L}_][\p{L}\p{N}\p{M}_]*(?:\.[\p{L}_][\p{L}\p{N}\p{M}_]*)?)(?:\((?<selector>[^()]{0,160})\))?\z");
         if(token.Success) {
-            var parts=token.Value.Split('.');
+            var parts=token.Groups["symbol"].Value.Split('.');
+            var selector=token.Groups["selector"];
+            var filter=selector.Success ? ParameterFilter.Parse(selector.Value) : null;
             return eligible.FirstOrDefault(p=>p.Citation.Type=="code.definition" && p.Symbol==parts[^1] &&
-                (parts.Length==1 || p.Qualifier==parts[0]));
+                (parts.Length==1 || p.Qualifier==parts[0]) && (!selector.Success || filter?.Matches(p.Parameters)==true));
         }
         return null;
     }

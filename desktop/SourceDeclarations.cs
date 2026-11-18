@@ -8,14 +8,15 @@ using Microsoft.CodeAnalysis.Text;
 namespace AtlasNext;
 
 internal record SourcePart(int Start,int End,int Line);
+internal record ParameterShape(int Arity,string[]? Types=null);
 internal record SourceDeclaration(string Name,SourcePart Identifier,SourcePart Header,string? Qualifier,
-    SourcePart? Container,bool ContainerIsClass,SourcePart? Documentation,SourcePart? Summary,SourcePart? Namespace);
+    SourcePart? Container,bool ContainerIsClass,SourcePart? Documentation,SourcePart? Summary,SourcePart? Namespace,ParameterShape? Parameters);
 
 
 internal static class SourceDeclarations
 {
     private sealed record Declaration(string Name,TextSpan Identifier,TextSpan Header,string? Qualifier,
-        TextSpan? Container,bool ContainerIsClass,TextSpan? Documentation,TextSpan? Summary=null,TextSpan? Namespace=null);
+        TextSpan? Container,bool ContainerIsClass,TextSpan? Documentation,TextSpan? Summary=null,TextSpan? Namespace=null,ParameterShape? Parameters=null);
 
     public static IEnumerable<SourceDeclaration> Read(string source,string extension)
     {
@@ -26,7 +27,7 @@ internal static class SourceDeclarations
         foreach(var d in extension==".cs" ? CSharp(text) : Python(text)) {
             if(d.Header.Length>8192) throw new InvalidDataException("Declaration header exceeds 8192 characters.");
             yield return new(d.Name,Anchor(d.Identifier),Anchor(d.Header),d.Qualifier,
-                Optional(d.Container),d.ContainerIsClass,Optional(d.Documentation),Optional(d.Summary),Optional(d.Namespace));
+                Optional(d.Container),d.ContainerIsClass,Optional(d.Documentation),Optional(d.Summary),Optional(d.Namespace),d.Parameters);
         }
     }
 
@@ -72,8 +73,17 @@ internal static class SourceDeclarations
             // Nested blocks with separate names have no contiguous fully qualified span.
             var namespaces=node.Ancestors().OfType<BaseNamespaceDeclarationSyntax>().Take(2).ToArray();
             var (doc,summary)=CSharpDocumentation(node,text);
-            yield return new(id.ValueText,id.Span,TextSpan.FromBounds(first,end),qualifier,container?.Identifier.Span,container is ClassDeclarationSyntax || container is RecordDeclarationSyntax record && !record.ClassOrStructKeyword.IsKind(SyntaxKind.StructKeyword),doc,summary,namespaces is [var ns] ? ns.Name.Span : null);
+            yield return new(id.ValueText,id.Span,TextSpan.FromBounds(first,end),qualifier,container?.Identifier.Span,container is ClassDeclarationSyntax || container is RecordDeclarationSyntax record && !record.ClassOrStructKeyword.IsKind(SyntaxKind.StructKeyword),doc,summary,namespaces is [var ns] ? ns.Name.Span : null,MethodParameters(node));
         }
+    }
+
+    private static ParameterShape? MethodParameters(SyntaxNode node)
+    {
+        if(node is not MethodDeclarationSyntax {TypeParameterList:null} method) return null;
+        var parameters=method.ParameterList.Parameters;
+        var types=parameters.All(p=>p.Modifiers.Count==0 && p.Type is PredefinedTypeSyntax or IdentifierNameSyntax)
+            ? parameters.Select(p=>p.Type!.ToString()).ToArray() : null;
+        return new(parameters.Count,types);
     }
 
     // Python source navigation uses lexical declaration headers. Strings, comments,
@@ -167,13 +177,25 @@ internal static class SourceDeclarations
                 var container=scopes.FirstOrDefault(s=>s.Class);
                 string? qualifier=scopes.TryPeek(out var direct) && direct.Class ? direct.Name : null;
                 yield return new(name.Value,identifier,TextSpan.FromBounds(header,i+1),qualifier,
-                    container?.Identifier,container!=null,PythonDocumentation(text,i,headerIndent));
+                    container?.Identifier,container!=null,PythonDocumentation(text,i,headerIndent),
+                    Parameters:text.AsSpan(header).StartsWith("class") ? null : PythonParameters(text[identifier.End..i]));
                 scopes.Push(new(headerIndent,text.AsSpan(header).StartsWith("class"),name.Value,identifier));
                 header=-1;
             }
             i++;
         }
         if(nesting.Count!=0 || header>=0) throw new InvalidDataException("Incomplete Python source.");
+    }
+
+    private static ParameterShape? PythonParameters(string tail)
+    {
+        // Count simple positional parameters. Defaults, annotations, variadics
+        // and positional/keyword separators require a fuller signature parser.
+        var match=Regex.Match(tail,@"\A[ \t]*\((?<args>\s*(?:[A-Za-z_]\w*\s*(?:,\s*[A-Za-z_]\w*\s*)*,?\s*)?)\)(?:\s*->[^:\r\n]+)?\s*\z",
+            RegexOptions.CultureInvariant | RegexOptions.NonBacktracking);
+        if(!match.Success) return null;
+        var names=match.Groups["args"].Value.Split(',',StringSplitOptions.RemoveEmptyEntries|StringSplitOptions.TrimEntries);
+        return names.Distinct(StringComparer.Ordinal).Count()==names.Length ? new(names.Length) : null;
     }
 
     private static int AfterString(string text,int start)

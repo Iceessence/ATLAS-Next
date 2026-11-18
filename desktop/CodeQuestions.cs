@@ -3,14 +3,16 @@ using System.Text.RegularExpressions;
 namespace AtlasNext;
 
 internal sealed record SelectedDefinition(CodeQuestion Request,Passage Passage);
-internal sealed record CodeQuestion(string? Name,string? Qualifier,string Type,string? Extension=null)
+internal sealed record CodeQuestion(string? Name,string? Qualifier,string Type,string? Extension=null,ParameterFilter? Selector=null)
 {
-    public bool FollowUp=>Type!="code.definition";
+    public bool FollowUp=>Type is not ("code.definition" or "code.calls");
+    public bool Calls=>Type=="code.calls";
     private const string Id=@"[\p{L}_][\p{L}\p{N}\p{M}_]*";
     private const string Symbol=@"(?:(?<owner>"+Id+@")\.)?(?<name>"+Id+")";
+    private const string Signature=@"(?:\((?<selector>[^()]{0,160})\))?";
     private const RegexOptions Options=RegexOptions.IgnoreCase|RegexOptions.CultureInvariant;
-    private static readonly Regex Locate=new(@"\A(?:please )?(?:where is (?:the symbol )?"+Symbol+
-        @" (?:defined|declared)|(?:locate|find the definition of) "+Symbol+@")(?:,? please)?[?.!]?\z",Options);
+    private static readonly Regex Locate=new(@"\A(?:please )?(?:where is (?:the symbol )?"+Symbol+Signature+
+        @" (?<operation>defined|declared|called)|(?:locate|find the definition of) "+Symbol+Signature+@")(?:,? please)?[?.!]?\z",Options);
     private static readonly Regex Follow=new(@"\A(?:please )?(?:what is|show(?: me)?) its (?<relation>signature|declaration signature|documentation|docstring|xml documentation|summary|enclosing type|enclosing class|enclosing namespace|namespace)(?:,? please)?[?.!]?\z",Options);
 
     public static CodeQuestion? Parse(string request)
@@ -28,16 +30,23 @@ internal sealed record CodeQuestion(string? Name,string? Qualifier,string Type,s
             _=>new(null,null,"code.container")
         };
         var locate=Locate.Match(query);
-        return locate.Success ? new(locate.Groups["name"].Value,locate.Groups["owner"].Success ? locate.Groups["owner"].Value : null,"code.definition") : null;
+        if(!locate.Success) return null;
+        var owner=locate.Groups["owner"];
+        var selector=locate.Groups["selector"];
+        var filter=selector.Success ? ParameterFilter.Parse(selector.Value) : null;
+        bool calls=string.Equals(locate.Groups["operation"].Value,"called",StringComparison.OrdinalIgnoreCase);
+        if(selector.Success && (filter==null || !owner.Success) || calls && filter==null) return null;
+        return new(locate.Groups["name"].Value,owner.Success ? owner.Value : null,calls ? "code.calls" : "code.definition",Selector:filter);
     }
 
-    private bool Matches(Passage p)=>p.Citation.Type=="code.definition" && p.Symbol==Name && (Qualifier==null || Qualifier==p.Qualifier);
+    private bool Names(Passage p)=>p.Citation.Type=="code.definition" && p.Symbol==Name && (Qualifier==null || Qualifier==p.Qualifier);
+    private bool Matches(Passage p)=>Names(p) && (Selector==null || Selector.Matches(p.Parameters));
 
     public static SelectedDefinition? Parent(Work? parent,string project,IReadOnlyList<Passage> active)
     {
         if(parent is not {State:"completed",Kind:"code.lookup",ResearchReview.Verdict:"supported",Specialist:"code.definition",Authorization:"allowed scoped record read",
             Scope:"owner-local",SourceIntegrity:"passed",AnswerRelevance:"supported",Evidence:{} cite} ||
-            parent.Project!=project || parent.PrimaryCandidateId!=cite.Id || !parent.ResearchReview.Sources.Contains(cite) || Parse(parent.Request) is not {FollowUp:false} original) return null;
+            parent.Project!=project || parent.PrimaryCandidateId!=cite.Id || !parent.ResearchReview.Sources.Contains(cite) || Parse(parent.Request) is not {Type:"code.definition"} original) return null;
         var passage=active.FirstOrDefault(p=>original.Matches(p) && p.Citation==cite);
         return passage==null || parent.Result!=passage.Value ? null : new(original,passage);
     }
@@ -48,6 +57,12 @@ internal sealed record CodeQuestion(string? Name,string? Qualifier,string Type,s
         if(FollowUp && parent==null) return Stop("unsupported","Select a completed definition from the current source revision first.",[]);
         var lookup=FollowUp ? parent!.Request : this;
         var definitions=active.Where(lookup.Matches).Take(9).ToArray();
+        if(lookup.Selector!=null && definitions.Length==1 && definitions[0].Citation.Source.EndsWith(".py",StringComparison.OrdinalIgnoreCase)) {
+            // Python redefinitions can replace an earlier binding. Arity is
+            // a declaration filter only when the lexical name itself is unique.
+            var named=active.Where(lookup.Names).Take(9).ToArray();
+            if(named.Length>1) definitions=named;
+        }
         if(definitions.Length==0) return Stop("unsupported","No declaration matches this identifier in the active project.",[]);
         if(definitions.Length>1) {
             var shown=definitions.Take(8).ToArray();

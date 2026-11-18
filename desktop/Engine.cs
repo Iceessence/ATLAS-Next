@@ -41,38 +41,10 @@ internal sealed class Engine(string profile) : IDisposable
             var proposed=routing.Infer(request);
             clock.Stop();
             task=task with {InferenceMicroseconds=(long)clock.Elapsed.TotalMicroseconds, ProcessWorkingSetBytes=Environment.WorkingSet};
-            var exact=library.Exact(request);
-            var route=exact?.Record.Type ?? Routing.Rule(request);
-            var candidate=exact ?? library.Find(request,route);
-            var passages=documents.Active();
-            var eligible=primaryDocument==null ? passages : passages.Where(p=>p.Citation.Id==primaryDocument);
-            Finding finding;
-            if(UseCode(code,passages,request)) {
-                var parent=ReadParent(parentId,passages);
-                var passage=Routing.ProjectCode(request,eligible,parent?.Passage,code!.Type);
-                route=code.Type;
-                candidate=passage==null ? null : Research.FromPassage(passage);
-                finding=code.Verify(passages,parent);
-                task=task with {Kind="code.lookup",Dependencies=parentId.HasValue ? [parentId.Value.ToString("N")] : []};
-            } else {
-                if(exact==null) {
-                    var passage=Routing.ProjectFact(request,eligible.Where(p=>p.Symbol==null));
-                    if(passage!=null && (candidate==null || passage.Subject!=Research.CatalogSubject(candidate))) {
-                        route="fact";
-                        candidate=Research.FromPassage(passage);
-                    }
-                }
-                finding=Research.Assess(request,library,passages.Where(p=>p.Symbol==null).ToArray());
-            }
-            task=task with {Proposal=proposed,Specialist=route,PrimaryCandidateId=candidate?.Citation.Id,Router="deterministic-route-v6",ResearchReview=finding.Assessment};
-            if(candidate==null || finding.Source==null || !finding.Assessment.Sources.Contains(candidate.Citation))
-                task=(task with {Authorization="no matching scoped record",Verification="answer withheld",
-                    AnswerRelevance=finding.Source==null ? finding.Assessment.RequestRelevance : "unsupported",
-                    Result=finding.Source==null ? finding.Assessment.Detail : "Primary could not resolve a source for this request."}).At("needs clarification");
-            else
-                task=(task with {Authorization="allowed scoped record read",Scope=candidate.Record.Scope,
-                    Capability=candidate.Citation.Span==null ? task.Capability : "read owner-imported text",
-                    Budget="2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",Evidence=candidate.Citation}).At("review");
+            string? projectRoute=ProjectRoute(request,code);
+            task=projectRoute!=null
+                ? QueueProjectAnswer(task,proposed,projectRoute,code,primaryDocument)
+                : QueueLookup(task,request,proposed,primaryDocument,code,parentId);
         }
         catch(Exception ex) when(ex is IOException or InvalidDataException or UnauthorizedAccessException)
         {
@@ -81,6 +53,110 @@ internal sealed class Engine(string profile) : IDisposable
         journal.Save(task);
         return task;
     }
+
+    private Work QueueLookup(Work task,string request,Recommendation proposed,string? primaryDocument,CodeQuestion? code,Guid? parentId)
+    {
+        var exact=library.Exact(request);
+        var route=exact?.Record.Type ?? Routing.Rule(request);
+        var candidate=exact ?? library.Find(request,route);
+        var passages=documents.Active();
+        var eligible=primaryDocument==null ? passages : passages.Where(p=>p.Citation.Id==primaryDocument);
+        Finding finding;
+        if(UseCode(code,passages,request)) {
+            var parent=ReadParent(parentId,passages);
+            var passage=Routing.ProjectCode(request,eligible,parent?.Passage,code!.Type);
+            route=code.Type;
+            candidate=passage==null ? null : Research.FromPassage(passage);
+            finding=code.Verify(passages,parent);
+            task=task with {Kind="code.lookup",Dependencies=parentId.HasValue ? [parentId.Value.ToString("N")] : []};
+        } else {
+            if(exact==null) {
+                var passage=Routing.ProjectFact(request,eligible.Where(p=>p.Symbol==null));
+                if(passage!=null && (candidate==null || passage.Subject!=Research.CatalogSubject(candidate))) {
+                    route="fact";
+                    candidate=Research.FromPassage(passage);
+                }
+            }
+            finding=Research.Assess(request,library,passages.Where(p=>p.Symbol==null).ToArray());
+        }
+        task=task with {Proposal=proposed,Specialist=route,PrimaryCandidateId=candidate?.Citation.Id,Router="deterministic-route-v6",ResearchReview=finding.Assessment};
+        if(candidate==null || finding.Source==null || !finding.Assessment.Sources.Contains(candidate.Citation))
+            task=(task with {Authorization="no matching scoped record",Verification="answer withheld",
+                AnswerRelevance=finding.Source==null ? finding.Assessment.RequestRelevance : "unsupported",
+                Result=finding.Source==null ? finding.Assessment.Detail : "Primary could not resolve a source for this request."}).At("needs clarification");
+        else
+            task=(task with {Authorization="allowed scoped record read",Scope=candidate.Record.Scope,
+                Capability=candidate.Citation.Span==null ? task.Capability : "read owner-imported text",
+                Budget="2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",Evidence=candidate.Citation}).At("review");
+        return task;
+    }
+
+    private static string? ProjectRoute(string request,CodeQuestion? code)=>
+        ProjectQuestions.IsResearch(request) ? ProjectQuestions.ResearchType :
+        code?.Calls==true ? ProjectQuestions.CallsType : null;
+
+    private static ProjectFinding CheckProjectAnswer(string request,CodeQuestion? code,IReadOnlyList<OwnedSource> sources)
+    {
+        var passages=sources.SelectMany(Documents.Parse).ToArray();
+        return code?.Calls==true ? ProjectQuestions.Calls(code,sources,passages) : ProjectQuestions.Compare(request,passages);
+    }
+
+    private Work QueueProjectAnswer(Work task,Recommendation proposed,string route,CodeQuestion? code,string? primaryDocument)
+    {
+        var finding=CheckProjectAnswer(task.Request,code,documents.Sources());
+        task=task with {Kind=route,Specialist=route,Proposal=proposed,Router="deterministic-route-v7",ResearchReview=finding.Assessment};
+        if(finding.Evidence is not {} evidence || primaryDocument!=null && finding.Assessment.Sources.Any(c=>c.Id!=primaryDocument))
+            return (task with {Authorization="no matching scoped record",Verification="answer withheld",
+                AnswerRelevance=finding.Evidence!=null ? "unsupported" : finding.Assessment.RequestRelevance,
+                Result=finding.Evidence!=null ? "The Primary source restriction excludes required evidence." : finding.Assessment.Detail}).At("needs clarification");
+        return (task with {Authorization="allowed scoped record read",Scope="owner-local",Capability="read owner-imported text",
+            Budget="2048 chars / 32 documents / 256 KiB per import / 8 evidence passages / CPU",
+            Evidence=evidence,PrimaryCandidateId=evidence.Id}).At("review");
+    }
+
+    private Work FinishProjectAnswer(Work task,string route,CodeQuestion? code)
+    {
+        if(task.Kind!=route || task.Specialist!=route || task.Authorization!="allowed scoped record read" ||
+            task.Scope!="owner-local" || task.Capability!="read owner-imported text" ||
+            task.ParentTaskId!=null || task.Dependencies is not [] ||
+            task.Evidence?.Span==null || task.Evidence.Id!=task.PrimaryCandidateId ||
+            task.ResearchReview is not {Verdict:"supported",Sources:[var first,..]} prior || first!=task.Evidence)
+            throw new InvalidDataException("Project evidence failed authorization.");
+
+        var active=documents.Sources();
+        bool Active(Citation c)=>active.Any(s=>s.Id==c.Id && s.Version==c.Version && s.Digest==c.Digest && s.Path==c.Span?.Path);
+        if(prior.Sources.Any(c=>!Active(c))) {
+            var claims=prior.Claims?.Select(c=>c.Sources.All(Active) ? c :
+                c with {Verdict="stale",Freshness="source revision changed"}).ToArray();
+            return StaleProjectAnswer(task,prior with {Claims=claims});
+        }
+
+        var current=CheckProjectAnswer(task.Request,code,active);
+        if(current.Assessment.Verdict!="supported")
+            return (task with {ResearchReview=current.Assessment,SourceIntegrity="passed",Verification="answer withheld",
+                AnswerRelevance=current.Assessment.RequestRelevance,Result=current.Assessment.Detail}).At("needs clarification");
+
+        if(current.Evidence!=task.Evidence || !SameEvidence(prior,current.Assessment))
+            return StaleProjectAnswer(task,prior);
+
+        return (task with {ResearchReview=current.Assessment,SourceIntegrity="passed",AnswerRelevance="supported",
+            Result=current.Answer,Verification="source and answer checked"}).At("completed");
+    }
+
+    private static Work StaleProjectAnswer(Work task,Assessment prior)
+    {
+        const string detail="The scoped evidence changed after review. Submit a fresh task.";
+        return (task with {ResearchReview=prior with {Verdict="stale",Detail=detail,Freshness="revision or supporting set changed"},
+            Verification="answer withheld",AnswerRelevance="subject and intent matched",Result=detail}).At("needs clarification");
+    }
+
+    private static bool SameEvidence(Assessment first,Assessment second)=>
+        first.Sources.SequenceEqual(second.Sources) && (first.Claims is {} a && second.Claims is {} b
+            ? a.Length==b.Length && a.Zip(b).All(pair=>pair.First.Subject==pair.Second.Subject &&
+                pair.First.Verdict==pair.Second.Verdict && pair.First.Freshness==pair.Second.Freshness &&
+                pair.First.Sources.SequenceEqual(pair.Second.Sources))
+            : first.Claims==null && second.Claims==null);
+
     // Preserve existing named text lookups when the project has no code for that
     // identifier. Explicit source commands and contextual turns always use code verification.
     private static bool UseCode(CodeQuestion? code,IReadOnlyList<Passage> active,string request)=>
@@ -102,26 +178,9 @@ internal sealed class Engine(string profile) : IDisposable
         {
             try
             {
-                var cited=task.Evidence!;
-                var active=documents.Active();
-                var passage=cited.Span==null ? null : active.FirstOrDefault(p=>p.Citation==cited);
-                var source=passage!=null ? Research.FromPassage(passage) : library.Exact(cited.Id);
-                if(task.Authorization!="allowed scoped record read" || source==null || source.Citation!=cited || task.Scope!=source.Record.Scope ||
-                    task.Specialist!=source.Record.Type) throw new InvalidDataException("Source failed verification");
                 var code=CodeQuestion.Parse(task.Request);
-                var finding=UseCode(code,active,task.Request)
-                    ? code!.Verify(active,task.ParentTaskId is {} parentId && task.Dependencies is [var dependency] && dependency==parentId.ToString("N") ? ReadParent(parentId,active) : null)
-                    : Research.Assess(task.Request,library,active.Where(p=>p.Symbol==null).ToArray());
-                task=task with {SourceIntegrity="passed",ResearchReview=finding.Assessment};
-                if(finding.Source!=null && finding.Assessment.Sources.Contains(cited))
-                    task=(task with {AnswerRelevance="supported",Result=source.Record.Body,
-                        Verification="source and answer checked"}).At("completed");
-                else {
-                    if(finding.Source!=null) task=task with {ResearchReview=finding.Assessment with {
-                        Verdict="unsupported",Detail="The selected citation does not support this request."}};
-                    task=(task with {AnswerRelevance=task.ResearchReview!.RequestRelevance,Verification="answer withheld",
-                        Result=task.ResearchReview!.Detail}).At("needs clarification");
-                }
+                task=ProjectRoute(task.Request,code) is {} projectRoute
+                    ? FinishProjectAnswer(task,projectRoute,code) : FinishLookup(task,code);
             }
             catch(Exception ex) when(ex is IOException or InvalidDataException or UnauthorizedAccessException)
             {
@@ -131,6 +190,31 @@ internal sealed class Engine(string profile) : IDisposable
         journal.Save(task);
         return task;
     }
+
+    private Work FinishLookup(Work task,CodeQuestion? code)
+    {
+        var cited=task.Evidence!;
+        var active=documents.Active();
+        var passage=cited.Span==null ? null : active.FirstOrDefault(p=>p.Citation==cited);
+        var source=passage!=null ? Research.FromPassage(passage) : library.Exact(cited.Id);
+        if(task.Authorization!="allowed scoped record read" || source==null || source.Citation!=cited || task.Scope!=source.Record.Scope ||
+            task.Specialist!=source.Record.Type) throw new InvalidDataException("Source failed verification");
+        var finding=UseCode(code,active,task.Request)
+            ? code!.Verify(active,task.ParentTaskId is {} parentId && task.Dependencies is [var dependency] && dependency==parentId.ToString("N") ? ReadParent(parentId,active) : null)
+            : Research.Assess(task.Request,library,active.Where(p=>p.Symbol==null).ToArray());
+        task=task with {SourceIntegrity="passed",ResearchReview=finding.Assessment};
+        if(finding.Source!=null && finding.Assessment.Sources.Contains(cited))
+            task=(task with {AnswerRelevance="supported",Result=source.Record.Body,
+                Verification="source and answer checked"}).At("completed");
+        else {
+            if(finding.Source!=null) task=task with {ResearchReview=finding.Assessment with {
+                Verdict="unsupported",Detail="The selected citation does not support this request."}};
+            task=(task with {AnswerRelevance=task.ResearchReview!.RequestRelevance,Verification="answer withheld",
+                Result=task.ResearchReview!.Detail}).At("needs clarification");
+        }
+        return task;
+    }
+
     public int StopAll()
     {
         var waiting=journal.History().Where(task=>task.State=="review").ToList();
