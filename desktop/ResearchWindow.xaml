@@ -7,7 +7,9 @@
    <TextBlock Text="Two to four literal claim keys separated by |" Margin="0,8,0,2"/>
    <TextBox x:Name="Fields" AutomationProperties.Name="Research claim keys" MaxLength="400"/>
    <TextBlock Text="Authorize two to eight imported TXT or Markdown sources. Hold Ctrl to select several." TextWrapping="Wrap" Margin="0,8,0,2"/>
-   <ListBox x:Name="Selections" AutomationProperties.Name="Authorized research sources" DisplayMemberPath="Label" SelectionMode="Extended" VirtualizingPanel.IsVirtualizing="False" MinHeight="100" MaxHeight="132"/>
+   <ListBox x:Name="Selections" AutomationProperties.Name="Authorized research sources" DisplayMemberPath="Label" SelectionMode="Extended" VirtualizingPanel.IsVirtualizing="False" MinHeight="100" MaxHeight="132">
+    <ListBox.ItemContainerStyle><Style TargetType="ListBoxItem"><Setter Property="AutomationProperties.Name" Value="{Binding Label}"/></Style></ListBox.ItemContainerStyle>
+   </ListBox>
    <WrapPanel Margin="0,8,0,0">
     <Button x:Name="PrepareStudy" Content="Prepare research" Click="Prepare" Padding="8,4"/>
     <Button x:Name="VerifyStudy" Content="Verify conclusion" Click="Verify" Margin="8,0" Padding="8,4" IsEnabled="False"/>
@@ -20,7 +22,9 @@
    <Grid.ColumnDefinitions><ColumnDefinition Width="190"/><ColumnDefinition Width="12"/><ColumnDefinition/></Grid.ColumnDefinitions>
    <DockPanel>
     <TextBlock DockPanel.Dock="Top" Text="Research history" FontWeight="SemiBold" Margin="0,0,0,5"/>
-    <ListBox x:Name="Studies" AutomationProperties.Name="Research history" DisplayMemberPath="Label" SelectionChanged="SelectStudy"/>
+    <ListBox x:Name="Studies" AutomationProperties.Name="Research history" DisplayMemberPath="Label" SelectionChanged="SelectStudy">
+     <ListBox.ItemContainerStyle><Style TargetType="ListBoxItem"><Setter Property="AutomationProperties.Name" Value="{Binding Label}"/></Style></ListBox.ItemContainerStyle>
+    </ListBox>
    </DockPanel>
    <TextBox Grid.Column="2" x:Name="StudyEvidence" AutomationProperties.Name="Research result and evidence" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Padding="10"/>
   </Grid>

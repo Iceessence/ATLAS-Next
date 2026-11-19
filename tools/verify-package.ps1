@@ -153,14 +153,16 @@ function Write-Value($window,$id,$content){
 function Select-AtlasItem($list,$name,$add=$false){
     $api=[System.Windows.Automation.AutomationElement]
     $condition=[System.Windows.Automation.PropertyCondition]::new($api::ControlTypeProperty,[System.Windows.Automation.ControlType]::ListItem)
+    $available=@()
     foreach($item in $list.FindAll([System.Windows.Automation.TreeScope]::Descendants,$condition)){
+        $available+=$item.Current.Name
         if($item.Current.Name -like $name) {
             $selection=$item.GetCurrentPattern([System.Windows.Automation.SelectionItemPattern]::Pattern)
             if($add){$selection.AddToSelection()}else{$selection.Select()}
             return
         }
     }
-    throw "Could not select $name"
+    throw "Could not select $name among $($available -join ', ')"
 }
 function Close-Session($session){
     $session.Window.GetCurrentPattern([System.Windows.Automation.WindowPattern]::Pattern).Close()

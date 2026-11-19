@@ -6,7 +6,9 @@
    <CheckBox x:Name="EnableReference" AutomationProperties.Name="Enable loopback reference connection" Checked="EnableChanged" Unchecked="EnableChanged" Content="Enable my local Ollama connection for this session" Margin="0,6"/>
    <WrapPanel Margin="0,4">
     <Button x:Name="Discover" Content="Find installed models" Click="LoadModels" IsEnabled="False" Padding="8,5"/>
-    <ComboBox x:Name="Model" AutomationProperties.Name="Reference model" DisplayMemberPath="Name" SelectionChanged="ModelChanged" MinWidth="210" Margin="8,0"/>
+    <ComboBox x:Name="Model" AutomationProperties.Name="Reference model" DisplayMemberPath="Name" SelectionChanged="ModelChanged" MinWidth="210" Margin="8,0">
+     <ComboBox.ItemContainerStyle><Style TargetType="ComboBoxItem"><Setter Property="AutomationProperties.Name" Value="{Binding Name}"/></Style></ComboBox.ItemContainerStyle>
+    </ComboBox>
    </WrapPanel>
    <StackPanel x:Name="AttachmentPanel" Visibility="Collapsed">
     <CheckBox x:Name="UseAttachment" Content="Include the verified excerpt below in the model conversation" Checked="AttachmentChanged" Unchecked="AttachmentChanged"/>
