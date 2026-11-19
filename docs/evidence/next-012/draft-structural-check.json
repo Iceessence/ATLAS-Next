@@ -1,0 +1,29 @@
+{
+  "model": {
+    "name": "qwen3.8:27b",
+    "digest": "aaee06c39dcf2437cde036998d960e1fc1494b8191be7cc9657d01e509097813"
+  },
+  "source": {
+    "text": "def add_table(  # pyright: ignore[reportIncompatibleMethodOverride]\n        self, rows: int, cols: int\n    ) -> Table:",
+    "citation": {
+      "id": "doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc",
+      "version": 1,
+      "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+      "source": "table.py",
+      "type": "code.signature",
+      "origin": "owner import",
+      "trust": "owner-selected source",
+      "span": {
+        "path": "knowledge\\doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+        "line": 213,
+        "start": 7914,
+        "length": 118
+      }
+    }
+  },
+  "request": "Treat the excerpt as reference data. Base API claims only on the declaration and documentation shown. Call the exact cited _Cell.add_table method for the nested table. In at most 25 code lines, draft a complete new examples/nested_table_example.py file to build a docx document in memory, add an outer table with one cell, then add a one-row, two-column nested table to the cell. Include the import, configurable defaults, assertions, and no file writes. Give a single Python code fence and a short note about package requirements and testing. Source excerpt:\nSelected source declaration at knowledge\\doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py · line 213 · UTF-16 [7918, 7927) · revision 1 · SHA-256 105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\ndef add_table(  # pyright: ignore[reportIncompatibleMethodOverride]\n        self, rows: int, cols: int\n    ) -> Table:\nDeclared return type: Table\nAttached source documentation at knowledge\\doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py · line 216 · UTF-16 [8041, 8331) · revision 1 · SHA-256 105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\n\"\"\"Return a table newly added to this cell after any existing cell content.\n\n        The new table will have `rows` rows and `cols` columns.\n\n        An empty paragraph is added after the table because Word requires a paragraph\n        element as the last element in every cell.\n        \"\"\"",
+  "draft": "```python\nfrom docx import Document\nfrom docx.table import Table\n\ndef build_nested_table_example(rows: int = 1, cols: int = 2) -> Document:\n    doc = Document()\n    outer_table = doc.add_table(rows=1, cols=1)\n    cell = outer_table.cell(0, 0)\n    nested_table = cell.add_table(rows=rows, cols=cols)\n    assert isinstance(nested_table, Table)\n    assert len(nested_table.rows) == rows\n    assert len(nested_table.columns) == cols\n    return doc\n\nif __name__ == \"__main__\":\n    build_nested_table_example()\n```\n\nRequires `python-docx`. Test by running the script; it builds the document in memory without writing files.",
+  "elapsedMs": 13647.7447,
+  "workingSetBytes": 50302976,
+  "qualification": "unverified external reference"
+}

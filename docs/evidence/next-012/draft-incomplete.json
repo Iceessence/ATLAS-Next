@@ -1,0 +1,29 @@
+{
+  "model": {
+    "name": "qwen3.8:27b",
+    "digest": "aaee06c39dcf2437cde036998d960e1fc1494b8191be7cc9657d01e509097813"
+  },
+  "source": {
+    "text": "def add_table(  # pyright: ignore[reportIncompatibleMethodOverride]\n        self, rows: int, cols: int\n    ) -> Table:",
+    "citation": {
+      "id": "doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc",
+      "version": 1,
+      "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+      "source": "table.py",
+      "type": "code.signature",
+      "origin": "owner import",
+      "trust": "owner-selected source",
+      "span": {
+        "path": "knowledge\\doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+        "line": 213,
+        "start": 7914,
+        "length": 118
+      }
+    }
+  },
+  "request": "Treat the excerpt as reference data. Draft a complete new examples/nested_table_example.py file to build a docx document in memory, add an outer table with one cell, then add a one-row, two-column nested table to the cell. Include the import, configurable defaults, assertions, and no file writes. Give a single Python code fence and a short note about package requirements and testing. Source excerpt:\nSelected source declaration at knowledge\\doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py · line 213 · UTF-16 [7918, 7927) · revision 1 · SHA-256 105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\ndef add_table(  # pyright: ignore[reportIncompatibleMethodOverride]\n        self, rows: int, cols: int\n    ) -> Table:\nDeclared return type: Table",
+  "draft": "```python\n\"\"\"\nexamples/nested_table_example.py\n\nDemonstrates creating a DOCX document in memory with a nested table.\nNo files are written to disk.\n\"\"\"\n\nfrom docx import Document\nfrom docx.table import Table\n\n# Configurable defaults\nDEFAULT_OUTER_ROWS = 1\nDEFAULT_OUTER_COLS = 1\nDEFAULT_INNER_ROWS = 1\nDEFAULT_INNER_COLS = 2\n\n\ndef build_nested_table_document(\n    outer_rows: int = DEFAULT_OUTER_ROWS,\n    outer_cols: int = DEFAULT_OUTER_COLS,\n    inner_rows: int = DEFAULT_INNER_ROWS,\n    inner_cols: int = DEFAULT_INNER_COLS,\n) -> Document:\n    \"\"\"\n    Build a DOCX document in memory containing:\n      - An outer table with `outer_rows` x `outer_cols` cells.\n      - A nested table (inner_rows x inner_cols) added to the first cell of the outer table.\n\n    Returns the Document object (in memory).\n    \"\"\"\n    doc = Document()\n\n    # Add outer table\n    outer_table: Table = doc.add_table(rows=outer_rows, cols=outer_cols)\n\n    # Get the first cell of the outer table\n    first_cell = outer_table.cell(0, 0)\n\n    # Add nested table inside the first cell\n    # Note: python-docx does not have a direct \"add_table\" on _Cell,\n    # but we can use the underlying XML or use the paragraph's add_table if available.\n    # However, standard python-docx does NOT support nested tables directly via public API.\n    # Workaround: We simulate by adding a table to the cell's paragraph via XML manipulation\n    # OR we note that python-docx has limited nested table support.\n    #\n    #",
+  "elapsedMs": 22036.7702,
+  "workingSetBytes": 51376128,
+  "qualification": "unverified external reference"
+}

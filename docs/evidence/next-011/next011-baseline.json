@@ -1,0 +1,12 @@
+[
+  {
+    "request": "Reply with exactly BRIDGE and no punctuation.",
+    "state": "needs clarification",
+    "answerRelevance": "unsupported"
+  },
+  {
+    "request": "Append -LOCAL to your previous reply. Reply with only the resulting string.",
+    "state": "needs clarification",
+    "answerRelevance": "unsupported"
+  }
+]

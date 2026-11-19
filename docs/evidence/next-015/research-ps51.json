@@ -1,0 +1,160 @@
+{
+  "id": "8ef7a633-5cf0-44b9-b8ab-01a6fc35bf19",
+  "request": "Compare project claims: Package channel | Package retention",
+  "schema": 1,
+  "parentTaskId": null,
+  "plan": {
+    "objective": "Verify package quality and retention",
+    "fields": "Package channel | Package retention",
+    "sourceIds": [
+      "doc-06d3ed31925b5e439d5e94e08db138e7ad170be82ead5042b1ca4f18930aa42c",
+      "doc-e68716908e3b4fda711429cc5414e49cd5b9a42b055803784589507cdde376e9"
+    ]
+  },
+  "project": "package-check",
+  "kind": "research.compare",
+  "authority": "local desktop owner",
+  "scope": "owner-local",
+  "dependencies": [
+    "bbcfb9622401d797e672e535894395d2d4850c443fbb9afce1772a1ed46a847a",
+    "doc-06d3ed31925b5e439d5e94e08db138e7ad170be82ead5042b1ca4f18930aa42c:1:863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+    "doc-e68716908e3b4fda711429cc5414e49cd5b9a42b055803784589507cdde376e9:3:47093ec432891a5d0bf2571719f2acbb27a20c7438752faaedf4f8cb86b5a344"
+  ],
+  "capability": "read owner-imported text",
+  "budget": "2048 chars / 32 documents / 256 KiB per import / 8 evidence passages / CPU",
+  "inferenceMicroseconds": 26,
+  "processWorkingSetBytes": 321773568,
+  "router": "deterministic-route-v8",
+  "primaryCandidateId": "doc-06d3ed31925b5e439d5e94e08db138e7ad170be82ead5042b1ca4f18930aa42c",
+  "specialist": "research.compare",
+  "proposal": {
+    "model": "atlas-native-route-v1",
+    "origin": "original",
+    "qualification": "shadow",
+    "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "route": "clarify",
+    "probability": 0.6171240459638527
+  },
+  "authorization": "allowed scoped record read",
+  "verification": "source and answer checked",
+  "sourceIntegrity": "passed",
+  "answerRelevance": "supported",
+  "researchReview": {
+    "verdict": "supported",
+    "detail": "Every requested key has explicit support in the listed local passages.",
+    "freshness": "active project revisions",
+    "trust": "owner-selected text",
+    "sources": [
+      {
+        "id": "doc-06d3ed31925b5e439d5e94e08db138e7ad170be82ead5042b1ca4f18930aa42c",
+        "version": 1,
+        "digest": "863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+        "source": "release.txt",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-06d3ed31925b5e439d5e94e08db138e7ad170be82ead5042b1ca4f18930aa42c\\00000001-863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278\\release.txt",
+          "line": 1,
+          "start": 17,
+          "length": 6
+        }
+      },
+      {
+        "id": "doc-e68716908e3b4fda711429cc5414e49cd5b9a42b055803784589507cdde376e9",
+        "version": 3,
+        "digest": "47093ec432891a5d0bf2571719f2acbb27a20c7438752faaedf4f8cb86b5a344",
+        "source": "limits.md",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "projects\\project-package-check\\knowledge\\doc-e68716908e3b4fda711429cc5414e49cd5b9a42b055803784589507cdde376e9\\00000003-47093ec432891a5d0bf2571719f2acbb27a20c7438752faaedf4f8cb86b5a344\\limits.md",
+          "line": 1,
+          "start": 19,
+          "length": 6
+        }
+      }
+    ],
+    "claims": [
+      {
+        "subject": "package channel",
+        "verdict": "supported",
+        "freshness": "active revision; undated source",
+        "sources": [
+          {
+            "id": "doc-06d3ed31925b5e439d5e94e08db138e7ad170be82ead5042b1ca4f18930aa42c",
+            "version": 1,
+            "digest": "863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+            "source": "release.txt",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "projects\\project-package-check\\knowledge\\doc-06d3ed31925b5e439d5e94e08db138e7ad170be82ead5042b1ca4f18930aa42c\\00000001-863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278\\release.txt",
+              "line": 1,
+              "start": 17,
+              "length": 6
+            }
+          }
+        ]
+      },
+      {
+        "subject": "package retention",
+        "verdict": "supported",
+        "freshness": "active revision; undated source",
+        "sources": [
+          {
+            "id": "doc-e68716908e3b4fda711429cc5414e49cd5b9a42b055803784589507cdde376e9",
+            "version": 3,
+            "digest": "47093ec432891a5d0bf2571719f2acbb27a20c7438752faaedf4f8cb86b5a344",
+            "source": "limits.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "projects\\project-package-check\\knowledge\\doc-e68716908e3b4fda711429cc5414e49cd5b9a42b055803784589507cdde376e9\\00000003-47093ec432891a5d0bf2571719f2acbb27a20c7438752faaedf4f8cb86b5a344\\limits.md",
+              "line": 1,
+              "start": 19,
+              "length": 6
+            }
+          }
+        ]
+      }
+    ],
+    "changedClaims": null,
+    "requestRelevance": "supported",
+    "factualSupport": "stated by cited sources"
+  },
+  "evidence": {
+    "id": "doc-06d3ed31925b5e439d5e94e08db138e7ad170be82ead5042b1ca4f18930aa42c",
+    "version": 1,
+    "digest": "863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278",
+    "source": "release.txt",
+    "type": "fact",
+    "origin": "owner import",
+    "trust": "owner-selected text",
+    "span": {
+      "path": "projects\\project-package-check\\knowledge\\doc-06d3ed31925b5e439d5e94e08db138e7ad170be82ead5042b1ca4f18930aa42c\\00000001-863ea656e4ad3fac873e8291ce1b6e61ff346444753d62f32d9e54a081440278\\release.txt",
+      "line": 1,
+      "start": 17,
+      "length": 6
+    }
+  },
+  "result": "package channel: stable\npackage retention: 4 days",
+  "events": [
+    {
+      "state": "queued",
+      "at": "2026-11-19T05:46:41.2979378+00:00"
+    },
+    {
+      "state": "review",
+      "at": "2026-11-19T05:46:41.303295+00:00"
+    },
+    {
+      "state": "completed",
+      "at": "2026-11-19T05:46:41.3590478+00:00"
+    }
+  ],
+  "state": "completed"
+}

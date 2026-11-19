@@ -1,0 +1,18 @@
+[
+  {
+    "file": "ATLAS-Next-win-x64-ps51.zip",
+    "bytes": 95199759,
+    "sha256": "047bce47c0a1c6bde570d6cac642853a3db5ecbde4df601bde3640ea99028e98",
+    "files": 520,
+    "roslyn": 28,
+    "weights": "shadow"
+  },
+  {
+    "file": "ATLAS-Next-win-x64-ps7.zip",
+    "bytes": 112860367,
+    "sha256": "536408c50dc7a1eb9b6cb6eb1e4a4ea5d05d2a1a7029a62fa14584b0f50b94a6",
+    "files": 520,
+    "roslyn": 28,
+    "weights": "shadow"
+  }
+]
