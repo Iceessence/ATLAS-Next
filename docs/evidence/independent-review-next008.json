@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "review": "NEXT-008",
+  "verdict": "REPAIRS_REQUIRED",
+  "reviewer": "GPT-6.2 Sol",
+  "reviewed_on_local": "2026-11-18",
+  "product_author": "Gemini Argon Orchestrator",
+  "frozen_product": "80c09b1b928c68e08b05bf0770cbc3781f86a81f",
+  "author_evidence": "b058e997fac26fe4c9be3f6300eed7431a4e39bf",
+  "reviewed_handoff": "be832027391883313c93d5d3e3bb26e6364aa430",
+  "accepted_baseline": "2011be05e61a7c7107bce3496cb0bf072e262341",
+  "baseline_verdict": "59bd350c35f17d6bc6ae29539afb2aa22c1cc909",
+  "preregistration": [
+    "8585ca05ef4f9632010b78d869fadef58bcdc45c",
+    "3b03b1e152ebf688513f2006e316ddab0c3294a4"
+  ],
+  "git_checks": {
+    "preregistration_precedes_product": true,
+    "product_to_handoff_diffs_docs_only": true,
+    "detached_clean_review_checkouts": 2,
+    "model_files_identical_to_accepted_baseline": true
+  },
+  "environment": {
+    "os": "Windows 11 Pro build 26300",
+    "dotnet_sdk": "10.0.401",
+    "packaged_runtime": "10.0.12",
+    "python": "3.12.14",
+    "external_inference_calls": 0
+  },
+  "public_replays": {
+    "release_build": {
+      "warnings": 0,
+      "errors": 0
+    },
+    "windows": {
+      "passed": 213,
+      "total": 213
+    },
+    "python_integrity": {
+      "passed": 12,
+      "total": 12
+    },
+    "factual_outcomes": {
+      "passed": 31,
+      "total": 31
+    },
+    "installed_distribution_audits": {
+      "reproduced": 10,
+      "total": 10
+    },
+    "synthetic_shadow_router": {
+      "native_correct": 54,
+      "total": 72
+    },
+    "frozen_specialist": {
+      "order": [
+        "host",
+        "tfidf",
+        "linear",
+        "native"
+      ],
+      "real_observations": [
+        16,
+        16,
+        14,
+        15
+      ],
+      "total_real": 16,
+      "constructed_controls": [
+        31,
+        31,
+        29,
+        30
+      ],
+      "total_controls": 31
+    },
+    "next005_code": {
+      "complete": 8,
+      "total": 8,
+      "wrong_deliveries": 0
+    },
+    "next006_depth": {
+      "complete": 13,
+      "total": 13,
+      "wrong_deliveries": 0
+    },
+    "next007_work": {
+      "complete": 17,
+      "total": 17,
+      "wrong_deliveries": 0,
+      "eligible_ledger_rows": 5
+    },
+    "next008_conversation": {
+      "search": {
+        "complete": 9,
+        "total": 14,
+        "exact_deliveries": 15,
+        "correct_withholds": 4,
+        "wrong_deliveries": 3,
+        "false_abstentions": 3,
+        "stable_preregistered_replay": true
+      },
+      "host": {
+        "complete": 14,
+        "total": 14,
+        "exact_deliveries": 20,
+        "correct_withholds": 5,
+        "wrong_deliveries": 0,
+        "false_abstentions": 0,
+        "first_turn_median_ms": 59.01485,
+        "warm_turn_median_ms": 18.4368,
+        "process_median_ms": 362.46375,
+        "max_sampled_working_set_bytes": 138375168
+      },
+      "ledger": {
+        "public_rows_validated": 6,
+        "author_and_new_review_ledgers_validated": true,
+        "existing_negative_controls_rejected": 4,
+        "new_mismatched_request_control": "wrongly accepted"
+      }
+    }
+  },
+  "packages": {
+    "shipped_ps51": {
+      "status": "PASS",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95143578,
+      "zip_sha256": "3d895c9d743bb1194ad0a3457f3493033f445f21f34fa10a58e6ea9cca386a8c",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf_new_code_and_recovery_flows": "PASS",
+      "log": "next-008-review/shipped-ps51.txt"
+    },
+    "shipped_ps7": {
+      "status": "PASS",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112794966,
+      "zip_sha256": "05d6aed90d6857f3346887ff5d558ad758148d8aec2a3634d0cc2010ab86342f",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf_new_code_and_recovery_flows": "PASS",
+      "log": "next-008-review/shipped-ps7.txt"
+    },
+    "rebuilt_ps51": {
+      "status": "PASS",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95143578,
+      "zip_sha256": "68c4305c2cbed22612d2e9a3a684f167ec0386ec716b265a00c4c38e2414eb8f",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf_new_code_and_recovery_flows": "PASS",
+      "log": "next-008-review/rebuilt-ps51.txt"
+    },
+    "rebuilt_ps7": {
+      "status": "PASS",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112794972,
+      "zip_sha256": "3e1f921ae52c31e3193fd9c7866f26fae2fe8596c9fc0ecff74070df9199cfcd",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf_new_code_and_recovery_flows": "PASS",
+      "log": "next-008-review/rebuilt-ps7.txt"
+    }
+  },
+  "independent_evaluation": {
+    "older_private_replays": {
+      "status": "NOT_RUN",
+      "reason": "Prior custody manifests and runnable suite entry points were not available in the designated handoff or this review workspace. Earlier receipts were consulted as historical evidence."
+    },
+    "fresh_independent_suite": {
+      "turns": 18,
+      "exact_deliveries": 10,
+      "wrong_deliveries": 7,
+      "false_abstentions": 1,
+      "correct_withholds": 0,
+      "repetitions_per_conversation": 4,
+      "classification_policy": "A malformed definition or follow-up through its malformed parent is a wrong delivery. A valid unsupported Python expression may safely withhold. Incorrectly identifying another overload's call is a wrong delivery.",
+      "cases": [
+        {
+          "origin": "independently constructed C# overload and extension control",
+          "turns": 4,
+          "exact_deliveries": 2,
+          "wrong_deliveries": 1,
+          "false_abstentions": 1,
+          "oracle": "SDK compilation with explicit implicit-usings setting. Intended project builds without implicit imports. The injected import changes overload selection.",
+          "receipt_sha256": "7ff0118fe90d2196bdb4d266c7b30f2dafcf4243a8ffb3c47c38eed653c7c802"
+        },
+        {
+          "origin": "independently constructed Python header and malformed-declaration controls",
+          "turns": 10,
+          "exact_deliveries": 4,
+          "wrong_deliveries": 6,
+          "false_abstentions": 0,
+          "oracle": "Python 3.12 AST and exact source segments. Two malformed signatures raise SyntaxError. One supported annotated and defaulted declaration is the positive control.",
+          "receipt_sha256": "7ff0118fe90d2196bdb4d266c7b30f2dafcf4243a8ffb3c47c38eed653c7c802"
+        },
+        {
+          "origin": "installed python-docx 1.2.0 source, two independently requested annotated methods",
+          "turns": 4,
+          "exact_deliveries": 4,
+          "wrong_deliveries": 0,
+          "false_abstentions": 0,
+          "oracle": "Python 3.12 AST and candidate receipt source digest",
+          "receipt_sha256": "383b6a6754946d05e0f867a55fc02d6a16eabafcf89f85ff5f3ff9c7083aff4c"
+        }
+      ]
+    },
+    "ledger_negative_control": {
+      "status": "FAIL",
+      "oracle": "A delivered Work request must equal the frozen request for that exact turn.",
+      "observed": "Schema validator and verify-only command accepted the mismatched delivered request when it was present in both JSON documents and the report digest matched.",
+      "receipt_sha256": "3e7dba67615c9bf461c159796df090966767ffdb47e64581ffbfb9d40a4ec73a"
+    },
+    "custody_boundary": "Raw independent sources, requests, labels and receipts are held outside Git. This receipt contains aggregate counts, methods and digests."
+  },
+  "findings": [
+    {
+      "id": "NEXT-008R-1",
+      "severity": "blocking",
+      "area": "C# call binding",
+      "reason": "Unconditional synthetic implicit usings can change real overload selection. A verified contextual caller was attributed to the wrong overload and the real overload was withheld.",
+      "repair": "Bind under authorized or explicit project context. Withhold verified call relationships whose target depends on an unsupported assumption about implicit imports. Exercise both direct and contextual queries."
+    },
+    {
+      "id": "NEXT-008R-2",
+      "severity": "blocking",
+      "area": "Python declaration and annotation spans",
+      "reason": "A top-level colon inside an annotation truncates the inferred function header. A leading continuation was included in a claimed annotation span. Invalid parameter ordering and a reserved keyword parameter passed arity checks and seeded verified follow-ups.",
+      "repair": "Prove declaration grammar and exact span boundaries for the supported subset. Withhold unsupported annotations, malformed declarations, and follow-ups through them. Preserve positive results on supported syntax."
+    },
+    {
+      "id": "NEXT-008R-3",
+      "severity": "blocking",
+      "area": "Outcome ledger request integrity",
+      "reason": "Inspecting delivered source spans and hashing the report does not establish that every receipt came from the recorded request. A mutually consistent report and ledger containing an unrelated Work request were accepted.",
+      "repair": "Compare every delivered request to the frozen turn request and check corresponding operation and dependency invariants. Add reject tests for altered and swapped requests, including a matching report hash."
+    }
+  ],
+  "next_assignment": {
+    "task": "NEXT-008R",
+    "next_writer": "Gemini Argon Orchestrator",
+    "next_feature": "NEXT-009 deferred until independent acceptance",
+    "product_source_changed_by_reviewer": false
+  }
+}
