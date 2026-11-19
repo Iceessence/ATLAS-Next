@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "python-dateutil",
+  "version": "4.0.0",
+  "record_path": "python_dateutil-4.0.0.dist-info/RECORD",
+  "record_sha256": "cec411fc83ce19cdc12ab873bd73f2ba6f8f24395ae1d1af82e3ffd572808793",
+  "metadata_sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907",
+  "wheel_sha256": "da266b2640c891e0e1d24f528a428ca85b913feb9aea66f822bd40b04478044c",
+  "implementation": "dateutil/parser/_parser.py",
+  "symbol": "parse",
+  "implementation_sha256": "38903d7ed00c73abb58e7fd83228539b2885f54de4dbf3ee0ba49e62782b68bb",
+  "counts": {
+    "checked": 26,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 22
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "python-dateutil",
+      "Release version": "4.0.0",
+      "Declared dependency count": "1",
+      "Python requirement": ">=3.11"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "hatchling 1.33.0",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "cec411fc83ce19cdc12ab873bd73f2ba6f8f24395ae1d1af82e3ffd572808793",
+      "Checked payload files": "26",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "Date parser parameters": "timestr, parserinfo, **kwargs",
+      "Date parser declaration line": "1264",
+      "Date parser source digest": "38903d7ed00c73abb58e7fd83228539b2885f54de4dbf3ee0ba49e62782b68bb"
+    }
+  }
+}

@@ -33,23 +33,32 @@ def cases(split):
     for family in families:
         receipt = verified_file(split, family+".json", pins)
         validate_receipt(receipt, family)
-        for n, (question, field) in enumerate(requests[family]):
-            groups = list(receipt["groups"].items())
-            random.Random(f"{family}/{n}").shuffle(groups)
-            docs = []
-            expected = None
-            for title, fields in groups:
-                lines = [f"# {family} — {title}"]
-                for key, value in fields.items():
-                    if key == field:
-                        start = len(("\n".join(lines)+"\n"+key+": ").encode("utf-16-le"))//2
-                        expected = dict(state="completed", verdict="supported", document=len(docs),
-                                        line=len(lines)+1, start=start, length=len(value.encode("utf-16-le"))//2, answer=value)
-                    lines.append(key+": "+value)
-                docs.append("\n".join(lines))
-            if expected is None:
-                raise ValueError(f"Unmeasured field: {field}")
-            result.append(dict(id=f"{family}-{n+1}",family=family,origin=receipt["origin"],
-                               outcome_receipt=dict(file=family+".json",sha256=pins[family+".json"]),
-                               question=question, documents=docs, expect=expected))
+        result.extend(project_rows(receipt, requests[family], pins[family+".json"]))
+    return result
+
+
+def project_rows(receipt, requests, receipt_digest):
+    """Project audited measurements into owner-importable claim documents."""
+    family = receipt["family"]
+    validate_receipt(receipt, family)
+    result = []
+    for n, (question, field) in enumerate(requests):
+        groups = list(receipt["groups"].items())
+        random.Random(f"{family}/{n}").shuffle(groups)
+        docs = []
+        expected = None
+        for title, fields in groups:
+            lines = [f"# {family} — {title}"]
+            for key, value in fields.items():
+                if key == field:
+                    start = len(("\n".join(lines)+"\n"+key+": ").encode("utf-16-le"))//2
+                    expected = dict(state="completed", verdict="supported", document=len(docs),
+                                    line=len(lines)+1, start=start, length=len(value.encode("utf-16-le"))//2, answer=value)
+                lines.append(key+": "+value)
+            docs.append("\n".join(lines))
+        if expected is None:
+            raise ValueError(f"Unmeasured field: {field}")
+        result.append(dict(id=f"{family}-{n+1}",family=family,origin=receipt["origin"],
+                           outcome_receipt=dict(file=family+".json",sha256=receipt_digest),
+                           question=question, documents=docs, expect=expected))
     return result

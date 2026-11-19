@@ -1,0 +1,225 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "pandas",
+  "version": "3.0.1",
+  "record_path": "pandas-3.0.1.dist-info/RECORD",
+  "record_sha256": "98e530a3a2f22b4865b342652b94846b0d75b4aa7590f7a53ba6aea322e0d0e2",
+  "metadata_sha256": "1abad8d16d49ed4ec435cf030c8630315a8d50d29a880a224e121ea2957dbd05",
+  "wheel_sha256": "e743de01ba6503a3e4234858398a1e69c07d512d51e8482ec9f3a7b1c707d165",
+  "implementation": "pandas/io/parsers/readers.py",
+  "symbol": "read_csv",
+  "implementation_sha256": "8f79cab79c63adf0ca043e19ffd5aa61876d458437be66cd9f9d2fc82914b5f9",
+  "counts": {
+    "checked": 1568,
+    "mismatched": 45,
+    "missing": 0,
+    "excluded": 1421
+  },
+  "disagreements": [
+    [
+      "pandas/_libs/_cyutility.cp312-win_amd64.pyd",
+      "894def427a481e5171f5ab77b6bc748c5dbdfc2e5523603585b582a6d7994570"
+    ],
+    [
+      "pandas/_libs/algos.cp312-win_amd64.pyd",
+      "1b6283a6ff727a6a55f5464998f64f02be101d4af89b2a6fe26f4f63d9f8c0a5"
+    ],
+    [
+      "pandas/_libs/arrays.cp312-win_amd64.pyd",
+      "c9d256ec3306725d104291695f1a73baae2ac51c2f4c22a934287297675e15ed"
+    ],
+    [
+      "pandas/_libs/byteswap.cp312-win_amd64.pyd",
+      "82234af1a339a6495ced3da6e2265fe641245ddb3f5fa503df1313b861456723"
+    ],
+    [
+      "pandas/_libs/groupby.cp312-win_amd64.pyd",
+      "68f649665dcddc6123953bee373517ae3383f289b26167fd988b128ba610852e"
+    ],
+    [
+      "pandas/_libs/hashing.cp312-win_amd64.pyd",
+      "e908621a3ba86cd49e0b6c5ef45869bee8e3803135ba3381c9898e664e4bfe63"
+    ],
+    [
+      "pandas/_libs/hashtable.cp312-win_amd64.pyd",
+      "1c14a18e1315be162f01c4d0e88f59559dd4e2f033f257b5c428f5f76896348d"
+    ],
+    [
+      "pandas/_libs/index.cp312-win_amd64.pyd",
+      "09e2f574d7771ce61500330ffaa03b64d7129788b9f766c41cc463597e78bf43"
+    ],
+    [
+      "pandas/_libs/indexing.cp312-win_amd64.pyd",
+      "e34795521fef978e804e5ed1217c47ca092ecb9b9823f74de8d8c098cc0fd23c"
+    ],
+    [
+      "pandas/_libs/internals.cp312-win_amd64.pyd",
+      "df6dbac63cc85e5380c67c59404aa59b4caffbcc1448bb645469e3008c076143"
+    ],
+    [
+      "pandas/_libs/interval.cp312-win_amd64.pyd",
+      "b36850ac49b861e9484de316be7e7a10cbeb15503ac1b23e7ed301e838ca8ede"
+    ],
+    [
+      "pandas/_libs/join.cp312-win_amd64.pyd",
+      "a4d1bdaca6f6222d23fab361056419d472c45b25fd9b80854c3484892d2f6241"
+    ],
+    [
+      "pandas/_libs/json.cp312-win_amd64.pyd",
+      "e71cdf0b6bf75f817397da58c1deead9d16aad80c30c4d12564f1cf8da19e149"
+    ],
+    [
+      "pandas/_libs/lib.cp312-win_amd64.pyd",
+      "d40b2afb8960aacc9760047f5f2207078ce36b9a553caa7df20e713623128008"
+    ],
+    [
+      "pandas/_libs/missing.cp312-win_amd64.pyd",
+      "a581b7f2cbadd1358c3c42d1fffea08b129d10f061c55de490f879b4500a2665"
+    ],
+    [
+      "pandas/_libs/ops.cp312-win_amd64.pyd",
+      "4e0b796de731cc92fccbea4212cf7aa7a8522e02b7895284b48f273d1c6d8f9c"
+    ],
+    [
+      "pandas/_libs/ops_dispatch.cp312-win_amd64.pyd",
+      "4dabcad2e4ede51a91ed4d0e6cefdce94669e4dd4e3dd194c1109739cbffd1ce"
+    ],
+    [
+      "pandas/_libs/pandas_datetime.cp312-win_amd64.pyd",
+      "c5d7846f1a838c6183fa4e49c94db02648205e42a94cfe9600dbc14be5e7d672"
+    ],
+    [
+      "pandas/_libs/pandas_parser.cp312-win_amd64.pyd",
+      "3e9466f5acb2ef1d04f3f1198d727f611a7f324232b0899be83c5d5667c7e63a"
+    ],
+    [
+      "pandas/_libs/parsers.cp312-win_amd64.pyd",
+      "06ffef81e7d79e324f6be92b96eca00aebae7a6171864f41be6cb5d5aaf57fd9"
+    ],
+    [
+      "pandas/_libs/properties.cp312-win_amd64.pyd",
+      "23db0610d030af31045de4b7ae48dcb5bd96320f4e8b32e48fde271a583fa221"
+    ],
+    [
+      "pandas/_libs/reshape.cp312-win_amd64.pyd",
+      "3e915792b3dfe9c5d0851fb4a2f0af7d7dccc7dba7686501034b1b4e6c7afdba"
+    ],
+    [
+      "pandas/_libs/sas.cp312-win_amd64.pyd",
+      "48f9a38d8cf91957999493ab7998147ba8c27b15ceb9839f7bb6dbde4bd6c466"
+    ],
+    [
+      "pandas/_libs/sparse.cp312-win_amd64.pyd",
+      "9e350fce9b9d56e42e2e549e28485833c4a3ba26291ab30f9e1b59834618e6ec"
+    ],
+    [
+      "pandas/_libs/testing.cp312-win_amd64.pyd",
+      "74bda71b6d1ae06ebb8da2849d7497666bfe98436b784211ac0e8d421f2266bd"
+    ],
+    [
+      "pandas/_libs/tslib.cp312-win_amd64.pyd",
+      "9b655c4d92bf5b85e1312010794ae6775139a90398f8eb317bb1561f6c031f11"
+    ],
+    [
+      "pandas/_libs/tslibs/base.cp312-win_amd64.pyd",
+      "4ed1258de570c8aaa351628626cbe6f3a6639d9c2ba284292b3cae9f3d5268ba"
+    ],
+    [
+      "pandas/_libs/tslibs/ccalendar.cp312-win_amd64.pyd",
+      "9dbdb688170966a302e87ad57ae247f918a476ce82afcb9a45c41cfdd320288f"
+    ],
+    [
+      "pandas/_libs/tslibs/conversion.cp312-win_amd64.pyd",
+      "c1e8603a5e3077743b8c72addfe9417ec119ed2f26405df938650957be1bbbac"
+    ],
+    [
+      "pandas/_libs/tslibs/dtypes.cp312-win_amd64.pyd",
+      "2c98b7f47664ee856c9d419d9e28363a6382a0284ece5dbafc6e037bdfae9f85"
+    ],
+    [
+      "pandas/_libs/tslibs/fields.cp312-win_amd64.pyd",
+      "39bf56f928f6e536cbf7ff8672ac3233c28c6c0e15fe68f478a40165d9945d22"
+    ],
+    [
+      "pandas/_libs/tslibs/nattype.cp312-win_amd64.pyd",
+      "74aa569b7c43f5d5207aabfc50b3ac83357f75c0af96f444336cbaefb799f7a2"
+    ],
+    [
+      "pandas/_libs/tslibs/np_datetime.cp312-win_amd64.pyd",
+      "2831bca118df3e8a30ffa5f634b2208acf0e585dfd22e3c964959fb52014d801"
+    ],
+    [
+      "pandas/_libs/tslibs/offsets.cp312-win_amd64.pyd",
+      "3fd88ecfecf4472e43d06e8b43e3ced8c40138c84cc051e52096821e40afe5b9"
+    ],
+    [
+      "pandas/_libs/tslibs/parsing.cp312-win_amd64.pyd",
+      "544d8596b255e2b49effd229e3578334c72e16c0bb29ba3f6df1d82077fd2351"
+    ],
+    [
+      "pandas/_libs/tslibs/period.cp312-win_amd64.pyd",
+      "8fcb03119742be27722065351ade83ac3ae30b7c9a898750ebbf0f9059527552"
+    ],
+    [
+      "pandas/_libs/tslibs/strptime.cp312-win_amd64.pyd",
+      "e4c3bd1489935591cbc3eb4cc064d79d58c727716589e90d65b043723195732c"
+    ],
+    [
+      "pandas/_libs/tslibs/timedeltas.cp312-win_amd64.pyd",
+      "80464a8c6a43aae528ffa396c5b185890192dae239fe782d05dcdb33f9dd3147"
+    ],
+    [
+      "pandas/_libs/tslibs/timestamps.cp312-win_amd64.pyd",
+      "d91684513a666c72d5fec597e6a7be52b7cefcdd989dd1933f3ac758be9917ea"
+    ],
+    [
+      "pandas/_libs/tslibs/timezones.cp312-win_amd64.pyd",
+      "e34c963126e63f8238edeee33ff437d9f537e21bf8668370da77517b15209014"
+    ],
+    [
+      "pandas/_libs/tslibs/tzconversion.cp312-win_amd64.pyd",
+      "830a22251acc6d4032a7d33d5fa4840fda52d890cfb40f9f1362c2745b78d90b"
+    ],
+    [
+      "pandas/_libs/tslibs/vectorized.cp312-win_amd64.pyd",
+      "19e7a5fc10eedd26cce885f93548f0a5f6202589e4e90442143b6d693ea137b0"
+    ],
+    [
+      "pandas/_libs/window/aggregations.cp312-win_amd64.pyd",
+      "ef8de053ee7b6858e76d4045502df951f0ee294b2b16d39a82120b510a7ee153"
+    ],
+    [
+      "pandas/_libs/window/indexers.cp312-win_amd64.pyd",
+      "9351c5b09998d8d0154c6cbce4b6bdf95ba749bb323ef382b0264a5aa75eefc8"
+    ],
+    [
+      "pandas/_libs/writers.cp312-win_amd64.pyd",
+      "90523008d3376603457e0edbb939ef7ac519df637efe04c8dc5f303e55d3223d"
+    ]
+  ],
+  "groups": {
+    "Release metadata": {
+      "Published name": "pandas",
+      "Release version": "3.0.1",
+      "Declared dependency count": "84",
+      "Python requirement": ">=3.11"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "meson",
+      "Wheel compatibility tags": "cp312-cp312-win_amd64",
+      "Pure library flag": "false"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "98e530a3a2f22b4865b342652b94846b0d75b4aa7590f7a53ba6aea322e0d0e2",
+      "Checked payload files": "1568",
+      "Payload hash mismatches": "45",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "CSV reader parameters": "filepath_or_buffer, iterator, chunksize, **kwds",
+      "CSV reader declaration line": "310",
+      "CSV reader source digest": "8f79cab79c63adf0ca043e19ffd5aa61876d458437be66cd9f9d2fc82914b5f9"
+    }
+  }
+}

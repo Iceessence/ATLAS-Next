@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "reportlab",
+  "version": "4.4.9",
+  "record_path": "reportlab-4.4.9.dist-info/RECORD",
+  "record_sha256": "c5d9e5c3cac235b764aebbc18b11a437aa1d27da659f47c68b6ba0e82ba87f22",
+  "metadata_sha256": "c73111f8f0ce43fc2194b3e03d0a1e3dd5aa136a7f87b63261776fad7d023097",
+  "wheel_sha256": "ff309ddcdd65ebd02bc724dbf2bcc4a0ff53a5b61792a44548d383e4ebb19d3b",
+  "implementation": "reportlab/pdfgen/canvas.py",
+  "symbol": "Canvas.__init__",
+  "implementation_sha256": "8e4256dbca70956dd511dc6f2f31e7b6908bcb607c6e5633d285c232563b6262",
+  "counts": {
+    "checked": 197,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 160
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "reportlab",
+      "Release version": "4.4.9",
+      "Declared dependency count": "8",
+      "Python requirement": ">=3.9,<4"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "setuptools (80.9.0)",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "c5d9e5c3cac235b764aebbc18b11a437aa1d27da659f47c68b6ba0e82ba87f22",
+      "Checked payload files": "197",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "PDF canvas constructor parameters": "self, filename, pagesize, bottomup, pageCompression, invariant, verbosity, encrypt, cropMarks, pdfVersion, enforceColorSpace, initialFontName, initialFontSize, initialLeading, cropBox, artBox, trimBox, bleedBox, lang, **kwds",
+      "PDF canvas constructor declaration line": "276",
+      "PDF canvas constructor source digest": "8e4256dbca70956dd511dc6f2f31e7b6908bcb607c6e5633d285c232563b6262"
+    }
+  }
+}

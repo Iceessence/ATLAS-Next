@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "pdfplumber",
+  "version": "0.11.9",
+  "record_path": "pdfplumber-0.11.9.dist-info/RECORD",
+  "record_sha256": "7580ce92d216a52bf28b1f04b4384c22718b1613f21c744d6e92afe6fa1519c0",
+  "metadata_sha256": "24f9118940ac3810a6bf0dd1970094e29cc659c71c334a6fc2e65d7120a74b62",
+  "wheel_sha256": "ff309ddcdd65ebd02bc724dbf2bcc4a0ff53a5b61792a44548d383e4ebb19d3b",
+  "implementation": "pdfplumber/pdf.py",
+  "symbol": "PDF.open",
+  "implementation_sha256": "c285a8226030d97dea1547a0334f0fe91a5a48e05f78f712f772e7e4fb2d337b",
+  "counts": {
+    "checked": 28,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 22
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "pdfplumber",
+      "Release version": "0.11.9",
+      "Declared dependency count": "3",
+      "Python requirement": ">=3.8"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "setuptools (80.9.0)",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "7580ce92d216a52bf28b1f04b4384c22718b1613f21c744d6e92afe6fa1519c0",
+      "Checked payload files": "28",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "PDF opener parameters": "cls, path_or_fp, pages, laparams, password, strict_metadata, unicode_norm, repair, gs_path, repair_setting, raise_unicode_errors",
+      "PDF opener declaration line": "73",
+      "PDF opener source digest": "c285a8226030d97dea1547a0334f0fe91a5a48e05f78f712f772e7e4fb2d337b"
+    }
+  }
+}

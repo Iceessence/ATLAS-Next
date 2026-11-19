@@ -1,0 +1,44 @@
+{
+  "origin": "observed_project_outcome",
+  "custody": "author-public",
+  "family": "pycparser",
+  "version": "3.12",
+  "record_path": "pycparser-3.12.dist-info/RECORD",
+  "record_sha256": "e9ec7a54646268297ba417f7c6a6d8a41543c197bbdd4ed1492f676063b3c28c",
+  "metadata_sha256": "ad8db5fe2b0e0a3b0e8419fe5041b80be92470a40b06bd9c1462a0a8bb637c92",
+  "wheel_sha256": "98e75747d0b7c0c568bfb71263c3d8f970b3a374a6996087bc642be5cb09a1aa",
+  "implementation": "pycparser/c_parser.py",
+  "symbol": "CParser.parse",
+  "implementation_sha256": "b8c9a31bc8e57a075de2c44821995ba339653fa19d29e2dfbe2ea864a7381e48",
+  "counts": {
+    "checked": 13,
+    "mismatched": 0,
+    "missing": 0,
+    "excluded": 8
+  },
+  "disagreements": [],
+  "groups": {
+    "Release metadata": {
+      "Published name": "pycparser",
+      "Release version": "3.12",
+      "Declared dependency count": "0",
+      "Python requirement": ">=3.11"
+    },
+    "Wheel configuration": {
+      "Wheel generator": "setuptools (84.2.1)",
+      "Wheel compatibility tags": "py3-none-any",
+      "Pure library flag": "true"
+    },
+    "Installed payload audit": {
+      "Restore manifest digest": "e9ec7a54646268297ba417f7c6a6d8a41543c197bbdd4ed1492f676063b3c28c",
+      "Checked payload files": "13",
+      "Payload hash mismatches": "0",
+      "Missing payload files": "0"
+    },
+    "Interface inspection": {
+      "C parser entry parameters": "self, text, filename, debug",
+      "C parser entry declaration line": "98",
+      "C parser entry source digest": "b8c9a31bc8e57a075de2c44821995ba339653fa19d29e2dfbe2ea864a7381e48"
+    }
+  }
+}
