@@ -96,6 +96,27 @@ internal static class SourceInventoryChecks
             win.Close();
         }
 
+        string quotaProfile=Path.Combine(root,"quota");
+        using(var quota=new Engine(quotaProfile)) {
+            int rejected=0;
+            for(int i=0;i<32;i++) {
+                try { ImportFile(quota,$"invalid-{i}.cs","class {"); }
+                catch(InvalidDataException) { rejected++; }
+            }
+            string store=Path.Combine(quotaProfile,"knowledge");
+            check(rejected==32 && !Directory.EnumerateDirectories(store).Any(),
+                "rejected source inputs reserve no published-source slots");
+            for(int i=0;i<33;i++) Directory.CreateDirectory(Path.Combine(store,$"doc-{i:x64}","pending-orphaned"));
+            check(quota.ProjectSources().Count==0 && ImportFile(quota,"first.txt","Result: first").Version==1,
+                "historical empty and pending folders consume no inventory slots");
+            for(int i=0;i<31;i++) ImportFile(quota,$"valid-{i}.txt","Result: next");
+            bool limited=false;
+            try { ImportFile(quota,"overflow.txt","Result: overflow"); }
+            catch(InvalidDataException) { limited=true; }
+            check(limited && quota.ProjectSources().Count==32 && ImportFile(quota,"first.txt","Result: revised").Version==2,
+                "quota applies to 32 published sources while allowing updates");
+        }
+
         using(var tamperEngine=new Engine(tamperProfile))
         {
             ImportFile(tamperEngine,"tamper.txt","Signal: green\n");

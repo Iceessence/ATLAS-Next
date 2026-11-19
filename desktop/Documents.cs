@@ -97,19 +97,19 @@ internal sealed class Documents(string profile,string project="default")
         string id="doc-"+Convert.ToHexStringLower(SHA256.HashData(Utf8.GetBytes(path.ToUpperInvariant())));
         CreateLocalDirectory(root);
         var directory=Path.Combine(root,id);
-        if(!Directory.Exists(directory) && Directory.GetDirectories(root,"doc-*").Length>=MaxDocuments)
-            throw new InvalidDataException("Profile document limit reached (32).");
-        Directory.CreateDirectory(directory);
-        CheckLocalPath(directory);
-        var previous=Latest(directory);
+        if(Directory.Exists(directory)) CheckLocalPath(directory);
+        var previous=Directory.Exists(directory) ? Latest(directory) : null;
         int version=previous?.Version ?? 0;
         bool same=previous?.Digest==digest;
         if(!same) version=checked(version+1);
         string revision=Path.Combine(directory,$"{version:D8}-{digest}");
         string name=Path.GetFileName(path);
         var claims=Parse(new(id,version,digest,Path.GetRelativePath(profile,Path.Combine(revision,name)),Decode(bytes)));
-        if(same) _=ReadRevision(directory); // Verify an idempotent re-import before reporting success.
+        if(previous==null && Published().Take(MaxDocuments).Count()>=MaxDocuments)
+            throw new InvalidDataException("Profile document limit reached (32).");
+        if(same) _=ReadRevision(directory,previous!.Value); // Verify an idempotent re-import before reporting success.
         else {
+            CreateLocalDirectory(directory);
             // Only fully written revision directories are published into the active index.
             string stage=Path.Combine(directory,"pending-"+Guid.NewGuid().ToString("N"));
             Directory.CreateDirectory(stage);
@@ -139,9 +139,9 @@ internal sealed class Documents(string profile,string project="default")
     {
         if(!Directory.Exists(root)) return [];
         CheckLocalPath(root);
-        var folders=Directory.GetDirectories(root,"doc-*").Order(StringComparer.Ordinal).ToArray();
-        if(folders.Length>MaxDocuments) throw new InvalidDataException("Too many stored documents.");
-        return folders.Select(ReadRevision).OfType<OwnedSource>().ToArray();
+        var entries=Published().Take(MaxDocuments+1).ToArray();
+        if(entries.Length>MaxDocuments) throw new InvalidDataException("Too many stored documents.");
+        return entries.Select(entry=>ReadRevision(entry.Directory,entry.Revision)).ToArray();
     }
 
     public IReadOnlyList<SourceSummary> Inventory()=>Sources()
@@ -150,10 +150,16 @@ internal sealed class Documents(string profile,string project="default")
         .ThenBy(item=>item.Id,StringComparer.Ordinal)
         .ToArray();
 
-    private OwnedSource? ReadRevision(string directory)
+    private IEnumerable<(string Directory,(string Path,int Version,string Digest) Revision)> Published()
     {
-        CheckLocalPath(directory);
-        if(Latest(directory) is not {} rev) return null;
+        foreach(var directory in Directory.EnumerateDirectories(root,"doc-*").Order(StringComparer.Ordinal)) {
+            CheckLocalPath(directory);
+            if(Latest(directory) is {} revision) yield return (directory,revision);
+        }
+    }
+
+    private OwnedSource ReadRevision(string directory,(string Path,int Version,string Digest) rev)
+    {
         CheckLocalPath(rev.Path);
         var files=Directory.GetFiles(rev.Path);
         if(files.Length!=1) throw new InvalidDataException("Incomplete knowledge revision.");
