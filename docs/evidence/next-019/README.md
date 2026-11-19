@@ -1,0 +1,9 @@
+# NEXT-019 native cooperation
+
+Product `709e49736d3d6bf55db4d1414887016f52d15b60`. After building the Windows checks project, use an explicit local file selection with `python -B lab/native_task.py query --question "What is the deploy region?" --source project-notes.md`. The query path reads the two frozen checkpoints and the authorized files. It does not require the training dataset, Ollama or external services.
+
+The specialist scores sources. The Master estimates whether to test a focused proposal. The unrestricted trusted host independently retrieves and delivers the authoritative result. If the Master chooses to focus, a second host run records the shadow outcome under that source restriction while Research still sees the full supplied source set. Model origins, thresholds, fit partitions, checkpoint hashes, exact source spans and separate timings travel with the receipt. Two integration tests passed, including contradictory sources and input bounds.
+
+On one openpyxl question the Master returned priority to the unrestricted host, which verified the workbook loader parameters at source line 2. On a second openpyxl question the Master requested a restricted replay. Both host passes verified the same restore-manifest digest. The focused live run took 302.7 ms for the authoritative host and 281.8 ms for the additional shadow host, with 632.5 µs of Python scoring. These single-run times include process startup. [Fallback receipt](live-fallback.json) · [Focused receipt](live-focused.json)
+
+The public comparison yielded 16/20 useful results for cooperation, both simpler gates, TF-IDF and the deterministic host. Standalone specialist and linear source selection yielded 13/20 and 15/20 respectively. No wrong answers were measured. The full public replay records all route choices, errors and costs. [Comparison](evaluation.json)
