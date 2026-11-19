@@ -1,5 +1,34 @@
 # Author test evidence
 
+## NEXT-008 author verification
+
+Frozen product `80c09b1b928c68e08b05bf0770cbc3781f86a81f` follows independently accepted NEXT-007 product `2011be05e61a7c7107bce3496cb0bf072e262341` and Argon's Phase A decision `59bd350c35f17d6bc6ae29539afb2aa22c1cc909`. The public NEXT-008 protocol and ordinary-search comparator were frozen at `8585ca05ef4f9632010b78d869fadef58bcdc45c` (with a pre-product control class-name fix at `3b03b1e152ebf688513f2006e316ddab0c3294a4`) strictly before product edits. All author-side verification ran in fresh disposable clones on Windows 11 Pro build 26300 with .NET SDK 10.0.401, bundled runtime 10.0.12, and cached Python 3.12.14. [Protocol](../lab/code-conversation-protocol.md) · [Frozen search](evidence/next-008/search-baseline.json)
+
+| Provenance and policy | Complete conversations | Exact deliveries | Correct withholds | Wrong deliveries | False abstentions |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Six public multi-turn tasks on real sources & measurements, ordinary search | 4/6 | 7 | 1 | 1 | 2 |
+| Six public multi-turn tasks on real sources & measurements, ATLAS | 6/6 | 10 | 1 | 0 | 0 |
+| Eight constructed controls, ordinary search | 5/8 | 8 | 3 | 2 | 1 |
+| Eight constructed controls, ATLAS | 8/8 | 10 | 4 | 0 | 0 |
+| Total, ordinary search | 9/14 | 15 | 4 | 3 | 3 |
+| Total, ATLAS | 14/14 | 20 | 5 | 0 | 0 |
+
+All four conversation repeats per case reproduced identical turn-by-turn verdicts, citations, `parentTaskId` follow-up links, and `code.calls` dependency hashes. Ordinary search failed on Python `relativedelta.__init__(22 parameters)` and its multiline parameter span (`2` false abstentions), misquoted a call-site argument list instead of `Engine.ReadParent` declaration parameters (`1` wrong delivery), missed `IReadOnlyList<int>` generic space normalization and Python `-> bool` return type (`1` false abstention), and mistook local shadowed `Store.Load(ids)` calls (`2` wrong deliveries). Both policies used zero per-case external inference calls. [Host trial receipts](evidence/next-008/code-conversation.json) · [Eligible outcome ledger](evidence/next-008/eligible-outcomes.json) · [Ledger validation](evidence/next-008/ledger.txt)
+
+ATLAS measured **55.34 ms** median first turn and **15.74 ms** warm turn (including submit, verify, `ParentTaskId`/`Dependencies` rechecks, and journal commits), with **335.53 ms** median cold process wall time across 4 conversation repeats and **129.26 MiB** (`135,540,736` bytes) max sampled working set. Ordinary search measured **0.1425 ms** first and **0.0217 ms** warm in-process with **25.07 MiB** (`26,292,224` bytes) sampled working set. [Search replay](evidence/next-008/search-repeat.json)
+
+| Command or workflow | Recorded outcome |
+| --- | --- |
+| `dotnet build checks -c Release --configfile NuGet.Config` and `AtlasNext.Checks.exe` | 0 warnings/errors, **213/213** checks (+28 NEXT-008 checks covering generic/nullable/array selectors, implicit usings, parameter/return/caller follow-ups, staleness & tampering). [Build](evidence/next-008/build.txt) · [Windows checks](evidence/next-008/windows-checks.txt) |
+| `python -B lab/test_integrity.py`, `lab/outcomes.py`, `lab/project_audit.py`, `lab/evaluate.py` | **12/12** integrity (+1 NEXT-008 test), **31/31** public outcomes, 10/10 distribution audits reproduced, 54/72 shadow synthetic routing. [Integrity](evidence/next-008/integrity.txt) · [Outcomes](evidence/next-008/outcomes.json) · [Audit](evidence/next-008/audit.txt) · [Routing](evidence/next-008/evaluation.json) |
+| `lab/code_navigation.py host`, `lab/code_depth.py host`, `lab/project_work_host.py` | **8/8** NEXT-005, **13/13** NEXT-006, and **17/17** NEXT-007 (8 exact deliveries, 9 correct withholds, 0 wrong deliveries; 5/5 ledger). [NEXT-005](evidence/next-008/code-navigation.json) · [NEXT-006](evidence/next-008/code-depth.json) · [NEXT-007](evidence/next-008/project-work.json) |
+| `OPENBLAS_NUM_THREADS=1 python -B lab/project_specialist.py evaluate` | Unchanged checkpoint `5c476024…`, shadow-only: host/tfidf/linear/native **16/16/14/15** on measured outcomes and **31/31/29/30** on controls. [Benchmark](evidence/next-008/benchmark.json) |
+| `lab/code_conversation_host.py` + `--verify-only` + negative mutations | **14/14** conversations (20 exact deliveries, 5 withholds, 0 wrong), 6/6 real-source multi-turn ledger outcomes validated, 4/4 negative mutations rejected. [Ledger log](evidence/next-008/ledger.txt) |
+| Windows PowerShell 5.1.26100.9818 package & live WPF UI verification | **95,143,578** bytes, SHA-256 `3d895c9d743bb1194ad0a3457f3493033f445f21f34fa10a58e6ea9cca386a8c`, 519 inventory hashes, `shadow=[]`. [Log](evidence/next-008/verify-ps51.txt) · [Receipt](evidence/next-008/packaged-ps51.json) |
+| PowerShell 7.6.9 package & live WPF UI verification | **112,794,966** bytes, SHA-256 `05d6aed90d6857f3346887ff5d558ad758148d8aec2a3634d0cc2010ab86342f`, 519 inventory hashes, `shadow=[]`. [Log](evidence/next-008/verify-ps7.txt) · [Receipt](evidence/next-008/packaged-ps7.json) |
+
+Limits: C# reference binding covers single-level and nested explicit generic/nullable/1D-array names (up to 8 type arguments, by-value parameters without modifiers) under the bundled core/collections/regex/crypto/json metadata + standard 4 implicit usings (`System`, `System.Collections.Generic`, `System.IO`, `System.Linq`); complex project SDK types outside that set (`Microsoft.CodeAnalysis`, multi-dim `[,]`, `ref`/`out`/`in`) still withhold cleanly. Python positional arity handles annotations and simple literal/empty defaults while keeping `*`, `/`, `*args`, `**kwargs`, call defaults, and redefinitions safely withheld; Python call-site resolution remains outside static binding (`unsupported`). Independent custodian review by GPT-6.2 Sol Extra High is pending.
+
 ## NEXT-007 author verification
 
 Frozen product `2011be05e61a7c7107bce3496cb0bf072e262341` follows accepted NEXT-006 product `c0e138f63ef342d5ff38a6bce1dd9cd579d1b01c` and Hydrogen's independent decision `d07f42065ed7e4f8271a2a00a71931054f981d6d`. The public comparison was frozen in `6c6d6a4a5d424e94f7031406a4ee6cf3eae6d9b5` before product changes. Windows 11 Pro build 26300, .NET SDK 10.0.401, bundled runtime 10.0.12 and cached Python 3.12.14 were used. Separate clean clones built the two packages. [Protocol](../lab/project-work-protocol.md) · [Frozen search](evidence/next-007/search-baseline.json)

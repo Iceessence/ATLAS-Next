@@ -1,0 +1,5 @@
+﻿PASS 6 real-source multi-turn outcomes and eligibility
+PASS reject_training_eligibility: Unexpected ledger schema or eligibility
+PASS reject_private_qualification: Unexpected ledger schema or eligibility
+PASS reject_missing_negative_outcome: Missing, duplicate or constructed ledger observations
+PASS reject_forged_digest: Source or request provenance mismatch

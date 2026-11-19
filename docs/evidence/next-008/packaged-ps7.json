@@ -1,0 +1,97 @@
+﻿{
+    "filename":  "ATLAS-Next-win-x64.zip",
+    "bytes":  112794966,
+    "sha256":  "05d6aed90d6857f3346887ff5d558ad758148d8aec2a3634d0cc2010ab86342f",
+    "inventory_entries":  519,
+    "task_receipts":  [
+                          {
+                              "id":  "0807f0f5-8cde-4f25-8e5f-e7d2a5026420",
+                              "request":  "What is the restore signal colour set to, please?",
+                              "schema":  1,
+                              "parentTaskId":  null,
+                              "project":  "package-check",
+                              "kind":  "knowledge.lookup",
+                              "authority":  "local desktop owner",
+                              "scope":  "owner-local",
+                              "dependencies":  [
+
+                                               ],
+                              "capability":  "read owner-imported text",
+                              "budget":  "2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",
+                              "inferenceMicroseconds":  2608,
+                              "processWorkingSetBytes":  189288448,
+                              "router":  "deterministic-route-v6",
+                              "primaryCandidateId":  "doc-3e63c3a73cbca88e078e6ace6e61015f8b613a1442a8c700089a753a4d0d758c",
+                              "specialist":  "fact",
+                              "proposal":  {
+                                               "model":  "atlas-native-route-v1",
+                                               "origin":  "original",
+                                               "qualification":  "shadow",
+                                               "sha256":  "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+                                               "route":  "fact",
+                                               "probability":  0.5316432054378415
+                                           },
+                              "authorization":  "allowed scoped record read",
+                              "verification":  "source and answer checked",
+                              "sourceIntegrity":  "passed",
+                              "answerRelevance":  "supported",
+                              "researchReview":  {
+                                                     "verdict":  "supported",
+                                                     "detail":  "Exact subject and lookup intent supported by the listed source passages.",
+                                                     "freshness":  "active revision; undated source",
+                                                     "trust":  "owner-selected text",
+                                                     "sources":  [
+                                                                     {
+                                                                         "id":  "doc-3e63c3a73cbca88e078e6ace6e61015f8b613a1442a8c700089a753a4d0d758c",
+                                                                         "version":  1,
+                                                                         "digest":  "0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac",
+                                                                         "source":  "channel.md",
+                                                                         "type":  "fact",
+                                                                         "origin":  "owner import",
+                                                                         "trust":  "owner-selected text",
+                                                                         "span":  {
+                                                                                      "path":  "projects\\project-package-check\\knowledge\\doc-3e63c3a73cbca88e078e6ace6e61015f8b613a1442a8c700089a753a4d0d758c\\00000001-0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac\\channel.md",
+                                                                                      "line":  2,
+                                                                                      "start":  41,
+                                                                                      "length":  5
+                                                                                  }
+                                                                     }
+                                                                 ],
+                                                     "claims":  null,
+                                                     "requestRelevance":  "supported",
+                                                     "factualSupport":  "stated by cited sources"
+                                                 },
+                              "evidence":  {
+                                               "id":  "doc-3e63c3a73cbca88e078e6ace6e61015f8b613a1442a8c700089a753a4d0d758c",
+                                               "version":  1,
+                                               "digest":  "0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac",
+                                               "source":  "channel.md",
+                                               "type":  "fact",
+                                               "origin":  "owner import",
+                                               "trust":  "owner-selected text",
+                                               "span":  {
+                                                            "path":  "projects\\project-package-check\\knowledge\\doc-3e63c3a73cbca88e078e6ace6e61015f8b613a1442a8c700089a753a4d0d758c\\00000001-0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac\\channel.md",
+                                                            "line":  2,
+                                                            "start":  41,
+                                                            "length":  5
+                                                        }
+                                           },
+                              "result":  "amber",
+                              "events":  [
+                                             {
+                                                 "state":  "queued",
+                                                 "at":  "2026-11-19T00:56:21.7795242+00:00"
+                                             },
+                                             {
+                                                 "state":  "review",
+                                                 "at":  "2026-11-19T00:56:21.8601345+00:00"
+                                             },
+                                             {
+                                                 "state":  "completed",
+                                                 "at":  "2026-11-19T00:56:23.9185571+00:00"
+                                             }
+                                         ],
+                              "state":  "completed"
+                          }
+                      ]
+}
