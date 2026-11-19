@@ -1,5 +1,13 @@
 # Author test evidence
 
+## Sol NEXT-008R author verification
+
+Frozen repair `112f9fb071698b5d6b256184f3debda54dd9e305` validates recognized escapes in Python declaration header string and bytes tokens. CPython compilation without execution supplies negative and positive checks. These cover hex widths, Unicode bounds, byte literals, raw prefixes, standard escape spellings, parameters and return annotations. Valid named Unicode escapes and other unvalidated escapes withhold. This is a fail-closed declaration subset. Imported sources are never executed. [Python integrity](evidence/next-008r-sol/integrity.txt)
+
+Two clean Windows clones passed the Release build without warnings or errors, 240 Windows checks, 14 Python integrity tests, 31 public factual controls, ten distribution audits, and the public NEXT-005/006/007 code replays at 8/8, 13/13 and 17/17. NEXT-008 remained at 12/14, with 18 exact deliveries, five correct withholds, two omitted-import call abstentions and zero wrong deliveries. The six public real-source ledger rows validated. The frozen shadow specialist repeated 16/16/14/15 measured passes and 31/31/29/30 constructed passes. [Windows checks](evidence/next-008r-sol/windows.txt) · [NEXT-008 replay](evidence/next-008r-sol/host8.txt)
+
+The named repair ZIPs in `out/NEXT-008R-Sol` passed actual WPF workflows including the new Python positive and malformed header journey. Each package verified 519 inventory entries. Windows PowerShell 5.1 ZIP SHA-256 `95c2e4100afc0ad25e9e4ee33d1e204d5d7d54d070672e73e7b21d64b4ea30bf`. PowerShell 7.6.9 ZIP SHA-256 `fb10bc6daca2e8d52039c1499c3d70af7a680f727aaf5e70860aa4e49c1de616`. [PowerShell 5.1](evidence/next-008r-sol/verify-ps51.txt) · [PowerShell 7](evidence/next-008r-sol/verify-ps7.txt)
+
 ## NEXT-008R follow-up independent review
 
 Sol reviewed Argon's frozen candidate `298db33c18f8f888f162569bf2b9bd44434a4a6b` and issued **REPAIRS_REQUIRED**. The 52 prior evaluator turns produced 28 exact deliveries and 24 correct withholds. New CPython checks found five malformed literal headers that ATLAS accepted on both definition forms and both selected follow-ups, yielding 20 wrong deliveries. Four valid literal controls produced 16 exact deliveries. C# binding and four matched-digest ledger negative controls passed. The clean offline build, 240 Windows checks, 14 integrity tests, public replays and four live packaged WPF workflows passed. [Independent review receipt and ZIP evidence](evidence/independent-review-next008r-followup.json)
