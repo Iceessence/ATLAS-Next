@@ -1,6 +1,20 @@
 # Roadmap
 
-## Decision after independent NEXT-004 review
+## Native-original intelligence first
+
+The next batch moves work toward local decisions made by original ATLAS-trained weights. Verified local sources remain the factual and procedural record. The deterministic host owns authorization, provenance, validation and delivery. Optional external reference chat is a separate operation with its own consent and lineage.
+
+| Milestone | Measurable objective |
+| --- | --- |
+| NEXT-016 | Record eligible successes and failures for source selection on authorized project evidence, keeping project families and evaluation custody separate. |
+| NEXT-017 | Fit an original source specialist from random initialization and compare actual verified outcomes with deterministic retrieval and logistic regression. |
+| NEXT-018 | Fit an original Primary Master that predicts whether a specialist proposal can support the requested task. |
+| NEXT-019 | Run both learned decisions together on read-only work and compare downstream outcomes and costs against individual and simpler policies. |
+| NEXT-020 | Attempt a controlled refit on newly eligible projects and retain the result and failures for an independent, protected evaluation. |
+
+Qualification requires better verified outcomes on unfamiliar work and separate authority to change protected operation. Future engineering and research milestones should contribute independently verified outcomes that can teach the corresponding master or specialist. Model size follows task evidence and resource budgets.
+
+## Earlier decision after independent NEXT-004 review
 
 | Option | First useful outcome | Dependency and measure |
 | --- | --- | --- |

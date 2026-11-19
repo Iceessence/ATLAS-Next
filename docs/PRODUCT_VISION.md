@@ -6,6 +6,12 @@ The first original model advises the Primary coordinator on fact, procedure or c
 
 Success means demonstrable task completion on new project families under equal resources, fewer reference-assisted completions at matched quality, and auditable safe abstention. An accurate synthetic classifier is an experiment. Independent evaluation and owner authority are needed for deployment of a learned routing policy. [Current result](ai/ATLAS_OWNER_REPORT.md)
 
+## Native-original operating mode
+
+Original ATLAS checkpoints start with locally initialized weights. They may use conventional numerical libraries, authorized observations, and independently verified file-backed facts and procedures. In native-original operation, learned decisions come from those checkpoints with zero calls to pretrained models or hosted inference services. The host authorizes the sources and verifies the evidence, and it retains sole control over permissions and delivery.
+
+An owner can run the bounded native experiments separately from optional external reference chat. Experiment receipts identify the learned predictions, deterministic checks, retrieved evidence, model architecture, training provenance, and qualification. Current native models are shadow candidates. The long-term roles are Primary Coordinator, Engineering/Execution, and Research/Verification, supported by original specialists sized to their measured workloads.
+
 ## PLATZ Technologies and ATLAS AI
 
 PLATZ Technologies is the overarching technology and creative-development ecosystem. ATLAS AI is its local-first intelligence product for reasoning, research, coding, knowledge navigation, authorized automation and verified self-improvement. PLATZ Engine is a separate, early-stage creation platform with PLATZ Studio, Core, Runtime and Hub. Its own `PLATZ_MASTER.md` governs the engine. Its design calls for Vulkan-first, GPU-first rendering, a CPU reference and OpenGL fallback, editable canonical project data, visual and code authoring, accessible non-destructive workflows, and high-performance 2D, 3D, pixel and voxel creation. Each product must work independently. Future integration uses explicit, versioned, permission-controlled interfaces across separate repositories.
