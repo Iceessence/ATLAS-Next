@@ -44,6 +44,13 @@ internal static class ReferenceChecks
             new HttpResponseMessage(HttpStatusCode.OK) {Content=new StringContent(new string('x',300_000))})));
         try { await oversized.Discover(CancellationToken.None); check(false,"oversized response refused"); }
         catch(InvalidDataException) { check(true,"local client bounds response consumption"); }
+        using var truncated=new LocalReference(new Fixture((request,_)=>Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) {
+            Content=new StringContent(request.Method==HttpMethod.Get ?
+                JsonSerializer.Serialize(new {models=new[]{new {name=Name,digest=Digest,size=10,details=new {format="gguf"}}}}) :
+                JsonSerializer.Serialize(new {model=Name,done=true,done_reason="length",message=new {role="assistant",content="partial answer"}}))
+        })));
+        try { await truncated.Reply(model[0],[new("user","Draft a file")],CancellationToken.None); check(false,"truncated reply refused"); }
+        catch(InvalidDataException) { check(true,"local client withholds text stopped by the output budget"); }
         using var cancellation=new CancellationTokenSource();
         using var waiting=new LocalReference(new Fixture(async (_,token)=>{
             await Task.Delay(Timeout.InfiniteTimeSpan,token);

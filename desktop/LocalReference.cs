@@ -78,10 +78,12 @@ internal sealed class LocalReference : IDisposable
             throw new InvalidDataException("The selected local model is missing or changed. Refresh the model list.");
         using var request=new HttpRequestMessage(HttpMethod.Post,"api/chat") {
             Content=JsonContent.Create(new {model=selected.Name,messages,stream=false,think=false,keep_alive=0,
-                options=new {temperature=0,seed=42,num_ctx=4096,num_predict=384}})
+                options=new {temperature=0,seed=42,num_ctx=4096,num_predict=768}})
         };
         using var doc=await Read(request,deadline.Token);
         var root=doc.RootElement;
+        if(Text(root,"done_reason")=="length")
+            throw new InvalidDataException("The model reached the reply limit. Ask for a shorter result.");
         if(Text(root,"model")!=selected.Name || !root.TryGetProperty("done",out var done) || done.ValueKind!=JsonValueKind.True ||
             !root.TryGetProperty("message",out var message) || message.ValueKind!=JsonValueKind.Object ||
             Text(message,"role")!="assistant" || message.TryGetProperty("tool_calls",out _) ||

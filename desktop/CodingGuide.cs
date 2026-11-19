@@ -15,6 +15,10 @@ internal sealed record CodingGuide(GuidePart Definition,GuidePart Signature,Guid
     {
         string text=$"Selected source declaration at {Place(Definition.Citation)}\n{Signature.Text}";
         if(Return?.Text is {} value) text+=$"\nDeclared return type: {value}";
+        if(Documentation is {} doc) {
+            string candidate=text+$"\nAttached source documentation at {Place(doc.Citation)}\n{doc.Text}";
+            if(candidate.Length<=1700) text=candidate;
+        }
         return text.Length<=1700 ? text : null;
     }
 }
