@@ -36,6 +36,19 @@ After the Release checks build, run `python -B lab/outcomes.py` for the public, 
 
 Each case has separate questions, source texts, expectations and provenance. Declare `author_fixture`, `custodian_fixture`, or `observed_project_outcome`. An observed outcome additionally requires an `outcome_receipt` with a sibling filename and SHA-256. An external path or matching digest alone cannot establish independent custody or empirical truth. The runner gives the isolated test process only the question and texts, scores the real engine's receipt and records failures, lookup latency and process memory. Custodians retain their suite, labels and detailed reports. Only independently attested results qualify as independent evidence.
 
+## Run the original-model lab
+
+The lab uses explicit, pinned audits of named public distributions installed on the local workstation. After the Windows checks build, verify and acquire the Foundry data, then run an enrolled project task. The report separates model proposals from the host's authoritative result. The packaged Model Evidence window shows benchmark and qualification status.
+
+```powershell
+$env:OPENBLAS_NUM_THREADS = "1"
+python -B tools/check_master_plan.py
+python -B lab/foundry.py acquire
+python -B lab/atlas_team.py query --project pycparser --question "Show the evidence for this installation's published name (pycparser)." --also-definition "Identify where pycparser defines CParser.parse; quote the declaration identifier."
+```
+
+[Live task and ablations](docs/evidence/next-024/README.md) · [Supported verification environment](docs/evidence/next-021-025-integration/README.md)
+
 ## Build from a fresh checkout
 
 Use an interactive Windows x64 desktop, 64-bit Windows PowerShell 5.1 or PowerShell 7, .NET SDK 10.0.401 (or compatible patch) with WindowsDesktop reference packs, and the matching .NET/WindowsDesktop 10.0.12 runtime folders for bundling. Package sources are cleared in NuGet.Config. From the repo root:

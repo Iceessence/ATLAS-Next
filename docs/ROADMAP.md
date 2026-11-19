@@ -4,6 +4,10 @@ The [canonical ATLAS Master Plan v3.3](ai/ATLAS_MASTER_PLAN.md) governs intended
 
 ## Native-original intelligence first
 
+The v3.3 contract defines NEXT-021 through NEXT-025 as the immediate original-model Workbench program. The full phase and its later prerequisites are indexed under CH-071–076 and Appendix S. See the handoff for current frozen products and review state. The next data priority is independent performance on naturally composed requests, implicit references, ambiguous evidence and different source families. [v3.3 navigation](ai/ATLAS_MASTER_PLAN_README.md)
+
+### Previous native-original batch
+
 The next batch moves work toward local decisions made by original ATLAS-trained weights. Verified local sources remain the factual and procedural record. The deterministic host owns authorization, provenance, validation and delivery. Optional external reference chat is a separate operation with its own consent and lineage.
 
 | Milestone | Measurable objective |

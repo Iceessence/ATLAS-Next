@@ -1,8 +1,11 @@
-requirement_id,status,code_paths,test_paths,review_receipts,limitation
-ID-01,ACCEPTED_BOUNDED_SHADOW,lab/native_task.py;desktop/LocalReference.cs,lab/test_native_task.py,docs/evidence/independent-review-next015r-020.json,Native model decisions advisory
-ID-03,ACCEPTED_BOUNDED,desktop/Engine.cs;assets/library,checks/Program.cs,docs/evidence/independent-review-next015r-020.json,File-backed bounded fact and example procedures
-V33-172,ACCEPTED_BOUNDED,lab/native_data.py;lab/native_models.py,lab/test_native_data.py;lab/test_native_models.py,docs/evidence/independent-review-next015r-020.json,Public audit provenance; new Foundry contract pending
-V33-174,OPEN,lab/native_master.py,lab/test_native_master.py,docs/evidence/independent-review-next015r-020.json,Primary gate only; three-role competence unverified
-V33-176,BLOCKED,tools/check-guest.ps1,,docs/TEST_EVIDENCE.md,No qualified execution guest or host execution
-V33-184,ACCEPTED_BOUNDED_REJECTION,lab/native_improvement.py,lab/test_native_review.py,docs/evidence/independent-review-next015r-020.json,Refit rejected in author and protected comparisons
-V33-186,AUTHOR_VERIFIED,lab/master_spec.py;tools/check_master_plan.py,lab/test_master_spec.py,,Installed edition navigation; independent review pending
+requirement_id,status,code_paths,test_paths,review_receipts,limitation,author_evidence
+ID-01,ACCEPTED_BOUNDED_SHADOW,lab/native_task.py;desktop/LocalReference.cs,lab/test_native_task.py,docs/evidence/independent-review-next015r-020.json,Native model decisions advisory,
+ID-03,ACCEPTED_BOUNDED,desktop/Engine.cs;assets/library,checks/Program.cs,docs/evidence/independent-review-next015r-020.json,File-backed bounded fact and example procedures,
+V33-169,AUTHOR_VERIFIED_WITH_LIMITATIONS,lab/atlas_language.py,lab/test_atlas_language.py,,Three typed intents on public audit prompts; no broad language qualification,docs/evidence/next-022/README.md
+V33-172,AUTHOR_VERIFIED_WITH_LIMITATIONS,lab/foundry.py;lab/foundry_sources.py,lab/test_foundry.py,,Public-scope permission and outcome binding; persistent general-purpose revocation remains open,docs/evidence/next-021/README.md
+V33-174,AUTHOR_VERIFIED_WITH_LIMITATIONS,lab/atlas_team.py,lab/test_atlas_team.py,,Three narrow learned role decisions. No public gain over simpler controls,docs/evidence/next-024/README.md
+V33-176,BLOCKED,tools/check-guest.ps1,,docs/TEST_EVIDENCE.md,No qualified execution guest or host execution,
+V33-182,AUTHOR_VERIFIED_WITH_LIMITATIONS,lab/foundry.py;lab/atlas_planner.py,lab/test_foundry.py;lab/test_atlas_planner.py,,Two read-only public procedure cards; no autonomous procedure promotion,docs/evidence/next-023/README.md
+V33-183,AUTHOR_VERIFIED_WITH_LIMITATIONS,lab/atlas_planner.py;lab/atlas_team.py,lab/test_atlas_planner.py;lab/test_atlas_team.py,,Linear evidence paths and bounded two-goal dependency trace,docs/evidence/next-023/README.md
+V33-184,AUTHOR_VERIFIED_WITH_LIMITATIONS,lab/atlas_refit.py;lab/atlas_language_review.py,lab/test_atlas_refit.py,,Refit rejected; independent protected comparison pending,docs/evidence/next-025/README.md
+V33-186,AUTHOR_VERIFIED,lab/master_spec.py;tools/check_master_plan.py,lab/test_master_spec.py,,Installed edition navigation; independent review pending,

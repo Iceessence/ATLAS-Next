@@ -1,0 +1,37 @@
+{
+  "edition": "v3.3",
+  "effective_date": "2026-11-19",
+  "documentation_commit": "f5f8f75a29ee02dc72da26dcc15a88fe14d42603",
+  "canonical_sha256": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b",
+  "index_sha256": "11fae4762e3c84b14da9562c64cbcaafeabbb127ea295a9fd93d7dd98c38aa39",
+  "input_zip_sha256": "cbc7a3b0b02e11eb1718f028c0e8dd2c93c2138a046c02942812d199309142d4",
+  "verified_members": 65,
+  "original_members": 18,
+  "verified_sections": 301,
+  "canonical_lines": 3983,
+  "canonical_words": 73432,
+  "chapters": 192,
+  "parts": 23,
+  "appendices": 23,
+  "historical_requirement_ids": 50,
+  "new_requirement_ids": 26,
+  "archive": {
+    "path": "C:/ATLAS/ATLAS-Next-master-archive/2026-11-19-v3.3/ATLAS_COMPLETE_MASTER_PACKAGE_v3_3_2026-11-19.zip",
+    "sha256": "cbc7a3b0b02e11eb1718f028c0e8dd2c93c2138a046c02942812d199309142d4",
+    "policy": "historical sources and previous editions, nonbinding",
+    "originals": 18,
+    "previous_editions": [
+      "archive/ATLAS_MASTER_PLAN_v3_1.md",
+      "archive/ATLAS_MASTER_PLAN_v3_2_original.md",
+      "archive/ATLAS_FULL_TRANSFER_v3_1_original.zip"
+    ],
+    "unsupplied": "NOT_SUPPLIED",
+    "contents": "docs/ai/archive/master-plan/v3.3-transfer-sha256.json"
+  },
+  "navigation": "Every indexed range and digest verified, all headings traversed. Relevant complete indexed sections were consulted for decisions.",
+  "validation": "Package-supplied checker, repository verifier, navigation tamper tests and clean checkout replay.",
+  "automatic_gate": "Source Python unittest discovery. This repository has no configured hosted CI.",
+  "accepted_baseline": "6dbf726443e9afd3c527f99d4851440e1404f4bb",
+  "independent_review_commit": "611a1a4d86293cfccf13eb35451013cf91359e26",
+  "document_install_review": "pending"
+}

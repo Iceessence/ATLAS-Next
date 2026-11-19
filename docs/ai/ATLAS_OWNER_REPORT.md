@@ -1,5 +1,24 @@
 # ATLAS Next owner report
 
+## Master Plan v3.3 and native-original NEXT-021 through NEXT-025
+
+The owner-supplied v3.3 master was installed unchanged in documentation commit `f5f8f75a29ee02dc72da26dcc15a88fe14d42603` with SHA-256 `8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b`. The ZIP's 65 file checksums and all 301 indexed sections validated. The verified archive preserves the previous editions, 18 originals and transcripts outside Git. The quickstart, tests and lab startup use the pinned plan and index. [Master navigation](ATLAS_MASTER_PLAN_README.md) · [Installation evidence](../evidence/next-021-025-integration/master-install.json)
+
+The actual starting HEAD `611a1a4d86293cfccf13eb35451013cf91359e26` records independent `ACCEPTED_WITH_LIMITATIONS` for NEXT-015R and NEXT-016 through NEXT-020. The accepted product is `6dbf726443e9afd3c527f99d4851440e1404f4bb`. The prior review found no blocking defect. NEXT-021 applies both recorded hygiene fixes. The new integrated candidate `19f3f468b404d7642a2370a9eb19e6e5b2f4aff8` awaits independent review. [Prior review](../evidence/independent-review-next015r-020.json) · [Current handoff](ATLAS_HANDOFF.md)
+
+| Milestone | Verified by the author | Decision or limit |
+| --- | --- | --- |
+| NEXT-021 | 56 project queries, 28 authored safety controls, 504 actual read-only host observations across 14 public families | 56 correct typed deliveries. Raw phrasings for those tasks withheld. History and typed receipts give the models real positive and negative action data. [Foundry](../evidence/next-021/README.md) |
+| NEXT-022 | 6,211-parameter original text model and 1,155-parameter linear control trained on 36 requests | Original intent matched 24/24. Both models and exact typed grounding yielded 16 verified shadow deliveries and eight correct withholds. [Language](../evidence/next-022/README.md) |
+| NEXT-023 | 61-parameter original planner learned from measured reads and used pinned procedure cards | A live task used a learned three-step path. A live fixed control needed five steps and recovered after a failed evidence check. Literal ordering matched learned outcomes on the public replay. [Planner](../evidence/next-023/README.md) |
+| NEXT-024 | Primary text model, separate 61-parameter Research and Engineering heads, per-role and pairwise ablations | All three roles completed a six-step factual and declaration task in shadow. On public replay, literal ordering and two simpler teams matched the full team. [Masters](../evidence/next-024/README.md) |
+| NEXT-025 | Refit trained from scratch with 12 new eligible requests, preserved previous weights | One validation recovery, zero public held-out gains, worse held-out calibration. Refit rejected. [Refit](../evidence/next-025/README.md) |
+
+The integrated Windows package adds a pinned Model Evidence view of the current plan, the trained architectures and the rejected refit. The source checkout can run an original-only, read-only compound task over explicitly selected, enrolled public projects. It verified both the pycparser installed name and the exact `parse` declaration. Broad arbitrary-project reasoning, generative code, GPU training, automated host actions and protected qualification remain outside the current evidence. [Live trace](../evidence/next-024/live-compound.json) · [Package and clean replay](../evidence/next-021-025-integration/README.md)
+
+Legacy ATLAS remains a separate workbench with its own history. This batch adds auditable native weights, rights-bound outcome data and an offline read-only path in ATLAS Next. It transfers no execution capabilities from the legacy application. User accounts, private data, rights decisions, Windows privileges, evaluator custody, PLATZ Engine and FORGE remain separate.
+
+
 ## Independent batch review — NEXT-015R and native-original NEXT-016 through NEXT-020 (`ACCEPTED_WITH_LIMITATIONS`)
 
 **Gemini Neon Orchestrator completed the independent clean-checkout review of Sol's `NEXT-015R` repair and the native-original `NEXT-016` through `NEXT-020` batch (`797c5c78dc4551d9c4e205752797bc656be9d93a`).** Every milestone and integrated product `6dbf726443e9afd3c527f99d4851440e1404f4bb` earned **`ACCEPTED_WITH_LIMITATIONS`**, advancing the independently accepted baseline from `NEXT-014` (`81cc70eb`) to **`NEXT-020` (`6dbf726443e9afd3c527f99d4851440e1404f4bb`)**. All five native checkpoints remain strictly `shadow`-only, host execution remains disabled (`read owner-imported text`), all seven evidence commits touched `docs/` only, and legacy ATLAS (`695585f`), PLATZ Engine, and FORGE remain untouched. [Independent batch receipt](../evidence/independent-review-next015r-020.json) · [Canonical handoff](ATLAS_HANDOFF.md)

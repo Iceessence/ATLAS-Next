@@ -1,0 +1,1 @@
+PASS v3.3 SHA-256 8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b; 301 indexed sections; 192 chapters, 23 parts, 23 appendices and 50 historical IDs.

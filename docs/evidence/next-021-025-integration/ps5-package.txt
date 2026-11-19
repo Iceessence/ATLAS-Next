@@ -1,0 +1,9 @@
+  Determining projects to restore...
+  Restored C:\ATLAS\ATLAS-Next\out\NEXT-021-025-final\ps5\desktop\AtlasNext.csproj (in 46 ms).
+  AtlasNext -> C:\ATLAS\ATLAS-Next\out\NEXT-021-025-final\ps5\desktop\bin\Release\net10.0-windows\AtlasNext.dll
+  AtlasNext -> C:\ATLAS\ATLAS-Next\out\NEXT-021-025-final\ps5\out\stage-7ff17e36bfb443cca149b2053a101474\app\
+
+
+Algorithm : SHA256
+Hash      : DFD1BEFB7E23C7626E19D1BAB378B76FFEDA805775C00BA56927FE405C876162
+Path      : C:\ATLAS\ATLAS-Next\out\NEXT-021-025-final\ps5\out\ATLAS-Next-win-x64.zip

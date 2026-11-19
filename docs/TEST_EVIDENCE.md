@@ -1,5 +1,14 @@
 # Author test evidence
 
+## ATLAS Master Plan v3.3 and NEXT-021 through NEXT-025 author verification
+
+The exact 2026-11-19 v3.3 Markdown, version manifest, indexes and archive pointers were installed at `f5f8f75a29ee02dc72da26dcc15a88fe14d42603`. [Documentation verification](evidence/next-021-025-integration/master-install.json)
+
+The integrated author product is `19f3f468b404d7642a2370a9eb19e6e5b2f4aff8`. Native paths remained read-only, offline and shadow-only, with no pretrained inference. [Clean Windows build, suites, replay and packages](evidence/next-021-025-integration/README.md)
+
+[Foundry](evidence/next-021/README.md) · [Language](evidence/next-022/README.md) · [Planning](evidence/next-023/README.md) · [Masters](evidence/next-024/README.md) · [Rejected refit](evidence/next-025/README.md)
+
+
 ## NEXT-015R and native-original NEXT-016 through NEXT-020 independent batch review
 
 Gemini Neon Orchestrator independently reviewed Sol's `NEXT-015R` repair (`9c48621fc3868a02291c100c85d2225e67b393ae`) and the native-original batch `NEXT-016` through `NEXT-020` (`a27ff64345547bff4f4182caced9907f712dde65`, `3eb40b96aca90bc8243086fd8e3b620c4b486970`, `d8ebe25bd719a477c9d6cfa73afd17e50afb964e`, `709e49736d3d6bf55db4d1414887016f52d15b60`, integrated `6dbf726443e9afd3c527f99d4851440e1404f4bb`, handoff `797c5c78dc4551d9c4e205752797bc656be9d93a`, preregistration `409982b3ef3fdb85616286e2d9ddfdc8d3c7af03`) from clean checkouts without editing product source. Every update and the integrated candidate received **`ACCEPTED_WITH_LIMITATIONS`**, advancing the independently accepted baseline to **`6dbf726443e9afd3c527f99d4851440e1404f4bb`**. All seven evidence-only commits touched `docs/` only; native checkpoints remain strictly `shadow`-only; host execution stays disabled (`read owner-imported text`); and legacy ATLAS (`695585fedc38c72d77bf355ea595f42fcf7a9e07`), PLATZ Engine, and FORGE stayed untouched. [Independent receipt](evidence/independent-review-next015r-020.json)

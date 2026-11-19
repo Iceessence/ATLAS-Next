@@ -1,0 +1,9 @@
+Bad recovery notice: Recovered 2 interrupted tasks. Quarantined 5 files this startup. 5 preserved in
+[disposable package workspace]\profile\quarantine.
+At C:\ATLAS\ATLAS-Next\out\NEXT-021-025-final\ps5\tools\verify-package.ps1:279 char:94
++ ... ntined 5 files this startup.*'){throw "Bad recovery notice: $notice"}
++                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Bad recovery no...ile\quarantine.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Bad recovery notice: Recovered 2 interrupted tasks. Quarantined 5 files this startup. 5
+   preserved in [disposable package workspace]\profile\quarant
+  ine.
