@@ -296,6 +296,48 @@ try {
         throw 'Packaged changed-source research check failed'
     }
     "PASS packaged overload selection, cross-file call binding, per-claim research provenance and stale-revision withholding"
+    $repoCs = @('class Store {',
+        '    public IReadOnlyList<string> Load(string? filter) => Array.Empty<string>();',
+        '    public IReadOnlyList<string> Load(IReadOnlyList<int> ids) => Array.Empty<string>();',
+        '}') -join [char]10
+    $workerCs = 'class Worker { int Run(Store s, IReadOnlyList<int> ids) => s.Load(ids).Count; }'
+    Import-Document $session 'Store.cs' $repoCs
+    Import-Document $session 'Worker.cs' $workerCs
+    $promptBox.SetValue('Where is Store.Load(IReadOnlyList<int>) defined?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'SourceInfo').Current.Name -notlike '*Store.cs*line 3,*'){throw 'Packaged generic overload lookup failed'}
+    $promptBox.SetValue('What are its parameters?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'Summary').Current.Name -ne '(IReadOnlyList<int> ids)'){throw 'Packaged parameter list follow-up failed'}
+    $promptBox.SetValue('Where is Store.Load(IReadOnlyList<int>) defined?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    $promptBox.SetValue('What is its return type?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'Summary').Current.Name -ne 'IReadOnlyList<string>'){throw 'Packaged return type follow-up failed'}
+    $promptBox.SetValue('Where is Store.Load(IReadOnlyList<int>) defined?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    $promptBox.SetValue('Where is it called?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'Summary').Current.Name -ne 'Worker.cs, line 1: s.Load(ids)'){throw 'Packaged conversational caller follow-up failed'}
+    "PASS packaged generic overload, parameter list, return type, and conversational caller follow-up"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"

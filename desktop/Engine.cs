@@ -43,7 +43,7 @@ internal sealed class Engine(string profile) : IDisposable
             task=task with {InferenceMicroseconds=(long)clock.Elapsed.TotalMicroseconds, ProcessWorkingSetBytes=Environment.WorkingSet};
             string? projectRoute=ProjectRoute(request,code);
             task=projectRoute!=null
-                ? QueueProjectAnswer(task,proposed,projectRoute,code,primaryDocument)
+                ? QueueProjectAnswer(task,proposed,projectRoute,code,primaryDocument,parentId)
                 : QueueLookup(task,request,proposed,primaryDocument,code,parentId);
         }
         catch(Exception ex) when(ex is IOException or InvalidDataException or UnauthorizedAccessException)
@@ -95,16 +95,19 @@ internal sealed class Engine(string profile) : IDisposable
         ProjectQuestions.IsResearch(request) ? ProjectQuestions.ResearchType :
         code?.Calls==true ? ProjectQuestions.CallsType : null;
 
-    private static ProjectFinding CheckProjectAnswer(string request,CodeQuestion? code,IReadOnlyList<OwnedSource> sources)
+    private ProjectFinding CheckProjectAnswer(string request,CodeQuestion? code,IReadOnlyList<OwnedSource> sources,Guid? parentId=null)
     {
         var passages=sources.SelectMany(Documents.Parse).ToArray();
-        return code?.Calls==true ? ProjectQuestions.Calls(code,sources,passages) : ProjectQuestions.Compare(request,passages);
+        if(code?.Calls!=true) return ProjectQuestions.Compare(request,passages);
+        var parent=code.FollowUp ? ReadParent(parentId,passages) : null;
+        return ProjectQuestions.Calls(code,sources,passages,parent);
     }
 
-    private Work QueueProjectAnswer(Work task,Recommendation proposed,string route,CodeQuestion? code,string? primaryDocument)
+    private Work QueueProjectAnswer(Work task,Recommendation proposed,string route,CodeQuestion? code,string? primaryDocument,Guid? parentId)
     {
-        var finding=CheckProjectAnswer(task.Request,code,documents.Sources());
-        task=task with {Kind=route,Specialist=route,Proposal=proposed,Router="deterministic-route-v7",ResearchReview=finding.Assessment};
+        var finding=CheckProjectAnswer(task.Request,code,documents.Sources(),parentId);
+        task=task with {Kind=route,Specialist=route,Proposal=proposed,Router="deterministic-route-v8",ResearchReview=finding.Assessment,
+            Dependencies=parentId.HasValue ? [parentId.Value.ToString("N")] : []};
         if(finding.Evidence is not {} evidence || primaryDocument!=null && finding.Assessment.Sources.Any(c=>c.Id!=primaryDocument))
             return (task with {Authorization="no matching scoped record",Verification="answer withheld",
                 AnswerRelevance=finding.Evidence!=null ? "unsupported" : finding.Assessment.RequestRelevance,
@@ -116,9 +119,11 @@ internal sealed class Engine(string profile) : IDisposable
 
     private Work FinishProjectAnswer(Work task,string route,CodeQuestion? code)
     {
+        bool validParent=code?.FollowUp==true
+            ? (task.ParentTaskId is {} pid && task.Dependencies is [var dep] && dep==pid.ToString("N"))
+            : (task.ParentTaskId==null && task.Dependencies is []);
         if(task.Kind!=route || task.Specialist!=route || task.Authorization!="allowed scoped record read" ||
-            task.Scope!="owner-local" || task.Capability!="read owner-imported text" ||
-            task.ParentTaskId!=null || task.Dependencies is not [] ||
+            task.Scope!="owner-local" || task.Capability!="read owner-imported text" || !validParent ||
             task.Evidence?.Span==null || task.Evidence.Id!=task.PrimaryCandidateId ||
             task.ResearchReview is not {Verdict:"supported",Sources:[var first,..]} prior || first!=task.Evidence)
             throw new InvalidDataException("Project evidence failed authorization.");
@@ -131,7 +136,7 @@ internal sealed class Engine(string profile) : IDisposable
             return StaleProjectAnswer(task,prior with {Claims=claims});
         }
 
-        var current=CheckProjectAnswer(task.Request,code,active);
+        var current=CheckProjectAnswer(task.Request,code,active,task.ParentTaskId);
         if(current.Assessment.Verdict!="supported")
             return (task with {ResearchReview=current.Assessment,SourceIntegrity="passed",Verification="answer withheld",
                 AnswerRelevance=current.Assessment.RequestRelevance,Result=current.Assessment.Detail}).At("needs clarification");

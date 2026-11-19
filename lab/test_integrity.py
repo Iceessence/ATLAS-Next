@@ -41,6 +41,15 @@ class Integrity(unittest.TestCase):
         self.assertNotEqual(local_search(source,"probe")[1],signature)
         self.assertEqual(oracle(source, "missing"), [None,None])
 
+    def test_conversational_coding_comparator_and_generic_oracle(self):
+        from code_conversation import CASES, CODE, gold, search_turn
+        ctrl_names = [cid for cid, names, _ in CASES if all(n in CODE for n in names)]
+        self.assertGreaterEqual(len(ctrl_names), 6)
+        self.assertEqual(search_turn(CODE, "Where is it called?")[0], ("unsupported", []))
+        self.assertEqual(search_turn(CODE, "Where is Metrics.strict(3 parameters) defined?")[0], ("unsupported", []))
+        exp = gold(CODE, [("Repo.cs", 5, "Load")])
+        self.assertEqual(exp[0]["text"], "Load")
+
     def test_qualified_comparator_pins_scope_and_overloads(self):
         from code_depth import CONTROL, CASES, FIXTURE, gold, search
         cases=[row for row in CASES if row[0]==CONTROL]

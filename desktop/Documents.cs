@@ -177,6 +177,8 @@ internal sealed class Documents(string profile,string project="default")
                 Add("code.documentation",d.Documentation);
                 Add("code.summary",d.Summary);
                 Add("code.namespace",d.Namespace);
+                Add("code.parameters",d.ParametersSpan);
+                Add("code.return",d.ReturnType);
             }
             return claims;
         }

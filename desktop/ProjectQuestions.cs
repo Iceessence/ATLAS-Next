@@ -13,9 +13,47 @@ internal record ParameterFilter(int Arity,string[]? Types=null)
         if(text.Length==0) return new(0);
         var arity=Regex.Match(text,@"\A([0-9]{1,2})\s+parameters?\z",RegexOptions.IgnoreCase|RegexOptions.CultureInvariant);
         if(arity.Success) return new(int.Parse(arity.Groups[1].Value,System.Globalization.CultureInfo.InvariantCulture));
-        var types=text.Split(',',StringSplitOptions.TrimEntries);
-        return types.Length<=16 && types.All(t=>Regex.IsMatch(t,@"\A[\p{L}_][\p{L}\p{N}\p{M}_]*\z"))
-            ? new(types.Length,types) : null;
+        if(SplitTypes(text) is not {} raw || raw.Length>16) return null;
+        var types=raw.Select(t=>Regex.Replace(t.Trim(),@"\s*([<>,?\[\]])\s*","$1")).ToArray();
+        return types.All(IsValidType) ? new(types.Length,types) : null;
+    }
+
+    private static string[]? SplitTypes(string text)
+    {
+        var items=new List<string>();
+        int depth=0,start=0;
+        for(int i=0;i<text.Length;i++) {
+            char c=text[i];
+            if(c=='<') depth++;
+            else if(c=='>') { if(--depth<0) return null; }
+            else if(c==',' && depth==0) {
+                items.Add(text[start..i]);
+                start=i+1;
+            }
+        }
+        if(depth!=0) return null;
+        items.Add(text[start..]);
+        return items.Any(string.IsNullOrWhiteSpace) ? null : [..items];
+    }
+
+    private static bool IsValidType(string type)
+    {
+        int i=0;
+        while(i<type.Length && (char.IsLetterOrDigit(type[i]) || type[i]=='_' || char.GetUnicodeCategory(type[i]) is System.Globalization.UnicodeCategory.NonSpacingMark or System.Globalization.UnicodeCategory.SpacingCombiningMark)) i++;
+        if(i==0 || (!char.IsLetter(type[0]) && type[0]!='_')) return false;
+        if(i<type.Length && type[i]=='<') {
+            int close=type.LastIndexOf('>');
+            if(close<=i+1) return false;
+            var args=SplitTypes(type[(i+1)..close]);
+            if(args==null || args.Length is <1 or >8 || !args.All(IsValidType)) return false;
+            i=close+1;
+        }
+        while(i<type.Length) {
+            if(type[i]=='?') i++;
+            else if(i+1<type.Length && type[i]=='[' && type[i+1]==']') i+=2;
+            else return false;
+        }
+        return true;
     }
 
     public bool Matches(ParameterShape? shape)=>shape!=null && Arity==shape.Arity &&
@@ -31,10 +69,26 @@ internal static class ProjectQuestions
     public const string CallsType="code.calls";
     private const int MaxSources=8;
     private const int MaxCallChars=2048;
-    private static readonly Lazy<CSharpCompilation> ReferenceContext=new(()=>CSharpCompilation.Create("OwnerImportedSource",
-        references:new[]{typeof(object),typeof(Enumerable),typeof(Regex),typeof(System.Security.Cryptography.SHA256),typeof(System.Text.Json.JsonSerializer)}
-            .Select(t=>t.Assembly.Location).Distinct().Select(path=>MetadataReference.CreateFromFile(path)),
-        options:new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary,concurrentBuild:false)));
+    private static readonly SyntaxTree ImplicitUsings=CSharpSyntaxTree.ParseText(
+        "global using global::System;\nglobal using global::System.Collections.Generic;\nglobal using global::System.IO;\nglobal using global::System.Linq;\n",
+        path:"__ImplicitUsings.g.cs");
+    private static readonly Lazy<CSharpCompilation> ReferenceContext=new(()=> {
+        var coreDir=System.IO.Path.GetDirectoryName(typeof(object).Assembly.Location)!;
+        var paths=new[]{
+            typeof(object).Assembly.Location,
+            typeof(Enumerable).Assembly.Location,
+            typeof(Regex).Assembly.Location,
+            typeof(System.Security.Cryptography.SHA256).Assembly.Location,
+            typeof(System.Text.Json.JsonSerializer).Assembly.Location,
+            System.IO.Path.Combine(coreDir,"System.Runtime.dll"),
+            System.IO.Path.Combine(coreDir,"System.Collections.dll"),
+            System.IO.Path.Combine(coreDir,"System.Runtime.InteropServices.dll")
+        }.Where(System.IO.File.Exists).Distinct();
+        return CSharpCompilation.Create("OwnerImportedSource",
+            syntaxTrees:new[]{ImplicitUsings},
+            references:paths.Select(path=>MetadataReference.CreateFromFile(path)),
+            options:new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary,concurrentBuild:false));
+    });
 
     private const string ResearchCommand="Compare project claims:";
     public static bool IsResearch(string request)=>request.StartsWith(ResearchCommand,StringComparison.OrdinalIgnoreCase);
@@ -77,11 +131,24 @@ internal static class ProjectQuestions
             "active project revisions","owner-selected text",sources,claims),answer,sources[0]);
     }
 
-    public static ProjectFinding Calls(CodeQuestion question,IReadOnlyList<OwnedSource> active,IReadOnlyList<Passage> passages)
+    public static ProjectFinding Calls(CodeQuestion question,IReadOnlyList<OwnedSource> active,IReadOnlyList<Passage> passages,SelectedDefinition? parent=null)
     {
-        var definition=(question with {Type="code.definition"}).Verify(passages,null);
-        var declared=definition.Source?.Citation;
-        if(declared==null) return new(definition.Assessment,null,null);
+        Citation declared;
+        string methodName;
+        if(question.FollowUp) {
+            if(parent==null) return Stop("unsupported","Select a completed definition from the current source revision first.",[]);
+            var recheck=(parent.Request with {Type="code.definition"}).Verify(passages,null);
+            if(recheck.Source==null) return new(recheck.Assessment,null,null);
+            if(recheck.Source.Citation!=parent.Passage.Citation)
+                return Stop("unsupported","The selected declaration revision changed.",[]);
+            declared=parent.Passage.Citation;
+            methodName=parent.Passage.Symbol!;
+        } else {
+            var definition=(question with {Type="code.definition"}).Verify(passages,null);
+            if(definition.Source?.Citation is not {} found) return new(definition.Assessment,null,null);
+            declared=found;
+            methodName=question.Name!;
+        }
         if(!declared.Source.EndsWith(".cs",StringComparison.OrdinalIgnoreCase))
             return Stop("unsupported","Call binding is available for C# declarations.",[declared]);
         var files=active.Where(source=>source.Extension==".cs").ToArray();
@@ -110,7 +177,7 @@ internal static class ProjectQuestions
                     MemberAccessExpressionSyntax member=>member.Name.Identifier.ValueText,
                     _=>null
                 };
-                if(name!=question.Name || model.GetSymbolInfo(call).Symbol is not IMethodSymbol bound ||
+                if(name!=methodName || model.GetSymbolInfo(call).Symbol is not IMethodSymbol bound ||
                     !SymbolEqualityComparer.Default.Equals((bound.ReducedFrom??bound).OriginalDefinition,method) ||
                     model.GetDiagnostics(call.Span).Any(d=>d.Severity==DiagnosticSeverity.Error)) continue;
                 if(results.Count==MaxSources-1 || call.Span.Length>MaxCallChars)

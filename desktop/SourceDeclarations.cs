@@ -10,13 +10,15 @@ namespace AtlasNext;
 internal record SourcePart(int Start,int End,int Line);
 internal record ParameterShape(int Arity,string[]? Types=null);
 internal record SourceDeclaration(string Name,SourcePart Identifier,SourcePart Header,string? Qualifier,
-    SourcePart? Container,bool ContainerIsClass,SourcePart? Documentation,SourcePart? Summary,SourcePart? Namespace,ParameterShape? Parameters);
+    SourcePart? Container,bool ContainerIsClass,SourcePart? Documentation,SourcePart? Summary,SourcePart? Namespace,ParameterShape? Parameters,
+    SourcePart? ParametersSpan=null,SourcePart? ReturnType=null);
 
 
 internal static class SourceDeclarations
 {
     private sealed record Declaration(string Name,TextSpan Identifier,TextSpan Header,string? Qualifier,
-        TextSpan? Container,bool ContainerIsClass,TextSpan? Documentation,TextSpan? Summary=null,TextSpan? Namespace=null,ParameterShape? Parameters=null);
+        TextSpan? Container,bool ContainerIsClass,TextSpan? Documentation,TextSpan? Summary=null,TextSpan? Namespace=null,ParameterShape? Parameters=null,
+        TextSpan? ParametersSpan=null,TextSpan? ReturnType=null);
 
     public static IEnumerable<SourceDeclaration> Read(string source,string extension)
     {
@@ -27,7 +29,8 @@ internal static class SourceDeclarations
         foreach(var d in extension==".cs" ? CSharp(text) : Python(text)) {
             if(d.Header.Length>8192) throw new InvalidDataException("Declaration header exceeds 8192 characters.");
             yield return new(d.Name,Anchor(d.Identifier),Anchor(d.Header),d.Qualifier,
-                Optional(d.Container),d.ContainerIsClass,Optional(d.Documentation),Optional(d.Summary),Optional(d.Namespace),d.Parameters);
+                Optional(d.Container),d.ContainerIsClass,Optional(d.Documentation),Optional(d.Summary),Optional(d.Namespace),d.Parameters,
+                Optional(d.ParametersSpan),Optional(d.ReturnType));
         }
     }
 
@@ -73,17 +76,38 @@ internal static class SourceDeclarations
             // Nested blocks with separate names have no contiguous fully qualified span.
             var namespaces=node.Ancestors().OfType<BaseNamespaceDeclarationSyntax>().Take(2).ToArray();
             var (doc,summary)=CSharpDocumentation(node,text);
-            yield return new(id.ValueText,id.Span,TextSpan.FromBounds(first,end),qualifier,container?.Identifier.Span,container is ClassDeclarationSyntax || container is RecordDeclarationSyntax record && !record.ClassOrStructKeyword.IsKind(SyntaxKind.StructKeyword),doc,summary,namespaces is [var ns] ? ns.Name.Span : null,MethodParameters(node));
+            TextSpan? paramsSpan=node switch {
+                MethodDeclarationSyntax m=>m.ParameterList.Span,
+                LocalFunctionStatementSyntax l=>l.ParameterList.Span,
+                _=>null
+            };
+            TextSpan? returnSpan=node switch {
+                MethodDeclarationSyntax m=>m.ReturnType.Span,
+                LocalFunctionStatementSyntax l=>l.ReturnType.Span,
+                _=>null
+            };
+            yield return new(id.ValueText,id.Span,TextSpan.FromBounds(first,end),qualifier,container?.Identifier.Span,container is ClassDeclarationSyntax || container is RecordDeclarationSyntax record && !record.ClassOrStructKeyword.IsKind(SyntaxKind.StructKeyword),doc,summary,namespaces is [var ns] ? ns.Name.Span : null,MethodParameters(node),paramsSpan,returnSpan);
         }
     }
+
+    private static string? CanonicalType(TypeSyntax? type)=>type switch {
+        PredefinedTypeSyntax or IdentifierNameSyntax=>type.ToString(),
+        NullableTypeSyntax nullable when CanonicalType(nullable.ElementType) is {} inner=>inner+"?",
+        ArrayTypeSyntax array when array.RankSpecifiers is [{Rank:1}] && CanonicalType(array.ElementType) is {} elem=>elem+"[]",
+        GenericNameSyntax generic when generic.TypeArgumentList.Arguments is {Count:>=1 and <=8} args=>
+            args.Select(CanonicalType).ToArray() is var parts && parts.All(p=>p!=null)
+                ? $"{generic.Identifier.ValueText}<{string.Join(',',parts!)}>" : null,
+        _=>null
+    };
 
     private static ParameterShape? MethodParameters(SyntaxNode node)
     {
         if(node is not MethodDeclarationSyntax {TypeParameterList:null} method) return null;
         var parameters=method.ParameterList.Parameters;
-        var types=parameters.All(p=>p.Modifiers.Count==0 && p.Type is PredefinedTypeSyntax or IdentifierNameSyntax)
-            ? parameters.Select(p=>p.Type!.ToString()).ToArray() : null;
-        return new(parameters.Count,types);
+        var canonical=parameters.All(p=>p.Modifiers.Count==0)
+            ? parameters.Select(p=>CanonicalType(p.Type)).ToArray() : null;
+        var types=canonical!=null && canonical.All(t=>t!=null) ? canonical! : null;
+        return new(parameters.Count,types!);
     }
 
     // Python source navigation uses lexical declaration headers. Strings, comments,
@@ -176,10 +200,12 @@ internal static class SourceDeclarations
                 var identifier=new TextSpan(name!.Index,name.Length);
                 var container=scopes.FirstOrDefault(s=>s.Class);
                 string? qualifier=scopes.TryPeek(out var direct) && direct.Class ? direct.Name : null;
+                bool isClass=text.AsSpan(header).StartsWith("class");
+                var (shape,paramsSpan,returnSpan)=isClass ? (null,(TextSpan?)null,(TextSpan?)null) : PythonSignature(text,identifier.End,i);
                 yield return new(name.Value,identifier,TextSpan.FromBounds(header,i+1),qualifier,
                     container?.Identifier,container!=null,PythonDocumentation(text,i,headerIndent),
-                    Parameters:text.AsSpan(header).StartsWith("class") ? null : PythonParameters(text[identifier.End..i]));
-                scopes.Push(new(headerIndent,text.AsSpan(header).StartsWith("class"),name.Value,identifier));
+                    Parameters:shape,ParametersSpan:paramsSpan,ReturnType:returnSpan);
+                scopes.Push(new(headerIndent,isClass,name.Value,identifier));
                 header=-1;
             }
             i++;
@@ -187,15 +213,112 @@ internal static class SourceDeclarations
         if(nesting.Count!=0 || header>=0) throw new InvalidDataException("Incomplete Python source.");
     }
 
-    private static ParameterShape? PythonParameters(string tail)
+    private static (ParameterShape? Shape,TextSpan? Params,TextSpan? Return) PythonSignature(string text,int tailStart,int colon)
     {
-        // Count simple positional parameters. Defaults, annotations, variadics
-        // and positional/keyword separators require a fuller signature parser.
-        var match=Regex.Match(tail,@"\A[ \t]*\((?<args>\s*(?:[A-Za-z_]\w*\s*(?:,\s*[A-Za-z_]\w*\s*)*,?\s*)?)\)(?:\s*->[^:\r\n]+)?\s*\z",
-            RegexOptions.CultureInvariant | RegexOptions.NonBacktracking);
-        if(!match.Success) return null;
-        var names=match.Groups["args"].Value.Split(',',StringSplitOptions.RemoveEmptyEntries|StringSplitOptions.TrimEntries);
-        return names.Distinct(StringComparer.Ordinal).Count()==names.Length ? new(names.Length) : null;
+        int i=tailStart;
+        while(i<colon && text[i] is ' ' or '\t') i++;
+        if(i>=colon || text[i]!='(') return (null,null,null);
+        int open=i++, depth=1, close=-1;
+        while(i<colon && depth>0) {
+            char c=text[i];
+            if(c=='#') { while(i<colon && text[i] is not ('\r' or '\n')) i++; continue; }
+            if(c is '\'' or '"') { i=AfterString(text,i); continue; }
+            if(c is '(' or '[' or '{') depth++;
+            else if(c is ')' or ']' or '}') {
+                depth--;
+                if(depth==0 && c==')') { close=i; i++; break; }
+            }
+            i++;
+        }
+        if(close<0) return (null,null,null);
+        var paramsSpan=TextSpan.FromBounds(open,close+1);
+        while(i<colon) {
+            if(text[i] is ' ' or '\t' or '\r' or '\n') { i++; continue; }
+            if(text[i]=='#') { while(i<colon && text[i] is not ('\r' or '\n')) i++; continue; }
+            break;
+        }
+        TextSpan? returnSpan=null;
+        if(i+1<colon && text[i]=='-' && text[i+1]=='>') {
+            i+=2;
+            while(i<colon && text[i] is ' ' or '\t') i++;
+            int end=colon;
+            while(end>i && text[end-1] is ' ' or '\t' or '\r' or '\n') end--;
+            if(end>i) returnSpan=TextSpan.FromBounds(i,end);
+        }
+        return (ParsePythonParameters(text,open+1,close),paramsSpan,returnSpan);
+    }
+
+    private static ParameterShape? ParsePythonParameters(string text,int start,int end)
+    {
+        var segments=new List<string>();
+        var current=new System.Text.StringBuilder();
+        int depth=0;
+        for(int i=start;i<end;) {
+            char c=text[i];
+            if(c=='#') { while(i<end && text[i] is not ('\r' or '\n')) i++; continue; }
+            if(c is '\'' or '"') {
+                int after=AfterString(text,i);
+                current.Append(text,i,after-i);
+                i=after;
+                continue;
+            }
+            if(c is '(' or '[' or '{') depth++;
+            else if(c is ')' or ']' or '}') depth--;
+            if(c==',' && depth==0) {
+                segments.Add(current.ToString().Trim());
+                current.Clear();
+                i++;
+                continue;
+            }
+            current.Append(c);
+            i++;
+        }
+        segments.Add(current.ToString().Trim());
+        if(segments.Count==1 && segments[0].Length==0) return new(0);
+        if(segments[^1].Length==0) segments.RemoveAt(segments.Count-1);
+        if(segments.Any(s=>s.Length==0)) return null;
+
+        var names=new HashSet<string>(StringComparer.Ordinal);
+        foreach(var seg in segments) {
+            var idMatch=Regex.Match(seg,@"\A(?<id>[A-Za-z_]\w*)(?<rest>[\s\S]*)\z",RegexOptions.CultureInvariant);
+            if(!idMatch.Success || !names.Add(idMatch.Groups["id"].Value)) return null;
+            string rest=idMatch.Groups["rest"].Value.Trim();
+            if(rest.Length==0) continue;
+            if(rest[0]==':') {
+                int split=FindTopLevelAssign(rest,1);
+                string ann=(split>=0 ? rest[1..split] : rest[1..]).Trim();
+                if(ann.Length==0 || !Regex.IsMatch(ann,@"\A[A-Za-z_.\[\]|, \t\r\n'""0-9]+\z",RegexOptions.CultureInvariant))
+                    return null;
+                if(split<0) continue;
+                rest=rest[split..].Trim();
+            }
+            if(rest.Length==0 || rest[0]!='=' || !IsSimplePythonDefault(rest[1..].Trim())) return null;
+        }
+        return new(segments.Count);
+    }
+
+    private static int FindTopLevelAssign(string text,int start)
+    {
+        int depth=0;
+        for(int i=start;i<text.Length;i++) {
+            char c=text[i];
+            if(c is '(' or '[' or '{') depth++;
+            else if(c is ')' or ']' or '}') depth--;
+            else if(c=='=' && depth==0) return i;
+        }
+        return -1;
+    }
+
+    private static bool IsSimplePythonDefault(string value)
+    {
+        if(value is "None" or "True" or "False" or "..." or "()" or "[]" or "{}") return true;
+        if(Regex.IsMatch(value,@"\A[+-]?(?:\d+(?:_\d+)*(?:\.\d+(?:_\d+)*)?|\.\d+(?:_\d+)*)\z",RegexOptions.CultureInvariant))
+            return true;
+        if(value.Length>=2 && value[0] is '\'' or '"' && !value.Contains('\r') && !value.Contains('\n')) {
+            try { return AfterString(value,0)==value.Length; }
+            catch(InvalidDataException) { return false; }
+        }
+        return false;
     }
 
     private static int AfterString(string text,int start)

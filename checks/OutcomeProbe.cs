@@ -66,6 +66,41 @@ internal static class OutcomeProbe
         return 0;
     }
 
+    internal record ConversationInput(string[] Turns,Dictionary<string,string> Files);
+    public static int Conversation(string root)
+    {
+        Console.InputEncoding=new UTF8Encoding(false);
+        Console.OutputEncoding=new UTF8Encoding(false);
+        var input=JsonSerializer.Deserialize<ConversationInput>(Console.In.ReadToEnd(),Assets.Json)!;
+        if(!Directory.Exists(root) || Directory.EnumerateFileSystemEntries(root).Any() ||
+            input.Turns.Length is <1 or >4 || input.Files.Count is <1 or >32 || input.Files.Keys.Any(name=>Path.GetFileName(name)!=name))
+            throw new ArgumentException("Expected an empty workspace, 1 to 4 turns, and 1 to 32 source basenames.");
+        using var engine=new Engine(Path.Combine(root,"profile"));
+        var ids=new Dictionary<string,string>();
+        foreach(var (name,source) in input.Files) {
+            string path=Path.Combine(root,name);
+            File.WriteAllText(path,source,new UTF8Encoding(false));
+            ids.Add(name,engine.Import(path).Id);
+        }
+        var runs=new List<object>();
+        for(int i=0;i<4;i++) {
+            var turns=new List<object>();
+            Guid? selected=null;
+            foreach(var request in input.Turns) {
+                var timer=Stopwatch.StartNew();
+                var queued=engine.Submit(Guid.NewGuid(),request,null,selected);
+                var completed=engine.Finish(queued.Id);
+                timer.Stop();
+                turns.Add(new {submitted=queued.State,delivered=completed,ms=timer.Elapsed.TotalMilliseconds,
+                    workingSetBytes=Environment.WorkingSet});
+                selected=completed.Id;
+            }
+            runs.Add(new {turns,workingSetBytes=Environment.WorkingSet});
+        }
+        Console.WriteLine(JsonSerializer.Serialize(new {ids,runs},Assets.Json));
+        return 0;
+    }
+
     public static int Run()
     {
         Console.InputEncoding=new UTF8Encoding(false);

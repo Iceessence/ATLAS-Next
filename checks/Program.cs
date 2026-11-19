@@ -252,6 +252,7 @@ internal static class Checks
         if(args is ["--code-probe",string scratch]) return OutcomeProbe.Code(scratch);
         if(args is ["--outcome"]) return OutcomeProbe.Run();
         if(args is ["--project-probe",string projectScratch]) return OutcomeProbe.Project(projectScratch);
+        if(args is ["--conversation-probe",string convScratch]) return OutcomeProbe.Conversation(convScratch);
         var root=Path.Combine(Path.GetTempPath(),"atlas-next-check-"+Guid.NewGuid().ToString("N"));
         var router=new Routing();
         using var golden=JsonDocument.Parse(File.ReadAllBytes(Path.Combine(AppContext.BaseDirectory,"golden.json")));

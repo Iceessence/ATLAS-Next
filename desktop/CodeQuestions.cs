@@ -5,7 +5,7 @@ namespace AtlasNext;
 internal sealed record SelectedDefinition(CodeQuestion Request,Passage Passage);
 internal sealed record CodeQuestion(string? Name,string? Qualifier,string Type,string? Extension=null,ParameterFilter? Selector=null)
 {
-    public bool FollowUp=>Type is not ("code.definition" or "code.calls");
+    public bool FollowUp=>Type!="code.definition" && (Type!="code.calls" || Name==null);
     public bool Calls=>Type=="code.calls";
     private const string Id=@"[\p{L}_][\p{L}\p{N}\p{M}_]*";
     private const string Symbol=@"(?:(?<owner>"+Id+@")\.)?(?<name>"+Id+")";
@@ -13,14 +13,18 @@ internal sealed record CodeQuestion(string? Name,string? Qualifier,string Type,s
     private const RegexOptions Options=RegexOptions.IgnoreCase|RegexOptions.CultureInvariant;
     private static readonly Regex Locate=new(@"\A(?:please )?(?:where is (?:the symbol )?"+Symbol+Signature+
         @" (?<operation>defined|declared|called)|(?:locate|find the definition of) "+Symbol+Signature+@")(?:,? please)?[?.!]?\z",Options);
-    private static readonly Regex Follow=new(@"\A(?:please )?(?:what is|show(?: me)?) its (?<relation>signature|declaration signature|documentation|docstring|xml documentation|summary|enclosing type|enclosing class|enclosing namespace|namespace)(?:,? please)?[?.!]?\z",Options);
+    private static readonly Regex Follow=new(@"\A(?:please )?(?:what (?:is|are)|show(?: me)?) its (?<relation>signature|declaration signature|parameters|parameter list|return type|documentation|docstring|xml documentation|summary|enclosing type|enclosing class|enclosing namespace|namespace)(?:,? please)?[?.!]?\z",Options);
+    private static readonly Regex CallFollow=new(@"\A(?:please )?(?:where is it called|show(?: me)? its callers|what calls it)(?:,? please)?[?.!]?\z",Options);
 
     public static CodeQuestion? Parse(string request)
     {
         string query=Regex.Replace(request.Trim(),@"\s+"," ");
+        if(CallFollow.IsMatch(query)) return new(null,null,"code.calls");
         var follow=Follow.Match(query);
         if(follow.Success) return follow.Groups["relation"].Value.ToLowerInvariant() switch {
             "signature" or "declaration signature"=>new(null,null,"code.signature"),
+            "parameters" or "parameter list"=>new(null,null,"code.parameters"),
+            "return type"=>new(null,null,"code.return"),
             "docstring"=>new(null,null,"code.documentation",".py"),
             "xml documentation"=>new(null,null,"code.documentation",".cs"),
             "documentation"=>new(null,null,"code.documentation"),
