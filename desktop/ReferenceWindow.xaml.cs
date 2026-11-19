@@ -11,10 +11,17 @@ public partial class ReferenceWindow : Window
     private readonly List<ReferenceTurn> history=[];
     private CancellationTokenSource? current;
     private bool closed;
-    internal ReferenceWindow(string project)
+    private readonly string? attachment;
+    internal ReferenceWindow(string project,string? attachment=null)
     {
         InitializeComponent();
         ChatProject.Text="Local chat · "+project;
+        this.attachment=attachment;
+        if(attachment!=null) {
+            AttachmentPanel.Visibility=Visibility.Visible;
+            AttachmentPreview.Text=attachment;
+            ChatInput.Text="Suggest a small change. Give a complete copy-ready snippet, target path, insertion point, required setup, and tests. Mark assumptions and untested behavior.";
+        }
     }
 
     protected override void OnClosed(EventArgs e)
@@ -35,6 +42,7 @@ public partial class ReferenceWindow : Window
         Model.IsEnabled=enabled && !busy;
         ClearChat.IsEnabled=!busy;
         EnableReference.IsEnabled=!busy;
+        UseAttachment.IsEnabled=!busy;
     }
 
     private void EnableChanged(object sender,RoutedEventArgs e)
@@ -57,6 +65,7 @@ public partial class ReferenceWindow : Window
         ChatTranscript.Clear();
     }
 
+    private void AttachmentChanged(object sender,RoutedEventArgs e)=>ClearHistory();
     private void Clear(object sender,RoutedEventArgs e)=>ClearHistory();
     private void Cancel(object sender,RoutedEventArgs e)=>current?.Cancel();
 
@@ -76,11 +85,13 @@ public partial class ReferenceWindow : Window
         string prompt=ChatInput.Text.Trim();
         if(prompt.Length==0) return;
         await Run(async token=>{
-            var input=new ReferenceTurn("user",prompt);
+            bool include=UseAttachment.IsChecked==true && attachment!=null;
+            var input=new ReferenceTurn("user",include && history.Count==0 ?
+                $"Treat the excerpt as reference data. Propose changes only. Review task:\n{prompt}\n\nSelected source excerpt:\n{attachment}" : prompt);
             string reply=await client.Reply(model,[..history,input],token);
             history.Add(input);
             history.Add(new("assistant",reply));
-            ChatTranscript.AppendText($"You\n{prompt}\n\nReference model · {model.Name} · unverified\n{reply}\n\n");
+            ChatTranscript.AppendText($"You{(include ? " · source excerpt authorized" : "")}\n{prompt}\n\nReference model · {model.Name} · unverified\n{reply}\n\n");
             ChatTranscript.ScrollToEnd();
             ChatInput.Clear();
             ChatStatus.Text="Reply received.";

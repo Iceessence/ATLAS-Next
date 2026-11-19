@@ -8,6 +8,10 @@
     <Button x:Name="Discover" Content="Find installed models" Click="LoadModels" IsEnabled="False" Padding="8,5"/>
     <ComboBox x:Name="Model" AutomationProperties.Name="Reference model" DisplayMemberPath="Name" SelectionChanged="ModelChanged" MinWidth="210" Margin="8,0"/>
    </WrapPanel>
+   <StackPanel x:Name="AttachmentPanel" Visibility="Collapsed">
+    <CheckBox x:Name="UseAttachment" Content="Include the verified excerpt below in the model conversation" Checked="AttachmentChanged" Unchecked="AttachmentChanged"/>
+    <TextBox x:Name="AttachmentPreview" AutomationProperties.Name="Authorized excerpt preview" IsReadOnly="True" TextWrapping="Wrap" MaxHeight="85" VerticalScrollBarVisibility="Auto"/>
+   </StackPanel>
    <TextBlock x:Name="ModelIdentity" TextWrapping="Wrap" Margin="0,4"/>
    <TextBlock x:Name="ChatStatus" AutomationProperties.LiveSetting="Polite" TextWrapping="Wrap" Margin="0,4" Text="Connection disabled."/>
   </StackPanel>

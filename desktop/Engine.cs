@@ -22,6 +22,26 @@ internal sealed class Engine(string profile) : IDisposable
     }
     public Imported Import(string path)=>documents.Import(path);
     public IReadOnlyList<SourceSummary> ProjectSources()=>documents.Inventory();
+
+    public CodingGuide? Guide(Guid selection)
+    {
+        var sources=documents.Sources();
+        var active=sources.SelectMany(Documents.Parse).ToArray();
+        if(ReadParent(selection,active) is not {} parent ||
+            parent.Request.Verify(active,null).Source?.Citation!=parent.Passage.Citation) return null;
+        var definition=parent.Passage;
+        GuidePart AsPart(Passage passage)=>new(passage.Value,passage.Citation);
+        GuidePart? Part(string type)
+        {
+            var part=active.FirstOrDefault(p=>p.Citation.Id==definition.Citation.Id && p.DefinitionStart==definition.DefinitionStart &&
+                p.Citation.Version==definition.Citation.Version && p.Citation.Digest==definition.Citation.Digest && p.Citation.Type==type);
+            return part==null ? null : AsPart(part);
+        }
+        if(Part("code.signature") is not {} signature) return null;
+        var calls=ProjectQuestions.Calls(new(null,null,"code.calls"),sources,active,parent);
+        return new(AsPart(definition),signature,Part("code.documentation"),Part("code.return"),
+            calls.Answer==null ? [] : calls.Assessment.Sources.Where(c=>c.Type=="code.calls").ToArray());
+    }
     public string RecoveryNotice => journal.RecoveryNotice;
     public IEnumerable<Work> History()=>journal.History().Where(w=>w.Project==Project).OrderByDescending(w=>w.Events.Last().At);
     public Work Submit(Guid id,string request)=>Submit(id,request,null);

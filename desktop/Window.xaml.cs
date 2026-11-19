@@ -113,6 +113,14 @@ public partial class WorkWindow : Window
         return $"Imported sources ({sources.Count}/32): {string.Join("; ",shown)}{extra}";
     }
 
+    private void OpenCoding(object sender,RoutedEventArgs e)=>Handle(()=>{
+        if(current==null || engine.Guide(current.Id) is not {} guide) {
+            Notice.Text="Select a completed definition from the current project and revision.";
+            return;
+        }
+        new CodingWindow(engine,current.Id,guide) {Owner=this}.ShowDialog();
+    });
+
     private void OpenReference(object sender,RoutedEventArgs e)=>Handle(()=>
         new ReferenceWindow(engine.Project) {Owner=this}.ShowDialog());
 
