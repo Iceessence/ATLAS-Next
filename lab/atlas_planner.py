@@ -194,18 +194,26 @@ def current_project(family):
     return current, group
 
 
-def live(family, question, language, model, policy="procedure"):
-    profile, group = current_project(family)
+def live_task(question, profile, group):
     target = typed_baseline(question, profile)
     oracle = dict(state="needs clarification", verdict="unsupported")
     if target.startswith("source:"):
         oracle = group[int(target.split(":")[1])]["oracle"]
-    task = dict(id="live-"+sha(question.encode())[:16], question=question, oracle=oracle)
+    return dict(id="live-"+sha(question.encode())[:16], question=question, oracle=oracle)
+
+
+def live_read(task, profile, index, timeout):
+    formatted, restriction = action_inputs(task, profile, candidate_key(index))
+    return observe(inputs(task, profile, formatted), restriction, timeout=timeout)
+
+
+def live(family, question, language, model, policy="procedure"):
+    profile, group = current_project(family)
+    task = live_task(question, profile, group)
     authority, cost = host_run(inputs(task, profile, question), None)
     order, card = rank_policy(question, profile, model, policy, language, load_knowledge())
     def read(i, remaining):
-        formatted, restriction = action_inputs(task, profile, candidate_key(i))
-        return observe(inputs(task, profile, formatted), restriction, timeout=remaining)
+        return live_read(task, profile, i, remaining)
     trace = plan(question, profile, order, read, card=card)
     receipt = authority["answer"]
     return dict(canonical_master_sha256=model["canonical_master_sha256"], sections_consulted=list(SECTIONS),
