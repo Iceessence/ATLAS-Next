@@ -352,6 +352,7 @@ internal static class Checks
         ReferenceChecks.Run(Check).GetAwaiter().GetResult();
         GuideChecks.Run(Path.Combine(root,"guide"),Check);
         StudyChecks.Run(Path.Combine(root,"study"),Check);
+        WorkspaceChecks.Run(Path.Combine(root,"workspace"),Check);
         Console.WriteLine($"All {count} checks passed. Temporary profile: {root}");
         return 0;
     }

@@ -15,6 +15,7 @@ static class Program
             string profile=Environment.GetEnvironmentVariable("ATLAS_NEXT_PROFILE") ??
                 Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"ATLAS Next","profile");
             using var engine=new Engine(profile);
+            WorkspaceState.Restore(engine,profile);
             var app=new Application();
             return app.Run(new WorkWindow(engine,profile));
         }

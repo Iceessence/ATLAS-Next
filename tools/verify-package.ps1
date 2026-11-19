@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][string]$Zip)
+param([Parameter(Mandatory)][string]$Zip,[string]$ReferenceModel)
 $ErrorActionPreference='Stop'
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 Add-Type -AssemblyName UIAutomationClient
@@ -117,6 +117,50 @@ function Import-Document($session,$name,$content){
         Start-Sleep -Milliseconds 75
     } while ([DateTime]::UtcNow -lt $limit)
     throw "Import failed for $name"
+}
+function Find-AtlasDialog($session,$title) {
+    $api=[System.Windows.Automation.AutomationElement]
+    $condition=[System.Windows.Automation.AndCondition]::new(
+        [System.Windows.Automation.PropertyCondition]::new($api::NameProperty,$title),
+        [System.Windows.Automation.PropertyCondition]::new($api::ProcessIdProperty,[int]$session.Process.Id))
+    $until=[DateTime]::UtcNow.AddSeconds(6)
+    do {
+        $dialog=$api::RootElement.FindFirst([System.Windows.Automation.TreeScope]::Children,$condition)
+        if(!$dialog){$dialog=$session.Window.FindFirst([System.Windows.Automation.TreeScope]::Descendants,$condition)}
+        if($dialog){return $dialog}
+        Start-Sleep -Milliseconds 75
+    }while([DateTime]::UtcNow -lt $until)
+    throw "Atlas dialog unavailable: $title"
+}
+function Wait-AtlasText($reader,$pattern,$seconds=8) {
+    $until=[DateTime]::UtcNow.AddSeconds($seconds)
+    do {
+        $actual=& $reader
+        if($actual -like $pattern){return}
+        Start-Sleep -Milliseconds 100
+    }while([DateTime]::UtcNow -lt $until)
+    throw "Expected UI text $pattern, saw '$actual'"
+}
+function Close-Dialog($dialog){
+    $dialog.GetCurrentPattern([System.Windows.Automation.WindowPattern]::Pattern).Close()
+}
+function Read-Value($window,$id){
+    (Control $window $id).GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).Current.Value
+}
+function Write-Value($window,$id,$content){
+    (Control $window $id).GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).SetValue($content)
+}
+function Select-AtlasItem($list,$name,$add=$false){
+    $api=[System.Windows.Automation.AutomationElement]
+    $condition=[System.Windows.Automation.PropertyCondition]::new($api::ControlTypeProperty,[System.Windows.Automation.ControlType]::ListItem)
+    foreach($item in $list.FindAll([System.Windows.Automation.TreeScope]::Descendants,$condition)){
+        if($item.Current.Name -like $name) {
+            $selection=$item.GetCurrentPattern([System.Windows.Automation.SelectionItemPattern]::Pattern)
+            if($add){$selection.AddToSelection()}else{$selection.Select()}
+            return
+        }
+    }
+    throw "Could not select $name"
 }
 function Close-Session($session){
     $session.Window.GetCurrentPattern([System.Windows.Automation.WindowPattern]::Pattern).Close()
@@ -385,8 +429,73 @@ try {
         throw "Final project source inventory display failed: $finalSources"
     }
     "PASS packaged project source inventory across empty switch, single import, revision update and 10-document truncation"
+    Invoke-Control $window 'ShowModels'
+    $models=Find-AtlasDialog $session 'ATLAS Next Model Evidence'
+    Wait-AtlasText {Read-Value $models 'ModelReport'} '*specialist*shadow*fitting blocked*native*15/16*'
+    Close-Dialog $models
+
+    $promptBox.SetValue('Where is Store.Load(IReadOnlyList<int>) defined?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    Invoke-Control $window 'ShowCoding'
+    $coding=Find-AtlasDialog $session 'ATLAS Next Coding Evidence'
+    Wait-AtlasText {Read-Value $coding 'GuideContent'} '*IReadOnlyList<int> ids*SHA-256*Worker.cs*'
+    Invoke-Control $coding 'ReferenceDraft'
+    $draft=Find-AtlasDialog $session 'ATLAS Next Local Chat'
+    if((Control $draft 'Discover').Current.IsEnabled -or (Control $draft 'SendChat').Current.IsEnabled){throw 'Reference transport must start disabled'}
+    Wait-AtlasText {Read-Value $draft 'AttachmentPreview'} '*IReadOnlyList<int> ids*'
+    Close-Dialog $draft
+    Close-Dialog $coding
+
+    Invoke-Control $window 'ShowResearch'
+    $research=Find-AtlasDialog $session 'ATLAS Next Local Research'
+    Write-Value $research 'Objective' 'Verify package quality and retention'
+    Write-Value $research 'Fields' 'Package channel | Package retention'
+    $selection=Control $research 'Selections'
+    Select-AtlasItem $selection 'release.txt*'
+    Select-AtlasItem $selection 'limits.md*' $true
+    Invoke-Control $research 'PrepareStudy'
+    Wait-AtlasText {(Control $research 'StudyStatus').Current.Name} 'Provisional*'
+    Invoke-Control $research 'VerifyStudy'
+    Wait-AtlasText {Read-Value $research 'StudyEvidence'} '*package retention: 4 days*limits.md*revision 3*'
+    Wait-AtlasText {(Control $research 'StudyStatus').Current.Name} 'Verified*'
+    Close-Dialog $research
+
+    Invoke-Control $window 'ShowReference'
+    $chat=Find-AtlasDialog $session 'ATLAS Next Local Chat'
+    if((Control $chat 'Discover').Current.IsEnabled){throw 'Chat connected without authorization'}
+    if($ReferenceModel){
+        (Control $chat 'EnableReference').GetCurrentPattern([System.Windows.Automation.TogglePattern]::Pattern).Toggle()
+        Invoke-Control $chat 'Discover'
+        Wait-AtlasText {(Control $chat 'ChatStatus').Current.Name} 'Select an installed model.'
+        $picker=Control $chat 'Model'
+        $picker.GetCurrentPattern([System.Windows.Automation.ExpandCollapsePattern]::Pattern).Expand()
+        Select-AtlasItem $picker $ReferenceModel
+        Write-Value $chat 'ChatInput' 'Reply with exactly BRIDGE and no punctuation.'
+        Invoke-Control $chat 'SendChat'
+        Wait-AtlasText {Read-Value $chat 'ChatTranscript'} '*Reference model*unverified*BRIDGE*' 65
+        Write-Value $chat 'ChatInput' 'Append -LOCAL to your previous reply. Reply with only the resulting string.'
+        Invoke-Control $chat 'SendChat'
+        Wait-AtlasText {Read-Value $chat 'ChatTranscript'} '*BRIDGE-LOCAL*' 65
+        "PASS packaged two-turn local reference-model conversation using $ReferenceModel"
+    }
+    Close-Dialog $chat
+    Close-Session $session
+    $session=Launch
+    $proc=$session.Process
+    $window=$session.Window
+    Wait-AtlasText {(Control $window 'ProjectLabel').Current.Name} 'Active project: package-check'
+    Wait-AtlasText {(Control $window 'TaskActivity').Current.Name} '*completed*'
+    Invoke-Control $window 'ShowResearch'
+    $research=Find-AtlasDialog $session 'ATLAS Next Local Research'
+    Select-AtlasItem (Control $research 'Studies') 'Verified*Verify package quality*'
+    Wait-AtlasText {Read-Value $research 'StudyEvidence'} '*package retention: 4 days*'
+    Close-Dialog $research
+    "PASS workspace coding, model evidence, verified research history and active project survive relaunch"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
-    "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
+    "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery across relaunches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"
     "PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts"
     "Evidence: $($file.FullName)"

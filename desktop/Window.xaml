@@ -5,8 +5,20 @@
  </Window.Resources>
  <DockPanel>
   <Border DockPanel.Dock="Top" Background="#15342F" Padding="24,16"><DockPanel><Button x:Name="EmergencyStop" DockPanel.Dock="Right" Margin="18,0,0,0" Content="Stop all tasks" Click="StopAllTasks"/><TextBlock DockPanel.Dock="Right" Text="LOCAL  /  CPU" Foreground="#C1DDCA" VerticalAlignment="Center"/><TextBlock Text="ATLAS Next" Foreground="White" FontSize="24" FontWeight="SemiBold"/></DockPanel></Border>
-  <Grid Margin="20"><Grid.ColumnDefinitions><ColumnDefinition Width="185"/><ColumnDefinition Width="16"/><ColumnDefinition/></Grid.ColumnDefinitions>
-   <DockPanel><TextBlock DockPanel.Dock="Top" Text="Task history" FontWeight="SemiBold" Margin="0,0,0,10"/><ListBox x:Name="History" AutomationProperties.Name="Task history" DisplayMemberPath="Request" SelectionChanged="SelectTask" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/></DockPanel>
+  <Grid Margin="20"><Grid.ColumnDefinitions><ColumnDefinition Width="228"/><ColumnDefinition Width="16"/><ColumnDefinition/></Grid.ColumnDefinitions>
+   <DockPanel>
+    <StackPanel DockPanel.Dock="Top">
+     <TextBlock Text="Task history" FontWeight="SemiBold"/>
+     <TextBlock x:Name="TaskActivity" Margin="0,4,0,8" Foreground="#425C52" AutomationProperties.LiveSetting="Polite"/>
+    </StackPanel>
+    <StackPanel DockPanel.Dock="Bottom" Margin="0,12,0,0">
+     <TextBlock Text="Project sources" FontWeight="SemiBold"/>
+     <ListBox x:Name="SourceCatalog" AutomationProperties.Name="Full project source inventory" DisplayMemberPath="Name"
+      SelectionChanged="SelectSource" MaxHeight="145" MinHeight="42" Margin="0,4"/>
+     <TextBlock x:Name="SourceDetails" Foreground="#425C52" TextWrapping="Wrap"/>
+    </StackPanel>
+    <ListBox x:Name="History" AutomationProperties.Name="Task history" DisplayMemberPath="Request" SelectionChanged="SelectTask" ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+   </DockPanel>
    <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto"><StackPanel Margin="5,0,12,12">
     <TextBlock x:Name="RecoveryInfo" Foreground="#85451F" AutomationProperties.LiveSetting="Polite"/>
     <WrapPanel Margin="0,0,0,8"><TextBlock x:Name="ProjectLabel" Text="Active project: default" VerticalAlignment="Center" Margin="0,0,8,0"/><TextBox x:Name="ProjectName" Text="default" AutomationProperties.Name="Project name" Width="130" MaxLength="32"/><Button x:Name="SwitchProject" Content="Open project" Click="ChangeProject"/></WrapPanel>
@@ -14,6 +26,7 @@
      <Button x:Name="ShowReference" Content="Open local chat" Click="OpenReference"/>
      <Button x:Name="ShowCoding" Content="Inspect selected code" Click="OpenCoding"/>
      <Button x:Name="ShowResearch" Content="Open local research" Click="OpenResearch"/>
+     <Button x:Name="ShowModels" Content="Model evidence" Click="OpenModels"/>
     </WrapPanel>
     <TextBlock x:Name="SourcesInfo" Foreground="#425C52" Margin="0,0,0,8" AutomationProperties.LiveSetting="Polite"/>
     <TextBlock Text="Search project knowledge" FontSize="28" FontWeight="SemiBold" Foreground="#163D35"/>

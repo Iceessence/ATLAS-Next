@@ -16,13 +16,18 @@ public partial class WorkWindow : Window
         this.engine=engine;
         this.profile=profile;
         RecoveryInfo.Text=engine.RecoveryNotice;
+        ProjectLabel.Text=$"Active project: {engine.Project}";
+        ProjectName.Text=engine.Project;
         RefreshSources();
         Refresh(engine.History().FirstOrDefault());
     }
     private void Refresh(Work? work)
     {
         refreshing=true;
-        History.ItemsSource=engine.History().ToList();
+        var history=engine.History().ToList();
+        History.ItemsSource=history;
+        TaskActivity.Text=$"{history.Count(t=>t.State=="completed")} completed · {history.Count(t=>t.State=="review")} pending · "+
+            $"{history.Count(t=>t.State is "needs clarification" or "failed" or "interrupted")} need attention";
         History.SelectedItem=History.Items.Cast<Work>().FirstOrDefault(x=>x.Id==work?.Id);
         refreshing=false;
         ShowTask(work);
@@ -84,6 +89,7 @@ public partial class WorkWindow : Window
         Prompt.Clear();
         RefreshSources();
         Refresh(engine.History().FirstOrDefault());
+        WorkspaceState.Remember(profile,engine.Project);
     });
     private void ImportFile(object sender,RoutedEventArgs e)=>Handle(()=>
     {
@@ -113,6 +119,15 @@ public partial class WorkWindow : Window
         return $"Imported sources ({sources.Count}/32): {string.Join("; ",shown)}{extra}";
     }
 
+    private void OpenModels(object sender,RoutedEventArgs e)=>Handle(()=>
+        new ModelEvidenceWindow {Owner=this}.ShowDialog());
+
+    private void SelectSource(object sender,System.Windows.Controls.SelectionChangedEventArgs e)
+    {
+        SourceDetails.Text=SourceCatalog.SelectedItem is SourceSummary source ?
+            $"{source.Name} · revision {source.Version} · {source.Claims} indexed passages\nSHA-256 {source.Digest}" : "";
+    }
+
     private void OpenResearch(object sender,RoutedEventArgs e)=>Handle(()=>{
         new ResearchWindow(engine) {Owner=this}.ShowDialog();
         Refresh(engine.History().FirstOrDefault());
@@ -131,9 +146,15 @@ public partial class WorkWindow : Window
 
     private void RefreshSources()
     {
-        try { SourcesInfo.Text=FormatSources(engine.ProjectSources()); }
+        try {
+            var sources=engine.ProjectSources();
+            SourcesInfo.Text=FormatSources(sources);
+            SourceCatalog.ItemsSource=sources;
+        }
         catch(Exception ex) when (ex is IOException or InvalidDataException or UnauthorizedAccessException) {
             SourcesInfo.Text=$"Imported sources unavailable: {ex.Message}";
+            SourceCatalog.ItemsSource=null;
+            SourceDetails.Text="";
         }
     }
 }
