@@ -1,0 +1,277 @@
+{
+  "provisional_repair": "112f9fb071698b5d6b256184f3debda54dd9e305",
+  "accepted": "2011be05e61a7c7107bce3496cb0bf072e262341",
+  "comparator": "repeat ordinary exact field search and compare source digests",
+  "successful": 7,
+  "rows": [
+    {
+      "case": {
+        "id": "real-changed-audit",
+        "files": {
+          "Checks.txt": "Check count: 185\n",
+          "Package.txt": "Inventory count: 519\n"
+        },
+        "update": {
+          "Checks.txt": "Check count: 240\n"
+        },
+        "provenance": {
+          "check_count_before": {
+            "revision": "c05b083064372621289fc5e9ed86e5782ab6b4af",
+            "path": "docs/evidence/next-007/windows-checks.txt",
+            "raw_sha256": "f606327a545b5c82b4a15518c7978f78cbfcfd8055ce2e07489deef0dcbbe451",
+            "projection": "^All (\\d+) checks passed\\."
+          },
+          "check_count_after": {
+            "revision": "b3f250a2ddeab87e4323a521f9ec796f3271fbeb",
+            "path": "docs/evidence/next-008r-followup-review/windows.txt",
+            "raw_sha256": "046759426306f46354a5a0d923f639d78b6595181a5084acaef70464fb645afb",
+            "projection": "^All (\\d+) checks passed\\."
+          },
+          "inventory": {
+            "revision": "c05b083064372621289fc5e9ed86e5782ab6b4af",
+            "path": "docs/evidence/next-007/verify-ps51.txt",
+            "raw_sha256": "2a1ff05aa217efafc3529e637b61b448eb6fe24a5aafed2c5a33c2e83929928a",
+            "projection": "^PASS (\\d+) inventory hashes"
+          }
+        },
+        "verdict": "supported",
+        "changed": [
+          "check count"
+        ],
+        "values": [
+          "240",
+          "519"
+        ]
+      },
+      "result": {
+        "verdict": "supported",
+        "changed": [
+          "check count"
+        ],
+        "values": [
+          "240",
+          "519"
+        ]
+      },
+      "complete": true,
+      "ms": [
+        0.1632,
+        0.0229,
+        0.0204,
+        0.0193
+      ]
+    },
+    {
+      "case": {
+        "id": "real-repeat-audit",
+        "files": {
+          "Checks.txt": "Check count: 185\n",
+          "Package.txt": "Inventory count: 519\n"
+        },
+        "update": {},
+        "provenance": {
+          "check_count_before": {
+            "revision": "c05b083064372621289fc5e9ed86e5782ab6b4af",
+            "path": "docs/evidence/next-007/windows-checks.txt",
+            "raw_sha256": "f606327a545b5c82b4a15518c7978f78cbfcfd8055ce2e07489deef0dcbbe451",
+            "projection": "^All (\\d+) checks passed\\."
+          },
+          "check_count_after": {
+            "revision": "b3f250a2ddeab87e4323a521f9ec796f3271fbeb",
+            "path": "docs/evidence/next-008r-followup-review/windows.txt",
+            "raw_sha256": "046759426306f46354a5a0d923f639d78b6595181a5084acaef70464fb645afb",
+            "projection": "^All (\\d+) checks passed\\."
+          },
+          "inventory": {
+            "revision": "c05b083064372621289fc5e9ed86e5782ab6b4af",
+            "path": "docs/evidence/next-007/verify-ps51.txt",
+            "raw_sha256": "2a1ff05aa217efafc3529e637b61b448eb6fe24a5aafed2c5a33c2e83929928a",
+            "projection": "^PASS (\\d+) inventory hashes"
+          }
+        },
+        "verdict": "supported",
+        "changed": [],
+        "values": [
+          "185",
+          "519"
+        ]
+      },
+      "result": {
+        "verdict": "supported",
+        "changed": [],
+        "values": [
+          "185",
+          "519"
+        ]
+      },
+      "complete": true,
+      "ms": [
+        0.0207,
+        0.0193,
+        0.0203,
+        0.0193
+      ]
+    },
+    {
+      "case": {
+        "id": "same-value-new-revision",
+        "files": {
+          "Checks.txt": "Check count: 20\n",
+          "Package.txt": "Inventory count: 40\n"
+        },
+        "update": {
+          "Checks.txt": "# Report\nCheck count: 20\n"
+        },
+        "verdict": "supported",
+        "changed": [
+          "check count"
+        ],
+        "values": [
+          "20",
+          "40"
+        ]
+      },
+      "result": {
+        "verdict": "supported",
+        "changed": [
+          "check count"
+        ],
+        "values": [
+          "20",
+          "40"
+        ]
+      },
+      "complete": true,
+      "ms": [
+        0.0201,
+        0.0209,
+        0.0198,
+        0.0194
+      ]
+    },
+    {
+      "case": {
+        "id": "new-conflict",
+        "files": {
+          "Checks.txt": "Check count: 20\n",
+          "Package.txt": "Inventory count: 40\n"
+        },
+        "update": {
+          "Additional.txt": "Check count: 999\n"
+        },
+        "verdict": "contradiction",
+        "changed": [
+          "check count"
+        ],
+        "values": []
+      },
+      "result": {
+        "verdict": "contradiction",
+        "changed": [
+          "check count"
+        ],
+        "values": []
+      },
+      "complete": true,
+      "ms": [
+        0.0257,
+        0.0234,
+        0.0237,
+        0.0234
+      ]
+    },
+    {
+      "case": {
+        "id": "missing-claim",
+        "files": {
+          "Checks.txt": "Check count: 20\n",
+          "Package.txt": "Inventory count: 40\n"
+        },
+        "update": {
+          "Package.txt": "Inventory override: 55\n"
+        },
+        "verdict": "insufficient",
+        "changed": [
+          "inventory count"
+        ],
+        "values": []
+      },
+      "result": {
+        "verdict": "insufficient",
+        "changed": [
+          "inventory count"
+        ],
+        "values": []
+      },
+      "complete": true,
+      "ms": [
+        0.0193,
+        0.0183,
+        0.0184,
+        0.0182
+      ]
+    },
+    {
+      "case": {
+        "id": "expired-source",
+        "files": {
+          "Checks.txt": "Check count: 20\n",
+          "Package.txt": "Inventory count: 40\n"
+        },
+        "update": {
+          "Checks.txt": "Valid through: 2000-01-01\nCheck count: 20\n"
+        },
+        "verdict": "stale",
+        "changed": [
+          "check count"
+        ],
+        "values": []
+      },
+      "result": {
+        "verdict": "stale",
+        "changed": [
+          "check count"
+        ],
+        "values": []
+      },
+      "complete": true,
+      "ms": [
+        0.0205,
+        0.02,
+        0.0196,
+        0.0196
+      ]
+    },
+    {
+      "case": {
+        "id": "no-selection",
+        "files": {
+          "Checks.txt": "Check count: 20\n",
+          "Package.txt": "Inventory count: 40\n"
+        },
+        "update": {},
+        "select": false,
+        "verdict": "unsupported",
+        "changed": [],
+        "values": []
+      },
+      "result": {
+        "verdict": "unsupported",
+        "changed": [],
+        "values": []
+      },
+      "complete": true,
+      "ms": [
+        0.0004,
+        0.0005,
+        0.0003,
+        0.0002
+      ]
+    }
+  ],
+  "ordinary_query_characters": 53,
+  "context_query_characters": 21,
+  "first_median_ms": 0.0205,
+  "sampled_working_set_bytes": 25350144,
+  "external_inference_calls": 0
+}
