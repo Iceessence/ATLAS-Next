@@ -1,0 +1,5 @@
+# NEXT-011 local reference chat author evidence
+
+Product `3ae818874c19288b24df943fea4d7f0e4202273c`. Offline build succeeded. Windows checks 276/276 include model name validation, ordered context, response bounds, redirect refusal and cancellation. Production transport only connects to the numeric IPv4 loopback socket and ignores proxies and redirects. The owner explicitly enables connection and chooses an installed tagged model. Conversations are window-local. Deterministic evidence retains its own workflow.
+
+Ollama 0.40.13 ran on `127.0.0.1:11434` with cloud disabled and preinstalled models, with no model download. Two actual calls with `qwen2.5-coder:7b` returned the preregistered `BRIDGE` and `BRIDGE-LOCAL` in 2870.87 ms and 2279.14 ms. Probe working set was 50,241,536 bytes, excluding the reference service. The smaller `qwen3.5:0.8b` ran both calls but failed exact response recovery. Both are external references. Neither two-turn result establishes general coding quality. The reference service is a same-host trust dependency and its output is unverified text.

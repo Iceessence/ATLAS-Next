@@ -1,0 +1,12 @@
+{
+  "model": {
+    "name": "qwen3.5:0.8b",
+    "digest": "de63045f29755d4721c09d54c9b45c2dadb644f4fd7d604d4cac90d96049971c"
+  },
+  "answer": "bridge",
+  "follow": "-LOCALto your previous reply.",
+  "firstMs": 3420.6135,
+  "secondMs": 3314.2967,
+  "workingSetBytes": 50540544,
+  "assistance": "external reference"
+}
