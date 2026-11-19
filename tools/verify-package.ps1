@@ -361,6 +361,22 @@ try {
         Wait-State $window 'needs clarification'
     }
     "PASS packaged Python literal grammar, raw text and unsupported-follow-up withholding"
+    $promptBox.SetValue('Compare project claims: Package channel | Package retention')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    Import-Document $session 'limits.md' 'Package retention: 4 days'
+    $promptBox.SetValue('Recheck these claims.')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'Summary').Current.Name -notlike '*package retention: 4 days*' -or
+       (Control $window 'ResearchInfo').Current.Name -notlike '*Evidence changed for package retention.*limits.md*revision 3*'){
+        throw 'Packaged research recheck lost the current evidence or changed claim'
+    }
+    "PASS packaged research comparison recheck with pinned parent and fresh citations"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"

@@ -110,7 +110,10 @@ internal sealed class Journal : IDisposable
             task.Proposal is {} p && (p.Sha256 is not {Length:64} || !p.Sha256.All(Uri.IsHexDigit)) ||
             task.ResearchReview is {} assessment && (assessment.Sources is not {Length:<=8} ||
                 assessment.Sources.Any(c=>c==null || !ValidCitation(c)) ||
-                assessment.Claims is {} claims && !ValidClaims(claims,assessment.Sources)) ||
+                assessment.Claims is {} claims && !ValidClaims(claims,assessment.Sources) ||
+                assessment.ChangedClaims is {} changes &&
+                    (changes.Length>4 || changes.Distinct(StringComparer.Ordinal).Count()!=changes.Length ||
+                    assessment.Claims==null || changes.Any(key=>!assessment.Claims.Any(c=>c.Subject==key)))) ||
             task.Evidence is {} citation && !ValidCitation(citation) ||
             task.State is "review" or "completed" && task.Evidence==null ||
             task.State=="completed" && string.IsNullOrEmpty(task.Result) ||

@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 
 namespace AtlasNext;
 
-internal record Assessment(string Verdict,string Detail,string Freshness,string Trust,Citation[] Sources,ClaimAssessment[]? Claims=null)
+internal record Assessment(string Verdict,string Detail,string Freshness,string Trust,Citation[] Sources,ClaimAssessment[]? Claims=null,string[]? ChangedClaims=null)
 {
     public string RequestRelevance => Verdict switch {
         "supported" => "supported",

@@ -66,6 +66,7 @@ internal record ProjectFinding(Assessment Assessment,string? Answer,Citation? Ev
 internal static class ProjectQuestions
 {
     public const string ResearchType="research.compare";
+    public const string RecheckType="research.recheck";
     public const string CallsType="code.calls";
     private const int MaxSources=8;
     private const int MaxCallChars=2048;
@@ -89,17 +90,52 @@ internal static class ProjectQuestions
     private const string ResearchCommand="Compare project claims:";
     public static bool IsResearch(string request)=>request.StartsWith(ResearchCommand,StringComparison.OrdinalIgnoreCase);
 
+    public static bool IsRecheck(string request)=>Regex.IsMatch(request,@"\Arecheck\s+these\s+claims[?.!]?\z",
+        RegexOptions.IgnoreCase|RegexOptions.CultureInvariant);
+
+    private static string[]? RequestedKeys(string request)
+    {
+        if(!IsResearch(request)) return null;
+        var requested=request[ResearchCommand.Length..].Trim().TrimEnd('?').Split('|',StringSplitOptions.TrimEntries);
+        if(requested.Length is <2 or >4 || requested.Any(t=>!Regex.IsMatch(t,@"\A[\p{L}\p{N}][\p{L}\p{N} _-]{0,95}\z")))
+            return null;
+        var keys=requested.Select(Research.LiteralSubject).ToArray();
+        return keys.Distinct(StringComparer.Ordinal).Count()==keys.Length ? keys : null;
+    }
+
+    public static bool IsComparisonParent(Work? work,string project)=>
+        work is {State:"completed",Kind:ResearchType,Specialist:ResearchType,ParentTaskId:null,Dependencies:[],
+            Scope:"owner-local",Authorization:"allowed scoped record read",Capability:"read owner-imported text",
+            SourceIntegrity:"passed",AnswerRelevance:"supported",
+            Evidence:{Span:not null} citation,ResearchReview:{Verdict:"supported",Claims:{} claims,Sources:[var first,..]}} &&
+        work.Project==project && citation==first && work.PrimaryCandidateId==citation.Id &&
+        RequestedKeys(work.Request) is {} keys && claims.Select(c=>c.Subject).SequenceEqual(keys) &&
+        claims.All(c=>c is {Verdict:"supported",Sources.Length:>0} && c.Sources.All(s=>s is {Type:"fact",Span:not null}));
+
+    public static ProjectFinding Recheck(Work? parent,IReadOnlyList<Passage> active)
+    {
+        if(parent==null) return Stop("unsupported","Select a completed comparison in this project first.",[]);
+        var current=Compare(parent.Request,active);
+        if(current.Assessment.Claims is not {} claims) return current;
+        var original=parent.ResearchReview!.Claims!;
+        var changed=claims.Zip(original)
+            .Where(pair=>pair.First.Verdict!=pair.Second.Verdict || pair.First.Freshness!=pair.Second.Freshness ||
+                !pair.First.Sources.SequenceEqual(pair.Second.Sources))
+            .Select(pair=>pair.First.Subject).ToArray();
+        string comparison=changed.Length==0 ? "Evidence matches the selected comparison." :
+            "Evidence changed for "+string.Join(", ",changed)+".";
+        return current with {Assessment=current.Assessment with {
+            Detail=current.Assessment.Detail+" "+comparison,ChangedClaims=changed
+        }};
+    }
+
     private static ProjectFinding Stop(string verdict,string detail,Citation[] sources,ClaimAssessment[]? claims=null)=>
         new(new(verdict,detail,"see source status","owner-selected source",sources,claims),null,null);
 
     public static ProjectFinding Compare(string request,IReadOnlyList<Passage> active)
     {
-        var requested=request[ResearchCommand.Length..].Trim().TrimEnd('?').Split('|',StringSplitOptions.TrimEntries);
-        if(requested.Length is <2 or >4 || requested.Any(t=>!Regex.IsMatch(t,@"\A[\p{L}\p{N}][\p{L}\p{N} _-]{0,95}\z")))
-            return Stop("unsupported","Enter two to four literal project claim keys separated by |.",[]);
-        var keys=requested.Select(Research.LiteralSubject).ToArray();
-        if(keys.Distinct(StringComparer.Ordinal).Count()!=keys.Length)
-            return Stop("unsupported","Each requested key must be distinct.",[]);
+        if(RequestedKeys(request) is not {} keys)
+            return Stop("unsupported","Enter two to four distinct literal project claim keys separated by |.",[]);
 
         var groups=keys.Select(key=>active.Where(p=>p.Citation.Type=="fact" && p.LiteralSubject==key).Take(MaxSources+1).ToArray()).ToArray();
         var sources=groups.SelectMany(g=>g).Select(p=>p.Citation).Take(MaxSources+1).ToArray();

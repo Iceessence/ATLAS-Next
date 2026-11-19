@@ -101,6 +101,45 @@ internal static class OutcomeProbe
         return 0;
     }
 
+    internal record RecheckInput(string Original,string Follow,Dictionary<string,string> Files,Dictionary<string,string> Update,bool Select=true);
+
+    public static int Recheck(string root)
+    {
+        Console.InputEncoding=new UTF8Encoding(false);
+        Console.OutputEncoding=new UTF8Encoding(false);
+        var input=JsonSerializer.Deserialize<RecheckInput>(Console.In.ReadToEnd(),Assets.Json)!;
+        var names=input.Files.Keys.Union(input.Update.Keys,StringComparer.Ordinal).ToArray();
+        if(!Directory.Exists(root) || Directory.EnumerateFileSystemEntries(root).Any() ||
+            names.Length is <2 or >8 || names.Any(name=>Path.GetFileName(name)!=name || Path.GetExtension(name)!=".txt"))
+            throw new ArgumentException("Expected an empty workspace and two to eight text basenames.");
+
+        var runs=new List<object>();
+        for(int i=0;i<4;i++) {
+            string run=Path.Combine(root,i.ToString(System.Globalization.CultureInfo.InvariantCulture));
+            Directory.CreateDirectory(run);
+            using var engine=new Engine(Path.Combine(run,"profile"));
+            var imported=new Dictionary<string,Imported>();
+            void Import(Dictionary<string,string> files) {
+                foreach(var (name,text) in files) {
+                    string path=Path.Combine(run,name);
+                    File.WriteAllText(path,text,new UTF8Encoding(false));
+                    imported[name]=engine.Import(path);
+                }
+            }
+            Import(input.Files);
+            var prior=engine.Finish(engine.Submit(Guid.NewGuid(),input.Original).Id);
+            Import(input.Update);
+            var timer=Stopwatch.StartNew();
+            var queued=engine.Submit(Guid.NewGuid(),input.Follow,null,input.Select ? prior.Id : null);
+            var recheck=engine.Finish(queued.Id);
+            timer.Stop();
+            runs.Add(new {prior,submitted=queued.State,recheck,imported,ms=timer.Elapsed.TotalMilliseconds,
+                workingSetBytes=Environment.WorkingSet});
+        }
+        Console.WriteLine(JsonSerializer.Serialize(new {runs},Assets.Json));
+        return 0;
+    }
+
     public static int Run()
     {
         Console.InputEncoding=new UTF8Encoding(false);

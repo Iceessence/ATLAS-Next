@@ -1,4 +1,6 @@
 using System.IO;
+using System.Security.Cryptography;
+using System.Text.Json;
 
 namespace AtlasNext;
 
@@ -30,7 +32,7 @@ internal sealed class Engine(string profile) : IDisposable
         request=request.Trim();
         if(request.Length is 0 or >2048) throw new ArgumentException("Enter a request of 1–2048 characters.");
         var code=CodeQuestion.Parse(request);
-        Guid? parentId=code?.FollowUp==true ? selectedTask : null;
+        Guid? parentId=code?.FollowUp==true || ProjectQuestions.IsRecheck(request) ? selectedTask : null;
         var old=journal.Read(id);
         if(old!=null) return old.Project==Project && old.Request==request && old.ParentTaskId==parentId ? old : throw new InvalidOperationException("Conflicting task identity");
         var task=(new Work(id,request) {Project=Project,ParentTaskId=parentId}).At("queued");
@@ -93,11 +95,14 @@ internal sealed class Engine(string profile) : IDisposable
 
     private static string? ProjectRoute(string request,CodeQuestion? code)=>
         ProjectQuestions.IsResearch(request) ? ProjectQuestions.ResearchType :
+        ProjectQuestions.IsRecheck(request) ? ProjectQuestions.RecheckType :
         code?.Calls==true ? ProjectQuestions.CallsType : null;
 
-    private ProjectFinding CheckProjectAnswer(string request,CodeQuestion? code,IReadOnlyList<OwnedSource> sources,Guid? parentId=null)
+    private ProjectFinding CheckProjectAnswer(string route,string request,CodeQuestion? code,IReadOnlyList<OwnedSource> sources,
+        Guid? parentId,Work? comparison)
     {
         var passages=sources.SelectMany(Documents.Parse).ToArray();
+        if(route==ProjectQuestions.RecheckType) return ProjectQuestions.Recheck(comparison,passages);
         if(code?.Calls!=true) return ProjectQuestions.Compare(request,passages);
         var parent=code.FollowUp ? ReadParent(parentId,passages) : null;
         return ProjectQuestions.Calls(code,sources,passages,parent);
@@ -105,9 +110,11 @@ internal sealed class Engine(string profile) : IDisposable
 
     private Work QueueProjectAnswer(Work task,Recommendation proposed,string route,CodeQuestion? code,string? primaryDocument,Guid? parentId)
     {
-        var finding=CheckProjectAnswer(task.Request,code,documents.Sources(),parentId);
+        var comparison=route==ProjectQuestions.RecheckType ? ReadComparison(parentId) : null;
+        var finding=CheckProjectAnswer(route,task.Request,code,documents.Sources(),parentId,comparison);
         task=task with {Kind=route,Specialist=route,Proposal=proposed,Router="deterministic-route-v8",ResearchReview=finding.Assessment,
-            Dependencies=parentId.HasValue ? [parentId.Value.ToString("N")] : []};
+            Dependencies=comparison!=null ? ComparisonDependencies(comparison) :
+                parentId.HasValue ? [parentId.Value.ToString("N")] : []};
         if(finding.Evidence is not {} evidence || primaryDocument!=null && finding.Assessment.Sources.Any(c=>c.Id!=primaryDocument))
             return (task with {Authorization="no matching scoped record",Verification="answer withheld",
                 AnswerRelevance=finding.Evidence!=null ? "unsupported" : finding.Assessment.RequestRelevance,
@@ -119,9 +126,13 @@ internal sealed class Engine(string profile) : IDisposable
 
     private Work FinishProjectAnswer(Work task,string route,CodeQuestion? code)
     {
-        bool validParent=code?.FollowUp==true
-            ? (task.ParentTaskId is {} pid && task.Dependencies is [var dep] && dep==pid.ToString("N"))
-            : (task.ParentTaskId==null && task.Dependencies is []);
+        bool recheck=route==ProjectQuestions.RecheckType;
+        var comparison=recheck ? ReadComparison(task.ParentTaskId) : null;
+        bool validParent=recheck
+            ? comparison!=null && task.Dependencies!=null && task.Dependencies.SequenceEqual(ComparisonDependencies(comparison))
+            : code?.FollowUp==true
+                ? task.ParentTaskId is {} pid && task.Dependencies is [var dep] && dep==pid.ToString("N")
+                : task.ParentTaskId==null && task.Dependencies is [];
         if(task.Kind!=route || task.Specialist!=route || task.Authorization!="allowed scoped record read" ||
             task.Scope!="owner-local" || task.Capability!="read owner-imported text" || !validParent ||
             task.Evidence?.Span==null || task.Evidence.Id!=task.PrimaryCandidateId ||
@@ -136,7 +147,7 @@ internal sealed class Engine(string profile) : IDisposable
             return StaleProjectAnswer(task,prior with {Claims=claims});
         }
 
-        var current=CheckProjectAnswer(task.Request,code,active,task.ParentTaskId);
+        var current=CheckProjectAnswer(route,task.Request,code,active,task.ParentTaskId,comparison);
         if(current.Assessment.Verdict!="supported")
             return (task with {ResearchReview=current.Assessment,SourceIntegrity="passed",Verification="answer withheld",
                 AnswerRelevance=current.Assessment.RequestRelevance,Result=current.Assessment.Detail}).At("needs clarification");
@@ -155,8 +166,17 @@ internal sealed class Engine(string profile) : IDisposable
             Verification="answer withheld",AnswerRelevance="subject and intent matched",Result=detail}).At("needs clarification");
     }
 
+    private Work? ReadComparison(Guid? id)
+    {
+        var work=id is {} selected ? journal.Read(selected) : null;
+        return ProjectQuestions.IsComparisonParent(work,Project) ? work : null;
+    }
+
+    private static string[] ComparisonDependencies(Work comparison)=>
+        [comparison.Id.ToString("N"),Convert.ToHexStringLower(SHA256.HashData(JsonSerializer.SerializeToUtf8Bytes(comparison,Assets.Json)))];
+
     private static bool SameEvidence(Assessment first,Assessment second)=>
-        first.Sources.SequenceEqual(second.Sources) && (first.Claims is {} a && second.Claims is {} b
+        (first.ChangedClaims??[]).SequenceEqual(second.ChangedClaims??[]) && first.Sources.SequenceEqual(second.Sources) && (first.Claims is {} a && second.Claims is {} b
             ? a.Length==b.Length && a.Zip(b).All(pair=>pair.First.Subject==pair.Second.Subject &&
                 pair.First.Verdict==pair.Second.Verdict && pair.First.Freshness==pair.Second.Freshness &&
                 pair.First.Sources.SequenceEqual(pair.Second.Sources))
