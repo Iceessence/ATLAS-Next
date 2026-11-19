@@ -16,6 +16,7 @@ public partial class WorkWindow : Window
         this.engine=engine;
         this.profile=profile;
         RecoveryInfo.Text=engine.RecoveryNotice;
+        RefreshSources();
         Refresh(engine.History().FirstOrDefault());
     }
     private void Refresh(Work? work)
@@ -81,6 +82,7 @@ public partial class WorkWindow : Window
         ProjectLabel.Text=$"Active project: {engine.Project}";
         ProjectName.Text=engine.Project;
         Prompt.Clear();
+        RefreshSources();
         Refresh(engine.History().FirstOrDefault());
     });
     private void ImportFile(object sender,RoutedEventArgs e)=>Handle(()=>
@@ -89,6 +91,7 @@ public partial class WorkWindow : Window
             CheckFileExists=true,Multiselect=false,DereferenceLinks=false};
         if(dialog.ShowDialog(this)!=true) return;
         var doc=engine.Import(dialog.FileName);
+        RefreshSources();
         Notice.Text=$"Imported {doc.Name}, revision {doc.Version}. Indexed {doc.Claims} passages. {doc.Id}";
     });
     private void ExportTask(object sender,RoutedEventArgs e)=>Handle(()=>
@@ -101,4 +104,20 @@ public partial class WorkWindow : Window
         stream.Flush(true);
         Notice.Text=$"Receipt saved to {path}";
     });
+
+    internal static string FormatSources(IReadOnlyList<SourceSummary> sources)
+    {
+        if(sources.Count==0) return "Imported sources (0/32): none in this project.";
+        var shown=sources.Take(8).Select(s=>$"{s.Name} (rev {s.Version}, {s.Claims} {(s.Claims==1 ? "passage" : "passages")}, {s.Digest[..Math.Min(8,s.Digest.Length)]}…)");
+        string extra=sources.Count>8 ? $"; (+{sources.Count-8} more)" : "";
+        return $"Imported sources ({sources.Count}/32): {string.Join("; ",shown)}{extra}";
+    }
+
+    private void RefreshSources()
+    {
+        try { SourcesInfo.Text=FormatSources(engine.ProjectSources()); }
+        catch(Exception ex) when (ex is IOException or InvalidDataException or UnauthorizedAccessException) {
+            SourcesInfo.Text=$"Imported sources unavailable: {ex.Message}";
+        }
+    }
 }

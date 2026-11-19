@@ -203,7 +203,10 @@ try {
     Invoke-Control $window 'SwitchProject'
     Wait-State $window 'Ready'
     if((Control $window 'ProjectLabel').Current.Name -ne 'Active project: package-check'){throw 'Project selection failed'}
+    if((Control $window 'SourcesInfo').Current.Name -ne 'Imported sources (0/32): none in this project.'){throw 'Empty project source status failed'}
     Import-Document $session 'channel.md' "# Local handbook`r`nRestore signal colour: amber"
+    $oneSource=(Control $window 'SourcesInfo').Current.Name
+    if($oneSource -notlike 'Imported sources (1/32): channel.md (rev 1, 1 passage, *'){throw "Single source inventory display failed: $oneSource"}
     (Control $window 'Prompt').GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).SetValue('What is the restore signal colour set to, please?')
     Invoke-Control $window 'Search'
     Wait-State $window 'review'
@@ -377,6 +380,11 @@ try {
         throw 'Packaged research recheck lost the current evidence or changed claim'
     }
     "PASS packaged research comparison recheck with pinned parent and fresh citations"
+    $finalSources=(Control $window 'SourcesInfo').Current.Name
+    if($finalSources -notlike 'Imported sources (10/32): *limits.md (rev 3, 1 passage, *; (+2 more)'){
+        throw "Final project source inventory display failed: $finalSources"
+    }
+    "PASS packaged project source inventory across empty switch, single import, revision update and 10-document truncation"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"

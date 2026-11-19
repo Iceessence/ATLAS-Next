@@ -21,6 +21,7 @@ internal sealed class Engine(string profile) : IDisposable
         Project=name;
     }
     public Imported Import(string path)=>documents.Import(path);
+    public IReadOnlyList<SourceSummary> ProjectSources()=>documents.Inventory();
     public string RecoveryNotice => journal.RecoveryNotice;
     public IEnumerable<Work> History()=>journal.History().Where(w=>w.Project==Project).OrderByDescending(w=>w.Events.Last().At);
     public Work Submit(Guid id,string request)=>Submit(id,request,null);

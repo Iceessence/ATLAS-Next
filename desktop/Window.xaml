@@ -10,6 +10,7 @@
    <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto"><StackPanel Margin="5,0,12,12">
     <TextBlock x:Name="RecoveryInfo" Foreground="#85451F" AutomationProperties.LiveSetting="Polite"/>
     <WrapPanel Margin="0,0,0,8"><TextBlock x:Name="ProjectLabel" Text="Active project: default" VerticalAlignment="Center" Margin="0,0,8,0"/><TextBox x:Name="ProjectName" Text="default" AutomationProperties.Name="Project name" Width="130" MaxLength="32"/><Button x:Name="SwitchProject" Content="Open project" Click="ChangeProject"/></WrapPanel>
+    <TextBlock x:Name="SourcesInfo" Foreground="#425C52" Margin="0,0,0,8" AutomationProperties.LiveSetting="Polite"/>
     <TextBlock Text="Search project knowledge" FontSize="28" FontWeight="SemiBold" Foreground="#163D35"/>
     <TextBlock Margin="0,4,0,12" Foreground="#425C52" Text="Try “Where is Reader.Parse(int) defined?” or “Where is Reader.Parse(int) called?” for imported C# files. For local documents try “Compare project claims: output mode | retention window”. Select a completed comparison and ask “Recheck these claims.” Select a completed definition for parameters, return type, callers, signature or documentation follow-ups."/>
     <TextBox x:Name="Prompt" AutomationProperties.Name="Request" MaxLength="2048" Padding="10" TextWrapping="Wrap" Text="What is the archive retention policy?"/>

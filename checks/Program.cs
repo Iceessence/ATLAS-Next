@@ -344,6 +344,7 @@ internal static class Checks
         CodeChecks.Depth(Path.Combine(root,"depth"),Check);
         ProjectChecks.Run(Path.Combine(root,"project-work"),Check);
         RecheckChecks.Run(Path.Combine(root,"research-recheck"),Check);
+        SourceInventoryChecks.Run(Path.Combine(root,"source-inventory"),Check);
         Console.WriteLine($"All {count} checks passed. Temporary profile: {root}");
         return 0;
     }

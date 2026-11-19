@@ -11,6 +11,7 @@ namespace AtlasNext;
 internal record SpanAnchor(string Path,int Line,int Start,int Length);
 internal record Passage(string Subject,string Value,Citation Citation,DateOnly? ValidThrough,bool InstalledAudit=false,string? Symbol=null,string? Qualifier=null,int? DefinitionStart=null,ParameterShape? Parameters=null,string? LiteralSubject=null);
 internal record Imported(string Id,int Version,string Name,int Claims);
+internal record SourceSummary(string Id,int Version,string Name,int Claims,string Digest);
 
 internal record OwnedSource(string Id,int Version,string Digest,string Path,string Text)
 {
@@ -142,6 +143,12 @@ internal sealed class Documents(string profile,string project="default")
         if(folders.Length>MaxDocuments) throw new InvalidDataException("Too many stored documents.");
         return folders.Select(ReadRevision).OfType<OwnedSource>().ToArray();
     }
+
+    public IReadOnlyList<SourceSummary> Inventory()=>Sources()
+        .Select(source=>new SourceSummary(source.Id,source.Version,source.Name,Parse(source).Count,source.Digest))
+        .OrderBy(item=>item.Name,StringComparer.OrdinalIgnoreCase)
+        .ThenBy(item=>item.Id,StringComparer.Ordinal)
+        .ToArray();
 
     private OwnedSource? ReadRevision(string directory)
     {
