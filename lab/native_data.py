@@ -147,10 +147,10 @@ def validate_cases(splits):
                     raise ValueError("Duplicate source across project families")
 
 
-def host_run(case, action, scratch=None):
+def host_run(case, action, scratch=None, timeout=60):
     started = time.perf_counter_ns()
     child = probe(case["question"], case["documents"], scratch_dir=scratch,
-                  proposed_document=action, extensions=case.get("extensions"))
+                  proposed_document=action, extensions=case.get("extensions"), timeout=timeout)
     elapsed_ms = (time.perf_counter_ns() - started) / 1e6
     if child.returncode:
         raise RuntimeError(f"Outcome probe failed for {case['id']}: {child.stderr[-600:]}")
@@ -164,8 +164,8 @@ def host_run(case, action, scratch=None):
     return run, elapsed_ms
 
 
-def observe(case, action, scratch=None):
-    run, elapsed_ms = host_run(case, action, scratch)
+def observe(case, action, scratch=None, timeout=60):
+    run, elapsed_ms = host_run(case, action, scratch, timeout)
     answer = run["answer"]
     checks = score(case, run)
     if case["expect"]["state"] == "completed" and answer["state"] == "completed":

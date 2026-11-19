@@ -81,7 +81,7 @@ def score(case, run):
     return checks
 
 
-def probe(question, documents, scratch_dir=None, proposed_document=None, extensions=None):
+def probe(question, documents, scratch_dir=None, proposed_document=None, extensions=None, timeout=60):
     """Exercise the real host. A proposal may only narrow the available Primary documents."""
     exe = ROOT / "checks/bin/Release/net10.0-windows/AtlasNext.Checks.exe"
     payload = {"question": question, "documents": documents, "proposedDocument": proposed_document, "extensions": extensions}
@@ -95,7 +95,7 @@ def probe(question, documents, scratch_dir=None, proposed_document=None, extensi
         work_path = workspace.removeprefix(extended) if os.name == "nt" else workspace
         run = subprocess.run([str(exe), "--outcome"], capture_output=True, encoding="utf-8",
                              input=json.dumps(payload),
-                             env={**os.environ, "ATLAS_OUTCOME_WORK": work_path}, timeout=60)
+                             env={**os.environ, "ATLAS_OUTCOME_WORK": work_path}, timeout=timeout)
     return run
 
 
