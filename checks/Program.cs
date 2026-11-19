@@ -254,6 +254,7 @@ internal static class Checks
         if(args is ["--project-probe",string projectScratch]) return OutcomeProbe.Project(projectScratch);
         if(args is ["--conversation-probe",string convScratch]) return OutcomeProbe.Conversation(convScratch);
         if(args is ["--research-recheck-probe",string reviewScratch]) return OutcomeProbe.Recheck(reviewScratch);
+        if(args is ["--local-reference-smoke",string model]) return ReferenceChecks.Smoke(model).GetAwaiter().GetResult();
         var root=Path.Combine(Path.GetTempPath(),"atlas-next-check-"+Guid.NewGuid().ToString("N"));
         var router=new Routing();
         using var golden=JsonDocument.Parse(File.ReadAllBytes(Path.Combine(AppContext.BaseDirectory,"golden.json")));
@@ -345,6 +346,7 @@ internal static class Checks
         ProjectChecks.Run(Path.Combine(root,"project-work"),Check);
         RecheckChecks.Run(Path.Combine(root,"research-recheck"),Check);
         SourceInventoryChecks.Run(Path.Combine(root,"source-inventory"),Check);
+        ReferenceChecks.Run(Check).GetAwaiter().GetResult();
         Console.WriteLine($"All {count} checks passed. Temporary profile: {root}");
         return 0;
     }

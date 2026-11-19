@@ -1,0 +1,24 @@
+<Window x:Class="AtlasNext.ReferenceWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="ATLAS Next Local Chat" Width="760" Height="640" MinWidth="480" MinHeight="440" WindowStartupLocation="CenterOwner">
+ <DockPanel Margin="18">
+  <StackPanel DockPanel.Dock="Top">
+   <TextBlock x:Name="ChatProject" FontSize="23" FontWeight="SemiBold"/>
+   <TextBlock TextWrapping="Wrap" Margin="0,6" Text="Reference-model-assisted chat. Replies are unverified. Conversation history stays in this window."/>
+   <CheckBox x:Name="EnableReference" AutomationProperties.Name="Enable loopback reference connection" Checked="EnableChanged" Unchecked="EnableChanged" Content="Enable my local Ollama connection for this session" Margin="0,6"/>
+   <WrapPanel Margin="0,4">
+    <Button x:Name="Discover" Content="Find installed models" Click="LoadModels" IsEnabled="False" Padding="8,5"/>
+    <ComboBox x:Name="Model" AutomationProperties.Name="Reference model" DisplayMemberPath="Name" SelectionChanged="ModelChanged" MinWidth="210" Margin="8,0"/>
+   </WrapPanel>
+   <TextBlock x:Name="ModelIdentity" TextWrapping="Wrap" Margin="0,4"/>
+   <TextBlock x:Name="ChatStatus" AutomationProperties.LiveSetting="Polite" TextWrapping="Wrap" Margin="0,4" Text="Connection disabled."/>
+  </StackPanel>
+  <StackPanel DockPanel.Dock="Bottom" Margin="0,8,0,0">
+   <TextBox x:Name="ChatInput" AutomationProperties.Name="Chat message" TextWrapping="Wrap" AcceptsReturn="True" MaxLength="2048" MinHeight="72"/>
+   <WrapPanel Margin="0,8,0,0">
+    <Button x:Name="SendChat" Content="Send message" Click="Send" IsEnabled="False" Padding="8,5"/>
+    <Button x:Name="CancelChat" Content="Cancel request" Click="Cancel" IsEnabled="False" Margin="8,0" Padding="8,5"/>
+    <Button x:Name="ClearChat" Content="New conversation" Click="Clear" Padding="8,5"/>
+   </WrapPanel>
+  </StackPanel>
+  <TextBox x:Name="ChatTranscript" AutomationProperties.Name="Conversation transcript" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Background="#F4F5F2" Padding="10"/>
+ </DockPanel>
+</Window>

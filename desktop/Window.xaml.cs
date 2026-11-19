@@ -113,6 +113,9 @@ public partial class WorkWindow : Window
         return $"Imported sources ({sources.Count}/32): {string.Join("; ",shown)}{extra}";
     }
 
+    private void OpenReference(object sender,RoutedEventArgs e)=>Handle(()=>
+        new ReferenceWindow(engine.Project) {Owner=this}.ShowDialog());
+
     private void RefreshSources()
     {
         try { SourcesInfo.Text=FormatSources(engine.ProjectSources()); }
