@@ -1,0 +1,874 @@
+{
+  "schema": 1,
+  "policy": "search",
+  "baseline": "2011be05e61a7c7107bce3496cb0bf072e262341",
+  "external_inference_calls": 0,
+  "conversations_complete": 9,
+  "conversations_total": 14,
+  "turn_counts": {
+    "exact_delivery": 13,
+    "wrong_delivery": 1,
+    "false_abstention": 6,
+    "correct_withhold": 5,
+    "verdict_mismatch": 0
+  },
+  "first_ms": 0.1254499948117882,
+  "warm_ms": 0.01854999572969973,
+  "working_set_bytes": 26222592,
+  "trials": [
+    {
+      "id": "real-cs-generic-compare-convo",
+      "provenance": {
+        "ProjectQuestions.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/ProjectQuestions.cs",
+          "sha256": "fa1e3cdfd229653f2f8cf089a542fc538c52524b359c8eb1d4c0f11345241d02",
+          "import_sha256": "fa1e3cdfd229653f2f8cf089a542fc538c52524b359c8eb1d4c0f11345241d02"
+        },
+        "Engine.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/Engine.cs",
+          "sha256": "f00174536add99df74ca4d386f50d6962623127e4b932faadb6f3fa83b17810b",
+          "import_sha256": "f00174536add99df74ca4d386f50d6962623127e4b932faadb6f3fa83b17810b"
+        },
+        "CodeQuestions.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/CodeQuestions.cs",
+          "sha256": "4c9affa3f18d49ee12d50dd4e210ac12a41cf483af7238b3c68bc770b645c3c8",
+          "import_sha256": "4c9affa3f18d49ee12d50dd4e210ac12a41cf483af7238b3c68bc770b645c3c8"
+        },
+        "Documents.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/Documents.cs",
+          "sha256": "7db919647aff3ccfeb57b76cdcf1f329f4e7e8462ad63ed0d8bd41ac279cbc16",
+          "import_sha256": "7db919647aff3ccfeb57b76cdcf1f329f4e7e8462ad63ed0d8bd41ac279cbc16"
+        },
+        "Research.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/Research.cs",
+          "sha256": "72d2660c5e934b5ee59c28e8f1495c14e3f98c9d9f962793b3ec95628465ac95",
+          "import_sha256": "72d2660c5e934b5ee59c28e8f1495c14e3f98c9d9f962793b3ec95628465ac95"
+        },
+        "Library.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/Library.cs",
+          "sha256": "5f637bb0acad9edda2eeedd2055dd5d9e6b42f8f0417b8d36fbb821d350d2d9f",
+          "import_sha256": "5f637bb0acad9edda2eeedd2055dd5d9e6b42f8f0417b8d36fbb821d350d2d9f"
+        },
+        "Routing.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/Routing.cs",
+          "sha256": "eef46fd81b11e3e08557285ee1eabc667211da11a7ec0b6c5c2283d962d49acc",
+          "import_sha256": "eef46fd81b11e3e08557285ee1eabc667211da11a7ec0b6c5c2283d962d49acc"
+        },
+        "Assets.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/Assets.cs",
+          "sha256": "f20aaff57f0df59e82f7d91bdecfc632e2e6962484a9e754fd3f0b98c7a8b1f4",
+          "import_sha256": "f20aaff57f0df59e82f7d91bdecfc632e2e6962484a9e754fd3f0b98c7a8b1f4"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is ProjectQuestions.Compare(string, IReadOnlyList<Passage>) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "ProjectQuestions.cs",
+              "line": 45,
+              "start": 2387,
+              "length": 7,
+              "text": "Compare"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "ProjectQuestions.cs",
+              "line": 45,
+              "start": 2387,
+              "length": 7,
+              "text": "Compare"
+            }
+          ],
+          "outcome": "exact_delivery"
+        },
+        {
+          "question": "Where is it called?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Engine.cs",
+              "line": 101,
+              "start": 5828,
+              "length": 42,
+              "text": "ProjectQuestions.Compare(request,passages)"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Engine.cs",
+              "line": 101,
+              "start": 5828,
+              "length": 42,
+              "text": "ProjectQuestions.Compare(request,passages)"
+            }
+          ],
+          "outcome": "exact_delivery"
+        }
+      ],
+      "complete": true,
+      "milliseconds": [
+        2.979899989441037,
+        1.6124999965541065,
+        1.7118999967351556,
+        1.6258999821729958
+      ]
+    },
+    {
+      "id": "real-cs-nullable-params-return",
+      "provenance": {
+        "Engine.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/Engine.cs",
+          "sha256": "f00174536add99df74ca4d386f50d6962623127e4b932faadb6f3fa83b17810b",
+          "import_sha256": "f00174536add99df74ca4d386f50d6962623127e4b932faadb6f3fa83b17810b"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is Engine.ReadParent(Guid?, IReadOnlyList<Passage>) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Engine.cs",
+              "line": 168,
+              "start": 10535,
+              "length": 10,
+              "text": "ReadParent"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Engine.cs",
+              "line": 168,
+              "start": 10535,
+              "length": 10,
+              "text": "ReadParent"
+            }
+          ],
+          "outcome": "exact_delivery"
+        },
+        {
+          "question": "What are its parameters?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Engine.cs",
+              "line": 168,
+              "start": 10545,
+              "length": 40,
+              "text": "(Guid? id,IReadOnlyList<Passage> active)"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Engine.cs",
+              "line": 66,
+              "start": 3416,
+              "length": 19,
+              "text": "(parentId,passages)"
+            }
+          ],
+          "outcome": "wrong_delivery"
+        }
+      ],
+      "complete": false,
+      "milliseconds": [
+        0.48210000386461616,
+        0.23330003023147583,
+        0.2334999735467136,
+        0.23030000738799572
+      ]
+    },
+    {
+      "id": "real-cs-array-return-type",
+      "provenance": {
+        "Journal.cs": {
+          "kind": "observed_project_source",
+          "revision": "2011be05e61a7c7107bce3496cb0bf072e262341",
+          "path": "desktop/Journal.cs",
+          "sha256": "a363c797ab351df6a746399844b0c4cf9ffe67e9ca23768a6558895c9fc81811",
+          "import_sha256": "a363c797ab351df6a746399844b0c4cf9ffe67e9ca23768a6558895c9fc81811"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is Journal.ValidClaims(ClaimAssessment[], Citation[]) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Journal.cs",
+              "line": 123,
+              "start": 6285,
+              "length": 11,
+              "text": "ValidClaims"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Journal.cs",
+              "line": 123,
+              "start": 6285,
+              "length": 11,
+              "text": "ValidClaims"
+            }
+          ],
+          "outcome": "exact_delivery"
+        },
+        {
+          "question": "What is its return type?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Journal.cs",
+              "line": 123,
+              "start": 6280,
+              "length": 4,
+              "text": "bool"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Journal.cs",
+              "line": 123,
+              "start": 6280,
+              "length": 4,
+              "text": "bool"
+            }
+          ],
+          "outcome": "exact_delivery"
+        }
+      ],
+      "complete": true,
+      "milliseconds": [
+        0.3541000187397003,
+        0.33030001213774085,
+        0.21579995518550277,
+        0.20980002591386437
+      ]
+    },
+    {
+      "id": "real-py-defaults-init-params",
+      "provenance": {
+        "relativedelta.py": {
+          "kind": "observed_project_source",
+          "distribution": "python-dateutil",
+          "version": "4.0.0",
+          "path": "dateutil/relativedelta.py",
+          "sha256": "73dc3c523083fb4a1b8300fb428a6196b4948caaaa0800789230c7fa360bf992",
+          "import_sha256": "73dc3c523083fb4a1b8300fb428a6196b4948caaaa0800789230c7fa360bf992"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is relativedelta.__init__(22 parameters) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "relativedelta.py",
+              "line": 103,
+              "start": 3965,
+              "length": 8,
+              "text": "__init__"
+            }
+          ],
+          "verdict": "unsupported",
+          "citations": [],
+          "outcome": "false_abstention"
+        },
+        {
+          "question": "What are its parameters?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "relativedelta.py",
+              "line": 103,
+              "start": 3973,
+              "length": 338,
+              "text": "(self, dt1=None, dt2=None,\n                 years=0, months=0, days=0, leapdays=0, weeks=0,\n                 hours=0, minutes=0, seconds=0, microseconds=0,\n                 year=None, month=None, day=None, weekday=None,\n                 yearday=None, nlyearday=None,\n                 hour=None, minute=None, second=None, microsecond=None)"
+            }
+          ],
+          "verdict": "unsupported",
+          "citations": [],
+          "outcome": "false_abstention"
+        }
+      ],
+      "complete": false,
+      "milliseconds": [
+        0.4314000252634287,
+        0.3526999498717487,
+        0.36310002906247973,
+        0.3698000218719244
+      ]
+    },
+    {
+      "id": "real-py-calls-followup-unsupported",
+      "provenance": {
+        "relativedelta.py": {
+          "kind": "observed_project_source",
+          "distribution": "python-dateutil",
+          "version": "4.0.0",
+          "path": "dateutil/relativedelta.py",
+          "sha256": "73dc3c523083fb4a1b8300fb428a6196b4948caaaa0800789230c7fa360bf992",
+          "import_sha256": "73dc3c523083fb4a1b8300fb428a6196b4948caaaa0800789230c7fa360bf992"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is relativedelta.normalized(1 parameter) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "relativedelta.py",
+              "line": 284,
+              "start": 10905,
+              "length": 10,
+              "text": "normalized"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "relativedelta.py",
+              "line": 284,
+              "start": 10905,
+              "length": 10,
+              "text": "normalized"
+            }
+          ],
+          "outcome": "exact_delivery"
+        },
+        {
+          "question": "Where is it called?",
+          "expected_verdict": "unsupported",
+          "expected_citations": [],
+          "verdict": "unsupported",
+          "citations": [],
+          "outcome": "correct_withhold"
+        }
+      ],
+      "complete": true,
+      "milliseconds": [
+        0.4163000266999006,
+        0.37789996713399887,
+        0.3738999948836863,
+        0.3727999865077436
+      ]
+    },
+    {
+      "id": "real-research-3way-provenance",
+      "provenance": {
+        "Checks.txt": {
+          "kind": "observed_measurement_projection",
+          "revision": "c05b083064372621289fc5e9ed86e5782ab6b4af",
+          "path": "docs/evidence/next-007/windows-checks.txt",
+          "raw_sha256": "f606327a545b5c82b4a15518c7978f78cbfcfd8055ce2e07489deef0dcbbe451",
+          "projection": "All (\\d+) checks passed\\.",
+          "import_sha256": "0797c752d51574870a5c16805df877fcef12cd38348196529c12e04054f0f922"
+        },
+        "Ledger.txt": {
+          "kind": "observed_measurement_projection",
+          "revision": "c05b083064372621289fc5e9ed86e5782ab6b4af",
+          "path": "docs/evidence/next-007/ledger.txt",
+          "raw_sha256": "f2c7ca54807fcf9ce9fddd8230be181054b33cdc4450d7560a2531c4d0173ffd",
+          "projection": "^PASS (\\d+) real-source outcomes",
+          "import_sha256": "ad2d554aedd5c85962ec8725083d249e56b280a41bbca906fd749cd06c28f8a4"
+        },
+        "Package7.txt": {
+          "kind": "observed_measurement_projection",
+          "revision": "c05b083064372621289fc5e9ed86e5782ab6b4af",
+          "path": "docs/evidence/next-007/verify-ps7.txt",
+          "raw_sha256": "3b99797d8ae6b93eb8d72e79788e9a9225f3bfbd860104a8dee7b10d062cd7ea",
+          "projection": "^PASS (\\d+) inventory hashes",
+          "import_sha256": "c019fa3bbd2e1d70fd0b43e4c2177f699b8d45d21017a64cc58812bd9bae0391"
+        }
+      },
+      "turns": [
+        {
+          "question": "Compare project claims: Windows checks | Ledger observations | Verified files",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Checks.txt",
+              "line": 1,
+              "start": 16,
+              "length": 3,
+              "text": "185"
+            },
+            {
+              "source": "Ledger.txt",
+              "line": 1,
+              "start": 21,
+              "length": 1,
+              "text": "5"
+            },
+            {
+              "source": "Package7.txt",
+              "line": 1,
+              "start": 16,
+              "length": 3,
+              "text": "519"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Checks.txt",
+              "line": 1,
+              "start": 16,
+              "length": 3,
+              "text": "185"
+            },
+            {
+              "source": "Ledger.txt",
+              "line": 1,
+              "start": 21,
+              "length": 1,
+              "text": "5"
+            },
+            {
+              "source": "Package7.txt",
+              "line": 1,
+              "start": 16,
+              "length": 3,
+              "text": "519"
+            }
+          ],
+          "outcome": "exact_delivery"
+        }
+      ],
+      "complete": true,
+      "milliseconds": [
+        0.7672000210732222,
+        0.02659996971487999,
+        0.022099993657320738,
+        0.020900042727589607
+      ]
+    },
+    {
+      "id": "ctrl-cs-generic-calls-convo",
+      "provenance": {
+        "Repo.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "e31c671ccd7c62f93d069fa60a6c1dc6deed73b3760b01e9778a51972ae81fa0"
+        },
+        "Worker.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "5ce55c92b9f84810e92814eb93f2b4f4c0ff7eeffea3820f2f8085e39859d54a"
+        },
+        "ShadowOnly.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "0bfe0a1874797dab156e364d594b502ab5e89059991e755c2033243c1e530b88"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is Store.Load(IReadOnlyList<int>) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Repo.cs",
+              "line": 5,
+              "start": 150,
+              "length": 4,
+              "text": "Load"
+            }
+          ],
+          "verdict": "ambiguous",
+          "citations": [],
+          "outcome": "false_abstention"
+        },
+        {
+          "question": "Where is it called?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Worker.cs",
+              "line": 4,
+              "start": 93,
+              "length": 11,
+              "text": "s.Load(ids)"
+            }
+          ],
+          "verdict": "unsupported",
+          "citations": [],
+          "outcome": "false_abstention"
+        }
+      ],
+      "complete": false,
+      "milliseconds": [
+        0.10060000931844115,
+        0.02340000355616212,
+        0.020299979951232672,
+        0.019899976905435324
+      ]
+    },
+    {
+      "id": "ctrl-cs-nullable-params",
+      "provenance": {
+        "Repo.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "e31c671ccd7c62f93d069fa60a6c1dc6deed73b3760b01e9778a51972ae81fa0"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is Store.Load(string?) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Repo.cs",
+              "line": 4,
+              "start": 70,
+              "length": 4,
+              "text": "Load"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Repo.cs",
+              "line": 4,
+              "start": 70,
+              "length": 4,
+              "text": "Load"
+            }
+          ],
+          "outcome": "exact_delivery"
+        },
+        {
+          "question": "What are its parameters?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Repo.cs",
+              "line": 4,
+              "start": 74,
+              "length": 16,
+              "text": "(string? filter)"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Repo.cs",
+              "line": 4,
+              "start": 74,
+              "length": 16,
+              "text": "(string? filter)"
+            }
+          ],
+          "outcome": "exact_delivery"
+        }
+      ],
+      "complete": true,
+      "milliseconds": [
+        0.050499977078288794,
+        0.014899997040629387,
+        0.011500029359012842,
+        0.010299962013959885
+      ]
+    },
+    {
+      "id": "ctrl-cs-array-return",
+      "provenance": {
+        "Repo.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "e31c671ccd7c62f93d069fa60a6c1dc6deed73b3760b01e9778a51972ae81fa0"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is Store.Save(byte[]) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Repo.cs",
+              "line": 6,
+              "start": 220,
+              "length": 4,
+              "text": "Save"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Repo.cs",
+              "line": 6,
+              "start": 220,
+              "length": 4,
+              "text": "Save"
+            }
+          ],
+          "outcome": "exact_delivery"
+        },
+        {
+          "question": "What is its return type?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Repo.cs",
+              "line": 6,
+              "start": 216,
+              "length": 3,
+              "text": "int"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Repo.cs",
+              "line": 6,
+              "start": 216,
+              "length": 3,
+              "text": "int"
+            }
+          ],
+          "outcome": "exact_delivery"
+        }
+      ],
+      "complete": true,
+      "milliseconds": [
+        0.12049998622387648,
+        0.017200014553964138,
+        0.014399993233382702,
+        0.013599987141788006
+      ]
+    },
+    {
+      "id": "ctrl-cs-shadowed-generic-only",
+      "provenance": {
+        "Repo.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "e31c671ccd7c62f93d069fa60a6c1dc6deed73b3760b01e9778a51972ae81fa0"
+        },
+        "ShadowOnly.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "0bfe0a1874797dab156e364d594b502ab5e89059991e755c2033243c1e530b88"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is Store.Load(IReadOnlyList<int>) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Repo.cs",
+              "line": 5,
+              "start": 150,
+              "length": 4,
+              "text": "Load"
+            }
+          ],
+          "verdict": "ambiguous",
+          "citations": [],
+          "outcome": "false_abstention"
+        },
+        {
+          "question": "Where is it called?",
+          "expected_verdict": "unsupported",
+          "expected_citations": [],
+          "verdict": "unsupported",
+          "citations": [],
+          "outcome": "correct_withhold"
+        }
+      ],
+      "complete": false,
+      "milliseconds": [
+        0.017300015315413475,
+        0.014899997040629387,
+        0.01409999094903469,
+        0.014299992471933365
+      ]
+    },
+    {
+      "id": "ctrl-cs-class-return-unsupported",
+      "provenance": {
+        "Repo.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "e31c671ccd7c62f93d069fa60a6c1dc6deed73b3760b01e9778a51972ae81fa0"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is Store defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "Repo.cs",
+              "line": 2,
+              "start": 29,
+              "length": 5,
+              "text": "Store"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Repo.cs",
+              "line": 2,
+              "start": 29,
+              "length": 5,
+              "text": "Store"
+            }
+          ],
+          "outcome": "exact_delivery"
+        },
+        {
+          "question": "What is its return type?",
+          "expected_verdict": "unsupported",
+          "expected_citations": [],
+          "verdict": "unsupported",
+          "citations": [],
+          "outcome": "correct_withhold"
+        }
+      ],
+      "complete": true,
+      "milliseconds": [
+        0.1029000268317759,
+        0.014399993233382702,
+        0.011500029359012842,
+        0.010999967344105244
+      ]
+    },
+    {
+      "id": "ctrl-py-annotated-default-return",
+      "provenance": {
+        "typed.py": {
+          "kind": "constructed_public_control",
+          "import_sha256": "7306e088ec43744b3754a0b3e64f42f4f542411584a1a3622580825975355bb7"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is Metrics.record(3 parameters) defined?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "typed.py",
+              "line": 2,
+              "start": 23,
+              "length": 6,
+              "text": "record"
+            }
+          ],
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "typed.py",
+              "line": 2,
+              "start": 23,
+              "length": 6,
+              "text": "record"
+            }
+          ],
+          "outcome": "exact_delivery"
+        },
+        {
+          "question": "What is its return type?",
+          "expected_verdict": "supported",
+          "expected_citations": [
+            {
+              "source": "typed.py",
+              "line": 2,
+              "start": 66,
+              "length": 4,
+              "text": "bool"
+            }
+          ],
+          "verdict": "unsupported",
+          "citations": [],
+          "outcome": "false_abstention"
+        }
+      ],
+      "complete": false,
+      "milliseconds": [
+        0.13040000339969993,
+        0.014599994756281376,
+        0.011200027074664831,
+        0.010499963536858559
+      ]
+    },
+    {
+      "id": "ctrl-py-kwonly-unsupported",
+      "provenance": {
+        "typed.py": {
+          "kind": "constructed_public_control",
+          "import_sha256": "7306e088ec43744b3754a0b3e64f42f4f542411584a1a3622580825975355bb7"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is Metrics.strict(3 parameters) defined?",
+          "expected_verdict": "unsupported",
+          "expected_citations": [],
+          "verdict": "unsupported",
+          "citations": [],
+          "outcome": "correct_withhold"
+        }
+      ],
+      "complete": true,
+      "milliseconds": [
+        0.04090002039447427,
+        0.007700000423938036,
+        0.006299989763647318,
+        0.005799985956400633
+      ]
+    },
+    {
+      "id": "ctrl-parentless-calls-followup",
+      "provenance": {
+        "Repo.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "e31c671ccd7c62f93d069fa60a6c1dc6deed73b3760b01e9778a51972ae81fa0"
+        },
+        "Worker.cs": {
+          "kind": "constructed_public_control",
+          "import_sha256": "5ce55c92b9f84810e92814eb93f2b4f4c0ff7eeffea3820f2f8085e39859d54a"
+        }
+      },
+      "turns": [
+        {
+          "question": "Where is it called?",
+          "expected_verdict": "unsupported",
+          "expected_citations": [],
+          "verdict": "unsupported",
+          "citations": [],
+          "outcome": "correct_withhold"
+        }
+      ],
+      "complete": true,
+      "milliseconds": [
+        0.000400003045797348,
+        0.000300002284348011,
+        0.000200001522898674,
+        0.000200001522898674
+      ]
+    }
+  ]
+}
