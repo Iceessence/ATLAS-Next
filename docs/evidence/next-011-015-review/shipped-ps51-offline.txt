@@ -1,0 +1,14 @@
+﻿Imported receipt: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-f9a4bbc77a094671853c014d9870f748\profile\exports\project-package-check\aac80e7987f04b38ab4eb8a56ce185b2-5ce418313c014cd79b657ebd01084248.json
+PASS native file picker imports, exact source span and contradictory sources withheld
+PASS packaged qualified definitions, signature, documentation, enclosing type, namespace and ambiguity locations
+PASS packaged overload selection, cross-file call binding, per-claim research provenance and stale-revision withholding
+PASS packaged generic overload, parameter list, return type, and conversational caller follow-up
+PASS packaged Python literal grammar, raw text and unsupported-follow-up withholding
+PASS packaged research comparison recheck with pinned parent and fresh citations
+PASS packaged project source inventory across empty switch, single import, revision update and 10-document truncation
+PASS workspace coding, model evidence, verified research history and active project survive relaunch
+PowerShell 5.1.26100.9818 verified ZIP 047BCE47C0A1C6BDE570D6CAC642853A3DB5ECBDE4DF601BDE3640EA99028E98
+PASS 520 inventory hashes, private runtime, PID/title window discovery across relaunches
+PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery
+PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts
+Evidence: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-f9a4bbc77a094671853c014d9870f748\profile\exports\49cfca6431d44b1a9bad2977a0f152a1-856a05dbc00b4793b333520263b3b3f8.json

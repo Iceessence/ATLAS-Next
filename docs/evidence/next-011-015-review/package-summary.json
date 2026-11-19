@@ -1,0 +1,46 @@
+{
+  "shipped_ps51": {
+    "sizeBytes": 95199759,
+    "sha256": "047bce47c0a1c6bde570d6cac642853a3db5ecbde4df601bde3640ea99028e98",
+    "inventoryCount": 520,
+    "roslynFileCount": 28,
+    "labFilesCount": 0,
+    "nativePath": "app/assets/native.json",
+    "nativeSha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "nativeId": null,
+    "next014Path": "app/assets/experiments/next-014.json",
+    "next014ReceiptSha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+    "next014FitStatus": "blocked",
+    "next014PromotionStatus": null
+  },
+  "shipped_ps7": {
+    "sizeBytes": 112860367,
+    "sha256": "536408c50dc7a1eb9b6cb6eb1e4a4ea5d05d2a1a7029a62fa14584b0f50b94a6",
+    "inventoryCount": 520,
+    "roslynFileCount": 28,
+    "labFilesCount": 0,
+    "nativePath": "app/assets/native.json",
+    "nativeSha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "nativeId": null,
+    "next014Path": "app/assets/experiments/next-014.json",
+    "next014ReceiptSha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+    "next014FitStatus": "blocked",
+    "next014PromotionStatus": null
+  },
+  "rebuilt_ps7": {
+    "sizeBytes": 112860366,
+    "sha256": "c49c882fd4dec6b4dcea32bc6dc1c3378c6f426fd8c28cc209ee4b40b5845974",
+    "inventoryCount": 520,
+    "roslynFileCount": 28,
+    "labFilesCount": 0,
+    "nativePath": "app/assets/native.json",
+    "nativeSha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "nativeId": null,
+    "next014Path": "app/assets/experiments/next-014.json",
+    "next014ReceiptSha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+    "next014FitStatus": "blocked",
+    "next014PromotionStatus": null
+  },
+  "rebuilt_ps51_verified_sha256": "1ae98f97aa4925b29a70a5973f7e1d4fa444b46e95761e7246233f247b9f88db",
+  "rebuilt_ps7_verified_sha256": "c49c882fd4dec6b4dcea32bc6dc1c3378c6f426fd8c28cc209ee4b40b5845974"
+}

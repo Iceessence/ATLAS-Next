@@ -2,26 +2,35 @@
 
 | Field | Current assignment |
 | --- | --- |
-| Task | Independently review NEXT-010R and the NEXT-011 through NEXT-015 integrated batch |
-| State | PENDING_INDEPENDENT_REVIEW |
-| Next writer | Gemini Argon Orchestrator |
-| Last independently accepted product | NEXT-009 `f4db48313eefe6df27639d4a17c114cee6224d75`, verdict `37c273f65c56fec35b7962c747ba86291018460b` |
-| NEXT-010 original verdict | REPAIRS_REQUIRED on `595ca3611a3ab9f6cd6cdd51851b45a4d0f10153`, Sol review commit `b358452bef7ca1624c00c24d91db60323cd85b2c`. [Receipt](../evidence/independent-review-next010.json) |
-| NEXT-010R provisional prerequisite | Product `06f850119666c2f78ba850d8d17f63c1a4e87b5e`, author evidence `069309d1b77a7dfcec36d8ada2c8aa4a3cf3ec66` |
-| Preregistered protocol | `dc681ca58b6aa3be6eb5a996dbb527657254fc99` |
-| NEXT-011 | Product `3ae818874c19288b24df943fea4d7f0e4202273c`, evidence `f250e2830919594e9037f605454983bb41394c18` and `41370d36834ca7ba2fdcb80cd2a9ddec979f6c94` |
-| NEXT-012 | Product `5e327ad9d52ee91117fad1bba718f65d8c066ac3`, evidence `1da748f52cbc4ad9cc97ce5e8b261c5bf95b7043` |
-| NEXT-013 | Product `80d6685914464261eacbe09365ec7cd8df9570e9`, evidence `ea3e5e9b8d61de0363e71cd3d4df67b9b1f39f4d` |
-| NEXT-014 | Product `81cc70eb0e1cff91c16b78d729acf82b5dab90cd`, evidence `79238448a0f13a4786f03c7fd02ac1fd629ad931` |
-| NEXT-015 integrated product | `b9ea81c67e5d9269b4f6348088918e80a2561836`, integrated author evidence `c8016fc8e7f98602b0e675a52a667173e27bc13b` |
-| Local ZIPs | `out/NEXT-011-015/ATLAS-Next-win-x64-ps51.zip` and `out/NEXT-011-015/ATLAS-Next-win-x64-ps7.zip`. [Exact ZIP digests, sizes and inventories](../evidence/next-015/packages.json) |
+| Task | Repair blocking `NR-015-1` (plus optional hygiene `NR-013-1`) as bounded `NEXT-015R`, verify locally including sequential PS 5.1 and PS 7.6.9 live `-ReferenceModel qwen3.8:27b` runs, then provisionally develop the next five-update batch (`NEXT-016` through `NEXT-020`) |
+| State | REPAIRS_REQUIRED |
+| Next writer | GPT-6.2 Sol |
+| Last independently accepted product | NEXT-014 `81cc70eb0e1cff91c16b78d729acf82b5dab90cd` (advances accepted baseline from NEXT-009 `f4db48313eefe6df27639d4a17c114cee6224d75`; per-update acceptance covers `NEXT-010R`, `NEXT-011`, `NEXT-012`, `NEXT-013`, `NEXT-014`) |
+| Reviewed transfer | `c548430ad2f2efe0bc54d0757de913a0899d78bb` |
+| Independent batch receipt | [independent-review-next011-015.json](../evidence/independent-review-next011-015.json) |
+| NEXT-010 original verdict (unchanged) | `REPAIRS_REQUIRED` on Argon `595ca3611a3ab9f6cd6cdd51851b45a4d0f10153`, Sol review `b358452bef7ca1624c00c24d91db60323cd85b2c`. [Receipt](../evidence/independent-review-next010.json) |
+| NEXT-010R verdict | **`ACCEPTED_WITH_LIMITATIONS`** on `06f850119666c2f78ba850d8d17f63c1a4e87b5e` (author evidence `069309d1b77a7dfcec36d8ada2c8aa4a3cf3ec66`; `271/271` checks; `8/8` independent checks) |
+| NEXT-011 verdict | **`ACCEPTED_WITH_LIMITATIONS`** on `3ae818874c19288b24df943fea4d7f0e4202273c` (+ `b9ea81c6`; evidence `f250e283...`, `41370d36...`; `276/276` checks; `7/7` independent checks; live `qwen3.8:27b` smoke `BRIDGE` -> `BRIDGE-LOCAL`) |
+| NEXT-012 verdict | **`ACCEPTED_WITH_LIMITATIONS`** on `5e327ad9d52ee91117fad1bba718f65d8c066ac3` (+ `b9ea81c6`; evidence `1da748f5...`; `280/280` checks; `8/8` independent checks) |
+| NEXT-013 verdict | **`ACCEPTED_WITH_LIMITATIONS`** on `80d6685914464261eacbe09365ec7cd8df9570e9` (evidence `ea3e5e9b...`; `285/285` checks; `10/10` independent checks; low non-blocking hygiene note `NR-013-1`) |
+| NEXT-014 verdict | **`ACCEPTED_WITH_LIMITATIONS`** on `81cc70eb0e1cff91c16b78d729acf82b5dab90cd` (evidence `79238448...`; `285/285` checks; `3/3` lab gates; blocked fit exit `2`; `7/7` independent Python leakage/split gates) |
+| NEXT-015 & overall batch verdict | **`REPAIRS_REQUIRED`** on `b9ea81c67e5d9269b4f6348088918e80a2561836` (via `1d77a604`, `37f0de92`; evidence `c8016fc8...`; `289/289` checks; `8/8` C# Workspace/UI checks; offline WPF PASS in PS 5.1 & PS 7.6.9; live `-ReferenceModel qwen3.8:27b` PASS through `BRIDGE-LOCAL` then fails `Shutdown timeout` at `Close-Session` due to `NR-015-1`) |
 
-## Argon independent batch review
+## Consolidated repair register
 
-1. Review the quota repair from a clean checkout and challenge failed, pending and reimported files, capacity, corrupt storage and cross-project inventory. Review the five product commits with their individual evidence and the final integrated product. Acceptance of dependent work requires independent acceptance of its dependencies.
-2. Challenge the fixed loopback transport, owner consent, model validation, incomplete replies, untrusted generated text, cancellation, and unavailable service. Use the owner's preferred current `qwen3.8:27b` if already installed and explicitly authorized on the local-only service. Keep selected coding context and generated output separate from host verification. Confirm stale and foreign definitions cannot authorize excerpts.
-3. Verify the authorized research source list, linked plan/verification stages, exact provenance, stalled, stale and contradictory outcomes, and reopening a saved plan. Challenge training eligibility and split overlap, reseal the comparison from pinned sources, confirm the fitting gate and verify unchanged shadow checkpoints.
-4. Run clean Windows and Python suites and earlier outcome replays. Build and exercise both WPF ZIPs sequentially under Windows PowerShell 5.1 and PowerShell 7.6.9. On a confirmed local-only installed service use `tools/verify-package.ps1 -Zip <zip> -ReferenceModel qwen3.8:27b`. If unavailable, record that coverage gap explicitly and run the offline workflow. Verify all 520 payload members and the pinned trial receipt. Keep independent cases and labels outside Git.
-5. Commit independent per-update verdicts, the prerequisite repair verdict, integrated verdict and a consolidated repair register in one activation. Return the assignment to Sol through the handoff. Keep work local, executable automation disabled, native models shadow-only, and legacy ATLAS, PLATZ Engine and FORGE outside scope.
+1. **`NR-015-1` [Medium — BLOCKING for `NEXT-015` live-reference packaged UIA workflow]:**
+   - **Locations:** `desktop/ReferenceWindow.xaml.cs` (`ModelChanged`), `desktop/ReferenceWindow.xaml`, `tools/verify-package.ps1` (`Close-Dialog` lines 144–146 & 475–487).
+   - **Verified defect:** Unmodified `tools/verify-package.ps1 -Zip <zip> -ReferenceModel qwen3.8:27b` passes `PASS packaged two-turn local reference-model conversation using qwen3.8:27b` (`BRIDGE` -> `BRIDGE-LOCAL`) sequentially under both Windows PowerShell `5.1.26100.9818` and PowerShell `7.6.9`, then fails at `tools/verify-package.ps1:169` (`Shutdown timeout`) in `Close-Session $session` right after `Close-Dialog $chat`. Expanding the `Model` `ComboBox` (`$picker.Expand()` + `Select-AtlasItem`) inside modal `ReferenceWindow` leaves `Model.IsDropDownOpen == true` (`Expanded`) and creates a Win32 `PopupRoot` HWND after which UIA `WindowPattern.Close()` returns without closing `ReferenceWindow`, blocking `WorkWindow.Close()`. Isolated `%TEMP%` proofs verified that posting `WM_CLOSE` (`0x0010`) in `Close-Dialog` closes `ReferenceWindow` immediately and completes the post-chat relaunch and shutdown checks in both shells.
+   - **Required repair (`NEXT-015R`):** Set `Model.IsDropDownOpen = false;` in `ReferenceWindow.ModelChanged` (`desktop/ReferenceWindow.xaml.cs`) so keyboard/UIA selection cleanly dismisses the dropdown, and harden `Close-Dialog` in `tools/verify-package.ps1` (collapse open dropdown popups and fall back to Win32 `WM_CLOSE` `0x0010` when `WindowPattern.Close()` leaves the modal dialog open, waiting for dialog dismissal before calling `Close-Session`). Re-run unmodified `tools/verify-package.ps1 -Zip <zip> -ReferenceModel qwen3.8:27b` sequentially in Windows PowerShell 5.1 and PowerShell 7.
+2. **`NR-013-1` [Low — Non-blocking programmatic API hygiene in `NEXT-013`]:**
+   - **Locations:** `desktop/Engine.cs` (`Study`, `SubmitCore`, `FinishProjectAnswer`), `desktop/ResearchPlan.cs`.
+   - **Finding:** `ResearchPlan.IsValid()` validates pipe-delimited `Fields` with `StringSplitOptions.TrimEntries`, and `ResearchWindow.Prepare` trims UI fields, whereas a direct programmatic `Engine.Study(plan)` call with trailing/leading spaces in `plan.Fields` enters `review` (`SubmitCore` trims `task.Request`) and fails closed (`"Project evidence failed authorization."`) at `Finish()` because `task.Plan.Request != task.Request`. Normalize `plan.Objective` and `plan.Fields` with `.Trim()` inside `Engine.Study` (or `ResearchPlan.Normalized()`).
 
-[Batch report](ATLAS_BATCH_011_015.md) · [Integrated test evidence](../TEST_EVIDENCE.md#next-011-through-next-015-integrated-author-verification) · [Batch protocol](ATLAS_REVIEW_PROTOCOL.md) · [Preregistered comparisons](../../lab/next-batch-protocol.md)
+## Sol next assignment (`NEXT-015R` + provisional `NEXT-016` through `NEXT-020`)
+
+1. Complete and locally verify bounded repair **`NEXT-015R`** (`NR-015-1` and optional hygiene `NR-013-1`), including sequential unmodified `tools/verify-package.ps1 -Zip <zip> -ReferenceModel qwen3.8:27b` under both Windows PowerShell 5.1 and PowerShell 7, before treating `NEXT-015R` as a provisional dependency. `NEXT-014` (`81cc70eb0e1cff91c16b78d729acf82b5dab90cd`) remains the highest independently accepted baseline until Argon accepts `NEXT-015R`.
+2. Proceed cleanly into the next five-update batch (**`NEXT-016` through `NEXT-020`**) following [ATLAS_REVIEW_PROTOCOL.md](ATLAS_REVIEW_PROTOCOL.md) and [ROADMAP.md](../ROADMAP.md):
+   - Recommended batch themes: (1) `NEXT-016`: UI draft-safety & interactive keyboard/focus polish (built-in coding diff/patch preview + keyboard/focus dismissal regressions alongside `NR-015-1` window-close check), (2) `NEXT-017`: multi-file symbol cross-reference & header/signature exploration depth (extending bounded C#/Python coding evidence without weakening abstention guarantees), (3) `NEXT-018`: research contradiction-resolution & saved study diffing across revisions, (4) `NEXT-019`: independent offline evaluation family expansion & calibration telemetry (keeping private expectations and synthetic/conversation rows out of training until independently enrolled), and (5) `NEXT-020`: disposable guest / execution-isolation design spike or workspace packaging & offline verification hardening.
+3. Preserve all standing boundaries: keep local-only execution (`NO git push`), keep host execution disabled (`read owner-imported text`), keep native models `shadow`-only (`6b9b23fc...`, `5c476024...`) unless an independent held-out comparison earns promotion, keep loopback reference models explicitly opt-in (`127.0.0.1:11434`), and leave legacy ATLAS (`695585f`), PLATZ Engine, and FORGE untouched.
+
+[Review evidence](../TEST_EVIDENCE.md#next-010r-and-next-011-through-next-015-independent-batch-review) · [Owner report](ATLAS_OWNER_REPORT.md) · [Batch protocol](ATLAS_REVIEW_PROTOCOL.md) · [Preregistered comparisons](../../lab/next-batch-protocol.md)

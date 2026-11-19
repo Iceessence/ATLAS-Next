@@ -1,0 +1,319 @@
+{
+  "schema": 1,
+  "review": "NEXT-010R and NEXT-011 through NEXT-015 integrated batch",
+  "reviewer": "Gemini Argon Orchestrator",
+  "product_author": "GPT-6.2 Sol",
+  "reviewed_at_utc": "2026-11-19T07:10:00Z",
+  "transfer_handoff": "c548430ad2f2efe0bc54d0757de913a0899d78bb",
+  "preregistered_protocol": "dc681ca58b6aa3be6eb5a996dbb527657254fc99",
+  "prior_accepted_baseline": "f4db48313eefe6df27639d4a17c114cee6224d75",
+  "new_accepted_baseline": "81cc70eb0e1cff91c16b78d729acf82b5dab90cd",
+  "overall_integrated_verdict": "REPAIRS_REQUIRED",
+  "overall_rationale": "NEXT-010R and NEXT-011 through NEXT-014 pass all independent product, security, loopback-only, provenance, data-eligibility, clean-build, and adversarial checks with 0 wrong deliveries and are accepted with limitations, advancing the independently accepted baseline to NEXT-014 (81cc70eb0e1cff91c16b78d729acf82b5dab90cd). Integrated product NEXT-015 (b9ea81c67e5d9269b4f6348088918e80a2561836) passes 289/289 Windows checks, 14/14 Python integrity tests, all offline packaged UIA runs, and the two-turn live qwen3.8:27b WPF conversation, but unmodified tools/verify-package.ps1 -ReferenceModel qwen3.8:27b deterministically throws 'Shutdown timeout' at line 169 during Close-Session after Close-Dialog leaves modal ReferenceWindow open following ComboBox Expand(). Under batch acceptance discipline, NEXT-015 requires bounded repair NR-015-1 before final promotion.",
+  "prior_next010_self_authorship_boundary": {
+    "argon_original_next010_product": "595ca3611a3ab9f6cd6cdd51851b45a4d0f10153",
+    "sol_independent_verdict_commit": "b358452bef7ca1624c00c24d91db60323cd85b2c",
+    "sol_verdict": "REPAIRS_REQUIRED",
+    "argon_respected_sol_verdict_without_self_approval": true
+  },
+  "per_update_verdicts": [
+    {
+      "id": "NEXT-010R",
+      "product": "06f850119666c2f78ba850d8d17f63c1a4e87b5e",
+      "author_evidence": "069309d1b77a7dfcec36d8ada2c8aa4a3cf3ec66",
+      "author": "GPT-6.2 Sol",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "271/271",
+      "independent_adversarial_checks": "8/8 PASS",
+      "notes": "Pre-publication validation avoids empty quota-consuming directories; counts published revisions only; preserves failed/pending folders cleanly; fails closed on corrupted JSON/tampered source bytes; keeps 32-source capacity isolated across projects."
+    },
+    {
+      "id": "NEXT-011",
+      "product": "3ae818874c19288b24df943fea4d7f0e4202273c",
+      "integrated_followup": "b9ea81c67e5d9269b4f6348088918e80a2561836",
+      "author_evidence": [
+        "f250e2830919594e9037f605454983bb41394c18",
+        "41370d36834ca7ba2fdcb80cd2a9ddec979f6c94"
+      ],
+      "author": "GPT-6.2 Sol",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "276/276",
+      "live_local_model": {
+        "name": "qwen3.8:27b",
+        "digest": "aaee06c39dcf2437cde036998d960e1fc1494b8191be7cc9657d01e509097813",
+        "smoke_answer": "BRIDGE",
+        "smoke_follow": "BRIDGE-LOCAL",
+        "first_ms": 8265.3864,
+        "second_ms": 8077.307,
+        "working_set_bytes": 50733056,
+        "log": "next-011-015-review/next011-smoke-qwen38.json"
+      },
+      "independent_adversarial_checks": "7/7 PASS",
+      "notes": "Strict IPv4 loopback-only transport (127.0.0.1:11434), UseProxy=false, AllowAutoRedirect=false, explicit consent gate, strict model validation, length/output-limit fail-closed handling, real CancellationToken cancellation, and unexecuted/unverified labeling all verified."
+    },
+    {
+      "id": "NEXT-012",
+      "product": "5e327ad9d52ee91117fad1bba718f65d8c066ac3",
+      "integrated_followup": "b9ea81c67e5d9269b4f6348088918e80a2561836",
+      "author_evidence": "1da748f52cbc4ad9cc97ce5e8b261c5bf95b7043",
+      "author": "GPT-6.2 Sol",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "280/280",
+      "guide_probes": {
+        "csharp": {
+          "symbol": "CheckProjectAnswer",
+          "source": "Engine595.cs",
+          "ms": 12.7613,
+          "working_set_bytes": 59228160,
+          "log": "next-011-015-review/next012-guide-csharp.json"
+        },
+        "python": {
+          "symbol": "add_table",
+          "source": "table.py",
+          "ms": 15.8962,
+          "working_set_bytes": 49799168,
+          "log": "next-011-015-review/next012-guide-python.json"
+        }
+      },
+      "independent_adversarial_checks": "8/8 PASS",
+      "notes": "Strictly separates verified declaration facts/callers/spans from optional previewed draft context and unverified generated proposals; withholds stale/foreign/incomplete definitions; caps bounded doc excerpts and output budgets."
+    },
+    {
+      "id": "NEXT-013",
+      "product": "80d6685914464261eacbe09365ec7cd8df9570e9",
+      "author_evidence": "ea3e5e9b8d61de0363e71cd3d4df67b9b1f39f4d",
+      "author": "GPT-6.2 Sol",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "285/285",
+      "study_probe": {
+        "request": "Compare project claims: Check count | Inventory count",
+        "result": "check count: 268\ninventory count: 519",
+        "elapsed_ms": 56.4969,
+        "working_set_bytes": 44494848,
+        "log": "next-011-015-review/next013-study-probe.json"
+      },
+      "independent_adversarial_checks": "10/10 PASS",
+      "non_blocking_hygiene": "NR-013-1",
+      "notes": "Bounded 2-to-8 explicitly authorized text/Markdown sources, 2-to-4 literal fields, exact per-claim citations, stale/conflict/foreign-source fail-closed checks, and saved plan reuse all verified. Direct programmatic Engine.Study with untrimmed Fields enters review then fails closed at Finish (NR-013-1); UI trims inputs."
+    },
+    {
+      "id": "NEXT-014",
+      "product": "81cc70eb0e1cff91c16b78d729acf82b5dab90cd",
+      "author_evidence": "79238448a0f13a4786f03c7fd02ac1fd629ad931",
+      "author": "GPT-6.2 Sol",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "285/285",
+      "python_eligibility_tests": "3/3 PASS",
+      "model_lab_fit_exit_code": 2,
+      "trial_receipt_sha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+      "independent_adversarial_checks": "7/7 Python leakage/split/tamper gates PASS",
+      "notes": "Reproduces exact blocked fit gate (exit code 2, newlyEligibleTrainingRows=0, publicConversationRows=6), enforces disjoint splits (4 train / 2 validation / 4 evaluation families), pins protocol/ledger/checkpoint digests, leaves both shadow checkpoints unchanged (0 wrong deliveries; host 16/16, tfidf 16/16, linear 14/16, native 15/16)."
+    },
+    {
+      "id": "NEXT-015",
+      "product": "b9ea81c67e5d9269b4f6348088918e80a2561836",
+      "intermediate_commits": [
+        "1d77a604f44c556c59177a908134547c36d14684",
+        "37f0de92b21a48a6498086a7e044d15fd5628b82"
+      ],
+      "integrated_author_evidence": "c8016fc8e7f98602b0e675a52a667173e27bc13b",
+      "author": "GPT-6.2 Sol",
+      "verdict": "REPAIRS_REQUIRED",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "289/289",
+      "independent_adversarial_checks": "8/8 C# WorkspaceState + live ReferenceWindow checks PASS",
+      "blocking_repair": "NR-015-1",
+      "notes": "Core workspace integration, accessibility labels, WorkspaceState persistence, 289/289 checks, offline cross-shell packaging (520 payload entries, 28 Roslyn, lab=0, shadow), and the live qwen3.8:27b WPF conversation pass, but unmodified tools/verify-package.ps1 -ReferenceModel qwen3.8:27b throws Shutdown timeout at line 169 in Close-Session after ComboBox.Expand() in Close-Dialog."
+    }
+  ],
+  "consolidated_repair_register": [
+    {
+      "id": "NR-015-1",
+      "severity": "medium",
+      "blocking": true,
+      "affects": [
+        "NEXT-015",
+        "integrated-batch"
+      ],
+      "locations": [
+        "desktop/ReferenceWindow.xaml.cs",
+        "desktop/ReferenceWindow.xaml",
+        "tools/verify-package.ps1"
+      ],
+      "symptom": "Running tools/verify-package.ps1 -Zip <zip> -ReferenceModel qwen3.8:27b sequentially under Windows PowerShell 5.1.26100.9818 and PowerShell 7.6.9 passes PASS packaged two-turn local reference-model conversation using qwen3.8:27b (line 484), then fails at line 169 with 'Shutdown timeout' in Close-Session (line 487) immediately after Close-Dialog $chat (line 486).",
+      "root_cause": "Calling Expand() + Select-AtlasItem on the Model ComboBox inside modal ReferenceWindow leaves Model.IsDropDownOpen=true and creates a PopupRoot HWND after which UIA WindowPattern.Close() in Close-Dialog returns without closing ReferenceWindow, blocking WorkWindow.Close() in Close-Session. Isolated UIA diagnostics proved offline Close-Dialog succeeds and WM_CLOSE (PostMessage hwnd 0x0010) closes ReferenceWindow cleanly.",
+      "required_repair": "Collapse the Model ComboBox dropdown upon selection in desktop/ReferenceWindow.xaml.cs (Model.IsDropDownOpen = false), and harden Close-Dialog in tools/verify-package.ps1 to collapse any expanded popup, fall back to WM_CLOSE (0x0010) if WindowPattern.Close() does not close the dialog HWND, and wait for dialog dismissal before calling Close-Session. Re-run unmodified tools/verify-package.ps1 -Zip <zip> -ReferenceModel qwen3.8:27b sequentially under both PS 5.1 and PS 7.6.9."
+    },
+    {
+      "id": "NR-013-1",
+      "severity": "low",
+      "blocking": false,
+      "affects": [
+        "NEXT-013"
+      ],
+      "locations": [
+        "desktop/Engine.cs",
+        "desktop/ResearchPlan.cs"
+      ],
+      "symptom": "ResearchPlan.IsValid() validates pipe-delimited Fields with StringSplitOptions.TrimEntries and ResearchWindow.Prepare trims UI text boxes, whereas direct programmatic callers passing untrimmed plan.Fields to Engine.Study(plan) enter review and then fail closed at FinishProjectAnswer because SubmitCore trims task.Request while task.Plan.Request remains untrimmed.",
+      "recommended_fix": "Normalize Objective and Fields with .Trim() inside Engine.Study (or ResearchPlan.Normalized()) so programmatic callers match ResearchWindow.Prepare without weakening Finish fail-closed checks."
+    }
+  ],
+  "git_and_boundary_checks": {
+    "per_commit_clean_checks": {
+      "NEXT-010R": "271/271 (0W/0E)",
+      "NEXT-011": "276/276 (0W/0E)",
+      "NEXT-012": "280/280 (0W/0E)",
+      "NEXT-013": "285/285 (0W/0E)",
+      "NEXT-014": "285/285 (0W/0E)",
+      "NEXT-015": "289/289 (0W/0E)",
+      "log": "next-011-015-review/per-commit-checks.txt"
+    },
+    "native_model_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "shadow_checkpoint_sha256": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+    "native_qualification": "shadow",
+    "host_execution_capability": "read owner-imported text (disabled)",
+    "legacy_repo_head": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "legacy_repo_untouched_by_review": true,
+    "remote_push": false
+  },
+  "integrated_public_replays": {
+    "product": "b9ea81c67e5d9269b4f6348088918e80a2561836",
+    "release_build": {
+      "warnings": 0,
+      "errors": 0,
+      "log": "next-011-015-review/build.txt"
+    },
+    "windows_checks": {
+      "passed": 289,
+      "total": 289,
+      "log": "next-011-015-review/windows.txt"
+    },
+    "python_integrity": {
+      "passed": 14,
+      "total": 14,
+      "duration_s": 29.767,
+      "log": "next-011-015-review/integrity.txt"
+    },
+    "model_lab_eligibility": {
+      "passed": 3,
+      "total": 3,
+      "log": "next-011-015-review/lab-gates.txt"
+    },
+    "public_factual": {
+      "passed": 31,
+      "total": 31,
+      "log": "next-011-015-review/outcomes.txt"
+    },
+    "distribution_audit": {
+      "passed": 10,
+      "total": 10,
+      "log": "next-011-015-review/audit.txt"
+    },
+    "synthetic_shadow_router": {
+      "rule": "48/72",
+      "exemplar": "42/72",
+      "native": "54/72",
+      "linear": "54/72",
+      "log": "next-011-015-review/routing.txt"
+    },
+    "model_lab_trial_replay": {
+      "fit_status": "blocked",
+      "fit_exit_code": 2,
+      "newly_eligible_training_rows": 0,
+      "public_conversation_rows": 6,
+      "protocol_sha256": "3046aa81f5b7d56828f818d2206e5fd8a27162e1cd6c65960ad86f6bcd721b0c",
+      "ledger_sha256": "4524e3f00f36c8d02423308d4f270fa43ef631bf7fe1039fc4e68460f07c4670",
+      "checkpoint_sha256": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+      "evaluation_seconds": 45.5492219000007,
+      "host": "16/16",
+      "tfidf": "16/16",
+      "linear": "14/16",
+      "native": "15/16",
+      "wrong_deliveries": 0,
+      "external_inference_calls": 0,
+      "log": "next-011-015-review/model-lab-fit.txt",
+      "receipt": "next-011-015-review/next014-trial-replay.json"
+    },
+    "earlier_code_and_research_replays": {
+      "next005": "8/8 (12 verified, 4 abstentions, 0 wrong, 239.101 ms, log next-011-015-review/prev5.txt)",
+      "next006": "13/13 (14 exact, 12 withholds, 0 wrong, log next-011-015-review/prev6.txt)",
+      "next007": "17/17 (8 exact, 9 withholds, 0 wrong, PASS 5, log next-011-015-review/prev7.txt)",
+      "next008_host": "12/14 vs 9/14 search (18 exact, 5 withholds, 2 omitted-using abstentions, 0 wrong, PASS 6 ledger, logs next-011-015-review/host8.txt, next-011-015-review/ledger8.txt)",
+      "next009_recheck": "7/7 search and 7/7 host (0 wrong, 0 false abstentions, 0 changed mismatches, 22.8874 ms first / 18.3287 ms warm, logs next-011-015-review/search9.txt, next-011-015-review/host9.txt)"
+    }
+  },
+  "packages": {
+    "summary_log": "next-011-015-review/package-summary.json",
+    "shipped_ps51": {
+      "path": "out/NEXT-011-015/ATLAS-Next-win-x64-ps51.zip",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95199759,
+      "zip_sha256": "047bce47c0a1c6bde570d6cac642853a3db5ecbde4df601bde3640ea99028e98",
+      "inventory_hashes": 520,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "offline_wpf": "PASS (next-011-015-review/shipped-ps51-offline.txt)",
+      "live_reference_wpf": "FAIL at Close-Session Shutdown timeout after PASS BRIDGE-LOCAL (NR-015-1, next-011-015-review/shipped-ps51.txt)"
+    },
+    "shipped_ps7": {
+      "path": "out/NEXT-011-015/ATLAS-Next-win-x64-ps7.zip",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112860367,
+      "zip_sha256": "536408c50dc7a1eb9b6cb6eb1e4a4ea5d05d2a1a7029a62fa14584b0f50b94a6",
+      "inventory_hashes": 520,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "offline_wpf": "PASS (next-011-015-review/shipped-ps7-offline.txt)",
+      "live_reference_wpf": "FAIL at Close-Session Shutdown timeout after PASS BRIDGE-LOCAL (NR-015-1, next-011-015-review/shipped-ps7.txt)"
+    },
+    "rebuilt_ps51": {
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "verified_zip_sha256": "1ae98f97aa4925b29a70a5973f7e1d4fa444b46e95761e7246233f247b9f88db",
+      "offline_wpf": "PASS (next-011-015-review/rebuilt-ps51-offline.txt)",
+      "wm_close_diagnostic_proof": "PASS including post-chat relaunch (next-011-015-review/rebuilt-ps51-wmclose-proof.txt)"
+    },
+    "rebuilt_ps7": {
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112860366,
+      "zip_sha256": "c49c882fd4dec6b4dcea32bc6dc1c3378c6f426fd8c28cc209ee4b40b5845974",
+      "inventory_hashes": 520,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "offline_wpf": "PASS (next-011-015-review/rebuilt-ps7-offline.txt)",
+      "wm_close_diagnostic_proof": "PASS including post-chat relaunch (next-011-015-review/rebuilt-ps7-wmclose-proof.txt)"
+    }
+  },
+  "evaluator_custody": {
+    "receipt_sha256": "6b246a213eb0aa293d905be0a88b2fe43ca432fa251a56b1ede2ab850126bbdb",
+    "csharp_plus_live_reference_checks": "41/41 PASS",
+    "python_data_eligibility_leakage_checks": "7/7 PASS",
+    "total_adversarial_checks": "48/48 PASS",
+    "wrong_deliveries": 0,
+    "coverage": [
+      "NEXT-010R (8/8): failed/malformed/non-UTF8/empty/pending imports leave quota available while valid reimport and 32-doc cap remain project-isolated and fail-closed on corrupt storage",
+      "NEXT-011 (7/7): non-loopback/unauthenticated URIs rejected, explicit consent gate, model digest matching, live qwen3.8:27b two-turn context retention, output-limit rejection, cancellation token abort, and zero-leakage chat window reset",
+      "NEXT-012 (8/8): foreign-project/stale-revision/malformed-parent withholding, exact C#/Python caller and doc extraction separation, unverified-proposal banner boundary, and draft cap enforcement",
+      "NEXT-013 (10/10): below-2/above-8 source bounds, duplicate source rejection, non-text source exclusion, foreign-source isolation, contradictory/stale withholdings, saved plan reuse after revision bump, and programmatic untrimmed-Fields fail-closed observation (NR-013-1)",
+      "NEXT-014 (7/7 Python): tampered protocol/ledger/checkpoint hashes, conversation-label training exclusion, synthetic-row exclusion, split overlap enforcement, and shadow-only gate blocking",
+      "NEXT-015 (8/8): WorkspaceState persistence across restart, invalid tab/project/selection normalization, cross-project workspace isolation, and live ReferenceWindow interaction"
+    ],
+    "private_scope": "Raw evaluator harness, cases, expectations and receipts remain outside Git."
+  },
+  "limitations": [
+    "NEXT-015 live-reference UIA package verification hits Shutdown timeout at Close-Session after ComboBox.Expand() in ReferenceWindow until NR-015-1 is fixed.",
+    "Both native models remain strictly shadow-only (6b9b23fc... and 5c476024...) with zero verified improvement over deterministic host (15/16 vs 16/16).",
+    "Host execution stays disabled (read owner-imported text), and reference chat requires an explicit loopback Ollama instance with no cloud routing."
+  ],
+  "next_assignment": {
+    "accepted_baseline_established": "81cc70eb0e1cff91c16b78d729acf82b5dab90cd",
+    "pending_product": "b9ea81c67e5d9269b4f6348088918e80a2561836",
+    "next_writer": "GPT-6.2 Sol",
+    "task": "Fix blocking NR-015-1 (and optional hygiene NR-013-1) as bounded NEXT-015R, verify locally including sequential PS 5.1 and PS 7.6.9 live -ReferenceModel package runs, then provisionally advance into the next five-update batch (NEXT-016..NEXT-020) before returning for consolidated independent review."
+  }
+}

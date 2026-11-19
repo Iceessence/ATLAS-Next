@@ -1,0 +1,165 @@
+﻿{
+  "outcome": {
+    "id": "7ec8cf7c-a056-48f0-a2f7-759e5c7e74ea",
+    "request": "Compare project claims: Check count | Inventory count",
+    "schema": 1,
+    "parentTaskId": null,
+    "plan": {
+      "objective": "Verify two recorded release measurements",
+      "fields": "Check count | Inventory count",
+      "sourceIds": [
+        "doc-45f0fb61a5c57457d47a6af6673c62c466522e57c1adf8fdf2242e5eae697009",
+        "doc-605487362d5d6a7d53f747ce87d53522835e92d6df215a313a34fb6733f56712"
+      ]
+    },
+    "project": "default",
+    "kind": "research.compare",
+    "authority": "local desktop owner",
+    "scope": "owner-local",
+    "dependencies": [
+      "56be8fe0b9a31a73334ead048325b1037c9b73d0fbc7810ce1a9fc18ee64124d",
+      "doc-45f0fb61a5c57457d47a6af6673c62c466522e57c1adf8fdf2242e5eae697009:1:c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a",
+      "doc-605487362d5d6a7d53f747ce87d53522835e92d6df215a313a34fb6733f56712:1:f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0"
+    ],
+    "capability": "read owner-imported text",
+    "budget": "2048 chars / 32 documents / 256 KiB per import / 8 evidence passages / CPU",
+    "inferenceMicroseconds": 2562,
+    "processWorkingSetBytes": 43573248,
+    "router": "deterministic-route-v8",
+    "primaryCandidateId": "doc-45f0fb61a5c57457d47a6af6673c62c466522e57c1adf8fdf2242e5eae697009",
+    "specialist": "research.compare",
+    "proposal": {
+      "model": "atlas-native-route-v1",
+      "origin": "original",
+      "qualification": "shadow",
+      "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "route": "procedure",
+      "probability": 0.5275720432754856
+    },
+    "authorization": "allowed scoped record read",
+    "verification": "source and answer checked",
+    "sourceIntegrity": "passed",
+    "answerRelevance": "supported",
+    "researchReview": {
+      "verdict": "supported",
+      "detail": "Every requested key has explicit support in the listed local passages.",
+      "freshness": "active project revisions",
+      "trust": "owner-selected text",
+      "sources": [
+        {
+          "id": "doc-45f0fb61a5c57457d47a6af6673c62c466522e57c1adf8fdf2242e5eae697009",
+          "version": 1,
+          "digest": "c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a",
+          "source": "Build.txt",
+          "type": "fact",
+          "origin": "owner import",
+          "trust": "owner-selected text",
+          "span": {
+            "path": "knowledge\\doc-45f0fb61a5c57457d47a6af6673c62c466522e57c1adf8fdf2242e5eae697009\\00000001-c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a\\Build.txt",
+            "line": 1,
+            "start": 13,
+            "length": 3
+          }
+        },
+        {
+          "id": "doc-605487362d5d6a7d53f747ce87d53522835e92d6df215a313a34fb6733f56712",
+          "version": 1,
+          "digest": "f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0",
+          "source": "Package.txt",
+          "type": "fact",
+          "origin": "owner import",
+          "trust": "owner-selected text",
+          "span": {
+            "path": "knowledge\\doc-605487362d5d6a7d53f747ce87d53522835e92d6df215a313a34fb6733f56712\\00000001-f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0\\Package.txt",
+            "line": 1,
+            "start": 17,
+            "length": 3
+          }
+        }
+      ],
+      "claims": [
+        {
+          "subject": "check count",
+          "verdict": "supported",
+          "freshness": "active revision; undated source",
+          "sources": [
+            {
+              "id": "doc-45f0fb61a5c57457d47a6af6673c62c466522e57c1adf8fdf2242e5eae697009",
+              "version": 1,
+              "digest": "c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a",
+              "source": "Build.txt",
+              "type": "fact",
+              "origin": "owner import",
+              "trust": "owner-selected text",
+              "span": {
+                "path": "knowledge\\doc-45f0fb61a5c57457d47a6af6673c62c466522e57c1adf8fdf2242e5eae697009\\00000001-c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a\\Build.txt",
+                "line": 1,
+                "start": 13,
+                "length": 3
+              }
+            }
+          ]
+        },
+        {
+          "subject": "inventory count",
+          "verdict": "supported",
+          "freshness": "active revision; undated source",
+          "sources": [
+            {
+              "id": "doc-605487362d5d6a7d53f747ce87d53522835e92d6df215a313a34fb6733f56712",
+              "version": 1,
+              "digest": "f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0",
+              "source": "Package.txt",
+              "type": "fact",
+              "origin": "owner import",
+              "trust": "owner-selected text",
+              "span": {
+                "path": "knowledge\\doc-605487362d5d6a7d53f747ce87d53522835e92d6df215a313a34fb6733f56712\\00000001-f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0\\Package.txt",
+                "line": 1,
+                "start": 17,
+                "length": 3
+              }
+            }
+          ]
+        }
+      ],
+      "changedClaims": null,
+      "requestRelevance": "supported",
+      "factualSupport": "stated by cited sources"
+    },
+    "evidence": {
+      "id": "doc-45f0fb61a5c57457d47a6af6673c62c466522e57c1adf8fdf2242e5eae697009",
+      "version": 1,
+      "digest": "c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a",
+      "source": "Build.txt",
+      "type": "fact",
+      "origin": "owner import",
+      "trust": "owner-selected text",
+      "span": {
+        "path": "knowledge\\doc-45f0fb61a5c57457d47a6af6673c62c466522e57c1adf8fdf2242e5eae697009\\00000001-c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a\\Build.txt",
+        "line": 1,
+        "start": 13,
+        "length": 3
+      }
+    },
+    "result": "check count: 268\ninventory count: 519",
+    "events": [
+      {
+        "state": "queued",
+        "at": "2026-11-19T06:05:11.771311+00:00"
+      },
+      {
+        "state": "review",
+        "at": "2026-11-19T06:05:11.8016868+00:00"
+      },
+      {
+        "state": "completed",
+        "at": "2026-11-19T06:05:11.8224484+00:00"
+      }
+    ],
+    "state": "completed"
+  },
+  "draftState": "review",
+  "elapsedMs": 56.4969,
+  "workingSetBytes": 44494848
+}

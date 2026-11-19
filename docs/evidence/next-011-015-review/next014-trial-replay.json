@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "name": "NEXT-014 specialist trial",
+  "qualification": "shadow",
+  "fitStatus": "blocked",
+  "fitReason": "The newly measured conversation ledger grants no training eligibility. A fresh independently held comparison has not enrolled.",
+  "observedWeakness": "Native assisted retrieval completed 15/16 prior public trials. The deterministic host completed 16/16.",
+  "publicConversationRows": 6,
+  "newlyEligibleTrainingRows": 0,
+  "protocol": "dc681ca58b6aa3be6eb5a996dbb527657254fc99",
+  "protocolSha256": "3046aa81f5b7d56828f818d2206e5fd8a27162e1cd6c65960ad86f6bcd721b0c",
+  "ledgerSha256": "4524e3f00f36c8d02423308d4f270fa43ef631bf7fe1039fc4e68460f07c4670",
+  "checkpointSha256": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+  "splits": {
+    "train": {
+      "outcomes": 16,
+      "families": [
+        "numpy",
+        "packaging",
+        "pillow",
+        "pypdf"
+      ],
+      "sourceReceipts": 4,
+      "pinsSha256": "cb118ef6acb8fa4de07c97a43148af7417024929911afec442a46c0dedc82ec1"
+    },
+    "validation": {
+      "outcomes": 8,
+      "families": [
+        "lxml",
+        "python-docx"
+      ],
+      "sourceReceipts": 2,
+      "pinsSha256": "0ab9a569007bbf00cd6370ff8197aa9f308b7a260743f861deefd60430f9bd6c"
+    },
+    "evaluation": {
+      "outcomes": 16,
+      "families": [
+        "openpyxl",
+        "pydantic",
+        "python-pptx",
+        "xlsxwriter"
+      ],
+      "sourceReceipts": 4,
+      "pinsSha256": "ef527183409ff12393d213ad2081410e4a630e75ab0cc341f6363faddd9eed4c"
+    }
+  },
+  "evaluationSeconds": 45.5492219000007,
+  "metrics": {
+    "host": {
+      "total": 16,
+      "route_correct": 16,
+      "useful": 16,
+      "delivered": 16,
+      "wrong_deliveries": 0,
+      "proposed_abstentions": 0,
+      "host_withheld": 0,
+      "coverage": 1.0,
+      "p50_scoring_us": null,
+      "p95_scoring_us": null,
+      "p50_engine_us": 115299.15,
+      "p95_engine_us": 121323.275,
+      "p50_process_ms": 298.62735,
+      "peak_host_working_set": 77193216
+    },
+    "tfidf": {
+      "total": 16,
+      "route_correct": 16,
+      "useful": 16,
+      "delivered": 16,
+      "wrong_deliveries": 0,
+      "proposed_abstentions": 0,
+      "host_withheld": 0,
+      "coverage": 1.0,
+      "p50_scoring_us": 50.8,
+      "p95_scoring_us": 172.225,
+      "p50_engine_us": 113848.9,
+      "p95_engine_us": 119415.55,
+      "p50_process_ms": 294.8478,
+      "peak_host_working_set": 76746752
+    },
+    "linear": {
+      "total": 16,
+      "route_correct": 14,
+      "useful": 14,
+      "delivered": 14,
+      "wrong_deliveries": 0,
+      "proposed_abstentions": 2,
+      "host_withheld": 2,
+      "coverage": 0.875,
+      "p50_scoring_us": 298.65,
+      "p95_scoring_us": 461.625,
+      "p50_engine_us": 113700.9,
+      "p95_engine_us": 119415.55,
+      "p50_process_ms": 293.45925,
+      "peak_host_working_set": 76746752,
+      "top_candidate_brier": 0.06254831836992278,
+      "calibration_bins": [
+        {
+          "lower": 0.0,
+          "n": 1,
+          "confidence": 0.21356176310026964,
+          "success": 1.0
+        },
+        {
+          "lower": 0.25,
+          "n": 1,
+          "confidence": 0.38382895096187175,
+          "success": 1.0
+        },
+        {
+          "lower": 0.75,
+          "n": 14,
+          "confidence": 0.9875781375423637,
+          "success": 1.0
+        }
+      ],
+      "ece": 0.09853221002154794
+    },
+    "native": {
+      "total": 16,
+      "route_correct": 15,
+      "useful": 15,
+      "delivered": 15,
+      "wrong_deliveries": 0,
+      "proposed_abstentions": 1,
+      "host_withheld": 1,
+      "coverage": 0.9375,
+      "p50_scoring_us": 392.8,
+      "p95_scoring_us": 800.825,
+      "p50_engine_us": 113771.1,
+      "p95_engine_us": 119415.55,
+      "p50_process_ms": 294.5512,
+      "peak_host_working_set": 76746752,
+      "top_candidate_brier": 0.03764230614967519,
+      "calibration_bins": [
+        {
+          "lower": 0.25,
+          "n": 1,
+          "confidence": 0.3104091431622016,
+          "success": 1.0
+        },
+        {
+          "lower": 0.5,
+          "n": 1,
+          "confidence": 0.6440512621149113,
+          "success": 1.0
+        },
+        {
+          "lower": 0.75,
+          "n": 14,
+          "confidence": 0.9983062511037071,
+          "success": 1.0
+        }
+      ],
+      "ece": 0.06682825495443676
+    }
+  },
+  "externalInferenceCalls": 0
+}

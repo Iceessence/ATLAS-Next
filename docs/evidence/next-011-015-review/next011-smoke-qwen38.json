@@ -1,0 +1,12 @@
+﻿{
+  "model": {
+    "name": "qwen3.8:27b",
+    "digest": "aaee06c39dcf2437cde036998d960e1fc1494b8191be7cc9657d01e509097813"
+  },
+  "answer": "BRIDGE",
+  "follow": "BRIDGE-LOCAL",
+  "firstMs": 8265.3864,
+  "secondMs": 8077.307,
+  "workingSetBytes": 50733056,
+  "assistance": "external reference"
+}

@@ -1,0 +1,24 @@
+﻿  Determining projects to restore...
+  All projects are up-to-date for restore.
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next-batch-audit\desktop\bin\Release\net10.0-windows\AtlasNext.dll
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next-batch-audit\out\stage-358a34b4226d4aa180efab0f583ab268\app\
+
+[32;1mAlgorithm : [0mSHA256
+[32;1mHash      : [0mC49C882FD4DEC6B4DCEA32BC6DC1C3378C6F426FD8C28CC209EE4B40B5845974
+[32;1mPath      : [0mC:\Users\ppawe\AppData\Local\Temp\atlas-next-batch-audit\out\ATLAS-Next-win-x64.zip
+
+Imported receipt: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-56e5e0cade5d485aacb44a13b7631777\profile\exports\project-package-check\caaa6f3483af413a81ff12593328c7b2-858faad8687a4a6b9fa899204d30d2f8.json
+PASS native file picker imports, exact source span and contradictory sources withheld
+PASS packaged qualified definitions, signature, documentation, enclosing type, namespace and ambiguity locations
+PASS packaged overload selection, cross-file call binding, per-claim research provenance and stale-revision withholding
+PASS packaged generic overload, parameter list, return type, and conversational caller follow-up
+PASS packaged Python literal grammar, raw text and unsupported-follow-up withholding
+PASS packaged research comparison recheck with pinned parent and fresh citations
+PASS packaged project source inventory across empty switch, single import, revision update and 10-document truncation
+PASS workspace coding, model evidence, verified research history and active project survive relaunch
+PowerShell 7.6.9 verified ZIP C49C882FD4DEC6B4DCEA32BC6DC1C3378C6F426FD8C28CC209EE4B40B5845974
+PASS 520 inventory hashes, private runtime, PID/title window discovery across relaunches
+PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery
+PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts
+Evidence: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-56e5e0cade5d485aacb44a13b7631777\profile\exports\7c88957f8e874e12889ad61aea6e04ec-62ec17fd098140599dc8d60fae218dea.json
+

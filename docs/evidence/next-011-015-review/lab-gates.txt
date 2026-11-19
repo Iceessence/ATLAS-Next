@@ -1,0 +1,8 @@
+test_conversation_labels_never_enrolled (test_model_lab.TestEligibility.test_conversation_labels_never_enrolled) ... ok
+test_distinct_and_pinned_split_shape (test_model_lab.TestEligibility.test_distinct_and_pinned_split_shape) ... ok
+test_synthetic_rows_refused (test_model_lab.TestEligibility.test_synthetic_rows_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK

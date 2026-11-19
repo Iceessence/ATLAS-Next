@@ -1,0 +1,69 @@
+﻿{
+  "selected": "completed",
+  "imported": {
+    "id": "doc-87f59259f5ad615ee219f3d822bbaeb08f39b9d95e674771ed42f52c533ed109",
+    "version": 1,
+    "name": "Engine595.cs",
+    "claims": 157
+  },
+  "guide": {
+    "definition": {
+      "text": "CheckProjectAnswer",
+      "citation": {
+        "id": "doc-87f59259f5ad615ee219f3d822bbaeb08f39b9d95e674771ed42f52c533ed109",
+        "version": 1,
+        "digest": "fc56ddf33a66cfd4287d39ae968d46ff9e87d367ebe78dd11cec61be2817bc8b",
+        "source": "Engine595.cs",
+        "type": "code.definition",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "knowledge\\doc-87f59259f5ad615ee219f3d822bbaeb08f39b9d95e674771ed42f52c533ed109\\00000001-fc56ddf33a66cfd4287d39ae968d46ff9e87d367ebe78dd11cec61be2817bc8b\\Engine595.cs",
+          "line": 102,
+          "start": 5943,
+          "length": 18
+        }
+      }
+    },
+    "signature": {
+      "text": "private ProjectFinding CheckProjectAnswer(string route,string request,CodeQuestion? code,IReadOnlyList\u003COwnedSource\u003E sources,\r\n        Guid? parentId,Work? comparison)",
+      "citation": {
+        "id": "doc-87f59259f5ad615ee219f3d822bbaeb08f39b9d95e674771ed42f52c533ed109",
+        "version": 1,
+        "digest": "fc56ddf33a66cfd4287d39ae968d46ff9e87d367ebe78dd11cec61be2817bc8b",
+        "source": "Engine595.cs",
+        "type": "code.signature",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "knowledge\\doc-87f59259f5ad615ee219f3d822bbaeb08f39b9d95e674771ed42f52c533ed109\\00000001-fc56ddf33a66cfd4287d39ae968d46ff9e87d367ebe78dd11cec61be2817bc8b\\Engine595.cs",
+          "line": 102,
+          "start": 5920,
+          "length": 166
+        }
+      }
+    },
+    "documentation": null,
+    "return": {
+      "text": "ProjectFinding",
+      "citation": {
+        "id": "doc-87f59259f5ad615ee219f3d822bbaeb08f39b9d95e674771ed42f52c533ed109",
+        "version": 1,
+        "digest": "fc56ddf33a66cfd4287d39ae968d46ff9e87d367ebe78dd11cec61be2817bc8b",
+        "source": "Engine595.cs",
+        "type": "code.return",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "knowledge\\doc-87f59259f5ad615ee219f3d822bbaeb08f39b9d95e674771ed42f52c533ed109\\00000001-fc56ddf33a66cfd4287d39ae968d46ff9e87d367ebe78dd11cec61be2817bc8b\\Engine595.cs",
+          "line": 102,
+          "start": 5928,
+          "length": 14
+        }
+      }
+    },
+    "calls": []
+  },
+  "ms": 12.7613,
+  "workingSetBytes": 59228160
+}

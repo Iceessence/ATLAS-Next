@@ -1,0 +1,86 @@
+﻿{
+  "selected": "completed",
+  "imported": {
+    "id": "doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc",
+    "version": 1,
+    "name": "table.py",
+    "claims": 410
+  },
+  "guide": {
+    "definition": {
+      "text": "add_table",
+      "citation": {
+        "id": "doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc",
+        "version": 1,
+        "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+        "source": "table.py",
+        "type": "code.definition",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "knowledge\\doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+          "line": 213,
+          "start": 7918,
+          "length": 9
+        }
+      }
+    },
+    "signature": {
+      "text": "def add_table(  # pyright: ignore[reportIncompatibleMethodOverride]\n        self, rows: int, cols: int\n    ) -\u003E Table:",
+      "citation": {
+        "id": "doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc",
+        "version": 1,
+        "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+        "source": "table.py",
+        "type": "code.signature",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "knowledge\\doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+          "line": 213,
+          "start": 7914,
+          "length": 118
+        }
+      }
+    },
+    "documentation": {
+      "text": "\u0022\u0022\u0022Return a table newly added to this cell after any existing cell content.\n\n        The new table will have \u0060rows\u0060 rows and \u0060cols\u0060 columns.\n\n        An empty paragraph is added after the table because Word requires a paragraph\n        element as the last element in every cell.\n        \u0022\u0022\u0022",
+      "citation": {
+        "id": "doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc",
+        "version": 1,
+        "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+        "source": "table.py",
+        "type": "code.documentation",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "knowledge\\doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+          "line": 216,
+          "start": 8041,
+          "length": 290
+        }
+      }
+    },
+    "return": {
+      "text": "Table",
+      "citation": {
+        "id": "doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc",
+        "version": 1,
+        "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+        "source": "table.py",
+        "type": "code.return",
+        "origin": "owner import",
+        "trust": "owner-selected source",
+        "span": {
+          "path": "knowledge\\doc-ccdfd14108cef499b5eb0cdc7fb4befa3ae0644b43b4987a77f6fc31e0ee2ddc\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+          "line": 215,
+          "start": 8026,
+          "length": 5
+        }
+      }
+    },
+    "calls": []
+  },
+  "ms": 15.8962,
+  "workingSetBytes": 49799168
+}
