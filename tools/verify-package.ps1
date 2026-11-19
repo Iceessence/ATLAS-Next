@@ -472,6 +472,7 @@ try {
     $models=Find-AtlasDialog $session 'ATLAS Next Model Evidence'
     Wait-AtlasText {Read-Value $models 'ModelReport'} '*specialist*shadow*fitting blocked*native*15/16*'
     Wait-AtlasText {Read-Value $models 'ModelReport'} '*Native-original lab*shadow*External inference calls 0*65 parameters*37 parameters*Refit rejected*13/20*'
+    Wait-AtlasText {Read-Value $models 'ModelReport'} '*Master Plan v3.3*504 measured actions*6211 parameters*refit 24/24 (rejected)*Pretrained inference calls 0*'
     Close-Dialog $models $session
 
     $promptBox.SetValue('Where is Store.Load(IReadOnlyList<int>) defined?')

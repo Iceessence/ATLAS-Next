@@ -58,6 +58,23 @@ public partial class ModelEvidenceWindow : Window
         lines.Add(native.GetProperty("scoring").GetString() ?? "");
         lines.Add(native.GetProperty("runHint").GetString() ?? "");
         lines.Add($"Receipt SHA-256 {nativeHash}");
+        var (batch,batchHash)=Assets.Read<JsonElement>("experiments/next-025.json");
+        lines.Add("");
+        lines.Add("Master Plan v3.3 · NEXT-021–025 · "+batch.GetProperty("qualification").GetString());
+        lines.Add("Master SHA-256 "+batch.GetProperty("masterSha256").GetString());
+        lines.Add($"{batch.GetProperty("projectFamilies").GetInt32()} public project families · "+
+            $"{batch.GetProperty("observedActions").GetInt32()} measured actions");
+        lines.Add(batch.GetProperty("source").GetString() ?? "");
+        lines.Add($"Original language · {batch.GetProperty("languageParameters").GetInt32()} parameters · "+
+            $"planner · {batch.GetProperty("plannerParameters").GetInt32()} parameters · "+
+            $"Research and Engineering · {batch.GetProperty("roleHeadParameters").GetInt32()} parameters each");
+        int evaluated=batch.GetProperty("evaluationTasks").GetInt32();
+        lines.Add($"Public useful outcomes · team {batch.GetProperty("teamUseful").GetInt32()}/{evaluated} · "+
+            $"literal control {batch.GetProperty("exactTypedUseful").GetInt32()}/{evaluated} · "+
+            $"refit {batch.GetProperty("candidateUseful").GetInt32()}/{evaluated} ({batch.GetProperty("refit").GetString()})");
+        lines.Add($"Pretrained inference calls {batch.GetProperty("pretrainedCalls").GetInt32()}");
+        lines.Add(batch.GetProperty("limits").GetString() ?? "");
+        lines.Add($"Receipt SHA-256 {batchHash}");
         return string.Join("\n",lines);
     }
 }

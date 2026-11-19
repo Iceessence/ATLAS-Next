@@ -18,7 +18,7 @@ def protected_paths(manifest, report):
         raise ValueError("Choose a fresh evaluator report")
 
 
-def validate_custody(cases, public):
+def validate_custody(cases, public, allowed_extensions=(".md",)):
     public_families = {family_key(case["family"]) for case in public}
     public_ids = {case["id"] for case in public}
     public_questions = {normalized(case["question"]) for case in public}
@@ -37,8 +37,12 @@ def validate_custody(cases, public):
         seen_questions.add(question)
         if any(sha(normalized(doc).encode()) in public_docs for doc in docs):
             raise ValueError("Evaluator source overlaps author development")
-        if case.get("extensions") not in (None, [".md"] * len(docs)):
-            raise ValueError("This evaluation measures Markdown claim sources")
+        extensions = case.get("extensions")
+        if extensions is None:
+            extensions = [".md"] * len(docs)
+        if not isinstance(extensions, list) or len(extensions) != len(docs) or any(
+                ext not in allowed_extensions for ext in extensions):
+            raise ValueError("Unexpected source extension in this evaluator suite")
         expected = case["expect"]
         if expected["state"] == "completed":
             doc_indices = [expected.get("document"), *expected.get("equivalent_documents", [])]

@@ -31,5 +31,10 @@ internal static class WorkspaceChecks
             report.Contains("External inference calls 0",StringComparison.Ordinal) &&
             report.Contains("Refit rejected · 13/20",StringComparison.Ordinal),
             "workspace displays original model lineage and rejected refit");
+        check(report.Contains("Master Plan v3.3 · NEXT-021–025 · shadow",StringComparison.Ordinal) &&
+            report.Contains("504 measured actions",StringComparison.Ordinal) &&
+            report.Contains("refit 24/24 (rejected)",StringComparison.Ordinal) &&
+            report.Contains("Pretrained inference calls 0",StringComparison.Ordinal),
+            "workspace links v3.3 and separates new measured model evidence from qualification");
     }
 }

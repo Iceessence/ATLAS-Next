@@ -1,0 +1,21 @@
+{
+  "schema": "atlas.native_batch_evidence.v1",
+  "masterSha256": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b",
+  "projectFamilies": 14,
+  "observedQueries": 56,
+  "authoredControls": 28,
+  "observedActions": 504,
+  "source": "Local public audit measurements and Python declaration excerpts",
+  "languageParameters": 6211,
+  "plannerParameters": 61,
+  "roleHeadParameters": 61,
+  "evaluationTasks": 24,
+  "teamUseful": 24,
+  "teamDeliveries": 16,
+  "exactTypedUseful": 24,
+  "candidateUseful": 24,
+  "refit": "rejected",
+  "qualification": "shadow",
+  "pretrainedCalls": 0,
+  "limits": "Original predictions rank and propose read-only actions. The lab host verifies each result. Independent review pending."
+}

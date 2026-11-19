@@ -5,5 +5,6 @@
   "native.json": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
   "native.manifest.json": "fe639d053a2ed33e60d2e684015623e5893ed27cbb4f50aa2c8f162f138734c8",
   "experiments/next-014.json": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
-  "experiments/next-020.json": "567a6037a669ad66d670eb72fc2636deab980bef5c07edeae9eacf73bbc741b2"
+  "experiments/next-020.json": "567a6037a669ad66d670eb72fc2636deab980bef5c07edeae9eacf73bbc741b2",
+  "experiments/next-025.json": "09d865ad525243cbba42fc0c9e8a6cd802f7c8cf88e9e45ae0cc1e1145286541"
 }

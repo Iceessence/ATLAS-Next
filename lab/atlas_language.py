@@ -241,6 +241,21 @@ def summarize(records):
                 p95_decision_us=float(np.percentile([row["decision_us"] for row in records],95)))
 
 
+def policy_action(policy, question, profile, bundle, tfidf, incumbent):
+    if policy == "host_raw":
+        return "raw", None, None
+    if policy == "exact_typed":
+        return typed_baseline(question, profile), None, None
+    values = None
+    if policy == "tfidf":
+        mode = tfidf(question)
+    elif policy == "previous_original":
+        mode = incumbent(question)
+    else:
+        mode, values = infer(bundle, question, policy)
+    return grounded_action(question, profile, mode), mode, values
+
+
 def evaluate(bundle, role):
     batch = load(role)
     costs = json.loads((DATA / (role+"-cost.json")).read_bytes())
@@ -252,19 +267,7 @@ def evaluate(bundle, role):
             task = row["task"]
             question, profile = task["question"], batch["profiles"][task["family"]]
             start = time.perf_counter_ns()
-            mode, values = None, None
-            if policy == "host_raw":
-                action = "raw"
-            elif policy == "exact_typed":
-                action = typed_baseline(question, profile)
-            else:
-                if policy == "tfidf":
-                    mode = tfidf(question)
-                elif policy == "previous_original":
-                    mode = incumbent(question)
-                else:
-                    mode, values = infer(bundle, question, policy)
-                action = grounded_action(question, profile, mode)
+            action, mode, values = policy_action(policy, question, profile, bundle, tfidf, incumbent)
             decision_us = (time.perf_counter_ns()-start)/1000
             env = row["outcomes"].get(action)
             outcome = env["record"]["outcome_class"] if env else "UNAVAILABLE"
