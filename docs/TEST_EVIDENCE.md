@@ -1,5 +1,13 @@
 # Author test evidence
 
+## NEXT-008R independent review
+
+Sol reviewed `9ff586699629678d3342f7f9be3eaf69ec175bf6` in two clean detached checkouts and issued **REPAIRS_REQUIRED** for Python declaration expression validation. C# call binding passed the independent SDK differential with implicit imports disabled and an explicit import variant. Altered and swapped requests, a changed summary count, and a missing dependency all failed ledger verification despite matching report digests. The previous Python lambda, continuation, malformed order and keyword cases passed. Four fresh malformed Python declaration headers parsed by CPython as syntax errors yielded 16 wrong ATLAS deliveries through both definition forms and both follow-up types. The 52 evaluator turns produced 28 exact deliveries, eight correct withholds and 16 wrong deliveries, with no false abstentions. Prior NEXT-008 custody cases were rerun. Older private manifests remained unavailable. [Independent receipt](evidence/independent-review-next008r.json) · [Bounded repair](ai/ATLAS_HANDOFF.md)
+
+Independent author-command replay reproduced the zero-warning build, 227/227 Windows checks, 13/13 Python integrity tests, 31/31 factual controls, ten distribution audits, and 8/8, 13/13 and 17/17 earlier public code cases. NEXT-008 completed 12/14 public conversations with 18 exact deliveries, five withholds, two omitted-import abstentions and zero wrong deliveries. The six observed ledger rows validated. [Build](evidence/next-008r-review/build.txt) · [Windows checks](evidence/next-008r-review/windows.txt) · [Public host replay](evidence/next-008r-review/host8.txt) · [Ledger replay](evidence/next-008r-review/ledger8.txt)
+
+Both shipped packages and both clean rebuilds passed actual WPF workflows, 519 inventory hashes, 28 Roslyn files and the advisory-only native asset checks under Windows PowerShell 5.1.26100.9818 and PowerShell 7.6.9. [Shipped 5.1](evidence/next-008r-review/shipped-ps51.txt) · [Shipped 7.6.9](evidence/next-008r-review/shipped-ps7.txt) · [Rebuilt 5.1](evidence/next-008r-review/rebuilt-ps51.txt) · [Rebuilt 7.6.9](evidence/next-008r-review/rebuilt-ps7.txt)
+
 ## NEXT-008R author verification
 
 Frozen repaired product `9ff586699629678d3342f7f9be3eaf69ec175bf6` addresses the three blocking findings recorded in Sol's NEXT-008 review (`a6cc368`, [Independent review](evidence/independent-review-next008.json)) above frozen comparator `8585ca05ef4f9632010b78d869fadef58bcdc45c` / `3b03b1e152ebf688513f2006e316ddab0c3294a4`. All verification ran in fresh disposable checkouts on Windows 11 Pro build 26300 with .NET SDK 10.0.401, bundled runtime 10.0.12, and cached Python 3.12.14.

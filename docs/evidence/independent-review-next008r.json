@@ -1,0 +1,227 @@
+{
+  "schema": 1,
+  "review": "NEXT-008R",
+  "verdict": "REPAIRS_REQUIRED",
+  "reviewer": "GPT-6.2 Sol",
+  "product_author": "Gemini Argon Orchestrator",
+  "frozen_product": "9ff586699629678d3342f7f9be3eaf69ec175bf6",
+  "author_evidence": "51cb0a66d241583e9029011a3fa8210107633dd7",
+  "reviewed_handoff": "b9d3cdb04773267de983eec79ed26d0bfd633c4e",
+  "accepted_baseline": "2011be05e61a7c7107bce3496cb0bf072e262341",
+  "prior_independent_verdict": "a6cc3681842acf5200ed2c7cfe33d5c5aa91ba98",
+  "preregistration": [
+    "8585ca05ef4f9632010b78d869fadef58bcdc45c",
+    "3b03b1e152ebf688513f2006e316ddab0c3294a4"
+  ],
+  "git_checks": {
+    "detached_clean_review_checkouts": 2,
+    "product_to_handoff_diffs_docs_only": true,
+    "native_model_files_match_accepted_baseline": true
+  },
+  "public_replays": {
+    "release_build": {
+      "warnings": 0,
+      "errors": 0
+    },
+    "windows": "227/227",
+    "python_integrity": "13/13",
+    "public_factual": "31/31",
+    "distribution_audit": "10/10",
+    "synthetic_shadow_router": "54/72",
+    "frozen_specialist": {
+      "order": [
+        "host",
+        "tfidf",
+        "linear",
+        "native"
+      ],
+      "real_observations": [
+        16,
+        16,
+        14,
+        15
+      ],
+      "total_real": 16,
+      "constructed_controls": [
+        31,
+        31,
+        29,
+        30
+      ],
+      "total_controls": 31
+    },
+    "earlier_code_replays": {
+      "next005": "8/8",
+      "next006": "13/13",
+      "next007": "17/17",
+      "wrong_deliveries": 0
+    },
+    "original_search": {
+      "complete": "9/14",
+      "unchanged_frozen_case_provenance_citations_and_verdicts": true
+    },
+    "next008_conversation": {
+      "complete": "12/14",
+      "exact_deliveries": 18,
+      "correct_withholds": 5,
+      "wrong_deliveries": 0,
+      "false_abstentions": 2,
+      "abstention_reason": "C# calls that rely on absent implicit imports in the imported source set",
+      "first_turn_median_ms": 57.71615,
+      "warm_turn_median_ms": 18.3256,
+      "process_median_ms": 373.68855,
+      "max_sampled_working_set_bytes": 125550592,
+      "external_inference_calls": 0
+    },
+    "ledger": {
+      "real_source_rows": "6/6",
+      "author_and_reviewer_artifacts_validated": true,
+      "reviewer_matching_digest_negative_cases_rejected": "4/4"
+    }
+  },
+  "packages": {
+    "shipped_ps51": {
+      "status": "PASS",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95147775,
+      "zip_sha256": "b3c28fd3942c788c4a53ff43ed4b81b1dcf30a53f770c7aadf8e1a6c1ad2cac1",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf": "PASS",
+      "log": "next-008r-review/shipped-ps51.txt"
+    },
+    "shipped_ps7": {
+      "status": "PASS",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112799916,
+      "zip_sha256": "7dac0f5b5c534be82bc01e69613b01b9a079bbd4001e914037cb9eabf205b47d",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf": "PASS",
+      "log": "next-008r-review/shipped-ps7.txt"
+    },
+    "rebuilt_ps51": {
+      "status": "PASS",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95147781,
+      "zip_sha256": "4d9f839ed80b2c105bd1de25bc4aa3ee12a240b00f4c895a14dd1958af6a7d08",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf": "PASS",
+      "log": "next-008r-review/rebuilt-ps51.txt"
+    },
+    "rebuilt_ps7": {
+      "status": "PASS",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112799908,
+      "zip_sha256": "ccdb13c0d6cf3f45f5d345ff0f3bb2d739deb2a66f1380646217031211d7bbcb",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf": "PASS",
+      "log": "next-008r-review/rebuilt-ps7.txt"
+    }
+  },
+  "evaluator_custody": {
+    "historical_pre_next008_suites": {
+      "status": "NOT_RUN",
+      "reason": "Historical evaluator manifests and runnable entry points remained unavailable. NEXT-008 private review cases were available and rerun."
+    },
+    "suite_repeats": 4,
+    "source_methods": [
+      ".NET SDK build witness with implicit usings explicitly disabled and a separately compiled explicit import variant",
+      "CPython 3.12 AST syntax and source-span oracle without executing imported code",
+      "Actual ATLAS submit and finish through the frozen conversation probe"
+    ],
+    "groups": [
+      {
+        "id": "csharp_differential",
+        "turns": 12,
+        "exact_deliveries": 8,
+        "correct_withholds": 4,
+        "wrong_deliveries": 0,
+        "detail": "Compiler-checked direct and contextual calls with competing extension methods in both source contexts."
+      },
+      {
+        "id": "previous_python",
+        "turns": 10,
+        "exact_deliveries": 6,
+        "correct_withholds": 4,
+        "wrong_deliveries": 0,
+        "detail": "Prior lambda and continuation annotation spans now exact. Prior order and reserved-keyword invalid declarations and their follow-ups withheld."
+      },
+      {
+        "id": "previous_real_python",
+        "turns": 4,
+        "exact_deliveries": 4,
+        "correct_withholds": 0,
+        "wrong_deliveries": 0,
+        "receipt_sha256": "d552998a5fd4ce5398412175974653436229f202af9594ae39cd305bd1601e98"
+      },
+      {
+        "id": "new_valid_python",
+        "turns": 10,
+        "exact_deliveries": 10,
+        "correct_withholds": 0,
+        "wrong_deliveries": 0,
+        "detail": "Continuation before, after and inside the annotation and supported defaults compared with AST spans."
+      },
+      {
+        "id": "new_malformed_python",
+        "turns": 16,
+        "exact_deliveries": 0,
+        "correct_withholds": 0,
+        "wrong_deliveries": 16,
+        "detail": "Four independently parser-rejected headers each produced both typed and unqualified definitions and both follow-ups across four repetitions."
+      }
+    ],
+    "total": {
+      "turns": 52,
+      "exact_deliveries": 28,
+      "correct_withholds": 8,
+      "wrong_deliveries": 16,
+      "false_abstentions": 0
+    },
+    "differential_and_grammar_receipt_sha256": "3d76520e7a68900885ee784536ee22b73c43cc2cee9eddc24a57e18efb71efa1",
+    "matching_digest_ledger": {
+      "status": "PASS",
+      "rejected": [
+        "altered request",
+        "swapped requests",
+        "inflated summary count",
+        "missing dependency"
+      ],
+      "receipt_sha256": "eb387cbe4caf09c74a2798effa3522011c29fe14f0510f52231ace58e902c108"
+    },
+    "private_inputs_and_expectations": "Outside Git. Only aggregates, digests and defect classes published."
+  },
+  "repair_review": [
+    {
+      "id": "NEXT-008R-1",
+      "status": "VERIFIED",
+      "area": "C# call binding"
+    },
+    {
+      "id": "NEXT-008R-2",
+      "status": "BLOCKING",
+      "area": "Python header expression validation",
+      "code": "desktop/SourceDeclarations.cs",
+      "observed": "TryScanPythonExpression accepts malformed numeric tokens and operators invalid in expression contexts. The application treats those declarations as verified parents and returns parameters and annotations. Invalid lexical and expression forms in both defaults and annotations reached delivery.",
+      "required": "Use grammar and token validation for an explicitly supported offline subset, or conservatively withhold when grammar cannot be established. Cover malformed numeric tokens and illegal operator sequences in defaults and parameter and return annotations, naked and arity-qualified definition lookup, and both selected follow-ups. Preserve valid declarations, exact raw annotation spans, and previously accepted regressions. Avoid a list of individual fixture exceptions."
+    },
+    {
+      "id": "NEXT-008R-3",
+      "status": "VERIFIED",
+      "area": "Ledger request integrity"
+    }
+  ],
+  "next_assignment": {
+    "task": "NEXT-008R remaining Python repair",
+    "next_writer": "Gemini Argon Orchestrator",
+    "next_feature": "NEXT-009 deferred until independent acceptance",
+    "product_source_changed_by_reviewer": false
+  }
+}

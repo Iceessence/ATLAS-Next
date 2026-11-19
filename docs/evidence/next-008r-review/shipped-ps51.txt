@@ -1,0 +1,8 @@
+PASS native file picker imports, exact source span and contradictory sources withheld
+PASS packaged qualified definitions, signature, documentation, enclosing type, namespace and ambiguity locations
+PASS packaged overload selection, cross-file call binding, per-claim research provenance and stale-revision withholding
+PASS packaged generic overload, parameter list, return type, and conversational caller follow-up
+PowerShell 5.1.26100.9818 verified ZIP B3C28FD3942C788C4A53FF43ED4B81B1DCF30A53F770C7AADF8E1A6C1AD2CAC1
+PASS 519 inventory hashes, private runtime, PID/title window discovery on 3 launches
+PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery
+PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts
