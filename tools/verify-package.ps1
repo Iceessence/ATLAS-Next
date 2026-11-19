@@ -340,6 +340,27 @@ try {
     Wait-State $window 'completed'
     if((Control $window 'Summary').Current.Name -ne 'Worker.cs, line 3: s.Load(ids)'){throw 'Packaged conversational caller follow-up failed'}
     "PASS packaged generic overload, parameter list, return type, and conversational caller follow-up"
+    $literals=@('class Literals:', '    def safe(self, key=rb"\x ZZ") -> "\u00E9":', '        pass',
+        '    def malformed(self, key=b"\xQF") -> str:', '        pass') -join [char]10
+    Import-Document $session 'literals.py' $literals
+    $promptBox.SetValue('Where is Literals.safe(2 parameters) defined?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    $promptBox.SetValue('What is its return type?')
+    Invoke-Control $window 'Search'
+    Wait-State $window 'review'
+    Invoke-Control $window 'Verify'
+    Wait-State $window 'completed'
+    if((Control $window 'Summary').Current.Name -ne '"\u00E9"'){throw 'Packaged Python literal source span failed'}
+    foreach($question in @('Where is Literals.malformed(2 parameters) defined?', 'Where is Literals.malformed defined?',
+        'What are its parameters?', 'What is its return type?')){
+        $promptBox.SetValue($question)
+        Invoke-Control $window 'Search'
+        Wait-State $window 'needs clarification'
+    }
+    "PASS packaged Python literal grammar, raw text and unsupported-follow-up withholding"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"
     "PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery"

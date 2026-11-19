@@ -853,7 +853,7 @@ internal static class SourceDeclarations
                 }
                 if(c>127) return false;
                 if(c is '\'' or '"') {
-                    if(!TryScanString(text,i,end,isBytes:false,isFormatted:false,out int strEnd,out bool hasNl)) return false;
+                    if(!TryScanString(text,i,end,isBytes:false,isFormatted:false,isRaw:false,out int strEnd,out bool hasNl)) return false;
                     tokens.Add(new(TokKind.String,i,strEnd,HasNewline:hasNl));
                     i=strEnd;
                     continue;
@@ -865,8 +865,8 @@ internal static class SourceDeclarations
                     if(idEnd<end && text[idEnd] is '\'' or '"') {
                         string lower=word.ToLowerInvariant();
                         if(lower is not ("r" or "u" or "b" or "f" or "br" or "rb" or "fr" or "rf")) return false;
-                        bool isBytes=lower.Contains('b'),isFormatted=lower.Contains('f');
-                        if(!TryScanString(text,idEnd,end,isBytes,isFormatted,out int strEnd,out bool hasNl)) return false;
+                        bool isBytes=lower.Contains('b'),isFormatted=lower.Contains('f'),isRaw=lower.Contains('r');
+                        if(!TryScanString(text,idEnd,end,isBytes,isFormatted,isRaw,out int strEnd,out bool hasNl)) return false;
                         tokens.Add(new(TokKind.String,i,strEnd,IsBytes:isBytes,HasNewline:hasNl));
                         i=strEnd;
                         continue;
@@ -1035,7 +1035,7 @@ internal static class SourceDeclarations
             return true;
         }
 
-        private static bool TryScanString(string text,int quoteStart,int end,bool isBytes,bool isFormatted,out int strEnd,out bool hasNewline)
+        private static bool TryScanString(string text,int quoteStart,int end,bool isBytes,bool isFormatted,bool isRaw,out int strEnd,out bool hasNewline)
         {
             strEnd=quoteStart;
             hasNewline=false;
@@ -1057,6 +1057,8 @@ internal static class SourceDeclarations
                     if(text[i] is '\r' or '\n') {
                         hasNewline=true;
                         if(text[i]=='\r' && i+1<end && text[i+1]=='\n') i++;
+                    } else if(!isRaw && !ScanLiteralEscape(text,ref i,end,isBytes)) {
+                        return false;
                     }
                     continue;
                 }
@@ -1070,6 +1072,36 @@ internal static class SourceDeclarations
                 }
             }
             return false;
+        }
+
+        // Verify Python 3.12's recognized escape forms without interpreting the
+        // source or changing its citation. Names require a Unicode-name table.
+        private static bool ScanLiteralEscape(string text,ref int next,int end,bool bytes)
+        {
+            char escaped=text[next];
+            if(escaped is '\\' or '\'' or '"' or 'a' or 'b' or 'f' or 'n' or 'r' or 't' or 'v') return true;
+            if(escaped is >= '0' and <= '7') {
+                int octal=escaped-'0';
+                for(int count=1;count<3 && next+1<end && text[next+1] is >= '0' and <= '7';count++)
+                    octal=octal*8+text[++next]-'0';
+                return octal<=0xFF;
+            }
+
+            int digits=escaped switch { 'x'=>2, 'u' when !bytes=>4, 'U' when !bytes=>8, _=>0 };
+            if(digits==0 || end-next<=digits) return false;
+            uint value=0;
+            for(int index=0;index<digits;index++) {
+                char c=text[++next];
+                uint digit=c switch {
+                    >= '0' and <= '9'=>(uint)(c-'0'),
+                    >= 'a' and <= 'f'=>(uint)(c-'a'+10),
+                    >= 'A' and <= 'F'=>(uint)(c-'A'+10),
+                    _=>uint.MaxValue
+                };
+                if(digit>15) return false;
+                value=(value<<4)|digit;
+            }
+            return value<=0x10FFFF;
         }
     }
 

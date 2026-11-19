@@ -258,6 +258,11 @@ class Integrity(unittest.TestCase):
             ("struct_dict_mix", "def bad(self, x={1: 2, 3}): pass"),
             ("struct_bytes_utf", "def bad(self, x=b\"é\"): pass"),
             ("struct_fstr", "def bad(self, x=f\"{1+}\"): pass"),
+            ("escape_hex_truncated", r'''def bad(self, x="\x7"): pass'''),
+            ("escape_bytes_hex", r'''def bad(self, x=b"\xGG"): pass'''),
+            ("escape_unicode_truncated", r'''def bad(self, x: "\u03B") -> int: pass'''),
+            ("escape_unicode_range", r'''def bad(self, x) -> "\U00FFFFFF": pass'''),
+            ("escape_named_unknown", r'''def bad(self, x) -> "\N{UNKNOWN REVIEW GLYPH}": pass'''),
         ]
         for label, hdr in bad_headers:
             with self.subTest(malformed=label):
@@ -271,6 +276,25 @@ class Integrity(unittest.TestCase):
                     t_ret = probe({"bad.py": src}, [q, "What is its return type?"])
                     self.assertEqual(t_ret[0]["delivered"]["state"], "needs clarification")
                     self.assertEqual(t_ret[1]["delivered"]["state"], "needs clarification")
+
+        for default, annotation in [
+            (r'''"octal \101 and hex \x4f"''', r'''"\u03BB\U0001f642"'''),
+            (r'''b"\xA9"''', r'''"\\unchanged"'''),
+            (r'''rb"\xGG"''', r'''r"\u03B"'''),
+        ]:
+            literal = f"class Probe:\n    def value(self, label={default}) -> {annotation}:\n        pass\n"
+            parsed = ast.parse(literal)
+            compile(parsed, "<valid literal>", "exec")
+            turns = ["Where is Probe.value(2 parameters) defined?", "What are its parameters?",
+                     "Where is Probe.value defined?", "What is its return type?"]
+            result = [turn["delivered"]["result"] for turn in probe({"valid.py": literal}, turns)]
+            expected_return = ast.get_source_segment(literal, parsed.body[0].body[0].returns)
+            self.assertEqual(result, ["value", f"(self, label={default})", "value", expected_return])
+
+        named_literal = r'''def named() -> "\N{GREEK SMALL LETTER LAMDA}": pass'''
+        ast.parse(named_literal)
+        named = probe({"named.py": named_literal}, ["Where is named defined?", "What is its return type?"])
+        self.assertTrue(all(t["delivered"]["state"] == "needs clarification" for t in named))
 
         rel_src = Path(distribution("python-dateutil").locate_file("dateutil/relativedelta.py")).read_text(encoding="utf-8")
         rel_turns = probe({"relativedelta.py": rel_src}, ["Where is relativedelta.normalized(1 parameter) defined?", "What are its parameters?"])
