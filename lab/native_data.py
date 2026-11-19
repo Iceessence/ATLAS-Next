@@ -87,6 +87,12 @@ def audit():
         print(family, json.loads(data)["version"], pins[leaf])
 
 
+def family_key(name):
+    if not isinstance(name, str) or not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9._-]{0,95}", name):
+        raise ValueError("Cases require a stable project family")
+    return re.sub(r"[-_.]+", "-", name.casefold())
+
+
 def normalized(question):
     return " ".join(unicodedata.normalize("NFKC", question).casefold().split())
 
@@ -128,7 +134,7 @@ def validate_cases(splits):
             receipt = case["outcome_receipt"]["sha256"]
             if case["origin"] != ORIGIN or not re.fullmatch("[a-f0-9]{64}", receipt):
                 raise ValueError("Non-observed or unpinned example")
-            family = case["family"].casefold()
+            family = family_key(case["family"])
             if families.setdefault(family, role) != role or receipts.setdefault(receipt, family) != family:
                 raise ValueError("Family or receipt overlaps")
             question = normalized(case["question"])

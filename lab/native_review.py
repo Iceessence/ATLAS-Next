@@ -1,19 +1,13 @@
 """Evaluator-only scoring. Input and output stay outside the author checkout."""
 import argparse
 from pathlib import Path
-import re
 
-from native_data import ROLES, normalized, observe, public_cases, write_new
+from native_data import ROLES, family_key, normalized, observe, public_cases, write_new
 from native_improvement import compare
+from native_master import gate_action
 from native_models import SPECIALIST, collect, load_model, specialist_action
 from native_task import SPECIALIST_SHA
 from outcomes import ROOT, load_suite, sha
-
-
-def family_key(name):
-    if not isinstance(name, str) or not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9._-]{0,95}", name):
-        raise ValueError("Evaluator cases require a stable project family")
-    return re.sub(r"[-_.]+", "-", name.casefold())
 
 
 def protected_paths(manifest, report):
@@ -54,7 +48,7 @@ def validate_custody(cases, public):
             raise ValueError("Expected verified completion or withholding")
 
 
-def evaluate(cases, previous, candidate, scratch):
+def evaluate(cases, previous, candidate, scratch, master=None):
     # Predictions are made only with the question and the authorized source texts.
     designs = {}
     for role, bundle in (("previous", previous), ("candidate", candidate)):
@@ -62,6 +56,12 @@ def evaluate(cases, previous, candidate, scratch):
         for policy in ("host", "tfidf", "linear", "native"):
             model = bundle["policies"].get(policy)
             designs[role][policy] = lambda row, policy=policy, model=model, idf=bundle["idf"]: specialist_action(policy, row, idf, model)
+    if master is not None:
+        designs["master"] = {
+            "confidence_gate": lambda row: gate_action(row, previous, confidence=previous["policies"]["native"]["threshold"]),
+            "linear_gate": lambda row: gate_action(row, previous, master["policies"]["linear"]),
+            "original_master": lambda row: gate_action(row, previous, master["policies"]["native"]),
+        }
     replay, costs = {}, {}
     for row in cases:
         inputs = {k: row[k] for k in ("question", "documents")}
@@ -80,17 +80,27 @@ def main():
     parser.add_argument("--report", required=True, type=Path)
     parser.add_argument("--candidate", required=True, type=Path)
     parser.add_argument("--candidate-sha", required=True)
+    parser.add_argument("--master", type=Path, help="Optional frozen Primary Master for the previous specialist")
+    parser.add_argument("--master-sha")
     args = parser.parse_args()
+    if bool(args.master) != bool(args.master_sha):
+        parser.error("Supply both --master and --master-sha")
     manifest, report = args.manifest.resolve(), args.report.resolve()
     protected_paths(manifest, report)
     cases, digest = load_suite(manifest)
     validate_custody(cases, [case for role in ROLES for case in public_cases(role)])
     previous, previous_sha = load_model(SPECIALIST, "source specialist", SPECIALIST_SHA)
     candidate, candidate_sha = load_model(args.candidate, "source specialist", args.candidate_sha.lower())
-    results = evaluate(cases, previous, candidate, manifest.parent)
+    master, master_sha = (None, None)
+    if args.master:
+        master, master_sha = load_model(args.master, "Primary Master", args.master_sha.lower())
+        if master["specialist_sha256"] != previous_sha:
+            raise ValueError("Master belongs to a different specialist")
+    results = evaluate(cases, previous, candidate, manifest.parent, master)
     decision = compare(results["previous"], results["candidate"])
     write_new(report, dict(mode="evaluator custody", manifest_sha256=sha(manifest.read_bytes()),
                            suite_sha256=digest, previous_sha256=previous_sha, candidate_sha256=candidate_sha,
+                           master_sha256=master_sha,
                            outcomes=len(cases), results=results, diagnostic=decision,
                            promotion="separate independent verdict and owner authorization required"))
     print(f"Scored {len(cases)} evaluator-held cases. Review the external report.")

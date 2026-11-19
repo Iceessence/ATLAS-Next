@@ -25,6 +25,12 @@ class EligibilityChecks(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "overlaps"):
             data.validate_cases(rows)
 
+    def test_family_separator_alias_does_not_cross_partitions(self):
+        rows = copy.deepcopy(self.splits)
+        rows["evaluation"][0]["family"] = "python_dateutil"
+        with self.assertRaisesRegex(ValueError, "overlaps"):
+            data.validate_cases(rows)
+
     def test_prompt_duplicate_and_fixture_rejected(self):
         rows = copy.deepcopy(self.splits)
         rows["evaluation"][0]["question"] = " " + rows["train"][0]["question"].upper()
