@@ -1,5 +1,11 @@
 # ATLAS Next owner report
 
+## NEXT-011 through NEXT-015 author transfer
+
+The five-update batch and Sol's NEXT-010R prerequisite repair are frozen for one independent Argon review. NEXT-009 remains the last independently accepted product. The integrated product is `b9ea81c67e5d9269b4f6348088918e80a2561836` with evidence `c8016fc8e7f98602b0e675a52a667173e27bc13b`. Both fresh WPF packages passed the live `qwen3.8:27b` two-turn journey, coding evidence, selected-source research, model evidence and persisted project reopen. The final clean run passed 289 Windows checks, 14 Python integrity tests, three new lab eligibility tests and 31 public factual controls. [Batch report and workflows](ATLAS_BATCH_011_015.md) · [Canonical handoff and exact revisions](ATLAS_HANDOFF.md)
+
+ATLAS now supports a current local reference chat, revision-bound coding context, owner-scoped research and a pinned experiment view. The new six-row conversation ledger grants zero training eligibility. The shadow native retrieval specialist completed 15 of 16 previous factual tasks, while the deterministic host completed 16. The fit request remained blocked. The earlier malformed source quota finding, accessibility retry and incomplete draft remain in the evidence. [Integrated evidence](../TEST_EVIDENCE.md#next-011-through-next-015-integrated-author-verification)
+
 ## Independent NEXT-010 verdict
 
 Sol issued **REPAIRS_REQUIRED** on Argon's `595ca3611a3ab9f6cd6cdd51851b45a4d0f10153`. All 268 Windows checks, 14 Python integrity tests, public regressions and four live WPF verifications passed. The independent review reproduced an import quota mismatch after 32 rejected imports. The inventory displayed zero sources and a valid import was refused. The owner authorized Sol to repair it and validate the dependency before the five-update batch. [Independent receipt](../evidence/independent-review-next010.json)
