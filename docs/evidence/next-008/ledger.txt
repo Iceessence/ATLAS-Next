@@ -1,5 +1,8 @@
-﻿PASS 6 real-source multi-turn outcomes and eligibility
+﻿PASS 6 real-source multi-turn outcomes, report summaries, and request integrity
 PASS reject_training_eligibility: Unexpected ledger schema or eligibility
 PASS reject_private_qualification: Unexpected ledger schema or eligibility
 PASS reject_missing_negative_outcome: Missing, duplicate or constructed ledger observations
 PASS reject_forged_digest: Source or request provenance mismatch
+PASS reject_altered_request_matching_hash: Delivered receipt request differs from preregistered turn
+PASS reject_swapped_turn_requests_matching_hash: Delivered receipt request differs from preregistered turn
+PASS reject_altered_summary_matching_hash: Report summary counts do not match verified turns

@@ -1,11 +1,11 @@
 ﻿{
     "filename":  "ATLAS-Next-win-x64-ps51.zip",
-    "bytes":  95143578,
-    "sha256":  "3d895c9d743bb1194ad0a3457f3493033f445f21f34fa10a58e6ea9cca386a8c",
+    "bytes":  95147775,
+    "sha256":  "b3c28fd3942c788c4a53ff43ed4b81b1dcf30a53f770c7aadf8e1a6c1ad2cac1",
     "inventory_entries":  519,
     "task_receipts":  [
                           {
-                              "id":  "87577b61-7fe6-4c27-b5d4-7a051693302f",
+                              "id":  "13847398-51f8-4268-8708-af870a2b2561",
                               "request":  "What is the restore signal colour set to, please?",
                               "schema":  1,
                               "parentTaskId":  null,
@@ -18,10 +18,10 @@
                                                ],
                               "capability":  "read owner-imported text",
                               "budget":  "2048 chars / 32 documents / 256 KiB per import / 8 matching passages / CPU",
-                              "inferenceMicroseconds":  2732,
-                              "processWorkingSetBytes":  190480384,
+                              "inferenceMicroseconds":  2718,
+                              "processWorkingSetBytes":  189333504,
                               "router":  "deterministic-route-v6",
-                              "primaryCandidateId":  "doc-8abf5608b37c8583cb7fbe60355a70e7b47de2835394423f8e55b79930c143fb",
+                              "primaryCandidateId":  "doc-cda65091f74d0c6d7a7ba103a2a632beb86db87c97efac49f6d8ee35533788c2",
                               "specialist":  "fact",
                               "proposal":  {
                                                "model":  "atlas-native-route-v1",
@@ -42,7 +42,7 @@
                                                      "trust":  "owner-selected text",
                                                      "sources":  [
                                                                      {
-                                                                         "id":  "doc-8abf5608b37c8583cb7fbe60355a70e7b47de2835394423f8e55b79930c143fb",
+                                                                         "id":  "doc-cda65091f74d0c6d7a7ba103a2a632beb86db87c97efac49f6d8ee35533788c2",
                                                                          "version":  1,
                                                                          "digest":  "0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac",
                                                                          "source":  "channel.md",
@@ -50,7 +50,7 @@
                                                                          "origin":  "owner import",
                                                                          "trust":  "owner-selected text",
                                                                          "span":  {
-                                                                                      "path":  "projects\\project-package-check\\knowledge\\doc-8abf5608b37c8583cb7fbe60355a70e7b47de2835394423f8e55b79930c143fb\\00000001-0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac\\channel.md",
+                                                                                      "path":  "projects\\project-package-check\\knowledge\\doc-cda65091f74d0c6d7a7ba103a2a632beb86db87c97efac49f6d8ee35533788c2\\00000001-0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac\\channel.md",
                                                                                       "line":  2,
                                                                                       "start":  41,
                                                                                       "length":  5
@@ -62,7 +62,7 @@
                                                      "factualSupport":  "stated by cited sources"
                                                  },
                               "evidence":  {
-                                               "id":  "doc-8abf5608b37c8583cb7fbe60355a70e7b47de2835394423f8e55b79930c143fb",
+                                               "id":  "doc-cda65091f74d0c6d7a7ba103a2a632beb86db87c97efac49f6d8ee35533788c2",
                                                "version":  1,
                                                "digest":  "0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac",
                                                "source":  "channel.md",
@@ -70,7 +70,7 @@
                                                "origin":  "owner import",
                                                "trust":  "owner-selected text",
                                                "span":  {
-                                                            "path":  "projects\\project-package-check\\knowledge\\doc-8abf5608b37c8583cb7fbe60355a70e7b47de2835394423f8e55b79930c143fb\\00000001-0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac\\channel.md",
+                                                            "path":  "projects\\project-package-check\\knowledge\\doc-cda65091f74d0c6d7a7ba103a2a632beb86db87c97efac49f6d8ee35533788c2\\00000001-0268b6f0e7b648ff3f07daf72e15fb649cf13da425071288909c1c484c60cdac\\channel.md",
                                                             "line":  2,
                                                             "start":  41,
                                                             "length":  5
@@ -80,15 +80,15 @@
                               "events":  [
                                              {
                                                  "state":  "queued",
-                                                 "at":  "2026-11-19T00:53:11.0558122+00:00"
+                                                 "at":  "2026-11-19T01:27:39.2047413+00:00"
                                              },
                                              {
                                                  "state":  "review",
-                                                 "at":  "2026-11-19T00:53:11.1512517+00:00"
+                                                 "at":  "2026-11-19T01:27:39.2869139+00:00"
                                              },
                                              {
                                                  "state":  "completed",
-                                                 "at":  "2026-11-19T00:53:13.2496144+00:00"
+                                                 "at":  "2026-11-19T01:27:41.4504877+00:00"
                                              }
                                          ],
                               "state":  "completed"

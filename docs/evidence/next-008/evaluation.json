@@ -26,7 +26,7 @@
         ]
       ],
       "p50_us": 2.0,
-      "p95_us": 2.4450000000000003,
+      "p95_us": 2.4,
       "failures": [
         {
           "prompt": "How long will atlasprint keep its archive?",
@@ -171,8 +171,8 @@
           24
         ]
       ],
-      "p50_us": 36.0,
-      "p95_us": 39.89,
+      "p50_us": 36.2,
+      "p95_us": 48.08500000000001,
       "failures": [
         {
           "prompt": "How long will atlasprint keep its archive?",
@@ -347,8 +347,8 @@
           24
         ]
       ],
-      "p50_us": 19.5,
-      "p95_us": 55.06000000000001,
+      "p50_us": 18.9,
+      "p95_us": 25.425,
       "failures": [
         {
           "prompt": "How long will atlasprint keep its archive?",
@@ -463,8 +463,8 @@
           24
         ]
       ],
-      "p50_us": 17.6,
-      "p95_us": 19.26,
+      "p50_us": 16.75,
+      "p95_us": 18.830000000000005,
       "failures": [
         {
           "prompt": "How long will atlasprint keep its archive?",

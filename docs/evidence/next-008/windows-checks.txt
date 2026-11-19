@@ -183,32 +183,46 @@ PASS 182: fenced instructions remain data and cannot supply claims
 PASS 183: literal comparisons do not substitute handbook aliases
 PASS 184: forged research scope cannot deliver
 PASS 185: tampering with secondary evidence digest fails delivery
-PASS 186: generic overload selector normalizes spaces with BOM offset
-PASS 187: nullable overload selector disambiguates sibling
-PASS 188: array parameter selector resolves unique method
-PASS 189: multi-dimensional array selector withholds
-PASS 190: ref modifier selector continues to withhold
-PASS 191: selected C# definition delivers exact parameter list span
-PASS 192: selected C# definition delivers exact generic return type span
-PASS 193: contextual caller follow-up uses implicit global usings and excludes shadowed/other overloads
-PASS 194: direct generic typed call lookup uses implicit global usings
-PASS 195: nullable call lookup binds matching argument overload
-PASS 196: parentless caller follow-up withholds
-PASS 197: caller follow-up rejects non-definition parent
-PASS 198: class declaration has no return type
-PASS 199: class declaration has no parameter list
-PASS 200: class declaration cannot resolve as method caller parent
-PASS 201: modified secondary caller file invalidates pending caller follow-up
-PASS 202: tampered dependency on caller follow-up fails verification
-PASS 203: swapped parent declaration on caller follow-up withholds delivery
-PASS 204: Python arity handles type annotations and simple defaults
-PASS 205: Python parameter list follow-up cites exact span
-PASS 206: Python return type annotation follow-up cites exact span
-PASS 207: Python caller follow-up stays outside C# call binding subset
-PASS 208: Python signature ignores comments and respects colons inside strings
-PASS 209: multiline Python parameter list preserves exact source span
-PASS 210: Python keyword-only separator still withholds arity lookup
-PASS 211: Python call expression default still withholds arity lookup
-PASS 212: revised source invalidates earlier selected parent for caller follow-up
-PASS 213: project switch isolates parameter and caller follow-ups
-All 213 checks passed. Temporary profile: C:\Users\ppawe\AppData\Local\Temp\atlas-next-check-cccb5e5aab36471f90d9c0287930fed4
+PASS 186: generic overload declaration resolves syntactically without implicit usings
+PASS 187: omitted using directive safely withholds cross-file generic call lookup instead of injecting implicit usings
+PASS 188: generic overload selector normalizes spaces with BOM offset
+PASS 189: nullable overload selector disambiguates sibling
+PASS 190: array parameter selector resolves unique method
+PASS 191: multi-dimensional array selector withholds
+PASS 192: ref modifier selector continues to withhold
+PASS 193: selected C# definition delivers exact parameter list span
+PASS 194: selected C# definition delivers exact generic return type span
+PASS 195: contextual caller follow-up uses explicit source usings and excludes shadowed/other overloads
+PASS 196: direct generic typed call lookup uses explicit source usings
+PASS 197: nullable call lookup binds matching argument overload
+PASS 198: parentless caller follow-up withholds
+PASS 199: caller follow-up rejects non-definition parent
+PASS 200: competing extension method without System.Linq binds string overload for direct and selected callers
+PASS 201: explicit System.Linq import flips competing extension method to int overload for direct and selected callers
+PASS 202: class declaration has no return type
+PASS 203: class declaration has no parameter list
+PASS 204: class declaration cannot resolve as method caller parent
+PASS 205: modified secondary caller file invalidates pending caller follow-up
+PASS 206: tampered dependency on caller follow-up fails verification
+PASS 207: swapped parent declaration on caller follow-up withholds delivery
+PASS 208: Python arity handles type annotations and simple defaults
+PASS 209: Python parameter list follow-up cites exact span
+PASS 210: Python return type annotation follow-up cites exact span
+PASS 211: Python caller follow-up stays outside C# call binding subset
+PASS 212: Python signature ignores comments and respects colons inside strings
+PASS 213: multiline Python parameter list preserves exact source span
+PASS 214: Python return annotation containing top-level lambda colon keeps exact span
+PASS 215: Python return annotation excludes leading and trailing line continuations
+PASS 216: malformed Python header withheld for Where is Pipeline.bad_order(3 parameters) defined?
+PASS 217: malformed Python header withheld for Where is Pipeline.bad_order defined?
+PASS 218: malformed Python header withheld for Where is Pipeline.bad_kw(2 parameters) defined?
+PASS 219: malformed Python header withheld for Where is Pipeline.bad_kw defined?
+PASS 220: malformed Python header withheld for Where is Pipeline.bad_kw2(2 parameters) defined?
+PASS 221: malformed Python header withheld for Where is Pipeline.bad_kw2 defined?
+PASS 222: malformed Python header withheld for Where is Pipeline.return defined?
+PASS 223: malformed Python declaration cannot authorize a selected follow-up
+PASS 224: Python keyword-only separator still withholds arity lookup
+PASS 225: Python call expression default still withholds arity lookup
+PASS 226: revised source invalidates earlier selected parent for caller follow-up
+PASS 227: project switch isolates parameter and caller follow-ups
+All 227 checks passed. Temporary profile: C:\Users\ppawe\AppData\Local\Temp\atlas-next-check-53bd32f7d19f40f183ca60870ad394e5
