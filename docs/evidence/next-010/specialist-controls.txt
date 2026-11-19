@@ -1,0 +1,5 @@
+suite_sha256: ef207ce82af59748220220771860bc5563b97f62c5b25d7c02ddb9dbe388a883
+host: 31/31 wrong=0
+tfidf: 31/31 wrong=0
+linear: 29/31 wrong=0
+native: 30/31 wrong=0

@@ -1,0 +1,30 @@
+﻿{
+  "schema": 1,
+  "baseline": "2011be05e61a7c7107bce3496cb0bf072e262341",
+  "product": "595ca3611a3ab9f6cd6cdd51851b45a4d0f10153",
+  "external_inference_calls": 0,
+  "conversations": {
+    "search": "9/14",
+    "host": "12/14"
+  },
+  "counts": {
+    "search": {
+      "exact_delivery": 15,
+      "wrong_delivery": 3,
+      "false_abstention": 3,
+      "correct_withhold": 4,
+      "verdict_mismatch": 0
+    },
+    "host": {
+      "exact_delivery": 18,
+      "wrong_delivery": 0,
+      "false_abstention": 2,
+      "correct_withhold": 5,
+      "verdict_mismatch": 0
+    }
+  },
+  "first_turn_ms": 58.787099999999995,
+  "warm_turn_ms": 16.8898,
+  "process_ms": 345.69349998491816,
+  "max_sampled_working_set": 125919232
+}

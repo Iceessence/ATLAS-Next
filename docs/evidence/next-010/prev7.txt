@@ -1,0 +1,27 @@
+﻿{
+  "schema": 1,
+  "baseline": "c0e138f63ef342d5ff38a6bce1dd9cd579d1b01c",
+  "product": "595ca3611a3ab9f6cd6cdd51851b45a4d0f10153",
+  "external_inference_calls": 0,
+  "counts": {
+    "search": {
+      "exact_delivery": 7,
+      "wrong_delivery": 2,
+      "false_abstention": 0,
+      "correct_withhold": 8,
+      "verdict_mismatch": 0
+    },
+    "host": {
+      "exact_delivery": 8,
+      "wrong_delivery": 0,
+      "false_abstention": 0,
+      "correct_withhold": 9,
+      "verdict_mismatch": 0
+    }
+  },
+  "first_ms": 54.5229,
+  "warm_ms": 13.4626,
+  "process_ms": 265.41849999921396,
+  "max_sampled_working_set": 119791616
+}
+PASS 5 real-source outcomes and eligibility
