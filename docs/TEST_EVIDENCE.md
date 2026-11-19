@@ -1,5 +1,12 @@
 # Author test evidence
 
+## NEXT-015R and native-original NEXT-016 through NEXT-020 author verification
+
+- NEXT-015R froze `9c48621fc3868a02291c100c85d2225e67b393ae` after the live optional-reference dialog shutdown repair. All 290 Windows checks, 17 Python tests and 31 factual controls passed. Clean PS 5.1 and PS 7.6.9 packages each completed the two-turn loopback test and relaunched successfully. [Repair logs and package digests](evidence/next-015r/README.md)
+- Integrated product `6dbf726443e9afd3c527f99d4851440e1404f4bb` contains the original source specialist, Primary Master, read-only native workflow and controlled refit. [Integrated clean-checkout evidence](evidence/native-first-integration/README.md)
+- Per-update evidence records exact source pins, measured action outcomes, model and optimizer bytes, per-family outcomes, costs and limits. [NEXT-016](evidence/next-016/README.md) · [NEXT-017](evidence/next-017/README.md) · [NEXT-018](evidence/next-018/README.md) · [NEXT-019](evidence/next-019/README.md) · [NEXT-020](evidence/next-020/README.md)
+- The author-public evidence supports preserving deterministic delivery and leaving all new models in shadow. The rejected refit stays archived. Protected qualification and milestone verdicts remain with the independent reviewer. [Handoff](ai/ATLAS_HANDOFF.md)
+
 ## NEXT-010R and NEXT-011 through NEXT-015 independent batch review
 
 Gemini Argon Orchestrator independently reviewed Sol's provisional prerequisite repair **`NEXT-010R`** (`06f850119666c2f78ba850d8d17f63c1a4e87b5e`, evidence `069309d1b77a7dfcec36d8ada2c8aa4a3cf3ec66`) and five-update batch **`NEXT-011` through `NEXT-015`** (`3ae818874c19288b24df943fea4d7f0e4202273c`, `5e327ad9d52ee91117fad1bba718f65d8c066ac3`, `80d6685914464261eacbe09365ec7cd8df9570e9`, `81cc70eb0e1cff91c16b78d729acf82b5dab90cd`, and integrated candidate `b9ea81c67e5d9269b4f6348088918e80a2561836` via `1d77a604` / `37f0de92`, handoff `c548430ad2f2efe0bc54d0757de913a0899d78bb`) from clean detached checkouts without modifying candidate code. Argon respected Sol's `REPAIRS_REQUIRED` rejection (`b358452bef7ca1624c00c24d91db60323cd85b2c`) of Argon's original `NEXT-010` (`595ca3611a3ab9f6cd6cdd51851b45a4d0f10153`). Both native checkpoints remain unchanged and strictly `shadow`-only (`6b9b23fc...`, `5c476024...`), host execution stays disabled (`read owner-imported text`), and legacy ATLAS (`695585f`), PLATZ Engine, and FORGE remain untouched. [Independent receipt](evidence/independent-review-next011-015.json)

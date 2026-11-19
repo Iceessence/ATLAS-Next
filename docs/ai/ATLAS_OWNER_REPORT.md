@@ -1,5 +1,23 @@
 # ATLAS Next owner report
 
+## Author results — native-original batch NEXT-016 through NEXT-020
+
+The owner directed ATLAS to develop original local models as its primary intelligence. The roadmap now prioritizes learning from authorized work, original specialist and master networks, and separate verification. The optional reference chat remains distinct. The NEXT-015R live reference shutdown repair passed under Windows PowerShell 5.1 and PowerShell 7.6.9. The author candidate and five native-first updates await Argon review. [Repair evidence](../evidence/next-015r/README.md) · [Native-original roadmap](../ROADMAP.md)
+
+NEXT-016 reconstructed 360 Windows host outcomes for 60 questions across 15 public distribution families. The measured objects were local installation receipts and interface source. The questions were authored, and the labels came from actual authorized host actions and exact citation comparisons. The legacy conversation ledger retains its original restrictions. No protected evaluator data entered the dataset. [Eligibility and split hashes](../evidence/next-016/README.md)
+
+| Original model | Actual learned decision | Public useful outcomes |
+| --- | --- | ---: |
+| 65-parameter specialist | Score an imported Markdown source for the requested project fact | 13/20 |
+| 37-parameter Primary Master with specialist | Estimate support for a focused proposal or return to unrestricted host | 16/20 |
+| 65-parameter reinitialized specialist refit | Refit source scoring with 32 additional negative outcomes | 13/20, rejected |
+
+All three checkpoints started with random weights. CPU training and inference required no pretrained model or hosted inference. The strongest deterministic policies, the confidence-only gate and the logistic Master gate each completed 16/20. Logistic source selection completed 15/20. No measured wrong answers were delivered. The learned Master helped recover specialist misses but reproduced host-only completion with added work. The refit did not improve held-out outcomes. Native candidates remain in shadow. [Specialist](../evidence/next-017/README.md) · [Master](../evidence/next-018/README.md) · [Refit rejection](../evidence/next-020/README.md)
+
+The local source-checkout command can answer supported fact questions from explicitly supplied Markdown files and show what the two models proposed. The trusted host supplies exact citations and the authoritative answer. Live runs verified openpyxl loader parameters and an actual restore manifest digest. Contradictory claims were safely withheld in an author test. The packaged Model Evidence window reports the original architectures, measured outcomes, provenance and rejection. [Run instructions and live traces](../evidence/next-019/README.md)
+
+The next evidence gap is more naturally posed, owner-authorized tasks with measurable successful and unsuccessful outcomes from unfamiliar projects. The evidence covers a narrow task and a small number of project families. CPU training was exercised. GPU training needs a compatible local numerical provider. A fresh protected qualification run belongs to Argon. [Canonical handoff](ATLAS_HANDOFF.md)
+
 ## Independent batch review — NEXT-010R (`ACCEPTED_WITH_LIMITATIONS`), NEXT-011..014 (`ACCEPTED_WITH_LIMITATIONS`), NEXT-015 (`REPAIRS_REQUIRED`)
 
 **Gemini Argon Orchestrator completed the consolidated independent audit of Sol's `NEXT-010R` repair and `NEXT-011` through `NEXT-015` batch (`c548430ad2f2efe0bc54d0757de913a0899d78bb`).** Per-update verdicts advance the independently accepted baseline from `NEXT-009` (`f4db483`) to **`NEXT-014` (`81cc70eb0e1cff91c16b78d729acf82b5dab90cd`)** (`NEXT-010R` `06f85011`, `NEXT-011` `3ae81887`, `NEXT-012` `5e327ad9`, `NEXT-013` `80d66859`, and `NEXT-014` `81cc70eb` are each **`ACCEPTED_WITH_LIMITATIONS`**), while **`NEXT-015` (`b9ea81c67e5d9269b4f6348088918e80a2561836`)** and the **integrated batch receive `REPAIRS_REQUIRED`** for one reproducible live-reference UIA dialog-close defect (**`NR-015-1`**). Both native checkpoints remain strictly `shadow`-only (`6b9b23fc...`, `5c476024...`), host execution remains disabled (`read owner-imported text`), Argon did not self-approve original `NEXT-010` (`595ca361`, rejected by Sol at `b358452b`), and legacy ATLAS (`695585f`), PLATZ Engine, and FORGE remain untouched. [Independent batch receipt](../evidence/independent-review-next011-015.json) · [Canonical handoff](ATLAS_HANDOFF.md)
