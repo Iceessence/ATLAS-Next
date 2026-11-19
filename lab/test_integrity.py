@@ -192,4 +192,97 @@ class Integrity(unittest.TestCase):
         self.assertEqual("shadow",manifest["qualification"])
         self.assertEqual(len(features("hello")),256)
 
+    def test_python_header_grammar_against_cpython_oracle(self):
+        import ast, subprocess
+        from importlib.metadata import distribution
+        exe = ROOT / "checks/bin/Release/net10.0-windows/AtlasNext.Checks.exe"
+        self.assertTrue(exe.is_file(), f"Missing Release checks binary: {exe}")
+
+        def probe(files, turns):
+            with tempfile.TemporaryDirectory() as work:
+                proc = subprocess.run(
+                    [str(exe), "--conversation-probe", work],
+                    input=json.dumps({"turns": turns, "files": files}),
+                    encoding="utf-8", capture_output=True, check=True, timeout=60,
+                )
+            return json.loads(proc.stdout)["runs"][0]["turns"]
+
+        valid_src = (
+            "class OracleValid(Base, metaclass=Meta):\n"
+            "    def nums(self, a=0, b=0x_1, c=0b10_10, d=0o7_7, e=1.e2, f=1j, g=.5) -> int | str:\n"
+            "        return a\n"
+            "    def cont(self, x: int) -> \\\n"
+            "        int | str \\\n"
+            "        :\n"
+            "        return x\n"
+            "    def lam(self, fn: lambda a=1: a = 2) -> lambda b, c=0: b + c:\n"
+            "        return fn\n"
+        )
+        tree = ast.parse(valid_src)
+        cls_node = tree.body[0]
+        methods = {n.name: n for n in cls_node.body if isinstance(n, ast.FunctionDef)}
+
+        def_cls = probe({"valid.py": valid_src}, ["Where is OracleValid defined?"])
+        self.assertEqual(def_cls[0]["delivered"]["state"], "completed")
+        self.assertEqual(def_cls[0]["delivered"]["result"], "OracleValid")
+
+        for mname, arity, expected_ret in [
+            ("nums", 8, ast.get_source_segment(valid_src, methods["nums"].returns)),
+            ("cont", 2, ast.get_source_segment(valid_src, methods["cont"].returns)),
+            ("lam", 2, ast.get_source_segment(valid_src, methods["lam"].returns)),
+        ]:
+            t_par = probe({"valid.py": valid_src}, [f"Where is OracleValid.{mname}({arity} parameters) defined?", "What are its parameters?"])
+            self.assertEqual(t_par[0]["delivered"]["state"], "completed", mname)
+            self.assertEqual(t_par[1]["delivered"]["state"], "completed", mname)
+            self.assertEqual(t_par[1]["delivered"]["result"], f"({valid_src.split(f'def {mname}(', 1)[1].split(')', 1)[0]})")
+            t_ret = probe({"valid.py": valid_src}, [f"Where is OracleValid.{mname} defined?", "What is its return type?"])
+            self.assertEqual(t_ret[0]["delivered"]["state"], "completed", mname)
+            self.assertEqual(t_ret[1]["delivered"]["state"], "completed", mname)
+            self.assertEqual(t_ret[1]["delivered"]["result"], expected_ret)
+
+        bad_headers = [
+            ("num_lead_def", "def bad(self, x=01): pass"),
+            ("num_lead_ret", "def bad(self, x) -> 0_1: pass"),
+            ("num_alpha_pann", "def bad(self, x: 123abc): pass"),
+            ("num_dots_ret", "def bad(self, x) -> 1.2.3: pass"),
+            ("num_exp_bad", "def bad(self, x=1e++2): pass"),
+            ("op_aug_def", "def bad(self, x=a += 1): pass"),
+            ("op_aug_pann", "def bad(self, x: int |= str): pass"),
+            ("op_aug_ret", "def bad(self, x) -> int &= str: pass"),
+            ("op_tilde_bin", "def bad(self, x=1 ~ 2): pass"),
+            ("op_pipe_gap", "def bad(self, x) -> int | | str: pass"),
+            ("op_amp_amp", "def bad(self, x=a && b): pass"),
+            ("struct_if_no_else", "def bad(self, x) -> a if b: pass"),
+            ("struct_walrus_ret", "def bad(self, x) -> a := 1: pass"),
+            ("struct_lam_order", "def bad(self, x=lambda a=1, b: a): pass"),
+            ("struct_dict_mix", "def bad(self, x={1: 2, 3}): pass"),
+            ("struct_bytes_utf", "def bad(self, x=b\"é\"): pass"),
+            ("struct_fstr", "def bad(self, x=f\"{1+}\"): pass"),
+        ]
+        for label, hdr in bad_headers:
+            with self.subTest(malformed=label):
+                with self.assertRaises(SyntaxError):
+                    compile(hdr, f"<{label}>", "exec")
+                src = f"class Probe:\n    {hdr}\n"
+                for q in ("Where is Probe.bad(2 parameters) defined?", "Where is Probe.bad defined?"):
+                    t_par = probe({"bad.py": src}, [q, "What are its parameters?"])
+                    self.assertEqual(t_par[0]["delivered"]["state"], "needs clarification")
+                    self.assertEqual(t_par[1]["delivered"]["state"], "needs clarification")
+                    t_ret = probe({"bad.py": src}, [q, "What is its return type?"])
+                    self.assertEqual(t_ret[0]["delivered"]["state"], "needs clarification")
+                    self.assertEqual(t_ret[1]["delivered"]["state"], "needs clarification")
+
+        rel_src = Path(distribution("python-dateutil").locate_file("dateutil/relativedelta.py")).read_text(encoding="utf-8")
+        rel_turns = probe({"relativedelta.py": rel_src}, ["Where is relativedelta.normalized(1 parameter) defined?", "What are its parameters?"])
+        self.assertEqual(rel_turns[0]["delivered"]["state"], "completed")
+        self.assertEqual(rel_turns[1]["delivered"]["result"], "(self)")
+        try:
+            docx_src = Path(distribution("python-docx").locate_file("docx/document.py")).read_text(encoding="utf-8")
+        except Exception:
+            docx_src = None
+        if docx_src is not None:
+            docx_turns = probe({"document.py": docx_src}, ["Where is Document.iter_inner_content defined?", "What is its return type?"])
+            self.assertEqual(docx_turns[0]["delivered"]["state"], "completed")
+            self.assertEqual(docx_turns[1]["delivered"]["result"], "Iterator[Paragraph | Table]")
+
 if __name__=="__main__": unittest.main()

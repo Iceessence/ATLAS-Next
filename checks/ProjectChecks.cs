@@ -327,6 +327,189 @@ internal static class ProjectChecks
         check(Ask("Where is Pipeline.kwonly(3 parameters) defined?").State=="needs clarification","Python keyword-only separator still withholds arity lookup");
         check(Ask("Where is Pipeline.call_default(2 parameters) defined?").State=="needs clarification","Python call expression default still withholds arity lookup");
 
+        put("py_valid_grammar.py","""
+            class Derived(Base, metaclass=Meta):
+                def nums(self, a=0, b=00, c=0_0, d=0x1f_aB, e=0x_1, f=0b10_10, g=0o7_7, h=1.5, i=.5, j=1., k=01.5, l=1e-3, m=1E+2, n=1j, o=-1_000, p=+0.5):
+                    pass
+                def ops(self, x: int | str | None = +-~1, y: (int if True else str) = (2 ** -3), z: bool = 0 < 1 <= 2) -> dict[str, tuple[int, ...]]:
+                    return {}
+                def walrus_comp(self, x: (T := int) = (v := 1), ys: list[int] = [i for i in range(3) if i], s: "A" "B" = "x" "y") -> Callable[[int, str], bool]:
+                    return lambda a, b: True
+                def lam_ann(self, fn: lambda a=1: a = 2) -> lambda a, b=1: a + b:
+                    return lambda a, b=1: a + b
+                def cont_inside(self, x: int) -> int | \
+                    str:
+                    return x
+                def cont_around(self, x: int) -> \
+                    tuple[int, str] \
+                    :
+                    return (x, "")
+            """);
+        check(Ask("Where is Derived defined?") is {State:"completed",Result:"Derived",Evidence.Span.Line:1},
+            "valid Python class header with keyword metaclass resolves");
+        var pyNums=Ask("Where is Derived.nums(17 parameters) defined?");
+        check(pyNums is {State:"completed",Result:"nums",Evidence.Span.Line:2},
+            "valid Python numeric literal defaults resolve with exact arity");
+        var pyOps=Ask("Where is Derived.ops defined?");
+        check(pyOps is {State:"completed",Result:"ops"} &&
+            Ask("What are its parameters?",pyOps.Id).Result=="(self, x: int | str | None = +-~1, y: (int if True else str) = (2 ** -3), z: bool = 0 < 1 <= 2)" &&
+            Ask("What is its return type?",pyOps.Id).Result=="dict[str, tuple[int, ...]]" &&
+            Ask("Where is Derived.ops(4 parameters) defined?").State=="needs clarification",
+            "valid Python operators, unary/power, comparisons, and ternary expressions resolve while non-literal defaults withhold arity");
+        var pyWalrus=Ask("Where is Derived.walrus_comp defined?");
+        check(pyWalrus is {State:"completed",Result:"walrus_comp"} &&
+            Ask("What is its return type?",pyWalrus.Id).Result=="Callable[[int, str], bool]",
+            "valid Python parenthesized walrus, comprehension, and string concat resolve");
+        var pyLamAnn=Ask("Where is Derived.lam_ann(2 parameters) defined?");
+        check(pyLamAnn is {State:"completed",Result:"lam_ann"} &&
+            Ask("What are its parameters?",pyLamAnn.Id).Result=="(self, fn: lambda a=1: a = 2)" &&
+            Ask("What is its return type?",pyLamAnn.Id).Result=="lambda a, b=1: a + b",
+            "valid Python lambda in parameter annotation with default and return annotation resolves");
+        var pyContIn=Ask("Where is Derived.cont_inside defined?");
+        check(pyContIn is {State:"completed",Result:"cont_inside"} &&
+            Ask("What is its return type?",pyContIn.Id).Result?.Replace("\r\n","\n")=="int | \\\n        str",
+            "Python explicit continuation inside return annotation preserves exact span");
+        var pyContAround=Ask("Where is Derived.cont_around defined?");
+        check(pyContAround is {State:"completed",Result:"cont_around"} &&
+            Ask("What is its return type?",pyContAround.Id).Result=="tuple[int, str]",
+            "Python explicit continuations before and after return annotation exclude wrapper trivia");
+
+        bool WithholdsAll(string symbol,int? arity=null) {
+            foreach(var q in arity is {} n
+                ? new[]{$"Where is {symbol}({n} parameters) defined?",$"Where is {symbol} defined?"}
+                : new[]{$"Where is {symbol} defined?"}) {
+                var def=Ask(q);
+                if(def.State!="needs clarification") return false;
+                if(Ask("What are its parameters?",def.Id).State!="needs clarification") return false;
+                if(Ask("What is its return type?",def.Id).State!="needs clarification") return false;
+            }
+            return true;
+        }
+
+        put("py_bad_num.py","""
+            class BadNum:
+                def ok(self, x: int = 1) -> int:
+                    return x
+                def num_lead_def(self, x=01): pass
+                def num_lead_pann(self, x: 0_1): pass
+                def num_lead_ret(self, x) -> 01: pass
+                def num_alpha_def(self, x=123abc): pass
+                def num_alpha_pann(self, x: 123abc): pass
+                def num_alpha_ret(self, x) -> 123abc: pass
+                def num_dots_def(self, x=1.2.3): pass
+                def num_dots_pann(self, x: 1.2.3): pass
+                def num_dots_ret(self, x) -> 1..2: pass
+                def num_us_dbl(self, x=1__2): pass
+                def num_us_trail(self, x=1_): pass
+                def num_hex_bad(self, x: 0xGG = 1): pass
+                def num_bin_bad(self, x=0b2): pass
+                def num_oct_bad(self, x) -> 0o8: pass
+                def num_exp_bad(self, x=1e++2): pass
+                def num_real_attr(self, x=1.real): pass
+                def num_imag_tail(self, x=1j2): pass
+            class BadNumClass(123abc):
+                pass
+            """);
+        check(Ask("Where is BadNum.ok(2 parameters) defined?") is {State:"completed",Result:"ok"},
+            "valid sibling method remains queryable alongside malformed numeric siblings");
+        check(new[]{
+            ("BadNum.num_lead_def",2),("BadNum.num_lead_pann",2),("BadNum.num_lead_ret",2),
+            ("BadNum.num_alpha_def",2),("BadNum.num_alpha_pann",2),("BadNum.num_alpha_ret",2),
+            ("BadNum.num_dots_def",2),("BadNum.num_dots_pann",2),("BadNum.num_dots_ret",2),
+            ("BadNum.num_us_dbl",2),("BadNum.num_us_trail",2),("BadNum.num_hex_bad",2),
+            ("BadNum.num_bin_bad",2),("BadNum.num_oct_bad",2),("BadNum.num_exp_bad",2),
+            ("BadNum.num_real_attr",2),("BadNum.num_imag_tail",2)
+        }.All(t=>WithholdsAll(t.Item1,t.Item2)) && WithholdsAll("BadNumClass"),
+            "malformed numeric literals in defaults, parameter/return annotations, and class headers withhold definitions and follow-ups");
+
+        put("py_bad_op.py","""
+            class BadOp:
+                def ok(self, x: int | str) -> int:
+                    return 0
+                def op_aug_def(self, x=a += 1): pass
+                def op_aug_pann(self, x: int |= str): pass
+                def op_aug_ret(self, x) -> int &= str: pass
+                def op_star2eq_def(self, x=a **= 2): pass
+                def op_tilde_bin_def(self, x=1 ~ 2): pass
+                def op_tilde_bin_ret(self, x) -> int ~ str: pass
+                def op_tilde_eq(self, x=1 ~= 2): pass
+                def op_amp_amp_def(self, x=a && b): pass
+                def op_pipe_pipe_pann(self, x: int || str): pass
+                def op_pipe_gap_ret(self, x) -> int | | str: pass
+                def op_pipe_trail_ret(self, x) -> int |: pass
+                def op_bang_def(self, x=!a): pass
+                def op_eq3_def(self, x=a === b): pass
+                def op_diamond(self, x=a <> b): pass
+                def op_star_sp(self, x=a * * b): pass
+                def op_star2_star(self, x=a ** * b): pass
+                def op_arrow_pann(self, x: int -> str): pass
+                def op_not_unary_rhs(self, x=-not a): pass
+                def op_not_bin(self, x=a not b): pass
+                def op_is_not_in(self, x=a is not in b): pass
+            class BadOpClass(Base += Extra):
+                pass
+            """);
+        check(Ask("Where is BadOp.ok(2 parameters) defined?") is {State:"completed",Result:"ok"},
+            "valid sibling method remains queryable alongside illegal operator siblings");
+        check(new[]{
+            ("BadOp.op_aug_def",2),("BadOp.op_aug_pann",2),("BadOp.op_aug_ret",2),
+            ("BadOp.op_star2eq_def",2),("BadOp.op_tilde_bin_def",2),("BadOp.op_tilde_bin_ret",2),
+            ("BadOp.op_tilde_eq",2),("BadOp.op_amp_amp_def",2),("BadOp.op_pipe_pipe_pann",2),
+            ("BadOp.op_pipe_gap_ret",2),("BadOp.op_pipe_trail_ret",2),("BadOp.op_bang_def",2),
+            ("BadOp.op_eq3_def",2),("BadOp.op_diamond",2),("BadOp.op_star_sp",2),
+            ("BadOp.op_star2_star",2),("BadOp.op_arrow_pann",2),("BadOp.op_not_unary_rhs",2),
+            ("BadOp.op_not_bin",2),("BadOp.op_is_not_in",2)
+        }.All(t=>WithholdsAll(t.Item1,t.Item2)) && WithholdsAll("BadOpClass"),
+            "illegal operators and operator sequences in defaults, parameter/return annotations, and class headers withhold definitions and follow-ups");
+
+        put("py_bad_struct.py","""
+            class BadStruct:
+                def ok(self, x: dict[str, int]) -> list[str]:
+                    return []
+                def bad_tern_def(self, x=a if b): pass
+                def bad_tern_ret(self, x) -> a if b: pass
+                def bad_else_only(self, x=a else b): pass
+                def bad_walrus_def(self, x=a := 1): pass
+                def bad_walrus_pann(self, x: a := 1): pass
+                def bad_walrus_ret(self, x) -> a := 1: pass
+                def bad_lam_order(self, x=lambda a=1, b: a): pass
+                def bad_lam_kw(self, x=lambda class: 1): pass
+                def bad_lam_dup(self, x=lambda a, a: a): pass
+                def bad_call_pos_kw(self, x=g(a=1, 2)): pass
+                def bad_call_dup_kw(self, x=g(a=1, a=2)): pass
+                def bad_dict_mix(self, x={1: 2, 3}): pass
+                def bad_sub_empty(self, x) -> dict[]: pass
+                def bad_sub_slice4(self, x=a[1:2:3:4]): pass
+                def bad_star_paren(self, x) -> (*Ts): pass
+                def bad_comp_lit(self, x=[i for 1 in xs]): pass
+                def bad_walrus_comp(self, x=[(i := 1) for i in xs]): pass
+                def bad_bytes_utf(self, x=b"é"): pass
+                def bad_mix_bytes(self, x="a" b"b"): pass
+                def bad_ur(self, x=ur"a"): pass
+                def bad_fstr_expr(self, x=f"{1+}"): pass
+                def bad_attr_kw(self, x=a.None): pass
+                def bad_param_star_ann(self, x: *int): pass
+                def bad_param_star_def(self, x, *a=()): pass
+                def bad_param_slash_star(self, x, *a, /): pass
+            class BadClsOrder(a=1, Base):
+                pass
+            class BadClsDup(a=1, a=2):
+                pass
+            """);
+        check(Ask("Where is BadStruct.ok(2 parameters) defined?") is {State:"completed",Result:"ok"},
+            "valid sibling method remains queryable alongside malformed structural siblings");
+        check(new[]{
+            ("BadStruct.bad_tern_def",2),("BadStruct.bad_tern_ret",2),("BadStruct.bad_else_only",2),
+            ("BadStruct.bad_walrus_def",2),("BadStruct.bad_walrus_pann",2),("BadStruct.bad_walrus_ret",2),
+            ("BadStruct.bad_lam_order",2),("BadStruct.bad_lam_kw",2),("BadStruct.bad_lam_dup",2),
+            ("BadStruct.bad_call_pos_kw",2),("BadStruct.bad_call_dup_kw",2),("BadStruct.bad_dict_mix",2),
+            ("BadStruct.bad_sub_empty",2),("BadStruct.bad_sub_slice4",2),("BadStruct.bad_star_paren",2),
+            ("BadStruct.bad_comp_lit",2),("BadStruct.bad_walrus_comp",2),("BadStruct.bad_bytes_utf",2),("BadStruct.bad_mix_bytes",2),
+            ("BadStruct.bad_ur",2),("BadStruct.bad_fstr_expr",2),("BadStruct.bad_attr_kw",2),
+            ("BadStruct.bad_param_star_ann",2),("BadStruct.bad_param_star_def",3),("BadStruct.bad_param_slash_star",3)
+        }.All(t=>WithholdsAll(t.Item1,t.Item2)) && WithholdsAll("BadClsOrder") && WithholdsAll("BadClsDup"),
+            "invalid Python expression, parameter, lambda, container, string, and class structures withhold definitions and follow-ups");
+
         put("Repo.cs",repoSrc.Replace("Array.Empty<string>()","Array.Empty<string>().ToArray()"));
         check(Ask("Where is it called?",genDef.Id).ResearchReview?.Verdict=="unsupported","revised source invalidates earlier selected parent for caller follow-up");
         engine.SelectProject("other-conv");

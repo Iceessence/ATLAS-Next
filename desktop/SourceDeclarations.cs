@@ -120,10 +120,6 @@ internal static class SourceDeclarations
         "elif","else","except","finally","for","from","global","if","import","in","is","lambda","nonlocal",
         "not","or","pass","raise","return","try","while","with","yield"
     };
-    private static readonly HashSet<string> PythonStatementKeywords=new(StringComparer.Ordinal) {
-        "assert","break","class","continue","def","del","elif","except","finally","from","global","import",
-        "nonlocal","pass","raise","return","try","while","with"
-    };
     private sealed record Scope(int Indent,bool Class,string Name,TextSpan Identifier);
     private static int Indent(string text,int start,int end)
     {
@@ -191,7 +187,7 @@ internal static class SourceDeclarations
                     headerIndent=indent;
                     topLevelLambda=0;
                     name=match.Groups["id"];
-                    int after=SkipPythonTrivia(text,name.Index+name.Length,text.Length);
+                    int after=SkipPythonTrivia(text,name.Index+name.Length,text.Length,allowNewlines:false);
                     bool isClass=text.AsSpan(i).StartsWith("class");
                     if(after>=text.Length || !(text[after]=='(' || (isClass && text[after]==':')))
                         throw new InvalidDataException("Unsupported Python declaration header.");
@@ -201,7 +197,7 @@ internal static class SourceDeclarations
             if(c is '\'' or '"') { i=AfterString(text,i); continue; }
             if(c>127) throw new InvalidDataException("Python navigation supports ASCII identifiers and UTF-8 strings and comments.");
             if(header>=0 && nesting.Count==0 && i>=name!.Index+name.Length && (char.IsAsciiLetter(c) || c=='_') &&
-                (i==0 || !(char.IsAsciiLetterOrDigit(text[i-1]) || text[i-1]=='_'))) {
+                (i==0 || !(char.IsAsciiLetterOrDigit(text[i-1]) || text[i-1]=='_' || text[i-1]=='.'))) {
                 int idEnd=i+1;
                 while(idEnd<text.Length && (char.IsAsciiLetterOrDigit(text[idEnd]) || text[idEnd]=='_')) idEnd++;
                 if(text[i..idEnd]=="lambda") topLevelLambda++;
@@ -241,12 +237,13 @@ internal static class SourceDeclarations
         if(nesting.Count!=0 || header>=0) throw new InvalidDataException("Incomplete Python source.");
     }
 
-    private static int SkipPythonTrivia(string text,int pos,int limit)
+    private static int SkipPythonTrivia(string text,int pos,int limit,bool allowNewlines=true)
     {
         while(pos<limit) {
             char c=text[pos];
-            if(c is ' ' or '\t' or '\r' or '\n') { pos++; continue; }
-            if(c=='#') { while(pos<limit && text[pos] is not ('\r' or '\n')) pos++; continue; }
+            if(c is ' ' or '\t') { pos++; continue; }
+            if(allowNewlines && c is '\r' or '\n') { pos++; continue; }
+            if(allowNewlines && c=='#') { while(pos<limit && text[pos] is not ('\r' or '\n')) pos++; continue; }
             if(c=='\\' && pos+1<limit && text[pos+1] is '\r' or '\n') {
                 pos+=2;
                 if(text[pos-1]=='\r' && pos<limit && text[pos]=='\n') pos++;
@@ -259,13 +256,12 @@ internal static class SourceDeclarations
 
     private static bool ValidatePythonClassHeader(string text,int tailStart,int colon)
     {
-        int i=SkipPythonTrivia(text,tailStart,colon);
+        int i=SkipPythonTrivia(text,tailStart,colon,allowNewlines:false);
         if(i==colon) return true;
         if(text[i]!='(') return false;
         if(!TryScanMatchingParens(text,i,colon,out int close)) return false;
-        int after=SkipPythonTrivia(text,close+1,colon);
-        if(after!=colon) return false;
-        return ValidatePythonCommaExpressions(text,i+1,close,allowKeywordArgs:true);
+        int after=SkipPythonTrivia(text,close+1,colon,allowNewlines:false);
+        return after==colon && PythonHeaderParser.TryParseCallArgList(text,i+1,close);
     }
 
     private static bool TryScanMatchingParens(string text,int open,int limit,out int close)
@@ -288,380 +284,793 @@ internal static class SourceDeclarations
 
     private static (bool Valid,ParameterShape? Shape,TextSpan? Params,TextSpan? Return) PythonSignature(string text,int tailStart,int colon)
     {
-        int i=SkipPythonTrivia(text,tailStart,colon);
+        int i=SkipPythonTrivia(text,tailStart,colon,allowNewlines:false);
         if(i>=colon || text[i]!='(') return (false,null,null,null);
         int open=i;
         if(!TryScanMatchingParens(text,open,colon,out int close)) return (false,null,null,null);
         var paramsSpan=TextSpan.FromBounds(open,close+1);
-        if(!ValidatePythonParameters(text,open+1,close,out var shape))
+        if(!PythonHeaderParser.TryParseParameters(text,open+1,close,out var shape))
             return (false,null,null,null);
 
-        i=SkipPythonTrivia(text,close+1,colon);
+        i=SkipPythonTrivia(text,close+1,colon,allowNewlines:false);
         if(i==colon) return (true,shape,paramsSpan,null);
         if(i+1>=colon || text[i]!='-' || text[i+1]!='>')
             return (false,null,null,null);
-        if(!TryScanPythonExpression(text,i+2,colon,allowTopComma:false,out int retStart,out int retEnd))
+        if(!PythonHeaderParser.TryParseExpression(text,i+2,colon,implicitLineJoin:false,out int retStart,out int retEnd))
             return (false,null,null,null);
         return (true,shape,paramsSpan,TextSpan.FromBounds(retStart,retEnd));
     }
 
-    private static List<string>? SplitTopLevelComma(string text,int start,int end,out bool trailingComma)
+    // Bounded offline recursive-descent parser and Python 3.12 token validator for
+    // Python declaration parameters, annotations, defaults, and class bases.
+    private sealed class PythonHeaderParser
     {
-        trailingComma=false;
-        var segments=new List<string>();
-        var current=new System.Text.StringBuilder();
-        int depth=0;
-        for(int i=start;i<end;) {
-            char c=text[i];
-            if(c=='#') { while(i<end && text[i] is not ('\r' or '\n')) i++; continue; }
-            if(c=='\\' && i+1<end && text[i+1] is '\r' or '\n') {
-                i+=2;
-                if(text[i-1]=='\r' && i<end && text[i]=='\n') i++;
-                current.Append(' ');
-                continue;
-            }
-            if(c is '\'' or '"') {
-                int after=AfterString(text,i);
-                current.Append(text,i,after-i);
-                i=after;
-                continue;
-            }
-            if(c is '(' or '[' or '{') depth++;
-            else if(c is ')' or ']' or '}') {
-                if(--depth<0) return null;
-            }
-            if(c==',' && depth==0) {
-                segments.Add(current.ToString().Trim());
-                current.Clear();
-                i++;
-                continue;
-            }
-            current.Append(c);
-            i++;
+        private const int MaxDepth=64;
+
+        private enum TokKind
+        {
+            Eof, Ident, Number, String, Ellipsis,
+            KwNone, KwTrue, KwFalse, KwAnd, KwOr, KwNot, KwIn, KwIs, KwIf, KwElse, KwFor, KwLambda,
+            LParen, RParen, LBracket, RBracket, LBrace, RBrace, Comma, Colon, Dot, Assign, Walrus, Arrow,
+            Plus, Minus, Star, DoubleStar, Slash, DoubleSlash, Percent, At, Amp, Pipe, Caret, Tilde, LShift, RShift,
+            Eq, Ne, Lt, Le, Gt, Ge
         }
-        if(depth!=0) return null;
-        string last=current.ToString().Trim();
-        if(segments.Count>0 && last.Length==0) {
-            trailingComma=true;
-            return segments;
+
+        private readonly record struct Tok(TokKind Kind,int Start,int End,bool IsBytes=false,bool HasNewline=false);
+
+        private readonly string source;
+        private readonly List<Tok> tokens;
+        private int pos;
+        private int recursionDepth;
+        private int walrusCount;
+        private bool inComp;
+
+        private PythonHeaderParser(string source,List<Tok> tokens)
+        {
+            this.source=source;
+            this.tokens=tokens;
         }
-        if(segments.Count==0 && last.Length==0) return [];
-        segments.Add(last);
-        return segments;
-    }
 
-    private static bool ValidatePythonCommaExpressions(string text,int start,int end,bool allowKeywordArgs)
-    {
-        if(SplitTopLevelComma(text,start,end,out _) is not {} segments) return false;
-        foreach(var seg in segments) {
-            if(seg.Length==0) return false;
-            string expr=seg;
-            if(allowKeywordArgs && (expr.StartsWith("**",StringComparison.Ordinal) || expr.StartsWith('*')))
-                expr=expr[(expr.StartsWith("**",StringComparison.Ordinal) ? 2 : 1)..].Trim();
-            else if(allowKeywordArgs && FindTopLevelAssign(expr,0) is >=0 and var eq) {
-                string key=expr[..eq].Trim();
-                if(!Regex.IsMatch(key,@"\A[A-Za-z_]\w*\z",RegexOptions.CultureInvariant) || PythonKeywords.Contains(key))
-                    return false;
-                expr=expr[(eq+1)..];
-            }
-            if(!TryScanPythonExpression(expr,0,expr.Length,allowTopComma:false,out _,out _)) return false;
+        public static bool TryParseExpression(string text,int start,int end,bool implicitLineJoin,out int exprStart,out int exprEnd)
+        {
+            exprStart=start;
+            exprEnd=start;
+            if(!Lex(text,start,end,implicitLineJoin,out var toks) || toks.Count<2) return false;
+            var parser=new PythonHeaderParser(text,toks);
+            if(!parser.ParseExpression() || parser.Peek()!=TokKind.Eof) return false;
+            exprStart=toks[0].Start;
+            exprEnd=toks[^2].End;
+            return exprEnd>exprStart;
         }
-        return true;
-    }
 
-    private static bool ValidatePythonParameters(string text,int start,int end,out ParameterShape? shape)
-    {
-        shape=null;
-        if(SplitTopLevelComma(text,start,end,out _) is not {} segments) return false;
-        if(segments.Count==0) { shape=new(0); return true; }
-        if(segments.Any(s=>s.Length==0)) return false;
+        public static bool TryParseParameters(string text,int start,int end,out ParameterShape? shape)
+        {
+            shape=null;
+            if(!Lex(text,start,end,implicitLineJoin:true,out var toks)) return false;
+            var parser=new PythonHeaderParser(text,toks);
+            return parser.ParseParameters(allowAnnotations:true,TokKind.Eof,out shape) && parser.Peek()==TokKind.Eof;
+        }
 
-        var names=new HashSet<string>(StringComparer.Ordinal);
-        bool seenDefault=false,seenSlash=false,seenStar=false,seenBareStar=false,seenKwargs=false,simplePositional=true;
-        int bareStarIndex=-1;
+        public static bool TryParseCallArgList(string text,int start,int end)
+        {
+            if(!Lex(text,start,end,implicitLineJoin:true,out var toks)) return false;
+            var parser=new PythonHeaderParser(text,toks);
+            return parser.ParseCallArgsUntil(TokKind.Eof) && parser.Peek()==TokKind.Eof;
+        }
 
-        for(int idx=0;idx<segments.Count;idx++) {
-            string seg=segments[idx];
-            if(seenKwargs) return false;
-            if(seg=="/") {
-                if(idx==0 || seenSlash || seenStar) return false;
-                seenSlash=true;
-                simplePositional=false;
-                continue;
+        private TokKind Peek(int offset=0)=>pos+offset<tokens.Count ? tokens[pos+offset].Kind : TokKind.Eof;
+        private string Lexeme(int tokenIndex)=>source[tokens[tokenIndex].Start..tokens[tokenIndex].End];
+        private bool ConsumeIf(TokKind kind) { if(Peek()!=kind) return false; pos++; return true; }
+        private bool Consume(TokKind kind) { if(Peek()!=kind) return false; pos++; return true; }
+
+        private bool Enter()
+        {
+            if(++recursionDepth>MaxDepth) return false;
+            return true;
+        }
+        private void Exit()=>recursionDepth--;
+
+        private bool ParseExpression()
+        {
+            if(!Enter()) { Exit(); return false; }
+            try {
+                if(Peek()==TokKind.KwLambda) return ParseLambda();
+                if(!ParseOr()) return false;
+                if(ConsumeIf(TokKind.KwIf))
+                    return ParseOr() && Consume(TokKind.KwElse) && ParseExpression();
+                return true;
+            } finally { Exit(); }
+        }
+
+        private bool ParseNamedExpression(bool allowWalrus,out bool usedWalrus)
+        {
+            usedWalrus=false;
+            if(allowWalrus && Peek()==TokKind.Ident && Peek(1)==TokKind.Walrus) {
+                pos+=2;
+                usedWalrus=true;
+                walrusCount++;
+                return ParseExpression();
             }
-            if(seg=="*") {
-                if(seenStar) return false;
-                seenStar=true;
-                seenBareStar=true;
-                bareStarIndex=idx;
-                simplePositional=false;
-                continue;
+            return ParseExpression();
+        }
+
+        private bool ParseLambda()
+        {
+            if(!Consume(TokKind.KwLambda)) return false;
+            if(!ParseParameters(allowAnnotations:false,TokKind.Colon,out _)) return false;
+            return Consume(TokKind.Colon) && ParseExpression();
+        }
+
+        private bool ParseOr()
+        {
+            if(!ParseAnd()) return false;
+            while(ConsumeIf(TokKind.KwOr)) if(!ParseAnd()) return false;
+            return true;
+        }
+
+        private bool ParseAnd()
+        {
+            if(!ParseNot()) return false;
+            while(ConsumeIf(TokKind.KwAnd)) if(!ParseNot()) return false;
+            return true;
+        }
+
+        private bool ParseNot()
+        {
+            if(!Enter()) { Exit(); return false; }
+            try {
+                if(ConsumeIf(TokKind.KwNot)) return ParseNot();
+                return ParseComparison();
+            } finally { Exit(); }
+        }
+
+        private bool ParseComparison()
+        {
+            if(!ParseBitOr()) return false;
+            while(true) {
+                TokKind k=Peek();
+                if(k is TokKind.Eq or TokKind.Ne or TokKind.Lt or TokKind.Le or TokKind.Gt or TokKind.Ge or TokKind.KwIn) {
+                    pos++;
+                    if(!ParseBitOr()) return false;
+                } else if(k==TokKind.KwIs) {
+                    pos++;
+                    ConsumeIf(TokKind.KwNot);
+                    if(!ParseBitOr()) return false;
+                } else if(k==TokKind.KwNot && Peek(1)==TokKind.KwIn) {
+                    pos+=2;
+                    if(!ParseBitOr()) return false;
+                } else {
+                    break;
+                }
             }
-            if(seg.StartsWith("**",StringComparison.Ordinal)) {
-                if(seenBareStar && idx==bareStarIndex+1) return false;
-                string rest=seg[2..].TrimStart();
-                if(!ParseAnnotatedParam(rest,out string? kwName,out bool hasAnn,out string? defExpr)) return false;
-                if(PythonKeywords.Contains(kwName!) || !names.Add(kwName!) || defExpr!=null) return false;
-                seenKwargs=true;
-                seenBareStar=false;
-                simplePositional=false;
-                continue;
+            return true;
+        }
+
+        private bool ParseBitOr()
+        {
+            if(!ParseBitXor()) return false;
+            while(ConsumeIf(TokKind.Pipe)) if(!ParseBitXor()) return false;
+            return true;
+        }
+
+        private bool ParseBitXor()
+        {
+            if(!ParseBitAnd()) return false;
+            while(ConsumeIf(TokKind.Caret)) if(!ParseBitAnd()) return false;
+            return true;
+        }
+
+        private bool ParseBitAnd()
+        {
+            if(!ParseShift()) return false;
+            while(ConsumeIf(TokKind.Amp)) if(!ParseShift()) return false;
+            return true;
+        }
+
+        private bool ParseShift()
+        {
+            if(!ParseAdd()) return false;
+            while(Peek() is TokKind.LShift or TokKind.RShift) { pos++; if(!ParseAdd()) return false; }
+            return true;
+        }
+
+        private bool ParseAdd()
+        {
+            if(!ParseMul()) return false;
+            while(Peek() is TokKind.Plus or TokKind.Minus) { pos++; if(!ParseMul()) return false; }
+            return true;
+        }
+
+        private bool ParseMul()
+        {
+            if(!ParseUnary()) return false;
+            while(Peek() is TokKind.Star or TokKind.Slash or TokKind.DoubleSlash or TokKind.Percent or TokKind.At) {
+                pos++;
+                if(!ParseUnary()) return false;
             }
-            if(seg.StartsWith('*')) {
-                if(seenStar) return false;
-                string rest=seg[1..].TrimStart();
-                if(!ParseAnnotatedParam(rest,out string? starName,out _,out string? defExpr)) return false;
-                if(PythonKeywords.Contains(starName!) || !names.Add(starName!) || defExpr!=null) return false;
-                seenStar=true;
-                simplePositional=false;
-                continue;
+            return true;
+        }
+
+        private bool ParseUnary()
+        {
+            if(!Enter()) { Exit(); return false; }
+            try {
+                if(Peek() is TokKind.Plus or TokKind.Minus or TokKind.Tilde) { pos++; return ParseUnary(); }
+                return ParsePower();
+            } finally { Exit(); }
+        }
+
+        private bool ParsePower()
+        {
+            if(!ParsePrimary()) return false;
+            if(ConsumeIf(TokKind.DoubleStar)) return ParseUnary();
+            return true;
+        }
+
+        private bool ParsePrimary()
+        {
+            if(!ParseAtom()) return false;
+            while(true) {
+                if(ConsumeIf(TokKind.Dot)) {
+                    if(!Consume(TokKind.Ident)) return false;
+                } else if(ConsumeIf(TokKind.LParen)) {
+                    if(!ParseCallArgsUntil(TokKind.RParen) || !Consume(TokKind.RParen)) return false;
+                } else if(ConsumeIf(TokKind.LBracket)) {
+                    if(!ParseSubscript()) return false;
+                } else {
+                    break;
+                }
             }
-            if(!ParseAnnotatedParam(seg,out string? paramName,out _,out string? defaultExpr)) return false;
-            if(PythonKeywords.Contains(paramName!) || !names.Add(paramName!)) return false;
-            seenBareStar=false;
-            if(defaultExpr!=null) {
-                if(!seenStar) seenDefault=true;
-                if(!IsSimplePythonDefault(defaultExpr)) simplePositional=false;
-            } else if(seenDefault && !seenStar) {
-                // Non-default argument follows default argument.
+            return true;
+        }
+
+        private bool ParseAtom()
+        {
+            TokKind k=Peek();
+            if(k is TokKind.Ident or TokKind.KwNone or TokKind.KwTrue or TokKind.KwFalse or TokKind.Number or TokKind.Ellipsis) {
+                pos++;
+                return true;
+            }
+            if(k==TokKind.String) {
+                bool expectBytes=tokens[pos].IsBytes;
+                pos++;
+                while(Peek()==TokKind.String) {
+                    if(tokens[pos].IsBytes!=expectBytes) return false;
+                    pos++;
+                }
+                return true;
+            }
+            if(k==TokKind.LParen) return ParseParenGroup();
+            if(k==TokKind.LBracket) return ParseListGroup();
+            if(k==TokKind.LBrace) return ParseBraceGroup();
+            return false;
+        }
+
+        private bool ParseParenGroup()
+        {
+            if(!Enter()) { Exit(); return false; }
+            try {
+                if(!Consume(TokKind.LParen)) return false;
+                if(ConsumeIf(TokKind.RParen)) return true;
+                if(ConsumeIf(TokKind.Star)) {
+                    if(!ParseBitOr() || !ConsumeIf(TokKind.Comma)) return false;
+                } else {
+                    int wb=walrusCount;
+                    if(!ParseNamedExpression(!inComp,out _)) return false;
+                    if(walrusCount==wb && Peek()==TokKind.KwFor)
+                        return ParseCompClauses() && Consume(TokKind.RParen);
+                    if(!ConsumeIf(TokKind.Comma)) return Consume(TokKind.RParen);
+                }
+                while(Peek()!=TokKind.RParen) {
+                    bool ok=ConsumeIf(TokKind.Star) ? ParseBitOr() : ParseNamedExpression(!inComp,out _);
+                    if(!ok) return false;
+                    if(!ConsumeIf(TokKind.Comma)) break;
+                }
+                return Consume(TokKind.RParen);
+            } finally { Exit(); }
+        }
+
+        private bool ParseListGroup()
+        {
+            if(!Enter()) { Exit(); return false; }
+            try {
+                if(!Consume(TokKind.LBracket)) return false;
+                if(ConsumeIf(TokKind.RBracket)) return true;
+                if(ConsumeIf(TokKind.Star)) {
+                    if(!ParseBitOr()) return false;
+                    if(!ConsumeIf(TokKind.Comma)) return Consume(TokKind.RBracket);
+                } else {
+                    int wb=walrusCount;
+                    if(!ParseNamedExpression(!inComp,out _)) return false;
+                    if(walrusCount==wb && Peek()==TokKind.KwFor)
+                        return ParseCompClauses() && Consume(TokKind.RBracket);
+                    if(!ConsumeIf(TokKind.Comma)) return Consume(TokKind.RBracket);
+                }
+                while(Peek()!=TokKind.RBracket) {
+                    bool ok=ConsumeIf(TokKind.Star) ? ParseBitOr() : ParseNamedExpression(!inComp,out _);
+                    if(!ok) return false;
+                    if(!ConsumeIf(TokKind.Comma)) break;
+                }
+                return Consume(TokKind.RBracket);
+            } finally { Exit(); }
+        }
+
+        private bool ParseBraceGroup()
+        {
+            if(!Enter()) { Exit(); return false; }
+            try {
+                if(!Consume(TokKind.LBrace)) return false;
+                if(ConsumeIf(TokKind.RBrace)) return true;
+                if(ConsumeIf(TokKind.DoubleStar)) {
+                    if(!ParseBitOr()) return false;
+                    return ParseDictTail();
+                }
+                if(ConsumeIf(TokKind.Star)) {
+                    if(!ParseBitOr()) return false;
+                    return ParseSetTail();
+                }
+                int wb=walrusCount;
+                if(!ParseNamedExpression(!inComp,out bool usedWalrus)) return false;
+                if(ConsumeIf(TokKind.Colon)) {
+                    if(usedWalrus || !ParseExpression()) return false;
+                    if(walrusCount==wb && Peek()==TokKind.KwFor) return ParseCompClauses() && Consume(TokKind.RBrace);
+                    return ParseDictTail();
+                }
+                if(walrusCount==wb && Peek()==TokKind.KwFor)
+                    return ParseCompClauses() && Consume(TokKind.RBrace);
+                return ParseSetTail();
+            } finally { Exit(); }
+        }
+
+        private bool ParseDictTail()
+        {
+            while(ConsumeIf(TokKind.Comma)) {
+                if(Peek()==TokKind.RBrace) break;
+                if(ConsumeIf(TokKind.DoubleStar)) {
+                    if(!ParseBitOr()) return false;
+                } else {
+                    if(!ParseExpression() || !Consume(TokKind.Colon) || !ParseExpression()) return false;
+                }
+            }
+            return Consume(TokKind.RBrace);
+        }
+
+        private bool ParseSetTail()
+        {
+            while(ConsumeIf(TokKind.Comma)) {
+                if(Peek()==TokKind.RBrace) break;
+                bool ok=ConsumeIf(TokKind.Star) ? ParseBitOr() : ParseNamedExpression(!inComp,out _);
+                if(!ok) return false;
+            }
+            return Consume(TokKind.RBrace);
+        }
+
+        private bool ParseSubscript()
+        {
+            if(!Enter()) { Exit(); return false; }
+            try {
+                if(Peek()==TokKind.RBracket) return false;
+                while(true) {
+                    if(ConsumeIf(TokKind.Star)) {
+                        if(!ParseExpression()) return false;
+                    } else {
+                        bool usedWalrus=false;
+                        if(Peek()!=TokKind.Colon && !ParseNamedExpression(!inComp,out usedWalrus)) return false;
+                        if(ConsumeIf(TokKind.Colon)) {
+                            if(usedWalrus) return false;
+                            if(Peek() is not (TokKind.Colon or TokKind.Comma or TokKind.RBracket) && !ParseExpression()) return false;
+                            if(ConsumeIf(TokKind.Colon) && Peek() is not (TokKind.Comma or TokKind.RBracket) && !ParseExpression()) return false;
+                        }
+                    }
+                    if(!ConsumeIf(TokKind.Comma)) break;
+                    if(Peek()==TokKind.RBracket) break;
+                }
+                return Consume(TokKind.RBracket);
+            } finally { Exit(); }
+        }
+
+        private bool ParseCallArgsUntil(TokKind terminator)
+        {
+            if(!Enter()) { Exit(); return false; }
+            try {
+                bool seenKw=false,seenDoubleStar=false;
+                HashSet<string>? kwNames=null;
+                int count=0;
+                while(Peek()!=terminator) {
+                    count++;
+                    if(ConsumeIf(TokKind.DoubleStar)) {
+                        if(!ParseExpression()) return false;
+                        seenDoubleStar=true;
+                    } else if(ConsumeIf(TokKind.Star)) {
+                        if(seenDoubleStar || !ParseExpression()) return false;
+                    } else if(Peek()==TokKind.Ident && Peek(1)==TokKind.Assign) {
+                        int keyIdx=pos;
+                        pos+=2;
+                        kwNames??=new HashSet<string>(StringComparer.Ordinal);
+                        if(!kwNames.Add(Lexeme(keyIdx))) return false;
+                        seenKw=true;
+                        if(!ParseExpression()) return false;
+                    } else {
+                        if(seenKw || seenDoubleStar) return false;
+                        int wb=walrusCount;
+                        if(!ParseNamedExpression(!inComp,out _)) return false;
+                        if(walrusCount==wb && Peek()==TokKind.KwFor)
+                            return count==1 && ParseCompClauses() && Peek()==terminator;
+                    }
+                    if(!ConsumeIf(TokKind.Comma)) break;
+                }
+                return Peek()==terminator;
+            } finally { Exit(); }
+        }
+
+        private bool ParseCompClauses()
+        {
+            bool savedComp=inComp;
+            inComp=true;
+            try {
+                if(!Consume(TokKind.KwFor)) return false;
+                while(true) {
+                    if(!ParseCompTargetList() || !Consume(TokKind.KwIn) || !ParseOr()) return false;
+                    while(ConsumeIf(TokKind.KwIf)) if(!ParseOr()) return false;
+                    if(!ConsumeIf(TokKind.KwFor)) break;
+                }
+                return true;
+            } finally { inComp=savedComp; }
+        }
+
+        private bool ParseCompTargetList()
+        {
+            if(!ParseCompTarget()) return false;
+            while(ConsumeIf(TokKind.Comma)) {
+                if(Peek() is TokKind.KwIn or TokKind.RParen or TokKind.RBracket) break;
+                if(!ParseCompTarget()) return false;
+            }
+            return true;
+        }
+
+        private bool ParseCompTarget()
+        {
+            if(!Enter()) { Exit(); return false; }
+            try {
+                if(ConsumeIf(TokKind.Ident)) return true;
+                if(ConsumeIf(TokKind.LParen)) {
+                    if(ConsumeIf(TokKind.RParen) || !ParseCompTargetList()) return false;
+                    return Consume(TokKind.RParen);
+                }
+                if(ConsumeIf(TokKind.LBracket)) {
+                    if(ConsumeIf(TokKind.RBracket) || !ParseCompTargetList()) return false;
+                    return Consume(TokKind.RBracket);
+                }
                 return false;
-            }
+            } finally { Exit(); }
         }
-        if(seenBareStar) return false;
-        shape=simplePositional ? new(segments.Count) : null;
-        return true;
-    }
 
-    private static bool ParseAnnotatedParam(string seg,out string? paramName,out bool hasAnn,out string? defaultExpr)
-    {
-        paramName=null;
-        hasAnn=false;
-        defaultExpr=null;
-        var idMatch=Regex.Match(seg,@"\A(?<id>[A-Za-z_]\w*)(?<rest>[\s\S]*)\z",RegexOptions.CultureInvariant);
-        if(!idMatch.Success) return false;
-        paramName=idMatch.Groups["id"].Value;
-        string rest=idMatch.Groups["rest"].Value.Trim();
-        if(rest.Length==0) return true;
-        if(rest[0]==':') {
-            hasAnn=true;
-            int split=FindTopLevelAssign(rest,1);
-            string ann=split>=0 ? rest[1..split] : rest[1..];
-            if(!TryScanPythonExpression(ann,0,ann.Length,allowTopComma:false,out _,out _)) return false;
-            if(split<0) return true;
-            rest=rest[split..].Trim();
+        private bool ParseParameters(bool allowAnnotations,TokKind terminator,out ParameterShape? shape)
+        {
+            shape=null;
+            if(Peek()==terminator) { shape=new(0); return true; }
+
+            var names=new HashSet<string>(StringComparer.Ordinal);
+            bool seenDefault=false,seenSlash=false,seenStar=false,seenBareStar=false,seenKwargs=false,simplePositional=true;
+            int bareStarIndex=-1,count=0;
+
+            while(Peek()!=terminator) {
+                if(seenKwargs) return false;
+                int idx=count++;
+
+                if(ConsumeIf(TokKind.Slash)) {
+                    if(idx==0 || seenSlash || seenStar) return false;
+                    seenSlash=true;
+                    simplePositional=false;
+                } else if(ConsumeIf(TokKind.DoubleStar)) {
+                    if(seenBareStar && idx==bareStarIndex+1) return false;
+                    int idIdx=pos;
+                    if(!Consume(TokKind.Ident) || !names.Add(Lexeme(idIdx))) return false;
+                    if(allowAnnotations && ConsumeIf(TokKind.Colon) && !ParseExpression()) return false;
+                    if(Peek()==TokKind.Assign) return false;
+                    seenKwargs=true;
+                    seenBareStar=false;
+                    simplePositional=false;
+                } else if(ConsumeIf(TokKind.Star)) {
+                    if(seenStar) return false;
+                    seenStar=true;
+                    simplePositional=false;
+                    if(Peek()==TokKind.Comma || Peek()==terminator) {
+                        seenBareStar=true;
+                        bareStarIndex=idx;
+                    } else {
+                        int idIdx=pos;
+                        if(!Consume(TokKind.Ident) || !names.Add(Lexeme(idIdx))) return false;
+                        if(allowAnnotations && ConsumeIf(TokKind.Colon)) {
+                            ConsumeIf(TokKind.Star);
+                            if(!ParseExpression()) return false;
+                        }
+                        if(Peek()==TokKind.Assign) return false;
+                    }
+                } else {
+                    int idIdx=pos;
+                    if(!Consume(TokKind.Ident) || !names.Add(Lexeme(idIdx))) return false;
+                    seenBareStar=false;
+                    if(allowAnnotations && ConsumeIf(TokKind.Colon) && !ParseExpression()) return false;
+                    if(ConsumeIf(TokKind.Assign)) {
+                        int defStart=pos;
+                        if(!ParseExpression()) return false;
+                        int defEnd=pos;
+                        if(!seenStar) seenDefault=true;
+                        if(!IsSimpleDefaultTokens(defStart,defEnd)) simplePositional=false;
+                    } else if(seenDefault && !seenStar) {
+                        return false;
+                    }
+                }
+
+                if(!ConsumeIf(TokKind.Comma)) break;
+            }
+            if(seenBareStar || Peek()!=terminator) return false;
+            shape=simplePositional ? new(count) : null;
+            return true;
         }
-        if(rest.Length==0 || rest[0]!='=') return false;
-        string defText=rest[1..].Trim();
-        if(!TryScanPythonExpression(defText,0,defText.Length,allowTopComma:false,out _,out _)) return false;
-        defaultExpr=defText;
-        return true;
-    }
 
-    private static bool TryScanPythonExpression(string text,int start,int end,bool allowTopComma,out int exprStart,out int exprEnd)
-    {
-        exprStart=SkipPythonTrivia(text,start,end);
-        exprEnd=exprStart;
-        if(exprStart>=end) return false;
-
-        int pos=exprStart,depth=0,tokens=0;
-        var lambdaColons=new Stack<int>();
-        bool expectOperand=true,prevOpenOrDelim=false;
-
-        while(pos<end) {
-            pos=SkipPythonTrivia(text,pos,end);
-            if(pos>=end) break;
-            char c=text[pos];
-            if(c is '\'' or '"') {
-                if(!expectOperand) return false;
-                int after=AfterString(text,pos);
-                if(after>end) return false;
-                exprEnd=pos=after;
-                expectOperand=false;
-                prevOpenOrDelim=false;
-                tokens++;
-                continue;
+        private bool IsSimpleDefaultTokens(int startIdx,int endIdx)
+        {
+            int len=endIdx-startIdx;
+            if(len==1) {
+                Tok t=tokens[startIdx];
+                return t.Kind is TokKind.KwNone or TokKind.KwTrue or TokKind.KwFalse or TokKind.Ellipsis or TokKind.Number ||
+                    (t.Kind==TokKind.String && !t.HasNewline);
             }
-            if(char.IsAsciiLetter(c) || c=='_') {
-                int idEnd=pos+1;
-                while(idEnd<end && (char.IsAsciiLetterOrDigit(text[idEnd]) || text[idEnd]=='_')) idEnd++;
-                string word=text[pos..idEnd];
-                if(idEnd<end && text[idEnd] is '\'' or '"' && word.ToLowerInvariant() is "r" or "u" or "b" or "f" or "br" or "rb" or "fr" or "rf" or "t" or "tr" or "rt") {
-                    if(!expectOperand) return false;
-                    int after=AfterString(text,idEnd);
-                    if(after>end) return false;
-                    exprEnd=pos=after;
-                    expectOperand=false;
-                    prevOpenOrDelim=false;
-                    tokens++;
-                    continue;
-                }
-                if(PythonStatementKeywords.Contains(word)) return false;
-                if(word=="lambda") {
-                    if(!expectOperand) return false;
-                    lambdaColons.Push(depth);
-                    exprEnd=pos=idEnd;
-                    // Allow immediate ':' (zero-arg lambda) or parameter identifiers.
-                    int peek=SkipPythonTrivia(text,pos,end);
-                    if(peek<end && text[peek]==':') expectOperand=false;
-                    else expectOperand=true;
-                    prevOpenOrDelim=false;
-                    tokens++;
-                    continue;
-                }
-                if(word is "not" or "await") {
-                    if(expectOperand) { exprEnd=pos=idEnd; expectOperand=true; prevOpenOrDelim=false; tokens++; continue; }
-                    if(word=="not") { exprEnd=pos=idEnd; expectOperand=true; prevOpenOrDelim=false; tokens++; continue; }
-                    return false;
-                }
-                if(word is "and" or "or" or "in" or "is" or "if" or "else" or "for") {
-                    if(expectOperand) return false;
-                    exprEnd=pos=idEnd;
-                    expectOperand=true;
-                    prevOpenOrDelim=false;
-                    tokens++;
-                    continue;
-                }
-                if(!expectOperand) return false;
-                exprEnd=pos=idEnd;
-                expectOperand=false;
-                prevOpenOrDelim=false;
-                tokens++;
-                continue;
-            }
-            if(char.IsAsciiDigit(c) || (c=='.' && pos+1<end && char.IsAsciiDigit(text[pos+1]))) {
-                if(!expectOperand) return false;
-                int numEnd=pos+1;
-                while(numEnd<end && (char.IsAsciiLetterOrDigit(text[numEnd]) || text[numEnd] is '_' or '.')) numEnd++;
-                exprEnd=pos=numEnd;
-                expectOperand=false;
-                prevOpenOrDelim=false;
-                tokens++;
-                continue;
-            }
-            if(c=='.' && pos+2<end && text[pos+1]=='.' && text[pos+2]=='.') {
-                if(!expectOperand) return false;
-                exprEnd=pos+=3;
-                expectOperand=false;
-                prevOpenOrDelim=false;
-                tokens++;
-                continue;
-            }
-            if(c is '(' or '[' or '{') {
-                depth++;
-                exprEnd=++pos;
-                expectOperand=true;
-                prevOpenOrDelim=true;
-                tokens++;
-                continue;
-            }
-            if(c is ')' or ']' or '}') {
-                if(--depth<0) return false;
-                if(expectOperand && !prevOpenOrDelim) return false;
-                exprEnd=++pos;
-                expectOperand=false;
-                prevOpenOrDelim=false;
-                tokens++;
-                continue;
-            }
-            if(c==',') {
-                bool inLambdaHeader=lambdaColons.TryPeek(out int ld) && ld==depth;
-                if(!allowTopComma && depth==0 && !inLambdaHeader) return false;
-                if(expectOperand) return false;
-                exprEnd=++pos;
-                expectOperand=true;
-                prevOpenOrDelim=true;
-                tokens++;
-                continue;
-            }
-            if(c==':') {
-                if(pos+1<end && text[pos+1]=='=') {
-                    if(expectOperand) return false;
-                    exprEnd=pos+=2;
-                    expectOperand=true;
-                    prevOpenOrDelim=false;
-                    tokens++;
-                    continue;
-                }
-                if(lambdaColons.TryPeek(out int ld) && ld==depth) {
-                    lambdaColons.Pop();
-                    exprEnd=++pos;
-                    expectOperand=true;
-                    prevOpenOrDelim=false;
-                    tokens++;
-                    continue;
-                }
-                if(depth==0) return false;
-                exprEnd=++pos;
-                expectOperand=true;
-                prevOpenOrDelim=true;
-                tokens++;
-                continue;
-            }
-            if(c=='.') {
-                if(expectOperand) return false;
-                exprEnd=++pos;
-                expectOperand=true;
-                prevOpenOrDelim=false;
-                tokens++;
-                continue;
-            }
-            if(c is '+' or '-' or '*' or '~') {
-                int opEnd=pos+1;
-                if(opEnd<end && ((c=='*' && text[opEnd]=='*') || text[opEnd]=='=')) opEnd++;
-                exprEnd=pos=opEnd;
-                expectOperand=true;
-                prevOpenOrDelim=false;
-                tokens++;
-                continue;
-            }
-            if(c is '/' or '%' or '&' or '|' or '^' or '<' or '>' or '=' or '!') {
-                if(expectOperand) return false;
-                int opEnd=pos+1;
-                if(opEnd<end && (text[opEnd]==c || text[opEnd]=='=')) opEnd++;
-                if(c=='=' && opEnd==pos+1) {
-                    bool inLambdaHeader=lambdaColons.TryPeek(out int ld) && ld==depth;
-                    if(!inLambdaHeader && depth==0) return false;
-                }
-                exprEnd=pos=opEnd;
-                expectOperand=true;
-                prevOpenOrDelim=false;
-                tokens++;
-                continue;
+            if(len==2) {
+                TokKind a=tokens[startIdx].Kind,b=tokens[startIdx+1].Kind;
+                return (a is TokKind.Plus or TokKind.Minus && b==TokKind.Number) ||
+                    (a==TokKind.LParen && b==TokKind.RParen) ||
+                    (a==TokKind.LBracket && b==TokKind.RBracket) ||
+                    (a==TokKind.LBrace && b==TokKind.RBrace);
             }
             return false;
         }
-        return tokens>0 && depth==0 && lambdaColons.Count==0 && !expectOperand && exprEnd>exprStart;
-    }
 
-    private static int FindTopLevelAssign(string text,int start)
-    {
-        int depth=0;
-        for(int i=start;i<text.Length;i++) {
-            char c=text[i];
-            if(c=='#') { while(i<text.Length && text[i] is not ('\r' or '\n')) i++; continue; }
-            if(c is '\'' or '"') { i=AfterString(text,i)-1; continue; }
-            if(c is '(' or '[' or '{') depth++;
-            else if(c is ')' or ']' or '}') depth--;
-            else if(c=='=' && depth==0) {
-                char prev=i>0 ? text[i-1] : '\0';
-                char next=i+1<text.Length ? text[i+1] : '\0';
-                if(prev is not ('=' or '!' or '<' or '>' or ':') && next!='=') return i;
-                if(next=='=') i++;
+        private static bool Lex(string text,int start,int end,bool implicitLineJoin,out List<Tok> tokens)
+        {
+            tokens=[];
+            int i=start,depth=0;
+            while(i<end) {
+                char c=text[i];
+                if(c is ' ' or '\t') { i++; continue; }
+                if(c=='\\') {
+                    if(i+1>=end || text[i+1] is not ('\r' or '\n')) return false;
+                    i+=2;
+                    if(text[i-1]=='\r' && i<end && text[i]=='\n') i++;
+                    continue;
+                }
+                if(c is '\r' or '\n') {
+                    if(!implicitLineJoin && depth==0) return false;
+                    i++;
+                    continue;
+                }
+                if(c=='#') {
+                    if(!implicitLineJoin && depth==0) return false;
+                    while(i<end && text[i] is not ('\r' or '\n')) i++;
+                    continue;
+                }
+                if(c>127) return false;
+                if(c is '\'' or '"') {
+                    if(!TryScanString(text,i,end,isBytes:false,isFormatted:false,out int strEnd,out bool hasNl)) return false;
+                    tokens.Add(new(TokKind.String,i,strEnd,HasNewline:hasNl));
+                    i=strEnd;
+                    continue;
+                }
+                if(char.IsAsciiLetter(c) || c=='_') {
+                    int idEnd=i+1;
+                    while(idEnd<end && (char.IsAsciiLetterOrDigit(text[idEnd]) || text[idEnd]=='_')) idEnd++;
+                    string word=text[i..idEnd];
+                    if(idEnd<end && text[idEnd] is '\'' or '"') {
+                        string lower=word.ToLowerInvariant();
+                        if(lower is not ("r" or "u" or "b" or "f" or "br" or "rb" or "fr" or "rf")) return false;
+                        bool isBytes=lower.Contains('b'),isFormatted=lower.Contains('f');
+                        if(!TryScanString(text,idEnd,end,isBytes,isFormatted,out int strEnd,out bool hasNl)) return false;
+                        tokens.Add(new(TokKind.String,i,strEnd,IsBytes:isBytes,HasNewline:hasNl));
+                        i=strEnd;
+                        continue;
+                    }
+                    TokKind kind=word switch {
+                        "None"=>TokKind.KwNone,
+                        "True"=>TokKind.KwTrue,
+                        "False"=>TokKind.KwFalse,
+                        "and"=>TokKind.KwAnd,
+                        "or"=>TokKind.KwOr,
+                        "not"=>TokKind.KwNot,
+                        "in"=>TokKind.KwIn,
+                        "is"=>TokKind.KwIs,
+                        "if"=>TokKind.KwIf,
+                        "else"=>TokKind.KwElse,
+                        "for"=>TokKind.KwFor,
+                        "lambda"=>TokKind.KwLambda,
+                        _=>TokKind.Ident
+                    };
+                    if(kind==TokKind.Ident && PythonKeywords.Contains(word)) return false;
+                    tokens.Add(new(kind,i,idEnd));
+                    i=idEnd;
+                    continue;
+                }
+                if(char.IsAsciiDigit(c) || (c=='.' && i+1<end && char.IsAsciiDigit(text[i+1]))) {
+                    if(!TryScanNumber(text,i,end,out int numEnd)) return false;
+                    tokens.Add(new(TokKind.Number,i,numEnd));
+                    i=numEnd;
+                    continue;
+                }
+                if(c=='.') {
+                    if(i+2<end && text[i+1]=='.' && text[i+2]=='.') {
+                        tokens.Add(new(TokKind.Ellipsis,i,i+3));
+                        i+=3;
+                    } else {
+                        tokens.Add(new(TokKind.Dot,i,i+1));
+                        i++;
+                    }
+                    continue;
+                }
+                // Reject all 3-char and 2-char augmented assignments before scanning regular operators.
+                char n1=i+1<end ? text[i+1] : '\0';
+                char n2=i+2<end ? text[i+2] : '\0';
+                if(n2=='=' && ((c=='*' && n1=='*') || (c=='/' && n1=='/') || (c=='<' && n1=='<') || (c=='>' && n1=='>')))
+                    return false;
+                TokKind? two=null;
+                if(c==':' && n1=='=') two=TokKind.Walrus;
+                else if(c=='-' && n1=='>') two=TokKind.Arrow;
+                else if(c=='*' && n1=='*') two=TokKind.DoubleStar;
+                else if(c=='/' && n1=='/') two=TokKind.DoubleSlash;
+                else if(c=='<' && n1=='<') two=TokKind.LShift;
+                else if(c=='>' && n1=='>') two=TokKind.RShift;
+                else if(c=='<' && n1=='=') two=TokKind.Le;
+                else if(c=='>' && n1=='=') two=TokKind.Ge;
+                else if(c=='=' && n1=='=') two=TokKind.Eq;
+                else if(c=='!' && n1=='=') two=TokKind.Ne;
+                else if(n1=='=' && c is '+' or '-' or '*' or '/' or '%' or '@' or '&' or '|' or '^') return false;
+                if(two is {} twoKind) {
+                    tokens.Add(new(twoKind,i,i+2));
+                    i+=2;
+                    continue;
+                }
+                TokKind one;
+                switch(c) {
+                    case '(': depth++; one=TokKind.LParen; break;
+                    case '[': depth++; one=TokKind.LBracket; break;
+                    case '{': depth++; one=TokKind.LBrace; break;
+                    case ')': if(--depth<0) return false; one=TokKind.RParen; break;
+                    case ']': if(--depth<0) return false; one=TokKind.RBracket; break;
+                    case '}': if(--depth<0) return false; one=TokKind.RBrace; break;
+                    case ',': one=TokKind.Comma; break;
+                    case ':': one=TokKind.Colon; break;
+                    case '=': one=TokKind.Assign; break;
+                    case '+': one=TokKind.Plus; break;
+                    case '-': one=TokKind.Minus; break;
+                    case '*': one=TokKind.Star; break;
+                    case '/': one=TokKind.Slash; break;
+                    case '%': one=TokKind.Percent; break;
+                    case '@': one=TokKind.At; break;
+                    case '&': one=TokKind.Amp; break;
+                    case '|': one=TokKind.Pipe; break;
+                    case '^': one=TokKind.Caret; break;
+                    case '~': one=TokKind.Tilde; break;
+                    case '<': one=TokKind.Lt; break;
+                    case '>': one=TokKind.Gt; break;
+                    default: return false;
+                }
+                tokens.Add(new(one,i,i+1));
+                i++;
             }
-        }
-        return -1;
-    }
-
-    private static bool IsSimplePythonDefault(string value)
-    {
-        if(value is "None" or "True" or "False" or "..." or "()" or "[]" or "{}") return true;
-        if(Regex.IsMatch(value,@"\A[+-]?(?:\d+(?:_\d+)*(?:\.\d+(?:_\d+)*)?|\.\d+(?:_\d+)*)\z",RegexOptions.CultureInvariant))
+            if(depth!=0) return false;
+            tokens.Add(new(TokKind.Eof,end,end));
             return true;
-        if(value.Length>=2 && value[0] is '\'' or '"' && !value.Contains('\r') && !value.Contains('\n')) {
-            try { return AfterString(value,0)==value.Length; }
-            catch(InvalidDataException) { return false; }
         }
-        return false;
+
+        private static bool ScanDigits(string text,ref int p,int end,Func<char,bool> isDigit,bool allowFirstUnderscore)
+        {
+            int digits=0;
+            bool needDigit=false;
+            if(allowFirstUnderscore && p<end && text[p]=='_') { needDigit=true; p++; }
+            while(p<end) {
+                char c=text[p];
+                if(isDigit(c)) { digits++; needDigit=false; p++; }
+                else if(c=='_' && !needDigit) { needDigit=true; p++; }
+                else break;
+            }
+            return digits>0 && !needDigit;
+        }
+
+        private static bool TryScanNumber(string text,int start,int end,out int numEnd)
+        {
+            numEnd=start;
+            static bool IsDec(char c)=>c is >='0' and <='9';
+            static bool IsBin(char c)=>c is '0' or '1';
+            static bool IsOct(char c)=>c is >='0' and <='7';
+            static bool IsHex(char c)=>c is (>='0' and <='9') or (>='a' and <='f') or (>='A' and <='F');
+
+            int p=start;
+            if(text[p]=='.') {
+                p++;
+                if(p>=end || !IsDec(text[p]) || !ScanDigits(text,ref p,end,IsDec,allowFirstUnderscore:false)) return false;
+                if(p<end && text[p] is 'e' or 'E') {
+                    p++;
+                    if(p<end && text[p] is '+' or '-') p++;
+                    if(p>=end || !IsDec(text[p]) || !ScanDigits(text,ref p,end,IsDec,allowFirstUnderscore:false)) return false;
+                }
+                if(p<end && text[p] is 'j' or 'J') p++;
+                if(p<end && (char.IsAsciiLetterOrDigit(text[p]) || text[p]=='_')) return false;
+                numEnd=p;
+                return true;
+            }
+
+            if(text[p]=='0' && p+1<end && text[p+1] is 'x' or 'X' or 'b' or 'B' or 'o' or 'O') {
+                char radix=text[p+1];
+                p+=2;
+                Func<char,bool> pred=radix is 'x' or 'X' ? IsHex : radix is 'b' or 'B' ? IsBin : IsOct;
+                if(!ScanDigits(text,ref p,end,pred,allowFirstUnderscore:true)) return false;
+                if(p<end && (char.IsAsciiLetterOrDigit(text[p]) || text[p]=='_')) return false;
+                numEnd=p;
+                return true;
+            }
+
+            if(!ScanDigits(text,ref p,end,IsDec,allowFirstUnderscore:false)) return false;
+            bool isFloatOrImag=false;
+            if(p<end && text[p]=='.') {
+                isFloatOrImag=true;
+                p++;
+                if(p<end && text[p]=='_') return false;
+                if(p<end && IsDec(text[p]) && !ScanDigits(text,ref p,end,IsDec,allowFirstUnderscore:false)) return false;
+            }
+            if(p<end && text[p] is 'e' or 'E') {
+                isFloatOrImag=true;
+                p++;
+                if(p<end && text[p] is '+' or '-') p++;
+                if(p>=end || !IsDec(text[p]) || !ScanDigits(text,ref p,end,IsDec,allowFirstUnderscore:false)) return false;
+            }
+            if(p<end && text[p] is 'j' or 'J') {
+                isFloatOrImag=true;
+                p++;
+            }
+            if(!isFloatOrImag && text[start]=='0') {
+                for(int k=start+1;k<p;k++) if(text[k] is >='1' and <='9') return false;
+            }
+            if(p<end && (char.IsAsciiLetterOrDigit(text[p]) || text[p]=='_')) return false;
+            numEnd=p;
+            return true;
+        }
+
+        private static bool TryScanString(string text,int quoteStart,int end,bool isBytes,bool isFormatted,out int strEnd,out bool hasNewline)
+        {
+            strEnd=quoteStart;
+            hasNewline=false;
+            char quote=text[quoteStart];
+            int width=quoteStart+2<end && text[quoteStart+1]==quote && text[quoteStart+2]==quote ? 3 : 1;
+            for(int i=quoteStart+width;i<end;i++) {
+                char c=text[i];
+                if(isBytes && c>127) return false;
+                if(c is '\r' or '\n') {
+                    if(width==1) return false;
+                    hasNewline=true;
+                    continue;
+                }
+                if(c=='\\') {
+                    if(isFormatted && i+1<end && text[i+1] is '{' or '}') continue;
+                    i++;
+                    if(i>=end) return false;
+                    if(isBytes && text[i]>127) return false;
+                    if(text[i] is '\r' or '\n') {
+                        hasNewline=true;
+                        if(text[i]=='\r' && i+1<end && text[i+1]=='\n') i++;
+                    }
+                    continue;
+                }
+                if(c==quote && (width==1 || (i+2<end && text[i+1]==quote && text[i+2]==quote))) {
+                    strEnd=i+width;
+                    return true;
+                }
+                if(isFormatted && c is '{' or '}') {
+                    if(i+1<end && text[i+1]==c) { i++; continue; }
+                    return false;
+                }
+            }
+            return false;
+        }
     }
 
     private static int AfterString(string text,int start)
