@@ -1,0 +1,24 @@
+﻿  Determining projects to restore...
+  All projects are up-to-date for restore.
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next-020-pkg\desktop\bin\Release\net10.0-windows\AtlasNext.dll
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next-020-pkg\out\stage-1622cf10b82245a5969843e98e15fe7b\app\
+
+[32;1mAlgorithm : [0mSHA256
+[32;1mHash      : [0mFE714256EB6D098A1690D00C9DB15411A335000F9EBCAEA5012DB1D2F3DF7554
+[32;1mPath      : [0mC:\Users\ppawe\AppData\Local\Temp\atlas-next-020-pkg\out\ATLAS-Next-win-x64.zip
+
+Imported receipt: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-d99986776b154d698e8275a37bc05db7\profile\exports\project-package-check\f68927f3890946f09a572d4c1cbacc2a-0a804418ba0546e0a218503fa5e1e821.json
+PASS native file picker imports, exact source span and contradictory sources withheld
+PASS packaged qualified definitions, signature, documentation, enclosing type, namespace and ambiguity locations
+PASS packaged overload selection, cross-file call binding, per-claim research provenance and stale-revision withholding
+PASS packaged generic overload, parameter list, return type, and conversational caller follow-up
+PASS packaged Python literal grammar, raw text and unsupported-follow-up withholding
+PASS packaged research comparison recheck with pinned parent and fresh citations
+PASS packaged project source inventory across empty switch, single import, revision update and 10-document truncation
+PASS workspace coding, model evidence, verified research history and active project survive relaunch
+PowerShell 7.6.9 verified ZIP FE714256EB6D098A1690D00C9DB15411A335000F9EBCAEA5012DB1D2F3DF7554
+PASS 521 inventory hashes, private runtime, PID/title window discovery across relaunches
+PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery
+PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts
+Evidence: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-d99986776b154d698e8275a37bc05db7\profile\exports\3a29053cabce4b109f54b44eadd7c7cd-4ceb103d9f1148a99aa123e00601c205.json
+

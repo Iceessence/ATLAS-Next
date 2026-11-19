@@ -1,0 +1,5 @@
+﻿train {'sha256': '433014076ede8fbea3f5ff7f03560e73f38e9645f013f70003c808d0b2bca97d', 'tasks': 24, 'families': ['numpy', 'packaging', 'pandas', 'pillow', 'pypdf', 'python-dateutil'], 'outcomes': {'useful': 32, 'wrong': 0, 'withheld': 112}}
+validation {'sha256': 'f2ded1a2060f889652e9eaa2c6dc5e94eeb6dc0ad73f44e86f992220245ad322', 'tasks': 8, 'families': ['lxml', 'python-docx'], 'outcomes': {'useful': 16, 'wrong': 0, 'withheld': 32}}
+evaluation {'sha256': 'cacc952f471202dd087254fc41cd47c2a32c8b7e31ae2fa96697b5a7b0517c15', 'tasks': 20, 'families': ['openpyxl', 'pycparser', 'pydantic', 'python-pptx', 'xlsxwriter'], 'outcomes': {'useful': 32, 'wrong': 0, 'withheld': 88}}
+acquisition {'sha256': '0126e18759d387a4fb603b53353f19a507a1e24dff0fc95c9d7823f22d9626d0', 'tasks': 8, 'families': ['pdfplumber', 'reportlab'], 'outcomes': {'useful': 0, 'wrong': 0, 'withheld': 48}}
+

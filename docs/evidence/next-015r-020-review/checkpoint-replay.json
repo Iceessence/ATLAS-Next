@@ -1,0 +1,62 @@
+﻿{
+  "dataset_manifest_exact_match": true,
+  "partitions": {
+    "acquisition": "0126e18759d387a4fb603b53353f19a507a1e24dff0fc95c9d7823f22d9626d0",
+    "evaluation": "cacc952f471202dd087254fc41cd47c2a32c8b7e31ae2fa96697b5a7b0517c15",
+    "train": "433014076ede8fbea3f5ff7f03560e73f38e9645f013f70003c808d0b2bca97d",
+    "validation": "f2ded1a2060f889652e9eaa2c6dc5e94eeb6dc0ad73f44e86f992220245ad322"
+  },
+  "checkpoints": {
+    "specialist": {
+      "sha256": "2e67c6562dc76e35ed6c7a11af6491980d1d015296b9b0b0673ec98d73ff72d1",
+      "bytes": 9929,
+      "exact_byte_match": true
+    },
+    "master": {
+      "sha256": "c1199fd6a641621dd6d5beaf0baf25b67e8e2923e68cf63d176fbe8037b890ba",
+      "bytes": 3829,
+      "exact_byte_match": true
+    },
+    "refit_candidate": {
+      "sha256": "79918ba61f82b571f5d8618d11f7542851f3d1f4763c5050c3c439619a2af34d",
+      "bytes": 11414,
+      "exact_byte_match": true
+    }
+  },
+  "refit_decision": {
+    "candidate_useful": 13,
+    "disposition": "rejected",
+    "gains": [],
+    "new_wrong": [],
+    "reasons": [
+      "no verified completion gain over strongest baseline"
+    ],
+    "regressions": [],
+    "strongest_baseline_useful": 16
+  },
+  "cooperation_useful": {
+    "confidence_gate": 16,
+    "host": 16,
+    "linear": 15,
+    "linear_gate": 16,
+    "original_cooperation": 16,
+    "original_specialist": 13,
+    "tfidf": 16
+  },
+  "cooperation_wrong": {
+    "confidence_gate": 0,
+    "host": 0,
+    "linear": 0,
+    "linear_gate": 0,
+    "original_cooperation": 0,
+    "original_specialist": 0,
+    "tfidf": 0
+  },
+  "legacy_assets": {
+    "native.json": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "project-specialist.shadow.json": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+    "next-014.json": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+    "next-020.json": "567a6037a669ad66d670eb72fc2636deab980bef5c07edeae9eacf73bbc741b2"
+  }
+}
+

@@ -1,0 +1,2 @@
+﻿{'disposition': 'rejected', 'reasons': ['no verified completion gain over strongest baseline'], 'strongest_baseline_useful': 16, 'candidate_useful': 13, 'gains': [], 'regressions': [], 'new_wrong': []}
+

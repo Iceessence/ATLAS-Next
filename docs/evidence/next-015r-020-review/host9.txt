@@ -1,0 +1,14 @@
+﻿{
+  "product": "6dbf726443e9afd3c527f99d4851440e1404f4bb",
+  "successful": 7,
+  "cases": 7,
+  "wrong_deliveries": 0,
+  "false_abstentions": 0,
+  "changed_mismatches": 0,
+  "first_median_ms": 20.9068,
+  "warm_median_ms": 17.6621,
+  "process_median_ms": 401.1805,
+  "max_sampled_working_set_bytes": 51150848,
+  "external_inference_calls": 0
+}
+

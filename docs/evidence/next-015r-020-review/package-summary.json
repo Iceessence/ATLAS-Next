@@ -1,0 +1,78 @@
+{
+  "next015r_shipped_ps5": {
+    "bytes": 95199799,
+    "sha256": "85071b8f11697897641c5e331eb09b7e8641cb2cab71521f95f7089bb8684e3b",
+    "inventory_hashes": 520,
+    "roslyn_files": 28,
+    "lab_entries": 0,
+    "native_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "next014_sha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43"
+  },
+  "next015r_rebuilt_ps5": {
+    "bytes": 95199836,
+    "sha256": "c52d71b8938a4b781fe0867dae2c3454bfa6be91acd77f6d6b68e0021de10308",
+    "inventory_hashes": 520,
+    "roslyn_files": 28,
+    "lab_entries": 0,
+    "native_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "next014_sha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43"
+  },
+  "next015r_shipped_ps7": {
+    "bytes": 112860420,
+    "sha256": "9912c4a5f4af4cdc041aab2e50ea907ac9833daf633a32f0df146cf43c6af145",
+    "inventory_hashes": 520,
+    "roslyn_files": 28,
+    "lab_entries": 0,
+    "native_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "next014_sha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43"
+  },
+  "next015r_rebuilt_ps7": {
+    "bytes": 112860465,
+    "sha256": "9fea33f57daf3c52945650fd1c6c23c4f391df208e567f4f017708b10e60b300",
+    "inventory_hashes": 520,
+    "roslyn_files": 28,
+    "lab_entries": 0,
+    "native_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "next014_sha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43"
+  },
+  "next020_shipped_ps5": {
+    "bytes": 95201648,
+    "sha256": "b29cf787ff37da95edacc4e6e519c7ab02bc28dbd6716d9d29edf5bfedd5edec",
+    "inventory_hashes": 521,
+    "roslyn_files": 28,
+    "lab_entries": 0,
+    "native_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "next014_sha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+    "next020_sha256": "567a6037a669ad66d670eb72fc2636deab980bef5c07edeae9eacf73bbc741b2"
+  },
+  "next020_rebuilt_ps5": {
+    "bytes": 95201695,
+    "sha256": "71452b9099c75e3978774d6d9bd970424c4591a4a82df9014aa4548766f92604",
+    "inventory_hashes": 521,
+    "roslyn_files": 28,
+    "lab_entries": 0,
+    "native_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "next014_sha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+    "next020_sha256": "567a6037a669ad66d670eb72fc2636deab980bef5c07edeae9eacf73bbc741b2"
+  },
+  "next020_shipped_ps7": {
+    "bytes": 112862660,
+    "sha256": "fb8bf71ce5bf037f39807a6009e059097e9bddaeccb374d812b7383805806758",
+    "inventory_hashes": 521,
+    "roslyn_files": 28,
+    "lab_entries": 0,
+    "native_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "next014_sha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+    "next020_sha256": "567a6037a669ad66d670eb72fc2636deab980bef5c07edeae9eacf73bbc741b2"
+  },
+  "next020_rebuilt_ps7": {
+    "bytes": 112862684,
+    "sha256": "fe714256eb6d098a1690d00c9db15411a335000f9ebcaea5012db1d2f3df7554",
+    "inventory_hashes": 521,
+    "roslyn_files": 28,
+    "lab_entries": 0,
+    "native_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "next014_sha256": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+    "next020_sha256": "567a6037a669ad66d670eb72fc2636deab980bef5c07edeae9eacf73bbc741b2"
+  }
+}

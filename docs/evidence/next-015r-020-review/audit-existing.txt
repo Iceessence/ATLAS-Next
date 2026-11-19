@@ -1,0 +1,11 @@
+﻿train numpy 2.3.5 checked=920 mismatches=20
+train pillow 13.0.0 checked=121 mismatches=8
+train pypdf 6.21.4 checked=65 mismatches=0
+train packaging 26.3 checked=29 mismatches=0
+validation python-docx 1.2.0 checked=125 mismatches=0
+validation lxml 6.1.1 checked=179 mismatches=7
+evaluation openpyxl 3.1.5 checked=196 mismatches=0
+evaluation pydantic 2.14.3 checked=112 mismatches=0
+evaluation python-pptx 1.0.2 checked=116 mismatches=0
+evaluation xlsxwriter 3.2.9 checked=48 mismatches=0
+

@@ -1,0 +1,5 @@
+﻿NEXT-015R 9c48621fc3868a02291c100c85d2225e67b393ae build=0W/0E checks=290/290 py=(lab/test_integrity.py=14, lab/test_model_lab.py=3)
+NEXT-016 a27ff64345547bff4f4182caced9907f712dde65 build=0W/0E checks=290/290 py=(lab/test_native_data.py=6)
+NEXT-017 3eb40b96aca90bc8243086fd8e3b620c4b486970 build=0W/0E checks=290/290 py=(lab/test_native_models.py=3)
+NEXT-018 d8ebe25bd719a477c9d6cfa73afd17e50afb964e build=0W/0E checks=290/290 py=(lab/test_native_master.py=2)
+NEXT-019 709e49736d3d6bf55db4d1414887016f52d15b60 build=0W/0E checks=290/290 py=(lab/test_native_task.py=2)

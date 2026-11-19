@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "review": "NEXT-015R and native-original NEXT-016 through NEXT-020",
+  "reviewer": "Gemini Neon Orchestrator",
+  "product_author": "GPT-6.2 Sol",
+  "reviewed_at_utc": "2026-11-19T17:43:00Z",
+  "transfer_handoff": "797c5c78dc4551d9c4e205752797bc656be9d93a",
+  "preregistered_protocol": "409982b3ef3fdb85616286e2d9ddfdc8d3c7af03",
+  "prior_accepted_baseline": "81cc70eb0e1cff91c16b78d729acf82b5dab90cd",
+  "new_accepted_baseline": "6dbf726443e9afd3c527f99d4851440e1404f4bb",
+  "overall_integrated_verdict": "ACCEPTED_WITH_LIMITATIONS",
+  "overall_rationale": "NEXT-015R resolves blocking NR-015-1 and hygiene NR-013-1 with 4/4 sequential live qwen3.8:27b WPF runs passing across PS 5.1 and PS 7.6.9. Across NEXT-016 through NEXT-020, clean checkouts reproduced all 360 observed host actions, all 4 partition hashes, all 3 original random-init checkpoint digests byte-for-byte, the NEXT-014 refit gate (exit 2), the NEXT-020 refit rejection (13/20 vs 16/20, 0 wrong), all 8 packaged WPF runs, all 37/37 adversarial boundary checks, and the fresh 16-case protected evaluator suite outside Git with 0 wrong deliveries across every policy. Native checkpoints remain strictly shadow-only and host execution remains disabled (read owner-imported text).",
+  "per_update_verdicts": [
+    {
+      "id": "NEXT-015R",
+      "product": "9c48621fc3868a02291c100c85d2225e67b393ae",
+      "author_evidence": "f62ab385995e84b28ae0cde7cc2477a16fc1c667",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "290/290",
+      "clean_python_checks": "14 integrity + 3 model_lab",
+      "packaged_live_reference": "4/4 PASS (shipped + rebuilt PS 5.1 and PS 7.6.9 with qwen3.8:27b)",
+      "adversarial_csharp_probes": "3/3 PASS (tabbed/CRLF ResearchPlan normalization, canonical SourceIds ordering, whitespace-only Objective rejection)",
+      "notes": "Resolves NR-015-1 (Model.IsDropDownOpen=false + Close-Dialog WM_CLOSE fallback + Wait-DialogClosed) and NR-013-1 (Engine.Study Trims Objective/Fields)."
+    },
+    {
+      "id": "NEXT-016",
+      "product": "a27ff64345547bff4f4182caced9907f712dde65",
+      "author_evidence": "0c448fc47716e0978f6fd9aa1ed5a59e75706318",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "290/290",
+      "clean_python_checks": "6/6 test_native_data.py",
+      "distribution_audits": "10 existing + 5 new (pandas 3.0.1, python-dateutil 4.0.0, pycparser 3.12, reportlab 4.4.9, pdfplumber 0.11.9)",
+      "reconstructed_actions": 360,
+      "dataset_manifest_exact_match": true,
+      "partition_sha256": {
+        "train": "433014076ede8fbea3f5ff7f03560e73f38e9645f013f70003c808d0b2bca97d",
+        "validation": "f2ded1a2060f889652e9eaa2c6dc5e94eeb6dc0ad73f44e86f992220245ad322",
+        "evaluation": "cacc952f471202dd087254fc41cd47c2a32c8b7e31ae2fa96697b5a7b0517c15",
+        "acquisition": "0126e18759d387a4fb603b53353f19a507a1e24dff0fc95c9d7823f22d9626d0"
+      },
+      "non_blocking_hygiene": "NR-016-1",
+      "notes": "Reconstructs 360 observed actions (60 questions x 6 policies) with exact digest parity. New pycparser/reportlab/pdfplumber tasks produced 0/12 useful host answers (48/48 acquisition outcomes withheld) due to host question-grammar coverage bounds."
+    },
+    {
+      "id": "NEXT-017",
+      "product": "3eb40b96aca90bc8243086fd8e3b620c4b486970",
+      "author_evidence": "06e666997124c58056213e75efb00276e9cb1153",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "290/290",
+      "clean_python_checks": "3/3 test_native_models.py",
+      "checkpoint_sha256": "2e67c6562dc76e35ed6c7a11af6491980d1d015296b9b0b0673ec98d73ff72d1",
+      "checkpoint_bytes": 9929,
+      "exact_byte_match": true,
+      "public_evaluation_useful": {
+        "host": "16/20",
+        "tfidf": "16/20",
+        "linear": "15/20",
+        "specialist": "13/20",
+        "wrong": 0
+      },
+      "protected_evaluation_useful": "10/16 (4 delivered, 9 explicit abstentions, 0 wrong) vs 14/16 host/TF-IDF/linear",
+      "notes": "Random-init 65-parameter tanh specialist reproduces byte-for-byte with CPU NumPy + OPENBLAS_NUM_THREADS=1. Underperforms deterministic host/TF-IDF; strictly shadow-only."
+    },
+    {
+      "id": "NEXT-018",
+      "product": "d8ebe25bd719a477c9d6cfa73afd17e50afb964e",
+      "author_evidence": "4c5c6a0ad98f3f60a57d4dc4c869240589c08a56",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "290/290",
+      "clean_python_checks": "2/2 test_native_master.py",
+      "checkpoint_sha256": "c1199fd6a641621dd6d5beaf0baf25b67e8e2923e68cf63d176fbe8037b890ba",
+      "checkpoint_bytes": 3829,
+      "exact_byte_match": true,
+      "public_evaluation_useful": {
+        "host": "16/20",
+        "confidence_gate": "16/20",
+        "linear_gate": "16/20",
+        "original_master": "16/20",
+        "specialist": "13/20",
+        "wrong": 0
+      },
+      "protected_evaluation": "14/16 useful (8 delivered, 6 host fallbacks vs 9 for confidence/linear gates, true_positive=10, true_negative=2, false_positive=0, false_negative=4, 0 wrong)",
+      "notes": "Random-init 37-parameter Primary Master reproduces byte-for-byte on family-held-out specialist cross-fits. Recovers specialist misses via host fallback without surpassing unrestricted host or simpler gates."
+    },
+    {
+      "id": "NEXT-019",
+      "product": "709e49736d3d6bf55db4d1414887016f52d15b60",
+      "author_evidence": "867030d7222a4986961a5c27f24bab42f17d5394",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "290/290",
+      "clean_python_checks": "2/2 test_native_task.py",
+      "cooperation_benchmark_useful": {
+        "host": "16/20",
+        "tfidf": "16/20",
+        "confidence_gate": "16/20",
+        "linear_gate": "16/20",
+        "original_cooperation": "16/20",
+        "linear": "15/20",
+        "original_specialist": "13/20",
+        "wrong": 0
+      },
+      "notes": "Verified UTF-8 BOM/CRLF/astral-emoji UTF-16 spans, built-in catalog leak prevention (outside supplied sources), prompt-injection withholding, fail-closed compare refusal, and 9/9 input-bound rejections. Host remains sole delivery authority."
+    },
+    {
+      "id": "NEXT-020",
+      "product": "6dbf726443e9afd3c527f99d4851440e1404f4bb",
+      "author_evidence": "fcbc8be91da112fd69e82bbbf02e78c7d379efd6",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "291/291",
+      "clean_python_checks": "33/33 (30.057 s)",
+      "refit_candidate_sha256": "79918ba61f82b571f5d8618d11f7542851f3d1f4763c5050c3c439619a2af34d",
+      "refit_candidate_bytes": 11414,
+      "refit_exact_byte_match": true,
+      "public_refit_disposition": "rejected (13/20 vs 16/20 strongest baseline, 0 wrong, NEXT-017 checkpoint unchanged)",
+      "protected_refit_disposition": "rejected via lab/native_review.py (8/16 useful vs 10/16 previous specialist and 14/16 host/TF-IDF/linear, 1 gain / 3 regressions, 0 wrong)",
+      "packaged_offline_wpf": "4/4 PASS (shipped + rebuilt PS 5.1 and PS 7.6.9, 521 inventory hashes, 28 Roslyn, lab=0, shadow)",
+      "non_blocking_hygiene": "NR-020-1",
+      "notes": "Correctly rejects non-improving refit, pins assets/experiments/next-020.json (567a6037...) in ModelEvidenceWindow (1-byte tamper fails closed), and enforces external evaluator custody gates."
+    }
+  ],
+  "non_blocking_hygiene_register": [
+    {
+      "id": "NR-016-1",
+      "severity": "low",
+      "blocking": false,
+      "location": "lab/native_data.py:131",
+      "finding": "native_data.validate_cases() normalizes project families using case['family'].casefold(), whereas lab/native_review.py:16 normalizes with family_key() (folding '-', '_', and '.' separators). Verified via adversarial probe that validate_cases() accepted 'python_dateutil' in evaluation alongside 'python-dateutil' in train, whereas native_review.py blocked it.",
+      "recommendation": "Use the shared family_key() canonicalizer inside native_data.validate_cases() before enrolling additional public families."
+    },
+    {
+      "id": "NR-020-1",
+      "severity": "low",
+      "blocking": false,
+      "location": "lab/native_review.py",
+      "finding": "The documented lab/native_review.py CLI evaluates previous vs refit source-specialist policies only and does not natively accept --master / --master-sha to score NEXT-018 Primary Master cooperation on protected evaluator suites without an external harness wrapper.",
+      "recommendation": "Add optional --master / --master-sha flags to lab/native_review.py so protected scoring covers specialist, master gate, and cooperation jointly."
+    }
+  ],
+  "git_and_boundary_checks": {
+    "evidence_only_commits_docs_only": true,
+    "evidence_commits_checked": 7,
+    "per_commit_checks_log": "next-015r-020-review/per-commit-checks.txt",
+    "evidence_commits_log": "next-015r-020-review/evidence-commits-check.txt",
+    "legacy_assets_unchanged": {
+      "native.json": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "project-specialist.shadow.json": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+      "experiments/next-014.json": "e93d13af13ce5713d760c77ea1e314849e250a95f00b47116f00a341d4e97b43",
+      "experiments/next-020.json": "567a6037a669ad66d670eb72fc2636deab980bef5c07edeae9eacf73bbc741b2"
+    },
+    "native_qualification": "shadow",
+    "host_execution_capability": "read owner-imported text (disabled)",
+    "legacy_repo_head": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "legacy_repo_untouched_by_review": true,
+    "remote_push": false
+  },
+  "integrated_public_replays": {
+    "product": "6dbf726443e9afd3c527f99d4851440e1404f4bb",
+    "release_build": {
+      "warnings": 0,
+      "errors": 0,
+      "log": "next-015r-020-review/build.txt"
+    },
+    "windows_checks": {
+      "passed": 291,
+      "total": 291,
+      "log": "next-015r-020-review/windows.txt"
+    },
+    "python_unittest_discover": {
+      "passed": 33,
+      "total": 33,
+      "duration_s": 30.057,
+      "log": "next-015r-020-review/python.txt"
+    },
+    "public_factual": {
+      "passed": 31,
+      "total": 31,
+      "log": "next-015r-020-review/outcomes.txt"
+    },
+    "distribution_audits": {
+      "existing": "10/10 (next-015r-020-review/audit-existing.txt)",
+      "native_new_5": "5/5 (next-015r-020-review/audit-native.txt)"
+    },
+    "synthetic_shadow_router": {
+      "rule": "48/72",
+      "exemplar": "42/72",
+      "native": "54/72",
+      "linear": "54/72",
+      "log": "next-015r-020-review/routing.txt"
+    },
+    "next014_model_lab_fit_gate": {
+      "fit_status": "blocked",
+      "fit_exit_code": 2,
+      "newly_eligible_training_rows": 0,
+      "public_conversation_rows": 6,
+      "checkpoint_sha256": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+      "host": "16/16",
+      "tfidf": "16/16",
+      "linear": "14/16",
+      "native": "15/16",
+      "wrong_deliveries": 0,
+      "log": "next-015r-020-review/model-lab-fit.txt",
+      "receipt": "next-015r-020-review/next014-trial-replay.json"
+    },
+    "earlier_replays": {
+      "next005": "8/8 (12 verified, 4 abstentions, 0 wrong, 226.82 ms, next-015r-020-review/prev5.txt)",
+      "next006": "13/13 (14 exact, 12 withholds, 0 wrong, next-015r-020-review/prev6.txt)",
+      "next007": "17/17 (8 exact, 9 withholds, 0 wrong, PASS 5, next-015r-020-review/prev7.txt)",
+      "next008_host": "12/14 vs 9/14 search (18 exact, 5 withholds, 2 omitted-using abstentions, 0 wrong, PASS 6 ledger, next-015r-020-review/host8.txt, next-015r-020-review/ledger8.txt)",
+      "next009_recheck": "7/7 search and 7/7 host (0 wrong, 0 false abstentions, 0 changed mismatches, 20.91 ms first / 17.66 ms warm, next-015r-020-review/search9.txt, next-015r-020-review/host9.txt)"
+    }
+  },
+  "packages": {
+    "summary_log": "next-015r-020-review/package-summary.json",
+    "next015r_live_qwen38": {
+      "shipped_ps5": "PASS (95,199,799 B, 85071b8f11697897641c5e331eb09b7e8641cb2cab71521f95f7089bb8684e3b, 520 inventory, next-015r-020-review/next015r-shipped-ps51-live.txt)",
+      "rebuilt_ps5": "PASS (95,199,836 B, c52d71b8938a4b781fe0867dae2c3454bfa6be91acd77f6d6b68e0021de10308, 520 inventory, next-015r-020-review/next015r-rebuilt-ps51-live.txt)",
+      "shipped_ps7": "PASS (112,860,420 B, 9912c4a5f4af4cdc041aab2e50ea907ac9833daf633a32f0df146cf43c6af145, 520 inventory, next-015r-020-review/next015r-shipped-ps7-live.txt)",
+      "rebuilt_ps7": "PASS (112,860,465 B, 9fea33f57daf3c52945650fd1c6c23c4f391df208e567f4f017708b10e60b300, 520 inventory, next-015r-020-review/next015r-rebuilt-ps7-live.txt)"
+    },
+    "next020_offline_wpf": {
+      "shipped_ps5": "PASS (95,201,648 B, b29cf787ff37da95edacc4e6e519c7ab02bc28dbd6716d9d29edf5bfedd5edec, 521 inventory, next-015r-020-review/next020-shipped-ps51-offline.txt)",
+      "rebuilt_ps5": "PASS (95,201,695 B, 71452b9099c75e3978774d6d9bd970424c4591a4a82df9014aa4548766f92604, 521 inventory, next-015r-020-review/next020-rebuilt-ps51-offline.txt)",
+      "shipped_ps7": "PASS (112,862,660 B, fb8bf71ce5bf037f39807a6009e059097e9bddaeccb374d812b7383805806758, 521 inventory, next-015r-020-review/next020-shipped-ps7-offline.txt)",
+      "rebuilt_ps7": "PASS (112,862,684 B, fe714256eb6d098a1690d00c9db15411a335000f9ebcaea5012db1d2f3df7554, 521 inventory, next-015r-020-review/next020-rebuilt-ps7-offline.txt)"
+    }
+  },
+  "evaluator_custody": {
+    "receipt_sha256": "7bc242f34eb40c176c4d1263f1114540dab41d223c1b5beaf4241d313aa8a69d",
+    "protected_cases_total": 16,
+    "protected_families_count": 6,
+    "protected_answerable": 10,
+    "protected_negative_controls": 6,
+    "native_review_cli_diagnostic": {
+      "disposition": "rejected",
+      "candidate_useful": 8,
+      "strongest_baseline_useful": 14,
+      "gains": 1,
+      "regressions": 3,
+      "new_wrong": 0
+    },
+    "protected_scores_zero_wrong_all_policies": {
+      "host": "14/16",
+      "tfidf": "14/16",
+      "linear": "14/16",
+      "previous_specialist": "10/16 (4 delivered, 9 abstentions)",
+      "refit_candidate": "8/16 (2 delivered, 11 abstentions)",
+      "confidence_gate": "14/16 (9 fallbacks)",
+      "linear_gate": "14/16 (9 fallbacks)",
+      "original_master": "14/16 (6 fallbacks, TP=10, TN=2, FP=0, FN=4)"
+    },
+    "adversarial_boundary_checks": {
+      "python_passed": 32,
+      "python_total": 32,
+      "csharp_passed": 5,
+      "csharp_total": 5,
+      "wrong_deliveries": 0
+    },
+    "private_scope": "Raw evaluator suite, sibling outcome receipts, and reports remain strictly outside Git."
+  },
+  "limitations": [
+    "All new native models remain strictly shadow-only; none beat deterministic host or TF-IDF on either public evaluation (13/20 vs 16/20) or protected unfamiliar families (10/16 specialist and 14/16 Master vs 14/16 host/TF-IDF).",
+    "New public families (pycparser, reportlab, pdfplumber) exposed a severe deterministic host grammar coverage gap (0/12 useful completions; 48/48 acquisition outcomes withheld), blocking positive-outcome learning from new domains until host question-grammar coverage expands.",
+    "CPU-only NumPy training was exercised; GPU/CuPy training remains unverified locally due to absent CuPy runtime.",
+    "Host execution remains disabled (read owner-imported text), and live reference chat requires explicit loopback 127.0.0.1:11434 service."
+  ],
+  "next_assignment": {
+    "accepted_baseline_established": "6dbf726443e9afd3c527f99d4851440e1404f4bb",
+    "next_writer": "GPT-6.2 Sol",
+    "task": "Proceed into the next five-update batch (NEXT-021 through NEXT-025) targeting the verified host grammar & positive-acquisition bottleneck so native specialists/masters can train and be evaluated on broader real unfamiliar tasks, while fixing non-blocking hygiene NR-016-1 and NR-020-1, keeping native models shadow-only, host execution disabled, and work local."
+  }
+}

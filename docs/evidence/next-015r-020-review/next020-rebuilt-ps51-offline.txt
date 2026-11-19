@@ -1,0 +1,27 @@
+﻿  Determining projects to restore...
+  Restored C:\Users\ppawe\AppData\Local\Temp\atlas-next-020-pkg\desktop\AtlasNext.csproj (in 50 ms).
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next-020-pkg\desktop\bin\Release\net10.0-windows\AtlasNext.dll
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next-020-pkg\out\stage-a896e5a96a0e4499a50f440844d5e73c\app\
+
+
+Algorithm : SHA256
+Hash      : 71452B9099C75E3978774D6D9BD970424C4591A4A82DF9014AA4548766F92604
+Path      : C:\Users\ppawe\AppData\Local\Temp\atlas-next-020-pkg\out\ATLAS-Next-win-x64.zip
+
+
+
+Imported receipt: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-d2458546c48e4d2a88f4bef47a342da7\profile\exports\project-package-check\9b97c081881040e4a9c5a285b5e2fe6e-8bae177f79664195892533dc365e7621.json
+PASS native file picker imports, exact source span and contradictory sources withheld
+PASS packaged qualified definitions, signature, documentation, enclosing type, namespace and ambiguity locations
+PASS packaged overload selection, cross-file call binding, per-claim research provenance and stale-revision withholding
+PASS packaged generic overload, parameter list, return type, and conversational caller follow-up
+PASS packaged Python literal grammar, raw text and unsupported-follow-up withholding
+PASS packaged research comparison recheck with pinned parent and fresh citations
+PASS packaged project source inventory across empty switch, single import, revision update and 10-document truncation
+PASS workspace coding, model evidence, verified research history and active project survive relaunch
+PowerShell 5.1.26100.9818 verified ZIP 71452B9099C75E3978774D6D9BD970424C4591A4A82DF9014AA4548766F92604
+PASS 521 inventory hashes, private runtime, PID/title window discovery across relaunches
+PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery
+PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts
+Evidence: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-d2458546c48e4d2a88f4bef47a342da7\profile\exports\08a5c327eba3450f9e89aa12f01095a0-fea160f87217485196ca0f2ff7518d49.json
+
