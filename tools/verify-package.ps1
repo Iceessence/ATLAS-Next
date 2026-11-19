@@ -296,11 +296,13 @@ try {
         throw 'Packaged changed-source research check failed'
     }
     "PASS packaged overload selection, cross-file call binding, per-claim research provenance and stale-revision withholding"
-    $repoCs = @('class Store {',
+    $repoCs = @('using System;',
+        'using System.Collections.Generic;',
+        'class Store {',
         '    public IReadOnlyList<string> Load(string? filter) => Array.Empty<string>();',
         '    public IReadOnlyList<string> Load(IReadOnlyList<int> ids) => Array.Empty<string>();',
         '}') -join [char]10
-    $workerCs = 'class Worker { int Run(Store s, IReadOnlyList<int> ids) => s.Load(ids).Count; }'
+    $workerCs = "using System;`nusing System.Collections.Generic;`nclass Worker { int Run(Store s, IReadOnlyList<int> ids) => s.Load(ids).Count; }"
     Import-Document $session 'Store.cs' $repoCs
     Import-Document $session 'Worker.cs' $workerCs
     $promptBox.SetValue('Where is Store.Load(IReadOnlyList<int>) defined?')
@@ -308,7 +310,7 @@ try {
     Wait-State $window 'review'
     Invoke-Control $window 'Verify'
     Wait-State $window 'completed'
-    if((Control $window 'SourceInfo').Current.Name -notlike '*Store.cs*line 3,*'){throw 'Packaged generic overload lookup failed'}
+    if((Control $window 'SourceInfo').Current.Name -notlike '*Store.cs*line 5,*'){throw 'Packaged generic overload lookup failed'}
     $promptBox.SetValue('What are its parameters?')
     Invoke-Control $window 'Search'
     Wait-State $window 'review'
@@ -336,7 +338,7 @@ try {
     Wait-State $window 'review'
     Invoke-Control $window 'Verify'
     Wait-State $window 'completed'
-    if((Control $window 'Summary').Current.Name -ne 'Worker.cs, line 1: s.Load(ids)'){throw 'Packaged conversational caller follow-up failed'}
+    if((Control $window 'Summary').Current.Name -ne 'Worker.cs, line 3: s.Load(ids)'){throw 'Packaged conversational caller follow-up failed'}
     "PASS packaged generic overload, parameter list, return type, and conversational caller follow-up"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery on 3 launches"

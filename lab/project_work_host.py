@@ -39,10 +39,12 @@ def quote(files, ids, citation):
                 text=payload[start*2:(start+length)*2].decode("utf-16-le"))
 
 
-def inspect(run, files, ids):
+def inspect(run, files, ids, expected_request=None):
     receipt = run["delivered"]
     review = receipt["researchReview"]
     check(receipt["proposal"]["qualification"]=="shadow","Unexpected active model")
+    if expected_request is not None:
+        check(receipt.get("request")==expected_request,"Delivered receipt request differs from frozen case")
     verdict = review["verdict"] if review else receipt["state"]
     citations = review["sources"] if review else []
     extracted = [quote(files,ids,c) for c in citations]
@@ -93,7 +95,7 @@ def collect():
         probe=json.loads(raw.stdout)
         runs=probe["runs"]
         check(len(runs)==4,"Expected four attempts")
-        actual=[inspect(run,selected,probe["ids"]) for run in runs]
+        actual=[inspect(run,selected,probe["ids"],question) for run in runs]
         check(all(a==actual[0] for a in actual),"Non-reproducible host outputs")
         results.append(dict(id=identity,question=question,provenance=old["provenance"],ids=probe["ids"],
                             expected_verdict=verdict,expected_citations=expected,
@@ -138,7 +140,7 @@ def validate(ledger):
         for run in row["runs"]:
             check(type(run["ms"]) in (int,float) and 0<=run["ms"]<60000 and
                   type(run["workingSetBytes"])==int and run["workingSetBytes"]>0,"Invalid resource measurements")
-            actual=inspect(run,{name:files[name] for name in names},row["ids"])
+            actual=inspect(run,{name:files[name] for name in names},row["ids"],question)
             check(actual==(row["host_verdict"],row["host_citations"]) and outcome(actual,verdict,expected)==row["host_outcome"],
                   "Invalid observed outcome")
 

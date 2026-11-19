@@ -39,12 +39,33 @@ def quote(files, ids, citation):
                 text=payload[start * 2:(start + length) * 2].decode("utf-16-le"))
 
 
-def inspect_turn(turn, files, ids, prev_id=None, expect_followup=False):
+def expected_operation(request):
+    if request.startswith("Compare project claims:"):
+        return ("research.compare", "research.compare")
+    if request in ("Where is it called?", "Show its callers.", "What calls it?") or request.endswith(" called?"):
+        return ("code.calls", "code.calls")
+    if request in ("What are its parameters?", "Show its parameters.", "What is its parameter list?"):
+        return ("code.lookup", "code.parameters")
+    if request in ("What is its return type?", "Show its return type?"):
+        return ("code.lookup", "code.return")
+    return ("code.lookup", "code.definition")
+
+
+def inspect_turn(turn, files, ids, expected_request=None, prev_id=None, expect_followup=False):
     receipt = turn["delivered"]
     review = receipt["researchReview"]
     check(receipt["proposal"]["qualification"] == "shadow", "Unexpected active model")
-    if expect_followup and prev_id is not None:
-        check(receipt["parentTaskId"] == prev_id, "Missing follow-up parentTaskId link")
+    if expected_request is not None:
+        check(receipt.get("request") == expected_request, "Delivered receipt request differs from preregistered turn")
+        check((receipt.get("kind"), receipt.get("specialist")) == expected_operation(expected_request),
+              "Delivered receipt operation differs from preregistered turn")
+    if expect_followup:
+        check(isinstance(prev_id, str) and bool(prev_id) and receipt.get("parentTaskId") == prev_id and
+              receipt.get("dependencies") == [prev_id.replace("-", "")],
+              "Missing or mismatched follow-up parent/dependency linkage")
+    else:
+        check(receipt.get("parentTaskId") is None and receipt.get("dependencies") == [],
+              "Unexpected parent/dependency linkage on standalone turn")
     verdict = review["verdict"] if review else receipt["state"]
     citations = review["sources"] if review else []
     extracted = [quote(files, ids, c) for c in citations]
@@ -63,8 +84,6 @@ def inspect_turn(turn, files, ids, prev_id=None, expect_followup=False):
     if specialist == "code.calls":
         check(citations[0]["type"] == "code.definition" and all(c["type"] == "code.calls" for c in citations[1:]),
               "Unbound call citations")
-        if expect_followup and prev_id is not None:
-            check(receipt["dependencies"] == [prev_id.replace("-", "")], "Missing call follow-up dependency")
         extracted = extracted[1:]
         body = "\n".join(f"{c['source']}, line {c['line']}: {c['text']}" for c in extracted)
     elif specialist == "research.compare":
@@ -82,10 +101,13 @@ def inspect_turn(turn, files, ids, prev_id=None, expect_followup=False):
 
 def inspect_run(run, files, ids, turn_specs):
     actuals = []
+    seen_ids = set()
     prev_id = None
     for idx, (turn, (req, _, _)) in enumerate(zip(run["turns"], turn_specs, strict=True)):
         is_followup = idx > 0 and req in ("Where is it called?", "What are its parameters?", "What is its return type?")
-        act, cur_id = inspect_turn(turn, files, ids, prev_id, expect_followup=is_followup)
+        act, cur_id = inspect_turn(turn, files, ids, expected_request=req, prev_id=prev_id, expect_followup=is_followup)
+        check(isinstance(cur_id, str) and cur_id not in seen_ids, "Duplicate or invalid task ID in run")
+        seen_ids.add(cur_id)
         actuals.append(act)
         prev_id = cur_id
     return actuals
@@ -186,6 +208,56 @@ def validate(ledger):
                       "Invalid observed multi-turn outcome")
 
 
+def validate_report(report):
+    expected_keys = {
+        "schema", "baseline", "product", "external_inference_calls", "conversations",
+        "counts", "first_turn_ms", "warm_turn_ms", "process_ms", "max_sampled_working_set", "trials",
+    }
+    check(set(report) == expected_keys and report["schema"] == 1 and report["baseline"] == BASE and
+          report["external_inference_calls"] == 0 and re.fullmatch(r"[0-9a-f]{40}", report["product"]),
+          "Unexpected report header or provenance")
+    trials = report["trials"]
+    check(isinstance(trials, list) and len(trials) == len(CASES), "Unexpected report trial count")
+    files, origins = sources()
+    frozen = {row["id"]: row for row in json.loads(FROZEN.read_text(encoding="utf-8"))["trials"]}
+    for row, (cid, names, turn_specs) in zip(trials, CASES, strict=True):
+        check(row["id"] == cid and set(row["ids"]) == set(names) and
+              row["provenance"] == {name: origins[name] for name in names},
+              "Report trial order or source provenance mismatch")
+        check(type(row["process_ms"]) in (int, float) and 0 < row["process_ms"] < 60000 and len(row["runs"]) == 4,
+              "Invalid report process measurements")
+        selected = {name: files[name] for name in names}
+        first_actual = None
+        for run in row["runs"]:
+            check(type(run["workingSetBytes"]) == int and run["workingSetBytes"] > 0 and len(run["turns"]) == len(turn_specs),
+                  "Invalid report run measurements")
+            actual = inspect_run(run, selected, row["ids"], turn_specs)
+            if first_actual is None:
+                first_actual = actual
+            else:
+                check(actual == first_actual, "Non-reproducible report run outputs")
+        check(len(row["turns"]) == len(turn_specs), "Unexpected turn count in report")
+        ft_list = frozen[cid]["turns"]
+        for act, rt, ft, (q, exp_v, exp_locs) in zip(first_actual, row["turns"], ft_list, turn_specs, strict=True):
+            expected = gold(selected, exp_locs)
+            check(rt["question"] == q and rt["expected_citations"] == expected and rt["expected_verdict"] == exp_v and
+                  rt["search_outcome"] == ft["outcome"] and rt["search_verdict"] == ft["verdict"],
+                  "Report turn oracle or comparator mismatch")
+            check(act == (rt["host_verdict"], rt["host_citations"]) and
+                  turn_outcome(act, exp_v, expected) == rt["host_outcome"],
+                  "Report turn outcome mismatch")
+        check(row["search_complete"] == frozen[cid]["complete"] and
+              row["host_complete"] == all(t["host_outcome"] in ("exact_delivery", "correct_withhold") for t in row["turns"]),
+              "Report conversation completion flag mismatch")
+
+    flat = {policy: [t[f"{policy}_outcome"] for r in trials for t in r["turns"]] for policy in ("search", "host")}
+    expected_counts = {policy: {k: flat[policy].count(k) for k in ("exact_delivery", "wrong_delivery", "false_abstention", "correct_withhold", "verdict_mismatch")}
+                       for policy in ("search", "host")}
+    expected_convs = {policy: f"{sum(r[f'{policy}_complete'] for r in trials)}/{len(trials)}" for policy in ("search", "host")}
+    check(report["counts"] == expected_counts and report["conversations"] == expected_convs,
+          "Report summary counts do not match verified turns")
+
+
 def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes((json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode("utf-8"))
@@ -201,10 +273,11 @@ def main():
         ledger = json.loads(args.ledger.read_bytes())
         validate(ledger)
         report = json.loads(args.report.read_bytes())
+        validate_report(report)
         check(ledger["source_report_sha256"] == sha(args.report.read_bytes()) and report["product"] == ledger["product"] and
               ledger["observations"] == [row for row in report["trials"] if ledger_record(row) is not None],
               "Ledger differs from host report")
-        print(f"PASS {len(ledger['observations'])} real-source multi-turn outcomes and eligibility")
+        print(f"PASS {len(ledger['observations'])} real-source multi-turn outcomes, report summaries, and request integrity")
         return
     rows = collect()
     product = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
@@ -229,6 +302,7 @@ def main():
         "max_sampled_working_set": max(run["workingSetBytes"] for r in rows for run in r["runs"]),
         "trials": rows,
     }
+    validate_report(report)
     write(args.report, report)
     ledger = {
         "schema": 1,

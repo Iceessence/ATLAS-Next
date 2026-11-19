@@ -50,6 +50,50 @@ class Integrity(unittest.TestCase):
         exp = gold(CODE, [("Repo.cs", 5, "Load")])
         self.assertEqual(exp[0]["text"], "Load")
 
+    def test_ledger_rejects_mismatched_and_swapped_requests_with_matching_report_hash(self):
+        import copy, code_conversation_host as h
+        report = json.loads((ROOT / "docs/evidence/next-008/code-conversation.json").read_bytes())
+        ledger = json.loads((ROOT / "docs/evidence/next-008/eligible-outcomes.json").read_bytes())
+
+        def with_matching_hash(rep, led):
+            rep_bytes = (json.dumps(rep, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+            led["source_report_sha256"] = sha(rep_bytes)
+
+        # 1. Altered request in both report and ledger with matching report SHA-256
+        rep1 = copy.deepcopy(report)
+        led1 = copy.deepcopy(ledger)
+        fake_q = "Where is Unrelated.Fake() defined?"
+        for r in (rep1["trials"][0]["runs"], led1["observations"][0]["runs"]):
+            r[0]["turns"][0]["delivered"]["request"] = fake_q
+        with_matching_hash(rep1, led1)
+        with self.assertRaises(ValueError):
+            h.validate_report(rep1)
+        with self.assertRaises(ValueError):
+            h.validate(led1)
+
+        # 2. Swapped turn requests in a multi-turn conversation with matching report SHA-256
+        rep2 = copy.deepcopy(report)
+        led2 = copy.deepcopy(ledger)
+        for r in (rep2["trials"][1]["runs"], led2["observations"][1]["runs"]):
+            t0 = r[0]["turns"][0]["delivered"]["request"]
+            t1 = r[0]["turns"][1]["delivered"]["request"]
+            r[0]["turns"][0]["delivered"]["request"] = t1
+            r[0]["turns"][1]["delivered"]["request"] = t0
+        with_matching_hash(rep2, led2)
+        with self.assertRaises(ValueError):
+            h.validate_report(rep2)
+        with self.assertRaises(ValueError):
+            h.validate(led2)
+
+        # 3. Altered report summary count on constructed trial with matching report SHA-256
+        rep3 = copy.deepcopy(report)
+        led3 = copy.deepcopy(ledger)
+        rep3["trials"][-1]["host_complete"] = False
+        rep3["conversations"]["host"] = "13/14"
+        with_matching_hash(rep3, led3)
+        with self.assertRaises(ValueError):
+            h.validate_report(rep3)
+
     def test_qualified_comparator_pins_scope_and_overloads(self):
         from code_depth import CONTROL, CASES, FIXTURE, gold, search
         cases=[row for row in CASES if row[0]==CONTROL]

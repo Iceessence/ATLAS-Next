@@ -142,7 +142,7 @@ internal static class ProjectChecks
         Work Ask(string request,Guid? parent=null)=>engine.Finish(Submit(request,parent).Id);
 
         engine.SelectProject("conv");
-        const string repoSrc="""
+        const string repoNoUsings="""
             class DataStore {
                 public IReadOnlyList<string> Load(string? filter) => Array.Empty<string>();
                 public IReadOnlyList<string> Load(IReadOnlyList<int> ids) => Array.Empty<string>();
@@ -151,7 +151,7 @@ internal static class ProjectChecks
                 public int RefArg(ref int count) => count;
             }
             """;
-        const string workerSrc="""
+        const string workerNoUsings="""
             class Worker {
                 public int Run(DataStore s, IReadOnlyList<int> ids) => s.Load(ids).Count;
                 public int Other(DataStore s) => s.Load("a").Count;
@@ -159,37 +159,88 @@ internal static class ProjectChecks
             }
             class FakeStore { public IReadOnlyList<string> Load(IReadOnlyList<int> ids) => Array.Empty<string>(); }
             """;
+        put("Repo.cs","\uFEFF"+repoNoUsings);
+        put("Worker.cs",workerNoUsings);
+        var noUsingDef=Ask("Where is DataStore.Load(IReadOnlyList<int>) defined?");
+        check(noUsingDef is {State:"completed",Result:"Load",Evidence.Span.Line:3},
+            "generic overload declaration resolves syntactically without implicit usings");
+        check(Ask("Where is it called?",noUsingDef.Id).ResearchReview?.Verdict=="unsupported" &&
+            Ask("Where is DataStore.Load(IReadOnlyList<int>) called?").ResearchReview?.Verdict=="unsupported",
+            "omitted using directive safely withholds cross-file generic call lookup instead of injecting implicit usings");
+
+        const string repoSrc="using System;\nusing System.Collections.Generic;\n"+repoNoUsings;
+        const string workerSrc="using System;\nusing System.Collections.Generic;\n"+workerNoUsings;
         var repoDoc=put("Repo.cs","\uFEFF"+repoSrc);
         var workerDoc=put("Worker.cs",workerSrc);
 
         var genDef=Ask("Where is DataStore.Load( IReadOnlyList < int > ) defined?");
-        check(genDef is {State:"completed",Result:"Load",Evidence.Span.Line:3} && genDef.Evidence.Id==repoDoc.Id,
+        check(genDef is {State:"completed",Result:"Load",Evidence.Span.Line:5} && genDef.Evidence.Id==repoDoc.Id,
             "generic overload selector normalizes spaces with BOM offset");
         var nullDef=Ask("Where is DataStore.Load(string?) defined?");
-        check(nullDef is {State:"completed",Result:"Load",Evidence.Span.Line:2},"nullable overload selector disambiguates sibling");
+        check(nullDef is {State:"completed",Result:"Load",Evidence.Span.Line:4},"nullable overload selector disambiguates sibling");
         var arrDef=Ask("Where is DataStore.Save(byte[]) defined?");
-        check(arrDef is {State:"completed",Result:"Save",Evidence.Span.Line:4},"array parameter selector resolves unique method");
+        check(arrDef is {State:"completed",Result:"Save",Evidence.Span.Line:6},"array parameter selector resolves unique method");
         check(Ask("Where is DataStore.Matrix(int[,]) defined?").State=="needs clarification","multi-dimensional array selector withholds");
         check(Ask("Where is DataStore.RefArg(ref int) defined?").State=="needs clarification","ref modifier selector continues to withhold");
 
         var pSpan=Ask("What are its parameters?",genDef.Id);
-        check(pSpan is {State:"completed",Specialist:"code.parameters",Result:"(IReadOnlyList<int> ids)",Evidence.Span.Line:3},
+        check(pSpan is {State:"completed",Specialist:"code.parameters",Result:"(IReadOnlyList<int> ids)",Evidence.Span.Line:5},
             "selected C# definition delivers exact parameter list span");
         var rSpan=Ask("What is its return type?",genDef.Id);
-        check(rSpan is {State:"completed",Specialist:"code.return",Result:"IReadOnlyList<string>",Evidence.Span.Line:3},
+        check(rSpan is {State:"completed",Specialist:"code.return",Result:"IReadOnlyList<string>",Evidence.Span.Line:5},
             "selected C# definition delivers exact generic return type span");
         var callFollow=Ask("Where is it called?",genDef.Id);
         check(callFollow is {State:"completed",Kind:"code.calls",Specialist:"code.calls",ParentTaskId:{} pId} && pId==genDef.Id &&
             callFollow.Dependencies.SequenceEqual([genDef.Id.ToString("N")]) &&
-            callFollow.Result=="Worker.cs, line 2: s.Load(ids)" && callFollow.Evidence!.Id==repoDoc.Id &&
+            callFollow.Result=="Worker.cs, line 4: s.Load(ids)" && callFollow.Evidence!.Id==repoDoc.Id &&
             callFollow.ResearchReview!.Sources[1].Id==workerDoc.Id,
-            "contextual caller follow-up uses implicit global usings and excludes shadowed/other overloads");
-        check(Ask("Where is DataStore.Load(IReadOnlyList<int>) called?") is {State:"completed",Result:"Worker.cs, line 2: s.Load(ids)"},
-            "direct generic typed call lookup uses implicit global usings");
-        check(Ask("Where is DataStore.Load(string?) called?") is {State:"completed",Result:"Worker.cs, line 3: s.Load(\"a\")"},
+            "contextual caller follow-up uses explicit source usings and excludes shadowed/other overloads");
+        check(Ask("Where is DataStore.Load(IReadOnlyList<int>) called?") is {State:"completed",Result:"Worker.cs, line 4: s.Load(ids)"},
+            "direct generic typed call lookup uses explicit source usings");
+        check(Ask("Where is DataStore.Load(string?) called?") is {State:"completed",Result:"Worker.cs, line 5: s.Load(\"a\")"},
             "nullable call lookup binds matching argument overload");
         check(Ask("Where is it called?").ResearchReview?.Verdict=="unsupported","parentless caller follow-up withholds");
         check(Ask("Show me its callers.",rSpan.Id).ResearchReview?.Verdict=="unsupported","caller follow-up rejects non-definition parent");
+
+        engine.SelectProject("conv-ext");
+        const string extTarget="""
+            using System.Collections.Generic;
+            namespace App {
+                public static class Target {
+                    public static void Process(int x) {}
+                    public static void Process(string s) {}
+                }
+                public static class CustomSeq {
+                    public static string First(this IEnumerable<object> xs) => "ok";
+                }
+            }
+            """;
+        const string extCallerDisabled="""
+            using App;
+            class ExtRunner {
+                public void Run() {
+                    var v = new[] { 1 }.First();
+                    Target.Process(v);
+                }
+            }
+            """;
+        put("ExtTarget.cs",extTarget);
+        put("ExtCaller.cs",extCallerDisabled);
+        var procStrDef=Ask("Where is Target.Process(string) defined?");
+        var procIntDef=Ask("Where is Target.Process(int) defined?");
+        check(Ask("Where is Target.Process(string) called?") is {State:"completed",Result:"ExtCaller.cs, line 5: Target.Process(v)"} &&
+            Ask("Where is it called?",procStrDef.Id) is {State:"completed",Result:"ExtCaller.cs, line 5: Target.Process(v)"} &&
+            Ask("Where is Target.Process(int) called?").ResearchReview?.Verdict=="unsupported" &&
+            Ask("Where is it called?",procIntDef.Id).ResearchReview?.Verdict=="unsupported",
+            "competing extension method without System.Linq binds string overload for direct and selected callers");
+        put("ExtCaller.cs","using System.Linq;\n"+extCallerDisabled);
+        check(Ask("Where is Target.Process(int) called?") is {State:"completed",Result:"ExtCaller.cs, line 6: Target.Process(v)"} &&
+            Ask("Where is it called?",procIntDef.Id) is {State:"completed",Result:"ExtCaller.cs, line 6: Target.Process(v)"} &&
+            Ask("Where is Target.Process(string) called?").ResearchReview?.Verdict=="unsupported" &&
+            Ask("Where is it called?",procStrDef.Id).ResearchReview?.Verdict=="unsupported",
+            "explicit System.Linq import flips competing extension method to int overload for direct and selected callers");
+
+        engine.SelectProject("conv");
 
         var typeDef=Ask("Where is DataStore defined?");
         check(Ask("What is its return type?",typeDef.Id).ResearchReview?.Verdict=="unsupported","class declaration has no return type");
@@ -225,6 +276,20 @@ internal static class ProjectChecks
                     x: str = "a:b",
                 ) -> None:
                     pass
+                def lam(self, x: int) -> lambda a: a + 1:
+                    return lambda a: a + 1
+                def cont(self, x: int) -> \
+                    dict[str, int] \
+                    :
+                    return {}
+                def bad_order(self, a: int = 1, b: int):
+                    pass
+                def bad_kw(self, class: int = 1):
+                    pass
+                def bad_kw2(self, for):
+                    pass
+                def return(self):
+                    pass
                 def kwonly(self, a, *, b=1) -> int:
                     return a + b
                 def call_default(self, a=compute()) -> int:
@@ -240,6 +305,25 @@ internal static class ProjectChecks
         var pyCommented=Ask("Where is Pipeline.commented(2 parameters) defined?");
         check(pyCommented is {State:"completed",Result:"commented"},"Python signature ignores comments and respects colons inside strings");
         check(Ask("What are its parameters?",pyCommented.Id).Result!.Contains("# receiver"),"multiline Python parameter list preserves exact source span");
+        var pyLam=Ask("Where is Pipeline.lam(2 parameters) defined?");
+        check(pyLam is {State:"completed",Result:"lam",Evidence.Span.Line:9} &&
+            Ask("What are its parameters?",pyLam.Id).Result=="(self, x: int)" &&
+            Ask("What is its return type?",pyLam.Id).Result=="lambda a: a + 1",
+            "Python return annotation containing top-level lambda colon keeps exact span");
+        var pyCont=Ask("Where is Pipeline.cont(2 parameters) defined?");
+        check(pyCont is {State:"completed",Result:"cont",Evidence.Span.Line:11} &&
+            Ask("What is its return type?",pyCont.Id).Result=="dict[str, int]",
+            "Python return annotation excludes leading and trailing line continuations");
+        foreach(var badReq in new[]{"Where is Pipeline.bad_order(3 parameters) defined?","Where is Pipeline.bad_order defined?",
+            "Where is Pipeline.bad_kw(2 parameters) defined?","Where is Pipeline.bad_kw defined?",
+            "Where is Pipeline.bad_kw2(2 parameters) defined?","Where is Pipeline.bad_kw2 defined?",
+            "Where is Pipeline.return defined?"})
+            check(Ask(badReq).State=="needs clarification",$"malformed Python header withheld for {badReq}");
+        var rejectedDecl=Ask("Where is Pipeline.bad_order defined?");
+        check(rejectedDecl.State=="needs clarification" &&
+            Ask("What are its parameters?",rejectedDecl.Id).State=="needs clarification" &&
+            Ask("What is its return type?",rejectedDecl.Id).State=="needs clarification",
+            "malformed Python declaration cannot authorize a selected follow-up");
         check(Ask("Where is Pipeline.kwonly(3 parameters) defined?").State=="needs clarification","Python keyword-only separator still withholds arity lookup");
         check(Ask("Where is Pipeline.call_default(2 parameters) defined?").State=="needs clarification","Python call expression default still withholds arity lookup");
 

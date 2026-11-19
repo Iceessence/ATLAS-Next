@@ -69,9 +69,6 @@ internal static class ProjectQuestions
     public const string CallsType="code.calls";
     private const int MaxSources=8;
     private const int MaxCallChars=2048;
-    private static readonly SyntaxTree ImplicitUsings=CSharpSyntaxTree.ParseText(
-        "global using global::System;\nglobal using global::System.Collections.Generic;\nglobal using global::System.IO;\nglobal using global::System.Linq;\n",
-        path:"__ImplicitUsings.g.cs");
     private static readonly Lazy<CSharpCompilation> ReferenceContext=new(()=> {
         var coreDir=System.IO.Path.GetDirectoryName(typeof(object).Assembly.Location)!;
         var paths=new[]{
@@ -85,7 +82,6 @@ internal static class ProjectQuestions
             System.IO.Path.Combine(coreDir,"System.Runtime.InteropServices.dll")
         }.Where(System.IO.File.Exists).Distinct();
         return CSharpCompilation.Create("OwnerImportedSource",
-            syntaxTrees:new[]{ImplicitUsings},
             references:paths.Select(path=>MetadataReference.CreateFromFile(path)),
             options:new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary,concurrentBuild:false));
     });
