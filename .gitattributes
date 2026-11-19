@@ -1,3 +1,5 @@
 * text=auto eol=lf
 assets/** -text
 lab/*.json -text
+docs/ai/ATLAS_MASTER_PLAN.md -text whitespace=-trailing-space
+indexes/ATLAS_*.csv -text whitespace=cr-at-eol

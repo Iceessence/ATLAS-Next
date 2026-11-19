@@ -1,5 +1,7 @@
 # ATLAS Next
 
+Read the [canonical ATLAS Master Plan v3.3](docs/ai/ATLAS_MASTER_PLAN.md), [agent quickstart and navigation](docs/ai/ATLAS_MASTER_PLAN_README.md), and [current independent handoff](docs/ai/ATLAS_HANDOFF.md) before substantial development. The retained master specifies intended product behavior.
+
 Local Windows desktop research candidate. Ask the demonstration handbook about archive retention, restoring an archive, or export format. Each answer comes from a versioned file. The app compares its original CPU model with the active deterministic router and can export a receipt for every task.
 
 ## Run the packaged app

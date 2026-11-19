@@ -1,5 +1,7 @@
 # Roadmap
 
+The [canonical ATLAS Master Plan v3.3](ai/ATLAS_MASTER_PLAN.md) governs intended product behavior. Use the [verified navigation and requirements indexes](ai/ATLAS_MASTER_PLAN_README.md) and the [live handoff](ai/ATLAS_HANDOFF.md) for current implementation and review status.
+
 ## Native-original intelligence first
 
 The next batch moves work toward local decisions made by original ATLAS-trained weights. Verified local sources remain the factual and procedural record. The deterministic host owns authorization, provenance, validation and delivery. Optional external reference chat is a separate operation with its own consent and lineage.

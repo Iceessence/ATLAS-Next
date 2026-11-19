@@ -1,5 +1,7 @@
 # Product vision
 
+The [canonical ATLAS Master Plan v3.3](ai/ATLAS_MASTER_PLAN.md) governs intended product behavior. Use the [verified navigation and requirements indexes](ai/ATLAS_MASTER_PLAN_README.md) and the [live handoff](ai/ATLAS_HANDOFF.md) for current implementation and review status.
+
 ATLAS learns specialized decisions, retrieves facts and procedures from inspectable files, and checks whether its decisions improve verified outcomes. The first product demonstrates a bounded instance of that loop. The host owns permission, resource limits, execution and verification. Model origin and qualification travel with every proposal.
 
 The first original model advises the Primary coordinator on fact, procedure or clarification. The Engineering and Execution capability will propose scoped technical actions. Research and Verification will assess evidence sufficiency and propose checks. All three should use the same task/receipt lifecycle. Primary has a bounded routing experiment. The first Research & Verification implementation checks explicit file-backed claims. Engineering & Execution and qualified reasoning models remain future work. Deterministic software remains active where it delivers a qualified, bounded operation. ATLAS-adapted and external-reference implementations require separate recorded lineage if introduced.

@@ -1,5 +1,7 @@
 # First-release requirements
 
+The [canonical ATLAS Master Plan v3.3](ai/ATLAS_MASTER_PLAN.md) governs intended product behavior. Use the [verified navigation and requirements indexes](ai/ATLAS_MASTER_PLAN_README.md) and the [live handoff](ai/ATLAS_HANDOFF.md) for current implementation and review status.
+
 | Requirement | Current evidence or open condition |
 | --- | --- |
 | Standalone Windows app, offline package | Independent root Git history, clean-clone build, local ZIP runtime and real packaged window/relaunch. Fresh offline OS and signing remain release checks. |

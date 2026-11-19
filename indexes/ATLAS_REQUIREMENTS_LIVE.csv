@@ -1,0 +1,8 @@
+requirement_id,status,code_paths,test_paths,review_receipts,limitation
+ID-01,ACCEPTED_BOUNDED_SHADOW,lab/native_task.py;desktop/LocalReference.cs,lab/test_native_task.py,docs/evidence/independent-review-next015r-020.json,Native model decisions advisory
+ID-03,ACCEPTED_BOUNDED,desktop/Engine.cs;assets/library,checks/Program.cs,docs/evidence/independent-review-next015r-020.json,File-backed bounded fact and example procedures
+V33-172,ACCEPTED_BOUNDED,lab/native_data.py;lab/native_models.py,lab/test_native_data.py;lab/test_native_models.py,docs/evidence/independent-review-next015r-020.json,Public audit provenance; new Foundry contract pending
+V33-174,OPEN,lab/native_master.py,lab/test_native_master.py,docs/evidence/independent-review-next015r-020.json,Primary gate only; three-role competence unverified
+V33-176,BLOCKED,tools/check-guest.ps1,,docs/TEST_EVIDENCE.md,No qualified execution guest or host execution
+V33-184,ACCEPTED_BOUNDED_REJECTION,lab/native_improvement.py,lab/test_native_review.py,docs/evidence/independent-review-next015r-020.json,Refit rejected in author and protected comparisons
+V33-186,AUTHOR_VERIFIED,lab/master_spec.py;tools/check_master_plan.py,lab/test_master_spec.py,,Installed edition navigation; independent review pending

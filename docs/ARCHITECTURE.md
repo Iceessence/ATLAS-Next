@@ -1,5 +1,7 @@
 # Architecture
 
+The [canonical ATLAS Master Plan v3.3](ai/ATLAS_MASTER_PLAN.md) governs intended product behavior. Use the [verified navigation and requirements indexes](ai/ATLAS_MASTER_PLAN_README.md) and the [live handoff](ai/ATLAS_HANDOFF.md) for current implementation and review status.
+
 A single unelevated WPF process calls the trusted C# Engine. Release-pinned arrays supply local neural inference. The offline lab trains and evaluates separately. The outcome probe in the checks executable exercises the same import, submit and finish paths as WPF. The desktop exposes read-only lookup, owner-triggered file import, and source-scoped coding and research views. The optional reference client sends text only to the fixed IPv4 loopback Ollama endpoint after owner opt-in and model selection. It disables proxies and redirection, verifies the selected model inventory digest, and bounds request and response sizes. The reference client has no tools. Verified conclusions come from the deterministic host.
 
 | Owner | Runtime contract |

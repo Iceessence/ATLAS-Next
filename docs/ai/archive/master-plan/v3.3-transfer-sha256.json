@@ -1,0 +1,342 @@
+{
+  "schema_version": "atlas.transfer_manifest.v3.3",
+  "edition": "3.3",
+  "date": "2026-11-19",
+  "file_count_excluding_manifest": 65,
+  "canonical_sha256": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b",
+  "source_originals": 18,
+  "historical_archive_policy": "historical preserved nonbinding; user private vault not supplied",
+  "notes": [
+    "This is a documentation transfer, not a claimed current implementation release.",
+    "SHA-256 identifies bytes, not scientific correctness.",
+    "Exact previous v3.2 input master and previous v3.1 bundle are retained.",
+    "Live Git and independent reviewer receipts supersede the implementation snapshot in this archive."
+  ],
+  "files": [
+    {
+      "path": "README_FIRST.md",
+      "size_bytes": 4450,
+      "sha256": "d5fe968403479cb3a458cf72a5f947d7e0d30e870e70bcb5719225a2bec62882"
+    },
+    {
+      "path": "archive/ATLAS_FULL_TRANSFER_v3_1_original.zip",
+      "size_bytes": 6560643,
+      "sha256": "c366c3eae365ebafc4448aac87b7f81ce2c910a2517f02ac6bf1854109c575e9"
+    },
+    {
+      "path": "archive/ATLAS_MASTER_PLAN_v3_1.docx",
+      "size_bytes": 216507,
+      "sha256": "3789b44aa007f43596590d1c6c656fbf6b4ad0eb547d7d7f417ced03984e4b56"
+    },
+    {
+      "path": "archive/ATLAS_MASTER_PLAN_v3_1.md",
+      "size_bytes": 488569,
+      "sha256": "e9dda67da1f965ad7fc0defa8e4cc999454cc0c1877ec5517685d6c700e19ec8"
+    },
+    {
+      "path": "archive/ATLAS_MASTER_PLAN_v3_2_original.md",
+      "size_bytes": 503821,
+      "sha256": "7cd79e552ea66cea51604c5629c0be141ad7b11bf6161c3c534d325e57a09afd"
+    },
+    {
+      "path": "archive/ATLAS_UNABRIDGED_CANONICAL_AND_HISTORICAL_TRANSCRIPTS.md",
+      "size_bytes": 2470007,
+      "sha256": "210f7014af8356659b55fbff525205cd5b0c606e182188c8fb4dc96dfc04e60b"
+    },
+    {
+      "path": "archive/source_originals/00_READ_FIRST_AND_NON_NEGOTIABLE_DOCTRINE.md",
+      "size_bytes": 9128,
+      "sha256": "756c0d7734e475392023dbb66322d01aa967bb6a358b960f34b23506f18fa948"
+    },
+    {
+      "path": "archive/source_originals/01_COMPLETE_MASTER_VISION_AND_ARCHITECTURE.md",
+      "size_bytes": 30646,
+      "sha256": "796c8894d1200d60d57447877b335116855ba78ad5294c0ad2ef40a194dfc1dc"
+    },
+    {
+      "path": "archive/source_originals/01_GPT_SOL_FULL_IMPLEMENTATION_PROMPT_V5.md",
+      "size_bytes": 110493,
+      "sha256": "ef835412fd49b6d4151631e4677f8720bdb594dfa5698570c7c8e280201fefbf"
+    },
+    {
+      "path": "archive/source_originals/02_ASTRA_ULTRA_DEVELOPMENT_MASTER_PROMPT.md",
+      "size_bytes": 21371,
+      "sha256": "49d3e7eed835bbdf2e2b4baf235c086e3017bf57213ed41b45c6d1eebabeee0d"
+    },
+    {
+      "path": "archive/source_originals/03_ATLAS_INTERNAL_AGENT_CONSTITUTION.md",
+      "size_bytes": 16233,
+      "sha256": "3445ef507e53a77b13ba945ed9243ba7dae14d87948e1afd18c2fb5610e4c588"
+    },
+    {
+      "path": "archive/source_originals/04_KNOWLEDGE_FILE_STRUCTURE_AND_SCHEMAS.md",
+      "size_bytes": 17026,
+      "sha256": "f21531b836b98f4cdb588904ba92aa5dd4cd520511c7633197b4ee80b902f3b4"
+    },
+    {
+      "path": "archive/source_originals/05_AUTONOMOUS_TRAINING_ARENA_AND_EVALUATION.md",
+      "size_bytes": 14803,
+      "sha256": "696548aa877f244a828f530cdcb3d5de243c507fe45c0c8ddf145a097fbfd5b0"
+    },
+    {
+      "path": "archive/source_originals/06_DESKTOP_SERVER_UI_AND_WORKFLOWS.md",
+      "size_bytes": 9672,
+      "sha256": "6ec7b2bc6786f8ee8d1eaaa96e3bf641498d57d97fb33f2b91d1f11477eec435"
+    },
+    {
+      "path": "archive/source_originals/07_START_RESUME_AND_DELIVERY.md",
+      "size_bytes": 6393,
+      "sha256": "0d6790d357886ded8bf4441674e8d4343c8a2eeff0dd941beffafdb8979ba80a"
+    },
+    {
+      "path": "archive/source_originals/08_REQUIREMENTS_AND_ACCEPTANCE.md",
+      "size_bytes": 16408,
+      "sha256": "e8d3e2b8016f63e99845cf6379333d02dedb800f9e162b366149c8ef06afee19"
+    },
+    {
+      "path": "archive/source_originals/ATLAS_CANONICAL_MASTER_PLAN_2026-11-19.md",
+      "size_bytes": 245953,
+      "sha256": "49e6d5da11a9a189b288dcf3310667eee024eaca9c7c290818fcfc3304c603b0"
+    },
+    {
+      "path": "archive/source_originals/ATLAS_Complete_Master_Specification_and_Prompt (1)(2).docx",
+      "size_bytes": 3668454,
+      "sha256": "ea43303b89cb444239e3e029288d913b1171a6c2b2c04a8823a68f5606df62e4"
+    },
+    {
+      "path": "archive/source_originals/ATLAS_PLATZ_COMPLETE_PRODUCT_MANUAL(2).docx",
+      "size_bytes": 66104,
+      "sha256": "dc33d23fcf8de8c99ed69ab20e0a940f4e082297a3146de68a5663e2dd528d5b"
+    },
+    {
+      "path": "archive/source_originals/ATLAS_SINGLE_FILE_UNIFIED_MASTER_PROMPT(1).md",
+      "size_bytes": 143214,
+      "sha256": "0cc2210398346b7cfe5f8f2d40d76cafc9311c23aa3dd271f47153c5a773b0f4"
+    },
+    {
+      "path": "archive/source_originals/ATLAS_Unified_Master_Specification_v2_0(1).docx",
+      "size_bytes": 72805,
+      "sha256": "2f94595c119621c4d8115e5c3b3bbc7f0a70a8b4867d0e9017b4526077ccead1"
+    },
+    {
+      "path": "archive/source_originals/MASTER_SPEC.md",
+      "size_bytes": 55898,
+      "sha256": "f1ab56f21c5dda0e900fc7fcbde56c68beaded3e82585d97a38ad4ade41b3fa4"
+    },
+    {
+      "path": "archive/source_originals/PLATZ_MASTER_PORTABLE_AGENT_AGNOSTIC.md",
+      "size_bytes": 589604,
+      "sha256": "f21ac5c9c62da175f92f6eb9e0bfb3cc424f900d2814ea37f2a1b02d1f1e550a"
+    },
+    {
+      "path": "archive/source_originals/local_master_independence_roadmap.md",
+      "size_bytes": 16983,
+      "sha256": "b9cb52dfe4761d4fba2329a42be83beede3da17db64ead015f8b7fdaa2dde818"
+    },
+    {
+      "path": "archive/source_transcripts/01_MASTER_SPEC.md",
+      "size_bytes": 54159,
+      "sha256": "767751291f59ec7d61570f0f7cc959acac56bc473fb1964ffa3d84ee717ddc40"
+    },
+    {
+      "path": "archive/source_transcripts/02_ATLAS_PLATZ_COMPLETE_PRODUCT_MANUAL_2_.md",
+      "size_bytes": 111265,
+      "sha256": "fd6bab65d71624f76cc2a42621a528eb6678cc0b68387bffcef7693da1edf713"
+    },
+    {
+      "path": "archive/source_transcripts/03_local_master_independence_roadmap.md",
+      "size_bytes": 16779,
+      "sha256": "82d220ea22ce2248c4c247b3de9351341076b66220fa2131ae4e00427a2ba55f"
+    },
+    {
+      "path": "archive/source_transcripts/04_07_START_RESUME_AND_DELIVERY.md",
+      "size_bytes": 6393,
+      "sha256": "0d6790d357886ded8bf4441674e8d4343c8a2eeff0dd941beffafdb8979ba80a"
+    },
+    {
+      "path": "archive/source_transcripts/05_08_REQUIREMENTS_AND_ACCEPTANCE.md",
+      "size_bytes": 16408,
+      "sha256": "e8d3e2b8016f63e99845cf6379333d02dedb800f9e162b366149c8ef06afee19"
+    },
+    {
+      "path": "archive/source_transcripts/06_ATLAS_SINGLE_FILE_UNIFIED_MASTER_PROMPT_1_.md",
+      "size_bytes": 143214,
+      "sha256": "0cc2210398346b7cfe5f8f2d40d76cafc9311c23aa3dd271f47153c5a773b0f4"
+    },
+    {
+      "path": "archive/source_transcripts/07_00_READ_FIRST_AND_NON_NEGOTIABLE_DOCTRINE.md",
+      "size_bytes": 9128,
+      "sha256": "756c0d7734e475392023dbb66322d01aa967bb6a358b960f34b23506f18fa948"
+    },
+    {
+      "path": "archive/source_transcripts/08_01_COMPLETE_MASTER_VISION_AND_ARCHITECTURE.md",
+      "size_bytes": 30646,
+      "sha256": "796c8894d1200d60d57447877b335116855ba78ad5294c0ad2ef40a194dfc1dc"
+    },
+    {
+      "path": "archive/source_transcripts/09_02_ASTRA_ULTRA_DEVELOPMENT_MASTER_PROMPT.md",
+      "size_bytes": 21371,
+      "sha256": "49d3e7eed835bbdf2e2b4baf235c086e3017bf57213ed41b45c6d1eebabeee0d"
+    },
+    {
+      "path": "archive/source_transcripts/10_03_ATLAS_INTERNAL_AGENT_CONSTITUTION.md",
+      "size_bytes": 16233,
+      "sha256": "3445ef507e53a77b13ba945ed9243ba7dae14d87948e1afd18c2fb5610e4c588"
+    },
+    {
+      "path": "archive/source_transcripts/11_04_KNOWLEDGE_FILE_STRUCTURE_AND_SCHEMAS.md",
+      "size_bytes": 17026,
+      "sha256": "f21531b836b98f4cdb588904ba92aa5dd4cd520511c7633197b4ee80b902f3b4"
+    },
+    {
+      "path": "archive/source_transcripts/12_05_AUTONOMOUS_TRAINING_ARENA_AND_EVALUATION.md",
+      "size_bytes": 14803,
+      "sha256": "696548aa877f244a828f530cdcb3d5de243c507fe45c0c8ddf145a097fbfd5b0"
+    },
+    {
+      "path": "archive/source_transcripts/13_06_DESKTOP_SERVER_UI_AND_WORKFLOWS.md",
+      "size_bytes": 9672,
+      "sha256": "6ec7b2bc6786f8ee8d1eaaa96e3bf641498d57d97fb33f2b91d1f11477eec435"
+    },
+    {
+      "path": "archive/source_transcripts/14_01_GPT_SOL_FULL_IMPLEMENTATION_PROMPT_V5.md",
+      "size_bytes": 110493,
+      "sha256": "ef835412fd49b6d4151631e4677f8720bdb594dfa5698570c7c8e280201fefbf"
+    },
+    {
+      "path": "archive/source_transcripts/15_ATLAS_Complete_Master_Specification_and_Prompt_1_2_.md",
+      "size_bytes": 326558,
+      "sha256": "e3c4a15e6fbd4eb9dfc30e113a7ea0559f5c8568413e3a3c41b4372fb592705f"
+    },
+    {
+      "path": "archive/source_transcripts/16_ATLAS_Unified_Master_Specification_v2_0_1_.md",
+      "size_bytes": 138577,
+      "sha256": "269fefdc4edad3c9867fb642e4da5476aa76cee2289aeb3989190bc3d1d270a8"
+    },
+    {
+      "path": "archive/source_transcripts/17_ATLAS_CANONICAL_MASTER_PLAN_2026-11-19.md",
+      "size_bytes": 245953,
+      "sha256": "49e6d5da11a9a189b288dcf3310667eee024eaca9c7c290818fcfc3304c603b0"
+    },
+    {
+      "path": "archive/source_transcripts/18_PLATZ_MASTER_PORTABLE_AGENT_AGNOSTIC.md",
+      "size_bytes": 589604,
+      "sha256": "f21ac5c9c62da175f92f6eb9e0bfb3cc424f900d2814ea37f2a1b02d1f1e550a"
+    },
+    {
+      "path": "archive/v3_1_indexes/ATLAS_50_REQUIREMENTS_TRACE.csv",
+      "size_bytes": 13975,
+      "sha256": "5a3d335730b9da513952c7050ea2356ebffb8851525fe4d44a47906978595413"
+    },
+    {
+      "path": "archive/v3_1_indexes/ATLAS_MASTER_SOURCE_AUDIT.json",
+      "size_bytes": 737,
+      "sha256": "ec81ac7fb83f3046c191df0aa247c5d425574afef5f0b81c245778e8ac33fa0e"
+    },
+    {
+      "path": "archive/v3_1_indexes/ATLAS_SOURCE_HEADING_CROSSWALK.csv",
+      "size_bytes": 506067,
+      "sha256": "fbbd3ab0723e595bcc9342853dbd3faf2dd672f3eae892dadbd037d9fc2c7888"
+    },
+    {
+      "path": "archive/v3_1_indexes/source_inventory.json",
+      "size_bytes": 236185,
+      "sha256": "046612869f59776ea7764b085cbdc6810742f53b935249de49ccfc7fd7b8a586"
+    },
+    {
+      "path": "canonical/ATLAS_MASTER_PLAN.docx",
+      "size_bytes": 248251,
+      "sha256": "e848ed5dfabb73db687f010b3603f3490044232bd9369c4fa28129439872e415"
+    },
+    {
+      "path": "canonical/ATLAS_MASTER_PLAN.md",
+      "size_bytes": 587813,
+      "sha256": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b"
+    },
+    {
+      "path": "docs/ATLAS_AI_QUICKSTART_v3_3.md",
+      "size_bytes": 4220,
+      "sha256": "320df78528186599859fe8a7065e0b9d749f4bb20c8b011a238fbdb95a029f75"
+    },
+    {
+      "path": "docs/ATLAS_OWNER_BATCH_REPORT_TEMPLATE.md",
+      "size_bytes": 3471,
+      "sha256": "974c8da41fbb7678915534956059bd4d7f63124348478f763f1bfb93646e6ca6"
+    },
+    {
+      "path": "docs/ATLAS_OWNER_GUIDE_v3_3.md",
+      "size_bytes": 10668,
+      "sha256": "9d7eb5bcf22d9740c607468c0a18092b3b460d01bf4552d754e52a20d101bb09"
+    },
+    {
+      "path": "docs/ATLAS_SOURCE_COVERAGE_AND_CHANGELOG_v3_3.md",
+      "size_bytes": 5436,
+      "sha256": "ca0bf0c8c4b71e475529d775a15a7237e95e488625cffef94b1a2be47f839862"
+    },
+    {
+      "path": "docs/NEW_APPENDICES_P_W.md",
+      "size_bytes": 17428,
+      "sha256": "7e7ed1fac56e217803bef0558ed142cbb0370f3c3f491fdbb03a1dd994ca2808"
+    },
+    {
+      "path": "docs/PART_XXIII_v3_3.md",
+      "size_bytes": 65319,
+      "sha256": "09c6d3d8346f128f3a72baa7c42de7b08103219fbd513b87602a6ef1193072ce"
+    },
+    {
+      "path": "indexes/ATLAS_CHAPTER_NAVIGATION.csv",
+      "size_bytes": 46468,
+      "sha256": "07e8113826134e7d7838d9f0d68699e2d95c0666f48eaec9b4bbd0d00bf30010"
+    },
+    {
+      "path": "indexes/ATLAS_HISTORICAL_SOURCE_HEADING_CROSSWALK.csv",
+      "size_bytes": 506067,
+      "sha256": "fbbd3ab0723e595bcc9342853dbd3faf2dd672f3eae892dadbd037d9fc2c7888"
+    },
+    {
+      "path": "indexes/ATLAS_MASTER_INDEX.json",
+      "size_bytes": 153251,
+      "sha256": "11fae4762e3c84b14da9562c64cbcaafeabbb127ea295a9fd93d7dd98c38aa39"
+    },
+    {
+      "path": "indexes/ATLAS_REQUIREMENTS_TRACE.csv",
+      "size_bytes": 17426,
+      "sha256": "d3598de018eff2b73c420b8a00f658c901dfb9cbc4ffd8f632ea9a15c55dc78c"
+    },
+    {
+      "path": "indexes/ATLAS_REQUIREMENTS_TRACE.json",
+      "size_bytes": 37026,
+      "sha256": "fc808acd452e06bc54f6d3f20f94988468d0cb2f3464738ede90fb9368a6d85a"
+    },
+    {
+      "path": "indexes/ATLAS_SOURCE_ORIGINALS_SHA256.json",
+      "size_bytes": 4611,
+      "sha256": "95a53d1a4e8fe491f0c3837968f8eb612e725e350d514cbe6360fafa3c760f4f"
+    },
+    {
+      "path": "prompts/ARGON_INDEPENDENT_BATCH_REVIEW.md",
+      "size_bytes": 7706,
+      "sha256": "57ba927613574b8e12e70030a2e14c96172a82f65bd9e0fdba71c56c62700864"
+    },
+    {
+      "path": "prompts/SHORT_ARGON_OWNER_RELAY.md",
+      "size_bytes": 694,
+      "sha256": "5b41bf609e3561ac48d9e0d1488bce03308cf146e8c3b8fbf065b51f904bad11"
+    },
+    {
+      "path": "prompts/SHORT_SOL_OWNER_RELAY.md",
+      "size_bytes": 886,
+      "sha256": "f43d25d447e775c38921488614de35d626298e57dac97670584d482915126338"
+    },
+    {
+      "path": "prompts/SOL_INSTALL_AND_NEXT_021_025.md",
+      "size_bytes": 15898,
+      "sha256": "1253c0f9ab776b218dc6c656e922f01c030a93f4e95d2f2957f3e1aa7c34273c"
+    },
+    {
+      "path": "tools/check_master_plan.py",
+      "size_bytes": 2769,
+      "sha256": "16b92851477668102bce84fee0965d218a79ab290f5d20e1c2f86ad96815e430"
+    }
+  ]
+}

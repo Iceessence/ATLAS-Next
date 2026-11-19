@@ -1,0 +1,27 @@
+{
+  "schema": "atlas.master_version.v1",
+  "edition": "v3.3",
+  "effective_date": "2026-11-19",
+  "canonical": "docs/ai/ATLAS_MASTER_PLAN.md",
+  "index": "indexes/ATLAS_MASTER_INDEX.json",
+  "files": {
+    "docs/ai/ATLAS_MASTER_PLAN.md": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b",
+    "indexes/ATLAS_MASTER_INDEX.json": "11fae4762e3c84b14da9562c64cbcaafeabbb127ea295a9fd93d7dd98c38aa39",
+    "indexes/ATLAS_REQUIREMENTS_TRACE.csv": "d3598de018eff2b73c420b8a00f658c901dfb9cbc4ffd8f632ea9a15c55dc78c",
+    "indexes/ATLAS_REQUIREMENTS_TRACE.json": "fc808acd452e06bc54f6d3f20f94988468d0cb2f3464738ede90fb9368a6d85a",
+    "docs/ai/archive/master-plan/v3.3-transfer-sha256.json": "e5d4fb4d951b34db9d8bdfa37b565dea7847d765f9f8a6ef7310a05977a9188d"
+  },
+  "archive": {
+    "path": "C:/ATLAS/ATLAS-Next-master-archive/2026-11-19-v3.3/ATLAS_COMPLETE_MASTER_PACKAGE_v3_3_2026-11-19.zip",
+    "sha256": "cbc7a3b0b02e11eb1718f028c0e8dd2c93c2138a046c02942812d199309142d4",
+    "policy": "historical sources and previous editions, nonbinding",
+    "originals": 18,
+    "previous_editions": [
+      "archive/ATLAS_MASTER_PLAN_v3_1.md",
+      "archive/ATLAS_MASTER_PLAN_v3_2_original.md",
+      "archive/ATLAS_FULL_TRANSFER_v3_1_original.zip"
+    ],
+    "unsupplied": "NOT_SUPPLIED",
+    "contents": "docs/ai/archive/master-plan/v3.3-transfer-sha256.json"
+  }
+}

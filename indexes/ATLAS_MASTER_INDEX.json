@@ -1,0 +1,4316 @@
+{
+  "schema_version": "atlas.master_index.v1",
+  "document": "docs/ai/ATLAS_MASTER_PLAN.md",
+  "edition": "v3.3",
+  "effective_date": "2026-11-19",
+  "sha256": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b",
+  "total_lines": 3983,
+  "total_words": 73432,
+  "note": "Navigational derivative; master text and trusted host supersede; verify source SHA before any use.",
+  "entries": [
+    {
+      "id": "SECTION-atlas-ai--complete-canonical-master-specification-owner-cons",
+      "title": "ATLAS AI — COMPLETE CANONICAL MASTER SPECIFICATION, OWNER CONSTITUTION & NATIVE INTELLIGENCE BLUEPRINT",
+      "level": 1,
+      "start_line": 1,
+      "end_line": 45,
+      "sha256": "18d831cd8428ac58207b3be05d0e763214a0bca805929904b1c63812117ab4e3",
+      "heading_slug": "atlas-ai-complete-canonical-master-specification-owner-constitution-native-intelligence-blueprint",
+      "word_count": 1093,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native",
+        "master",
+        "atlas",
+        "owner"
+      ]
+    },
+    {
+      "id": "SECTION-complete-document-map-and-order-of-authority",
+      "title": "Complete document map and order of authority",
+      "level": 2,
+      "start_line": 15,
+      "end_line": 35,
+      "sha256": "5a7df4ef246b408bf45919b3aa13cd32eeee52b0d210c01dd2416860a63fcd81",
+      "heading_slug": "complete-document-map-and-order-of-authority",
+      "word_count": 367,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SECTION-how-to-use-this-master-document",
+      "title": "How to use this master document",
+      "level": 2,
+      "start_line": 36,
+      "end_line": 45,
+      "sha256": "f3d79cf54166c062a1099521542c971180c96d24085be8e42061f082e6f295ea",
+      "heading_slug": "how-to-use-this-master-document",
+      "word_count": 370,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "master"
+      ]
+    },
+    {
+      "id": "PART-I",
+      "title": "PART I — IDENTITY, MISSION, PRINCIPLES AND PRODUCT BOUNDARIES",
+      "level": 1,
+      "start_line": 46,
+      "end_line": 97,
+      "sha256": "eb5b5e5f6d5b6c4f5a22989aeae9924921ffc8852adec540d94d075d25b11fac",
+      "heading_slug": "part-i-identity-mission-principles-and-product-boundaries",
+      "word_count": 1005,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-001",
+      "title": "1. Identity and ecosystem",
+      "level": 2,
+      "start_line": 48,
+      "end_line": 55,
+      "sha256": "1e9c534ceae988ae2c000a74b3c925d2f701449dfa1e4a7d4a4d4cb81c8e7d05",
+      "heading_slug": "1-identity-and-ecosystem",
+      "word_count": 188,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-002",
+      "title": "2. The one-sentence product promise",
+      "level": 2,
+      "start_line": 56,
+      "end_line": 61,
+      "sha256": "404a7aef00a6156d5d24b64466901a0d673611981e6ab93ed7ba0a097e8e2597",
+      "heading_slug": "2-the-one-sentence-product-promise",
+      "word_count": 115,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-003",
+      "title": "3. Ten permanent principles",
+      "level": 2,
+      "start_line": 62,
+      "end_line": 83,
+      "sha256": "3a4f837a957a3329f4999072c5b986c08dc6d5115008af31ac7a5cdbc3350451",
+      "heading_slug": "3-ten-permanent-principles",
+      "word_count": 307,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-004",
+      "title": "4. Primary target hardware and delivery",
+      "level": 2,
+      "start_line": 84,
+      "end_line": 89,
+      "sha256": "0733c67ec239be20ed78870690d7007178096138e86deaabdd38097a66ce95ac",
+      "heading_slug": "4-primary-target-hardware-and-delivery",
+      "word_count": 196,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-005",
+      "title": "5. Who uses ATLAS and for what",
+      "level": 2,
+      "start_line": 90,
+      "end_line": 93,
+      "sha256": "94f07d7fa6386cfa0c209587939a45d7831d2e268350538fdaed4cddb19890ee",
+      "heading_slug": "5-who-uses-atlas-and-for-what",
+      "word_count": 82,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-006",
+      "title": "6. The intended everyday experience",
+      "level": 2,
+      "start_line": 94,
+      "end_line": 97,
+      "sha256": "1dfb2bacbce39c41194172e63addb8ae874514ebae52d1dfe916d39d445439a2",
+      "heading_slug": "6-the-intended-everyday-experience",
+      "word_count": 107,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-II",
+      "title": "PART II — CURRENT TRUTH, HISTORICAL CONTINUITY AND IMPLEMENTATION STATUS",
+      "level": 1,
+      "start_line": 98,
+      "end_line": 119,
+      "sha256": "310e393dece33878f01a6a0546644224ac043cfb5f9ecc145f226933e67ebe88",
+      "heading_slug": "part-ii-current-truth-historical-continuity-and-implementation-status",
+      "word_count": 676,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-007",
+      "title": "7. Latest known ATLAS Next state (snapshot, not a live claim)",
+      "level": 2,
+      "start_line": 100,
+      "end_line": 109,
+      "sha256": "b6f4eb9fccb871d51d31e1c31c334b4da47981a6913cb62a97d8c70cc4f6c59b",
+      "heading_slug": "7-latest-known-atlas-next-state-snapshot-not-a-live-claim",
+      "word_count": 390,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-008",
+      "title": "8. Original ATLAS legacy system and preservation",
+      "level": 2,
+      "start_line": 110,
+      "end_line": 115,
+      "sha256": "58c49a7b88d6e8bd45cfa4049bc099a70732e5104b041b0f39ad54d385c1cd4a",
+      "heading_slug": "8-original-atlas-legacy-system-and-preservation",
+      "word_count": 191,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-009",
+      "title": "9. Anti-drift verification question",
+      "level": 2,
+      "start_line": 116,
+      "end_line": 119,
+      "sha256": "d65579fb2de286e6f6d6ec6fee24365f6b59feee0596588d64e7565973e81aaf",
+      "heading_slug": "9-anti-drift-verification-question",
+      "word_count": 84,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-III",
+      "title": "PART III — THE FIVE TIERS, MASTER INTELLIGENCES AND SPECIALIST ECOSYSTEM",
+      "level": 1,
+      "start_line": 120,
+      "end_line": 161,
+      "sha256": "38ad317215b119f3dc38f28c2326215837ca9206575ff59cae30f86520729511",
+      "heading_slug": "part-iii-the-five-tiers-master-intelligences-and-specialist-ecosystem",
+      "word_count": 1137,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "master"
+      ]
+    },
+    {
+      "id": "CH-010",
+      "title": "10. Five-tier architecture — distinguish physical authority from neural roles",
+      "level": 2,
+      "start_line": 122,
+      "end_line": 127,
+      "sha256": "5fa3b5e85af32dd179c3b0a15c4184c7ebb21ac9c8cb57af54b8821f1e0e235f",
+      "heading_slug": "10-five-tier-architecture-distinguish-physical-authority-from-neural-roles",
+      "word_count": 207,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-011",
+      "title": "11. Three indispensable Master competencies",
+      "level": 2,
+      "start_line": 128,
+      "end_line": 139,
+      "sha256": "68c9c4961de5a0a09dc38d689fd7ac640092418f272e1bef51d2a23207733a63",
+      "heading_slug": "11-three-indispensable-master-competencies",
+      "word_count": 304,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "master"
+      ]
+    },
+    {
+      "id": "CH-012",
+      "title": "12. Role taxonomy and activation",
+      "level": 2,
+      "start_line": 140,
+      "end_line": 145,
+      "sha256": "14a70948a76450029a090333167e21d7e1d2d353d9c6c208494f9352b681a52d",
+      "heading_slug": "12-role-taxonomy-and-activation",
+      "word_count": 173,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-013",
+      "title": "13. Deterministic zero-model / pure-file mode",
+      "level": 2,
+      "start_line": 146,
+      "end_line": 149,
+      "sha256": "d37b7704ab4c44e750099dd0f8330e921254b20aceb528801d6f1c912d424579",
+      "heading_slug": "13-deterministic-zero-model-pure-file-mode",
+      "word_count": 115,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-014",
+      "title": "14. Optional reference-model phase-out",
+      "level": 2,
+      "start_line": 150,
+      "end_line": 155,
+      "sha256": "612e5854f913f565adfe2bb6efdfc2fcbfae52a7d3f989f7b1eb8bb3e315b9ad",
+      "heading_slug": "14-optional-reference-model-phase-out",
+      "word_count": 184,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-015",
+      "title": "15. Internal agent constitution",
+      "level": 2,
+      "start_line": 156,
+      "end_line": 161,
+      "sha256": "ee5135359888df3656acb2dd22c8c595275940d72cab63d02a6e1eedc3957197",
+      "heading_slug": "15-internal-agent-constitution",
+      "word_count": 142,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "agent"
+      ]
+    },
+    {
+      "id": "PART-IV",
+      "title": "PART IV — CANONICAL FILE-FIRST KNOWLEDGE, PROCEDURES, MEMORY AND CONTEXT",
+      "level": 1,
+      "start_line": 162,
+      "end_line": 252,
+      "sha256": "cd908e94490d372c98890c85c4c92f7e8d3b1ba5d019767a8fd7e3215f578e5f",
+      "heading_slug": "part-iv-canonical-file-first-knowledge-procedures-memory-and-context",
+      "word_count": 1028,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "procedure",
+        "knowledge"
+      ]
+    },
+    {
+      "id": "CH-016",
+      "title": "16. Why the file hierarchy is foundational",
+      "level": 2,
+      "start_line": 164,
+      "end_line": 169,
+      "sha256": "9d6eb09ab89128190cbdde4b0c2a8e7c72c5f9887a1f54f9b990bf12f4365935",
+      "heading_slug": "16-why-the-file-hierarchy-is-foundational",
+      "word_count": 158,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-017",
+      "title": "17. The twelve conceptual canonical vaults",
+      "level": 2,
+      "start_line": 170,
+      "end_line": 199,
+      "sha256": "111e1f32d389b48a6d08f989868dacc06a5ad4f48aa7aae8214d07f27f87190d",
+      "heading_slug": "17-the-twelve-conceptual-canonical-vaults",
+      "word_count": 262,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-018",
+      "title": "18. Example file-system layout",
+      "level": 2,
+      "start_line": 200,
+      "end_line": 232,
+      "sha256": "a9e2ba7f64af1991d872f85bfc2fd5ff415ada024870c306c6c8882952c4a28d",
+      "heading_slug": "18-example-file-system-layout",
+      "word_count": 78,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-019",
+      "title": "19. Source/claim/procedure lifecycle",
+      "level": 2,
+      "start_line": 233,
+      "end_line": 238,
+      "sha256": "b9c78a447ee20c832b5bc4ef156f7189c0b6c61f250097684d50847c3dcae866",
+      "heading_slug": "19-sourceclaimprocedure-lifecycle",
+      "word_count": 146,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "procedure",
+        "source"
+      ]
+    },
+    {
+      "id": "CH-020",
+      "title": "20. Retrieval and context management",
+      "level": 2,
+      "start_line": 239,
+      "end_line": 242,
+      "sha256": "8683253c5c0d9847a766db7e371ca7f57d7ab798687c9c32e4fcc396debad028",
+      "heading_slug": "20-retrieval-and-context-management",
+      "word_count": 107,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-021",
+      "title": "21. Neural-to-file learning flywheel",
+      "level": 2,
+      "start_line": 243,
+      "end_line": 246,
+      "sha256": "3a49131e8727768146cf1fff61a32a65869d51458ac1cb1bd72698603170c6ae",
+      "heading_slug": "21-neural-to-file-learning-flywheel",
+      "word_count": 87,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-022",
+      "title": "22. Private vs personal vs project memory",
+      "level": 2,
+      "start_line": 247,
+      "end_line": 252,
+      "sha256": "7d65ff4ba90d377701583ac87446c4797f307eef7f1bf44ad5549cfd1a0f0997",
+      "heading_slug": "22-private-vs-personal-vs-project-memory",
+      "word_count": 179,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "project"
+      ]
+    },
+    {
+      "id": "PART-V",
+      "title": "PART V — TASK GRAPH, RESEARCH, TOOLS AND INDEPENDENT REASONING",
+      "level": 1,
+      "start_line": 253,
+      "end_line": 312,
+      "sha256": "7b53315ac5e833a7ca726a1076f566a33ac65eea0a0987993f28376fa055d0fc",
+      "heading_slug": "part-v-task-graph-research-tools-and-independent-reasoning",
+      "word_count": 872,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "CH-023",
+      "title": "23. The owner-to-outcome task lifecycle",
+      "level": 2,
+      "start_line": 255,
+      "end_line": 260,
+      "sha256": "0c11f03ea9b934e6d98f1d26602c2f0a84f48b053f5876973359222611f28e3b",
+      "heading_slug": "23-the-owner-to-outcome-task-lifecycle",
+      "word_count": 188,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-024",
+      "title": "24. Bounded parallelism and resource arbitration",
+      "level": 2,
+      "start_line": 261,
+      "end_line": 264,
+      "sha256": "6aa2a1dccdc0840f036ecfea4dc525bec1482f8ebd823d8ff79e66db2aa0be88",
+      "heading_slug": "24-bounded-parallelism-and-resource-arbitration",
+      "word_count": 103,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source"
+      ]
+    },
+    {
+      "id": "CH-025",
+      "title": "25. Local research before web research",
+      "level": 2,
+      "start_line": 265,
+      "end_line": 268,
+      "sha256": "dc67a612413912fb0bd7d43cae33b17f6a97b90d67aa293b432662c7bb58ffb7",
+      "heading_slug": "25-local-research-before-web-research",
+      "word_count": 104,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "CH-026",
+      "title": "26. Internet research architecture and source promotion",
+      "level": 2,
+      "start_line": 269,
+      "end_line": 274,
+      "sha256": "98b14ec32a9fe5902bd9aaaeb0efbec1dc6980d06aeb23b1dd0645298da5f401",
+      "heading_slug": "26-internet-research-architecture-and-source-promotion",
+      "word_count": 192,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research",
+        "source"
+      ]
+    },
+    {
+      "id": "CH-027",
+      "title": "27. Independent reviewer and corrective loop",
+      "level": 2,
+      "start_line": 275,
+      "end_line": 278,
+      "sha256": "4da8d460e82ca50bd65ca833316e7911b3506c564f6a44c472a00967352e036f",
+      "heading_slug": "27-independent-reviewer-and-corrective-loop",
+      "word_count": 103,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-028",
+      "title": "28. Typed agent and tool schema example",
+      "level": 2,
+      "start_line": 279,
+      "end_line": 308,
+      "sha256": "d743b2023516fa6a91bdbadbb2f4d70c062f18a70c5c6de2cf0b867604020fba",
+      "heading_slug": "28-typed-agent-and-tool-schema-example",
+      "word_count": 82,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "agent"
+      ]
+    },
+    {
+      "id": "CH-029",
+      "title": "29. Natural-language, language and translation",
+      "level": 2,
+      "start_line": 309,
+      "end_line": 312,
+      "sha256": "fb08eecb4d9207867cb44d797870dbaaf04f8a22892abb1182a8a9069fccce03",
+      "heading_slug": "29-natural-language-language-and-translation",
+      "word_count": 89,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-VI",
+      "title": "PART VI — CODING, CREATION AND UNIVERSAL PROJECT INTELLIGENCE",
+      "level": 1,
+      "start_line": 313,
+      "end_line": 348,
+      "sha256": "8510e66c20a2c3ce3e3867b9737115d7fd73334937c3933812858e9c55870322",
+      "heading_slug": "part-vi-coding-creation-and-universal-project-intelligence",
+      "word_count": 884,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "project"
+      ]
+    },
+    {
+      "id": "CH-030",
+      "title": "30. Project awareness and universal file intelligence",
+      "level": 2,
+      "start_line": 315,
+      "end_line": 320,
+      "sha256": "f87b6d5f031ce34fa8d2a155b1620267273a43d0e236d7427d3c8253e2b1e8b7",
+      "heading_slug": "30-project-awareness-and-universal-file-intelligence",
+      "word_count": 174,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "project"
+      ]
+    },
+    {
+      "id": "CH-031",
+      "title": "31. The ultimate ATLAS Developer experience",
+      "level": 2,
+      "start_line": 321,
+      "end_line": 326,
+      "sha256": "bd3981cdfca7fb9cc021fcb482f9a40c0ad3ebfd0ff903cbbda25ea62892238a",
+      "heading_slug": "31-the-ultimate-atlas-developer-experience",
+      "word_count": 184,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-032",
+      "title": "32. Major coding technologies",
+      "level": 2,
+      "start_line": 327,
+      "end_line": 330,
+      "sha256": "83114f4fc0effb4750892793c202b9eaafdafc9a1f57126cf5b2151bf1c07b65",
+      "heading_slug": "32-major-coding-technologies",
+      "word_count": 84,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-033",
+      "title": "33. Reliable software modification and tests",
+      "level": 2,
+      "start_line": 331,
+      "end_line": 334,
+      "sha256": "555d1840935673dba51937c2d2c10d03570d3b71d03ff694fa92df50a1d149b9",
+      "heading_slug": "33-reliable-software-modification-and-tests",
+      "word_count": 116,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-034",
+      "title": "34. App, web and game creation",
+      "level": 2,
+      "start_line": 335,
+      "end_line": 338,
+      "sha256": "61abf6b238076f840b16b0a78da4e9171e15d5141a0f592a8885a815be4916f4",
+      "heading_slug": "34-app-web-and-game-creation",
+      "word_count": 97,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "game"
+      ]
+    },
+    {
+      "id": "CH-035",
+      "title": "35. Creative capability family",
+      "level": 2,
+      "start_line": 339,
+      "end_line": 344,
+      "sha256": "be6771296dc5e976eac7dd02dbeeeac431275f1a48a8c7a55c03e7587c1bb4ca",
+      "heading_slug": "35-creative-capability-family",
+      "word_count": 144,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-036",
+      "title": "36. Game-playing and simulation intelligence",
+      "level": 2,
+      "start_line": 345,
+      "end_line": 348,
+      "sha256": "1e5595583e566cf8fa9d8a273f073f538614f26dd2ed4bbecb1791af0a4ee3b6",
+      "heading_slug": "36-game-playing-and-simulation-intelligence",
+      "word_count": 75,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "game"
+      ]
+    },
+    {
+      "id": "PART-VII",
+      "title": "PART VII — ORIGINAL MODEL FACTORY, TRAINING DIRECTOR, EVALUATION AND SELF-IMPROVEMENT",
+      "level": 1,
+      "start_line": 349,
+      "end_line": 406,
+      "sha256": "3551227b0b9827e4d8ab23da5bbb69072de357b4afab95b8f521ee374a5d59eb",
+      "heading_slug": "part-vii-original-model-factory-training-director-evaluation-and-self-improvement",
+      "word_count": 1644,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model",
+        "training",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "CH-037",
+      "title": "37. Original model is a provenance claim",
+      "level": 2,
+      "start_line": 351,
+      "end_line": 356,
+      "sha256": "a049939f40996ed3bb4f18e37b2b42bbbb77443441876e79afa3b9987b7a9846",
+      "heading_slug": "37-original-model-is-a-provenance-claim",
+      "word_count": 163,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-038",
+      "title": "38. Model factory and scale strategy",
+      "level": 2,
+      "start_line": 357,
+      "end_line": 364,
+      "sha256": "181d8867a4cea598eb9d814bd4aa8e10dcf9c0b3ab5f7ce186c8235b541e0771",
+      "heading_slug": "38-model-factory-and-scale-strategy",
+      "word_count": 252,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-039",
+      "title": "39. Honest dataset acquisition and eligibility",
+      "level": 2,
+      "start_line": 365,
+      "end_line": 372,
+      "sha256": "6057a71444bba61a2e9aad1be00ffb2b110dd63451e9da0914d31805ae051f88",
+      "heading_slug": "39-honest-dataset-acquisition-and-eligibility",
+      "word_count": 271,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-040",
+      "title": "40. Training Director and Learning Council",
+      "level": 2,
+      "start_line": 373,
+      "end_line": 378,
+      "sha256": "7b0d550b075518eb2049dadd6d1be8d040e89c8c5df2494fc3800cab1f9cd214",
+      "heading_slug": "40-training-director-and-learning-council",
+      "word_count": 161,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "id": "CH-041",
+      "title": "41. Persistent training state machine",
+      "level": 2,
+      "start_line": 379,
+      "end_line": 382,
+      "sha256": "83e5a12975f2b2ff053c8c53fcbc9538b6bc9849b7f60c6b19f4e5716ccd2fd7",
+      "heading_slug": "41-persistent-training-state-machine",
+      "word_count": 115,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "id": "CH-042",
+      "title": "42. Training techniques and actual observability",
+      "level": 2,
+      "start_line": 383,
+      "end_line": 388,
+      "sha256": "b9f114baa55daeb75f59918783dcc04650458fcebd4b1999c9867065b8c955b7",
+      "heading_slug": "42-training-techniques-and-actual-observability",
+      "word_count": 176,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "id": "CH-043",
+      "title": "43. Qualification and promotion",
+      "level": 2,
+      "start_line": 389,
+      "end_line": 394,
+      "sha256": "a767cbc50dcd97a71b6b2f7eece18632b9fda046006765c8a2d3b2382e18459d",
+      "heading_slug": "43-qualification-and-promotion",
+      "word_count": 169,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-044",
+      "title": "44. Native model and full-system benchmark matrix",
+      "level": 2,
+      "start_line": 395,
+      "end_line": 398,
+      "sha256": "03da1aa6eb1d29193f276fc6b0b0c5ada51aef86c35e3b301b816d6600ec1833",
+      "heading_slug": "44-native-model-and-full-system-benchmark-matrix",
+      "word_count": 105,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native",
+        "model"
+      ]
+    },
+    {
+      "id": "CH-045",
+      "title": "45. Self-improvement and scientific falsifiability",
+      "level": 2,
+      "start_line": 399,
+      "end_line": 402,
+      "sha256": "d453bfd63e801dcb5560fabc57e84d8eefc91b9076a383f9f2dd4cdddd810860",
+      "heading_slug": "45-self-improvement-and-scientific-falsifiability",
+      "word_count": 113,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-046",
+      "title": "46. Experimental architecture and curriculum",
+      "level": 2,
+      "start_line": 403,
+      "end_line": 406,
+      "sha256": "d03f0a4c4f0864e3e36881dbbbfdd1f87a16337e63b1797106f7e0c153f3a211",
+      "heading_slug": "46-experimental-architecture-and-curriculum",
+      "word_count": 107,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-VIII",
+      "title": "PART VIII — EVOLUTION ARENA, SELF-DEVELOPMENT, AUTONOMY AND COMPUTE GOVERNANCE",
+      "level": 1,
+      "start_line": 407,
+      "end_line": 432,
+      "sha256": "4d69930e38ccacc672e188a3a31ff0b336d96ecdbe4b448d703bfdd226b7deee",
+      "heading_slug": "part-viii-evolution-arena-self-development-autonomy-and-compute-governance",
+      "word_count": 712,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-047",
+      "title": "47. Multi-branch software evolution arena",
+      "level": 2,
+      "start_line": 409,
+      "end_line": 412,
+      "sha256": "d775b06940199b79ccf6369e8e05d3897c73a4d59f8dfff6a3a2302a49d1729f",
+      "heading_slug": "47-multi-branch-software-evolution-arena",
+      "word_count": 137,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-048",
+      "title": "48. Automated Developer and Code Improvement",
+      "level": 2,
+      "start_line": 413,
+      "end_line": 416,
+      "sha256": "ba9bc23f3b98efa372e720dc7e75d4c826a3173ce271d84419656c95f46c8cb9",
+      "heading_slug": "48-automated-developer-and-code-improvement",
+      "word_count": 121,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "code"
+      ]
+    },
+    {
+      "id": "CH-049",
+      "title": "49. Gradated autonomy, not a binary switch",
+      "level": 2,
+      "start_line": 417,
+      "end_line": 420,
+      "sha256": "d93a77460ec04e6810d76af8e61a11f0b7c0c353f19d63358325b8736518605d",
+      "heading_slug": "49-gradated-autonomy-not-a-binary-switch",
+      "word_count": 106,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-050",
+      "title": "50. Idle-time Training and Research Director",
+      "level": 2,
+      "start_line": 421,
+      "end_line": 424,
+      "sha256": "c1093d9feeebc2dbe666fcc82bbfba9f81e4f5e336c9c10d78f549636aabeefa",
+      "heading_slug": "50-idle-time-training-and-research-director",
+      "word_count": 112,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research",
+        "training"
+      ]
+    },
+    {
+      "id": "CH-051",
+      "title": "51. Resource-aware workstation execution",
+      "level": 2,
+      "start_line": 425,
+      "end_line": 428,
+      "sha256": "8f446d9d6b517a8957986d9e0f7c70534538b0f0b8322346b0a5dd467749e5e5",
+      "heading_slug": "51-resource-aware-workstation-execution",
+      "word_count": 122,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source"
+      ]
+    },
+    {
+      "id": "CH-052",
+      "title": "52. Durable recovery, reporting and owner override",
+      "level": 2,
+      "start_line": 429,
+      "end_line": 432,
+      "sha256": "16d54cb07b035ae0053a8627862904e8b20b2ed678ae5af38eeb428cc7a89386",
+      "heading_slug": "52-durable-recovery-reporting-and-owner-override",
+      "word_count": 103,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "PART-IX",
+      "title": "PART IX — PRODUCT EXPERIENCE, UI, PERSONAL ASSISTANCE AND STORAGE",
+      "level": 1,
+      "start_line": 433,
+      "end_line": 462,
+      "sha256": "8b1da8ef7e724954736295e60ee151ae8c8b1f908ada648db5cd7bd0d4ef031f",
+      "heading_slug": "part-ix-product-experience-ui-personal-assistance-and-storage",
+      "word_count": 841,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-053",
+      "title": "53. Three-tier usability",
+      "level": 2,
+      "start_line": 435,
+      "end_line": 438,
+      "sha256": "22d7d9e59d7c2bf699eaa9e78bd09fbe1813612265e94e73636fe476f836f4f9",
+      "heading_slug": "53-three-tier-usability",
+      "word_count": 111,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-054",
+      "title": "54. Unified navigation and 13 expandable workspaces",
+      "level": 2,
+      "start_line": 439,
+      "end_line": 444,
+      "sha256": "6331e59c8f59da17e4980aab759bdedba8755db58429e047a0eec9cb18a02feb",
+      "heading_slug": "54-unified-navigation-and-13-expandable-workspaces",
+      "word_count": 226,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-055",
+      "title": "55. User experience details and quality",
+      "level": 2,
+      "start_line": 445,
+      "end_line": 448,
+      "sha256": "0f5b103cd02db721d92b288d5b1dda2a04eb5d9bd4fdd768369ed6d4cfc95aae",
+      "heading_slug": "55-user-experience-details-and-quality",
+      "word_count": 91,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-056",
+      "title": "56. Local conversational AI, provenance and model identity",
+      "level": 2,
+      "start_line": 449,
+      "end_line": 452,
+      "sha256": "c1623fa5ee7ddfdffeeb99a7f458da36dc39c40b26f78ce1c8b6050fb2b7bb99",
+      "heading_slug": "56-local-conversational-ai-provenance-and-model-identity",
+      "word_count": 116,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-057",
+      "title": "57. Personal ATLAS and the private model sandbox",
+      "level": 2,
+      "start_line": 453,
+      "end_line": 458,
+      "sha256": "3dc2e823af7482ce8f7b009fe7d90dcf5744a20cb95d845c17fefd12ab34c703",
+      "heading_slug": "57-personal-atlas-and-the-private-model-sandbox",
+      "word_count": 170,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model",
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-058",
+      "title": "58. Storage, backup and data lifecycle",
+      "level": 2,
+      "start_line": 459,
+      "end_line": 462,
+      "sha256": "dc05247e24207ec97fc3b5813f5a92a63c7ed7e2e27391a1e987de9cd4f12ff8",
+      "heading_slug": "58-storage-backup-and-data-lifecycle",
+      "word_count": 116,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-X",
+      "title": "PART X — SECURITY CONSTITUTION, TRUST BOUNDARIES AND OWNER AUTHORIZATION",
+      "level": 1,
+      "start_line": 463,
+      "end_line": 494,
+      "sha256": "cdfc6f58bd5d8442afa3d932a941e3489bfbfbf58900c0c754350072fe7c9a94",
+      "heading_slug": "part-x-security-constitution-trust-boundaries-and-owner-authorization",
+      "word_count": 818,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "security",
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-059",
+      "title": "59. Absolute owner prohibitions",
+      "level": 2,
+      "start_line": 465,
+      "end_line": 470,
+      "sha256": "98515d72186812aa7099725d081b71ef52c562f6b533927e2435777662f262ef",
+      "heading_slug": "59-absolute-owner-prohibitions",
+      "word_count": 183,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-060",
+      "title": "60. Trust hierarchy",
+      "level": 2,
+      "start_line": 471,
+      "end_line": 474,
+      "sha256": "7134ec72f83129615499a6844f1d0825e22d2d40154004a0201068d6e6602fc0",
+      "heading_slug": "60-trust-hierarchy",
+      "word_count": 102,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-061",
+      "title": "61. Capability permissions",
+      "level": 2,
+      "start_line": 475,
+      "end_line": 478,
+      "sha256": "df1df22b6a6b75a5077aeed15d61e159ac3c928b6e19d4d8144378a4aefe5389",
+      "heading_slug": "61-capability-permissions",
+      "word_count": 105,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-062",
+      "title": "62. Untrusted execution and guest isolation",
+      "level": 2,
+      "start_line": 479,
+      "end_line": 482,
+      "sha256": "1eede85a450fa49a211dbe0b01e93ac6fc55838c069cc317895f9a8bc95cd61b",
+      "heading_slug": "62-untrusted-execution-and-guest-isolation",
+      "word_count": 121,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-063",
+      "title": "63. Protected evaluation and self-modification safeguards",
+      "level": 2,
+      "start_line": 483,
+      "end_line": 486,
+      "sha256": "9223e796ed47d03cb98eb0dde050580a3bc809b13c38c16a361cbb31919a6212",
+      "heading_slug": "63-protected-evaluation-and-self-modification-safeguards",
+      "word_count": 103,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "evaluation"
+      ]
+    },
+    {
+      "id": "CH-064",
+      "title": "64. Supply chain, secrets, privacy and external services",
+      "level": 2,
+      "start_line": 487,
+      "end_line": 490,
+      "sha256": "c1eb3ab0bb6a6c73a48df347242ad9cdd38436b6f1429ab74ad70e656e2e6616",
+      "heading_slug": "64-supply-chain-secrets-privacy-and-external-services",
+      "word_count": 102,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "privacy"
+      ]
+    },
+    {
+      "id": "CH-065",
+      "title": "65. Safe failure, incident response and rollback",
+      "level": 2,
+      "start_line": 491,
+      "end_line": 494,
+      "sha256": "bd65b46f90a33d351e41523f77cd1b4b310adafbe8b455a91361968f4f5c9bf2",
+      "heading_slug": "65-safe-failure-incident-response-and-rollback",
+      "word_count": 91,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-XI",
+      "title": "PART XI — PLATZ ENGINE AS A SEPARATE, COMPLETE PRODUCT VISION",
+      "level": 1,
+      "start_line": 495,
+      "end_line": 514,
+      "sha256": "a0bcef52746d825a85d354cf42acd1b63fdae754f80cf35f354dfeca89c02c30",
+      "heading_slug": "part-xi-platz-engine-as-a-separate-complete-product-vision",
+      "word_count": 479,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "platz"
+      ]
+    },
+    {
+      "id": "CH-066",
+      "title": "66. PLATZ Engine identity and non-interference",
+      "level": 2,
+      "start_line": 497,
+      "end_line": 500,
+      "sha256": "5eb2b588a09afb50b4f3b3bb0662bdfa9c3a5c75627bd0bdb212291b714b0f15",
+      "heading_slug": "66-platz-engine-identity-and-non-interference",
+      "word_count": 106,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "platz"
+      ]
+    },
+    {
+      "id": "CH-067",
+      "title": "67. Architecture and renderer",
+      "level": 2,
+      "start_line": 501,
+      "end_line": 504,
+      "sha256": "ea11eb764e7d6cf17a9cfc4a88921f288f86537588f910147a9a2b58b2dd30e7",
+      "heading_slug": "67-architecture-and-renderer",
+      "word_count": 97,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-068",
+      "title": "68. Studio authoring and creative systems",
+      "level": 2,
+      "start_line": 505,
+      "end_line": 510,
+      "sha256": "58885abcedfa60e11b8d9a1364f9223d09ad29cb1eb62998d53dbac1c7f475fb",
+      "heading_slug": "68-studio-authoring-and-creative-systems",
+      "word_count": 160,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-069",
+      "title": "69. Future ATLAS ↔ PLATZ interface",
+      "level": 2,
+      "start_line": 511,
+      "end_line": 514,
+      "sha256": "9182443869ca07dd1ac6055c7ff0411a29d435b3948221a0dc1dcc60efcf42e2",
+      "heading_slug": "69-future-atlas-platz-interface",
+      "word_count": 104,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas",
+        "platz"
+      ]
+    },
+    {
+      "id": "PART-XII",
+      "title": "PART XII — IMMEDIATE NEXT-021 THROUGH NEXT-025 NATIVE INTELLIGENCE BATCH",
+      "level": 1,
+      "start_line": 515,
+      "end_line": 588,
+      "sha256": "5d3be82ca1c56f6787a8bb2b8309e2b56e18febaffa36c48ed037bb3e1226532",
+      "heading_slug": "part-xii-immediate-next-021-through-next-025-native-intelligence-batch",
+      "word_count": 2251,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native"
+      ]
+    },
+    {
+      "id": "CH-070",
+      "title": "70. Prerequisite: finish independent review of NEXT-015R–020",
+      "level": 2,
+      "start_line": 517,
+      "end_line": 522,
+      "sha256": "7be13860b293cb68e0c8d695914389e4007eeed64b866955598a4064a1f29106",
+      "heading_slug": "70-prerequisite-finish-independent-review-of-next-015r020",
+      "word_count": 219,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-071",
+      "title": "71. NEXT-021 — Native Learning & Knowledge Foundry",
+      "level": 2,
+      "start_line": 523,
+      "end_line": 536,
+      "sha256": "c7b505f1f0f2ca999e75729b7804f2ee2813e8a6634ea91f5b05f3d49554e962",
+      "heading_slug": "71-next-021-native-learning-knowledge-foundry",
+      "word_count": 468,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native",
+        "knowledge"
+      ]
+    },
+    {
+      "id": "CH-072",
+      "title": "72. NEXT-022 — First original ATLAS language understanding / grounded generation experiment",
+      "level": 2,
+      "start_line": 537,
+      "end_line": 548,
+      "sha256": "7e2674a4fb5aa28d7eb74240e72da69805a3c04c1f8acf9cf74e0b40c5ab68f5",
+      "heading_slug": "72-next-022-first-original-atlas-language-understanding-grounded-generation-experiment",
+      "word_count": 430,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-073",
+      "title": "73. NEXT-023 — Learned multi-step reasoning and procedural retrieval",
+      "level": 2,
+      "start_line": 549,
+      "end_line": 560,
+      "sha256": "bc47256fff31a545688e1ac89addcb52cb443996130fc43a7effd21244e03ce6",
+      "heading_slug": "73-next-023-learned-multi-step-reasoning-and-procedural-retrieval",
+      "word_count": 338,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-074",
+      "title": "74. NEXT-024 — Three original functional Master competencies",
+      "level": 2,
+      "start_line": 561,
+      "end_line": 572,
+      "sha256": "0352e9a5742390d8b94101e44447aab85a8997b6eb606a1a3c85cbc0ab4e56ee",
+      "heading_slug": "74-next-024-three-original-functional-master-competencies",
+      "word_count": 296,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "master"
+      ]
+    },
+    {
+      "id": "CH-075",
+      "title": "75. NEXT-025 — Bounded native-only self-improvement cycle",
+      "level": 2,
+      "start_line": 573,
+      "end_line": 584,
+      "sha256": "7fbd5f356b9fcd846fbf185d9069ef9d77651b97e3ddf3ae8215a8e54f63f030",
+      "heading_slug": "75-next-025-bounded-native-only-self-improvement-cycle",
+      "word_count": 350,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native"
+      ]
+    },
+    {
+      "id": "CH-076",
+      "title": "76. Batch integration and evidence required for NEXT-021–025",
+      "level": 2,
+      "start_line": 585,
+      "end_line": 588,
+      "sha256": "deba13347c83ba27d8565650ff147047a5903851b375f75ee1341e4efc627cb6",
+      "heading_slug": "76-batch-integration-and-evidence-required-for-next-021025",
+      "word_count": 139,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "PART-XIII",
+      "title": "PART XIII — LONG-RANGE PROGRAM AFTER NEXT-025",
+      "level": 1,
+      "start_line": 589,
+      "end_line": 638,
+      "sha256": "a408a65fb6b340636fbea7080dbf15ca784bf8902cd4e0cd1fe78ad4b37c1f7b",
+      "heading_slug": "part-xiii-long-range-program-after-next-025",
+      "word_count": 832,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-077",
+      "title": "77. Capability release sequence beyond the immediate batch",
+      "level": 2,
+      "start_line": 591,
+      "end_line": 608,
+      "sha256": "523e01f5c109e69660ad252167d5e0048f787ed905b7799964f5e666e6657a25",
+      "heading_slug": "77-capability-release-sequence-beyond-the-immediate-batch",
+      "word_count": 385,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "release"
+      ]
+    },
+    {
+      "id": "CH-078",
+      "title": "78. Research hypotheses to test, not presume",
+      "level": 2,
+      "start_line": 609,
+      "end_line": 630,
+      "sha256": "ea684df849eebea6a8a43843c43ebfcdb52e9d9b4db56c8dcb19bc9e46ff1d0a",
+      "heading_slug": "78-research-hypotheses-to-test-not-presume",
+      "word_count": 209,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "CH-079",
+      "title": "79. A practical crossover with the legacy ATLAS",
+      "level": 2,
+      "start_line": 631,
+      "end_line": 634,
+      "sha256": "8c1f895bb2d32ff8a1b59a35a2f67d9377932ea4fc0694dfc4e571397e04d26c",
+      "heading_slug": "79-a-practical-crossover-with-the-legacy-atlas",
+      "word_count": 120,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-080",
+      "title": "80. Roadmap flexibility and failure handling",
+      "level": 2,
+      "start_line": 635,
+      "end_line": 638,
+      "sha256": "89f6ded09875d74a4dc78e669adf8daf1885579dc75c403641e026950ba8d745",
+      "heading_slug": "80-roadmap-flexibility-and-failure-handling",
+      "word_count": 110,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-XIV",
+      "title": "PART XIV — ACCEPTANCE TESTS, SCIENTIFIC SCORECARDS AND RELEASE CONTRACTS",
+      "level": 1,
+      "start_line": 639,
+      "end_line": 670,
+      "sha256": "7d771f03c1b747fb389f93d08f18a5fccefd89d51abe407c8dc3f321b13db2f7",
+      "heading_slug": "part-xiv-acceptance-tests-scientific-scorecards-and-release-contracts",
+      "word_count": 878,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "release"
+      ]
+    },
+    {
+      "id": "CH-081",
+      "title": "81. Feature status and Definition of Done",
+      "level": 2,
+      "start_line": 641,
+      "end_line": 646,
+      "sha256": "e34226127eff3cecbb4b91e945213308f4133b893ff8f15150538f6131e837ad",
+      "heading_slug": "81-feature-status-and-definition-of-done",
+      "word_count": 140,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-082",
+      "title": "82. Per-milestone evidence contract",
+      "level": 2,
+      "start_line": 647,
+      "end_line": 650,
+      "sha256": "dfec16e620c750ec9f8837f8c6da930258d2996ae0f10b046a3fb18a482d27cc",
+      "heading_slug": "82-per-milestone-evidence-contract",
+      "word_count": 81,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-083",
+      "title": "83. Metrics that matter",
+      "level": 2,
+      "start_line": 651,
+      "end_line": 654,
+      "sha256": "05da4fc91bf0d936998cf2122f91bb3643e43b33dee6dee779a37d9590cd0569",
+      "heading_slug": "83-metrics-that-matter",
+      "word_count": 142,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-084",
+      "title": "84. Mandatory adversarial classes",
+      "level": 2,
+      "start_line": 655,
+      "end_line": 658,
+      "sha256": "34b18ff7d3b3042edcb55c001a6fdae764863db65d384746bab8a1fd69e7c08b",
+      "heading_slug": "84-mandatory-adversarial-classes",
+      "word_count": 98,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-085",
+      "title": "85. Owner-level demonstration suite",
+      "level": 2,
+      "start_line": 659,
+      "end_line": 662,
+      "sha256": "4e841085047658fe30ff93bf63b79eec84f6d09237b799c9f6832fda20391ecb",
+      "heading_slug": "85-owner-level-demonstration-suite",
+      "word_count": 210,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui",
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-086",
+      "title": "86. Packaging and reproducible environment",
+      "level": 2,
+      "start_line": 663,
+      "end_line": 666,
+      "sha256": "41f0359528a0e0d31fa63a91b9601692ce0078c08650ff36060316f5c12a45da",
+      "heading_slug": "86-packaging-and-reproducible-environment",
+      "word_count": 103,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-087",
+      "title": "87. Release notes and owner report obligations",
+      "level": 2,
+      "start_line": 667,
+      "end_line": 670,
+      "sha256": "bca6327ff5787e8990993acd719d785c71b3362a9004c56a255f6d9f1eb76f3a",
+      "heading_slug": "87-release-notes-and-owner-report-obligations",
+      "word_count": 93,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "release",
+        "owner"
+      ]
+    },
+    {
+      "id": "PART-XV",
+      "title": "PART XV — EXTERNAL SOL/ARGON DEVELOPMENT, REVIEW INDEPENDENCE AND PERMANENT HANDOFF",
+      "level": 1,
+      "start_line": 671,
+      "end_line": 714,
+      "sha256": "c26f163b2528d669a626deafd32ae016607d2a2e2509391aa4357eeb988614c5",
+      "heading_slug": "part-xv-external-solargon-development-review-independence-and-permanent-handoff",
+      "word_count": 923,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-088",
+      "title": "88. Why external developers are temporary",
+      "level": 2,
+      "start_line": 673,
+      "end_line": 676,
+      "sha256": "da7f4752c3635444b47f6cfdb849172fc3fe68f980857d188ec042423445a4c4",
+      "heading_slug": "88-why-external-developers-are-temporary",
+      "word_count": 91,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-089",
+      "title": "89. Five-substantial-update batch protocol",
+      "level": 2,
+      "start_line": 677,
+      "end_line": 682,
+      "sha256": "f4d7736aa92bbb775c7ca347df4c9a7d34dcb2d7772596910e7b03df6ab71f7f",
+      "heading_slug": "89-five-substantial-update-batch-protocol",
+      "word_count": 233,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-090",
+      "title": "90. Single-writer and exact repo authority",
+      "level": 2,
+      "start_line": 683,
+      "end_line": 686,
+      "sha256": "4dbbb60d3a1e2acc01c19dc5e6e109ff97981be90d9116cbf8c8bd228490a4a0",
+      "heading_slug": "90-single-writer-and-exact-repo-authority",
+      "word_count": 115,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-091",
+      "title": "91. No cross-agent screen control, waiting or monitoring",
+      "level": 2,
+      "start_line": 687,
+      "end_line": 690,
+      "sha256": "5d52a0aa2de77a1875fdfa0964f5a510260aeda8899410182f1c21e662e370dc",
+      "heading_slug": "91-no-cross-agent-screen-control-waiting-or-monitoring",
+      "word_count": 113,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "agent"
+      ]
+    },
+    {
+      "id": "CH-092",
+      "title": "92. Permanent agent startup checklist (read every activation)",
+      "level": 2,
+      "start_line": 691,
+      "end_line": 708,
+      "sha256": "89081a2c3588b63a2eff19864e1d75fd6ddb25a5894d1ff79d153d8638ae1595",
+      "heading_slug": "92-permanent-agent-startup-checklist-read-every-activation",
+      "word_count": 178,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "agent"
+      ]
+    },
+    {
+      "id": "CH-093",
+      "title": "93. Master document installation and revision-control policy",
+      "level": 2,
+      "start_line": 709,
+      "end_line": 714,
+      "sha256": "1eca4836a1bb7572f7675d281f2c9df272ee49a528734924cae42bcfc808b99b",
+      "heading_slug": "93-master-document-installation-and-revision-control-policy",
+      "word_count": 181,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "master"
+      ]
+    },
+    {
+      "id": "PART-XVI",
+      "title": "PART XVI — END-TO-END OWNER SCENARIOS AND EXPECTED EVIDENCE",
+      "level": 1,
+      "start_line": 715,
+      "end_line": 760,
+      "sha256": "f8984a3ca9df21a9b4f16340c503ec7cc04128ecdef0ae2905139cd035c9f79f",
+      "heading_slug": "part-xvi-end-to-end-owner-scenarios-and-expected-evidence",
+      "word_count": 967,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-094",
+      "title": "94. Scenario catalog, goals and gates",
+      "level": 2,
+      "start_line": 717,
+      "end_line": 760,
+      "sha256": "ebd556683c772aa3b0d26369a56c0536659439a14622c3aea503aa9bfb947f5d",
+      "heading_slug": "94-scenario-catalog-goals-and-gates",
+      "word_count": 957,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-XVII",
+      "title": "PART XVII — REQUIREMENT TRACEABILITY, DOCUMENT PROVENANCE AND SOURCE RECONCILIATION",
+      "level": 1,
+      "start_line": 761,
+      "end_line": 844,
+      "sha256": "c5a2e8ff0aa533a2d7fb42a9227e6d19617da9c6f1b2922b4edd7859f3e36c85",
+      "heading_slug": "part-xvii-requirement-traceability-document-provenance-and-source-reconciliation",
+      "word_count": 1357,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source",
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-095",
+      "title": "95. How historical instructions were reconciled",
+      "level": 2,
+      "start_line": 763,
+      "end_line": 794,
+      "sha256": "b50473f660f3bc1f9d982c1164a56287981b7d7f6b26f3f3f9d46ef8728dbdad",
+      "heading_slug": "95-how-historical-instructions-were-reconciled",
+      "word_count": 515,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-096",
+      "title": "96. Historical attachment crosswalk",
+      "level": 2,
+      "start_line": 795,
+      "end_line": 832,
+      "sha256": "6c3c8a6015dc3d9491d6b655f55a50c27bd5b2529bffcb0aa3bd8b07fee21cc4",
+      "heading_slug": "96-historical-attachment-crosswalk",
+      "word_count": 441,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-097",
+      "title": "97. Requirement families and coverage trace",
+      "level": 2,
+      "start_line": 833,
+      "end_line": 836,
+      "sha256": "0a787c52410d3f311fa2cc845aa7819faf66f1958e7c5349dc75d048c8472a8e",
+      "heading_slug": "97-requirement-families-and-coverage-trace",
+      "word_count": 164,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-098",
+      "title": "98. What the owner should be able to say to the mature ATLAS",
+      "level": 2,
+      "start_line": 837,
+      "end_line": 840,
+      "sha256": "8a8a1cb6f513b86c688737bee419a41060a2383081d0c376785e5bfc09234b6c",
+      "heading_slug": "98-what-the-owner-should-be-able-to-say-to-the-mature-atlas",
+      "word_count": 98,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas",
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-099",
+      "title": "99. A permanent ‘do not forget’ control test",
+      "level": 2,
+      "start_line": 841,
+      "end_line": 844,
+      "sha256": "1ce2b2d0f1707c50476d9ca65f2bb42143ffea29d850306d0293cee4499b53a3",
+      "heading_slug": "99-a-permanent-do-not-forget-control-test",
+      "word_count": 128,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-XVIII",
+      "title": "PART XVIII — EXPANDED BINDING PRODUCT CONTRACTS AND OPERATING DETAILS",
+      "level": 1,
+      "start_line": 845,
+      "end_line": 1226,
+      "sha256": "ec5352cded9decc11e6a173bf1787452bbc5d5db821fb26b3cdcf87f73578d59",
+      "heading_slug": "part-xviii-expanded-binding-product-contracts-and-operating-details",
+      "word_count": 8495,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-100",
+      "title": "100. Owner's exact final objective and non-substitution rules",
+      "level": 2,
+      "start_line": 849,
+      "end_line": 870,
+      "sha256": "eedce8dee850e3e90c15d7bf21265660380b31e9e0fdbeb99f6af7a0c41d425a",
+      "heading_slug": "100-owners-exact-final-objective-and-non-substitution-rules",
+      "word_count": 411,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-101",
+      "title": "101. Comprehensive everyday user journeys and expected receipts",
+      "level": 2,
+      "start_line": 871,
+      "end_line": 892,
+      "sha256": "40e80b73f1445e05be88e4bdd169725a709945babe3d5e54b2e7cf3963fa75c4",
+      "heading_slug": "101-comprehensive-everyday-user-journeys-and-expected-receipts",
+      "word_count": 552,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-101-01",
+      "title": "101.1 'Just Do It' is the default, with Command Center and Advanced layers",
+      "level": 3,
+      "start_line": 873,
+      "end_line": 878,
+      "sha256": "533d9d2ba421ba28e9ffffb6eb70183379849b3901a729b82d450e5f02baa228",
+      "heading_slug": "1011-just-do-it-is-the-default-with-command-center-and-advanced-layers",
+      "word_count": 173,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-101-02",
+      "title": "101.2 First-run setup",
+      "level": 3,
+      "start_line": 879,
+      "end_line": 884,
+      "sha256": "36b3ab59ac834027c528d1098722c80d706ec42677a3cb466b7f5d27dd771f70",
+      "heading_slug": "1012-first-run-setup",
+      "word_count": 146,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-101-03",
+      "title": "101.3 Task classes",
+      "level": 3,
+      "start_line": 885,
+      "end_line": 888,
+      "sha256": "42d38a351fdf277b6c1782b7108f230ac289876a9852c408d08c23efa4afcb33",
+      "heading_slug": "1013-task-classes",
+      "word_count": 153,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-101-04",
+      "title": "101.4 Five owner-facing result artifacts",
+      "level": 3,
+      "start_line": 889,
+      "end_line": 892,
+      "sha256": "5cbc2d8095d967ef432cf287dd538d480912f133873300ceab872f6c62bbff77",
+      "heading_slug": "1014-five-owner-facing-result-artifacts",
+      "word_count": 71,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-102",
+      "title": "102. Sovereign intelligence: detailed five-tier model hierarchy and research interpretation",
+      "level": 2,
+      "start_line": 893,
+      "end_line": 910,
+      "sha256": "11adf2726549340c02d9c9789a362cb95ca7815a15f407565f4ca7b3965fc4c7",
+      "heading_slug": "102-sovereign-intelligence-detailed-five-tier-model-hierarchy-and-research-interpretation",
+      "word_count": 542,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model",
+        "research"
+      ]
+    },
+    {
+      "id": "CH-103",
+      "title": "103. The twenty-cluster / hundred-domain / specialist registry as an operational system",
+      "level": 2,
+      "start_line": 911,
+      "end_line": 920,
+      "sha256": "7e861a2c57e9a825f209c7e187971ae7e20c98cf3b9620f170f465cb44a79c03",
+      "heading_slug": "103-the-twenty-cluster-hundred-domain-specialist-registry-as-an-operational-system",
+      "word_count": 241,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-104",
+      "title": "104. Complete knowledge-vault semantics and file-first sovereignty",
+      "level": 2,
+      "start_line": 921,
+      "end_line": 968,
+      "sha256": "1c8bea2e3b54ac543dfda270e81a156fb645187c2c7bf1898f55ca9284f490b4",
+      "heading_slug": "104-complete-knowledge-vault-semantics-and-file-first-sovereignty",
+      "word_count": 858,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "SUBSECTION-104-01",
+      "title": "104.1 Four-layer information access",
+      "level": 3,
+      "start_line": 953,
+      "end_line": 956,
+      "sha256": "c39f1666f68cad873937d6ca7c2c771180d65be27bc9bae94bb7e34bfb4eb0fb",
+      "heading_slug": "1041-four-layer-information-access",
+      "word_count": 57,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-104-02",
+      "title": "104.2 Claim and procedure trust lifecycle",
+      "level": 3,
+      "start_line": 957,
+      "end_line": 960,
+      "sha256": "22260a7a4abaacd4f614175eee3b7273fdcc5a35f9fc9fe5d070198fef1c5561",
+      "heading_slug": "1042-claim-and-procedure-trust-lifecycle",
+      "word_count": 78,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "SUBSECTION-104-03",
+      "title": "104.3 Exact knowledge record contracts",
+      "level": 3,
+      "start_line": 961,
+      "end_line": 964,
+      "sha256": "8ea133810721d2a4cace1f25d169cf96c59228b7adbdc3130a1f628e5763f049",
+      "heading_slug": "1043-exact-knowledge-record-contracts",
+      "word_count": 98,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "SUBSECTION-104-04",
+      "title": "104.4 Knowledge import and verification proof",
+      "level": 3,
+      "start_line": 965,
+      "end_line": 968,
+      "sha256": "47a9ebf30b127df90a436870db978670e63b9d3070424f31572d2e4f38ac01e0",
+      "heading_slug": "1044-knowledge-import-and-verification-proof",
+      "word_count": 96,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "CH-105",
+      "title": "105. Sensitive memory, Personal ATLAS and user-sovereign identity separation",
+      "level": 2,
+      "start_line": 969,
+      "end_line": 984,
+      "sha256": "052c768fd34a97ea5e5b23b3e9db29cde301516816d15ddc9c711182addacbfd",
+      "heading_slug": "105-sensitive-memory-personal-atlas-and-user-sovereign-identity-separation",
+      "word_count": 428,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-106",
+      "title": "106. Pairwise preference, comparative intelligence and human-label integrity",
+      "level": 2,
+      "start_line": 985,
+      "end_line": 1004,
+      "sha256": "59e36bca2b68501c6a7bc48b583dc5fdf2ae6abeaf5b51c0299ee2a24acaa9fe",
+      "heading_slug": "106-pairwise-preference-comparative-intelligence-and-human-label-integrity",
+      "word_count": 292,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-107",
+      "title": "107. ATLAS Developer: one coherent safe programming assistant",
+      "level": 2,
+      "start_line": 1005,
+      "end_line": 1026,
+      "sha256": "4bde609503ed67a42abe71f225279eb43e4c44b33cd2eb86bd7363a505f0d4a4",
+      "heading_slug": "107-atlas-developer-one-coherent-safe-programming-assistant",
+      "word_count": 561,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "SUBSECTION-107-01",
+      "title": "107.1 Every code answer must be practically paste-ready",
+      "level": 3,
+      "start_line": 1009,
+      "end_line": 1014,
+      "sha256": "944845c489ed55e005d80e5b7e1b8947e77f9c02f0897f9c52d52d545e461107",
+      "heading_slug": "1071-every-code-answer-must-be-practically-paste-ready",
+      "word_count": 156,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "code"
+      ]
+    },
+    {
+      "id": "SUBSECTION-107-02",
+      "title": "107.2 Live project indexing and correct source attribution",
+      "level": 3,
+      "start_line": 1015,
+      "end_line": 1018,
+      "sha256": "449838e7b33a44678cb5404796d5d4266a836d94c9445a815d25008dd6e2742c",
+      "heading_slug": "1072-live-project-indexing-and-correct-source-attribution",
+      "word_count": 96,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source",
+        "project"
+      ]
+    },
+    {
+      "id": "SUBSECTION-107-03",
+      "title": "107.3 Candidate software change lifecycle",
+      "level": 3,
+      "start_line": 1019,
+      "end_line": 1022,
+      "sha256": "0a6f06748dfb3f446e196e64dd37306e4f15fc7a642f09489bcfea6852f718df",
+      "heading_slug": "1073-candidate-software-change-lifecycle",
+      "word_count": 96,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-107-04",
+      "title": "107.4 Self-development and software-evolution research",
+      "level": 3,
+      "start_line": 1023,
+      "end_line": 1026,
+      "sha256": "58896848371f13d20910157a7706ff469cc7561015266aba4799e30fcce6661a",
+      "heading_slug": "1074-self-development-and-software-evolution-research",
+      "word_count": 102,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "CH-108",
+      "title": "108. ATLAS Trainer, Training Council and native-model lifecycle",
+      "level": 2,
+      "start_line": 1027,
+      "end_line": 1066,
+      "sha256": "4d37c85c9ffee63b6d0c0ba3ac8d0907555810a685f6a37e4a2bd51248426f90",
+      "heading_slug": "108-atlas-trainer-training-council-and-native-model-lifecycle",
+      "word_count": 846,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native",
+        "model",
+        "training",
+        "atlas"
+      ]
+    },
+    {
+      "id": "SUBSECTION-108-01",
+      "title": "108.1 Nine-role training council",
+      "level": 3,
+      "start_line": 1031,
+      "end_line": 1034,
+      "sha256": "f29079e370ee8063604126b729943576d0da290af9a4eb1d00853afe0f00b526",
+      "heading_slug": "1081-nine-role-training-council",
+      "word_count": 83,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "id": "SUBSECTION-108-02",
+      "title": "108.2 Four independent training tracks",
+      "level": 3,
+      "start_line": 1035,
+      "end_line": 1046,
+      "sha256": "5382b8822f6ea1517d694fc16b0c79c8730ab4c307e9128782b3e37ea6a3d52b",
+      "heading_slug": "1082-four-independent-training-tracks",
+      "word_count": 176,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "id": "SUBSECTION-108-03",
+      "title": "108.3 Fourteen-stage improvement lifecycle",
+      "level": 3,
+      "start_line": 1047,
+      "end_line": 1050,
+      "sha256": "befd0f59fec7b9cef65e2885aaa6b76c6ce71ab242fbce60b735678da9b4dfab",
+      "heading_slug": "1083-fourteen-stage-improvement-lifecycle",
+      "word_count": 105,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-108-04",
+      "title": "108.4 Live training observatory and one-click workflows",
+      "level": 3,
+      "start_line": 1051,
+      "end_line": 1054,
+      "sha256": "042ffaba0893baa41817f145960a346a56e93bc04dd8630febd85174995d5539",
+      "heading_slug": "1084-live-training-observatory-and-one-click-workflows",
+      "word_count": 120,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "id": "SUBSECTION-108-05",
+      "title": "108.5 Fourteen curriculum dimensions and correct difficulty progression",
+      "level": 3,
+      "start_line": 1055,
+      "end_line": 1058,
+      "sha256": "f3b45ebaa99782db5a96e2ea553dba4b3e533e59653ec2158e2fded09f98e560",
+      "heading_slug": "1085-fourteen-curriculum-dimensions-and-correct-difficulty-progression",
+      "word_count": 87,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-108-06",
+      "title": "108.6 Credible native-model evaluation",
+      "level": 3,
+      "start_line": 1059,
+      "end_line": 1062,
+      "sha256": "655c79054d287626505a463183f6257082205e2c36041ead4b65cfb0cfac1dce",
+      "heading_slug": "1086-credible-native-model-evaluation",
+      "word_count": 98,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native",
+        "model",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "SUBSECTION-108-07",
+      "title": "108.7 Model-originality and training lineage contract",
+      "level": 3,
+      "start_line": 1063,
+      "end_line": 1066,
+      "sha256": "80575fdfec42f9416846a99810c5d1814ce524225321f4bc92d9708b1a9b35b0",
+      "heading_slug": "1087-model-originality-and-training-lineage-contract",
+      "word_count": 73,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model",
+        "training"
+      ]
+    },
+    {
+      "id": "CH-109",
+      "title": "109. Autonomous work, desktop control and security authorizations",
+      "level": 2,
+      "start_line": 1067,
+      "end_line": 1096,
+      "sha256": "7f9a848018db910905307233f27e10d81daac2fe86a63458a46647a8a22de3ca",
+      "heading_slug": "109-autonomous-work-desktop-control-and-security-authorizations",
+      "word_count": 531,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "security"
+      ]
+    },
+    {
+      "id": "SUBSECTION-109-01",
+      "title": "109.1 Source, web and computer threat boundaries",
+      "level": 3,
+      "start_line": 1085,
+      "end_line": 1088,
+      "sha256": "8aee13ee0c0da0c3522828391b10e1f8dbb9e8151f847903ab27866e47928284",
+      "heading_slug": "1091-source-web-and-computer-threat-boundaries",
+      "word_count": 106,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source"
+      ]
+    },
+    {
+      "id": "SUBSECTION-109-02",
+      "title": "109.2 Web research without owner exposure",
+      "level": 3,
+      "start_line": 1089,
+      "end_line": 1092,
+      "sha256": "22852ad9aecc0dba6ebb2c2681e3529a4bb6ccd85e78d2781ef64b245959de31",
+      "heading_slug": "1092-web-research-without-owner-exposure",
+      "word_count": 86,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research",
+        "owner"
+      ]
+    },
+    {
+      "id": "SUBSECTION-109-03",
+      "title": "109.3 Development agents versus ATLAS internal agents",
+      "level": 3,
+      "start_line": 1093,
+      "end_line": 1096,
+      "sha256": "8c9fb5f145be300a3d0428c4c6c70db7de47a67088680bea7d74fef6576040d7",
+      "heading_slug": "1093-development-agents-versus-atlas-internal-agents",
+      "word_count": 68,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "agent",
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-110",
+      "title": "110. Hardware, model scheduling and practical compute budgets",
+      "level": 2,
+      "start_line": 1097,
+      "end_line": 1104,
+      "sha256": "e4fdd04cae7f4622f8eaeac26eceb5272e4285f3a545790ab6778fcadca0f1ff",
+      "heading_slug": "110-hardware-model-scheduling-and-practical-compute-budgets",
+      "word_count": 212,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-111",
+      "title": "111. Complete modern app navigation, responsive behavior and accessibility",
+      "level": 2,
+      "start_line": 1105,
+      "end_line": 1124,
+      "sha256": "593a14df920bfde801f9650571161e8e38227ece3f104a56d5fa7425038e82da",
+      "heading_slug": "111-complete-modern-app-navigation-responsive-behavior-and-accessibility",
+      "word_count": 290,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-112",
+      "title": "112. Universal file intelligence, modalities and creative production",
+      "level": 2,
+      "start_line": 1125,
+      "end_line": 1136,
+      "sha256": "fb5704780655fb41c34169a104e5bc21d34e6610e241e481efd35263c31cd0b2",
+      "heading_slug": "112-universal-file-intelligence-modalities-and-creative-production",
+      "word_count": 304,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-113",
+      "title": "113. PLATZ Technologies boundaries, product family and engine vision",
+      "level": 2,
+      "start_line": 1137,
+      "end_line": 1144,
+      "sha256": "3524f81f2b72124998114be4e3f00d3c9c49a58b7f90c2b4babacc24e748d700",
+      "heading_slug": "113-platz-technologies-boundaries-product-family-and-engine-vision",
+      "word_count": 251,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "platz"
+      ]
+    },
+    {
+      "id": "CH-114",
+      "title": "114. Engineering program, version continuity and complete definition of done",
+      "level": 2,
+      "start_line": 1145,
+      "end_line": 1164,
+      "sha256": "a2ab6ebefa766c1af19043c50e0832dbcacd3b2172b444cb5dd8653a0f5b2e39",
+      "heading_slug": "114-engineering-program-version-continuity-and-complete-definition-of-done",
+      "word_count": 591,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "SUBSECTION-114-01",
+      "title": "114.1 Every milestone must report the same core truth",
+      "level": 3,
+      "start_line": 1153,
+      "end_line": 1156,
+      "sha256": "2093d39bfad5c68f1e293f34cae9856c3a8d0365196a9b2ee183167db6e21b77",
+      "heading_slug": "1141-every-milestone-must-report-the-same-core-truth",
+      "word_count": 85,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-114-02",
+      "title": "114.2 Owner-visible success scorecard",
+      "level": 3,
+      "start_line": 1157,
+      "end_line": 1160,
+      "sha256": "27736a6cb3df7bb61c4aa481d2ed222e349c9876389f439306d0d7688f160ad0",
+      "heading_slug": "1142-owner-visible-success-scorecard",
+      "word_count": 99,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "SUBSECTION-114-03",
+      "title": "114.3 Full application acceptance examples",
+      "level": 3,
+      "start_line": 1161,
+      "end_line": 1164,
+      "sha256": "0fa6c9f8335c3257fcb1c76b21dd40c3e06010c90c7338d5d366567bbc9b45f7",
+      "heading_slug": "1143-full-application-acceptance-examples",
+      "word_count": 150,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-115",
+      "title": "115. NEXT-021 through NEXT-025 detailed native-original intelligence contract",
+      "level": 2,
+      "start_line": 1165,
+      "end_line": 1192,
+      "sha256": "e6da7bc6dbf8dce0de6eb04167053d0eec4116153b7565657cd22994ae5de303",
+      "heading_slug": "115-next-021-through-next-025-detailed-native-original-intelligence-contract",
+      "word_count": 910,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native"
+      ]
+    },
+    {
+      "id": "SUBSECTION-115-01",
+      "title": "115.1 NEXT-021 — Data and Knowledge Foundry",
+      "level": 3,
+      "start_line": 1169,
+      "end_line": 1172,
+      "sha256": "d0507e516640af479aeb3e52bb9596021f92132fb5a70e7733719cbd900031d7",
+      "heading_slug": "1151-next-021-data-and-knowledge-foundry",
+      "word_count": 145,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "SUBSECTION-115-02",
+      "title": "115.2 NEXT-022 — Original language understanding",
+      "level": 3,
+      "start_line": 1173,
+      "end_line": 1176,
+      "sha256": "6edd6cb7121a82dc2cb71d79c9d295d90d501c7bc615dda9393b4c32e167f784",
+      "heading_slug": "1152-next-022-original-language-understanding",
+      "word_count": 129,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "SUBSECTION-115-03",
+      "title": "115.3 NEXT-023 — Learned planning and reusable procedures",
+      "level": 3,
+      "start_line": 1177,
+      "end_line": 1180,
+      "sha256": "f22d80a2f1b4bab1234cd018c039d669b7acc412d69b295f407acbb1b38ad600",
+      "heading_slug": "1153-next-023-learned-planning-and-reusable-procedures",
+      "word_count": 137,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "SUBSECTION-115-04",
+      "title": "115.4 NEXT-024 — Three Master competencies cooperating",
+      "level": 3,
+      "start_line": 1181,
+      "end_line": 1184,
+      "sha256": "acc106c565bedc8ef663c639fea341494ec1bf49b1f2c7771a21dabb41ccc38d",
+      "heading_slug": "1154-next-024-three-master-competencies-cooperating",
+      "word_count": 126,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "master"
+      ]
+    },
+    {
+      "id": "SUBSECTION-115-05",
+      "title": "115.5 NEXT-025 — Genuine measured self-improvement",
+      "level": 3,
+      "start_line": 1185,
+      "end_line": 1188,
+      "sha256": "1870899d669dbd2f83c012fd825392f18901cd301d6a68df87f34aa761872271",
+      "heading_slug": "1155-next-025-genuine-measured-self-improvement",
+      "word_count": 147,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "SUBSECTION-115-06",
+      "title": "115.6 Batch integration acceptance",
+      "level": 3,
+      "start_line": 1189,
+      "end_line": 1192,
+      "sha256": "426588d0acb78d3b9e45a3a160e991ccfc6ff5288a5cc3c05c98aec92c5438b0",
+      "heading_slug": "1156-batch-integration-acceptance",
+      "word_count": 125,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-116",
+      "title": "116. Long-range original intelligence research beyond NEXT-025",
+      "level": 2,
+      "start_line": 1193,
+      "end_line": 1198,
+      "sha256": "415becb38891ce73886f9d9126a354006e8c318ba98513e4c04e61dfe5deb2bd",
+      "heading_slug": "116-long-range-original-intelligence-research-beyond-next-025",
+      "word_count": 154,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "CH-117",
+      "title": "117. The owner's permanent 'nothing forgotten' repository mechanism",
+      "level": 2,
+      "start_line": 1199,
+      "end_line": 1226,
+      "sha256": "99befeadceffbb700d08b333c6ea8f2a890677b11261926c7567e301d0acc822",
+      "heading_slug": "117-the-owners-permanent-nothing-forgotten-repository-mechanism",
+      "word_count": 432,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "SUBSECTION-117-01",
+      "title": "117.1 Source completeness standard",
+      "level": 3,
+      "start_line": 1223,
+      "end_line": 1226,
+      "sha256": "248868024f0fc79ff6d08ed08ade73b999b8d040784595f7e48d1daa41ffc9c2",
+      "heading_slug": "1171-source-completeness-standard",
+      "word_count": 97,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source"
+      ]
+    },
+    {
+      "id": "PART-XIX",
+      "title": "PART XIX — 200 SUBSTANTIVE FUTURE ENGINEERING INITIATIVES (RECONSTRUCTED CURRENT BACKLOG)",
+      "level": 1,
+      "start_line": 1227,
+      "end_line": 1672,
+      "sha256": "9657b993bffc24ad24b0b75035b1e39bc356981ed079b654dd5afd73c3e74b20",
+      "heading_slug": "part-xix-200-substantive-future-engineering-initiatives-reconstructed-current-backlog",
+      "word_count": 7027,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PROGRAM-P01",
+      "title": "P01 Original language comprehension",
+      "level": 2,
+      "start_line": 1233,
+      "end_line": 1254,
+      "sha256": "4b196a0d8f01002504cf07a51131fb943d420ab071dd445c0b2df1dc51d32a2d",
+      "heading_slug": "p01-original-language-comprehension",
+      "word_count": 340,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PROGRAM-P02",
+      "title": "P02 Native Masters and routing",
+      "level": 2,
+      "start_line": 1255,
+      "end_line": 1276,
+      "sha256": "7ef70c75b4cfb9acce1d21b5b2cddfda1a5c9c28b866d721fba9cd786064d7ca",
+      "heading_slug": "p02-native-masters-and-routing",
+      "word_count": 342,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native",
+        "master"
+      ]
+    },
+    {
+      "id": "PROGRAM-P03",
+      "title": "P03 Specialists and registries",
+      "level": 2,
+      "start_line": 1277,
+      "end_line": 1298,
+      "sha256": "c732390fd8dc1a039672a6ab1877ca17b02dba79689fd02f98988578ccc8217a",
+      "heading_slug": "p03-specialists-and-registries",
+      "word_count": 344,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PROGRAM-P04",
+      "title": "P04 File-first knowledge",
+      "level": 2,
+      "start_line": 1299,
+      "end_line": 1320,
+      "sha256": "fe9ab296898856bafb99f49b4f15885428c2d7e39ef6fba00202f455b45d07de",
+      "heading_slug": "p04-file-first-knowledge",
+      "word_count": 344,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "PROGRAM-P05",
+      "title": "P05 Procedural reasoning",
+      "level": 2,
+      "start_line": 1321,
+      "end_line": 1342,
+      "sha256": "691b0f607e68fa3c2aecee39748f377cd7b4758c26774fff69840c0beceec362",
+      "heading_slug": "p05-procedural-reasoning",
+      "word_count": 339,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PROGRAM-P06",
+      "title": "P06 Outcome foundry and evaluation",
+      "level": 2,
+      "start_line": 1343,
+      "end_line": 1364,
+      "sha256": "b1a976c12478747790f760887539b0e530fe9cc24fca7f11e4a47bed702524f9",
+      "heading_slug": "p06-outcome-foundry-and-evaluation",
+      "word_count": 345,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "evaluation"
+      ]
+    },
+    {
+      "id": "PROGRAM-P07",
+      "title": "P07 Native training and architecture",
+      "level": 2,
+      "start_line": 1365,
+      "end_line": 1386,
+      "sha256": "10144ce5a5e53ee5b090cd13d926239c3ce6cb04cb54e3266c447aad7c93eb36",
+      "heading_slug": "p07-native-training-and-architecture",
+      "word_count": 347,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native",
+        "training"
+      ]
+    },
+    {
+      "id": "PROGRAM-P08",
+      "title": "P08 Training Council and observatory",
+      "level": 2,
+      "start_line": 1387,
+      "end_line": 1408,
+      "sha256": "212d67b492f69689a49f8c31b88c8584ebc75cb708dc3dde170d645e78eb84ee",
+      "heading_slug": "p08-training-council-and-observatory",
+      "word_count": 346,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "id": "PROGRAM-P09",
+      "title": "P09 Model Arena and science",
+      "level": 2,
+      "start_line": 1409,
+      "end_line": 1430,
+      "sha256": "512a575539ff22f2c278064f6adeaedeebcfc57c50579e2ce55f77d2164a8788",
+      "heading_slug": "p09-model-arena-and-science",
+      "word_count": 343,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "PROGRAM-P10",
+      "title": "P10 Native self-improvement",
+      "level": 2,
+      "start_line": 1431,
+      "end_line": 1452,
+      "sha256": "727f174b26edf25475fe9b9f0bbb1b8618121eb76058fbd7c302d068e9a6e102",
+      "heading_slug": "p10-native-self-improvement",
+      "word_count": 341,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native"
+      ]
+    },
+    {
+      "id": "PROGRAM-P11",
+      "title": "P11 Project-aware Developer",
+      "level": 2,
+      "start_line": 1453,
+      "end_line": 1474,
+      "sha256": "732bc2f4f7118b1c0b5fc0c4633d6d1dcbbb906100df44c231f5864087536017",
+      "heading_slug": "p11-project-aware-developer",
+      "word_count": 344,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "project"
+      ]
+    },
+    {
+      "id": "PROGRAM-P12",
+      "title": "P12 Cross-engine game development",
+      "level": 2,
+      "start_line": 1475,
+      "end_line": 1496,
+      "sha256": "73035d40a244172ccd83e39ff928279e815b83cf24d57d13309a6723b9bddc4e",
+      "heading_slug": "p12-cross-engine-game-development",
+      "word_count": 346,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "game"
+      ]
+    },
+    {
+      "id": "PROGRAM-P13",
+      "title": "P13 Creative, writing and multimodal",
+      "level": 2,
+      "start_line": 1497,
+      "end_line": 1518,
+      "sha256": "fa83efbdba9b2b8d5eed619a084ef028620ca6c99513b5477ef043584e99ac0b",
+      "heading_slug": "p13-creative-writing-and-multimodal",
+      "word_count": 347,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PROGRAM-P14",
+      "title": "P14 Local and web research",
+      "level": 2,
+      "start_line": 1519,
+      "end_line": 1540,
+      "sha256": "12c54cff5d38ecbb81cb2d31ef33b294db65189003728ab05ecbb634604b5996",
+      "heading_slug": "p14-local-and-web-research",
+      "word_count": 342,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "PROGRAM-P15",
+      "title": "P15 Private identity and memory",
+      "level": 2,
+      "start_line": 1541,
+      "end_line": 1562,
+      "sha256": "c9a0de599ea32862a7159349a47a7f4a6ed9f45272a81dce68050eaf26a1b551",
+      "heading_slug": "p15-private-identity-and-memory",
+      "word_count": 347,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PROGRAM-P16",
+      "title": "P16 User experience and accessibility",
+      "level": 2,
+      "start_line": 1563,
+      "end_line": 1584,
+      "sha256": "e42a051e7e6ba3ad76ebf16e33540bf54c4f0df055ca3e4effa309f3b38985e3",
+      "heading_slug": "p16-user-experience-and-accessibility",
+      "word_count": 350,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PROGRAM-P17",
+      "title": "P17 Safety and permissions",
+      "level": 2,
+      "start_line": 1585,
+      "end_line": 1606,
+      "sha256": "62948f8bcfab84e2adf7b567077e7d88ea55f49b3d4ac24b0f81208273137a15",
+      "heading_slug": "p17-safety-and-permissions",
+      "word_count": 350,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PROGRAM-P18",
+      "title": "P18 Evolution and software improvement",
+      "level": 2,
+      "start_line": 1607,
+      "end_line": 1628,
+      "sha256": "0d729472e1c46f113c4268b199fffe1dacd583593149fd0e8a3af2a7901333f7",
+      "heading_slug": "p18-evolution-and-software-improvement",
+      "word_count": 343,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PROGRAM-P19",
+      "title": "P19 Resource-aware runtime",
+      "level": 2,
+      "start_line": 1629,
+      "end_line": 1650,
+      "sha256": "2cccafc33f2ba1dcfc878d8f460a8b3680c790e287a8889adcfce8b627641795",
+      "heading_slug": "p19-resource-aware-runtime",
+      "word_count": 345,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source"
+      ]
+    },
+    {
+      "id": "PROGRAM-P20",
+      "title": "P20 Governance, packaging, integration",
+      "level": 2,
+      "start_line": 1651,
+      "end_line": 1672,
+      "sha256": "88a485c4095e360cd0fe4e9f170de78870fc4b205e81338428087735b2ec1fb7",
+      "heading_slug": "p20-governance-packaging-integration",
+      "word_count": 347,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-XX",
+      "title": "PART XX — IMPLEMENTABLE DATA CONTRACTS, TEST PROTOCOLS AND READINESS GATES",
+      "level": 1,
+      "start_line": 1673,
+      "end_line": 1829,
+      "sha256": "5d844c9465944697614b2bae615bb3d9fe1566edfbe0ad2640e6a9259553af7c",
+      "heading_slug": "part-xx-implementable-data-contracts-test-protocols-and-readiness-gates",
+      "word_count": 2406,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-118",
+      "title": "118. Typed end-to-end task contract",
+      "level": 2,
+      "start_line": 1677,
+      "end_line": 1703,
+      "sha256": "3c5c61f87b2152ad378f2b7811940923687632ee30ea323cf061e017f1f59708",
+      "heading_slug": "118-typed-end-to-end-task-contract",
+      "word_count": 204,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-119",
+      "title": "119. Agent and Master action schemas",
+      "level": 2,
+      "start_line": 1704,
+      "end_line": 1709,
+      "sha256": "2d5c97690e07f8a89d0082e5e9069afd164ac233ebd672f9abfd2096e80b5657",
+      "heading_slug": "119-agent-and-master-action-schemas",
+      "word_count": 141,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "master",
+        "agent"
+      ]
+    },
+    {
+      "id": "CH-120",
+      "title": "120. Source, claim and procedure schema examples",
+      "level": 2,
+      "start_line": 1710,
+      "end_line": 1763,
+      "sha256": "aaf691b2acbf527f7385c4aa3530e86bfdfe6ef70b42039dfa7c141aeb89acb1",
+      "heading_slug": "120-source-claim-and-procedure-schema-examples",
+      "word_count": 145,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "procedure",
+        "source"
+      ]
+    },
+    {
+      "id": "CH-121",
+      "title": "121. Outcome ledger and learning-data manifest",
+      "level": 2,
+      "start_line": 1764,
+      "end_line": 1771,
+      "sha256": "93cab47724b7c21ff4f80a7cabf2271cd56eeb824313416037316560c92cb095",
+      "heading_slug": "121-outcome-ledger-and-learning-data-manifest",
+      "word_count": 184,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-122",
+      "title": "122. Model registry, promotion and independence contracts",
+      "level": 2,
+      "start_line": 1772,
+      "end_line": 1779,
+      "sha256": "ad91f8a8d39b369dd6b2fb0c66d8add2c51464fe6a230c932e1f1bcc4b0d875b",
+      "heading_slug": "122-model-registry-promotion-and-independence-contracts",
+      "word_count": 225,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-123",
+      "title": "123. Protected security permission grant contract",
+      "level": 2,
+      "start_line": 1780,
+      "end_line": 1785,
+      "sha256": "706069f0f05486199cdffb07e0c77c57fef42bede3adb24eeb13250418280bff",
+      "heading_slug": "123-protected-security-permission-grant-contract",
+      "word_count": 158,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "security"
+      ]
+    },
+    {
+      "id": "CH-124",
+      "title": "124. Product state, journal and disaster recovery contract",
+      "level": 2,
+      "start_line": 1786,
+      "end_line": 1789,
+      "sha256": "0d1e6d7ddf873d846dd6bb0dabfa9733f72046f6569a36db69cf73c60b4fb9c5",
+      "heading_slug": "124-product-state-journal-and-disaster-recovery-contract",
+      "word_count": 109,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-125",
+      "title": "125. Repository authority and deployment topology",
+      "level": 2,
+      "start_line": 1790,
+      "end_line": 1795,
+      "sha256": "8f19890a0ae1c5f0b65108254485f3e20d39c4ea40afb7b9f941a146618526ab",
+      "heading_slug": "125-repository-authority-and-deployment-topology",
+      "word_count": 168,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-126",
+      "title": "126. Acceptance-test matrix and regression families",
+      "level": 2,
+      "start_line": 1796,
+      "end_line": 1813,
+      "sha256": "3682df1e68d15e0377678233fff9518edec3064cf502f9a0a3cfb4af8937b2ef",
+      "heading_slug": "126-acceptance-test-matrix-and-regression-families",
+      "word_count": 383,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-127",
+      "title": "127. Complete owner task examples and nonfunctional quality",
+      "level": 2,
+      "start_line": 1814,
+      "end_line": 1819,
+      "sha256": "42ddc78ff10704d88749a6b28308a9faf5021147a22f375b1b5186e9a68f7f14",
+      "heading_slug": "127-complete-owner-task-examples-and-nonfunctional-quality",
+      "word_count": 297,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-128",
+      "title": "128. Source reconciliation, missing archives and explicit non-claims",
+      "level": 2,
+      "start_line": 1820,
+      "end_line": 1829,
+      "sha256": "32f8b68b3b7cbaa9699f38a049d10e9ea596cee77f1610b52de0bf21c25e6b97",
+      "heading_slug": "128-source-reconciliation-missing-archives-and-explicit-non-claims",
+      "word_count": 317,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source"
+      ]
+    },
+    {
+      "id": "PART-XXI",
+      "title": "PART XXI — ADDITIONAL CRITICAL SYSTEM CONTRACTS AND REAL-WORLD READINESS",
+      "level": 1,
+      "start_line": 1830,
+      "end_line": 2157,
+      "sha256": "cb3bcf48d0321b6d85aa52f4be8f5002215b59a31da24741610e5c5a490fb58d",
+      "heading_slug": "part-xxi-additional-critical-system-contracts-and-real-world-readiness",
+      "word_count": 9641,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-129",
+      "title": "129. Native-intelligence sovereignty and dependency attestation",
+      "level": 2,
+      "start_line": 1834,
+      "end_line": 1843,
+      "sha256": "25a32e70bdb1468950579692037e128ed59d3643989466c7975a966105321efc",
+      "heading_slug": "129-native-intelligence-sovereignty-and-dependency-attestation",
+      "word_count": 374,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native"
+      ]
+    },
+    {
+      "id": "CH-130",
+      "title": "130. The original language curriculum: understanding before eloquence",
+      "level": 2,
+      "start_line": 1844,
+      "end_line": 1853,
+      "sha256": "1df996620259f68558ceaef1df20b30af358a5e867ee1039dfbc4c5f483e89d1",
+      "heading_slug": "130-the-original-language-curriculum-understanding-before-eloquence",
+      "word_count": 336,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-131",
+      "title": "131. Generalization design, contamination firewalls and task diversity",
+      "level": 2,
+      "start_line": 1854,
+      "end_line": 1863,
+      "sha256": "bb5561d718f89f0ecc358b6700886bc0d00bc18786fed5957c5ec0af229d2b82",
+      "heading_slug": "131-generalization-design-contamination-firewalls-and-task-diversity",
+      "word_count": 321,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-132",
+      "title": "132. A legitimate, license-aware learning-data supply chain",
+      "level": 2,
+      "start_line": 1864,
+      "end_line": 1873,
+      "sha256": "2ac940be2a68af7f72ecf45aeb59e07afff6b9e5a94ea64b07d85f565dc3596c",
+      "heading_slug": "132-a-legitimate-license-aware-learning-data-supply-chain",
+      "word_count": 295,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-133",
+      "title": "133. Active learning, experiment economy and intelligent data acquisition",
+      "level": 2,
+      "start_line": 1874,
+      "end_line": 1883,
+      "sha256": "368898fb2007ced3d0c60d79b4cd308387c390e1210b7d9a523e8bfe8fc3bac1",
+      "heading_slug": "133-active-learning-experiment-economy-and-intelligent-data-acquisition",
+      "word_count": 286,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-134",
+      "title": "134. Causal value of a learned model: ablations, counterfactuals and cost",
+      "level": 2,
+      "start_line": 1884,
+      "end_line": 1893,
+      "sha256": "b4ed85fb67145aabf5cf021b45e83f14991d4a9c02777451f1256f80646e04b2",
+      "heading_slug": "134-causal-value-of-a-learned-model-ablations-counterfactuals-and-cost",
+      "word_count": 310,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-135",
+      "title": "135. Calibrated uncertainty, safe abstention and knowledge gaps",
+      "level": 2,
+      "start_line": 1894,
+      "end_line": 1903,
+      "sha256": "99c98a1218e1c66fb69677d81901c0b3aed6533d3c6505ff5755232d86bb370a",
+      "heading_slug": "135-calibrated-uncertainty-safe-abstention-and-knowledge-gaps",
+      "word_count": 259,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "CH-136",
+      "title": "136. Reasoning procedures as typed, independently testable programs",
+      "level": 2,
+      "start_line": 1904,
+      "end_line": 1913,
+      "sha256": "9c9a3de8441d24be87f4243f1567a7ce9a75c13894e205a7d059c6adc37146c0",
+      "heading_slug": "136-reasoning-procedures-as-typed-independently-testable-programs",
+      "word_count": 272,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "procedure"
+      ]
+    },
+    {
+      "id": "CH-137",
+      "title": "137. Task-graph correctness, concurrency and distributed-state safety",
+      "level": 2,
+      "start_line": 1914,
+      "end_line": 1923,
+      "sha256": "bd4d041fe59e19e98518325efae88b725e088000923898a501b4694b4cf286cf",
+      "heading_slug": "137-task-graph-correctness-concurrency-and-distributed-state-safety",
+      "word_count": 283,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-138",
+      "title": "138. Differentiated Master competencies, disagreement and arbitration",
+      "level": 2,
+      "start_line": 1924,
+      "end_line": 1933,
+      "sha256": "3caaa7b95c842f84c64cc6ea2db0fb5a53dc56839eac7f3b149d1d67fd874046",
+      "heading_slug": "138-differentiated-master-competencies-disagreement-and-arbitration",
+      "word_count": 308,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "master"
+      ]
+    },
+    {
+      "id": "CH-139",
+      "title": "139. Original-model architecture, tokenizer, scaling and runtime budgets",
+      "level": 2,
+      "start_line": 1934,
+      "end_line": 1943,
+      "sha256": "cbd13088eea6b49246d931b6a0ca6ec62c59d9d3b172ae48c5ef36911ea68c64",
+      "heading_slug": "139-original-model-architecture-tokenizer-scaling-and-runtime-budgets",
+      "word_count": 330,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-140",
+      "title": "140. Continual learning, forgetting, reversible model upgrades and retirement",
+      "level": 2,
+      "start_line": 1944,
+      "end_line": 1953,
+      "sha256": "8556f212352b9e052327bb871d534d20724c286e6eb272c952686a66ac9732e9",
+      "heading_slug": "140-continual-learning-forgetting-reversible-model-upgrades-and-retirement",
+      "word_count": 244,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-141",
+      "title": "141. Independent evaluation custody and adversarial red teaming",
+      "level": 2,
+      "start_line": 1954,
+      "end_line": 1963,
+      "sha256": "26fd0d4b5660b9447b6c519e88f9fa9dfb1ce5a7a79afd0903e91f0bb603f7f0",
+      "heading_slug": "141-independent-evaluation-custody-and-adversarial-red-teaming",
+      "word_count": 296,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "evaluation"
+      ]
+    },
+    {
+      "id": "CH-142",
+      "title": "142. Host isolation threat model: Windows filesystem and process boundaries",
+      "level": 2,
+      "start_line": 1964,
+      "end_line": 1973,
+      "sha256": "56433e29a8092d38c8234005ee34870e8136b917611bceeaeeafc8d21eaca3e6",
+      "heading_slug": "142-host-isolation-threat-model-windows-filesystem-and-process-boundaries",
+      "word_count": 309,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-143",
+      "title": "143. Network research, remote isolation, anonymity limits and online identity",
+      "level": 2,
+      "start_line": 1974,
+      "end_line": 1983,
+      "sha256": "13b832dce5d0f3007a3e8b75198f8d236b730bd8d3907b5c5d778e18a9d9460a",
+      "heading_slug": "143-network-research-remote-isolation-anonymity-limits-and-online-identity",
+      "word_count": 304,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "CH-144",
+      "title": "144. Secrets, prompt injection, data poisoning and trusted execution separation",
+      "level": 2,
+      "start_line": 1984,
+      "end_line": 1993,
+      "sha256": "f7b8a8798ab9b3e399edef71e4a9f8dc7791221d50d324ba59e013db6a20da36",
+      "heading_slug": "144-secrets-prompt-injection-data-poisoning-and-trusted-execution-separation",
+      "word_count": 301,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-145",
+      "title": "145. Backups, migrations, power-loss recovery and owner-controlled restoration",
+      "level": 2,
+      "start_line": 1994,
+      "end_line": 2003,
+      "sha256": "a04b9e06eb28d6882b110d7dd93b95cdb10a5ec14fb44f8c1cc775dad3d35ead",
+      "heading_slug": "145-backups-migrations-power-loss-recovery-and-owner-controlled-restoration",
+      "word_count": 289,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-146",
+      "title": "146. Personal data lifecycle, per-user identity and meaningful deletion",
+      "level": 2,
+      "start_line": 2004,
+      "end_line": 2013,
+      "sha256": "4ba488ffd2b21b3a75e3d495382465fc45cbc0c9ecddc4143430229449f4a259",
+      "heading_slug": "146-personal-data-lifecycle-per-user-identity-and-meaningful-deletion",
+      "word_count": 291,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-147",
+      "title": "147. Honest UX, explainability and operator control at every maturity level",
+      "level": 2,
+      "start_line": 2014,
+      "end_line": 2023,
+      "sha256": "9d80b6fa4e9a4a49e4e708d4ae8eba9a4c56cd758afd95e65107382cf46e73b9",
+      "heading_slug": "147-honest-ux-explainability-and-operator-control-at-every-maturity-level",
+      "word_count": 300,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-148",
+      "title": "148. Provenance graph, versioned evidence and knowledge decay",
+      "level": 2,
+      "start_line": 2024,
+      "end_line": 2033,
+      "sha256": "706c5646c3be0db2d33fc56c9b809f76bc866802e66bb78d69e13d16cebe5c8f",
+      "heading_slug": "148-provenance-graph-versioned-evidence-and-knowledge-decay",
+      "word_count": 285,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "knowledge"
+      ]
+    },
+    {
+      "id": "CH-149",
+      "title": "149. Project engineering from a user request to a verified patch",
+      "level": 2,
+      "start_line": 2034,
+      "end_line": 2043,
+      "sha256": "205ff7f7e32f0ff906df7f5ace5ac595921895f8ae940a842e2d7f7ad898386b",
+      "heading_slug": "149-project-engineering-from-a-user-request-to-a-verified-patch",
+      "word_count": 280,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "project"
+      ]
+    },
+    {
+      "id": "CH-150",
+      "title": "150. Creative production, game development and artifact-centered testing",
+      "level": 2,
+      "start_line": 2044,
+      "end_line": 2053,
+      "sha256": "c7298da4a0fde7df9f2d54c05942547890ed3dc7169a61926bb1ffa9c871bcca",
+      "heading_slug": "150-creative-production-game-development-and-artifact-centered-testing",
+      "word_count": 282,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "game"
+      ]
+    },
+    {
+      "id": "CH-151",
+      "title": "151. Multimodal intelligence and assistive modalities without false claims",
+      "level": 2,
+      "start_line": 2054,
+      "end_line": 2063,
+      "sha256": "6403b9f885182899662acab023eda97c2c1572a4c02afba73a7c9822357bf0fc",
+      "heading_slug": "151-multimodal-intelligence-and-assistive-modalities-without-false-claims",
+      "word_count": 260,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-152",
+      "title": "152. Performance, energy, failure budgets and the owner's real workstation",
+      "level": 2,
+      "start_line": 2064,
+      "end_line": 2073,
+      "sha256": "01a2c4ec413f380b69716b0637f65dcd24e110be4c6bbec1df74f93cd4996fbd",
+      "heading_slug": "152-performance-energy-failure-budgets-and-the-owners-real-workstation",
+      "word_count": 285,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-153",
+      "title": "153. Dependency supply chain, licensing and reproducible release artifacts",
+      "level": 2,
+      "start_line": 2074,
+      "end_line": 2083,
+      "sha256": "feaa0426406db3222cfcfa58e21bf1ed5d151c41b9f09f046a7cef070c551470",
+      "heading_slug": "153-dependency-supply-chain-licensing-and-reproducible-release-artifacts",
+      "word_count": 253,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "release"
+      ]
+    },
+    {
+      "id": "CH-154",
+      "title": "154. Long-term observability, operations, maintenance and total cost",
+      "level": 2,
+      "start_line": 2084,
+      "end_line": 2093,
+      "sha256": "6b1e098ed816e4fa5bd7693a1be0f8d45222c9456268f8bfa970946bab630f85",
+      "heading_slug": "154-long-term-observability-operations-maintenance-and-total-cost",
+      "word_count": 260,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-155",
+      "title": "155. PLATZ Engine integration: a narrow, versioned interoperability contract",
+      "level": 2,
+      "start_line": 2094,
+      "end_line": 2103,
+      "sha256": "7ec3fe2940d9fa94b6a5cdb3435eaddef4bb211d380af1ca7cf16b3dcadc2d94",
+      "heading_slug": "155-platz-engine-integration-a-narrow-versioned-interoperability-contract",
+      "word_count": 261,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "platz"
+      ]
+    },
+    {
+      "id": "CH-156",
+      "title": "156. Self-improvement economics, Goodhart resistance and experiment stopping",
+      "level": 2,
+      "start_line": 2104,
+      "end_line": 2113,
+      "sha256": "a60d05ee287a75d22eb18129862fe5d1de2857b19189075e01849f656746247e",
+      "heading_slug": "156-self-improvement-economics-goodhart-resistance-and-experiment-stopping",
+      "word_count": 252,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-157",
+      "title": "157. Architecture governance, drift prevention and design-decision records",
+      "level": 2,
+      "start_line": 2114,
+      "end_line": 2123,
+      "sha256": "f435ddb1a4a108679b585c2479cea218e8e80366d0fc8055d889645481e4f351",
+      "heading_slug": "157-architecture-governance-drift-prevention-and-design-decision-records",
+      "word_count": 325,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-158",
+      "title": "158. NEXT-021 through NEXT-025: harder, audit-ready release definitions",
+      "level": 2,
+      "start_line": 2124,
+      "end_line": 2137,
+      "sha256": "ad6c93e204a2366cd65c26edbeb6286014db222aa74b901408afce393588fd2b",
+      "heading_slug": "158-next-021-through-next-025-harder-audit-ready-release-definitions",
+      "word_count": 462,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "release"
+      ]
+    },
+    {
+      "id": "CH-159",
+      "title": "159. Definition of an actual product release: user journeys and acceptance witnesses",
+      "level": 2,
+      "start_line": 2138,
+      "end_line": 2147,
+      "sha256": "a34374a37272331040c60225b668d448f5628d14f9bd2f3c9c3d6bc0fc575249",
+      "heading_slug": "159-definition-of-an-actual-product-release-user-journeys-and-acceptance-witnesses",
+      "word_count": 301,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "release"
+      ]
+    },
+    {
+      "id": "CH-160",
+      "title": "160. Source archives, historical completeness and owner acceptance registry",
+      "level": 2,
+      "start_line": 2148,
+      "end_line": 2157,
+      "sha256": "d5bd7416f3d033307493d5132d55aaa60b371d40ff0f190ef3305bd823e25958",
+      "heading_slug": "160-source-archives-historical-completeness-and-owner-acceptance-registry",
+      "word_count": 321,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source",
+        "owner"
+      ]
+    },
+    {
+      "id": "PART-XXII",
+      "title": "PART XXII — GAP-FILLED OPERATIONAL CONTRACTS & GOVERNANCE PLAYBOOK (v3.2 ADDITIONS)",
+      "level": 1,
+      "start_line": 2158,
+      "end_line": 2343,
+      "sha256": "bdc88efa11808046336ca215953fe9a940c396ff50ea5ec30e4701cc0010fc7e",
+      "heading_slug": "part-xxii-gap-filled-operational-contracts-governance-playbook-v32-additions",
+      "word_count": 1284,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-161",
+      "title": "161. Strict Data Foundry schema and family-level decontamination firewall (`NEXT-021`)",
+      "level": 2,
+      "start_line": 2162,
+      "end_line": 2242,
+      "sha256": "c220d2c00c8837775a91e88333331b09720581601f66c4e1dc22c1b7bc8d723e",
+      "heading_slug": "161-strict-data-foundry-schema-and-family-level-decontamination-firewall-next-021",
+      "word_count": 375,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-162",
+      "title": "162. Four-arm causal evaluation and statistical promotion gates (`NEXT-022`–`NEXT-025`)",
+      "level": 2,
+      "start_line": 2243,
+      "end_line": 2262,
+      "sha256": "f950ca12ed8060d4170ddac9b079ea59d51da02a1b5083d38b021892fa4be7a9",
+      "heading_slug": "162-four-arm-causal-evaluation-and-statistical-promotion-gates-next-022next-025",
+      "word_count": 185,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "evaluation"
+      ]
+    },
+    {
+      "id": "CH-163",
+      "title": "163. Procedure state machine, three-Master arbitration and self-improvement rollback (`NEXT-023`–`NEXT-025`)",
+      "level": 2,
+      "start_line": 2263,
+      "end_line": 2295,
+      "sha256": "d3e54040624dceacd077d0ceaa7bad2933396e036747050991b86bd289b89871",
+      "heading_slug": "163-procedure-state-machine-three-master-arbitration-and-self-improvement-rollback-next-023next-025",
+      "word_count": 209,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "master",
+        "procedure"
+      ]
+    },
+    {
+      "id": "CH-164",
+      "title": "164. Four-layer retrieval, five-zone isolation, Win32 canonicalization and `CapabilityGrantV1`",
+      "level": 2,
+      "start_line": 2296,
+      "end_line": 2323,
+      "sha256": "7d18eed4b48ac489d461a883b04e86f5f263f25097050dfab8f2bbfde3ea8a51",
+      "heading_slug": "164-four-layer-retrieval-five-zone-isolation-win32-canonicalization-and-capabilitygrantv1",
+      "word_count": 196,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-165",
+      "title": "165. Windows 11 workstation resource arbitration and honest degradation",
+      "level": 2,
+      "start_line": 2324,
+      "end_line": 2333,
+      "sha256": "09ed597d8136405a3c6728bce087f576b9467fdefaf5f21b214fd05aba9c2878",
+      "heading_slug": "165-windows-11-workstation-resource-arbitration-and-honest-degradation",
+      "word_count": 143,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "source"
+      ]
+    },
+    {
+      "id": "CH-166",
+      "title": "166. Repository layout, CI non-drift gates and context-budget boot protocol",
+      "level": 2,
+      "start_line": 2334,
+      "end_line": 2343,
+      "sha256": "a9592bbd9300715aec3229322d907cd661c6cc439cbb6202fcbdccf6408ebd94",
+      "heading_slug": "166-repository-layout-ci-non-drift-gates-and-context-budget-boot-protocol",
+      "word_count": 121,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "PART-XXIII",
+      "title": "PART XXIII — DELIVERY-READY PRODUCT, RESEARCH, AND OPERATIONS CONTRACTS (v3.3 EXPANSION)",
+      "level": 1,
+      "start_line": 2344,
+      "end_line": 2637,
+      "sha256": "06d1ea02f3c84a011d970413e5caf60632b0897f2e33031fae70ad65857b08c4",
+      "heading_slug": "part-xxiii-delivery-ready-product-research-and-operations-contracts-v33-expansion",
+      "word_count": 8741,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "CH-167",
+      "title": "167. A complete owner experience: from first launch to advanced autonomy",
+      "level": 2,
+      "start_line": 2348,
+      "end_line": 2359,
+      "sha256": "422226c8f53e31de1cdd7808039cebc07c27ac89aab9ce6d3bbb9c0eee34cb8b",
+      "heading_slug": "167-a-complete-owner-experience-from-first-launch-to-advanced-autonomy",
+      "word_count": 489,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-168",
+      "title": "168. Canonical capability graph and prerequisites: prevent feature inflation",
+      "level": 2,
+      "start_line": 2360,
+      "end_line": 2371,
+      "sha256": "8097a36ded4104f05722cd127072d6ee91bdbd46584c69a8395a6a08ad11114b",
+      "heading_slug": "168-canonical-capability-graph-and-prerequisites-prevent-feature-inflation",
+      "word_count": 362,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-169",
+      "title": "169. Language understanding, explicit intent contracts, and safe ambiguity resolution",
+      "level": 2,
+      "start_line": 2372,
+      "end_line": 2381,
+      "sha256": "3891f7c4661a0adf8556e6c58e09164da26f49425f910edb1ffd547d20f57cfe",
+      "heading_slug": "169-language-understanding-explicit-intent-contracts-and-safe-ambiguity-resolution",
+      "word_count": 360,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-170",
+      "title": "170. Reproducible project intelligence beyond simple file lookup",
+      "level": 2,
+      "start_line": 2382,
+      "end_line": 2393,
+      "sha256": "dd4ba92c96051a61325fce5d5bddadef678836a5ebcf314c79b5916c509b6d12",
+      "heading_slug": "170-reproducible-project-intelligence-beyond-simple-file-lookup",
+      "word_count": 406,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "project"
+      ]
+    },
+    {
+      "id": "CH-171",
+      "title": "171. Research autonomy, claim-level trust, and reproducible literature work",
+      "level": 2,
+      "start_line": 2394,
+      "end_line": 2403,
+      "sha256": "318b6aca13a0e12015d94dc858b4805c2b6c64164370ab065159a310f3f0d8ec",
+      "heading_slug": "171-research-autonomy-claim-level-trust-and-reproducible-literature-work",
+      "word_count": 359,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "CH-172",
+      "title": "172. Model and dataset provenance through the entire learning chain",
+      "level": 2,
+      "start_line": 2404,
+      "end_line": 2413,
+      "sha256": "dc8e7821c7d28aadb62f52c86b9ed050f97cbee7c7b5c6feb07d61f2ad53a5d3",
+      "heading_slug": "172-model-and-dataset-provenance-through-the-entire-learning-chain",
+      "word_count": 350,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-173",
+      "title": "173. Model architecture and scale as a controlled scientific program",
+      "level": 2,
+      "start_line": 2414,
+      "end_line": 2423,
+      "sha256": "f5a3cb865acfae554a8a623a7117582a1410e34b29424572caebedd5a7987751",
+      "heading_slug": "173-model-architecture-and-scale-as-a-controlled-scientific-program",
+      "word_count": 332,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "model"
+      ]
+    },
+    {
+      "id": "CH-174",
+      "title": "174. Original Primary, Research and Engineering roles: competence rather than labels",
+      "level": 2,
+      "start_line": 2424,
+      "end_line": 2433,
+      "sha256": "1e6aa5b0dcd601115fa989a80e9eb333025feba7aa6d48fe74622a6e4c1fe28d",
+      "heading_slug": "174-original-primary-research-and-engineering-roles-competence-rather-than-labels",
+      "word_count": 328,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "CH-175",
+      "title": "175. Trustworthy tool execution, verifier custody and permission gates",
+      "level": 2,
+      "start_line": 2434,
+      "end_line": 2443,
+      "sha256": "1cd3442de4005c38cf32c16ee9738b09010b39da352fbf65398b154a02f19edc",
+      "heading_slug": "175-trustworthy-tool-execution-verifier-custody-and-permission-gates",
+      "word_count": 309,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-176",
+      "title": "176. Windows host, remote guest and boundary proof for future automation",
+      "level": 2,
+      "start_line": 2444,
+      "end_line": 2453,
+      "sha256": "30b8d3a94464accd3229da5b0ff632c9dd711997ef7b6ca68728491fb7549cdf",
+      "heading_slug": "176-windows-host-remote-guest-and-boundary-proof-for-future-automation",
+      "word_count": 331,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-177",
+      "title": "177. Data lifecycle, personal assistance and honest memory controls",
+      "level": 2,
+      "start_line": 2454,
+      "end_line": 2463,
+      "sha256": "8198b570036a3b2f20977b2ea663047824af1982bdb9723295eb78a178537c8f",
+      "heading_slug": "177-data-lifecycle-personal-assistance-and-honest-memory-controls",
+      "word_count": 287,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-178",
+      "title": "178. User-directed creation, creative continuity and multimodal boundaries",
+      "level": 2,
+      "start_line": 2464,
+      "end_line": 2473,
+      "sha256": "8f9836c264c25228b827a4419f54f1c51d9213798e0ce2a6344537da777e4a5c",
+      "heading_slug": "178-user-directed-creation-creative-continuity-and-multimodal-boundaries",
+      "word_count": 278,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "CH-179",
+      "title": "179. Hardware scheduling, training observability and experimental cost accounting",
+      "level": 2,
+      "start_line": 2474,
+      "end_line": 2483,
+      "sha256": "928505f40695b1ca72708c18dd36793083fd755d899925ae84ede8162115e1c6",
+      "heading_slug": "179-hardware-scheduling-training-observability-and-experimental-cost-accounting",
+      "word_count": 290,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "id": "CH-180",
+      "title": "180. Release management, provenance, backup and recovery",
+      "level": 2,
+      "start_line": 2484,
+      "end_line": 2493,
+      "sha256": "365a1212f82ba3668f605e7356c030140c800708f20cda93453f48c5ad6db6c8",
+      "heading_slug": "180-release-management-provenance-backup-and-recovery",
+      "word_count": 285,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "release"
+      ]
+    },
+    {
+      "id": "CH-181",
+      "title": "181. Scientific experiment management and the honesty of progress",
+      "level": 2,
+      "start_line": 2494,
+      "end_line": 2503,
+      "sha256": "e039aab03facb97ed0619d722885316be9dcbaf4d8109085f7a553495437c3df",
+      "heading_slug": "181-scientific-experiment-management-and-the-honesty-of-progress",
+      "word_count": 304,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-182",
+      "title": "182. ATLAS-original procedural memory and inference-time competence",
+      "level": 2,
+      "start_line": 2504,
+      "end_line": 2513,
+      "sha256": "5e3106da674fd352f26895243a1d038742e6ccc8df753f88f505c23f18ea2370",
+      "heading_slug": "182-atlas-original-procedural-memory-and-inference-time-competence",
+      "word_count": 277,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "atlas"
+      ]
+    },
+    {
+      "id": "CH-183",
+      "title": "183. Learned multi-step planning, bounded graphs and correction without loops",
+      "level": 2,
+      "start_line": 2514,
+      "end_line": 2523,
+      "sha256": "c55bbc5d42a3fad59c1f88585b7e3325ff8e0ecab9f6cbe6ee4675822099998d",
+      "heading_slug": "183-learned-multi-step-planning-bounded-graphs-and-correction-without-loops",
+      "word_count": 285,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-184",
+      "title": "184. Operational learning and intervention: deciding what to improve",
+      "level": 2,
+      "start_line": 2524,
+      "end_line": 2533,
+      "sha256": "df25e5d9a0bf23c766894593e650048ef3e2a4d7cafa250228f7855171aaea65",
+      "heading_slug": "184-operational-learning-and-intervention-deciding-what-to-improve",
+      "word_count": 281,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-185",
+      "title": "185. Independent audit service and evidence-driven developer workflow",
+      "level": 2,
+      "start_line": 2534,
+      "end_line": 2543,
+      "sha256": "ac4ca0befb947e525cd3724e6956f59298255a40778cf717534654e2f58f9f98",
+      "heading_slug": "185-independent-audit-service-and-evidence-driven-developer-workflow",
+      "word_count": 292,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-186",
+      "title": "186. Agent-facing knowledge navigation, context budgets and documentation contracts",
+      "level": 2,
+      "start_line": 2544,
+      "end_line": 2553,
+      "sha256": "9fd7081847f51a439b219a8082fe8cb693eb02da5a85f275767286ecbbd62071",
+      "heading_slug": "186-agent-facing-knowledge-navigation-context-budgets-and-documentation-contracts",
+      "word_count": 335,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "knowledge",
+        "agent"
+      ]
+    },
+    {
+      "id": "CH-187",
+      "title": "187. Reliable API and internal contract evolution",
+      "level": 2,
+      "start_line": 2554,
+      "end_line": 2561,
+      "sha256": "ea1bd42d3fa3856969f761264f3fc14c3b394f559e030bcf7a02dda51f92d8dd",
+      "heading_slug": "187-reliable-api-and-internal-contract-evolution",
+      "word_count": 209,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-188",
+      "title": "188. Packaging as a reproducible, inspectable software supply chain",
+      "level": 2,
+      "start_line": 2562,
+      "end_line": 2571,
+      "sha256": "9c0ea4db8e3fffcb212df7bc90d0cf4dad6540c0cd1a57c3f148535b4874841d",
+      "heading_slug": "188-packaging-as-a-reproducible-inspectable-software-supply-chain",
+      "word_count": 277,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": []
+    },
+    {
+      "id": "CH-189",
+      "title": "189. PLATZ Technologies ecosystem and separate product boundaries",
+      "level": 2,
+      "start_line": 2572,
+      "end_line": 2581,
+      "sha256": "bdbbc7dfad104cf26fe2b9b8ae6a4f1b7fcd617d076be8b491bd8fd3c91471e7",
+      "heading_slug": "189-platz-technologies-ecosystem-and-separate-product-boundaries",
+      "word_count": 261,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "platz"
+      ]
+    },
+    {
+      "id": "CH-190",
+      "title": "190. Post-NEXT-025 roadmap, gates and native-only graduation ladder",
+      "level": 2,
+      "start_line": 2582,
+      "end_line": 2596,
+      "sha256": "b5802eed3d3c98841d5054b1ffb9c9252e6b2e2f1ec4f5fe00e62686973c8b95",
+      "heading_slug": "190-post-next-025-roadmap-gates-and-native-only-graduation-ladder",
+      "word_count": 311,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "native"
+      ]
+    },
+    {
+      "id": "CH-191",
+      "title": "191. Representative owner acceptance demonstrations that prove useful AI",
+      "level": 2,
+      "start_line": 2597,
+      "end_line": 2625,
+      "sha256": "5c3022377a9b6fb50947302a9b4afd3762be1e868968de67264177a47dda9587",
+      "heading_slug": "191-representative-owner-acceptance-demonstrations-that-prove-useful-ai",
+      "word_count": 608,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "CH-192",
+      "title": "192. Owner control, product quality bars and anti-forgetting release protocol",
+      "level": 2,
+      "start_line": 2626,
+      "end_line": 2637,
+      "sha256": "41738312db6d1ecf9d4ed250becc145e3c0844bc49b28c52bed0a41b5e044d65",
+      "heading_slug": "192-owner-control-product-quality-bars-and-anti-forgetting-release-protocol",
+      "word_count": 424,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_canonical_product",
+      "tags": [
+        "release",
+        "owner"
+      ]
+    },
+    {
+      "id": "APPENDIX-A",
+      "title": "APPENDIX A — THE 12 CANONICAL TIER-5 VAULTS (PRESERVED REGISTRY KEYS, RECONCILED v3.2)",
+      "level": 1,
+      "start_line": 2638,
+      "end_line": 2666,
+      "sha256": "284220db8b71617bf822daf4efc6679a269e4ece586e2eace29b74c24fc305ea",
+      "heading_slug": "appendix-a-the-12-canonical-tier-5-vaults-preserved-registry-keys-reconciled-v32",
+      "word_count": 506,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-B",
+      "title": "APPENDIX B — THE 20 EXECUTIVE CLUSTER MASTERS",
+      "level": 1,
+      "start_line": 2667,
+      "end_line": 2709,
+      "sha256": "970ca324232a860fa86bf492e3bec1f1f3e66c6fec7a6f0924aab71adc19393c",
+      "heading_slug": "appendix-b-the-20-executive-cluster-masters",
+      "word_count": 658,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "master"
+      ]
+    },
+    {
+      "id": "APPENDIX-C",
+      "title": "APPENDIX C — FULL 100 DOMAIN-MASTER ROLE CATALOG",
+      "level": 1,
+      "start_line": 2710,
+      "end_line": 2913,
+      "sha256": "7c383c7d0f47c9e1bd001e5a308edda76b6c1fde8eef197f8e8a10fc317a6553",
+      "heading_slug": "appendix-c-full-100-domain-master-role-catalog",
+      "word_count": 3166,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "master"
+      ]
+    },
+    {
+      "id": "APPENDIX-D",
+      "title": "APPENDIX D — THE 25 MICRO-SPECIALIST FAMILIES (2,125 PROPOSED SLOTS)",
+      "level": 1,
+      "start_line": 2914,
+      "end_line": 3271,
+      "sha256": "6076be47495c7624fb31e36fafd3ae08a1c78c6709fdb40373d5d23f6eec3674",
+      "heading_slug": "appendix-d-the-25-micro-specialist-families-2125-proposed-slots",
+      "word_count": 3283,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-D-SUB-d1-the-125-explicit-specialist-examples-from-the-source",
+      "title": "D.1 The 125 explicit specialist examples from the source",
+      "level": 3,
+      "start_line": 2968,
+      "end_line": 3271,
+      "sha256": "e6ffcf4991b014f2a488b6c25c77b15bec392945c5801822458534583b7e9a6b",
+      "heading_slug": "d1-the-125-explicit-specialist-examples-from-the-source",
+      "word_count": 2637,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "source"
+      ]
+    },
+    {
+      "id": "APPENDIX-E",
+      "title": "APPENDIX E — TRAINING COUNCIL, CURRICULUM, UI AND PERSONAL-MEMORY CATALOGS",
+      "level": 1,
+      "start_line": 3272,
+      "end_line": 3425,
+      "sha256": "99d15144f567d252167a514b8bbe7cc111f991a00f7a8074ac05a2816e18dcb8",
+      "heading_slug": "appendix-e-training-council-curriculum-ui-and-personal-memory-catalogs",
+      "word_count": 1933,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "training",
+        "ui"
+      ]
+    },
+    {
+      "id": "APPENDIX-E-SUB-e1-original-training-council-slots",
+      "title": "E.1 Original Training Council slots",
+      "level": 3,
+      "start_line": 3276,
+      "end_line": 3295,
+      "sha256": "f52f6035c082d6089ff45d416754e9ca4082a99d3d2ed2ea26399bc839b812ee",
+      "heading_slug": "e1-original-training-council-slots",
+      "word_count": 251,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "training"
+      ]
+    },
+    {
+      "id": "APPENDIX-E-SUB-e2-the-original-14-stage-autonomous-state-machine",
+      "title": "E.2 The original 14-stage autonomous state machine",
+      "level": 3,
+      "start_line": 3296,
+      "end_line": 3326,
+      "sha256": "cdfe8fa0a1d38b4f088ae572fe2287e878fb32198d3c1e3d2ed5fb6b30099160",
+      "heading_slug": "e2-the-original-14-stage-autonomous-state-machine",
+      "word_count": 330,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-E-SUB-e3-the-original-14-curriculum-dimensions",
+      "title": "E.3 The original 14 curriculum dimensions",
+      "level": 3,
+      "start_line": 3327,
+      "end_line": 3356,
+      "sha256": "923ea66395763b0b496adc67ac189331cdee53458f961a190cea8db723dfd0b3",
+      "heading_slug": "e3-the-original-14-curriculum-dimensions",
+      "word_count": 419,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-E-SUB-e4-all-13-advanced-technical-workspaces",
+      "title": "E.4 All 13 advanced technical workspaces",
+      "level": 3,
+      "start_line": 3357,
+      "end_line": 3384,
+      "sha256": "0c826959df0df1de3f62ba7b7d5084298b2fadad49f8b2e853a8d26303dba718",
+      "heading_slug": "e4-all-13-advanced-technical-workspaces",
+      "word_count": 465,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-E-SUB-e5-all-19-personal-category-file-names",
+      "title": "E.5 All 19 personal category file names",
+      "level": 3,
+      "start_line": 3385,
+      "end_line": 3425,
+      "sha256": "ca10d417556c487ad79c97a003e0a040d51ca551cf25de7bd5ab85dd05701f09",
+      "heading_slug": "e5-all-19-personal-category-file-names",
+      "word_count": 391,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-F",
+      "title": "APPENDIX F — ORIGINAL 28 OWNER MISSION GOALS AND TRACEABILITY",
+      "level": 1,
+      "start_line": 3426,
+      "end_line": 3486,
+      "sha256": "56fcef2ab320e599f2518abfed0893e59f6c6959d182e65edc29a3a9a9d2ee9b",
+      "heading_slug": "appendix-f-original-28-owner-mission-goals-and-traceability",
+      "word_count": 988,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "APPENDIX-G",
+      "title": "APPENDIX G — ORIGINAL 30 ACCEPTANCE-TEST INVENTORY (REVISED INTERPRETATION)",
+      "level": 1,
+      "start_line": 3487,
+      "end_line": 3550,
+      "sha256": "89ab0d5267f66aca0ce2adc8481f3745556b78fafa158b46e253ebaa5c3acf2a",
+      "heading_slug": "appendix-g-original-30-acceptance-test-inventory-revised-interpretation",
+      "word_count": 1198,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-H",
+      "title": "APPENDIX H — ORIGINAL QUANTITATIVE RESEARCH HYPOTHESES (UNPROVEN)",
+      "level": 1,
+      "start_line": 3551,
+      "end_line": 3576,
+      "sha256": "25a6fb39bd9cd2f6b705718c4f7272667f084a95016654f1d68c28e8a73d90b7",
+      "heading_slug": "appendix-h-original-quantitative-research-hypotheses-unproven",
+      "word_count": 416,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "id": "APPENDIX-I",
+      "title": "APPENDIX I — REFERENCE MODEL SOURCES (`TRUNCATED_IN_SOURCE` IN v3.1, TRACKING TABLE ADDED v3.2)",
+      "level": 1,
+      "start_line": 3577,
+      "end_line": 3585,
+      "sha256": "139953d763cedbae95985f92ec6d1d4491f2ea936caa71995a11db3d8d7301b3",
+      "heading_slug": "appendix-i-reference-model-sources-truncated_in_source-in-v31-tracking-table-added-v32",
+      "word_count": 156,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "model",
+        "source"
+      ]
+    },
+    {
+      "id": "APPENDIX-J",
+      "title": "APPENDIX J — CANONICAL STRUCTURED DATA AND REPRODUCIBILITY SCHEMAS",
+      "level": 1,
+      "start_line": 3586,
+      "end_line": 3613,
+      "sha256": "cc4b1a2a22e138bea98d418c64e37d96dc0ee80fc33020c27851f78390c41ce7",
+      "heading_slug": "appendix-j-canonical-structured-data-and-reproducibility-schemas",
+      "word_count": 290,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-K",
+      "title": "APPENDIX K — ALL FIFTY HISTORICAL REQUIREMENT IDs (VERBATIM REQUIREMENT TEXT)",
+      "level": 1,
+      "start_line": 3614,
+      "end_line": 3717,
+      "sha256": "87f3724d4515b6ae821c19150a5ad1db8bd5e643541576a9a5cad838c0f125c7",
+      "heading_slug": "appendix-k-all-fifty-historical-requirement-ids-verbatim-requirement-text",
+      "word_count": 1082,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "APPENDIX-L",
+      "title": "APPENDIX L — KNOWN UNSUPPLIED HISTORICAL ARCHIVES AND WHAT IS NOT RECOVERED (`NOT_SUPPLIED`)",
+      "level": 1,
+      "start_line": 3718,
+      "end_line": 3737,
+      "sha256": "8a8a02e5d7e915607423f4bd2b985af62ea490009d16e55d6a506023f9a969ce",
+      "heading_slug": "appendix-l-known-unsupplied-historical-archives-and-what-is-not-recovered-not_supplied",
+      "word_count": 258,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-M",
+      "title": "APPENDIX M — REINFORCED TRUST-BOUNDARY AND THREAT-CASE REGISTER",
+      "level": 1,
+      "start_line": 3738,
+      "end_line": 3764,
+      "sha256": "dab53edd927162aa3e44d8e4a41a627cbbdef9b33f6dca46f69061a4f4fc434a",
+      "heading_slug": "appendix-m-reinforced-trust-boundary-and-threat-case-register",
+      "word_count": 407,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-N",
+      "title": "APPENDIX N — SCIENTIFIC SCORECARD FOR NATIVE ORIGINAL INTELLIGENCE",
+      "level": 1,
+      "start_line": 3765,
+      "end_line": 3791,
+      "sha256": "b4deb21baa1d9fda5c644a2c2ed9e4fa5a9759e4c43a1c9c2efc9565780275d0",
+      "heading_slug": "appendix-n-scientific-scorecard-for-native-original-intelligence",
+      "word_count": 291,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "native"
+      ]
+    },
+    {
+      "id": "APPENDIX-O",
+      "title": "APPENDIX O — ILLUSTRATIVE VERSIONED DATA CONTRACTS AND OWNER DECISION REGISTER",
+      "level": 1,
+      "start_line": 3792,
+      "end_line": 3877,
+      "sha256": "146d22bbd3c072a71d7e785b879acf4a22059044d86e0f88b52086c0fc1fcdc4",
+      "heading_slug": "appendix-o-illustrative-versioned-data-contracts-and-owner-decision-register",
+      "word_count": 500,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "APPENDIX-O-SUB-o1-illustrative-versioned-data-contracts-for-the-missing-cap",
+      "title": "O.1 Illustrative versioned data contracts for the missing capabilities",
+      "level": 2,
+      "start_line": 3794,
+      "end_line": 3867,
+      "sha256": "e8331e0fdcd586cb997d551a6b882aaf380579a3dc8b2f744999b0fe4f7926dd",
+      "heading_slug": "o1-illustrative-versioned-data-contracts-for-the-missing-capabilities",
+      "word_count": 152,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-O-SUB-o2-owner-decision-register-and-open-research-questions",
+      "title": "O.2 Owner decision register and open research questions",
+      "level": 2,
+      "start_line": 3868,
+      "end_line": 3877,
+      "sha256": "eafa5630f559bfae9991e21027d1055482890df25da6f82e4327eb9a4a7510ea",
+      "heading_slug": "o2-owner-decision-register-and-open-research-questions",
+      "word_count": 336,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "research",
+        "owner"
+      ]
+    },
+    {
+      "id": "APPENDIX-P",
+      "title": "APPENDIX P — FAST HUMAN READER'S GUIDE",
+      "level": 1,
+      "start_line": 3878,
+      "end_line": 3891,
+      "sha256": "a8b2e165a2715b7bbab7cbfb5eec4bba95666b9e99b0ce9757adca5d3e807c8c",
+      "heading_slug": "appendix-p-fast-human-readers-guide",
+      "word_count": 335,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "ui"
+      ]
+    },
+    {
+      "id": "APPENDIX-Q",
+      "title": "APPENDIX Q — AI AGENT STARTUP AND DECISION CHECKLIST",
+      "level": 1,
+      "start_line": 3892,
+      "end_line": 3907,
+      "sha256": "5bdc97ab257b877b8c81ce328fc184d9cd3d138f99e41d2397da9672e8b527cb",
+      "heading_slug": "appendix-q-ai-agent-startup-and-decision-checklist",
+      "word_count": 347,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "agent"
+      ]
+    },
+    {
+      "id": "APPENDIX-R",
+      "title": "APPENDIX R — CANONICAL TERMS AND EVIDENCE SEMANTICS",
+      "level": 1,
+      "start_line": 3908,
+      "end_line": 3928,
+      "sha256": "f016ccaa218d91d4866bdf9ba23ee4aa1312585c42d01c1d832d8c8852affa1d",
+      "heading_slug": "appendix-r-canonical-terms-and-evidence-semantics",
+      "word_count": 317,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-S",
+      "title": "APPENDIX S — MINIMUM ACCEPTANCE MATRIX FOR NEXT-021 THROUGH NEXT-025",
+      "level": 1,
+      "start_line": 3929,
+      "end_line": 3940,
+      "sha256": "6fa2d33bfa3c32166042a54939c04f01c30667e0c88d7afb7d469d4eeaeacb5f",
+      "heading_slug": "appendix-s-minimum-acceptance-matrix-for-next-021-through-next-025",
+      "word_count": 302,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-T",
+      "title": "APPENDIX T — HUMAN AND AI DOCUMENTATION MAP",
+      "level": 1,
+      "start_line": 3941,
+      "end_line": 3960,
+      "sha256": "892e3854fa91091c91eef04f55c388c8c04be08bcf1429bb82e60832da061b11",
+      "heading_slug": "appendix-t-human-and-ai-documentation-map",
+      "word_count": 258,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-U",
+      "title": "APPENDIX U — OWNER DECISIONS, PRIORITIES AND OPEN GATES",
+      "level": 1,
+      "start_line": 3961,
+      "end_line": 3968,
+      "sha256": "0efec0c25f68e6b3df81a6d4ba65ac9faebf738d96a097ebc9cb1bd5a6e36364",
+      "heading_slug": "appendix-u-owner-decisions-priorities-and-open-gates",
+      "word_count": 263,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": [
+        "owner"
+      ]
+    },
+    {
+      "id": "APPENDIX-V",
+      "title": "APPENDIX V — PRODUCT FAILURES, INCIDENTS AND ZERO-TRUST STOP RULES",
+      "level": 1,
+      "start_line": 3969,
+      "end_line": 3976,
+      "sha256": "3c6af818cff6aa129dceb39d4851c646a14d676966a7d9c053ef0a8ea5e5f827",
+      "heading_slug": "appendix-v-product-failures-incidents-and-zero-trust-stop-rules",
+      "word_count": 235,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    },
+    {
+      "id": "APPENDIX-W",
+      "title": "APPENDIX W — CHANGELOG, ARCHIVE AND COMPLETENESS BOUNDARY",
+      "level": 1,
+      "start_line": 3977,
+      "end_line": 3983,
+      "sha256": "7da863152e38aecae691e3ba8dba9a4adea576315fe726c1c996cac93bf81cae",
+      "heading_slug": "appendix-w-changelog-archive-and-completeness-boundary",
+      "word_count": 252,
+      "scope": "product_intent_not_implementation_truth",
+      "authority": "current_catalog_or_reference",
+      "tags": []
+    }
+  ]
+}
