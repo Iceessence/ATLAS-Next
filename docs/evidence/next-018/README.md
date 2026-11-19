@@ -1,0 +1,7 @@
+# NEXT-018 original Primary Master
+
+Product `d8ebe25bd719a477c9d6cfa73afd17e50afb964e`. Run `python -B lab/native_master.py fit` and `python -B lab/native_master.py evaluate` after NEXT-016 acquisition. Two unit checks passed. The master is a 4→6→1, 37-parameter tanh network from random initialization. Each of the six specialist folds excluded the family producing the training signal. Its 24 training examples comprised 16 verified proposals and eight withholds. A five-parameter original logistic gate and confidence-only gate provide simpler alternatives.
+
+Seed 11 with threshold 0.50 was selected. Training loss fell from 0.88634 to 0.48125, validation loss was 0.49885, and downstream validation completed 8/8. Fit used 115.2 ms with 10,200 peak Python-traced bytes and 296 parameter bytes. This excludes the six cross-fits and host process costs, detailed in the receipts.
+
+On public evaluation the Master completed 16/20 with zero incorrect deliveries, including eight host fallbacks. It proposed 12 useful specialist decisions and missed four useful specialist decisions. The lower-cost confidence and logistic gates also completed 16/20 with seven fallbacks and one fewer false negative. Specialist-only completed 13/20 and unrestricted host completed 16/20. The learned Master added no verified completions over existing deterministic routing. Its gate is advisory. [Weights and Adam moments](checkpoint.json) · [Cross-fits and selection](fit.json) · [Evaluation](evaluation.json)
