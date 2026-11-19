@@ -6,15 +6,15 @@
   "conversations_complete": 9,
   "conversations_total": 14,
   "turn_counts": {
-    "exact_delivery": 13,
-    "wrong_delivery": 1,
-    "false_abstention": 6,
-    "correct_withhold": 5,
+    "exact_delivery": 15,
+    "wrong_delivery": 3,
+    "false_abstention": 3,
+    "correct_withhold": 4,
     "verdict_mismatch": 0
   },
-  "first_ms": 0.1254499948117882,
-  "warm_ms": 0.01854999572969973,
-  "working_set_bytes": 26222592,
+  "first_ms": 0.14139999984763563,
+  "warm_ms": 0.019949977286159992,
+  "working_set_bytes": 26230784,
   "trials": [
     {
       "id": "real-cs-generic-compare-convo",
@@ -128,10 +128,10 @@
       ],
       "complete": true,
       "milliseconds": [
-        2.979899989441037,
-        1.6124999965541065,
-        1.7118999967351556,
-        1.6258999821729958
+        2.6498999795876443,
+        1.6706999740563333,
+        1.6176000353880227,
+        1.62830000044778
       ]
     },
     {
@@ -197,10 +197,10 @@
       ],
       "complete": false,
       "milliseconds": [
-        0.48210000386461616,
-        0.23330003023147583,
-        0.2334999735467136,
-        0.23030000738799572
+        0.37810002686455846,
+        0.24589995155110955,
+        0.2533000078983605,
+        0.23509998572990298
       ]
     },
     {
@@ -266,10 +266,10 @@
       ],
       "complete": true,
       "milliseconds": [
-        0.3541000187397003,
-        0.33030001213774085,
-        0.21579995518550277,
-        0.20980002591386437
+        0.36970002111047506,
+        0.21889997879043221,
+        0.21180004114285111,
+        0.21359999664127827
       ]
     },
     {
@@ -320,10 +320,10 @@
       ],
       "complete": false,
       "milliseconds": [
-        0.4314000252634287,
-        0.3526999498717487,
-        0.36310002906247973,
-        0.3698000218719244
+        0.4275999963283539,
+        0.36230002297088504,
+        0.36560004809871316,
+        0.3630999708548188
       ]
     },
     {
@@ -374,10 +374,10 @@
       ],
       "complete": true,
       "milliseconds": [
-        0.4163000266999006,
-        0.37789996713399887,
-        0.3738999948836863,
-        0.3727999865077436
+        0.43000001460313797,
+        0.37540000630542636,
+        0.36890001501888037,
+        0.36449998151510954
       ]
     },
     {
@@ -464,10 +464,10 @@
       ],
       "complete": true,
       "milliseconds": [
-        0.7672000210732222,
-        0.02659996971487999,
-        0.022099993657320738,
-        0.020900042727589607
+        0.7209000177681446,
+        0.026100024115294218,
+        0.021499989088624716,
+        0.02039998071268201
       ]
     },
     {
@@ -483,7 +483,7 @@
         },
         "ShadowOnly.cs": {
           "kind": "constructed_public_control",
-          "import_sha256": "0bfe0a1874797dab156e364d594b502ab5e89059991e755c2033243c1e530b88"
+          "import_sha256": "1b04bd8f49cee88cca07ed89c38800f4a071818c309a805fa956ab72c50decc2"
         }
       },
       "turns": [
@@ -499,9 +499,17 @@
               "text": "Load"
             }
           ],
-          "verdict": "ambiguous",
-          "citations": [],
-          "outcome": "false_abstention"
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Repo.cs",
+              "line": 5,
+              "start": 150,
+              "length": 4,
+              "text": "Load"
+            }
+          ],
+          "outcome": "exact_delivery"
         },
         {
           "question": "Where is it called?",
@@ -515,17 +523,67 @@
               "text": "s.Load(ids)"
             }
           ],
-          "verdict": "unsupported",
-          "citations": [],
-          "outcome": "false_abstention"
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Worker.cs",
+              "line": 4,
+              "start": 95,
+              "length": 9,
+              "text": "Load(ids)"
+            },
+            {
+              "source": "Worker.cs",
+              "line": 5,
+              "start": 194,
+              "length": 9,
+              "text": "Load(ids)"
+            },
+            {
+              "source": "Worker.cs",
+              "line": 6,
+              "start": 222,
+              "length": 9,
+              "text": "Load(ids)"
+            },
+            {
+              "source": "Worker.cs",
+              "line": 7,
+              "start": 265,
+              "length": 9,
+              "text": "Load(ids)"
+            },
+            {
+              "source": "Worker.cs",
+              "line": 9,
+              "start": 326,
+              "length": 28,
+              "text": "Load(IReadOnlyList<int> ids)"
+            },
+            {
+              "source": "ShadowOnly.cs",
+              "line": 3,
+              "start": 71,
+              "length": 28,
+              "text": "Load(IReadOnlyList<int> ids)"
+            },
+            {
+              "source": "ShadowOnly.cs",
+              "line": 4,
+              "start": 202,
+              "length": 15,
+              "text": "Store.Load(ids)"
+            }
+          ],
+          "outcome": "wrong_delivery"
         }
       ],
       "complete": false,
       "milliseconds": [
-        0.10060000931844115,
-        0.02340000355616212,
-        0.020299979951232672,
-        0.019899976905435324
+        0.15139998868107796,
+        0.04150002496317029,
+        0.04110002191737294,
+        0.03650004509836435
       ]
     },
     {
@@ -588,10 +646,10 @@
       ],
       "complete": true,
       "milliseconds": [
-        0.050499977078288794,
-        0.014899997040629387,
-        0.011500029359012842,
-        0.010299962013959885
+        0.045599997974932194,
+        0.014499993994832039,
+        0.011700030881911516,
+        0.010499963536858559
       ]
     },
     {
@@ -654,10 +712,10 @@
       ],
       "complete": true,
       "milliseconds": [
-        0.12049998622387648,
-        0.017200014553964138,
-        0.014399993233382702,
-        0.013599987141788006
+        0.11830002767965198,
+        0.016899954061955214,
+        0.014100049156695604,
+        0.013199984095990658
       ]
     },
     {
@@ -669,7 +727,7 @@
         },
         "ShadowOnly.cs": {
           "kind": "constructed_public_control",
-          "import_sha256": "0bfe0a1874797dab156e364d594b502ab5e89059991e755c2033243c1e530b88"
+          "import_sha256": "1b04bd8f49cee88cca07ed89c38800f4a071818c309a805fa956ab72c50decc2"
         }
       },
       "turns": [
@@ -685,25 +743,48 @@
               "text": "Load"
             }
           ],
-          "verdict": "ambiguous",
-          "citations": [],
-          "outcome": "false_abstention"
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "Repo.cs",
+              "line": 5,
+              "start": 150,
+              "length": 4,
+              "text": "Load"
+            }
+          ],
+          "outcome": "exact_delivery"
         },
         {
           "question": "Where is it called?",
           "expected_verdict": "unsupported",
           "expected_citations": [],
-          "verdict": "unsupported",
-          "citations": [],
-          "outcome": "correct_withhold"
+          "verdict": "supported",
+          "citations": [
+            {
+              "source": "ShadowOnly.cs",
+              "line": 3,
+              "start": 71,
+              "length": 28,
+              "text": "Load(IReadOnlyList<int> ids)"
+            },
+            {
+              "source": "ShadowOnly.cs",
+              "line": 4,
+              "start": 202,
+              "length": 15,
+              "text": "Store.Load(ids)"
+            }
+          ],
+          "outcome": "wrong_delivery"
         }
       ],
       "complete": false,
       "milliseconds": [
-        0.017300015315413475,
-        0.014899997040629387,
-        0.01409999094903469,
-        0.014299992471933365
+        0.021799991372972727,
+        0.019499973859637976,
+        0.018300022929906845,
+        0.018099963199347258
       ]
     },
     {
@@ -750,10 +831,10 @@
       ],
       "complete": true,
       "milliseconds": [
-        0.1029000268317759,
-        0.014399993233382702,
-        0.011500029359012842,
-        0.010999967344105244
+        0.10220002150163054,
+        0.01479999627918005,
+        0.011699972674250603,
+        0.010700023267418146
       ]
     },
     {
@@ -808,10 +889,10 @@
       ],
       "complete": false,
       "milliseconds": [
-        0.13040000339969993,
-        0.014599994756281376,
-        0.011200027074664831,
-        0.010499963536858559
+        0.1314000110141933,
+        0.015099998563528061,
+        0.011500029359012842,
+        0.010600022505968809
       ]
     },
     {
@@ -834,9 +915,9 @@
       ],
       "complete": true,
       "milliseconds": [
-        0.04090002039447427,
-        0.007700000423938036,
-        0.006299989763647318,
+        0.04169996827840805,
+        0.007599999662488699,
+        0.006100046448409557,
         0.005799985956400633
       ]
     },
@@ -864,9 +945,9 @@
       ],
       "complete": true,
       "milliseconds": [
-        0.000400003045797348,
+        0.000500003807246685,
         0.000300002284348011,
-        0.000200001522898674,
+        0.000300002284348011,
         0.000200001522898674
       ]
     }

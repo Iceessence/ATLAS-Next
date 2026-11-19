@@ -34,8 +34,8 @@ class FakeStore { public IReadOnlyList<string> Load(IReadOnlyList<int> ids) => A
 """,
     "ShadowOnly.cs": """class ShadowOnly
 {
-    class Store { public IReadOnlyList<string> Load(IReadOnlyList<int> ids) => new string[0]; }
-    public int Run(IReadOnlyList<int> ids) { var s = new Store(); return s.Load(ids).Count; }
+    class LocalStore { public IReadOnlyList<string> Load(IReadOnlyList<int> ids) => new string[0]; }
+    public int Run(IReadOnlyList<int> ids) { var Store = new LocalStore(); return Store.Load(ids).Count; }
 }
 """,
     "typed.py": """class Metrics:
