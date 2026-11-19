@@ -1,0 +1,183 @@
+{
+  "provenance": [
+    {
+      "path": "docs/evidence/next-010/windows.txt",
+      "sourceSha256": "1dcadad135cf89a5126bb3c4bf72c12aefcd919118e617d7b6d9056332a7bdc9",
+      "projection": "All (\\d+) checks passed"
+    },
+    {
+      "path": "docs/evidence/next-010/verify-ps51.txt",
+      "sourceSha256": "8435133424d4fb4ef187f9c43cbe1b230071aaac398f6d88114895c49fda5724",
+      "projection": "PASS (\\d+) inventory hashes"
+    }
+  ],
+  "ordinaryExactFields": [
+    "268",
+    "519"
+  ],
+  "actual": {
+    "outcome": {
+      "id": "43ab0c03-6c38-4a68-8ca9-02ca18578479",
+      "request": "Compare project claims: Check count | Inventory count",
+      "schema": 1,
+      "parentTaskId": null,
+      "plan": {
+        "objective": "Verify two recorded release measurements",
+        "fields": "Check count | Inventory count",
+        "sourceIds": [
+          "doc-12773e8e9fd060d5f1c39eedbf3564a7bbcee00ad7cd278fb6684fdccf2238a6",
+          "doc-f2aaefd393d668895a50ee0fee10ae93c953a9426bb0d7a78a9935a6ed9b22b1"
+        ]
+      },
+      "project": "default",
+      "kind": "research.compare",
+      "authority": "local desktop owner",
+      "scope": "owner-local",
+      "dependencies": [
+        "a883c2d8d0f5d4e59c7182d3cb18be7f58375466b9c6fae4d59428e921a9bb80",
+        "doc-12773e8e9fd060d5f1c39eedbf3564a7bbcee00ad7cd278fb6684fdccf2238a6:1:c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a",
+        "doc-f2aaefd393d668895a50ee0fee10ae93c953a9426bb0d7a78a9935a6ed9b22b1:1:f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0"
+      ],
+      "capability": "read owner-imported text",
+      "budget": "2048 chars / 32 documents / 256 KiB per import / 8 evidence passages / CPU",
+      "inferenceMicroseconds": 3338,
+      "processWorkingSetBytes": 43724800,
+      "router": "deterministic-route-v8",
+      "primaryCandidateId": "doc-12773e8e9fd060d5f1c39eedbf3564a7bbcee00ad7cd278fb6684fdccf2238a6",
+      "specialist": "research.compare",
+      "proposal": {
+        "model": "atlas-native-route-v1",
+        "origin": "original",
+        "qualification": "shadow",
+        "sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+        "route": "procedure",
+        "probability": 0.5275720432754856
+      },
+      "authorization": "allowed scoped record read",
+      "verification": "source and answer checked",
+      "sourceIntegrity": "passed",
+      "answerRelevance": "supported",
+      "researchReview": {
+        "verdict": "supported",
+        "detail": "Every requested key has explicit support in the listed local passages.",
+        "freshness": "active project revisions",
+        "trust": "owner-selected text",
+        "sources": [
+          {
+            "id": "doc-12773e8e9fd060d5f1c39eedbf3564a7bbcee00ad7cd278fb6684fdccf2238a6",
+            "version": 1,
+            "digest": "c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a",
+            "source": "Build.txt",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-12773e8e9fd060d5f1c39eedbf3564a7bbcee00ad7cd278fb6684fdccf2238a6\\00000001-c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a\\Build.txt",
+              "line": 1,
+              "start": 13,
+              "length": 3
+            }
+          },
+          {
+            "id": "doc-f2aaefd393d668895a50ee0fee10ae93c953a9426bb0d7a78a9935a6ed9b22b1",
+            "version": 1,
+            "digest": "f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0",
+            "source": "Package.txt",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-f2aaefd393d668895a50ee0fee10ae93c953a9426bb0d7a78a9935a6ed9b22b1\\00000001-f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0\\Package.txt",
+              "line": 1,
+              "start": 17,
+              "length": 3
+            }
+          }
+        ],
+        "claims": [
+          {
+            "subject": "check count",
+            "verdict": "supported",
+            "freshness": "active revision; undated source",
+            "sources": [
+              {
+                "id": "doc-12773e8e9fd060d5f1c39eedbf3564a7bbcee00ad7cd278fb6684fdccf2238a6",
+                "version": 1,
+                "digest": "c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a",
+                "source": "Build.txt",
+                "type": "fact",
+                "origin": "owner import",
+                "trust": "owner-selected text",
+                "span": {
+                  "path": "knowledge\\doc-12773e8e9fd060d5f1c39eedbf3564a7bbcee00ad7cd278fb6684fdccf2238a6\\00000001-c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a\\Build.txt",
+                  "line": 1,
+                  "start": 13,
+                  "length": 3
+                }
+              }
+            ]
+          },
+          {
+            "subject": "inventory count",
+            "verdict": "supported",
+            "freshness": "active revision; undated source",
+            "sources": [
+              {
+                "id": "doc-f2aaefd393d668895a50ee0fee10ae93c953a9426bb0d7a78a9935a6ed9b22b1",
+                "version": 1,
+                "digest": "f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0",
+                "source": "Package.txt",
+                "type": "fact",
+                "origin": "owner import",
+                "trust": "owner-selected text",
+                "span": {
+                  "path": "knowledge\\doc-f2aaefd393d668895a50ee0fee10ae93c953a9426bb0d7a78a9935a6ed9b22b1\\00000001-f4ba1c383044ac164cd4ba20ab7c3576d9c7db8c973aeb4b04c7402784214bf0\\Package.txt",
+                  "line": 1,
+                  "start": 17,
+                  "length": 3
+                }
+              }
+            ]
+          }
+        ],
+        "changedClaims": null,
+        "requestRelevance": "supported",
+        "factualSupport": "stated by cited sources"
+      },
+      "evidence": {
+        "id": "doc-12773e8e9fd060d5f1c39eedbf3564a7bbcee00ad7cd278fb6684fdccf2238a6",
+        "version": 1,
+        "digest": "c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a",
+        "source": "Build.txt",
+        "type": "fact",
+        "origin": "owner import",
+        "trust": "owner-selected text",
+        "span": {
+          "path": "knowledge\\doc-12773e8e9fd060d5f1c39eedbf3564a7bbcee00ad7cd278fb6684fdccf2238a6\\00000001-c752a0227472537ec42585212ed7fd2803400a97a729e3f2738cb0179d66bd2a\\Build.txt",
+          "line": 1,
+          "start": 13,
+          "length": 3
+        }
+      },
+      "result": "check count: 268\ninventory count: 519",
+      "events": [
+        {
+          "state": "queued",
+          "at": "2026-11-19T05:32:42.460519+00:00"
+        },
+        {
+          "state": "review",
+          "at": "2026-11-19T05:32:42.492177+00:00"
+        },
+        {
+          "state": "completed",
+          "at": "2026-11-19T05:32:42.5144161+00:00"
+        }
+      ],
+      "state": "completed"
+    },
+    "draftState": "review",
+    "elapsedMs": 60.1483,
+    "workingSetBytes": 44630016
+  }
+}
