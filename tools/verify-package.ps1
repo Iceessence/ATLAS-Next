@@ -471,6 +471,7 @@ try {
     Invoke-Control $window 'ShowModels'
     $models=Find-AtlasDialog $session 'ATLAS Next Model Evidence'
     Wait-AtlasText {Read-Value $models 'ModelReport'} '*specialist*shadow*fitting blocked*native*15/16*'
+    Wait-AtlasText {Read-Value $models 'ModelReport'} '*Native-original lab*shadow*External inference calls 0*65 parameters*37 parameters*Refit rejected*13/20*'
     Close-Dialog $models $session
 
     $promptBox.SetValue('Where is Store.Load(IReadOnlyList<int>) defined?')

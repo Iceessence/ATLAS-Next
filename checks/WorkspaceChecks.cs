@@ -26,5 +26,10 @@ internal static class WorkspaceChecks
         var report=ModelEvidenceWindow.ReadReport();
         check(report.Contains("fitting blocked",StringComparison.Ordinal) && report.Contains("native · 15/16",StringComparison.Ordinal) &&
             report.Contains("project specialist · shadow",StringComparison.Ordinal),"workspace displays pinned experiment qualification and measured outcomes");
+        check(report.Contains("Primary Master · 4 → 6 → 1 tanh · 37 parameters",StringComparison.Ordinal) &&
+            report.Contains("Native-original lab · shadow",StringComparison.Ordinal) &&
+            report.Contains("External inference calls 0",StringComparison.Ordinal) &&
+            report.Contains("Refit rejected · 13/20",StringComparison.Ordinal),
+            "workspace displays original model lineage and rejected refit");
     }
 }

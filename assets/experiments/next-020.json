@@ -1,0 +1,39 @@
+{
+  "qualification": "shadow",
+  "externalInferenceCalls": 0,
+  "provenance": "Authorized local audits of public distribution metadata, RECORD files, and interface source. Verified Windows host actions supply labels.",
+  "models": [
+    {
+      "role": "source specialist",
+      "architecture": "6 → 8 → 1 tanh",
+      "parameters": 65,
+      "trainingExamples": 96,
+      "positives": 16,
+      "checkpointSha256": "2e67c6562dc76e35ed6c7a11af6491980d1d015296b9b0b0673ec98d73ff72d1"
+    },
+    {
+      "role": "Primary Master",
+      "architecture": "4 → 6 → 1 tanh",
+      "parameters": 37,
+      "trainingExamples": 24,
+      "positives": 16,
+      "checkpointSha256": "c1199fd6a641621dd6d5beaf0baf25b67e8e2923e68cf63d176fbe8037b890ba"
+    }
+  ],
+  "publicEvaluation": {
+    "tasks": 20,
+    "host": 16,
+    "tfidf": 16,
+    "linear": 15,
+    "specialist": 13,
+    "cooperation": 16
+  },
+  "refit": {
+    "disposition": "rejected",
+    "useful": 13,
+    "reason": "Compared with 16/20 from deterministic host and TF-IDF. The new project audits added negative outcomes only.",
+    "checkpointSha256": "79918ba61f82b571f5d8618d11f7542851f3d1f4763c5050c3c439619a2af34d"
+  },
+  "scoring": "Learned models score and propose sources. The deterministic host authorizes, verifies and delivers. Custodian-held qualification is pending.",
+  "runHint": "Run lab/native_task.py query from the source checkout with explicitly supplied local Markdown files."
+}
