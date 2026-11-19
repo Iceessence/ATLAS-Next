@@ -1,0 +1,173 @@
+[
+  {
+    "origin": "git:595ca361:desktop/Engine.cs",
+    "sha256": "d521a235d227bed2e323cb207c5966771fd2c94782a5f2b5d056714fe6cb252f",
+    "symbol": "Engine.CheckProjectAnswer",
+    "native": {
+      "selected": "completed",
+      "imported": {
+        "id": "doc-8dcd8453c934a2e9525a7e1c079c4fd5821f530cd7db0cb0e45b11a1cd6f27c0",
+        "version": 1,
+        "name": "Engine.cs",
+        "claims": 157
+      },
+      "guide": {
+        "definition": {
+          "text": "CheckProjectAnswer",
+          "citation": {
+            "id": "doc-8dcd8453c934a2e9525a7e1c079c4fd5821f530cd7db0cb0e45b11a1cd6f27c0",
+            "version": 1,
+            "digest": "d521a235d227bed2e323cb207c5966771fd2c94782a5f2b5d056714fe6cb252f",
+            "source": "Engine.cs",
+            "type": "code.definition",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "knowledge\\doc-8dcd8453c934a2e9525a7e1c079c4fd5821f530cd7db0cb0e45b11a1cd6f27c0\\00000001-d521a235d227bed2e323cb207c5966771fd2c94782a5f2b5d056714fe6cb252f\\Engine.cs",
+              "line": 102,
+              "start": 5841,
+              "length": 18
+            }
+          }
+        },
+        "signature": {
+          "text": "private ProjectFinding CheckProjectAnswer(string route,string request,CodeQuestion? code,IReadOnlyList<OwnedSource> sources,\n        Guid? parentId,Work? comparison)",
+          "citation": {
+            "id": "doc-8dcd8453c934a2e9525a7e1c079c4fd5821f530cd7db0cb0e45b11a1cd6f27c0",
+            "version": 1,
+            "digest": "d521a235d227bed2e323cb207c5966771fd2c94782a5f2b5d056714fe6cb252f",
+            "source": "Engine.cs",
+            "type": "code.signature",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "knowledge\\doc-8dcd8453c934a2e9525a7e1c079c4fd5821f530cd7db0cb0e45b11a1cd6f27c0\\00000001-d521a235d227bed2e323cb207c5966771fd2c94782a5f2b5d056714fe6cb252f\\Engine.cs",
+              "line": 102,
+              "start": 5818,
+              "length": 165
+            }
+          }
+        },
+        "documentation": null,
+        "return": {
+          "text": "ProjectFinding",
+          "citation": {
+            "id": "doc-8dcd8453c934a2e9525a7e1c079c4fd5821f530cd7db0cb0e45b11a1cd6f27c0",
+            "version": 1,
+            "digest": "d521a235d227bed2e323cb207c5966771fd2c94782a5f2b5d056714fe6cb252f",
+            "source": "Engine.cs",
+            "type": "code.return",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "knowledge\\doc-8dcd8453c934a2e9525a7e1c079c4fd5821f530cd7db0cb0e45b11a1cd6f27c0\\00000001-d521a235d227bed2e323cb207c5966771fd2c94782a5f2b5d056714fe6cb252f\\Engine.cs",
+              "line": 102,
+              "start": 5826,
+              "length": 14
+            }
+          }
+        },
+        "calls": []
+      },
+      "ms": 8.5891,
+      "workingSetBytes": 59113472
+    },
+    "ordinary_line": "private ProjectFinding CheckProjectAnswer(string route,string request,CodeQuestion? code,IReadOnlyList<OwnedSource> sources,",
+    "ordinary_complete": false,
+    "native_complete": true
+  },
+  {
+    "origin": "python-docx 1.2.0 docx/table.py",
+    "sha256": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+    "symbol": "_Cell.add_table",
+    "native": {
+      "selected": "completed",
+      "imported": {
+        "id": "doc-6928a758172683371603b858f58004d7d91e11266d031eb104c3a32246310e63",
+        "version": 1,
+        "name": "table.py",
+        "claims": 410
+      },
+      "guide": {
+        "definition": {
+          "text": "add_table",
+          "citation": {
+            "id": "doc-6928a758172683371603b858f58004d7d91e11266d031eb104c3a32246310e63",
+            "version": 1,
+            "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+            "source": "table.py",
+            "type": "code.definition",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "knowledge\\doc-6928a758172683371603b858f58004d7d91e11266d031eb104c3a32246310e63\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+              "line": 213,
+              "start": 7918,
+              "length": 9
+            }
+          }
+        },
+        "signature": {
+          "text": "def add_table(  # pyright: ignore[reportIncompatibleMethodOverride]\n        self, rows: int, cols: int\n    ) -> Table:",
+          "citation": {
+            "id": "doc-6928a758172683371603b858f58004d7d91e11266d031eb104c3a32246310e63",
+            "version": 1,
+            "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+            "source": "table.py",
+            "type": "code.signature",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "knowledge\\doc-6928a758172683371603b858f58004d7d91e11266d031eb104c3a32246310e63\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+              "line": 213,
+              "start": 7914,
+              "length": 118
+            }
+          }
+        },
+        "documentation": {
+          "text": "\"\"\"Return a table newly added to this cell after any existing cell content.\n\n        The new table will have `rows` rows and `cols` columns.\n\n        An empty paragraph is added after the table because Word requires a paragraph\n        element as the last element in every cell.\n        \"\"\"",
+          "citation": {
+            "id": "doc-6928a758172683371603b858f58004d7d91e11266d031eb104c3a32246310e63",
+            "version": 1,
+            "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+            "source": "table.py",
+            "type": "code.documentation",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "knowledge\\doc-6928a758172683371603b858f58004d7d91e11266d031eb104c3a32246310e63\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+              "line": 216,
+              "start": 8041,
+              "length": 290
+            }
+          }
+        },
+        "return": {
+          "text": "Table",
+          "citation": {
+            "id": "doc-6928a758172683371603b858f58004d7d91e11266d031eb104c3a32246310e63",
+            "version": 1,
+            "digest": "105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16",
+            "source": "table.py",
+            "type": "code.return",
+            "origin": "owner import",
+            "trust": "owner-selected source",
+            "span": {
+              "path": "knowledge\\doc-6928a758172683371603b858f58004d7d91e11266d031eb104c3a32246310e63\\00000001-105c5b543dda11b2cea9d7ace5ca46b77c576cfcdb64b146d1297938f1d2ae16\\table.py",
+              "line": 215,
+              "start": 8026,
+              "length": 5
+            }
+          }
+        },
+        "calls": []
+      },
+      "ms": 13.4394,
+      "workingSetBytes": 49741824
+    },
+    "ordinary_line": "def add_table(  # pyright: ignore[reportIncompatibleMethodOverride]",
+    "ordinary_complete": false,
+    "native_complete": true
+  }
+]
