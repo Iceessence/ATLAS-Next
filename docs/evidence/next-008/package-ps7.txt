@@ -1,9 +1,9 @@
-﻿  Determining projects to restore...
-  Restored C:\Users\ppawe\AppData\Local\Temp\atlas-next008r-ps7\desktop\AtlasNext.csproj (in 55 ms).
-  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next008r-ps7\desktop\bin\Release\net10.0-windows\AtlasNext.dll
-  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next008r-ps7\out\stage-be1cbd1d855f4ddb93a28c5a92398b7a\app\
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next-ps7-next008r2\desktop\bin\Release\net10.0-windows\AtlasNext.dll
+  AtlasNext -> C:\Users\ppawe\AppData\Local\Temp\atlas-next-ps7-next008r2\out\stage-93869c0c916d42688247756ac331346a\app\
 
 [32;1mAlgorithm : [0mSHA256
-[32;1mHash      : [0m7DAC0F5B5C534BE82BC01E69613B01B9A079BBD4001E914037CB9EABF205B47D
-[32;1mPath      : [0mC:\Users\ppawe\AppData\Local\Temp\atlas-next008r-ps7\out\ATLAS-Next-win-x64.zip
+[32;1mHash      : [0mB51F115DB30F5150AE37852CF17B56CAF01E83D3139C9234355442037AFBD50D
+[32;1mPath      : [0mC:\Users\ppawe\AppData\Local\Temp\atlas-next-ps7-next008r2\out\ATLAS-Next-win-x64.zip
 

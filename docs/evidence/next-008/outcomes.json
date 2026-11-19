@@ -35,7 +35,7 @@
       },
       "result": "c\u00e9ladon",
       "evidence": {
-        "id": "doc-93f7c9ccd8e47503951c5bc60454cd7a6113cf5b1159676aa64f4b01780800ca",
+        "id": "doc-5ca7ebf32e9f4befbbc4113682f3162a4d6765dcef45704196c1485268663f05",
         "version": 1,
         "digest": "ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939",
         "source": "source-0.md",
@@ -43,7 +43,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-93f7c9ccd8e47503951c5bc60454cd7a6113cf5b1159676aa64f4b01780800ca\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
+          "path": "knowledge\\doc-5ca7ebf32e9f4befbbc4113682f3162a4d6765dcef45704196c1485268663f05\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
           "line": 2,
           "start": 25,
           "length": 7
@@ -56,7 +56,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-93f7c9ccd8e47503951c5bc60454cd7a6113cf5b1159676aa64f4b01780800ca",
+            "id": "doc-5ca7ebf32e9f4befbbc4113682f3162a4d6765dcef45704196c1485268663f05",
             "version": 1,
             "digest": "ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939",
             "source": "source-0.md",
@@ -64,7 +64,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-93f7c9ccd8e47503951c5bc60454cd7a6113cf5b1159676aa64f4b01780800ca\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
+              "path": "knowledge\\doc-5ca7ebf32e9f4befbbc4113682f3162a4d6765dcef45704196c1485268663f05\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
               "line": 2,
               "start": 25,
               "length": 7
@@ -75,9 +75,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 104268.9,
-      "process_ms": 271.9636000110768,
-      "working_set_bytes": 74964992
+      "engine_us": 111434.6,
+      "process_ms": 273.6375000094995,
+      "working_set_bytes": 74944512
     },
     {
       "id": "predicate",
@@ -110,7 +110,7 @@
       },
       "result": "six ticks.",
       "evidence": {
-        "id": "doc-c80b31582c7d774f88c52353417290e2a6a081d1c73b3d2e3b177ff5e5593222",
+        "id": "doc-0a344ff9b71ee7bca7893191f106446da3d410631303ce9dd5d3a463f37f7025",
         "version": 1,
         "digest": "b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6",
         "source": "source-0.md",
@@ -118,7 +118,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-c80b31582c7d774f88c52353417290e2a6a081d1c73b3d2e3b177ff5e5593222\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
+          "path": "knowledge\\doc-0a344ff9b71ee7bca7893191f106446da3d410631303ce9dd5d3a463f37f7025\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
           "line": 1,
           "start": 19,
           "length": 10
@@ -131,7 +131,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-c80b31582c7d774f88c52353417290e2a6a081d1c73b3d2e3b177ff5e5593222",
+            "id": "doc-0a344ff9b71ee7bca7893191f106446da3d410631303ce9dd5d3a463f37f7025",
             "version": 1,
             "digest": "b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6",
             "source": "source-0.md",
@@ -139,7 +139,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-c80b31582c7d774f88c52353417290e2a6a081d1c73b3d2e3b177ff5e5593222\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
+              "path": "knowledge\\doc-0a344ff9b71ee7bca7893191f106446da3d410631303ce9dd5d3a463f37f7025\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
               "line": 1,
               "start": 19,
               "length": 10
@@ -150,9 +150,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 102328.3,
-      "process_ms": 270.7933000056073,
-      "working_set_bytes": 74674176
+      "engine_us": 103354.6,
+      "process_ms": 262.0603999821469,
+      "working_set_bytes": 74653696
     },
     {
       "id": "equal",
@@ -188,7 +188,7 @@
       },
       "result": "evening",
       "evidence": {
-        "id": "doc-1163cb6acadd13659c63b5f5bf641ccd91aad7085ca2502509c1789eee938f9b",
+        "id": "doc-2cb840a53a79a43465c0488f1231180986b99a00196b846749df7425903ea8c3",
         "version": 1,
         "digest": "a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a",
         "source": "source-0.md",
@@ -196,7 +196,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-1163cb6acadd13659c63b5f5bf641ccd91aad7085ca2502509c1789eee938f9b\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
+          "path": "knowledge\\doc-2cb840a53a79a43465c0488f1231180986b99a00196b846749df7425903ea8c3\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
           "line": 1,
           "start": 13,
           "length": 7
@@ -209,7 +209,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-1163cb6acadd13659c63b5f5bf641ccd91aad7085ca2502509c1789eee938f9b",
+            "id": "doc-2cb840a53a79a43465c0488f1231180986b99a00196b846749df7425903ea8c3",
             "version": 1,
             "digest": "a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a",
             "source": "source-0.md",
@@ -217,14 +217,14 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-1163cb6acadd13659c63b5f5bf641ccd91aad7085ca2502509c1789eee938f9b\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
+              "path": "knowledge\\doc-2cb840a53a79a43465c0488f1231180986b99a00196b846749df7425903ea8c3\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
               "line": 1,
               "start": 13,
               "length": 7
             }
           },
           {
-            "id": "doc-ff62c4cfbd9c4578d6d5e6529ab8ed53804b7829e477943935ac8fbc5903bbc7",
+            "id": "doc-e98fd729821c9b775fc8a389234c36bdd5bdd1b3c3b6cda3429b2fb45765fdcb",
             "version": 1,
             "digest": "a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a",
             "source": "source-1.md",
@@ -232,7 +232,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-ff62c4cfbd9c4578d6d5e6529ab8ed53804b7829e477943935ac8fbc5903bbc7\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-1.md",
+              "path": "knowledge\\doc-e98fd729821c9b775fc8a389234c36bdd5bdd1b3c3b6cda3429b2fb45765fdcb\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-1.md",
               "line": 1,
               "start": 13,
               "length": 7
@@ -243,9 +243,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 156283.9,
-      "process_ms": 315.7420000061393,
-      "working_set_bytes": 74506240
+      "engine_us": 106357.7,
+      "process_ms": 270.30630002263933,
+      "working_set_bytes": 74375168
     },
     {
       "id": "conflict",
@@ -274,7 +274,7 @@
         "trust": "see cited source metadata",
         "sources": [
           {
-            "id": "doc-9d25eeaba455daa4f2319b1ec768b055942a01e527017f79048fd5dc2fffc789",
+            "id": "doc-45e278f0244f162cfbe796160214fd9329a7be63e5af48e5b1cab2ada518065d",
             "version": 1,
             "digest": "6593742f73e6f525328d2359d73d49f94f4f64589405867a9a9df494f1872db8",
             "source": "source-0.md",
@@ -282,14 +282,14 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-9d25eeaba455daa4f2319b1ec768b055942a01e527017f79048fd5dc2fffc789\\00000001-6593742f73e6f525328d2359d73d49f94f4f64589405867a9a9df494f1872db8\\source-0.md",
+              "path": "knowledge\\doc-45e278f0244f162cfbe796160214fd9329a7be63e5af48e5b1cab2ada518065d\\00000001-6593742f73e6f525328d2359d73d49f94f4f64589405867a9a9df494f1872db8\\source-0.md",
               "line": 1,
               "start": 16,
               "length": 7
             }
           },
           {
-            "id": "doc-c142011cf4fc5fb9cf2e58ff9c120c278c5a3129c019c7b1619a24d720a1b42e",
+            "id": "doc-97245369eccb11bafe2edd559f6cc5ca965fccb296b61d3239dc75a70b0e2a94",
             "version": 1,
             "digest": "3c054c102068c323ecdcd49337285ff1aa29f1863ab22c5ed43e8f3f14c85d5c",
             "source": "source-1.md",
@@ -297,7 +297,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-c142011cf4fc5fb9cf2e58ff9c120c278c5a3129c019c7b1619a24d720a1b42e\\00000001-3c054c102068c323ecdcd49337285ff1aa29f1863ab22c5ed43e8f3f14c85d5c\\source-1.md",
+              "path": "knowledge\\doc-97245369eccb11bafe2edd559f6cc5ca965fccb296b61d3239dc75a70b0e2a94\\00000001-3c054c102068c323ecdcd49337285ff1aa29f1863ab22c5ed43e8f3f14c85d5c\\source-1.md",
               "line": 1,
               "start": 16,
               "length": 7
@@ -308,9 +308,9 @@
         "requestRelevance": "subject and intent matched",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 101962.4,
-      "process_ms": 265.79930004663765,
-      "working_set_bytes": 74526720
+      "engine_us": 106766.5,
+      "process_ms": 272.27759995730594,
+      "working_set_bytes": 74747904
     },
     {
       "id": "handbook-conflict",
@@ -349,7 +349,7 @@
             "span": null
           },
           {
-            "id": "doc-652517c8d6653cc9ac5534ab8ec3828485c5a536cab949d2d51afcfa2de1be37",
+            "id": "doc-aca3dde0b1e1f4222fa57d0be5d54b32148eeb35a58d5ee1ac179e223e81bf01",
             "version": 1,
             "digest": "88737aa120aae7ca4a92fc3d1b03b455c9d51a5ef5d3750b56018acc4424462f",
             "source": "source-0.md",
@@ -357,7 +357,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-652517c8d6653cc9ac5534ab8ec3828485c5a536cab949d2d51afcfa2de1be37\\00000001-88737aa120aae7ca4a92fc3d1b03b455c9d51a5ef5d3750b56018acc4424462f\\source-0.md",
+              "path": "knowledge\\doc-aca3dde0b1e1f4222fa57d0be5d54b32148eeb35a58d5ee1ac179e223e81bf01\\00000001-88737aa120aae7ca4a92fc3d1b03b455c9d51a5ef5d3750b56018acc4424462f\\source-0.md",
               "line": 1,
               "start": 26,
               "length": 7
@@ -368,9 +368,9 @@
         "requestRelevance": "subject and intent matched",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 96383.6,
-      "process_ms": 256.4504999900237,
-      "working_set_bytes": 73904128
+      "engine_us": 99355.6,
+      "process_ms": 257.58849998237565,
+      "working_set_bytes": 73932800
     },
     {
       "id": "other-subject",
@@ -402,9 +402,9 @@
         "requestRelevance": "unsupported",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 97694.2,
-      "process_ms": 255.60929998755455,
-      "working_set_bytes": 74735616
+      "engine_us": 100121.3,
+      "process_ms": 256.90279999980703,
+      "working_set_bytes": 74665984
     },
     {
       "id": "extra-intent",
@@ -436,9 +436,9 @@
         "requestRelevance": "unsupported",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 96641.8,
-      "process_ms": 257.86369998240843,
-      "working_set_bytes": 74620928
+      "engine_us": 104146.4,
+      "process_ms": 267.18279998749495,
+      "working_set_bytes": 74694656
     },
     {
       "id": "expired",
@@ -467,7 +467,7 @@
         "trust": "see cited source metadata",
         "sources": [
           {
-            "id": "doc-3d35d19569f274fd69c54abd7616a64cbec4ebd75c9a41cd29e5c526f585b30d",
+            "id": "doc-6933e30a8bdb2294e74e7bc19da5bef73578bfb6c4589a9507afda55c869ac45",
             "version": 1,
             "digest": "57450b808c5365d5995a778c49eae2ae4c67509422cf72fdc4406b0c6a88c1d9",
             "source": "source-0.md",
@@ -475,7 +475,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-3d35d19569f274fd69c54abd7616a64cbec4ebd75c9a41cd29e5c526f585b30d\\00000001-57450b808c5365d5995a778c49eae2ae4c67509422cf72fdc4406b0c6a88c1d9\\source-0.md",
+              "path": "knowledge\\doc-6933e30a8bdb2294e74e7bc19da5bef73578bfb6c4589a9507afda55c869ac45\\00000001-57450b808c5365d5995a778c49eae2ae4c67509422cf72fdc4406b0c6a88c1d9\\source-0.md",
               "line": 2,
               "start": 38,
               "length": 5
@@ -486,9 +486,9 @@
         "requestRelevance": "subject and intent matched",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 96348.8,
-      "process_ms": 254.18540003011003,
-      "working_set_bytes": 75898880
+      "engine_us": 99522,
+      "process_ms": 263.6231000069529,
+      "working_set_bytes": 75616256
     },
     {
       "id": "fence",
@@ -520,9 +520,9 @@
         "requestRelevance": "unsupported",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 107836.4,
-      "process_ms": 257.2803000221029,
-      "working_set_bytes": 74694656
+      "engine_us": 110851.1,
+      "process_ms": 256.06689997948706,
+      "working_set_bytes": 74698752
     },
     {
       "id": "handbook",
@@ -577,9 +577,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 137170.5,
-      "process_ms": 242.39179998403415,
-      "working_set_bytes": 72859648
+      "engine_us": 136879.7,
+      "process_ms": 239.93079998763278,
+      "working_set_bytes": 72466432
     },
     {
       "id": "configure-flag",
@@ -612,7 +612,7 @@
       },
       "result": "local",
       "evidence": {
-        "id": "doc-20fce114fcf9933d6f3a9d023bb2111c0f43473205b327460191a77c7c6d2e6d",
+        "id": "doc-2578e0b61649d27edc9d102c946d0cd5d6c4c4bb1223b14c1887dfecb2e25e52",
         "version": 1,
         "digest": "c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7",
         "source": "source-1.md",
@@ -620,7 +620,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-20fce114fcf9933d6f3a9d023bb2111c0f43473205b327460191a77c7c6d2e6d\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
+          "path": "knowledge\\doc-2578e0b61649d27edc9d102c946d0cd5d6c4c4bb1223b14c1887dfecb2e25e52\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
           "line": 1,
           "start": 16,
           "length": 5
@@ -633,7 +633,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-20fce114fcf9933d6f3a9d023bb2111c0f43473205b327460191a77c7c6d2e6d",
+            "id": "doc-2578e0b61649d27edc9d102c946d0cd5d6c4c4bb1223b14c1887dfecb2e25e52",
             "version": 1,
             "digest": "c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7",
             "source": "source-1.md",
@@ -641,7 +641,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-20fce114fcf9933d6f3a9d023bb2111c0f43473205b327460191a77c7c6d2e6d\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
+              "path": "knowledge\\doc-2578e0b61649d27edc9d102c946d0cd5d6c4c4bb1223b14c1887dfecb2e25e52\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
               "line": 1,
               "start": 16,
               "length": 5
@@ -652,9 +652,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 105057.1,
-      "process_ms": 278.0903999810107,
-      "working_set_bytes": 74641408
+      "engine_us": 106776.9,
+      "process_ms": 271.7009999905713,
+      "working_set_bytes": 74805248
     },
     {
       "id": "unconfirmed-restore",
@@ -683,22 +683,7 @@
         "trust": "see cited source metadata",
         "sources": [
           {
-            "id": "doc-18536314826ab8274a82188dd8aa764f35979053fe7c105b4aa50bd207dadd5e",
-            "version": 1,
-            "digest": "c000fc9c300c2d873d96c9c6b9dff3fb6cc0b46236d9fdc4b926c64c8bc9afc6",
-            "source": "source-1.md",
-            "type": "fact",
-            "origin": "owner import",
-            "trust": "owner-selected text",
-            "span": {
-              "path": "knowledge\\doc-18536314826ab8274a82188dd8aa764f35979053fe7c105b4aa50bd207dadd5e\\00000001-c000fc9c300c2d873d96c9c6b9dff3fb6cc0b46236d9fdc4b926c64c8bc9afc6\\source-1.md",
-              "line": 1,
-              "start": 16,
-              "length": 12
-            }
-          },
-          {
-            "id": "doc-aba783197b0bf77d8daee1173fd67e280d1642b2383167df37dc1e60632faf2f",
+            "id": "doc-8016c02f263c962441b5b972e5da2cbbe8cb4b41af58494410ba157052d832de",
             "version": 1,
             "digest": "8afb7dd1108866b84f543a74f2f0174ac27c9b96706314e9a903fb10edc2f927",
             "source": "source-0.md",
@@ -706,10 +691,25 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-aba783197b0bf77d8daee1173fd67e280d1642b2383167df37dc1e60632faf2f\\00000001-8afb7dd1108866b84f543a74f2f0174ac27c9b96706314e9a903fb10edc2f927\\source-0.md",
+              "path": "knowledge\\doc-8016c02f263c962441b5b972e5da2cbbe8cb4b41af58494410ba157052d832de\\00000001-8afb7dd1108866b84f543a74f2f0174ac27c9b96706314e9a903fb10edc2f927\\source-0.md",
               "line": 1,
               "start": 16,
               "length": 4
+            }
+          },
+          {
+            "id": "doc-b25cc0455686469a9c492897a0a20bc3b52ed265574ff6ba31f6918f01449064",
+            "version": 1,
+            "digest": "c000fc9c300c2d873d96c9c6b9dff3fb6cc0b46236d9fdc4b926c64c8bc9afc6",
+            "source": "source-1.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-b25cc0455686469a9c492897a0a20bc3b52ed265574ff6ba31f6918f01449064\\00000001-c000fc9c300c2d873d96c9c6b9dff3fb6cc0b46236d9fdc4b926c64c8bc9afc6\\source-1.md",
+              "line": 1,
+              "start": 16,
+              "length": 12
             }
           }
         ],
@@ -717,9 +717,9 @@
         "requestRelevance": "subject and intent matched",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 99379.5,
-      "process_ms": 263.55699996929616,
-      "working_set_bytes": 74846208
+      "engine_us": 105551.9,
+      "process_ms": 272.1266999724321,
+      "working_set_bytes": 74489856
     },
     {
       "id": "definite-conflict-with-unknown",
@@ -748,37 +748,7 @@
         "trust": "see cited source metadata",
         "sources": [
           {
-            "id": "doc-2dcf6a68a7daa47b7bf96f6ed225bdaf245dc9986f5a3d0e2c954c7d1c31f4e4",
-            "version": 1,
-            "digest": "4bd54bf02bb20a11a85af29ebd144ef4e74450d6860ab4cac7d4b97e0d98a21c",
-            "source": "source-0.md",
-            "type": "fact",
-            "origin": "owner import",
-            "trust": "owner-selected text",
-            "span": {
-              "path": "knowledge\\doc-2dcf6a68a7daa47b7bf96f6ed225bdaf245dc9986f5a3d0e2c954c7d1c31f4e4\\00000001-4bd54bf02bb20a11a85af29ebd144ef4e74450d6860ab4cac7d4b97e0d98a21c\\source-0.md",
-              "line": 1,
-              "start": 17,
-              "length": 3
-            }
-          },
-          {
-            "id": "doc-8fa8b36a3eccce7f8f5245b057d773176315acf48b7668d3fb51382c4f582ffd",
-            "version": 1,
-            "digest": "8dfc9339835678aae91f86a45f58c6739ba70148bd86995490a4e64aa78896a5",
-            "source": "source-1.md",
-            "type": "fact",
-            "origin": "owner import",
-            "trust": "owner-selected text",
-            "span": {
-              "path": "knowledge\\doc-8fa8b36a3eccce7f8f5245b057d773176315acf48b7668d3fb51382c4f582ffd\\00000001-8dfc9339835678aae91f86a45f58c6739ba70148bd86995490a4e64aa78896a5\\source-1.md",
-              "line": 1,
-              "start": 17,
-              "length": 4
-            }
-          },
-          {
-            "id": "doc-e43d7550b37fa6a63e632fdcb9300bb6ec83e0226e31326dd63f73e8f88e32a0",
+            "id": "doc-4b2f6bc6c9a51c7267fefb72989da0f22ca6e0cd0b6dea45659b3352e6887f78",
             "version": 1,
             "digest": "c66a4450cb96609f4937452840520ee2d80a9f83fa73218c0cd8935d70a44f8c",
             "source": "source-2.md",
@@ -786,10 +756,40 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-e43d7550b37fa6a63e632fdcb9300bb6ec83e0226e31326dd63f73e8f88e32a0\\00000001-c66a4450cb96609f4937452840520ee2d80a9f83fa73218c0cd8935d70a44f8c\\source-2.md",
+              "path": "knowledge\\doc-4b2f6bc6c9a51c7267fefb72989da0f22ca6e0cd0b6dea45659b3352e6887f78\\00000001-c66a4450cb96609f4937452840520ee2d80a9f83fa73218c0cd8935d70a44f8c\\source-2.md",
               "line": 1,
               "start": 17,
               "length": 7
+            }
+          },
+          {
+            "id": "doc-8c4498a3a64c6287ae965cf34908c4b3191179d9a0fa5dcb1aea705124d9d5c1",
+            "version": 1,
+            "digest": "4bd54bf02bb20a11a85af29ebd144ef4e74450d6860ab4cac7d4b97e0d98a21c",
+            "source": "source-0.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-8c4498a3a64c6287ae965cf34908c4b3191179d9a0fa5dcb1aea705124d9d5c1\\00000001-4bd54bf02bb20a11a85af29ebd144ef4e74450d6860ab4cac7d4b97e0d98a21c\\source-0.md",
+              "line": 1,
+              "start": 17,
+              "length": 3
+            }
+          },
+          {
+            "id": "doc-af4cb061a30c822c1689d09719b8e3cbc00a638831ac5b4eb63d98c700776e0f",
+            "version": 1,
+            "digest": "8dfc9339835678aae91f86a45f58c6739ba70148bd86995490a4e64aa78896a5",
+            "source": "source-1.md",
+            "type": "fact",
+            "origin": "owner import",
+            "trust": "owner-selected text",
+            "span": {
+              "path": "knowledge\\doc-af4cb061a30c822c1689d09719b8e3cbc00a638831ac5b4eb63d98c700776e0f\\00000001-8dfc9339835678aae91f86a45f58c6739ba70148bd86995490a4e64aa78896a5\\source-1.md",
+              "line": 1,
+              "start": 17,
+              "length": 4
             }
           }
         ],
@@ -797,9 +797,9 @@
         "requestRelevance": "subject and intent matched",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 104337.1,
-      "process_ms": 272.2696000128053,
-      "working_set_bytes": 74600448
+      "engine_us": 104813.5,
+      "process_ms": 277.5586000061594,
+      "working_set_bytes": 74358784
     },
     {
       "id": "trailing-helper",
@@ -832,7 +832,7 @@
       },
       "result": "ma\u00f1ana",
       "evidence": {
-        "id": "doc-98d8a6d508639aea3d626f7bfe79cb7747611fd09dc582f29c1bf24e373dead5",
+        "id": "doc-026870d854448ab1bd6f0625912ed74780a18d0c6ace0a95184a92404ab0f26b",
         "version": 1,
         "digest": "0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b",
         "source": "source-0.md",
@@ -840,7 +840,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-98d8a6d508639aea3d626f7bfe79cb7747611fd09dc582f29c1bf24e373dead5\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
+          "path": "knowledge\\doc-026870d854448ab1bd6f0625912ed74780a18d0c6ace0a95184a92404ab0f26b\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
           "line": 2,
           "start": 36,
           "length": 6
@@ -853,7 +853,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-98d8a6d508639aea3d626f7bfe79cb7747611fd09dc582f29c1bf24e373dead5",
+            "id": "doc-026870d854448ab1bd6f0625912ed74780a18d0c6ace0a95184a92404ab0f26b",
             "version": 1,
             "digest": "0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b",
             "source": "source-0.md",
@@ -861,7 +861,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-98d8a6d508639aea3d626f7bfe79cb7747611fd09dc582f29c1bf24e373dead5\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
+              "path": "knowledge\\doc-026870d854448ab1bd6f0625912ed74780a18d0c6ace0a95184a92404ab0f26b\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
               "line": 2,
               "start": 36,
               "length": 6
@@ -872,9 +872,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 102695.3,
-      "process_ms": 261.6825000150129,
-      "working_set_bytes": 74874880
+      "engine_us": 105293.7,
+      "process_ms": 261.6993999690749,
+      "working_set_bytes": 74866688
     },
     {
       "id": "recorded-after-subject",
@@ -907,7 +907,7 @@
       },
       "result": "standby",
       "evidence": {
-        "id": "doc-9cfe5f402fa2d526994f04a8fd14730ccc3736f561c7a55a79cb92b3a72db683",
+        "id": "doc-f75cb401c370913d7813ebfd82a0588ad3b1aa610b974ae7dd2037bae1a86dcb",
         "version": 1,
         "digest": "142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f",
         "source": "source-0.md",
@@ -915,7 +915,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-9cfe5f402fa2d526994f04a8fd14730ccc3736f561c7a55a79cb92b3a72db683\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
+          "path": "knowledge\\doc-f75cb401c370913d7813ebfd82a0588ad3b1aa610b974ae7dd2037bae1a86dcb\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
           "line": 2,
           "start": 38,
           "length": 7
@@ -928,7 +928,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-9cfe5f402fa2d526994f04a8fd14730ccc3736f561c7a55a79cb92b3a72db683",
+            "id": "doc-f75cb401c370913d7813ebfd82a0588ad3b1aa610b974ae7dd2037bae1a86dcb",
             "version": 1,
             "digest": "142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f",
             "source": "source-0.md",
@@ -936,7 +936,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-9cfe5f402fa2d526994f04a8fd14730ccc3736f561c7a55a79cb92b3a72db683\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
+              "path": "knowledge\\doc-f75cb401c370913d7813ebfd82a0588ad3b1aa610b974ae7dd2037bae1a86dcb\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
               "line": 2,
               "start": 38,
               "length": 7
@@ -947,9 +947,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 102197.6,
-      "process_ms": 256.1515000415966,
-      "working_set_bytes": 74375168
+      "engine_us": 106333.1,
+      "process_ms": 263.61959998030216,
+      "working_set_bytes": 74719232
     },
     {
       "id": "argument-relation",
@@ -982,7 +982,7 @@
       },
       "result": "uri, base",
       "evidence": {
-        "id": "doc-1b13a2dfb78b70fe11fce9f230cd9bb57de8e57b4d1502e38ff8f9f06dda213e",
+        "id": "doc-ce235ce4ab4382ee39c79985422131199e21a97aa8cc7efb7e00d2c75a2568d2",
         "version": 1,
         "digest": "79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4",
         "source": "source-0.md",
@@ -990,7 +990,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-1b13a2dfb78b70fe11fce9f230cd9bb57de8e57b4d1502e38ff8f9f06dda213e\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
+          "path": "knowledge\\doc-ce235ce4ab4382ee39c79985422131199e21a97aa8cc7efb7e00d2c75a2568d2\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
           "line": 2,
           "start": 49,
           "length": 9
@@ -1003,7 +1003,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-1b13a2dfb78b70fe11fce9f230cd9bb57de8e57b4d1502e38ff8f9f06dda213e",
+            "id": "doc-ce235ce4ab4382ee39c79985422131199e21a97aa8cc7efb7e00d2c75a2568d2",
             "version": 1,
             "digest": "79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4",
             "source": "source-0.md",
@@ -1011,7 +1011,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-1b13a2dfb78b70fe11fce9f230cd9bb57de8e57b4d1502e38ff8f9f06dda213e\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
+              "path": "knowledge\\doc-ce235ce4ab4382ee39c79985422131199e21a97aa8cc7efb7e00d2c75a2568d2\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
               "line": 2,
               "start": 49,
               "length": 9
@@ -1022,9 +1022,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 105563.7,
-      "process_ms": 263.7584000476636,
-      "working_set_bytes": 74379264
+      "engine_us": 106630.5,
+      "process_ms": 264.7084000054747,
+      "working_set_bytes": 74653696
     },
     {
       "id": "declared-at",
@@ -1057,7 +1057,7 @@
       },
       "result": "312",
       "evidence": {
-        "id": "doc-134c961871847d7765f2186766b0ae790d74f9cfceead92f492d47c4a35d1b6f",
+        "id": "doc-08e4858058c4f630b03ed2f863434efd7a8baf73e42abba44f42d1364df0b11b",
         "version": 1,
         "digest": "d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32",
         "source": "source-0.md",
@@ -1065,7 +1065,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-134c961871847d7765f2186766b0ae790d74f9cfceead92f492d47c4a35d1b6f\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
+          "path": "knowledge\\doc-08e4858058c4f630b03ed2f863434efd7a8baf73e42abba44f42d1364df0b11b\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
           "line": 2,
           "start": 52,
           "length": 3
@@ -1078,7 +1078,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-134c961871847d7765f2186766b0ae790d74f9cfceead92f492d47c4a35d1b6f",
+            "id": "doc-08e4858058c4f630b03ed2f863434efd7a8baf73e42abba44f42d1364df0b11b",
             "version": 1,
             "digest": "d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32",
             "source": "source-0.md",
@@ -1086,7 +1086,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-134c961871847d7765f2186766b0ae790d74f9cfceead92f492d47c4a35d1b6f\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
+              "path": "knowledge\\doc-08e4858058c4f630b03ed2f863434efd7a8baf73e42abba44f42d1364df0b11b\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
               "line": 2,
               "start": 52,
               "length": 3
@@ -1097,9 +1097,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 115267.8,
-      "process_ms": 268.39350000955164,
-      "working_set_bytes": 74543104
+      "engine_us": 109214.7,
+      "process_ms": 264.059700013604,
+      "working_set_bytes": 74510336
     },
     {
       "id": "modifier-relation",
@@ -1131,9 +1131,9 @@
         "requestRelevance": "unsupported",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 99341.6,
-      "process_ms": 257.33509997371584,
-      "working_set_bytes": 74194944
+      "engine_us": 106288.6,
+      "process_ms": 265.1542000239715,
+      "working_set_bytes": 74354688
     },
     {
       "id": "unscoped-count",
@@ -1162,7 +1162,7 @@
         "trust": "see cited source metadata",
         "sources": [
           {
-            "id": "doc-70f71041750ad56cf13e470878799cdcf8b5f47fcfef062ca348b45f9f458237",
+            "id": "doc-5bc74f2da3c1c688462c16ddf6e97e6715856d56c29e9ea3c0784ec35c4ba9f4",
             "version": 1,
             "digest": "aa8b3b5a9d26530aba817854a8403db32d3f2ae8db899ff45134a118e016753d",
             "source": "source-0.md",
@@ -1170,7 +1170,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-70f71041750ad56cf13e470878799cdcf8b5f47fcfef062ca348b45f9f458237\\00000001-aa8b3b5a9d26530aba817854a8403db32d3f2ae8db899ff45134a118e016753d\\source-0.md",
+              "path": "knowledge\\doc-5bc74f2da3c1c688462c16ddf6e97e6715856d56c29e9ea3c0784ec35c4ba9f4\\00000001-aa8b3b5a9d26530aba817854a8403db32d3f2ae8db899ff45134a118e016753d\\source-0.md",
               "line": 2,
               "start": 37,
               "length": 1
@@ -1181,9 +1181,9 @@
         "requestRelevance": "subject and intent matched",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 104366.3,
-      "process_ms": 266.38109999476,
-      "working_set_bytes": 74330112
+      "engine_us": 102649.9,
+      "process_ms": 265.51349996589124,
+      "working_set_bytes": 74395648
     },
     {
       "id": "helper-constraint",
@@ -1215,9 +1215,9 @@
         "requestRelevance": "unsupported",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 98859.1,
-      "process_ms": 253.02210001973435,
-      "working_set_bytes": 75051008
+      "engine_us": 99926.6,
+      "process_ms": 258.3427000208758,
+      "working_set_bytes": 74690560
     },
     {
       "id": "pinned-helper",
@@ -1272,9 +1272,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 122376.2,
-      "process_ms": 225.2261999528855,
-      "working_set_bytes": 71049216
+      "engine_us": 123236.6,
+      "process_ms": 225.89610004797578,
+      "working_set_bytes": 70897664
     },
     {
       "id": "distinct-package",
@@ -1307,7 +1307,7 @@
       },
       "result": "alpha",
       "evidence": {
-        "id": "doc-2390dd12c710169a2d591f4f7507dfef36d8213eff311f596c82001c2a3093f2",
+        "id": "doc-9c3243cfdfb33250add0facafbbd14dd8dc99d7b57b3df02558989ade47e6759",
         "version": 1,
         "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
         "source": "source-1.md",
@@ -1315,7 +1315,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-2390dd12c710169a2d591f4f7507dfef36d8213eff311f596c82001c2a3093f2\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+          "path": "knowledge\\doc-9c3243cfdfb33250add0facafbbd14dd8dc99d7b57b3df02558989ade47e6759\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
           "line": 1,
           "start": 13,
           "length": 5
@@ -1328,7 +1328,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-2390dd12c710169a2d591f4f7507dfef36d8213eff311f596c82001c2a3093f2",
+            "id": "doc-9c3243cfdfb33250add0facafbbd14dd8dc99d7b57b3df02558989ade47e6759",
             "version": 1,
             "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
             "source": "source-1.md",
@@ -1336,7 +1336,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-2390dd12c710169a2d591f4f7507dfef36d8213eff311f596c82001c2a3093f2\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+              "path": "knowledge\\doc-9c3243cfdfb33250add0facafbbd14dd8dc99d7b57b3df02558989ade47e6759\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
               "line": 1,
               "start": 13,
               "length": 5
@@ -1347,9 +1347,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 112164.1,
-      "process_ms": 272.5717999855988,
-      "working_set_bytes": 74805248
+      "engine_us": 109353.9,
+      "process_ms": 273.6522000050172,
+      "working_set_bytes": 74776576
     },
     {
       "id": "distinct-audit",
@@ -1382,7 +1382,7 @@
       },
       "result": "alpha",
       "evidence": {
-        "id": "doc-5f07f125733fe78272c2f58cee1b8c7f62334783bba587d8abcdd1b742e429cc",
+        "id": "doc-a83511951fbdd541e4663432b1902d3e2a6882ba06fbaff9b5b65d7cd27d81bf",
         "version": 1,
         "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
         "source": "source-1.md",
@@ -1390,7 +1390,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-5f07f125733fe78272c2f58cee1b8c7f62334783bba587d8abcdd1b742e429cc\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+          "path": "knowledge\\doc-a83511951fbdd541e4663432b1902d3e2a6882ba06fbaff9b5b65d7cd27d81bf\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
           "line": 1,
           "start": 13,
           "length": 5
@@ -1403,7 +1403,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-5f07f125733fe78272c2f58cee1b8c7f62334783bba587d8abcdd1b742e429cc",
+            "id": "doc-a83511951fbdd541e4663432b1902d3e2a6882ba06fbaff9b5b65d7cd27d81bf",
             "version": 1,
             "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
             "source": "source-1.md",
@@ -1411,7 +1411,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-5f07f125733fe78272c2f58cee1b8c7f62334783bba587d8abcdd1b742e429cc\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+              "path": "knowledge\\doc-a83511951fbdd541e4663432b1902d3e2a6882ba06fbaff9b5b65d7cd27d81bf\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
               "line": 1,
               "start": 13,
               "length": 5
@@ -1422,9 +1422,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 105165.6,
-      "process_ms": 270.5234999884851,
-      "working_set_bytes": 74756096
+      "engine_us": 110508.2,
+      "process_ms": 275.5202000262216,
+      "working_set_bytes": 74915840
     },
     {
       "id": "distinct-number",
@@ -1457,7 +1457,7 @@
       },
       "result": "alpha",
       "evidence": {
-        "id": "doc-44b50a9335319e06316953a54858d0f9d8072b2de832d2fac746ba2fb2815b5a",
+        "id": "doc-1350d6d1d3c69015c14fb9ff089b81b82d2ad3a110b6f72be655315188decf0e",
         "version": 1,
         "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
         "source": "source-1.md",
@@ -1465,7 +1465,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-44b50a9335319e06316953a54858d0f9d8072b2de832d2fac746ba2fb2815b5a\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+          "path": "knowledge\\doc-1350d6d1d3c69015c14fb9ff089b81b82d2ad3a110b6f72be655315188decf0e\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
           "line": 1,
           "start": 13,
           "length": 5
@@ -1478,7 +1478,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-44b50a9335319e06316953a54858d0f9d8072b2de832d2fac746ba2fb2815b5a",
+            "id": "doc-1350d6d1d3c69015c14fb9ff089b81b82d2ad3a110b6f72be655315188decf0e",
             "version": 1,
             "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
             "source": "source-1.md",
@@ -1486,7 +1486,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-44b50a9335319e06316953a54858d0f9d8072b2de832d2fac746ba2fb2815b5a\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+              "path": "knowledge\\doc-1350d6d1d3c69015c14fb9ff089b81b82d2ad3a110b6f72be655315188decf0e\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
               "line": 1,
               "start": 13,
               "length": 5
@@ -1497,9 +1497,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 106593.9,
-      "process_ms": 270.09950001956895,
-      "working_set_bytes": 74792960
+      "engine_us": 117899.8,
+      "process_ms": 281.69630002230406,
+      "working_set_bytes": 74780672
     },
     {
       "id": "distinct-value",
@@ -1532,7 +1532,7 @@
       },
       "result": "alpha",
       "evidence": {
-        "id": "doc-4b1edb45684f2fc0189566de025fc0998cf44f1bfb1860b898314b5672def7a6",
+        "id": "doc-b6b8c78d4b48b3db880f07fa46581c278701836f89e52a8508c47d91d1b5050a",
         "version": 1,
         "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
         "source": "source-1.md",
@@ -1540,7 +1540,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-4b1edb45684f2fc0189566de025fc0998cf44f1bfb1860b898314b5672def7a6\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+          "path": "knowledge\\doc-b6b8c78d4b48b3db880f07fa46581c278701836f89e52a8508c47d91d1b5050a\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
           "line": 1,
           "start": 13,
           "length": 5
@@ -1553,7 +1553,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-4b1edb45684f2fc0189566de025fc0998cf44f1bfb1860b898314b5672def7a6",
+            "id": "doc-b6b8c78d4b48b3db880f07fa46581c278701836f89e52a8508c47d91d1b5050a",
             "version": 1,
             "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
             "source": "source-1.md",
@@ -1561,7 +1561,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-4b1edb45684f2fc0189566de025fc0998cf44f1bfb1860b898314b5672def7a6\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+              "path": "knowledge\\doc-b6b8c78d4b48b3db880f07fa46581c278701836f89e52a8508c47d91d1b5050a\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
               "line": 1,
               "start": 13,
               "length": 5
@@ -1572,9 +1572,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 106240.8,
-      "process_ms": 266.0516999894753,
-      "working_set_bytes": 74723328
+      "engine_us": 110552.7,
+      "process_ms": 275.3190000075847,
+      "working_set_bytes": 74854400
     },
     {
       "id": "distinct-setting",
@@ -1607,7 +1607,7 @@
       },
       "result": "alpha",
       "evidence": {
-        "id": "doc-ef2ecf7fc02397f6cc9ff6853646ec1ffe55776f1cbaf68ebd85e5f6a19bc5f9",
+        "id": "doc-d7c59d1436c886d6cf0b5c60b95a60657eb74d29c9ff8c6dfa3d82040c70cc38",
         "version": 1,
         "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
         "source": "source-1.md",
@@ -1615,7 +1615,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-ef2ecf7fc02397f6cc9ff6853646ec1ffe55776f1cbaf68ebd85e5f6a19bc5f9\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+          "path": "knowledge\\doc-d7c59d1436c886d6cf0b5c60b95a60657eb74d29c9ff8c6dfa3d82040c70cc38\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
           "line": 1,
           "start": 13,
           "length": 5
@@ -1628,7 +1628,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-ef2ecf7fc02397f6cc9ff6853646ec1ffe55776f1cbaf68ebd85e5f6a19bc5f9",
+            "id": "doc-d7c59d1436c886d6cf0b5c60b95a60657eb74d29c9ff8c6dfa3d82040c70cc38",
             "version": 1,
             "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
             "source": "source-1.md",
@@ -1636,7 +1636,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-ef2ecf7fc02397f6cc9ff6853646ec1ffe55776f1cbaf68ebd85e5f6a19bc5f9\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+              "path": "knowledge\\doc-d7c59d1436c886d6cf0b5c60b95a60657eb74d29c9ff8c6dfa3d82040c70cc38\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
               "line": 1,
               "start": 13,
               "length": 5
@@ -1647,9 +1647,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 105567.7,
-      "process_ms": 269.78720002807677,
-      "working_set_bytes": 74731520
+      "engine_us": 113991,
+      "process_ms": 277.0349000347778,
+      "working_set_bytes": 74858496
     },
     {
       "id": "distinct-installation",
@@ -1682,7 +1682,7 @@
       },
       "result": "alpha",
       "evidence": {
-        "id": "doc-7e722de25913e7620b8f3f4628f18bf7eb458bd2ad09b1f1c3938dbea3105dc3",
+        "id": "doc-3dd4a56bd533889c5ae7b0fd2cb5a0075b78cdf62ced0b0e83b922b117ad358d",
         "version": 1,
         "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
         "source": "source-1.md",
@@ -1690,7 +1690,7 @@
         "origin": "owner import",
         "trust": "owner-selected text",
         "span": {
-          "path": "knowledge\\doc-7e722de25913e7620b8f3f4628f18bf7eb458bd2ad09b1f1c3938dbea3105dc3\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+          "path": "knowledge\\doc-3dd4a56bd533889c5ae7b0fd2cb5a0075b78cdf62ced0b0e83b922b117ad358d\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
           "line": 1,
           "start": 13,
           "length": 5
@@ -1703,7 +1703,7 @@
         "trust": "owner-selected text",
         "sources": [
           {
-            "id": "doc-7e722de25913e7620b8f3f4628f18bf7eb458bd2ad09b1f1c3938dbea3105dc3",
+            "id": "doc-3dd4a56bd533889c5ae7b0fd2cb5a0075b78cdf62ced0b0e83b922b117ad358d",
             "version": 1,
             "digest": "44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770",
             "source": "source-1.md",
@@ -1711,7 +1711,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-7e722de25913e7620b8f3f4628f18bf7eb458bd2ad09b1f1c3938dbea3105dc3\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+              "path": "knowledge\\doc-3dd4a56bd533889c5ae7b0fd2cb5a0075b78cdf62ced0b0e83b922b117ad358d\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
               "line": 1,
               "start": 13,
               "length": 5
@@ -1722,9 +1722,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 106825.3,
-      "process_ms": 270.8716999622993,
-      "working_set_bytes": 74772480
+      "engine_us": 108652,
+      "process_ms": 274.1391999879852,
+      "working_set_bytes": 74485760
     },
     {
       "id": "collision-polite",
@@ -1753,7 +1753,7 @@
         "trust": "see cited source metadata",
         "sources": [
           {
-            "id": "doc-2e3bf06fb0ec9665cb9b5a30191db8af56e27688b4f1b62c976363439af12e63",
+            "id": "doc-85f2228096747bf9e8f022493d966857918ecb7cd7d98dcd465c861b3bdb2f85",
             "version": 1,
             "digest": "1f684fb568985c49eb1f8346ccea2488c821fa79606b8ce3d876c1df680d2eeb",
             "source": "source-1.md",
@@ -1761,14 +1761,14 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-2e3bf06fb0ec9665cb9b5a30191db8af56e27688b4f1b62c976363439af12e63\\00000001-1f684fb568985c49eb1f8346ccea2488c821fa79606b8ce3d876c1df680d2eeb\\source-1.md",
+              "path": "knowledge\\doc-85f2228096747bf9e8f022493d966857918ecb7cd7d98dcd465c861b3bdb2f85\\00000001-1f684fb568985c49eb1f8346ccea2488c821fa79606b8ce3d876c1df680d2eeb\\source-1.md",
               "line": 1,
               "start": 13,
               "length": 3
             }
           },
           {
-            "id": "doc-c5aa742da14cc52d3fc434a57f39ac924f54ac06e17337786042ec84907bf789",
+            "id": "doc-3867b85030329703afab76abee6d03d8bde612bb25830f4c31bde07a31dc9f0a",
             "version": 1,
             "digest": "b5c9cf8b55ab832daba3ce9b6c1f7e0e40be5dad83556145780924ff126c6898",
             "source": "source-0.md",
@@ -1776,7 +1776,7 @@
             "origin": "owner import",
             "trust": "owner-selected text",
             "span": {
-              "path": "knowledge\\doc-c5aa742da14cc52d3fc434a57f39ac924f54ac06e17337786042ec84907bf789\\00000001-b5c9cf8b55ab832daba3ce9b6c1f7e0e40be5dad83556145780924ff126c6898\\source-0.md",
+              "path": "knowledge\\doc-3867b85030329703afab76abee6d03d8bde612bb25830f4c31bde07a31dc9f0a\\00000001-b5c9cf8b55ab832daba3ce9b6c1f7e0e40be5dad83556145780924ff126c6898\\source-0.md",
               "line": 1,
               "start": 20,
               "length": 5
@@ -1787,9 +1787,9 @@
         "requestRelevance": "subject and intent matched",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 101460,
-      "process_ms": 276.9725000252947,
-      "working_set_bytes": 74838016
+      "engine_us": 102603.4,
+      "process_ms": 276.5250999946147,
+      "working_set_bytes": 74608640
     },
     {
       "id": "qualified-source",
@@ -1822,7 +1822,7 @@
       },
       "result": "mark",
       "evidence": {
-        "id": "doc-5810d2494f59b79e542c57d4e04a3a9ea83ac16ddc0d2883f3e26429dff31d44",
+        "id": "doc-be291d3d3f0bddd59f7cf3cc62f28e5b4541450756adbbe5a71b349e0411ffe8",
         "version": 1,
         "digest": "3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717",
         "source": "source-0.py",
@@ -1830,7 +1830,7 @@
         "origin": "owner import",
         "trust": "owner-selected source",
         "span": {
-          "path": "knowledge\\doc-5810d2494f59b79e542c57d4e04a3a9ea83ac16ddc0d2883f3e26429dff31d44\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
+          "path": "knowledge\\doc-be291d3d3f0bddd59f7cf3cc62f28e5b4541450756adbbe5a71b349e0411ffe8\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
           "line": 4,
           "start": 57,
           "length": 4
@@ -1843,7 +1843,7 @@
         "trust": "owner-selected source",
         "sources": [
           {
-            "id": "doc-5810d2494f59b79e542c57d4e04a3a9ea83ac16ddc0d2883f3e26429dff31d44",
+            "id": "doc-be291d3d3f0bddd59f7cf3cc62f28e5b4541450756adbbe5a71b349e0411ffe8",
             "version": 1,
             "digest": "3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717",
             "source": "source-0.py",
@@ -1851,7 +1851,7 @@
             "origin": "owner import",
             "trust": "owner-selected source",
             "span": {
-              "path": "knowledge\\doc-5810d2494f59b79e542c57d4e04a3a9ea83ac16ddc0d2883f3e26429dff31d44\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
+              "path": "knowledge\\doc-be291d3d3f0bddd59f7cf3cc62f28e5b4541450756adbbe5a71b349e0411ffe8\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
               "line": 4,
               "start": 57,
               "length": 4
@@ -1862,9 +1862,9 @@
         "requestRelevance": "supported",
         "factualSupport": "stated by cited sources"
       },
-      "engine_us": 48679.7,
-      "process_ms": 202.95500004431233,
-      "working_set_bytes": 45600768
+      "engine_us": 51621.6,
+      "process_ms": 204.73519997904077,
+      "working_set_bytes": 45707264
     },
     {
       "id": "ambiguous-source",
@@ -1884,16 +1884,16 @@
         "verdict": "ambiguous",
         "sources": 2
       },
-      "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-3feeb1a8); West.mark in source-0.py, line 4 (doc-3feeb1a8).",
+      "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-cb823287); West.mark in source-0.py, line 4 (doc-cb823287).",
       "evidence": null,
       "research": {
         "verdict": "ambiguous",
-        "detail": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-3feeb1a8); West.mark in source-0.py, line 4 (doc-3feeb1a8).",
+        "detail": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-cb823287); West.mark in source-0.py, line 4 (doc-cb823287).",
         "freshness": "active project revisions",
         "trust": "owner-selected source",
         "sources": [
           {
-            "id": "doc-3feeb1a801c066c008cda877f6ee5197abeb6f07766f6f0ce4fde9d46c178a47",
+            "id": "doc-cb823287d2283d95256383c49b0f4be8142adaa47a9530a45f5447eacaa74381",
             "version": 1,
             "digest": "3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717",
             "source": "source-0.py",
@@ -1901,14 +1901,14 @@
             "origin": "owner import",
             "trust": "owner-selected source",
             "span": {
-              "path": "knowledge\\doc-3feeb1a801c066c008cda877f6ee5197abeb6f07766f6f0ce4fde9d46c178a47\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
+              "path": "knowledge\\doc-cb823287d2283d95256383c49b0f4be8142adaa47a9530a45f5447eacaa74381\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
               "line": 2,
               "start": 20,
               "length": 4
             }
           },
           {
-            "id": "doc-3feeb1a801c066c008cda877f6ee5197abeb6f07766f6f0ce4fde9d46c178a47",
+            "id": "doc-cb823287d2283d95256383c49b0f4be8142adaa47a9530a45f5447eacaa74381",
             "version": 1,
             "digest": "3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717",
             "source": "source-0.py",
@@ -1916,7 +1916,7 @@
             "origin": "owner import",
             "trust": "owner-selected source",
             "span": {
-              "path": "knowledge\\doc-3feeb1a801c066c008cda877f6ee5197abeb6f07766f6f0ce4fde9d46c178a47\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
+              "path": "knowledge\\doc-cb823287d2283d95256383c49b0f4be8142adaa47a9530a45f5447eacaa74381\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
               "line": 4,
               "start": 57,
               "length": 4
@@ -1927,9 +1927,9 @@
         "requestRelevance": "subject and intent matched",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 45180.2,
-      "process_ms": 190.8883000141941,
-      "working_set_bytes": 45477888
+      "engine_us": 46005.3,
+      "process_ms": 198.09610000811517,
+      "working_set_bytes": 45514752
     },
     {
       "id": "missing-qualified-source",
@@ -1961,9 +1961,9 @@
         "requestRelevance": "unsupported",
         "factualSupport": "insufficient for delivery"
       },
-      "engine_us": 41534.7,
-      "process_ms": 189.24579996382818,
-      "working_set_bytes": 45072384
+      "engine_us": 44968.1,
+      "process_ms": 193.61830002162606,
+      "working_set_bytes": 45518848
     }
   ]
 }

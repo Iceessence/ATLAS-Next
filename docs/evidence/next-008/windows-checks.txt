@@ -1,4 +1,4 @@
-﻿PASS 1: all public golden logits-derived predictions match Python to 1e-10
+PASS 1: all public golden logits-derived predictions match Python to 1e-10
 PASS 2: altered checkpoint refused
 PASS 3: persisted scoped fact proposal
 PASS 4: local original CPU inference
@@ -223,6 +223,19 @@ PASS 222: malformed Python header withheld for Where is Pipeline.return defined?
 PASS 223: malformed Python declaration cannot authorize a selected follow-up
 PASS 224: Python keyword-only separator still withholds arity lookup
 PASS 225: Python call expression default still withholds arity lookup
-PASS 226: revised source invalidates earlier selected parent for caller follow-up
-PASS 227: project switch isolates parameter and caller follow-ups
-All 227 checks passed. Temporary profile: C:\Users\ppawe\AppData\Local\Temp\atlas-next-check-53bd32f7d19f40f183ca60870ad394e5
+PASS 226: valid Python class header with keyword metaclass resolves
+PASS 227: valid Python numeric literal defaults resolve with exact arity
+PASS 228: valid Python operators, unary/power, comparisons, and ternary expressions resolve while non-literal defaults withhold arity
+PASS 229: valid Python parenthesized walrus, comprehension, and string concat resolve
+PASS 230: valid Python lambda in parameter annotation with default and return annotation resolves
+PASS 231: Python explicit continuation inside return annotation preserves exact span
+PASS 232: Python explicit continuations before and after return annotation exclude wrapper trivia
+PASS 233: valid sibling method remains queryable alongside malformed numeric siblings
+PASS 234: malformed numeric literals in defaults, parameter/return annotations, and class headers withhold definitions and follow-ups
+PASS 235: valid sibling method remains queryable alongside illegal operator siblings
+PASS 236: illegal operators and operator sequences in defaults, parameter/return annotations, and class headers withhold definitions and follow-ups
+PASS 237: valid sibling method remains queryable alongside malformed structural siblings
+PASS 238: invalid Python expression, parameter, lambda, container, string, and class structures withhold definitions and follow-ups
+PASS 239: revised source invalidates earlier selected parent for caller follow-up
+PASS 240: project switch isolates parameter and caller follow-ups
+All 240 checks passed. Temporary profile: C:\Users\ppawe\AppData\Local\Temp\atlas-next-check-cea40bf1c15c4f9ba7c30de52b0b13e6

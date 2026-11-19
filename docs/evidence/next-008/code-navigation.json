@@ -8,8 +8,8 @@
   "wrong_deliveries": 0,
   "correct_abstentions": 4,
   "conversations_correct": 8,
-  "median_wall_ms": 227.90665,
-  "max_working_set": 49848320,
+  "median_wall_ms": 227.81824999999998,
+  "max_working_set": 49618944,
   "trials": [
     {
       "project": "pyhumps",
@@ -45,12 +45,12 @@
           "text": "def pascalize(str_or_iter):"
         }
       ],
-      "wall_ms": 233.2989,
+      "wall_ms": 231.2097,
       "turn_ms": [
-        50.3191,
-        19.6522
+        51.7524,
+        21.5978
       ],
-      "working_set": 46129152
+      "working_set": 45604864
     },
     {
       "project": "pyhumps",
@@ -86,12 +86,12 @@
           "text": "def decamelize(str_or_iter):"
         }
       ],
-      "wall_ms": 219.5428,
+      "wall_ms": 220.5383,
       "turn_ms": [
-        49.8678,
-        19.8423
+        53.5241,
+        19.9424
       ],
-      "working_set": 46006272
+      "working_set": 45989888
     },
     {
       "project": "pyhumps",
@@ -127,12 +127,12 @@
           "text": "def _process_keys(str_or_iter, fn):"
         }
       ],
-      "wall_ms": 218.2859,
+      "wall_ms": 222.2384,
       "turn_ms": [
-        51.5461,
-        18.7111
+        50.2327,
+        21.0945
       ],
-      "working_set": 46202880
+      "working_set": 46161920
     },
     {
       "project": "pyhumps",
@@ -148,12 +148,12 @@
         null,
         null
       ],
-      "wall_ms": 207.2364,
+      "wall_ms": 210.8609,
       "turn_ms": [
-        43.153,
-        11.9804
+        48.5055,
+        12.7747
       ],
-      "working_set": 45780992
+      "working_set": 45920256
     },
     {
       "project": "pdf2image",
@@ -189,12 +189,12 @@
           "text": "def convert_from_path(\n    pdf_path: Union[str, PurePath],\n    dpi: int = 200,\n    output_folder: Union[str, PurePath] = None,\n    first_page: int = None,\n    last_page: int = None,\n    fmt: str = \"ppm\",\n    jpegopt: Dict = None,\n    thread_count: int = 1,\n    userpw: str = None,\n    ownerpw: str = None,\n    use_cropbox: bool = False,\n    strict: bool = False,\n    transparent: bool = False,\n    single_file: bool = False,\n    output_file: Any = uuid_generator(),\n    poppler_path: Union[str, PurePath] = None,\n    grayscale: bool = False,\n    size: Union[Tuple, int] = None,\n    paths_only: bool = False,\n    use_pdftocairo: bool = False,\n    timeout: int = None,\n    hide_annotations: bool = False,\n) -> List[Image.Image]:"
         }
       ],
-      "wall_ms": 256.2677,
+      "wall_ms": 250.0151,
       "turn_ms": [
-        67.1287,
-        19.9921
+        65.0105,
+        22.8539
       ],
-      "working_set": 49541120
+      "working_set": 49618944
     },
     {
       "project": "pdf2image",
@@ -230,12 +230,12 @@
           "text": "def pdfinfo_from_path(\n    pdf_path: str,\n    userpw: str = None,\n    ownerpw: str = None,\n    poppler_path: str = None,\n    rawdates: bool = False,\n    timeout: int = None,\n    first_page: int = None,\n    last_page: int = None,\n) -> Dict:"
         }
       ],
-      "wall_ms": 244.0307,
+      "wall_ms": 254.4892,
       "turn_ms": [
-        63.1443,
-        23.2137
+        69.367,
+        22.828
       ],
-      "working_set": 49848320
+      "working_set": 49283072
     },
     {
       "project": "pdf2image",
@@ -271,12 +271,12 @@
           "text": "def _parse_format(fmt: str, grayscale: bool = False) -> Tuple[str, str, Callable, bool]:"
         }
       ],
-      "wall_ms": 244.1968,
+      "wall_ms": 244.0654,
       "turn_ms": [
-        65.3453,
-        23.1474
+        64.8441,
+        20.755
       ],
-      "working_set": 49807360
+      "working_set": 49389568
     },
     {
       "project": "pdf2image",
@@ -292,12 +292,12 @@
         null,
         null
       ],
-      "wall_ms": 222.5144,
+      "wall_ms": 224.4268,
       "turn_ms": [
-        54.427,
-        10.4092
+        55.7422,
+        11.4892
       ],
-      "working_set": 48807936
+      "working_set": 48738304
     }
   ]
 }

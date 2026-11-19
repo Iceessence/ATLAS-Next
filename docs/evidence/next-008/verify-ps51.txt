@@ -1,10 +1,10 @@
-﻿Imported receipt: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-0d6fc18b664f46a6886ee6e6cea5d0eb\profile\exports\project-package-check\1384739851f842688708af870a2b2561-328ca6002e0a45beb5a0e64fe2b91bac.json
+Imported receipt: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-9e87a3f64d054af185e4860ecffb0117\profile\exports\project-package-check\64b6843ab057423ab425cdb6e9966b85-4c9bf4f27df943199f9d4d42ec9178b9.json
 PASS native file picker imports, exact source span and contradictory sources withheld
 PASS packaged qualified definitions, signature, documentation, enclosing type, namespace and ambiguity locations
 PASS packaged overload selection, cross-file call binding, per-claim research provenance and stale-revision withholding
 PASS packaged generic overload, parameter list, return type, and conversational caller follow-up
-PowerShell 5.1.26100.9818 verified ZIP B3C28FD3942C788C4A53FF43ED4B81B1DCF30A53F770C7AADF8E1A6C1AD2CAC1
+PowerShell 5.1.26100.9818 verified ZIP 7171BCEA876208A185073F5DADC69A1EF8D10693C92E8F3440F0A36D873BC0F6
 PASS 519 inventory hashes, private runtime, PID/title window discovery on 3 launches
 PASS duration question, displayed verdicts, exported receipt, reopen, cancellation and crash recovery
 PASS completed history preserved, 5 byte-identical quarantine fixtures and visible counts
-Evidence: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-0d6fc18b664f46a6886ee6e6cea5d0eb\profile\exports\3404e4da2cf84254a4546727cdd323c7-924915ed2f574c2390fc8702070645be.json
+Evidence: C:\Users\ppawe\AppData\Local\Temp\atlas-next-package-9e87a3f64d054af185e4860ecffb0117\profile\exports\4157dcf4c9694b20b8a432b78004494d-09f6b7f141974be58d954e5ac3653121.json

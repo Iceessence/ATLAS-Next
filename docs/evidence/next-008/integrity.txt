@@ -1,11 +1,5 @@
-﻿python.exe : .............
-At line:8 char:1
-+ & $py -B lab/test_integrity.py 2>&1 | Out-File -FilePath (Join-Path $ ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (.............:String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
+..............
 ----------------------------------------------------------------------
-Ran 13 tests in 1.586s
+Ran 14 tests in 23.059s
 
 OK

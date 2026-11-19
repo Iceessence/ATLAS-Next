@@ -15,10 +15,10 @@
         "coverage": 1.0,
         "p50_scoring_us": null,
         "p95_scoring_us": null,
-        "p50_engine_us": 111459.5,
-        "p95_engine_us": 114216.1,
-        "p50_process_ms": 286.30219999999997,
-        "peak_host_working_set": 76521472
+        "p50_engine_us": 112769.9,
+        "p95_engine_us": 116385.9,
+        "p50_process_ms": 289.1497,
+        "peak_host_working_set": 76386304
       },
       "trials": [
         {
@@ -28,7 +28,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": null,
-          "scoring_us": 0.5,
+          "scoring_us": 0.2,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -36,15 +36,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-b57d8c9a9631bc474c67b4035ba0f09dcb235b6d31e5e794ffb929796f457217\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
+            "path": "knowledge\\doc-76bd85ab6af65131ded0a77ae1205eb0ea4cba5f801a321b237a7a1e76eca0dc\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
             "line": 2,
             "start": 62,
             "length": 63
           },
           "failed": [],
-          "engine_us": 113183.3,
-          "process_ms": 303.9835,
-          "working_set": 75280384
+          "engine_us": 112358.5,
+          "process_ms": 304.1699,
+          "working_set": 75612160
         },
         {
           "id": "openpyxl-2",
@@ -53,7 +53,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": null,
-          "scoring_us": 0.5,
+          "scoring_us": 0.3,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -61,15 +61,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-be05e74d8ae04b15a3573507ab34eed53c16207cd242fab0b0f69b81b9ae90c6\\00000001-aaa55dc298febb3e21354336a6b34f76c9b7bd27d103ce3b6765af54ac91cb95\\source-1.md",
+            "path": "knowledge\\doc-9c9939f643de42438897f5a26ce309f23924197ff788a5425d4bc38b0e87bcae\\00000001-aaa55dc298febb3e21354336a6b34f76c9b7bd27d103ce3b6765af54ac91cb95\\source-1.md",
             "line": 2,
             "start": 62,
             "length": 64
           },
           "failed": [],
-          "engine_us": 111975.4,
-          "process_ms": 286.256,
-          "working_set": 75894784
+          "engine_us": 113973.7,
+          "process_ms": 288.684,
+          "working_set": 75517952
         },
         {
           "id": "openpyxl-3",
@@ -86,15 +86,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-63d041e75bab72792f606f15d3f603f511c27ca5d49d8ea70a1bc64e41e4bae8\\00000001-f39564969e6dba9dd98e8be7320fcb35f0ec07a7d0488613e6d3dfcacbed36fe\\source-0.md",
+            "path": "knowledge\\doc-3168d6d8462d25699dd80e95d33a4bcb7713a3a0bc9d2c8475a6f6ace6e6b0b5\\00000001-f39564969e6dba9dd98e8be7320fcb35f0ec07a7d0488613e6d3dfcacbed36fe\\source-0.md",
             "line": 4,
             "start": 105,
             "length": 1
           },
           "failed": [],
-          "engine_us": 108223.7,
-          "process_ms": 279.4593,
-          "working_set": 75300864
+          "engine_us": 110920.1,
+          "process_ms": 284.7614,
+          "working_set": 75653120
         },
         {
           "id": "openpyxl-4",
@@ -103,7 +103,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": null,
-          "scoring_us": 0.2,
+          "scoring_us": 0.0,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -111,43 +111,18 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-4ee36fa5868174ba5c51a6b6347607937255761ec20eb42c69ae9837eae58853\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
+            "path": "knowledge\\doc-e2d431fcacf4226b852b4ca9ed9885d67d3e38cb066e783865dee3dcbedf7465\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
             "line": 2,
             "start": 62,
             "length": 63
           },
           "failed": [],
-          "engine_us": 115346.8,
-          "process_ms": 299.4512,
-          "working_set": 75427840
+          "engine_us": 112762.5,
+          "process_ms": 283.3751,
+          "working_set": 75755520
         },
         {
           "id": "pydantic-1",
-          "family": "pydantic",
-          "expected_document": 1,
-          "proposal": 1,
-          "route_correct": true,
-          "confidence": null,
-          "scoring_us": 0.2,
-          "primary_document": 1,
-          "ok": true,
-          "state": "completed",
-          "result": "472",
-          "verdict": "supported",
-          "selected": 1,
-          "citation": {
-            "path": "knowledge\\doc-c6431577bc5d90f97176770a930480ad90710acbb77f9fb187e9d769bbc4152e\\00000001-d7f5fd7790bd642d51e69e6e9e663a6482ddacf1a44d045acc7f543bb184aca2\\source-1.md",
-            "line": 3,
-            "start": 287,
-            "length": 3
-          },
-          "failed": [],
-          "engine_us": 112324.7,
-          "process_ms": 308.5126,
-          "working_set": 76521472
-        },
-        {
-          "id": "pydantic-2",
           "family": "pydantic",
           "expected_document": 1,
           "proposal": 1,
@@ -157,19 +132,44 @@
           "primary_document": 1,
           "ok": true,
           "state": "completed",
+          "result": "472",
+          "verdict": "supported",
+          "selected": 1,
+          "citation": {
+            "path": "knowledge\\doc-9844abaa04eb8b48c92bfe4181b3f20f4bcde0e551aa7acf28376b765247cd7e\\00000001-d7f5fd7790bd642d51e69e6e9e663a6482ddacf1a44d045acc7f543bb184aca2\\source-1.md",
+            "line": 3,
+            "start": 287,
+            "length": 3
+          },
+          "failed": [],
+          "engine_us": 113763,
+          "process_ms": 307.9511,
+          "working_set": 76386304
+        },
+        {
+          "id": "pydantic-2",
+          "family": "pydantic",
+          "expected_document": 1,
+          "proposal": 1,
+          "route_correct": true,
+          "confidence": null,
+          "scoring_us": 0.0,
+          "primary_document": 1,
+          "ok": true,
+          "state": "completed",
           "result": "true",
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-5a1c42c03440fab7d7696154e223d74a00f1d8455021498a118781077fea2837\\00000001-38aebd27732bd924038f433c7a25806460ceaa44a8c2f073befd92541b27b2a7\\source-1.md",
+            "path": "knowledge\\doc-96fe11eafc7b1dffda6f7e0575bae73c71bfcd440aa741048db7a8f1fbad87be\\00000001-38aebd27732bd924038f433c7a25806460ceaa44a8c2f073befd92541b27b2a7\\source-1.md",
             "line": 4,
             "start": 125,
             "length": 4
           },
           "failed": [],
-          "engine_us": 110428.7,
-          "process_ms": 286.4237,
-          "working_set": 75968512
+          "engine_us": 112106.4,
+          "process_ms": 291.9286,
+          "working_set": 75919360
         },
         {
           "id": "pydantic-3",
@@ -186,15 +186,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-230a8f74c1794be5267b11fbf39ce70ff2d60a0b2c15b38394ef16957a3ab164\\00000001-d40f2b832fb8e88d5b42cd440af0ed08fa57eb4f1c1e806d26333f7cd434f427\\source-2.md",
+            "path": "knowledge\\doc-fdb9b0b4243a2ab32f8a0176de3717f6c43a22c2e988e76690b51beee12b8450\\00000001-d40f2b832fb8e88d5b42cd440af0ed08fa57eb4f1c1e806d26333f7cd434f427\\source-2.md",
             "line": 3,
             "start": 150,
             "length": 3
           },
           "failed": [],
-          "engine_us": 111192.5,
-          "process_ms": 285.682,
-          "working_set": 75984896
+          "engine_us": 117755.1,
+          "process_ms": 301.0115,
+          "working_set": 76107776
         },
         {
           "id": "pydantic-4",
@@ -203,7 +203,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": null,
-          "scoring_us": 0.2,
+          "scoring_us": 0.1,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -211,15 +211,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-262c79bfbf8d18ca1f58e114218460d4a7e6ed0556e201bdad3e3fc4e61d2fcc\\00000001-dab29da2cd1de0251501b0e919198a2f5a0ca82edfb7cc9553c6079a530a52a4\\source-0.md",
+            "path": "knowledge\\doc-f3ff37e5d68dbbf55db12fc215cf3b8621b42e5efe252336a038c868bb2a192a\\00000001-dab29da2cd1de0251501b0e919198a2f5a0ca82edfb7cc9553c6079a530a52a4\\source-0.md",
             "line": 5,
             "start": 128,
             "length": 6
           },
           "failed": [],
-          "engine_us": 110377.6,
-          "process_ms": 286.0867,
-          "working_set": 76300288
+          "engine_us": 113310.1,
+          "process_ms": 287.1849,
+          "working_set": 76238848
         },
         {
           "id": "python-pptx-1",
@@ -236,15 +236,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-90b81f9be0906327c1067153f79690833d061823ddd1805a436e481dc0aa6c39\\00000001-19e15b06ef867d59c1e3e3a31cb678b70bd68ac006407e39518db609f1a632c0\\source-3.md",
+            "path": "knowledge\\doc-7bdee377e00e58231d9b07736f7299e729515471ac2aa47d01f6658f3741b0a7\\00000001-19e15b06ef867d59c1e3e3a31cb678b70bd68ac006407e39518db609f1a632c0\\source-3.md",
             "line": 4,
             "start": 150,
             "length": 64
           },
           "failed": [],
-          "engine_us": 113198.5,
-          "process_ms": 297.0981,
-          "working_set": 75325440
+          "engine_us": 112411.3,
+          "process_ms": 294.9993,
+          "working_set": 75681792
         },
         {
           "id": "python-pptx-2",
@@ -253,7 +253,7 @@
           "proposal": 2,
           "route_correct": true,
           "confidence": null,
-          "scoring_us": 0.1,
+          "scoring_us": 0.0,
           "primary_document": 2,
           "ok": true,
           "state": "completed",
@@ -261,15 +261,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-02655efac20dd93dc84947126aa6ddcb389a6bc41d06223cc13587b13e53d708\\00000001-26827ddbbb5968b92e528093b50e8b8d1ac0b403bb2e7717b5bb0dfc1608f476\\source-2.md",
+            "path": "knowledge\\doc-fee1b1b930f8f58db5b0d06926a3e42d74b61e673aff976d9fd423a99b62cce7\\00000001-26827ddbbb5968b92e528093b50e8b8d1ac0b403bb2e7717b5bb0dfc1608f476\\source-2.md",
             "line": 5,
             "start": 207,
             "length": 1
           },
           "failed": [],
-          "engine_us": 107781.4,
-          "process_ms": 282.3222,
-          "working_set": 75476992
+          "engine_us": 114113.7,
+          "process_ms": 287.522,
+          "working_set": 75575296
         },
         {
           "id": "python-pptx-3",
@@ -278,7 +278,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": null,
-          "scoring_us": 0.1,
+          "scoring_us": 0.0,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -286,15 +286,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-7e0656bd0dfaf99686de6ca57c9a7a06bd8e082d725b3d0f5193f6ad3a372da3\\00000001-af40adb7f2785adea1adc7fdc5595d1bd773b64ec024b784cff690860f095ec9\\source-0.md",
+            "path": "knowledge\\doc-cb3ff08f14ab0e36e56253af1ae3202a59c6a0448ba07f7adf071254709badba\\00000001-af40adb7f2785adea1adc7fdc5595d1bd773b64ec024b784cff690860f095ec9\\source-0.md",
             "line": 2,
             "start": 49,
             "length": 11
           },
           "failed": [],
-          "engine_us": 111746.8,
-          "process_ms": 285.3191,
-          "working_set": 75796480
+          "engine_us": 112099.9,
+          "process_ms": 288.9926,
+          "working_set": 75677696
         },
         {
           "id": "python-pptx-4",
@@ -311,15 +311,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-210b1619f0c0a64899e457702443fb9e90a01a17f8b8568c7216fb50011a84cc\\00000001-2b9f53cbf09fa406b2071e0dc07009e1094427580652f431a0982f2d60f4e535\\source-0.md",
+            "path": "knowledge\\doc-c2859c87b0cb6fe5e9b06a45c441480f3dd611cc806013ed0445e90336caafe9\\00000001-2b9f53cbf09fa406b2071e0dc07009e1094427580652f431a0982f2d60f4e535\\source-0.md",
             "line": 3,
             "start": 99,
             "length": 12
           },
           "failed": [],
-          "engine_us": 111726.5,
-          "process_ms": 284.5579,
-          "working_set": 75681792
+          "engine_us": 112509.6,
+          "process_ms": 288.6269,
+          "working_set": 75603968
         },
         {
           "id": "xlsxwriter-1",
@@ -328,7 +328,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": null,
-          "scoring_us": 0.0,
+          "scoring_us": 0.1,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -336,15 +336,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-8e4e7dd2ac5dbfe7f5515ba7390bb65ccab804bf3226b4beb10572f60e32cc1c\\00000001-747a992d931e37367925fb96df49f57b79fe23d0a8dcc526ddfa9c39343bba5c\\source-1.md",
+            "path": "knowledge\\doc-3c873d14ff28e6016b05e0bb729b63a7e5b6a58aa5893c39bda8e11fbd0a54b8\\00000001-747a992d931e37367925fb96df49f57b79fe23d0a8dcc526ddfa9c39343bba5c\\source-1.md",
             "line": 3,
             "start": 132,
             "length": 2
           },
           "failed": [],
-          "engine_us": 110473,
-          "process_ms": 299.8724,
-          "working_set": 75636736
+          "engine_us": 112574.5,
+          "process_ms": 298.6651,
+          "working_set": 75870208
         },
         {
           "id": "xlsxwriter-2",
@@ -361,15 +361,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-e72af775b67b89e9680b0f9a5e7bd8b6e77483bc5489472552f9f43fc4f8025a\\00000001-2476991eab48ee7c21cbfff9005e41c294b216e500f602bb4e33733478518568\\source-0.md",
+            "path": "knowledge\\doc-4576be3e511d9df77ee5c0108f146b8ce7fc335f6994597534ba9b3dbaf54c73\\00000001-2476991eab48ee7c21cbfff9005e41c294b216e500f602bb4e33733478518568\\source-0.md",
             "line": 3,
             "start": 76,
             "length": 5
           },
           "failed": [],
-          "engine_us": 111051.4,
-          "process_ms": 283.8881,
-          "working_set": 75083776
+          "engine_us": 112777.3,
+          "process_ms": 285.6703,
+          "working_set": 75476992
         },
         {
           "id": "xlsxwriter-3",
@@ -386,15 +386,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-bf175d88c8dab457ce023b7357064d5fdc05f5569a18da55107eb92703eee55a\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-0.md",
+            "path": "knowledge\\doc-0f28ee0585f525197d29f770ac1192c73cda273808deea7570405c9bf61cf690\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-0.md",
             "line": 2,
             "start": 64,
             "length": 64
           },
           "failed": [],
-          "engine_us": 110688.8,
-          "process_ms": 286.3484,
-          "working_set": 75833344
+          "engine_us": 115929.5,
+          "process_ms": 290.4643,
+          "working_set": 75853824
         },
         {
           "id": "xlsxwriter-4",
@@ -411,15 +411,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-25c32af8d6a240dec7d19ef21eec789f88201789ddee187f75e5211d252abafe\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-2.md",
+            "path": "knowledge\\doc-0eaa5e957934c02c8f9cb730f323e116e04e550ebcf20dcb75c8682fbb85fd55\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-2.md",
             "line": 3,
             "start": 152,
             "length": 2
           },
           "failed": [],
-          "engine_us": 113839.2,
-          "process_ms": 287.5077,
-          "working_set": 75161600
+          "engine_us": 114013.5,
+          "process_ms": 289.3068,
+          "working_set": 75255808
         }
       ]
     },
@@ -433,12 +433,12 @@
         "proposed_abstentions": 0,
         "host_withheld": 0,
         "coverage": 1.0,
-        "p50_scoring_us": 58.099999999999994,
-        "p95_scoring_us": 92.725,
-        "p50_engine_us": 112083.8,
-        "p95_engine_us": 115503.27500000001,
-        "p50_process_ms": 288.27355,
-        "peak_host_working_set": 76406784
+        "p50_scoring_us": 52.400000000000006,
+        "p95_scoring_us": 107.975,
+        "p50_engine_us": 113500.9,
+        "p95_engine_us": 115742.5,
+        "p50_process_ms": 288.56195,
+        "peak_host_working_set": 76595200
       },
       "trials": [
         {
@@ -448,7 +448,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": 0.39020068061216207,
-          "scoring_us": 172.0,
+          "scoring_us": 150.5,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -456,15 +456,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-57096ee175c64db60f92ce28e9885822a3e2f981c52d40a2c4a5adfc3b46ca20\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
+            "path": "knowledge\\doc-35af765bceefe2b4af246152a57f42931f26686635a36acdb382ede09a203ff9\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
             "line": 2,
             "start": 62,
             "length": 63
           },
           "failed": [],
-          "engine_us": 108113.2,
-          "process_ms": 278.767,
-          "working_set": 75632640
+          "engine_us": 112517.7,
+          "process_ms": 288.598,
+          "working_set": 75608064
         },
         {
           "id": "openpyxl-2",
@@ -473,7 +473,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.33908517450066605,
-          "scoring_us": 62.0,
+          "scoring_us": 52.2,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -481,15 +481,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-739b095ffd6d4f6127daf979a10dad9aa6d7bb659ef8a9fd8a135ddd59aeb1bc\\00000001-aaa55dc298febb3e21354336a6b34f76c9b7bd27d103ce3b6765af54ac91cb95\\source-1.md",
+            "path": "knowledge\\doc-154d724323d19798f8cec22ae8640a012477ae4fd9dd04af892f650aeb0bccc8\\00000001-aaa55dc298febb3e21354336a6b34f76c9b7bd27d103ce3b6765af54ac91cb95\\source-1.md",
             "line": 2,
             "start": 62,
             "length": 64
           },
           "failed": [],
-          "engine_us": 109055.7,
-          "process_ms": 280.8708,
-          "working_set": 75501568
+          "engine_us": 113427.4,
+          "process_ms": 284.1697,
+          "working_set": 75726848
         },
         {
           "id": "openpyxl-3",
@@ -498,7 +498,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.3031916390351075,
-          "scoring_us": 60.3,
+          "scoring_us": 63.0,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -506,15 +506,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-3d5201486dcf40af8c134cfdab15c7889cc9d7606a878918a844cfd1ffb99f04\\00000001-f39564969e6dba9dd98e8be7320fcb35f0ec07a7d0488613e6d3dfcacbed36fe\\source-0.md",
+            "path": "knowledge\\doc-a6b69b9c4f3b645f34aa239cbdd02460d73ca36f1aac529706666a46152e5e44\\00000001-f39564969e6dba9dd98e8be7320fcb35f0ec07a7d0488613e6d3dfcacbed36fe\\source-0.md",
             "line": 4,
             "start": 105,
             "length": 1
           },
           "failed": [],
-          "engine_us": 110782.6,
-          "process_ms": 289.9438,
-          "working_set": 75358208
+          "engine_us": 112606.4,
+          "process_ms": 286.9883,
+          "working_set": 75677696
         },
         {
           "id": "openpyxl-4",
@@ -523,7 +523,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": 0.2240022115359574,
-          "scoring_us": 56.9,
+          "scoring_us": 60.4,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -531,15 +531,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-7d7c5f73428789af97489169706ff90bcd4daf81876ca76ca8e50280cd658722\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
+            "path": "knowledge\\doc-a59119d80bfb1967174e2a8fe752b8a6c968d716a7ba454b1fca2f69172ef6ef\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
             "line": 2,
             "start": 62,
             "length": 63
           },
           "failed": [],
-          "engine_us": 116417.3,
-          "process_ms": 293.1515,
-          "working_set": 75317248
+          "engine_us": 113565.3,
+          "process_ms": 285.6511,
+          "working_set": 75329536
         },
         {
           "id": "pydantic-1",
@@ -548,7 +548,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.4558356183805313,
-          "scoring_us": 66.3,
+          "scoring_us": 78.0,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -556,15 +556,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-a40a8405a9bd0d17afb904a8f95977eb75d709515c079f6af6c04fe815bb2b11\\00000001-d7f5fd7790bd642d51e69e6e9e663a6482ddacf1a44d045acc7f543bb184aca2\\source-1.md",
+            "path": "knowledge\\doc-557f9dec1ddba2f7882cd20d6f2ba94f718e7a3188b156279cc11d7a86aae37b\\00000001-d7f5fd7790bd642d51e69e6e9e663a6482ddacf1a44d045acc7f543bb184aca2\\source-1.md",
             "line": 3,
             "start": 287,
             "length": 3
           },
           "failed": [],
-          "engine_us": 112414.4,
-          "process_ms": 285.0957,
-          "working_set": 76328960
+          "engine_us": 112683.9,
+          "process_ms": 283.9073,
+          "working_set": 76595200
         },
         {
           "id": "pydantic-2",
@@ -573,7 +573,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.34866169563279453,
-          "scoring_us": 61.6,
+          "scoring_us": 58.8,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -581,15 +581,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-dfb4e4e28dd316a046604070b52a2b695fea9c2154f1611f349b2d68e292d810\\00000001-38aebd27732bd924038f433c7a25806460ceaa44a8c2f073befd92541b27b2a7\\source-1.md",
+            "path": "knowledge\\doc-0f55b2c6b08570001e9342d71371d84e6ce9c46866e6d680b729537757ad80a9\\00000001-38aebd27732bd924038f433c7a25806460ceaa44a8c2f073befd92541b27b2a7\\source-1.md",
             "line": 4,
             "start": 125,
             "length": 4
           },
           "failed": [],
-          "engine_us": 112413.5,
-          "process_ms": 286.789,
-          "working_set": 75907072
+          "engine_us": 113590.5,
+          "process_ms": 288.1295,
+          "working_set": 76042240
         },
         {
           "id": "pydantic-3",
@@ -598,7 +598,7 @@
           "proposal": 2,
           "route_correct": true,
           "confidence": 0.5674577809025133,
-          "scoring_us": 58.8,
+          "scoring_us": 50.0,
           "primary_document": 2,
           "ok": true,
           "state": "completed",
@@ -606,15 +606,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-37ce1567535d73306b5597317ce1ab62359ddc50f593738e55ccc1a864cd194f\\00000001-d40f2b832fb8e88d5b42cd440af0ed08fa57eb4f1c1e806d26333f7cd434f427\\source-2.md",
+            "path": "knowledge\\doc-19bbd6ba6b53bf69ec15dd294517559be6346880dd7a65c0685ed4126344dde9\\00000001-d40f2b832fb8e88d5b42cd440af0ed08fa57eb4f1c1e806d26333f7cd434f427\\source-2.md",
             "line": 3,
             "start": 150,
             "length": 3
           },
           "failed": [],
-          "engine_us": 110444.4,
-          "process_ms": 292.2052,
-          "working_set": 75993088
+          "engine_us": 114925.7,
+          "process_ms": 288.5259,
+          "working_set": 75960320
         },
         {
           "id": "pydantic-4",
@@ -623,7 +623,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.2607114756703313,
-          "scoring_us": 61.4,
+          "scoring_us": 52.6,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -631,15 +631,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-3237aeffee6c6eb4dce7be1f1d19772d2d211e81277ff313f5450c76836deee9\\00000001-dab29da2cd1de0251501b0e919198a2f5a0ca82edfb7cc9553c6079a530a52a4\\source-0.md",
+            "path": "knowledge\\doc-6c32556d2fc1b5605b030d2be88a45fd16978e1ebfc5a0418bacc71508d1a796\\00000001-dab29da2cd1de0251501b0e919198a2f5a0ca82edfb7cc9553c6079a530a52a4\\source-0.md",
             "line": 5,
             "start": 128,
             "length": 6
           },
           "failed": [],
-          "engine_us": 115198.6,
-          "process_ms": 289.5277,
-          "working_set": 76214272
+          "engine_us": 113436.5,
+          "process_ms": 290.5219,
+          "working_set": 76165120
         },
         {
           "id": "python-pptx-1",
@@ -648,7 +648,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": 0.39960055597874317,
-          "scoring_us": 60.1,
+          "scoring_us": 93.8,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -656,15 +656,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-0ace2ac9e67a8d225d74540fefb5acfc761f42cd4b901d2c103b2ead36ba4325\\00000001-19e15b06ef867d59c1e3e3a31cb678b70bd68ac006407e39518db609f1a632c0\\source-3.md",
+            "path": "knowledge\\doc-5b2939a9efbd996433166a841c8b3fcb8678b4e614c417df761ec1358be21796\\00000001-19e15b06ef867d59c1e3e3a31cb678b70bd68ac006407e39518db609f1a632c0\\source-3.md",
             "line": 4,
             "start": 150,
             "length": 64
           },
           "failed": [],
-          "engine_us": 111286.4,
-          "process_ms": 286.9968,
-          "working_set": 75776000
+          "engine_us": 113101.9,
+          "process_ms": 288.8765,
+          "working_set": 75894784
         },
         {
           "id": "python-pptx-2",
@@ -681,15 +681,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-e066679ef7de275b883d37bc9199702087f36646c5afa726139b08988e841bb0\\00000001-26827ddbbb5968b92e528093b50e8b8d1ac0b403bb2e7717b5bb0dfc1608f476\\source-2.md",
+            "path": "knowledge\\doc-7a3ce866ee08ed00e89f5b269f0a6fb9ac9544a159111ffb396ddf0a581ae99f\\00000001-26827ddbbb5968b92e528093b50e8b8d1ac0b403bb2e7717b5bb0dfc1608f476\\source-2.md",
             "line": 5,
             "start": 207,
             "length": 1
           },
           "failed": [],
-          "engine_us": 109792.8,
-          "process_ms": 291.3236,
-          "working_set": 75530240
+          "engine_us": 115547.4,
+          "process_ms": 292.9377,
+          "working_set": 75698176
         },
         {
           "id": "python-pptx-3",
@@ -698,7 +698,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.2543466690348615,
-          "scoring_us": 53.2,
+          "scoring_us": 46.5,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -706,15 +706,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-a1edca8ce61d20528ca7c177f22b3cbe3f1f5668cc994aeb0f53659c8173df69\\00000001-af40adb7f2785adea1adc7fdc5595d1bd773b64ec024b784cff690860f095ec9\\source-0.md",
+            "path": "knowledge\\doc-acdce486a3dc8de905c7158ead3666d9891bfaf0ab886e75b538be8b2d2a8191\\00000001-af40adb7f2785adea1adc7fdc5595d1bd773b64ec024b784cff690860f095ec9\\source-0.md",
             "line": 2,
             "start": 49,
             "length": 11
           },
           "failed": [],
-          "engine_us": 114404,
-          "process_ms": 293.0647,
-          "working_set": 76406784
+          "engine_us": 111727.9,
+          "process_ms": 286.5917,
+          "working_set": 75849728
         },
         {
           "id": "python-pptx-4",
@@ -723,7 +723,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.46000309505185194,
-          "scoring_us": 52.8,
+          "scoring_us": 44.8,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -731,15 +731,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-041994411b7b5198c5e52a12077f3db1d79c73debcedd138b9e4a43f4dbb4cd6\\00000001-2b9f53cbf09fa406b2071e0dc07009e1094427580652f431a0982f2d60f4e535\\source-0.md",
+            "path": "knowledge\\doc-a518bd6c1b9b994ffb75d251152f2aea64469d0df8b05d0d0b285c96383969b7\\00000001-2b9f53cbf09fa406b2071e0dc07009e1094427580652f431a0982f2d60f4e535\\source-0.md",
             "line": 3,
             "start": 99,
             "length": 12
           },
           "failed": [],
-          "engine_us": 112235.3,
-          "process_ms": 286.4396,
-          "working_set": 75595776
+          "engine_us": 114844.8,
+          "process_ms": 288.8843,
+          "working_set": 75833344
         },
         {
           "id": "xlsxwriter-1",
@@ -748,7 +748,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.6250497318459429,
-          "scoring_us": 55.1,
+          "scoring_us": 50.4,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -756,15 +756,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-b079f09bd9c718560f69ac3f8abf2088b9519f49b9f8fe6fe14170b11ba813ff\\00000001-747a992d931e37367925fb96df49f57b79fe23d0a8dcc526ddfa9c39343bba5c\\source-1.md",
+            "path": "knowledge\\doc-ae8d26f96a4dfe42cda7dd70b83baf02d2d2f847c46c185ed3a2831c60b26f26\\00000001-747a992d931e37367925fb96df49f57b79fe23d0a8dcc526ddfa9c39343bba5c\\source-1.md",
             "line": 3,
             "start": 132,
             "length": 2
           },
           "failed": [],
-          "engine_us": 111932.3,
-          "process_ms": 289.1069,
-          "working_set": 75239424
+          "engine_us": 113226.5,
+          "process_ms": 287.9366,
+          "working_set": 75685888
         },
         {
           "id": "xlsxwriter-2",
@@ -773,7 +773,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.36326338850951106,
-          "scoring_us": 52.4,
+          "scoring_us": 44.2,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -781,15 +781,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-4c48bae697a8ff1cb0bff30f44499666ca7baefb38ec290dd6a5357cf476cfc8\\00000001-2476991eab48ee7c21cbfff9005e41c294b216e500f602bb4e33733478518568\\source-0.md",
+            "path": "knowledge\\doc-79bee68e5bf8f6dd59ba7f6db28bd0b554185493af52685f33d9976128c264b6\\00000001-2476991eab48ee7c21cbfff9005e41c294b216e500f602bb4e33733478518568\\source-0.md",
             "line": 3,
             "start": 76,
             "length": 5
           },
           "failed": [],
-          "engine_us": 113327,
-          "process_ms": 287.4402,
-          "working_set": 75825152
+          "engine_us": 114133.3,
+          "process_ms": 288.7992,
+          "working_set": 75476992
         },
         {
           "id": "xlsxwriter-3",
@@ -798,7 +798,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.32801312430427726,
-          "scoring_us": 53.4,
+          "scoring_us": 45.6,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -806,15 +806,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-e72a14c5240f7a5fb54a7d5786d2acba0c3b4d94bab20e2455f7a19e382a5c1d\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-0.md",
+            "path": "knowledge\\doc-6b9550c462d9c6787e3119066e094db47f1d7bca69cde7be7e6794bcc77fc706\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-0.md",
             "line": 2,
             "start": 64,
             "length": 64
           },
           "failed": [],
-          "engine_us": 109599.3,
-          "process_ms": 284.2262,
-          "working_set": 75911168
+          "engine_us": 115400.6,
+          "process_ms": 288.9112,
+          "working_set": 76046336
         },
         {
           "id": "xlsxwriter-4",
@@ -823,7 +823,7 @@
           "proposal": 2,
           "route_correct": true,
           "confidence": 0.42230134097151517,
-          "scoring_us": 57.4,
+          "scoring_us": 49.5,
           "primary_document": 2,
           "ok": true,
           "state": "completed",
@@ -831,15 +831,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-5a6ce51c6cb394abc364de98547b23287ed56ccb10e8156d0e439174fdbcb714\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-2.md",
+            "path": "knowledge\\doc-bf2181732e27e43a0b647eebd3fe441519284df5a8b4f2510b3433a66462989e\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-2.md",
             "line": 3,
             "start": 152,
             "length": 2
           },
           "failed": [],
-          "engine_us": 113449.1,
-          "process_ms": 291.4225,
-          "working_set": 75415552
+          "engine_us": 116327.8,
+          "process_ms": 290.925,
+          "working_set": 75247616
         }
       ]
     },
@@ -853,12 +853,12 @@
         "proposed_abstentions": 2,
         "host_withheld": 2,
         "coverage": 0.875,
-        "p50_scoring_us": 325.6,
-        "p95_scoring_us": 669.9250000000001,
-        "p50_engine_us": 111034.5,
-        "p95_engine_us": 114602.65,
-        "p50_process_ms": 287.2185,
-        "peak_host_working_set": 76406784,
+        "p50_scoring_us": 312.85,
+        "p95_scoring_us": 517.575,
+        "p50_engine_us": 113326.95,
+        "p95_engine_us": 115437.3,
+        "p50_process_ms": 288.3277,
+        "peak_host_working_set": 76595200,
         "top_candidate_brier": 0.06254831836992278,
         "calibration_bins": [
           {
@@ -890,7 +890,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": 0.9847609210169931,
-          "scoring_us": 661.2,
+          "scoring_us": 512.0,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -898,15 +898,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-57096ee175c64db60f92ce28e9885822a3e2f981c52d40a2c4a5adfc3b46ca20\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
+            "path": "knowledge\\doc-35af765bceefe2b4af246152a57f42931f26686635a36acdb382ede09a203ff9\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
             "line": 2,
             "start": 62,
             "length": 63
           },
           "failed": [],
-          "engine_us": 108113.2,
-          "process_ms": 278.767,
-          "working_set": 75632640
+          "engine_us": 112517.7,
+          "process_ms": 288.598,
+          "working_set": 75608064
         },
         {
           "id": "openpyxl-2",
@@ -915,7 +915,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.9911135346450567,
-          "scoring_us": 330.1,
+          "scoring_us": 290.4,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -923,15 +923,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-739b095ffd6d4f6127daf979a10dad9aa6d7bb659ef8a9fd8a135ddd59aeb1bc\\00000001-aaa55dc298febb3e21354336a6b34f76c9b7bd27d103ce3b6765af54ac91cb95\\source-1.md",
+            "path": "knowledge\\doc-154d724323d19798f8cec22ae8640a012477ae4fd9dd04af892f650aeb0bccc8\\00000001-aaa55dc298febb3e21354336a6b34f76c9b7bd27d103ce3b6765af54ac91cb95\\source-1.md",
             "line": 2,
             "start": 62,
             "length": 64
           },
           "failed": [],
-          "engine_us": 109055.7,
-          "process_ms": 280.8708,
-          "working_set": 75501568
+          "engine_us": 113427.4,
+          "process_ms": 284.1697,
+          "working_set": 75726848
         },
         {
           "id": "openpyxl-3",
@@ -940,7 +940,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9830632395532989,
-          "scoring_us": 317.9,
+          "scoring_us": 310.7,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -948,15 +948,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-3d5201486dcf40af8c134cfdab15c7889cc9d7606a878918a844cfd1ffb99f04\\00000001-f39564969e6dba9dd98e8be7320fcb35f0ec07a7d0488613e6d3dfcacbed36fe\\source-0.md",
+            "path": "knowledge\\doc-a6b69b9c4f3b645f34aa239cbdd02460d73ca36f1aac529706666a46152e5e44\\00000001-f39564969e6dba9dd98e8be7320fcb35f0ec07a7d0488613e6d3dfcacbed36fe\\source-0.md",
             "line": 4,
             "start": 105,
             "length": 1
           },
           "failed": [],
-          "engine_us": 110782.6,
-          "process_ms": 289.9438,
-          "working_set": 75358208
+          "engine_us": 112606.4,
+          "process_ms": 286.9883,
+          "working_set": 75677696
         },
         {
           "id": "openpyxl-4",
@@ -965,7 +965,7 @@
           "proposal": -1,
           "route_correct": false,
           "confidence": 0.38382895096187175,
-          "scoring_us": 304.8,
+          "scoring_us": 443.3,
           "primary_document": null,
           "ok": false,
           "state": "needs clarification",
@@ -985,9 +985,9 @@
             "span",
             "extract"
           ],
-          "engine_us": 109863.8,
-          "process_ms": 294.8193,
-          "working_set": 75255808
+          "engine_us": 106142.5,
+          "process_ms": 282.0419,
+          "working_set": 75091968
         },
         {
           "id": "pydantic-1",
@@ -996,7 +996,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.991831330553607,
-          "scoring_us": 323.3,
+          "scoring_us": 290.1,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -1004,15 +1004,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-a40a8405a9bd0d17afb904a8f95977eb75d709515c079f6af6c04fe815bb2b11\\00000001-d7f5fd7790bd642d51e69e6e9e663a6482ddacf1a44d045acc7f543bb184aca2\\source-1.md",
+            "path": "knowledge\\doc-557f9dec1ddba2f7882cd20d6f2ba94f718e7a3188b156279cc11d7a86aae37b\\00000001-d7f5fd7790bd642d51e69e6e9e663a6482ddacf1a44d045acc7f543bb184aca2\\source-1.md",
             "line": 3,
             "start": 287,
             "length": 3
           },
           "failed": [],
-          "engine_us": 112414.4,
-          "process_ms": 285.0957,
-          "working_set": 76328960
+          "engine_us": 112683.9,
+          "process_ms": 283.9073,
+          "working_set": 76595200
         },
         {
           "id": "pydantic-2",
@@ -1021,7 +1021,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.9886744306243497,
-          "scoring_us": 322.0,
+          "scoring_us": 272.9,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -1029,15 +1029,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-dfb4e4e28dd316a046604070b52a2b695fea9c2154f1611f349b2d68e292d810\\00000001-38aebd27732bd924038f433c7a25806460ceaa44a8c2f073befd92541b27b2a7\\source-1.md",
+            "path": "knowledge\\doc-0f55b2c6b08570001e9342d71371d84e6ce9c46866e6d680b729537757ad80a9\\00000001-38aebd27732bd924038f433c7a25806460ceaa44a8c2f073befd92541b27b2a7\\source-1.md",
             "line": 4,
             "start": 125,
             "length": 4
           },
           "failed": [],
-          "engine_us": 112413.5,
-          "process_ms": 286.789,
-          "working_set": 75907072
+          "engine_us": 113590.5,
+          "process_ms": 288.1295,
+          "working_set": 76042240
         },
         {
           "id": "pydantic-3",
@@ -1046,7 +1046,7 @@
           "proposal": 2,
           "route_correct": true,
           "confidence": 0.9922271607893643,
-          "scoring_us": 293.7,
+          "scoring_us": 266.1,
           "primary_document": 2,
           "ok": true,
           "state": "completed",
@@ -1054,15 +1054,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-37ce1567535d73306b5597317ce1ab62359ddc50f593738e55ccc1a864cd194f\\00000001-d40f2b832fb8e88d5b42cd440af0ed08fa57eb4f1c1e806d26333f7cd434f427\\source-2.md",
+            "path": "knowledge\\doc-19bbd6ba6b53bf69ec15dd294517559be6346880dd7a65c0685ed4126344dde9\\00000001-d40f2b832fb8e88d5b42cd440af0ed08fa57eb4f1c1e806d26333f7cd434f427\\source-2.md",
             "line": 3,
             "start": 150,
             "length": 3
           },
           "failed": [],
-          "engine_us": 110444.4,
-          "process_ms": 292.2052,
-          "working_set": 75993088
+          "engine_us": 114925.7,
+          "process_ms": 288.5259,
+          "working_set": 75960320
         },
         {
           "id": "pydantic-4",
@@ -1071,7 +1071,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9717894938868463,
-          "scoring_us": 327.9,
+          "scoring_us": 295.7,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1079,15 +1079,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-3237aeffee6c6eb4dce7be1f1d19772d2d211e81277ff313f5450c76836deee9\\00000001-dab29da2cd1de0251501b0e919198a2f5a0ca82edfb7cc9553c6079a530a52a4\\source-0.md",
+            "path": "knowledge\\doc-6c32556d2fc1b5605b030d2be88a45fd16978e1ebfc5a0418bacc71508d1a796\\00000001-dab29da2cd1de0251501b0e919198a2f5a0ca82edfb7cc9553c6079a530a52a4\\source-0.md",
             "line": 5,
             "start": 128,
             "length": 6
           },
           "failed": [],
-          "engine_us": 115198.6,
-          "process_ms": 289.5277,
-          "working_set": 76214272
+          "engine_us": 113436.5,
+          "process_ms": 290.5219,
+          "working_set": 76165120
         },
         {
           "id": "python-pptx-1",
@@ -1096,7 +1096,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": 0.9852055706541404,
-          "scoring_us": 334.0,
+          "scoring_us": 320.5,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -1104,15 +1104,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-0ace2ac9e67a8d225d74540fefb5acfc761f42cd4b901d2c103b2ead36ba4325\\00000001-19e15b06ef867d59c1e3e3a31cb678b70bd68ac006407e39518db609f1a632c0\\source-3.md",
+            "path": "knowledge\\doc-5b2939a9efbd996433166a841c8b3fcb8678b4e614c417df761ec1358be21796\\00000001-19e15b06ef867d59c1e3e3a31cb678b70bd68ac006407e39518db609f1a632c0\\source-3.md",
             "line": 4,
             "start": 150,
             "length": 64
           },
           "failed": [],
-          "engine_us": 111286.4,
-          "process_ms": 286.9968,
-          "working_set": 75776000
+          "engine_us": 113101.9,
+          "process_ms": 288.8765,
+          "working_set": 75894784
         },
         {
           "id": "python-pptx-2",
@@ -1121,7 +1121,7 @@
           "proposal": 2,
           "route_correct": true,
           "confidence": 0.9925974643569646,
-          "scoring_us": 288.2,
+          "scoring_us": 273.9,
           "primary_document": 2,
           "ok": true,
           "state": "completed",
@@ -1129,15 +1129,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-e066679ef7de275b883d37bc9199702087f36646c5afa726139b08988e841bb0\\00000001-26827ddbbb5968b92e528093b50e8b8d1ac0b403bb2e7717b5bb0dfc1608f476\\source-2.md",
+            "path": "knowledge\\doc-7a3ce866ee08ed00e89f5b269f0a6fb9ac9544a159111ffb396ddf0a581ae99f\\00000001-26827ddbbb5968b92e528093b50e8b8d1ac0b403bb2e7717b5bb0dfc1608f476\\source-2.md",
             "line": 5,
             "start": 207,
             "length": 1
           },
           "failed": [],
-          "engine_us": 109792.8,
-          "process_ms": 291.3236,
-          "working_set": 75530240
+          "engine_us": 115547.4,
+          "process_ms": 292.9377,
+          "working_set": 75698176
         },
         {
           "id": "python-pptx-3",
@@ -1146,7 +1146,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9833978793522691,
-          "scoring_us": 278.7,
+          "scoring_us": 399.4,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1154,15 +1154,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-a1edca8ce61d20528ca7c177f22b3cbe3f1f5668cc994aeb0f53659c8173df69\\00000001-af40adb7f2785adea1adc7fdc5595d1bd773b64ec024b784cff690860f095ec9\\source-0.md",
+            "path": "knowledge\\doc-acdce486a3dc8de905c7158ead3666d9891bfaf0ab886e75b538be8b2d2a8191\\00000001-af40adb7f2785adea1adc7fdc5595d1bd773b64ec024b784cff690860f095ec9\\source-0.md",
             "line": 2,
             "start": 49,
             "length": 11
           },
           "failed": [],
-          "engine_us": 114404,
-          "process_ms": 293.0647,
-          "working_set": 76406784
+          "engine_us": 111727.9,
+          "process_ms": 286.5917,
+          "working_set": 75849728
         },
         {
           "id": "python-pptx-4",
@@ -1171,7 +1171,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9929071421774424,
-          "scoring_us": 280.8,
+          "scoring_us": 274.0,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1179,15 +1179,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-041994411b7b5198c5e52a12077f3db1d79c73debcedd138b9e4a43f4dbb4cd6\\00000001-2b9f53cbf09fa406b2071e0dc07009e1094427580652f431a0982f2d60f4e535\\source-0.md",
+            "path": "knowledge\\doc-a518bd6c1b9b994ffb75d251152f2aea64469d0df8b05d0d0b285c96383969b7\\00000001-2b9f53cbf09fa406b2071e0dc07009e1094427580652f431a0982f2d60f4e535\\source-0.md",
             "line": 3,
             "start": 99,
             "length": 12
           },
           "failed": [],
-          "engine_us": 112235.3,
-          "process_ms": 286.4396,
-          "working_set": 75595776
+          "engine_us": 114844.8,
+          "process_ms": 288.8843,
+          "working_set": 75833344
         },
         {
           "id": "xlsxwriter-1",
@@ -1196,7 +1196,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.9944524889922067,
-          "scoring_us": 630.0,
+          "scoring_us": 348.3,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -1204,15 +1204,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-b079f09bd9c718560f69ac3f8abf2088b9519f49b9f8fe6fe14170b11ba813ff\\00000001-747a992d931e37367925fb96df49f57b79fe23d0a8dcc526ddfa9c39343bba5c\\source-1.md",
+            "path": "knowledge\\doc-ae8d26f96a4dfe42cda7dd70b83baf02d2d2f847c46c185ed3a2831c60b26f26\\00000001-747a992d931e37367925fb96df49f57b79fe23d0a8dcc526ddfa9c39343bba5c\\source-1.md",
             "line": 3,
             "start": 132,
             "length": 2
           },
           "failed": [],
-          "engine_us": 111932.3,
-          "process_ms": 289.1069,
-          "working_set": 75239424
+          "engine_us": 113226.5,
+          "process_ms": 287.9366,
+          "working_set": 75685888
         },
         {
           "id": "xlsxwriter-2",
@@ -1221,7 +1221,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9853859546949495,
-          "scoring_us": 579.7,
+          "scoring_us": 534.3,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1229,15 +1229,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-4c48bae697a8ff1cb0bff30f44499666ca7baefb38ec290dd6a5357cf476cfc8\\00000001-2476991eab48ee7c21cbfff9005e41c294b216e500f602bb4e33733478518568\\source-0.md",
+            "path": "knowledge\\doc-79bee68e5bf8f6dd59ba7f6db28bd0b554185493af52685f33d9976128c264b6\\00000001-2476991eab48ee7c21cbfff9005e41c294b216e500f602bb4e33733478518568\\source-0.md",
             "line": 3,
             "start": 76,
             "length": 5
           },
           "failed": [],
-          "engine_us": 113327,
-          "process_ms": 287.4402,
-          "working_set": 75825152
+          "engine_us": 114133.3,
+          "process_ms": 288.7992,
+          "working_set": 75476992
         },
         {
           "id": "xlsxwriter-3",
@@ -1246,7 +1246,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9886873142956022,
-          "scoring_us": 696.1,
+          "scoring_us": 406.2,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1254,15 +1254,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-e72a14c5240f7a5fb54a7d5786d2acba0c3b4d94bab20e2455f7a19e382a5c1d\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-0.md",
+            "path": "knowledge\\doc-6b9550c462d9c6787e3119066e094db47f1d7bca69cde7be7e6794bcc77fc706\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-0.md",
             "line": 2,
             "start": 64,
             "length": 64
           },
           "failed": [],
-          "engine_us": 109599.3,
-          "process_ms": 284.2262,
-          "working_set": 75911168
+          "engine_us": 115400.6,
+          "process_ms": 288.9112,
+          "working_set": 76046336
         },
         {
           "id": "xlsxwriter-4",
@@ -1271,7 +1271,7 @@
           "proposal": -1,
           "route_correct": false,
           "confidence": 0.21356176310026964,
-          "scoring_us": 366.4,
+          "scoring_us": 315.0,
           "primary_document": null,
           "ok": false,
           "state": "needs clarification",
@@ -1291,9 +1291,9 @@
             "span",
             "extract"
           ],
-          "engine_us": 106307.6,
-          "process_ms": 283.5302,
-          "working_set": 74911744
+          "engine_us": 107516.4,
+          "process_ms": 283.2058,
+          "working_set": 75010048
         }
       ]
     },
@@ -1307,12 +1307,12 @@
         "proposed_abstentions": 1,
         "host_withheld": 1,
         "coverage": 0.9375,
-        "p50_scoring_us": 325.4,
-        "p95_scoring_us": 504.85,
-        "p50_engine_us": 111609.35,
-        "p95_engine_us": 115503.27500000001,
-        "p50_process_ms": 287.2185,
-        "peak_host_working_set": 76406784,
+        "p50_scoring_us": 280.0,
+        "p95_scoring_us": 346.7,
+        "p50_engine_us": 113431.95,
+        "p95_engine_us": 115437.3,
+        "p50_process_ms": 288.3277,
+        "peak_host_working_set": 76595200,
         "top_candidate_brier": 0.03764230614967519,
         "calibration_bins": [
           {
@@ -1344,7 +1344,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": 0.9981324406938559,
-          "scoring_us": 345.8,
+          "scoring_us": 319.7,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -1352,15 +1352,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-57096ee175c64db60f92ce28e9885822a3e2f981c52d40a2c4a5adfc3b46ca20\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
+            "path": "knowledge\\doc-35af765bceefe2b4af246152a57f42931f26686635a36acdb382ede09a203ff9\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
             "line": 2,
             "start": 62,
             "length": 63
           },
           "failed": [],
-          "engine_us": 108113.2,
-          "process_ms": 278.767,
-          "working_set": 75632640
+          "engine_us": 112517.7,
+          "process_ms": 288.598,
+          "working_set": 75608064
         },
         {
           "id": "openpyxl-2",
@@ -1369,7 +1369,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.9985030781950286,
-          "scoring_us": 302.6,
+          "scoring_us": 278.4,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -1377,15 +1377,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-739b095ffd6d4f6127daf979a10dad9aa6d7bb659ef8a9fd8a135ddd59aeb1bc\\00000001-aaa55dc298febb3e21354336a6b34f76c9b7bd27d103ce3b6765af54ac91cb95\\source-1.md",
+            "path": "knowledge\\doc-154d724323d19798f8cec22ae8640a012477ae4fd9dd04af892f650aeb0bccc8\\00000001-aaa55dc298febb3e21354336a6b34f76c9b7bd27d103ce3b6765af54ac91cb95\\source-1.md",
             "line": 2,
             "start": 62,
             "length": 64
           },
           "failed": [],
-          "engine_us": 109055.7,
-          "process_ms": 280.8708,
-          "working_set": 75501568
+          "engine_us": 113427.4,
+          "process_ms": 284.1697,
+          "working_set": 75726848
         },
         {
           "id": "openpyxl-3",
@@ -1394,7 +1394,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9980447237850337,
-          "scoring_us": 316.8,
+          "scoring_us": 312.5,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1402,15 +1402,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-3d5201486dcf40af8c134cfdab15c7889cc9d7606a878918a844cfd1ffb99f04\\00000001-f39564969e6dba9dd98e8be7320fcb35f0ec07a7d0488613e6d3dfcacbed36fe\\source-0.md",
+            "path": "knowledge\\doc-a6b69b9c4f3b645f34aa239cbdd02460d73ca36f1aac529706666a46152e5e44\\00000001-f39564969e6dba9dd98e8be7320fcb35f0ec07a7d0488613e6d3dfcacbed36fe\\source-0.md",
             "line": 4,
             "start": 105,
             "length": 1
           },
           "failed": [],
-          "engine_us": 110782.6,
-          "process_ms": 289.9438,
-          "working_set": 75358208
+          "engine_us": 112606.4,
+          "process_ms": 286.9883,
+          "working_set": 75677696
         },
         {
           "id": "openpyxl-4",
@@ -1419,7 +1419,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": 0.6440512621149113,
-          "scoring_us": 303.1,
+          "scoring_us": 288.8,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -1427,15 +1427,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-7d7c5f73428789af97489169706ff90bcd4daf81876ca76ca8e50280cd658722\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
+            "path": "knowledge\\doc-a59119d80bfb1967174e2a8fe752b8a6c968d716a7ba454b1fca2f69172ef6ef\\00000001-5d339b8059eccde5f622ff6ba12bfc9e57bd916d66166e78c469e533fa4a63c0\\source-3.md",
             "line": 2,
             "start": 62,
             "length": 63
           },
           "failed": [],
-          "engine_us": 116417.3,
-          "process_ms": 293.1515,
-          "working_set": 75317248
+          "engine_us": 113565.3,
+          "process_ms": 285.6511,
+          "working_set": 75329536
         },
         {
           "id": "pydantic-1",
@@ -1444,7 +1444,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.9985569890533738,
-          "scoring_us": 308.5,
+          "scoring_us": 281.6,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -1452,15 +1452,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-a40a8405a9bd0d17afb904a8f95977eb75d709515c079f6af6c04fe815bb2b11\\00000001-d7f5fd7790bd642d51e69e6e9e663a6482ddacf1a44d045acc7f543bb184aca2\\source-1.md",
+            "path": "knowledge\\doc-557f9dec1ddba2f7882cd20d6f2ba94f718e7a3188b156279cc11d7a86aae37b\\00000001-d7f5fd7790bd642d51e69e6e9e663a6482ddacf1a44d045acc7f543bb184aca2\\source-1.md",
             "line": 3,
             "start": 287,
             "length": 3
           },
           "failed": [],
-          "engine_us": 112414.4,
-          "process_ms": 285.0957,
-          "working_set": 76328960
+          "engine_us": 112683.9,
+          "process_ms": 283.9073,
+          "working_set": 76595200
         },
         {
           "id": "pydantic-2",
@@ -1469,7 +1469,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.9983715642801374,
-          "scoring_us": 450.9,
+          "scoring_us": 264.2,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -1477,15 +1477,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-dfb4e4e28dd316a046604070b52a2b695fea9c2154f1611f349b2d68e292d810\\00000001-38aebd27732bd924038f433c7a25806460ceaa44a8c2f073befd92541b27b2a7\\source-1.md",
+            "path": "knowledge\\doc-0f55b2c6b08570001e9342d71371d84e6ce9c46866e6d680b729537757ad80a9\\00000001-38aebd27732bd924038f433c7a25806460ceaa44a8c2f073befd92541b27b2a7\\source-1.md",
             "line": 4,
             "start": 125,
             "length": 4
           },
           "failed": [],
-          "engine_us": 112413.5,
-          "process_ms": 286.789,
-          "working_set": 75907072
+          "engine_us": 113590.5,
+          "process_ms": 288.1295,
+          "working_set": 76042240
         },
         {
           "id": "pydantic-3",
@@ -1494,7 +1494,7 @@
           "proposal": 2,
           "route_correct": true,
           "confidence": 0.9985871850878643,
-          "scoring_us": 537.7,
+          "scoring_us": 270.4,
           "primary_document": 2,
           "ok": true,
           "state": "completed",
@@ -1502,15 +1502,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-37ce1567535d73306b5597317ce1ab62359ddc50f593738e55ccc1a864cd194f\\00000001-d40f2b832fb8e88d5b42cd440af0ed08fa57eb4f1c1e806d26333f7cd434f427\\source-2.md",
+            "path": "knowledge\\doc-19bbd6ba6b53bf69ec15dd294517559be6346880dd7a65c0685ed4126344dde9\\00000001-d40f2b832fb8e88d5b42cd440af0ed08fa57eb4f1c1e806d26333f7cd434f427\\source-2.md",
             "line": 3,
             "start": 150,
             "length": 3
           },
           "failed": [],
-          "engine_us": 110444.4,
-          "process_ms": 292.2052,
-          "working_set": 75993088
+          "engine_us": 114925.7,
+          "process_ms": 288.5259,
+          "working_set": 75960320
         },
         {
           "id": "pydantic-4",
@@ -1519,7 +1519,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9973497016669759,
-          "scoring_us": 493.9,
+          "scoring_us": 283.2,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1527,15 +1527,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-3237aeffee6c6eb4dce7be1f1d19772d2d211e81277ff313f5450c76836deee9\\00000001-dab29da2cd1de0251501b0e919198a2f5a0ca82edfb7cc9553c6079a530a52a4\\source-0.md",
+            "path": "knowledge\\doc-6c32556d2fc1b5605b030d2be88a45fd16978e1ebfc5a0418bacc71508d1a796\\00000001-dab29da2cd1de0251501b0e919198a2f5a0ca82edfb7cc9553c6079a530a52a4\\source-0.md",
             "line": 5,
             "start": 128,
             "length": 6
           },
           "failed": [],
-          "engine_us": 115198.6,
-          "process_ms": 289.5277,
-          "working_set": 76214272
+          "engine_us": 113436.5,
+          "process_ms": 290.5219,
+          "working_set": 76165120
         },
         {
           "id": "python-pptx-1",
@@ -1544,7 +1544,7 @@
           "proposal": 3,
           "route_correct": true,
           "confidence": 0.9981659908968313,
-          "scoring_us": 342.2,
+          "scoring_us": 306.2,
           "primary_document": 3,
           "ok": true,
           "state": "completed",
@@ -1552,15 +1552,15 @@
           "verdict": "supported",
           "selected": 3,
           "citation": {
-            "path": "knowledge\\doc-0ace2ac9e67a8d225d74540fefb5acfc761f42cd4b901d2c103b2ead36ba4325\\00000001-19e15b06ef867d59c1e3e3a31cb678b70bd68ac006407e39518db609f1a632c0\\source-3.md",
+            "path": "knowledge\\doc-5b2939a9efbd996433166a841c8b3fcb8678b4e614c417df761ec1358be21796\\00000001-19e15b06ef867d59c1e3e3a31cb678b70bd68ac006407e39518db609f1a632c0\\source-3.md",
             "line": 4,
             "start": 150,
             "length": 64
           },
           "failed": [],
-          "engine_us": 111286.4,
-          "process_ms": 286.9968,
-          "working_set": 75776000
+          "engine_us": 113101.9,
+          "process_ms": 288.8765,
+          "working_set": 75894784
         },
         {
           "id": "python-pptx-2",
@@ -1569,7 +1569,7 @@
           "proposal": 2,
           "route_correct": true,
           "confidence": 0.9986276179278945,
-          "scoring_us": 298.7,
+          "scoring_us": 260.3,
           "primary_document": 2,
           "ok": true,
           "state": "completed",
@@ -1577,15 +1577,15 @@
           "verdict": "supported",
           "selected": 2,
           "citation": {
-            "path": "knowledge\\doc-e066679ef7de275b883d37bc9199702087f36646c5afa726139b08988e841bb0\\00000001-26827ddbbb5968b92e528093b50e8b8d1ac0b403bb2e7717b5bb0dfc1608f476\\source-2.md",
+            "path": "knowledge\\doc-7a3ce866ee08ed00e89f5b269f0a6fb9ac9544a159111ffb396ddf0a581ae99f\\00000001-26827ddbbb5968b92e528093b50e8b8d1ac0b403bb2e7717b5bb0dfc1608f476\\source-2.md",
             "line": 5,
             "start": 207,
             "length": 1
           },
           "failed": [],
-          "engine_us": 109792.8,
-          "process_ms": 291.3236,
-          "working_set": 75530240
+          "engine_us": 115547.4,
+          "process_ms": 292.9377,
+          "working_set": 75698176
         },
         {
           "id": "python-pptx-3",
@@ -1594,7 +1594,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.998047423694455,
-          "scoring_us": 350.6,
+          "scoring_us": 253.9,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1602,15 +1602,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-a1edca8ce61d20528ca7c177f22b3cbe3f1f5668cc994aeb0f53659c8173df69\\00000001-af40adb7f2785adea1adc7fdc5595d1bd773b64ec024b784cff690860f095ec9\\source-0.md",
+            "path": "knowledge\\doc-acdce486a3dc8de905c7158ead3666d9891bfaf0ab886e75b538be8b2d2a8191\\00000001-af40adb7f2785adea1adc7fdc5595d1bd773b64ec024b784cff690860f095ec9\\source-0.md",
             "line": 2,
             "start": 49,
             "length": 11
           },
           "failed": [],
-          "engine_us": 114404,
-          "process_ms": 293.0647,
-          "working_set": 76406784
+          "engine_us": 111727.9,
+          "process_ms": 286.5917,
+          "working_set": 75849728
         },
         {
           "id": "python-pptx-4",
@@ -1619,7 +1619,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9986267033815434,
-          "scoring_us": 330.1,
+          "scoring_us": 253.8,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1627,15 +1627,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-041994411b7b5198c5e52a12077f3db1d79c73debcedd138b9e4a43f4dbb4cd6\\00000001-2b9f53cbf09fa406b2071e0dc07009e1094427580652f431a0982f2d60f4e535\\source-0.md",
+            "path": "knowledge\\doc-a518bd6c1b9b994ffb75d251152f2aea64469d0df8b05d0d0b285c96383969b7\\00000001-2b9f53cbf09fa406b2071e0dc07009e1094427580652f431a0982f2d60f4e535\\source-0.md",
             "line": 3,
             "start": 99,
             "length": 12
           },
           "failed": [],
-          "engine_us": 112235.3,
-          "process_ms": 286.4396,
-          "working_set": 75595776
+          "engine_us": 114844.8,
+          "process_ms": 288.8843,
+          "working_set": 75833344
         },
         {
           "id": "xlsxwriter-1",
@@ -1644,7 +1644,7 @@
           "proposal": 1,
           "route_correct": true,
           "confidence": 0.9987231526288026,
-          "scoring_us": 328.1,
+          "scoring_us": 292.8,
           "primary_document": 1,
           "ok": true,
           "state": "completed",
@@ -1652,15 +1652,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-b079f09bd9c718560f69ac3f8abf2088b9519f49b9f8fe6fe14170b11ba813ff\\00000001-747a992d931e37367925fb96df49f57b79fe23d0a8dcc526ddfa9c39343bba5c\\source-1.md",
+            "path": "knowledge\\doc-ae8d26f96a4dfe42cda7dd70b83baf02d2d2f847c46c185ed3a2831c60b26f26\\00000001-747a992d931e37367925fb96df49f57b79fe23d0a8dcc526ddfa9c39343bba5c\\source-1.md",
             "line": 3,
             "start": 132,
             "length": 2
           },
           "failed": [],
-          "engine_us": 111932.3,
-          "process_ms": 289.1069,
-          "working_set": 75239424
+          "engine_us": 113226.5,
+          "process_ms": 287.9366,
+          "working_set": 75685888
         },
         {
           "id": "xlsxwriter-2",
@@ -1669,7 +1669,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9981893384471626,
-          "scoring_us": 301.5,
+          "scoring_us": 265.0,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1677,15 +1677,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-4c48bae697a8ff1cb0bff30f44499666ca7baefb38ec290dd6a5357cf476cfc8\\00000001-2476991eab48ee7c21cbfff9005e41c294b216e500f602bb4e33733478518568\\source-0.md",
+            "path": "knowledge\\doc-79bee68e5bf8f6dd59ba7f6db28bd0b554185493af52685f33d9976128c264b6\\00000001-2476991eab48ee7c21cbfff9005e41c294b216e500f602bb4e33733478518568\\source-0.md",
             "line": 3,
             "start": 76,
             "length": 5
           },
           "failed": [],
-          "engine_us": 113327,
-          "process_ms": 287.4402,
-          "working_set": 75825152
+          "engine_us": 114133.3,
+          "process_ms": 288.7992,
+          "working_set": 75476992
         },
         {
           "id": "xlsxwriter-3",
@@ -1694,7 +1694,7 @@
           "proposal": 0,
           "route_correct": true,
           "confidence": 0.9983616057129419,
-          "scoring_us": 315.4,
+          "scoring_us": 263.2,
           "primary_document": 0,
           "ok": true,
           "state": "completed",
@@ -1702,15 +1702,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-e72a14c5240f7a5fb54a7d5786d2acba0c3b4d94bab20e2455f7a19e382a5c1d\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-0.md",
+            "path": "knowledge\\doc-6b9550c462d9c6787e3119066e094db47f1d7bca69cde7be7e6794bcc77fc706\\00000001-55269767b90c083f7ac9db013b8987beaf5b5ad2af8e4879025de6954fcbb609\\source-0.md",
             "line": 2,
             "start": 64,
             "length": 64
           },
           "failed": [],
-          "engine_us": 109599.3,
-          "process_ms": 284.2262,
-          "working_set": 75911168
+          "engine_us": 115400.6,
+          "process_ms": 288.9112,
+          "working_set": 76046336
         },
         {
           "id": "xlsxwriter-4",
@@ -1719,7 +1719,7 @@
           "proposal": -1,
           "route_correct": false,
           "confidence": 0.3104091431622016,
-          "scoring_us": 322.7,
+          "scoring_us": 427.7,
           "primary_document": null,
           "ok": false,
           "state": "needs clarification",
@@ -1739,9 +1739,9 @@
             "span",
             "extract"
           ],
-          "engine_us": 106307.6,
-          "process_ms": 283.5302,
-          "working_set": 74911744
+          "engine_us": 107516.4,
+          "process_ms": 283.2058,
+          "working_set": 75010048
         }
       ]
     }
@@ -1761,19 +1761,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-a84a920e17a7f1cf4976286fe7ef288f2ff680b7bd5864c8467aaaa4ebe6c7bf\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
+            "path": "knowledge\\doc-7c9bc556f41e1447adc1eafeb701ee7db22f676f149d6ed02f958f042b77a030\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
             "line": 2,
             "start": 25,
             "length": 7
           },
           "failed": [],
-          "engine_us": 104144.9,
-          "process_ms": 255.1388,
-          "working_set": 74776576
+          "engine_us": 104996.7,
+          "process_ms": 259.5461,
+          "working_set": 74780672
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 51.1,
+          "scoring_us": 49.5,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -1782,19 +1782,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-26505d670232e8fba88f009d85b063ab84203b4abc9fb1c15af366030e9391b8\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
+            "path": "knowledge\\doc-7f51cdbc364141772c529dbdbb1b5fd0ba58cf5194f8da258f583a50d8ec167b\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
             "line": 2,
             "start": 25,
             "length": 7
           },
           "failed": [],
-          "engine_us": 103520.7,
-          "process_ms": 258.5174,
-          "working_set": 74870784
+          "engine_us": 103893.7,
+          "process_ms": 258.1654,
+          "working_set": 74805248
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 143.5,
+          "scoring_us": 137.0,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -1803,19 +1803,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-26505d670232e8fba88f009d85b063ab84203b4abc9fb1c15af366030e9391b8\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
+            "path": "knowledge\\doc-7f51cdbc364141772c529dbdbb1b5fd0ba58cf5194f8da258f583a50d8ec167b\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
             "line": 2,
             "start": 25,
             "length": 7
           },
           "failed": [],
-          "engine_us": 103520.7,
-          "process_ms": 258.5174,
-          "working_set": 74870784
+          "engine_us": 103893.7,
+          "process_ms": 258.1654,
+          "working_set": 74805248
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 64.7,
+          "scoring_us": 60.5,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -1824,15 +1824,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-26505d670232e8fba88f009d85b063ab84203b4abc9fb1c15af366030e9391b8\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
+            "path": "knowledge\\doc-7f51cdbc364141772c529dbdbb1b5fd0ba58cf5194f8da258f583a50d8ec167b\\00000001-ef3a6e91b807832583fddf3f045e67a049e8e19a6ce5dfe5881c11cabb3ba939\\source-0.md",
             "line": 2,
             "start": 25,
             "length": 7
           },
           "failed": [],
-          "engine_us": 103520.7,
-          "process_ms": 258.5174,
-          "working_set": 74870784
+          "engine_us": 103893.7,
+          "process_ms": 258.1654,
+          "working_set": 74805248
         }
       },
       "predicate": {
@@ -1847,19 +1847,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-54e99fe764967317fc78470a6ec3e1d416f84ca3322f5cc3627b4e59f7ed4ff2\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
+            "path": "knowledge\\doc-8912ff5ee7640ab003e54c6c164a1538ce5090e46285eb7414359d3c8666b3dc\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
             "line": 1,
             "start": 19,
             "length": 10
           },
           "failed": [],
-          "engine_us": 99278,
-          "process_ms": 250.4828,
-          "working_set": 74321920
+          "engine_us": 105066.5,
+          "process_ms": 258.988,
+          "working_set": 74690560
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 46.7,
+          "scoring_us": 43.0,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -1868,19 +1868,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-45ab159804b1ce55d85dd797e4ab28c2137785a2e620be05a2c5812241e21af0\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
+            "path": "knowledge\\doc-05ee0d3173ce71ff2c0103414a8cadfa41adad407bcec8f768719a6d78bf22c0\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
             "line": 1,
             "start": 19,
             "length": 10
           },
           "failed": [],
-          "engine_us": 104596.2,
-          "process_ms": 256.9838,
-          "working_set": 74133504
+          "engine_us": 106038.4,
+          "process_ms": 258.885,
+          "working_set": 74579968
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 123.2,
+          "scoring_us": 117.1,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -1889,19 +1889,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-45ab159804b1ce55d85dd797e4ab28c2137785a2e620be05a2c5812241e21af0\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
+            "path": "knowledge\\doc-05ee0d3173ce71ff2c0103414a8cadfa41adad407bcec8f768719a6d78bf22c0\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
             "line": 1,
             "start": 19,
             "length": 10
           },
           "failed": [],
-          "engine_us": 104596.2,
-          "process_ms": 256.9838,
-          "working_set": 74133504
+          "engine_us": 106038.4,
+          "process_ms": 258.885,
+          "working_set": 74579968
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 56.9,
+          "scoring_us": 51.6,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -1910,15 +1910,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-45ab159804b1ce55d85dd797e4ab28c2137785a2e620be05a2c5812241e21af0\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
+            "path": "knowledge\\doc-05ee0d3173ce71ff2c0103414a8cadfa41adad407bcec8f768719a6d78bf22c0\\00000001-b3afe66fe257a8d34c7c7b60fd20190dd96a62f9be97e9c7a2e35b75ab8e0fd6\\source-0.md",
             "line": 1,
             "start": 19,
             "length": 10
           },
           "failed": [],
-          "engine_us": 104596.2,
-          "process_ms": 256.9838,
-          "working_set": 74133504
+          "engine_us": 106038.4,
+          "process_ms": 258.885,
+          "working_set": 74579968
         }
       },
       "equal": {
@@ -1933,19 +1933,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-1d85603b7c40523f7b219a8dbbf9077750427e02d09b6cf75cc7ab5ed965cce8\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-1.md",
+            "path": "knowledge\\doc-85bf921325bfe512263e32fd7b44fe47e6b04efad809e55863c95a0d8fe3e4ab\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 7
           },
           "failed": [],
-          "engine_us": 107056,
-          "process_ms": 267.3049,
-          "working_set": 74428416
+          "engine_us": 112299.5,
+          "process_ms": 275.3386,
+          "working_set": 74477568
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 55.3,
+          "scoring_us": 55.9,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -1954,19 +1954,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-281e9af7368c0c0461f17fda8204b7757598c3c4483386c45115724d287dcfa9\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
+            "path": "knowledge\\doc-e6920faea327cdd79bc3a9ceb182f647a1a5646c203108fe27280b8101ed0cb1\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
             "line": 1,
             "start": 13,
             "length": 7
           },
           "failed": [],
-          "engine_us": 107689.1,
-          "process_ms": 265.4598,
-          "working_set": 74391552
+          "engine_us": 108464.5,
+          "process_ms": 268.8884,
+          "working_set": 74330112
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 140.6,
+          "scoring_us": 142.3,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -1975,19 +1975,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-281e9af7368c0c0461f17fda8204b7757598c3c4483386c45115724d287dcfa9\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
+            "path": "knowledge\\doc-e6920faea327cdd79bc3a9ceb182f647a1a5646c203108fe27280b8101ed0cb1\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
             "line": 1,
             "start": 13,
             "length": 7
           },
           "failed": [],
-          "engine_us": 107689.1,
-          "process_ms": 265.4598,
-          "working_set": 74391552
+          "engine_us": 108464.5,
+          "process_ms": 268.8884,
+          "working_set": 74330112
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 72.6,
+          "scoring_us": 120.8,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -1996,15 +1996,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-281e9af7368c0c0461f17fda8204b7757598c3c4483386c45115724d287dcfa9\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
+            "path": "knowledge\\doc-e6920faea327cdd79bc3a9ceb182f647a1a5646c203108fe27280b8101ed0cb1\\00000001-a21d00bce8a5c1e6ab016e8ffdfd3c33f35fc5e1920b85ea06d3001408d77f1a\\source-0.md",
             "line": 1,
             "start": 13,
             "length": 7
           },
           "failed": [],
-          "engine_us": 107689.1,
-          "process_ms": 265.4598,
-          "working_set": 74391552
+          "engine_us": 108464.5,
+          "process_ms": 268.8884,
+          "working_set": 74330112
         }
       },
       "conflict": {
@@ -2012,7 +2012,7 @@
           "proposal": null,
           "scoring_us": null,
           "origin": "author_fixture",
-          "primary_document": 0,
+          "primary_document": 1,
           "ok": true,
           "state": "needs clarification",
           "result": "Active sources give different definite values for the same subject.",
@@ -2020,13 +2020,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100151.2,
-          "process_ms": 263.9742,
-          "working_set": 74498048
+          "engine_us": 102359.4,
+          "process_ms": 261.0247,
+          "working_set": 74522624
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 53.9,
+          "scoring_us": 50.8,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2036,13 +2036,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 105229.5,
-          "process_ms": 266.748,
-          "working_set": 74596352
+          "engine_us": 100828.2,
+          "process_ms": 259.8241,
+          "working_set": 74526720
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 149.7,
+          "scoring_us": 147.0,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2052,13 +2052,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 105229.5,
-          "process_ms": 266.748,
-          "working_set": 74596352
+          "engine_us": 100828.2,
+          "process_ms": 259.8241,
+          "working_set": 74526720
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 74.7,
+          "scoring_us": 75.3,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2068,9 +2068,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 105229.5,
-          "process_ms": 266.748,
-          "working_set": 74596352
+          "engine_us": 100828.2,
+          "process_ms": 259.8241,
+          "working_set": 74526720
         }
       },
       "handbook-conflict": {
@@ -2086,13 +2086,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 97568.2,
-          "process_ms": 259.3605,
-          "working_set": 73900032
+          "engine_us": 103427.1,
+          "process_ms": 251.3232,
+          "working_set": 74153984
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 75.2,
+          "scoring_us": 49.1,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2102,13 +2102,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100184.5,
-          "process_ms": 255.859,
-          "working_set": 74166272
+          "engine_us": 101553.8,
+          "process_ms": 254.8592,
+          "working_set": 73740288
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 200.8,
+          "scoring_us": 132.9,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2118,13 +2118,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100184.5,
-          "process_ms": 255.859,
-          "working_set": 74166272
+          "engine_us": 101553.8,
+          "process_ms": 254.8592,
+          "working_set": 73740288
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 117.5,
+          "scoring_us": 58.8,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2134,9 +2134,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100184.5,
-          "process_ms": 255.859,
-          "working_set": 74166272
+          "engine_us": 101553.8,
+          "process_ms": 254.8592,
+          "working_set": 73740288
         }
       },
       "other-subject": {
@@ -2152,13 +2152,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 97698.4,
-          "process_ms": 254.886,
-          "working_set": 74817536
+          "engine_us": 102236.7,
+          "process_ms": 265.7028,
+          "working_set": 74616832
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 50.3,
+          "scoring_us": 48.8,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2168,13 +2168,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 96628.5,
-          "process_ms": 253.0335,
-          "working_set": 74809344
+          "engine_us": 100970.6,
+          "process_ms": 255.0324,
+          "working_set": 74620928
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 131.8,
+          "scoring_us": 122.9,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2184,13 +2184,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 96628.5,
-          "process_ms": 253.0335,
-          "working_set": 74809344
+          "engine_us": 100970.6,
+          "process_ms": 255.0324,
+          "working_set": 74620928
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 55.7,
+          "scoring_us": 53.6,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2200,9 +2200,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 96628.5,
-          "process_ms": 253.0335,
-          "working_set": 74809344
+          "engine_us": 100970.6,
+          "process_ms": 255.0324,
+          "working_set": 74620928
         }
       },
       "extra-intent": {
@@ -2218,13 +2218,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 98472.4,
-          "process_ms": 253.5665,
-          "working_set": 74706944
+          "engine_us": 98801.3,
+          "process_ms": 259.2757,
+          "working_set": 74260480
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 50.9,
+          "scoring_us": 49.9,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2234,13 +2234,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100548.9,
-          "process_ms": 256.4501,
-          "working_set": 74711040
+          "engine_us": 101409.1,
+          "process_ms": 254.0508,
+          "working_set": 75030528
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 125.6,
+          "scoring_us": 124.3,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2250,13 +2250,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100548.9,
-          "process_ms": 256.4501,
-          "working_set": 74711040
+          "engine_us": 101409.1,
+          "process_ms": 254.0508,
+          "working_set": 75030528
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 57.8,
+          "scoring_us": 56.0,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2266,9 +2266,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100548.9,
-          "process_ms": 256.4501,
-          "working_set": 74711040
+          "engine_us": 101409.1,
+          "process_ms": 254.0508,
+          "working_set": 75030528
         }
       },
       "expired": {
@@ -2284,13 +2284,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 99785.2,
-          "process_ms": 264.5078,
-          "working_set": 75694080
+          "engine_us": 99183.9,
+          "process_ms": 255.0474,
+          "working_set": 75751424
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 71.2,
+          "scoring_us": 47.0,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2300,13 +2300,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 96319.3,
-          "process_ms": 255.7287,
-          "working_set": 75755520
+          "engine_us": 103169.7,
+          "process_ms": 264.2964,
+          "working_set": 75653120
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 127.3,
+          "scoring_us": 124.9,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2316,13 +2316,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 96319.3,
-          "process_ms": 255.7287,
-          "working_set": 75755520
+          "engine_us": 103169.7,
+          "process_ms": 264.2964,
+          "working_set": 75653120
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 54.4,
+          "scoring_us": 54.1,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2332,9 +2332,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 96319.3,
-          "process_ms": 255.7287,
-          "working_set": 75755520
+          "engine_us": 103169.7,
+          "process_ms": 264.2964,
+          "working_set": 75653120
         }
       },
       "fence": {
@@ -2350,13 +2350,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 112808.1,
-          "process_ms": 256.9665,
-          "working_set": 74395648
+          "engine_us": 117149.5,
+          "process_ms": 260.4596,
+          "working_set": 74473472
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 48.7,
+          "scoring_us": 48.0,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2366,13 +2366,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 106497.7,
-          "process_ms": 252.7635,
-          "working_set": 74739712
+          "engine_us": 108302.3,
+          "process_ms": 251.0903,
+          "working_set": 74481664
         },
         "linear": {
           "proposal": -1,
-          "scoring_us": 110.2,
+          "scoring_us": 105.2,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2382,13 +2382,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 108547.3,
-          "process_ms": 249.6701,
-          "working_set": 74489856
+          "engine_us": 104944,
+          "process_ms": 247.757,
+          "working_set": 74629120
         },
         "native": {
           "proposal": -1,
-          "scoring_us": 117.7,
+          "scoring_us": 108.9,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2398,9 +2398,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 108547.3,
-          "process_ms": 249.6701,
-          "working_set": 74489856
+          "engine_us": 104944,
+          "process_ms": 247.757,
+          "working_set": 74629120
         }
       },
       "handbook": {
@@ -2416,13 +2416,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 134428.2,
-          "process_ms": 238.3393,
-          "working_set": 72568832
+          "engine_us": 132172.9,
+          "process_ms": 233.0535,
+          "working_set": 72560640
         },
         "tfidf": {
           "proposal": null,
-          "scoring_us": 0.2,
+          "scoring_us": 0.3,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2432,13 +2432,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 134428.2,
-          "process_ms": 238.3393,
-          "working_set": 72568832
+          "engine_us": 132172.9,
+          "process_ms": 233.0535,
+          "working_set": 72560640
         },
         "linear": {
           "proposal": null,
-          "scoring_us": 0.2,
+          "scoring_us": 0.1,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -2448,9 +2448,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 134428.2,
-          "process_ms": 238.3393,
-          "working_set": 72568832
+          "engine_us": 132172.9,
+          "process_ms": 233.0535,
+          "working_set": 72560640
         },
         "native": {
           "proposal": null,
@@ -2464,9 +2464,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 134428.2,
-          "process_ms": 238.3393,
-          "working_set": 72568832
+          "engine_us": 132172.9,
+          "process_ms": 233.0535,
+          "working_set": 72560640
         }
       },
       "configure-flag": {
@@ -2481,19 +2481,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-811dbcc2d96789093d13b92bb30b816cee0786c0ca4ef67d47d51689f29301ef\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
+            "path": "knowledge\\doc-701b531a550e1eb9432e3e1ad9de2c8368bd704abb670d6a2a5d6d6f5739b7d9\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
             "line": 1,
             "start": 16,
             "length": 5
           },
           "failed": [],
-          "engine_us": 105972.5,
-          "process_ms": 264.0494,
-          "working_set": 74604544
+          "engine_us": 108655.5,
+          "process_ms": 275.5282,
+          "working_set": 74366976
         },
         "tfidf": {
           "proposal": 1,
-          "scoring_us": 53.1,
+          "scoring_us": 49.7,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -2502,19 +2502,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-248d445c230fda190712dcdc9511615769913c843df0a696d081cbf825fc3b8e\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
+            "path": "knowledge\\doc-cd0b6f097f86f3ad50f94341cd16d71ddf32610486f86d5d780af427f1e24dc1\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
             "line": 1,
             "start": 16,
             "length": 5
           },
           "failed": [],
-          "engine_us": 103854.5,
-          "process_ms": 262.3339,
-          "working_set": 74584064
+          "engine_us": 107068.1,
+          "process_ms": 266.6578,
+          "working_set": 74559488
         },
         "linear": {
           "proposal": 1,
-          "scoring_us": 147.6,
+          "scoring_us": 148.9,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -2523,19 +2523,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-248d445c230fda190712dcdc9511615769913c843df0a696d081cbf825fc3b8e\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
+            "path": "knowledge\\doc-cd0b6f097f86f3ad50f94341cd16d71ddf32610486f86d5d780af427f1e24dc1\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
             "line": 1,
             "start": 16,
             "length": 5
           },
           "failed": [],
-          "engine_us": 103854.5,
-          "process_ms": 262.3339,
-          "working_set": 74584064
+          "engine_us": 107068.1,
+          "process_ms": 266.6578,
+          "working_set": 74559488
         },
         "native": {
           "proposal": 1,
-          "scoring_us": 97.7,
+          "scoring_us": 70.4,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -2544,15 +2544,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-248d445c230fda190712dcdc9511615769913c843df0a696d081cbf825fc3b8e\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
+            "path": "knowledge\\doc-cd0b6f097f86f3ad50f94341cd16d71ddf32610486f86d5d780af427f1e24dc1\\00000001-c134157a32c9807f359c670580ac087be54f2651ec49df86b5213bbe223ba4d7\\source-1.md",
             "line": 1,
             "start": 16,
             "length": 5
           },
           "failed": [],
-          "engine_us": 103854.5,
-          "process_ms": 262.3339,
-          "working_set": 74584064
+          "engine_us": 107068.1,
+          "process_ms": 266.6578,
+          "working_set": 74559488
         }
       },
       "unconfirmed-restore": {
@@ -2568,13 +2568,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 101739.3,
-          "process_ms": 263.9141,
-          "working_set": 74768384
+          "engine_us": 100486.7,
+          "process_ms": 257.2383,
+          "working_set": 74665984
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 56.2,
+          "scoring_us": 55.0,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2584,13 +2584,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 102954.5,
-          "process_ms": 262.317,
-          "working_set": 74858496
+          "engine_us": 101887.7,
+          "process_ms": 258.2138,
+          "working_set": 75014144
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 156.5,
+          "scoring_us": 140.9,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2600,13 +2600,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 102954.5,
-          "process_ms": 262.317,
-          "working_set": 74858496
+          "engine_us": 101887.7,
+          "process_ms": 258.2138,
+          "working_set": 75014144
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 80.6,
+          "scoring_us": 71.9,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2616,9 +2616,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 102954.5,
-          "process_ms": 262.317,
-          "working_set": 74858496
+          "engine_us": 101887.7,
+          "process_ms": 258.2138,
+          "working_set": 75014144
         }
       },
       "definite-conflict-with-unknown": {
@@ -2626,7 +2626,7 @@
           "proposal": null,
           "scoring_us": null,
           "origin": "author_fixture",
-          "primary_document": 1,
+          "primary_document": 0,
           "ok": true,
           "state": "needs clarification",
           "result": "Active sources give different definite values for the same subject.",
@@ -2634,13 +2634,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 102954.5,
-          "process_ms": 273.4638,
-          "working_set": 74653696
+          "engine_us": 105771.1,
+          "process_ms": 275.5796,
+          "working_set": 74637312
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 61.6,
+          "scoring_us": 65.5,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2650,13 +2650,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 104799.4,
-          "process_ms": 277.296,
-          "working_set": 74534912
+          "engine_us": 106428.2,
+          "process_ms": 272.2736,
+          "working_set": 74502144
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 174.1,
+          "scoring_us": 174.7,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2666,13 +2666,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 104799.4,
-          "process_ms": 277.296,
-          "working_set": 74534912
+          "engine_us": 106428.2,
+          "process_ms": 272.2736,
+          "working_set": 74502144
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 94.9,
+          "scoring_us": 87.7,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2682,9 +2682,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 104799.4,
-          "process_ms": 277.296,
-          "working_set": 74534912
+          "engine_us": 106428.2,
+          "process_ms": 272.2736,
+          "working_set": 74502144
         }
       },
       "trailing-helper": {
@@ -2699,19 +2699,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-284e86f2581ddbdc38dfdbecd878d315257686cadc161dc1875f7c72a3822dca\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
+            "path": "knowledge\\doc-afe1ba2a56ced16f85fb17ce4a866866751a7dba02863fa4ea5f6e674bc054dd\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
             "line": 2,
             "start": 36,
             "length": 6
           },
           "failed": [],
-          "engine_us": 101614.2,
-          "process_ms": 253.1281,
-          "working_set": 74436608
+          "engine_us": 105345.9,
+          "process_ms": 262.8263,
+          "working_set": 74825728
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 54.9,
+          "scoring_us": 49.0,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2720,19 +2720,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-822655ba473438200c1ea02c99f57827f838ace12d18498a12649bf8de4bfa99\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
+            "path": "knowledge\\doc-47ecdab9f667966a1353babfb497cca0f06b58e2738104f51445ac1a7ddf20c2\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
             "line": 2,
             "start": 36,
             "length": 6
           },
           "failed": [],
-          "engine_us": 103712.1,
-          "process_ms": 254.2525,
-          "working_set": 74797056
+          "engine_us": 111780.6,
+          "process_ms": 268.3631,
+          "working_set": 74878976
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 122.9,
+          "scoring_us": 122.0,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2741,19 +2741,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-822655ba473438200c1ea02c99f57827f838ace12d18498a12649bf8de4bfa99\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
+            "path": "knowledge\\doc-47ecdab9f667966a1353babfb497cca0f06b58e2738104f51445ac1a7ddf20c2\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
             "line": 2,
             "start": 36,
             "length": 6
           },
           "failed": [],
-          "engine_us": 103712.1,
-          "process_ms": 254.2525,
-          "working_set": 74797056
+          "engine_us": 111780.6,
+          "process_ms": 268.3631,
+          "working_set": 74878976
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 57.7,
+          "scoring_us": 58.9,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2762,15 +2762,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-822655ba473438200c1ea02c99f57827f838ace12d18498a12649bf8de4bfa99\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
+            "path": "knowledge\\doc-47ecdab9f667966a1353babfb497cca0f06b58e2738104f51445ac1a7ddf20c2\\00000001-0dd08b619edd86ab01d57ae50650d14bc9074dc98295091e0dc00937dfcbad9b\\source-0.md",
             "line": 2,
             "start": 36,
             "length": 6
           },
           "failed": [],
-          "engine_us": 103712.1,
-          "process_ms": 254.2525,
-          "working_set": 74797056
+          "engine_us": 111780.6,
+          "process_ms": 268.3631,
+          "working_set": 74878976
         }
       },
       "recorded-after-subject": {
@@ -2785,19 +2785,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-156e09ef9e58740c8aa58b66167a8abfd96b08727f683704b0a48fd964b3ef4c\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
+            "path": "knowledge\\doc-4fd37507e1391617715fafbee963dc8677a510819ee30be050497ac250d76638\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
             "line": 2,
             "start": 38,
             "length": 7
           },
           "failed": [],
-          "engine_us": 104140.7,
-          "process_ms": 256.6948,
-          "working_set": 74366976
+          "engine_us": 105144.6,
+          "process_ms": 264.9156,
+          "working_set": 74407936
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 50.9,
+          "scoring_us": 48.2,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2806,19 +2806,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-df45437c3a15e599b3e6e282efc6ed3ff78de6fd7e7fb9c319b4624c57c963ba\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
+            "path": "knowledge\\doc-d718193763c87767773627a494042bb8203f05fbbb68e083f1b1b5252f0bcbd4\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
             "line": 2,
             "start": 38,
             "length": 7
           },
           "failed": [],
-          "engine_us": 104459.2,
-          "process_ms": 263.8122,
-          "working_set": 74309632
+          "engine_us": 109122.3,
+          "process_ms": 265.4465,
+          "working_set": 73965568
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 194.9,
+          "scoring_us": 126.2,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2827,19 +2827,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-df45437c3a15e599b3e6e282efc6ed3ff78de6fd7e7fb9c319b4624c57c963ba\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
+            "path": "knowledge\\doc-d718193763c87767773627a494042bb8203f05fbbb68e083f1b1b5252f0bcbd4\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
             "line": 2,
             "start": 38,
             "length": 7
           },
           "failed": [],
-          "engine_us": 104459.2,
-          "process_ms": 263.8122,
-          "working_set": 74309632
+          "engine_us": 109122.3,
+          "process_ms": 265.4465,
+          "working_set": 73965568
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 119.7,
+          "scoring_us": 60.7,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2848,15 +2848,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-df45437c3a15e599b3e6e282efc6ed3ff78de6fd7e7fb9c319b4624c57c963ba\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
+            "path": "knowledge\\doc-d718193763c87767773627a494042bb8203f05fbbb68e083f1b1b5252f0bcbd4\\00000001-142e90548930b8c800317c2f190f48b60f88b732fbdfca8c7eb55edabe18762f\\source-0.md",
             "line": 2,
             "start": 38,
             "length": 7
           },
           "failed": [],
-          "engine_us": 104459.2,
-          "process_ms": 263.8122,
-          "working_set": 74309632
+          "engine_us": 109122.3,
+          "process_ms": 265.4465,
+          "working_set": 73965568
         }
       },
       "argument-relation": {
@@ -2871,19 +2871,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-42f12b2c7f77822fe8c3c54d688899d3f6d25f08dc87af3e4433534341296fe6\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
+            "path": "knowledge\\doc-2ee8cdc199c36e2b4b5323119ffedc9d72356b0b37f2c17bbf21813068d20203\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
             "line": 2,
             "start": 49,
             "length": 9
           },
           "failed": [],
-          "engine_us": 107820.8,
-          "process_ms": 265.6426,
-          "working_set": 74493952
+          "engine_us": 106157.6,
+          "process_ms": 263.3732,
+          "working_set": 74502144
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 53.3,
+          "scoring_us": 50.2,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2892,19 +2892,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-3a3d7507664c5eae34fbcdf3506b1fff76dd07d3b9878382a0d995ef1e91403e\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
+            "path": "knowledge\\doc-b1d1208dcb3d8d790cbf3bd1918e933d9802381586444a9ef69ad070819873c8\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
             "line": 2,
             "start": 49,
             "length": 9
           },
           "failed": [],
-          "engine_us": 102242.8,
-          "process_ms": 258.5997,
-          "working_set": 74706944
+          "engine_us": 104800.7,
+          "process_ms": 260.2784,
+          "working_set": 74420224
         },
         "linear": {
           "proposal": -1,
-          "scoring_us": 127.0,
+          "scoring_us": 131.6,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": false,
@@ -2925,13 +2925,13 @@
             "span",
             "extract"
           ],
-          "engine_us": 99676.1,
-          "process_ms": 253.3603,
-          "working_set": 74440704
+          "engine_us": 105049.2,
+          "process_ms": 261.7986,
+          "working_set": 74313728
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 199.7,
+          "scoring_us": 141.9,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2940,15 +2940,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-3a3d7507664c5eae34fbcdf3506b1fff76dd07d3b9878382a0d995ef1e91403e\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
+            "path": "knowledge\\doc-b1d1208dcb3d8d790cbf3bd1918e933d9802381586444a9ef69ad070819873c8\\00000001-79933fe8fe6e9475466f864953697c3b66a722baef24517ec847a56c086f69f4\\source-0.md",
             "line": 2,
             "start": 49,
             "length": 9
           },
           "failed": [],
-          "engine_us": 102242.8,
-          "process_ms": 258.5997,
-          "working_set": 74706944
+          "engine_us": 104800.7,
+          "process_ms": 260.2784,
+          "working_set": 74420224
         }
       },
       "declared-at": {
@@ -2963,19 +2963,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-58435d86244cb4aaaab97a49f9a445ae30b86446469b7c960a3faa73dcac3b54\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
+            "path": "knowledge\\doc-4f072db3f1df8d4785a3d9fd2dfa56fb0fc946ab3e49d13c7cc83a71a871d562\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
             "line": 2,
             "start": 52,
             "length": 3
           },
           "failed": [],
-          "engine_us": 103438.5,
-          "process_ms": 258.344,
-          "working_set": 74526720
+          "engine_us": 108340.9,
+          "process_ms": 267.2026,
+          "working_set": 74756096
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 58.1,
+          "scoring_us": 217.5,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -2984,19 +2984,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-f78515e312a1f51b887347d5c0c95aca6d455533612e62cf0d9b1d4df17c940a\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
+            "path": "knowledge\\doc-716055194760eb281e8ce6d288d530570559b7421d189280ccfeca0ccc30afbb\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
             "line": 2,
             "start": 52,
             "length": 3
           },
           "failed": [],
-          "engine_us": 104210.4,
-          "process_ms": 270.8746,
-          "working_set": 74465280
+          "engine_us": 109087.9,
+          "process_ms": 267.7882,
+          "working_set": 74661888
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 161.5,
+          "scoring_us": 152.6,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -3005,19 +3005,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-f78515e312a1f51b887347d5c0c95aca6d455533612e62cf0d9b1d4df17c940a\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
+            "path": "knowledge\\doc-716055194760eb281e8ce6d288d530570559b7421d189280ccfeca0ccc30afbb\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
             "line": 2,
             "start": 52,
             "length": 3
           },
           "failed": [],
-          "engine_us": 104210.4,
-          "process_ms": 270.8746,
-          "working_set": 74465280
+          "engine_us": 109087.9,
+          "process_ms": 267.7882,
+          "working_set": 74661888
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 75.3,
+          "scoring_us": 64.5,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -3026,15 +3026,15 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-f78515e312a1f51b887347d5c0c95aca6d455533612e62cf0d9b1d4df17c940a\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
+            "path": "knowledge\\doc-716055194760eb281e8ce6d288d530570559b7421d189280ccfeca0ccc30afbb\\00000001-d3338859572a888ffac9cdcb0ea3a63696d3fc17d7b391d00f171824aefffd32\\source-0.md",
             "line": 2,
             "start": 52,
             "length": 3
           },
           "failed": [],
-          "engine_us": 104210.4,
-          "process_ms": 270.8746,
-          "working_set": 74465280
+          "engine_us": 109087.9,
+          "process_ms": 267.7882,
+          "working_set": 74661888
         }
       },
       "modifier-relation": {
@@ -3050,13 +3050,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 93526.9,
-          "process_ms": 246.9443,
-          "working_set": 74457088
+          "engine_us": 101482.8,
+          "process_ms": 258.0214,
+          "working_set": 74371072
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 49.0,
+          "scoring_us": 51.9,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -3066,13 +3066,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 97853.3,
-          "process_ms": 253.3924,
-          "working_set": 74268672
+          "engine_us": 97464.3,
+          "process_ms": 248.9548,
+          "working_set": 74158080
         },
         "linear": {
           "proposal": -1,
-          "scoring_us": 234.2,
+          "scoring_us": 120.4,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -3082,13 +3082,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 97603,
-          "process_ms": 249.4742,
-          "working_set": 74342400
+          "engine_us": 98027.7,
+          "process_ms": 249.6706,
+          "working_set": 74440704
         },
         "native": {
           "proposal": -1,
-          "scoring_us": 135.6,
+          "scoring_us": 134.4,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -3098,9 +3098,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 97603,
-          "process_ms": 249.4742,
-          "working_set": 74342400
+          "engine_us": 98027.7,
+          "process_ms": 249.6706,
+          "working_set": 74440704
         }
       },
       "unscoped-count": {
@@ -3116,13 +3116,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 101405.3,
-          "process_ms": 254.9704,
-          "working_set": 74260480
+          "engine_us": 102103.5,
+          "process_ms": 255.929,
+          "working_set": 74223616
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 53.6,
+          "scoring_us": 51.4,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -3132,13 +3132,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 102772,
-          "process_ms": 257.4128,
-          "working_set": 73891840
+          "engine_us": 101353,
+          "process_ms": 256.7355,
+          "working_set": 74166272
         },
         "linear": {
           "proposal": -1,
-          "scoring_us": 195.4,
+          "scoring_us": 126.5,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -3148,13 +3148,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 97678.8,
-          "process_ms": 255.6055,
-          "working_set": 74231808
+          "engine_us": 102798.3,
+          "process_ms": 258.9893,
+          "working_set": 74178560
         },
         "native": {
           "proposal": -1,
-          "scoring_us": 136.6,
+          "scoring_us": 135.1,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -3164,9 +3164,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 97678.8,
-          "process_ms": 255.6055,
-          "working_set": 74231808
+          "engine_us": 102798.3,
+          "process_ms": 258.9893,
+          "working_set": 74178560
         }
       },
       "helper-constraint": {
@@ -3182,13 +3182,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 97786,
-          "process_ms": 251.3861,
-          "working_set": 75218944
+          "engine_us": 98664.5,
+          "process_ms": 251.2539,
+          "working_set": 75079680
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 52.2,
+          "scoring_us": 47.4,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -3198,13 +3198,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100119.8,
-          "process_ms": 254.3299,
-          "working_set": 75419648
+          "engine_us": 99714.2,
+          "process_ms": 252.1181,
+          "working_set": 75014144
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 154.5,
+          "scoring_us": 132.2,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -3214,13 +3214,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100119.8,
-          "process_ms": 254.3299,
-          "working_set": 75419648
+          "engine_us": 99714.2,
+          "process_ms": 252.1181,
+          "working_set": 75014144
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 77.6,
+          "scoring_us": 57.6,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -3230,9 +3230,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100119.8,
-          "process_ms": 254.3299,
-          "working_set": 75419648
+          "engine_us": 99714.2,
+          "process_ms": 252.1181,
+          "working_set": 75014144
         }
       },
       "pinned-helper": {
@@ -3248,11 +3248,27 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 124646.2,
-          "process_ms": 235.9718,
-          "working_set": 71012352
+          "engine_us": 124041.4,
+          "process_ms": 226.616,
+          "working_set": 71024640
         },
         "tfidf": {
+          "proposal": null,
+          "scoring_us": 0.4,
+          "origin": "author_fixture",
+          "primary_document": null,
+          "ok": true,
+          "state": "completed",
+          "result": "An exported task receipt is a UTF-8 JSON file.",
+          "verdict": "supported",
+          "selected": null,
+          "citation": null,
+          "failed": [],
+          "engine_us": 124041.4,
+          "process_ms": 226.616,
+          "working_set": 71024640
+        },
+        "linear": {
           "proposal": null,
           "scoring_us": 0.2,
           "origin": "author_fixture",
@@ -3264,25 +3280,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 124646.2,
-          "process_ms": 235.9718,
-          "working_set": 71012352
-        },
-        "linear": {
-          "proposal": null,
-          "scoring_us": 0.1,
-          "origin": "author_fixture",
-          "primary_document": null,
-          "ok": true,
-          "state": "completed",
-          "result": "An exported task receipt is a UTF-8 JSON file.",
-          "verdict": "supported",
-          "selected": null,
-          "citation": null,
-          "failed": [],
-          "engine_us": 124646.2,
-          "process_ms": 235.9718,
-          "working_set": 71012352
+          "engine_us": 124041.4,
+          "process_ms": 226.616,
+          "working_set": 71024640
         },
         "native": {
           "proposal": null,
@@ -3296,9 +3296,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 124646.2,
-          "process_ms": 235.9718,
-          "working_set": 71012352
+          "engine_us": 124041.4,
+          "process_ms": 226.616,
+          "working_set": 71024640
         }
       },
       "distinct-package": {
@@ -3313,19 +3313,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-75e1a870c1951192267b5679e9128c4d84f522688f617eb57e542f26cc148553\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-f63e78921c3df3e2ee4006b9177aeb7bb33a8479e883d1d3e94458e78fad9870\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 106526.5,
-          "process_ms": 267.1514,
-          "working_set": 74858496
+          "engine_us": 106206.7,
+          "process_ms": 264.4353,
+          "working_set": 74788864
         },
         "tfidf": {
           "proposal": 1,
-          "scoring_us": 56.5,
+          "scoring_us": 52.4,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3334,19 +3334,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-adbeb1629d7196342b77ebb0ad0b4e6f4e9f690f6440933f8a9bb228d5a55b76\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-f9d1924d4dcae260bc2f3dc7e9763249b96f5d01e207c7bf4cf01733173228fd\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 106054.6,
-          "process_ms": 270.6275,
-          "working_set": 74809344
+          "engine_us": 111180.2,
+          "process_ms": 278.3508,
+          "working_set": 74317824
         },
         "linear": {
           "proposal": 1,
-          "scoring_us": 158.7,
+          "scoring_us": 154.3,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3355,19 +3355,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-adbeb1629d7196342b77ebb0ad0b4e6f4e9f690f6440933f8a9bb228d5a55b76\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-f9d1924d4dcae260bc2f3dc7e9763249b96f5d01e207c7bf4cf01733173228fd\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 106054.6,
-          "process_ms": 270.6275,
-          "working_set": 74809344
+          "engine_us": 111180.2,
+          "process_ms": 278.3508,
+          "working_set": 74317824
         },
         "native": {
           "proposal": 1,
-          "scoring_us": 93.6,
+          "scoring_us": 79.1,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3376,15 +3376,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-adbeb1629d7196342b77ebb0ad0b4e6f4e9f690f6440933f8a9bb228d5a55b76\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-f9d1924d4dcae260bc2f3dc7e9763249b96f5d01e207c7bf4cf01733173228fd\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 106054.6,
-          "process_ms": 270.6275,
-          "working_set": 74809344
+          "engine_us": 111180.2,
+          "process_ms": 278.3508,
+          "working_set": 74317824
         }
       },
       "distinct-audit": {
@@ -3399,19 +3399,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-486dad09c9b6363167a843d2c7215b8bd8fb4be6f32dc29529c7bf8b2d24b9a3\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-5f56fc43cc7c8853d4a78434af39f290d6560c5e2924c597a7c35b0c8bec89c3\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 104858.2,
-          "process_ms": 262.9452,
-          "working_set": 74764288
+          "engine_us": 108527.8,
+          "process_ms": 272.3971,
+          "working_set": 74924032
         },
         "tfidf": {
           "proposal": 1,
-          "scoring_us": 54.2,
+          "scoring_us": 52.8,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3420,19 +3420,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-e3851cb4c84e364a122e11fae84042fa2fcd5024ba65fcda9067a3cb3d065439\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-93e6af428c78fe4c4f092270cbe4cce427fd7fff6842a6a571f6b98fee3dfd2e\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 105416.8,
-          "process_ms": 261.6561,
-          "working_set": 74473472
+          "engine_us": 110258,
+          "process_ms": 269.4952,
+          "working_set": 74723328
         },
         "linear": {
           "proposal": 1,
-          "scoring_us": 225.8,
+          "scoring_us": 154.5,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3441,19 +3441,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-e3851cb4c84e364a122e11fae84042fa2fcd5024ba65fcda9067a3cb3d065439\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-93e6af428c78fe4c4f092270cbe4cce427fd7fff6842a6a571f6b98fee3dfd2e\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 105416.8,
-          "process_ms": 261.6561,
-          "working_set": 74473472
+          "engine_us": 110258,
+          "process_ms": 269.4952,
+          "working_set": 74723328
         },
         "native": {
           "proposal": 1,
-          "scoring_us": 90.7,
+          "scoring_us": 77.1,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3462,15 +3462,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-e3851cb4c84e364a122e11fae84042fa2fcd5024ba65fcda9067a3cb3d065439\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-93e6af428c78fe4c4f092270cbe4cce427fd7fff6842a6a571f6b98fee3dfd2e\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 105416.8,
-          "process_ms": 261.6561,
-          "working_set": 74473472
+          "engine_us": 110258,
+          "process_ms": 269.4952,
+          "working_set": 74723328
         }
       },
       "distinct-number": {
@@ -3485,19 +3485,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-8d842f9368fb376b25db50fc16e906c5619b929db60b2295d26d50fe558d01f0\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-e0a8bbdbc60acdff357cbb271ef79e8173c79c864f377d11222aeaf3a8295af7\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 106778.3,
-          "process_ms": 265.765,
-          "working_set": 74838016
+          "engine_us": 108833.1,
+          "process_ms": 267.1144,
+          "working_set": 74702848
         },
         "tfidf": {
           "proposal": 1,
-          "scoring_us": 57.9,
+          "scoring_us": 52.3,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3506,19 +3506,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-faca00daf94abfd3e1e28e68f2d3ae663deee630642e20e2e194236725aaefa7\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-9a20d06decaca09c17bce11406e35985bacde1ca2de8170336fd85df0e55fa88\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 109032.1,
-          "process_ms": 265.9115,
-          "working_set": 74756096
+          "engine_us": 106323.3,
+          "process_ms": 264.9541,
+          "working_set": 74760192
         },
         "linear": {
           "proposal": 1,
-          "scoring_us": 154.5,
+          "scoring_us": 147.5,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3527,19 +3527,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-faca00daf94abfd3e1e28e68f2d3ae663deee630642e20e2e194236725aaefa7\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-9a20d06decaca09c17bce11406e35985bacde1ca2de8170336fd85df0e55fa88\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 109032.1,
-          "process_ms": 265.9115,
-          "working_set": 74756096
+          "engine_us": 106323.3,
+          "process_ms": 264.9541,
+          "working_set": 74760192
         },
         "native": {
           "proposal": 1,
-          "scoring_us": 93.1,
+          "scoring_us": 76.0,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3548,15 +3548,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-faca00daf94abfd3e1e28e68f2d3ae663deee630642e20e2e194236725aaefa7\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-9a20d06decaca09c17bce11406e35985bacde1ca2de8170336fd85df0e55fa88\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 109032.1,
-          "process_ms": 265.9115,
-          "working_set": 74756096
+          "engine_us": 106323.3,
+          "process_ms": 264.9541,
+          "working_set": 74760192
         }
       },
       "distinct-value": {
@@ -3571,19 +3571,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-19c686abf7598e8159c1b12158c5a4749fe304fc8b016d24c9ec89f4de751970\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-765a10f88467a6b7aab857ede201117163496bb778f09f5edb3df970698ecead\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 106106.2,
-          "process_ms": 265.042,
-          "working_set": 75018240
+          "engine_us": 114110.1,
+          "process_ms": 278.3784,
+          "working_set": 74469376
         },
         "tfidf": {
           "proposal": 1,
-          "scoring_us": 54.9,
+          "scoring_us": 59.0,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3592,19 +3592,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-b2142a28a024a162677c9d44aba3e4d05fbe01eb44d1f5138cca68253d0b46d1\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-f5c28075693540cd5674a84479cceff905d0a5f1ff4d5edc651c60f518fb13cf\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 114544.3,
-          "process_ms": 278.1463,
-          "working_set": 74883072
+          "engine_us": 107946.2,
+          "process_ms": 276.9591,
+          "working_set": 74723328
         },
         "linear": {
           "proposal": 1,
-          "scoring_us": 268.1,
+          "scoring_us": 152.6,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3613,19 +3613,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-b2142a28a024a162677c9d44aba3e4d05fbe01eb44d1f5138cca68253d0b46d1\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-f5c28075693540cd5674a84479cceff905d0a5f1ff4d5edc651c60f518fb13cf\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 114544.3,
-          "process_ms": 278.1463,
-          "working_set": 74883072
+          "engine_us": 107946.2,
+          "process_ms": 276.9591,
+          "working_set": 74723328
         },
         "native": {
           "proposal": 1,
-          "scoring_us": 322.0,
+          "scoring_us": 82.6,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3634,15 +3634,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-b2142a28a024a162677c9d44aba3e4d05fbe01eb44d1f5138cca68253d0b46d1\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-f5c28075693540cd5674a84479cceff905d0a5f1ff4d5edc651c60f518fb13cf\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 114544.3,
-          "process_ms": 278.1463,
-          "working_set": 74883072
+          "engine_us": 107946.2,
+          "process_ms": 276.9591,
+          "working_set": 74723328
         }
       },
       "distinct-setting": {
@@ -3657,19 +3657,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-94a8560127048df9235016cf78e0b13280ee06db60045594f51ca5adba5a0eee\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-fceb893fc4287d511d40ef2584fe8845f9190d8e0d6f86a77e4b9e559a81383d\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 106396.5,
-          "process_ms": 267.1146,
-          "working_set": 74731520
+          "engine_us": 107856.7,
+          "process_ms": 266.6175,
+          "working_set": 74944512
         },
         "tfidf": {
           "proposal": 1,
-          "scoring_us": 53.9,
+          "scoring_us": 52.6,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3678,19 +3678,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-9db13bbffb773cabba375aeb4c597b1449e1dd1b16613ac38e1721f43e217727\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-4a9f284bebf7439528ae6a945f51c3ca311fea7665918eacada6f7e55b4d4cbd\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 107178.7,
-          "process_ms": 267.3386,
-          "working_set": 74813440
+          "engine_us": 105065.6,
+          "process_ms": 264.2605,
+          "working_set": 74768384
         },
         "linear": {
           "proposal": 1,
-          "scoring_us": 157.3,
+          "scoring_us": 190.9,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3699,19 +3699,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-9db13bbffb773cabba375aeb4c597b1449e1dd1b16613ac38e1721f43e217727\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-4a9f284bebf7439528ae6a945f51c3ca311fea7665918eacada6f7e55b4d4cbd\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 107178.7,
-          "process_ms": 267.3386,
-          "working_set": 74813440
+          "engine_us": 105065.6,
+          "process_ms": 264.2605,
+          "working_set": 74768384
         },
         "native": {
           "proposal": 1,
-          "scoring_us": 83.1,
+          "scoring_us": 78.5,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3720,15 +3720,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-9db13bbffb773cabba375aeb4c597b1449e1dd1b16613ac38e1721f43e217727\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-4a9f284bebf7439528ae6a945f51c3ca311fea7665918eacada6f7e55b4d4cbd\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 107178.7,
-          "process_ms": 267.3386,
-          "working_set": 74813440
+          "engine_us": 105065.6,
+          "process_ms": 264.2605,
+          "working_set": 74768384
         }
       },
       "distinct-installation": {
@@ -3743,19 +3743,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-4a08f6ecfde44bd0f03c7bcc8cdd9cccfdc0b3e32ee305e58de7705341e749a1\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-29b627e474d5c060bfd2da21588ba5eeec7192734eeef7832639da794f161972\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 105287.4,
-          "process_ms": 268.3774,
-          "working_set": 74887168
+          "engine_us": 105081.2,
+          "process_ms": 263.6763,
+          "working_set": 75030528
         },
         "tfidf": {
           "proposal": 1,
-          "scoring_us": 55.4,
+          "scoring_us": 52.1,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3764,19 +3764,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-5750f93abc53236c7d77a4463bcce0a9a4478560c60b3206531c062a49721c6a\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-cb9f743aa5e2b6a44cbb81546b4cf5b0032130268f121e19b9e18daaa8222f9e\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 108024.5,
-          "process_ms": 268.2595,
-          "working_set": 74481664
+          "engine_us": 112870.2,
+          "process_ms": 272.6264,
+          "working_set": 74768384
         },
         "linear": {
           "proposal": 1,
-          "scoring_us": 154.8,
+          "scoring_us": 162.6,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3785,19 +3785,19 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-5750f93abc53236c7d77a4463bcce0a9a4478560c60b3206531c062a49721c6a\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-cb9f743aa5e2b6a44cbb81546b4cf5b0032130268f121e19b9e18daaa8222f9e\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 108024.5,
-          "process_ms": 268.2595,
-          "working_set": 74481664
+          "engine_us": 112870.2,
+          "process_ms": 272.6264,
+          "working_set": 74768384
         },
         "native": {
           "proposal": 1,
-          "scoring_us": 82.8,
+          "scoring_us": 92.3,
           "origin": "author_fixture",
           "primary_document": 1,
           "ok": true,
@@ -3806,15 +3806,15 @@
           "verdict": "supported",
           "selected": 1,
           "citation": {
-            "path": "knowledge\\doc-5750f93abc53236c7d77a4463bcce0a9a4478560c60b3206531c062a49721c6a\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
+            "path": "knowledge\\doc-cb9f743aa5e2b6a44cbb81546b4cf5b0032130268f121e19b9e18daaa8222f9e\\00000001-44885931818b2129489b921a9a74e0c8707b42058c592f1e05570d1125917770\\source-1.md",
             "line": 1,
             "start": 13,
             "length": 5
           },
           "failed": [],
-          "engine_us": 108024.5,
-          "process_ms": 268.2595,
-          "working_set": 74481664
+          "engine_us": 112870.2,
+          "process_ms": 272.6264,
+          "working_set": 74768384
         }
       },
       "collision-polite": {
@@ -3830,13 +3830,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 102264.7,
-          "process_ms": 268.0939,
-          "working_set": 74682368
+          "engine_us": 105548,
+          "process_ms": 263.6942,
+          "working_set": 74706944
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 58.0,
+          "scoring_us": 55.1,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -3846,13 +3846,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100215.8,
-          "process_ms": 259.9954,
-          "working_set": 74629120
+          "engine_us": 99681.7,
+          "process_ms": 258.089,
+          "working_set": 74231808
         },
         "linear": {
           "proposal": 0,
-          "scoring_us": 172.5,
+          "scoring_us": 225.2,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -3862,13 +3862,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100215.8,
-          "process_ms": 259.9954,
-          "working_set": 74629120
+          "engine_us": 99681.7,
+          "process_ms": 258.089,
+          "working_set": 74231808
         },
         "native": {
           "proposal": 0,
-          "scoring_us": 83.5,
+          "scoring_us": 108.3,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -3878,9 +3878,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 100215.8,
-          "process_ms": 259.9954,
-          "working_set": 74629120
+          "engine_us": 99681.7,
+          "process_ms": 258.089,
+          "working_set": 74231808
         }
       },
       "qualified-source": {
@@ -3895,19 +3895,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-a62770b2803f3326c5d6e122c92b88bd8b8b2375730652463a6708a03f82690f\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
+            "path": "knowledge\\doc-77d0f77afcfe5c09c9e9843c7a2c75b8c6210d3758b15e1a6aa1bb2be30c718d\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
             "line": 4,
             "start": 57,
             "length": 4
           },
           "failed": [],
-          "engine_us": 49261,
-          "process_ms": 198.3667,
-          "working_set": 45723648
+          "engine_us": 49344.4,
+          "process_ms": 198.28,
+          "working_set": 45621248
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 49.0,
+          "scoring_us": 47.0,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
@@ -3916,19 +3916,19 @@
           "verdict": "supported",
           "selected": 0,
           "citation": {
-            "path": "knowledge\\doc-9674ff183c5387bfba6e6e169399cbc4858a5e6e47b4df7ff090cee477de0796\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
+            "path": "knowledge\\doc-c21942a99ffbd06201f5913bc8f9cf3ee97d860b289f7983a1a86dad230addb5\\00000001-3153bf66563ef60912f7a5639c57d52652b32b297fd7bc2f43b6f130f5704717\\source-0.py",
             "line": 4,
             "start": 57,
             "length": 4
           },
           "failed": [],
-          "engine_us": 48552.6,
-          "process_ms": 191.7388,
-          "working_set": 45629440
+          "engine_us": 49157.9,
+          "process_ms": 196.6342,
+          "working_set": 45416448
         },
         "linear": {
           "proposal": -1,
-          "scoring_us": 106.8,
+          "scoring_us": 99.6,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": false,
@@ -3949,13 +3949,13 @@
             "span",
             "extract"
           ],
-          "engine_us": 52711.1,
-          "process_ms": 205.0216,
-          "working_set": 45510656
+          "engine_us": 44691.4,
+          "process_ms": 191.1642,
+          "working_set": 45539328
         },
         "native": {
           "proposal": -1,
-          "scoring_us": 118.7,
+          "scoring_us": 114.9,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": false,
@@ -3976,9 +3976,9 @@
             "span",
             "extract"
           ],
-          "engine_us": 52711.1,
-          "process_ms": 205.0216,
-          "working_set": 45510656
+          "engine_us": 44691.4,
+          "process_ms": 191.1642,
+          "working_set": 45539328
         }
       },
       "ambiguous-source": {
@@ -3989,62 +3989,62 @@
           "primary_document": 0,
           "ok": true,
           "state": "needs clarification",
-          "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-964566c2); West.mark in source-0.py, line 4 (doc-964566c2).",
+          "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-e6560c0a); West.mark in source-0.py, line 4 (doc-e6560c0a).",
           "verdict": "ambiguous",
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 44391.1,
-          "process_ms": 200.6785,
-          "working_set": 45596672
+          "engine_us": 45006.2,
+          "process_ms": 200.1811,
+          "working_set": 45559808
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 74.1,
+          "scoring_us": 53.9,
           "origin": "author_fixture",
           "primary_document": 0,
           "ok": true,
           "state": "needs clarification",
-          "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-1e6a8110); West.mark in source-0.py, line 4 (doc-1e6a8110).",
+          "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-d99bcc14); West.mark in source-0.py, line 4 (doc-d99bcc14).",
           "verdict": "ambiguous",
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 44979.1,
-          "process_ms": 195.5335,
-          "working_set": 45617152
+          "engine_us": 46354.4,
+          "process_ms": 197.0552,
+          "working_set": 45543424
         },
         "linear": {
           "proposal": -1,
-          "scoring_us": 107.9,
+          "scoring_us": 107.2,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
           "state": "needs clarification",
-          "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-b6e1876c); West.mark in source-0.py, line 4 (doc-b6e1876c).",
+          "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-6461525e); West.mark in source-0.py, line 4 (doc-6461525e).",
           "verdict": "ambiguous",
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 47627,
-          "process_ms": 192.3973,
-          "working_set": 45735936
+          "engine_us": 48899.7,
+          "process_ms": 201.9388,
+          "working_set": 45568000
         },
         "native": {
           "proposal": -1,
-          "scoring_us": 171.8,
+          "scoring_us": 115.2,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
           "state": "needs clarification",
-          "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-b6e1876c); West.mark in source-0.py, line 4 (doc-b6e1876c).",
+          "result": "Multiple declarations match. East.mark in source-0.py, line 2 (doc-6461525e); West.mark in source-0.py, line 4 (doc-6461525e).",
           "verdict": "ambiguous",
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 47627,
-          "process_ms": 192.3973,
-          "working_set": 45735936
+          "engine_us": 48899.7,
+          "process_ms": 201.9388,
+          "working_set": 45568000
         }
       },
       "missing-qualified-source": {
@@ -4060,13 +4060,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 42812.1,
-          "process_ms": 190.0088,
-          "working_set": 45580288
+          "engine_us": 45743.7,
+          "process_ms": 192.9484,
+          "working_set": 45056000
         },
         "tfidf": {
           "proposal": 0,
-          "scoring_us": 73.6,
+          "scoring_us": 55.4,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -4076,13 +4076,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 43902.9,
-          "process_ms": 193.591,
-          "working_set": 45486080
+          "engine_us": 41153.1,
+          "process_ms": 187.7905,
+          "working_set": 45469696
         },
         "linear": {
           "proposal": -1,
-          "scoring_us": 108.1,
+          "scoring_us": 108.5,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -4092,13 +4092,13 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 44771.9,
-          "process_ms": 190.5584,
-          "working_set": 45416448
+          "engine_us": 44618.7,
+          "process_ms": 191.1392,
+          "working_set": 45592576
         },
         "native": {
           "proposal": -1,
-          "scoring_us": 116.4,
+          "scoring_us": 113.7,
           "origin": "author_fixture",
           "primary_document": null,
           "ok": true,
@@ -4108,9 +4108,9 @@
           "selected": null,
           "citation": null,
           "failed": [],
-          "engine_us": 44771.9,
-          "process_ms": 190.5584,
-          "working_set": 45416448
+          "engine_us": 44618.7,
+          "process_ms": 191.1392,
+          "working_set": 45592576
         }
       }
     }

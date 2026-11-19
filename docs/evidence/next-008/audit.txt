@@ -1,4 +1,4 @@
-﻿train numpy 2.3.5 checked=920 mismatches=20
+train numpy 2.3.5 checked=920 mismatches=20
 train pillow 13.0.0 checked=121 mismatches=8
 train pypdf 6.21.4 checked=65 mismatches=0
 train packaging 26.3 checked=29 mismatches=0
