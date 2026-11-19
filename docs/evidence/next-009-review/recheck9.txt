@@ -1,0 +1,13 @@
+{
+  "product": "f4db48313eefe6df27639d4a17c114cee6224d75",
+  "successful": 7,
+  "cases": 7,
+  "wrong_deliveries": 0,
+  "false_abstentions": 0,
+  "changed_mismatches": 0,
+  "first_median_ms": 23.7145,
+  "warm_median_ms": 18.4383,
+  "process_median_ms": 413.4009,
+  "max_sampled_working_set_bytes": 53784576,
+  "external_inference_calls": 0
+}

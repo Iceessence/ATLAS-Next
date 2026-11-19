@@ -1,0 +1,219 @@
+{
+  "schema": 1,
+  "review": "NEXT-009 offline research recheck",
+  "verdict": "ACCEPTED_WITH_LIMITATIONS",
+  "reviewer": "Gemini Argon Orchestrator",
+  "product_author": "GPT-6.2 Sol",
+  "reviewed_at_utc": "2026-11-19T04:45:00Z",
+  "frozen_product": "f4db48313eefe6df27639d4a17c114cee6224d75",
+  "preregistration": "d260b5a47f1c010d0ae7015180259219d58ebdd6",
+  "author_evidence": "793ebbdf8e3dfc5cba8eb3957dbb616d884c8a5a",
+  "reviewed_handoff": "7b791ad09b75cac46b1851c446e5eb947f5d2147",
+  "provisional_dependency": {
+    "product": "112f9fb071698b5d6b256184f3debda54dd9e305",
+    "independent_verdict": "ACCEPTED_WITH_LIMITATIONS",
+    "independent_review_commit": "406ba1dcddeb4e3770d5ff1858a3f08e23fcf22c",
+    "receipt": "docs/evidence/independent-review-next008r-sol.json"
+  },
+  "prior_accepted_baseline": "2011be05e61a7c7107bce3496cb0bf072e262341",
+  "git_checks": {
+    "detached_clean_review_checkouts": 2,
+    "preregistered_baseline_unchanged_before_product": true,
+    "product_to_handoff_diffs_docs_only": true,
+    "native_model_files_match_accepted_baseline": true,
+    "native_model_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "shadow_checkpoint_sha256": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+    "legacy_repo_head": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "legacy_repo_untouched_by_review": true
+  },
+  "public_replays": {
+    "release_build": {
+      "warnings": 0,
+      "errors": 0,
+      "log": "next-009-review/build.txt"
+    },
+    "windows": {
+      "passed": 254,
+      "total": 254,
+      "log": "next-009-review/windows.txt"
+    },
+    "python_integrity": {
+      "passed": 14,
+      "total": 14,
+      "duration_s": 29.496,
+      "log": "next-009-review/integrity.txt"
+    },
+    "public_factual": {
+      "passed": 31,
+      "total": 31,
+      "log": "next-009-review/outcomes.txt"
+    },
+    "distribution_audit": {
+      "passed": 10,
+      "total": 10,
+      "log": "next-009-review/audit.txt"
+    },
+    "synthetic_shadow_router": {
+      "rule": "48/72",
+      "exemplar": "42/72",
+      "native": "54/72",
+      "linear": "54/72",
+      "native_qualification": "shadow",
+      "log": "next-009-review/routing.txt"
+    },
+    "frozen_specialist": {
+      "order": [
+        "host",
+        "tfidf",
+        "linear",
+        "native"
+      ],
+      "real_observations": [
+        16,
+        16,
+        14,
+        15
+      ],
+      "total_real": 16,
+      "constructed_controls": [
+        31,
+        31,
+        29,
+        30
+      ],
+      "total_controls": 31,
+      "constructed_suite_sha256": "ef207ce82af59748220220771860bc5563b97f62c5b25d7c02ddb9dbe388a883",
+      "wrong_deliveries": 0,
+      "linear_brier": 0.06254831836992278,
+      "linear_ece": 0.09853221002154794,
+      "native_brier": 0.03764230614967519,
+      "native_ece": 0.06682825495443676,
+      "log": "next-009-review/specialist.txt"
+    },
+    "earlier_code_replays": {
+      "next005": "8/8",
+      "next005_log": "next-009-review/prev5.txt",
+      "next006": "13/13",
+      "next006_log": "next-009-review/prev6.txt",
+      "next007": "17/17",
+      "next007_verify_only": "PASS 5",
+      "next007_log": "next-009-review/prev7.txt",
+      "next008_search": "9/14",
+      "next008_host": "12/14",
+      "next008_host_exact_deliveries": 18,
+      "next008_host_correct_withholds": 5,
+      "next008_host_wrong_deliveries": 0,
+      "next008_host_false_abstentions": 2,
+      "next008_log": "next-009-review/host8.txt",
+      "ledger_rows": "6/6",
+      "ledger_log": "next-009-review/ledger8.txt"
+    },
+    "research_recheck_search": {
+      "successful": 7,
+      "total": 7,
+      "exact_case_result_complete_match_vs_preregistered_baseline": true,
+      "ordinary_query_characters": 53,
+      "context_query_characters": 21,
+      "first_median_ms": 0.0212,
+      "sampled_working_set_bytes": 25141248,
+      "external_inference_calls": 0,
+      "log": "next-009-review/search9.txt",
+      "replay_json": "next-009-review/search-replay.json"
+    },
+    "research_recheck_host": {
+      "successful": 7,
+      "cases": 7,
+      "supported": 3,
+      "correct_withholds": 4,
+      "wrong_deliveries": 0,
+      "false_abstentions": 0,
+      "changed_mismatches": 0,
+      "first_median_ms": 23.7145,
+      "warm_median_ms": 18.4383,
+      "process_median_ms": 413.4009,
+      "max_sampled_working_set_bytes": 53784576,
+      "external_inference_calls": 0,
+      "log": "next-009-review/recheck9.txt"
+    }
+  },
+  "packages": {
+    "summary_log": "next-009-review/package-summary.json",
+    "shipped_ps51": {
+      "status": "PASS",
+      "path": "out/NEXT-009/ATLAS-Next-win-x64-ps51.zip",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95155883,
+      "zip_sha256": "5328b071a4f5b8f065c065c23a23feccce0ffbcb2e7eb688c5532235da14fe8a",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "wpf": "PASS",
+      "log": "next-009-review/shipped-ps51.txt"
+    },
+    "rebuilt_ps51": {
+      "status": "PASS",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95155853,
+      "zip_sha256": "5480ba61718cede0d3a6a911d319a85768d239b0593a8d6153168bb1e65ce378",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "wpf": "PASS",
+      "log": "next-009-review/rebuilt-ps51.txt"
+    },
+    "shipped_ps7": {
+      "status": "PASS",
+      "path": "out/NEXT-009/ATLAS-Next-win-x64-ps7.zip",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112809729,
+      "zip_sha256": "3018d9e5ce2270ea10a1cee1bd627bd2c73cef526622a0ffe088519c3d55fc92",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "wpf": "PASS",
+      "log": "next-009-review/shipped-ps7.txt"
+    },
+    "rebuilt_ps7": {
+      "status": "PASS",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112809705,
+      "zip_sha256": "d35ae0af6ddbbae8efe8201542e0b05fa12e6fcb96f18c38af61a89c06d7b76d",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "wpf": "PASS",
+      "log": "next-009-review/rebuilt-ps7.txt"
+    }
+  },
+  "evaluator_custody": {
+    "receipt_sha256": "5022a4f6235fb4437c983bbb0a1670c1b42af0b6e7d5f08325066cadfe8fa692",
+    "adversarial_recheck_checks": {
+      "passed": 54,
+      "total": 54,
+      "wrong_deliveries": 0,
+      "false_abstentions": 0
+    },
+    "coverage": [
+      "4-key UTF-8 BOM/CRLF/emoji/bullet-is unfamiliar comparison and unchanged/partial(2/4)/all-4 rechecks with exact UTF-16 span and SHA-256 verification",
+      "Mid-flight irrelevant third source allowed while mid-flight same-value supporting source growth withholds as stale",
+      "Conflict withholding preserves affected claims and recovers once resolved against original parent",
+      "Expired document revision marks stale and changed claims",
+      "Reopened history after Engine dispose+restart preserves historical parent and rechecks cleanly",
+      "Source collapse to insufficient and over-8 source ambiguity withholding",
+      "Invalid parent rejection across null, code, fact, cancelled and recheck parents plus prompt-injection guards",
+      "Mid-flight cancellation, tampered changedClaims ([] and bogus keys), 1-byte modified or deleted parent receipt JSON, stale Python declaration parent, Primary source restriction, and foreign project isolation"
+    ],
+    "python_literal_preservation_probe": "PASS",
+    "private_scope": "Raw evaluator harness, cases, expectations and receipts remain outside Git."
+  },
+  "limitations": [
+    "Manual offline recheck covers two to four literal direct-claim fields from one selected completed comparison with no background or scheduled re-execution.",
+    "Continues to withhold on unresolved source conflicts, mid-flight source changes, expired revisions and Primary-restricted evidence.",
+    "Both native models remain shadow-only and unpromoted; host execution remains disabled (read owner-imported text)."
+  ],
+  "next_assignment": {
+    "accepted_baseline_established": "f4db48313eefe6df27639d4a17c114cee6224d75",
+    "phase_c_writer": "Gemini Argon Orchestrator",
+    "task": "Implement NEXT-010 (bounded enhancement under accepted NEXT-009 baseline) and submit to GPT-6.2 Sol for independent review"
+  }
+}
