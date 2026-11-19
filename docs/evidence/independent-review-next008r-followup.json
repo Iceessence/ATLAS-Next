@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "review": "NEXT-008R follow-up",
+  "verdict": "REPAIRS_REQUIRED",
+  "reviewer": "GPT-6.2 Sol",
+  "product_author": "Gemini Argon Orchestrator",
+  "frozen_product": "298db33c18f8f888f162569bf2b9bd44434a4a6b",
+  "author_evidence": "ca4926d2bc69bebbe1086f6298938be2782a351d",
+  "reviewed_handoff": "6149b0658a538c852cd3e6aa42ff78b8d67fc716",
+  "prior_independent_verdict": "2f2eb18ce10d7f65bd6caa43cd5c22cd20ec1a82",
+  "accepted_baseline": "2011be05e61a7c7107bce3496cb0bf072e262341",
+  "git_checks": {
+    "detached_clean_review_checkouts": 2,
+    "product_to_handoff_diffs_docs_only": true,
+    "native_model_files_match_accepted_baseline": true
+  },
+  "preregistration": [
+    "8585ca05ef4f9632010b78d869fadef58bcdc45c",
+    "3b03b1e152ebf688513f2006e316ddab0c3294a4"
+  ],
+  "public_replays": {
+    "release_build": {
+      "warnings": 0,
+      "errors": 0
+    },
+    "windows": "240/240",
+    "python_integrity": "14/14",
+    "public_factual": "31/31",
+    "distribution_audit": "10/10",
+    "synthetic_shadow_router": "54/72",
+    "frozen_specialist": {
+      "order": [
+        "host",
+        "tfidf",
+        "linear",
+        "native"
+      ],
+      "real_observations": [
+        16,
+        16,
+        14,
+        15
+      ],
+      "total_real": 16,
+      "constructed_controls": [
+        31,
+        31,
+        29,
+        30
+      ],
+      "total_controls": 31
+    },
+    "earlier_code_replays": {
+      "next005": "8/8",
+      "next006": "13/13",
+      "next007": "17/17",
+      "wrong_deliveries": 0
+    },
+    "original_search": {
+      "complete": "9/14",
+      "unchanged_frozen_case_provenance_citations_and_verdicts": true
+    },
+    "next008_conversation": {
+      "complete": "12/14",
+      "exact_deliveries": 18,
+      "correct_withholds": 5,
+      "wrong_deliveries": 0,
+      "false_abstentions": 2,
+      "abstention_reason": "C# calls that rely on absent implicit imports in the imported source set",
+      "first_turn_median_ms": 57.1502,
+      "warm_turn_median_ms": 17.3729,
+      "process_median_ms": 362.42350001703016,
+      "max_sampled_working_set_bytes": 125669376,
+      "external_inference_calls": 0
+    },
+    "ledger": {
+      "real_source_rows": "6/6",
+      "author_and_reviewer_artifacts_validated": true,
+      "reviewer_matching_digest_negative_cases_rejected": "4/4"
+    }
+  },
+  "packages": {
+    "shipped_ps51": {
+      "status": "PASS",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95153220,
+      "zip_sha256": "7171bcea876208a185073f5dadc69a1ef8d10693c92e8f3440f0a36d873bc0f6",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf": "PASS",
+      "log": "next-008r-followup-review/shipped-ps51.txt"
+    },
+    "shipped_ps7": {
+      "status": "PASS",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112806426,
+      "zip_sha256": "b51f115db30f5150ae37852cf17b56caf01e83d3139c9234355442037afbd50d",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf": "PASS",
+      "log": "next-008r-followup-review/shipped-ps7.txt"
+    },
+    "rebuilt_ps51": {
+      "status": "PASS",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95153225,
+      "zip_sha256": "fb6989d13cc4c6989a40f3ae8861ac4a63222dd2cdbaec9efaa3454e87e89b8d",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf": "PASS",
+      "log": "next-008r-followup-review/rebuilt-ps51.txt"
+    },
+    "rebuilt_ps7": {
+      "status": "PASS",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112806429,
+      "zip_sha256": "f68f62fc31e57f16f4872162f4c2c66518a166fb02179a9d80daacb668a69c36",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "promoted_models": [],
+      "wpf": "PASS",
+      "log": "next-008r-followup-review/rebuilt-ps7.txt"
+    }
+  },
+  "evaluator_custody": {
+    "previous_suite": {
+      "turns": 52,
+      "exact_deliveries": 28,
+      "correct_withholds": 24,
+      "wrong_deliveries": 0,
+      "false_abstentions": 0,
+      "groups": {
+        "csharp_competing_extension_calls": {
+          "turns": 12,
+          "exact_deliveries": 8,
+          "correct_withholds": 4
+        },
+        "python": {
+          "turns": 36,
+          "exact_deliveries": 16,
+          "correct_withholds": 20,
+          "includes_all_four_previously_failing_headers": true
+        },
+        "python_docx": {
+          "turns": 4,
+          "exact_deliveries": 4,
+          "receipt_sha256": "ebaf0887aaa045dac01dedae5312d499880d1e41bb47ed1e0392a00862bdf5a2"
+        }
+      },
+      "receipt_sha256": "cd30300a69b4d42c0c17042d4bc32d1f1cb940ff574ddbe008da626fc4c79521"
+    },
+    "fresh_literal_suite": {
+      "oracle": "CPython 3.12 AST parsing and compilation without execution, plus UTF-16 span and digest replay through the actual ATLAS conversation probe",
+      "turns": 36,
+      "exact_deliveries": 16,
+      "wrong_deliveries": 20,
+      "correct_withholds": 0,
+      "false_abstentions": 0,
+      "repetitions": 4,
+      "invalid_lexical_classes": [
+        "malformed hex escapes in text defaults",
+        "malformed Unicode escapes in parameter annotations",
+        "out-of-range Unicode escapes in return annotations",
+        "malformed hex escapes in bytes defaults",
+        "unknown named Unicode escapes in forward annotations"
+      ],
+      "results": "Each of five invalid headers produced four completed turns despite CPython rejecting the declaration. Valid escaped text, bytes, raw literal, and known named escape controls produced exact results.",
+      "receipt_sha256": "c4c12e6be5f914e4098728ef1804882c53b035cffc39197d653e988a6c184c4f"
+    },
+    "matching_digest_ledger": {
+      "status": "PASS",
+      "rejected": [
+        "altered request",
+        "swapped requests",
+        "inflated summary count",
+        "missing dependency"
+      ],
+      "receipt_sha256": "3369b69ca83272dd56a8b6ffa25ff26c73e37802f90c4b6edf5547208cce8b60"
+    },
+    "private_scope": "Raw evaluator cases, expectations and receipts are outside Git. Pre-NEXT-008 historical protected manifests were unavailable."
+  },
+  "repair_review": [
+    {
+      "id": "NEXT-008R-1",
+      "status": "VERIFIED",
+      "area": "C# explicit import and competing extension binding"
+    },
+    {
+      "id": "NEXT-008R-2",
+      "status": "BLOCKING",
+      "area": "Python declaration literal escapes",
+      "code": "desktop/SourceDeclarations.cs",
+      "method": "PythonHeaderParser.TryScanString",
+      "observation": "String scanning advances past each backslash and the following character without validating the content of recognized non-raw escapes. As a result, the parser treats a lexically invalid declaration header as valid and creates an authorized parent with certified parameters and return spans.",
+      "repair": "Validate recognized escapes in the supported text and bytes literal grammars. Account for raw prefixes without applying non-raw decoding. Verify hex digit counts, Unicode code point range and named escapes where supported, and withhold when a literal cannot be validated. Keep earlier grammar and token fixes and exact raw citation spans. Exercise both definition forms and both parent-linked follow-ups in the packaged host."
+    },
+    {
+      "id": "NEXT-008R-3",
+      "status": "VERIFIED",
+      "area": "Ledger integrity"
+    }
+  ],
+  "next_assignment": {
+    "task": "NEXT-008R remaining Python literal-token repair",
+    "next_writer": "Gemini Argon Orchestrator",
+    "next_feature": "NEXT-009 deferred until independent acceptance",
+    "product_source_changed_by_reviewer": false
+  }
+}

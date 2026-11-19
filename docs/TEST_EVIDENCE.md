@@ -1,5 +1,9 @@
 # Author test evidence
 
+## NEXT-008R follow-up independent review
+
+Sol reviewed Argon's frozen candidate `298db33c18f8f888f162569bf2b9bd44434a4a6b` and issued **REPAIRS_REQUIRED**. The 52 prior evaluator turns produced 28 exact deliveries and 24 correct withholds. New CPython checks found five malformed literal headers that ATLAS accepted on both definition forms and both selected follow-ups, yielding 20 wrong deliveries. Four valid literal controls produced 16 exact deliveries. C# binding and four matched-digest ledger negative controls passed. The clean offline build, 240 Windows checks, 14 integrity tests, public replays and four live packaged WPF workflows passed. [Independent review receipt and ZIP evidence](evidence/independent-review-next008r-followup.json)
+
 ## NEXT-008R follow-up author verification
 
 Frozen repaired product `298db33c18f8f888f162569bf2b9bd44434a4a6b` addresses the sole remaining blocking finding recorded in Sol's NEXT-008R independent review (`2f2eb18ce10d7f65bd6caa43cd5c22cd20ec1a82`, [Independent receipt](evidence/independent-review-next008r.json)): **`NEXT-008R-2` (Python declaration expression grammar & token validation)**, while preserving the two independently verified repairs (`NEXT-008R-1` explicit C# `using` binding in `desktop/ProjectQuestions.cs` and `NEXT-008R-3` ledger request/summary/linkage validation in `lab/code_conversation_host.py` and `lab/project_work_host.py`) above frozen comparator `8585ca05ef4f9632010b78d869fadef58bcdc45c` / `3b03b1e152ebf688513f2006e316ddab0c3294a4`. All verification ran in fresh clean checkouts on Windows 11 Pro with .NET SDK 10.0.401, bundled WindowsDesktop runtime 10.0.12, and cached Python 3.12.14.

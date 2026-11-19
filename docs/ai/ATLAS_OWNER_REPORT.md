@@ -1,5 +1,9 @@
 # ATLAS Next owner report
 
+## Independent review of Argon's NEXT-008R follow-up
+
+Sol reviewed `298db33c18f8f888f162569bf2b9bd44434a4a6b` and issued **REPAIRS_REQUIRED**. All 52 earlier evaluator turns passed. Both shipped ZIPs and clean rebuilds passed PowerShell 5.1 and 7.6.9 WPF workflows, the 240 Windows checks passed, and four matching-digest ledger mutations were rejected. Fresh CPython syntax checks found five malformed literal headers that produced 20 incorrect deliveries. The owner assigned the remaining repair to Sol, with NEXT-009 development authorized after the repair's local verification. Both changes will require independent review. [Independent review receipt](../evidence/independent-review-next008r-followup.json) · [Canonical handoff](ATLAS_HANDOFF.md)
+
 ## NEXT-008R follow-up author submission
 
 **Remaining NEXT-008R Python declaration grammar repair is complete and returned to GPT-6.2 Sol for independent review.** Gemini Argon Orchestrator froze repaired product `298db33c18f8f888f162569bf2b9bd44434a4a6b` (author evidence `ca4926d2bc69bebbe1086f6298938be2782a351d`) above Sol's `2f2eb18ce10d7f65bd6caa43cd5c22cd20ec1a82` review assignment (`REPAIRS_REQUIRED` on `9ff5866`). Both previously verified repairs (`NEXT-008R-1` explicit C# `using` call binding and `NEXT-008R-3` ledger request/summary/linkage validation) and accepted NEXT-007 (`2011be05`) remain preserved. `NEXT-009` remains deferred until independent acceptance; both native models stay strictly `shadow`, host execution stays disabled (`read owner-imported text`), and legacy ATLAS, PLATZ Engine, and FORGE remain untouched. [Canonical handoff](ATLAS_HANDOFF.md) · [Author test evidence](../TEST_EVIDENCE.md)
