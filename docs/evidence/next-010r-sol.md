@@ -1,0 +1,3 @@
+# NEXT-010 quota repair author verification
+
+Product `06f850119666c2f78ba850d8d17f63c1a4e87b5e` ties the 32-file capacity to published revisions. Import validates before creating a source folder. Existing empty and pending-only folders contribute zero slots. The focused Windows cases cover 32 rejected files, 33 legacy unpublished folders, a full valid inventory, and idempotent capacity for updates. Release offline build 0 warnings/errors. Windows 271/271, public factual controls 31/31 and research rechecks 7/7. The independent verdict on the earlier product remains REPAIRS_REQUIRED. This product is an author-verified provisional dependency.
