@@ -1,0 +1,53 @@
+{
+  "review": "NEXT-010",
+  "product": "595ca3611a3ab9f6cd6cdd51851b45a4d0f10153",
+  "transfer": "5f0e882f1b56b25c48ea6d51b8e943ac9aff3478",
+  "authorEvidence": "53378db48997d63e3f16b79a5f0736d76f98777f",
+  "acceptedBaseline": "f4db48313eefe6df27639d4a17c114cee6224d75",
+  "verdict": "REPAIRS_REQUIRED",
+  "reviewer": "GPT-6.2 Sol",
+  "public": {
+    "buildWarnings": 0,
+    "windows": "268/268",
+    "python": "14/14",
+    "facts": "31/31",
+    "audit": "10/10",
+    "code": [
+      "8/8",
+      "13/13",
+      "17/17",
+      "12/14"
+    ],
+    "recheck": "7/7",
+    "shadowRouter": "54/72",
+    "specialistReal": [
+      16,
+      16,
+      14,
+      15
+    ],
+    "specialistControls": [
+      31,
+      31,
+      29,
+      30
+    ]
+  },
+  "wpf": {
+    "shipped51": "c7d92d87023581100363ad8c1e11ee83d09147eeb5b6861b9fbb2ed115ae2fb6",
+    "shipped7": "f7601ad87318db613e2bd97b7351af8cdd85e5b9d4d33cf6e785929084bf394d",
+    "rebuilt51": "7c7ee3b3d4871bc2630fb7a6bb2a60727a3d224f78b2df4d1940c30dbf0faef8",
+    "rebuilt7": "abbbb035ca50eb5f0ef8fb89dc9dbbd5cfa19b0f84d2ef93647c606998a676d9"
+  },
+  "evaluator": {
+    "scopedReopen": true,
+    "exactDigest": true,
+    "tamperFallback": true,
+    "invalidImports": 32,
+    "inventoryVisible": 0,
+    "validImportBlocked": true,
+    "inputsOutsideGit": true
+  },
+  "finding": "Import creates the source directory before grammar validation. Publication is atomic for revisions, but rejected imports leave empty directories that still count toward the 32-source quota. Inventory omits those directories, so capacity is falsely reported.",
+  "assignment": "Sol repair quota accounting and validate locally before the five-update batch."
+}

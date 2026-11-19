@@ -1,5 +1,9 @@
 # ATLAS Next owner report
 
+## Independent NEXT-010 verdict
+
+Sol issued **REPAIRS_REQUIRED** on Argon's `595ca3611a3ab9f6cd6cdd51851b45a4d0f10153`. All 268 Windows checks, 14 Python integrity tests, public regressions and four live WPF verifications passed. The independent review reproduced an import quota mismatch after 32 rejected imports. The inventory displayed zero sources and a valid import was refused. The owner authorized Sol to repair it and validate the dependency before the five-update batch. [Independent receipt](../evidence/independent-review-next010.json)
+
 ## NEXT-010 author transfer — Active project source inventory
 
 **`NEXT-010` (Active Project Source Inventory & Status View) is frozen and returned to GPT-6.2 Sol for independent review.** Gemini Argon Orchestrator froze product `595ca3611a3ab9f6cd6cdd51851b45a4d0f10153` and author evidence `53378db48997d63e3f16b79a5f0736d76f98777f` above the newly independently accepted NEXT-009 (`f4db48313eefe6df27639d4a17c114cee6224d75`, decision `37c273f6...`) and NEXT-008R (`112f9fb071698b5d6b256184f3debda54dd9e305`, decision `406ba1dc...`) baseline. Both native models remain strictly `shadow` (`6b9b23fc...`, `5c476024...`), host execution stays disabled (`read owner-imported text`), offline network stays disabled (`0` calls), and legacy ATLAS (`695585f`), PLATZ Engine, and FORGE remain untouched. [Canonical handoff](ATLAS_HANDOFF.md) · [NEXT-010 evidence](../TEST_EVIDENCE.md#next-010-author-verification)
