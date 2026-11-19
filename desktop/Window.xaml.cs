@@ -113,6 +113,11 @@ public partial class WorkWindow : Window
         return $"Imported sources ({sources.Count}/32): {string.Join("; ",shown)}{extra}";
     }
 
+    private void OpenResearch(object sender,RoutedEventArgs e)=>Handle(()=>{
+        new ResearchWindow(engine) {Owner=this}.ShowDialog();
+        Refresh(engine.History().FirstOrDefault());
+    });
+
     private void OpenCoding(object sender,RoutedEventArgs e)=>Handle(()=>{
         if(current==null || engine.Guide(current.Id) is not {} guide) {
             Notice.Text="Select a completed definition from the current project and revision.";

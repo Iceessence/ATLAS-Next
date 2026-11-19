@@ -8,6 +8,7 @@ internal sealed record Work(Guid Id,string Request)
 {
     public int Schema { get; init; }=1;
     public Guid? ParentTaskId { get; init; }
+    public ResearchPlan? Plan { get; init; }
     public string Project { get; init; }="default";
     public string Kind { get; init; }="knowledge.lookup";
     public string Authority { get; init; }="local desktop owner";
@@ -107,6 +108,7 @@ internal sealed class Journal : IDisposable
         if(task.Id!=id || task.Schema!=1 || string.IsNullOrWhiteSpace(task.Request) || task.Request.Length>2048 ||
             task.Events is not {Length:>0} || task.Events.Any(e=>e==null || e.At==default) ||
             !ValidTimeline(task.Events) ||
+            task.Plan is {} plan && !plan.IsValid() ||
             task.Proposal is {} p && (p.Sha256 is not {Length:64} || !p.Sha256.All(Uri.IsHexDigit)) ||
             task.ResearchReview is {} assessment && (assessment.Sources is not {Length:<=8} ||
                 assessment.Sources.Any(c=>c==null || !ValidCitation(c)) ||

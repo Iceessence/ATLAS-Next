@@ -13,6 +13,7 @@
     <WrapPanel Margin="0,0,0,8">
      <Button x:Name="ShowReference" Content="Open local chat" Click="OpenReference"/>
      <Button x:Name="ShowCoding" Content="Inspect selected code" Click="OpenCoding"/>
+     <Button x:Name="ShowResearch" Content="Open local research" Click="OpenResearch"/>
     </WrapPanel>
     <TextBlock x:Name="SourcesInfo" Foreground="#425C52" Margin="0,0,0,8" AutomationProperties.LiveSetting="Polite"/>
     <TextBlock Text="Search project knowledge" FontSize="28" FontWeight="SemiBold" Foreground="#163D35"/>

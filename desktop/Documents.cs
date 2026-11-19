@@ -135,11 +135,11 @@ internal sealed class Documents(string profile,string project="default")
 
     public IReadOnlyList<Passage> Active()=>Sources().SelectMany(Parse).ToArray();
 
-    public IReadOnlyList<OwnedSource> Sources()
+    public IReadOnlyList<OwnedSource> Sources(IReadOnlySet<string>? allowed=null)
     {
         if(!Directory.Exists(root)) return [];
         CheckLocalPath(root);
-        var entries=Published().Take(MaxDocuments+1).ToArray();
+        var entries=Published(allowed).Take(MaxDocuments+1).ToArray();
         if(entries.Length>MaxDocuments) throw new InvalidDataException("Too many stored documents.");
         return entries.Select(entry=>ReadRevision(entry.Directory,entry.Revision)).ToArray();
     }
@@ -150,9 +150,10 @@ internal sealed class Documents(string profile,string project="default")
         .ThenBy(item=>item.Id,StringComparer.Ordinal)
         .ToArray();
 
-    private IEnumerable<(string Directory,(string Path,int Version,string Digest) Revision)> Published()
+    private IEnumerable<(string Directory,(string Path,int Version,string Digest) Revision)> Published(IReadOnlySet<string>? allowed=null)
     {
         foreach(var directory in Directory.EnumerateDirectories(root,"doc-*").Order(StringComparer.Ordinal)) {
+            if(allowed!=null && !allowed.Contains(Path.GetFileName(directory))) continue;
             CheckLocalPath(directory);
             if(Latest(directory) is {} revision) yield return (directory,revision);
         }

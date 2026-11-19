@@ -1,0 +1,28 @@
+<Window x:Class="AtlasNext.ResearchWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Title="ATLAS Next Local Research" Width="900" Height="700" MinWidth="620" MinHeight="540" WindowStartupLocation="CenterOwner">
+ <DockPanel Margin="18">
+  <StackPanel DockPanel.Dock="Top" Margin="0,0,0,10">
+   <TextBlock x:Name="ResearchProject" FontSize="22" FontWeight="SemiBold"/>
+   <TextBlock Text="Objective" Margin="0,8,0,2"/>
+   <TextBox x:Name="Objective" AutomationProperties.Name="Research objective" MaxLength="256"/>
+   <TextBlock Text="Two to four literal claim keys separated by |" Margin="0,8,0,2"/>
+   <TextBox x:Name="Fields" AutomationProperties.Name="Research claim keys" MaxLength="400"/>
+   <TextBlock Text="Authorize two to eight imported TXT or Markdown sources. Hold Ctrl to select several." TextWrapping="Wrap" Margin="0,8,0,2"/>
+   <ListBox x:Name="Selections" AutomationProperties.Name="Authorized research sources" DisplayMemberPath="Label" SelectionMode="Extended" MinHeight="100" MaxHeight="132"/>
+   <WrapPanel Margin="0,8,0,0">
+    <Button x:Name="PrepareStudy" Content="Prepare research" Click="Prepare" Padding="8,4"/>
+    <Button x:Name="VerifyStudy" Content="Verify conclusion" Click="Verify" Margin="8,0" Padding="8,4" IsEnabled="False"/>
+    <Button x:Name="CancelStudy" Content="Cancel pending" Click="Cancel" Padding="8,4" IsEnabled="False"/>
+    <Button x:Name="LoadStudy" Content="Reuse selected plan" Click="LoadPlan" Margin="8,0" Padding="8,4" IsEnabled="False"/>
+   </WrapPanel>
+   <TextBlock x:Name="StudyStatus" AutomationProperties.LiveSetting="Polite" TextWrapping="Wrap" Margin="0,8,0,0"/>
+  </StackPanel>
+  <Grid>
+   <Grid.ColumnDefinitions><ColumnDefinition Width="190"/><ColumnDefinition Width="12"/><ColumnDefinition/></Grid.ColumnDefinitions>
+   <DockPanel>
+    <TextBlock DockPanel.Dock="Top" Text="Research history" FontWeight="SemiBold" Margin="0,0,0,5"/>
+    <ListBox x:Name="Studies" AutomationProperties.Name="Research history" DisplayMemberPath="Label" SelectionChanged="SelectStudy"/>
+   </DockPanel>
+   <TextBox Grid.Column="2" x:Name="StudyEvidence" AutomationProperties.Name="Research result and evidence" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Padding="10"/>
+  </Grid>
+ </DockPanel>
+</Window>

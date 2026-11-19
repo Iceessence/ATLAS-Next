@@ -46,17 +46,29 @@ internal sealed class Engine(string profile) : IDisposable
     public IEnumerable<Work> History()=>journal.History().Where(w=>w.Project==Project).OrderByDescending(w=>w.Events.Last().At);
     public Work Submit(Guid id,string request)=>Submit(id,request,null);
 
+    public Work Study(Guid id,ResearchPlan plan)
+    {
+        if(!plan.IsValid()) throw new ArgumentException("Enter an objective, two to four fields and select two to eight text sources.");
+        var validated=plan with {SourceIds=plan.SourceIds.Order(StringComparer.Ordinal).ToArray()};
+        return SubmitCore(id,validated.Request,null,null,validated);
+    }
+
     // A source restriction can only narrow Primary retrieval. The benchmark uses it
     // in fresh disposable profiles. Verification always sees the entire project.
-    internal Work Submit(Guid id,string request,string? primaryDocument,Guid? selectedTask=null)
+    internal Work Submit(Guid id,string request,string? primaryDocument,Guid? selectedTask=null)=>
+        SubmitCore(id,request,primaryDocument,selectedTask,null);
+
+    private Work SubmitCore(Guid id,string request,string? primaryDocument,Guid? selectedTask,ResearchPlan? plan)
     {
         request=request.Trim();
         if(request.Length is 0 or >2048) throw new ArgumentException("Enter a request of 1–2048 characters.");
         var code=CodeQuestion.Parse(request);
         Guid? parentId=code?.FollowUp==true || ProjectQuestions.IsRecheck(request) ? selectedTask : null;
         var old=journal.Read(id);
-        if(old!=null) return old.Project==Project && old.Request==request && old.ParentTaskId==parentId ? old : throw new InvalidOperationException("Conflicting task identity");
-        var task=(new Work(id,request) {Project=Project,ParentTaskId=parentId}).At("queued");
+        if(old!=null) return old.Project==Project && old.Request==request && old.ParentTaskId==parentId &&
+            (old.Plan!=null && plan!=null ? old.Plan.Objective==plan.Objective && old.Plan.SourceIds.SequenceEqual(plan.SourceIds) : old.Plan==plan)
+            ? old : throw new InvalidOperationException("Conflicting task identity");
+        var task=(new Work(id,request) {Project=Project,ParentTaskId=parentId,Plan=plan}).At("queued");
         journal.Save(task);
         try
         {
@@ -132,9 +144,13 @@ internal sealed class Engine(string profile) : IDisposable
     private Work QueueProjectAnswer(Work task,Recommendation proposed,string route,CodeQuestion? code,string? primaryDocument,Guid? parentId)
     {
         var comparison=route==ProjectQuestions.RecheckType ? ReadComparison(parentId) : null;
-        var finding=CheckProjectAnswer(route,task.Request,code,documents.Sources(),parentId,comparison);
+        var active=ReadProjectSources(task.Plan);
+        var finding=task.Plan!=null && active.Count!=task.Plan.SourceIds.Length
+            ? new ProjectFinding(new("insufficient","An authorized source is unavailable in this project.","undetermined","authorized source selection",[]),null,null)
+            : CheckProjectAnswer(route,task.Request,code,active,parentId,comparison);
         task=task with {Kind=route,Specialist=route,Proposal=proposed,Router="deterministic-route-v8",ResearchReview=finding.Assessment,
-            Dependencies=comparison!=null ? ComparisonDependencies(comparison) :
+            Dependencies=task.Plan!=null ? StudyDependencies(task.Plan,active) :
+                comparison!=null ? ComparisonDependencies(comparison) :
                 parentId.HasValue ? [parentId.Value.ToString("N")] : []};
         if(finding.Evidence is not {} evidence || primaryDocument!=null && finding.Assessment.Sources.Any(c=>c.Id!=primaryDocument))
             return (task with {Authorization="no matching scoped record",Verification="answer withheld",
@@ -149,7 +165,10 @@ internal sealed class Engine(string profile) : IDisposable
     {
         bool recheck=route==ProjectQuestions.RecheckType;
         var comparison=recheck ? ReadComparison(task.ParentTaskId) : null;
-        bool validParent=recheck
+        bool validParent=task.Plan!=null
+            ? route==ProjectQuestions.ResearchType && task.Plan.IsValid() && task.Plan.Request==task.Request &&
+                task.ParentTaskId==null && task.Dependencies?.Length==task.Plan.SourceIds.Length+1
+            : recheck
             ? comparison!=null && task.Dependencies!=null && task.Dependencies.SequenceEqual(ComparisonDependencies(comparison))
             : code?.FollowUp==true
                 ? task.ParentTaskId is {} pid && task.Dependencies is [var dep] && dep==pid.ToString("N")
@@ -160,7 +179,9 @@ internal sealed class Engine(string profile) : IDisposable
             task.ResearchReview is not {Verdict:"supported",Sources:[var first,..]} prior || first!=task.Evidence)
             throw new InvalidDataException("Project evidence failed authorization.");
 
-        var active=documents.Sources();
+        var active=ReadProjectSources(task.Plan);
+        if(task.Plan!=null && !task.Dependencies.SequenceEqual(StudyDependencies(task.Plan,active)))
+            return StaleProjectAnswer(task,prior);
         bool Active(Citation c)=>active.Any(s=>s.Id==c.Id && s.Version==c.Version && s.Digest==c.Digest && s.Path==c.Span?.Path);
         if(prior.Sources.Any(c=>!Active(c))) {
             var claims=prior.Claims?.Select(c=>c.Sources.All(Active) ? c :
@@ -179,6 +200,14 @@ internal sealed class Engine(string profile) : IDisposable
         return (task with {ResearchReview=current.Assessment,SourceIntegrity="passed",AnswerRelevance="supported",
             Result=current.Answer,Verification="source and answer checked"}).At("completed");
     }
+
+    private IReadOnlyList<OwnedSource> ReadProjectSources(ResearchPlan? plan)=>
+        plan==null ? documents.Sources() : documents.Sources(plan.SourceIds.ToHashSet(StringComparer.Ordinal))
+            .Where(source=>source.Extension is ".txt" or ".md").ToArray();
+
+    private static string[] StudyDependencies(ResearchPlan plan,IReadOnlyList<OwnedSource> active)=>
+        [Convert.ToHexStringLower(SHA256.HashData(JsonSerializer.SerializeToUtf8Bytes(plan,Assets.Json))),
+            ..active.Select(source=>$"{source.Id}:{source.Version}:{source.Digest}")];
 
     private static Work StaleProjectAnswer(Work task,Assessment prior)
     {
