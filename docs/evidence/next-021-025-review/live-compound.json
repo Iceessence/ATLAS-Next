@@ -1,0 +1,232 @@
+﻿{
+  "schema": "atlas.shadow_compound_trace.v1",
+  "scope": "pycparser",
+  "steps_used": 6,
+  "qualification": "SHADOW",
+  "state": "COMPLETED_SHADOW",
+  "goals": [
+    {
+      "prior": null,
+      "primary_scheduling_score": 0.9998690753219684,
+      "receipt": {
+        "schema": "atlas.shadow_task_trace.v1",
+        "canonical_master_sha256": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b",
+        "sections_consulted": [
+          "CH-015",
+          "CH-074",
+          "CH-138",
+          "CH-163",
+          "CH-174",
+          "CH-175"
+        ],
+        "request": "Identify where pycparser defines CParser.parse; quote the declaration identifier.",
+        "request_sha256": "093540a464dc410c6b0659af2fd6dcdeb3c95d9154c159fdb28a120f49e9a67d",
+        "scope": "pycparser",
+        "model_origin": "ATLAS_ORIGINAL_SCRATCH",
+        "qualification": "SHADOW",
+        "team_sha256": "7e5e3e48962683e41310818abb5a406651081aba5551566dddfa407f3383e638",
+        "primary_sha256": "d8bfcc543cf7b2d803d3047277fa95956e589956d9a042a5c5e0b7769981111e",
+        "messages": [
+          {
+            "from_role": "Primary",
+            "to_role": "host",
+            "checkpoint_sha256": "d8bfcc543cf7b2d803d3047277fa95956e589956d9a042a5c5e0b7769981111e",
+            "proposal": "locate_definition",
+            "evidence_ids": [],
+            "score": 0.9998690753219684,
+            "remaining_read_steps": 2
+          },
+          {
+            "from_role": "Research",
+            "to_role": "host",
+            "checkpoint_sha256": "7e5e3e48962683e41310818abb5a406651081aba5551566dddfa407f3383e638",
+            "proposal": "source:1",
+            "evidence_ids": [
+              "pycparser-source-1"
+            ],
+            "score": 0.0009593022762253859,
+            "remaining_read_steps": 2
+          },
+          {
+            "from_role": "Engineering",
+            "to_role": "host",
+            "checkpoint_sha256": "7e5e3e48962683e41310818abb5a406651081aba5551566dddfa407f3383e638",
+            "proposal": "source:3",
+            "evidence_ids": [
+              "pycparser-source-3"
+            ],
+            "score": 0.9864178441595848,
+            "remaining_read_steps": 2
+          }
+        ],
+        "shadow": {
+          "state": "COMPLETED_SHADOW",
+          "reason": "exact scoped evidence verified",
+          "steps": [
+            {
+              "step": 1,
+              "depends_on": [],
+              "action": "SELECT_PROCEDURE",
+              "procedure": "locate_definition-v1"
+            },
+            {
+              "step": 2,
+              "depends_on": [
+                1
+              ],
+              "action": "READ",
+              "source_id": "pycparser-source-3",
+              "source_revision": 1,
+              "sha256": "af7664d8bb096eb93146cf9eee987d4f9a1017af359ab1b56bd9f0826cb4d8f6"
+            },
+            {
+              "step": 3,
+              "depends_on": [
+                2
+              ],
+              "action": "ASSERT_EVIDENCE",
+              "verified": true,
+              "outcome": "completed",
+              "cost": {
+                "engine_us": 57618,
+                "process_ms": 241.523,
+                "host_working_set": 47415296
+              }
+            }
+          ],
+          "evidence": {
+            "source_id": "pycparser-source-3",
+            "sha256": "af7664d8bb096eb93146cf9eee987d4f9a1017af359ab1b56bd9f0826cb4d8f6",
+            "span": {
+              "line": 1,
+              "start": 4,
+              "length": 5
+            },
+            "extracted": "parse"
+          },
+          "scope": "pycparser",
+          "external_inference_calls": 0,
+          "authority": "read-only shadow"
+        },
+        "authoritative_host": {
+          "state": "needs clarification",
+          "relevance": "unsupported",
+          "process_ms": 282.2089
+        },
+        "external_inference_calls": 0
+      }
+    },
+    {
+      "prior": "093540a464dc410c6b0659af2fd6dcdeb3c95d9154c159fdb28a120f49e9a67d",
+      "primary_scheduling_score": 0.9991953726399497,
+      "receipt": {
+        "schema": "atlas.shadow_task_trace.v1",
+        "canonical_master_sha256": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b",
+        "sections_consulted": [
+          "CH-015",
+          "CH-074",
+          "CH-138",
+          "CH-163",
+          "CH-174",
+          "CH-175"
+        ],
+        "request": "Show the evidence for this installation's published name (pycparser).",
+        "request_sha256": "6a6035c9425f9834b2a6bbed2f3e7cd780e715e361176c8f9c5e42236280728c",
+        "scope": "pycparser",
+        "model_origin": "ATLAS_ORIGINAL_SCRATCH",
+        "qualification": "SHADOW",
+        "team_sha256": "7e5e3e48962683e41310818abb5a406651081aba5551566dddfa407f3383e638",
+        "primary_sha256": "d8bfcc543cf7b2d803d3047277fa95956e589956d9a042a5c5e0b7769981111e",
+        "messages": [
+          {
+            "from_role": "Primary",
+            "to_role": "host",
+            "checkpoint_sha256": "d8bfcc543cf7b2d803d3047277fa95956e589956d9a042a5c5e0b7769981111e",
+            "proposal": "read_fact",
+            "evidence_ids": [],
+            "score": 0.9991953726399497,
+            "remaining_read_steps": 2
+          },
+          {
+            "from_role": "Research",
+            "to_role": "host",
+            "checkpoint_sha256": "7e5e3e48962683e41310818abb5a406651081aba5551566dddfa407f3383e638",
+            "proposal": "source:1",
+            "evidence_ids": [
+              "pycparser-source-1"
+            ],
+            "score": 0.6973452061861233,
+            "remaining_read_steps": 2
+          },
+          {
+            "from_role": "Engineering",
+            "to_role": "host",
+            "checkpoint_sha256": "7e5e3e48962683e41310818abb5a406651081aba5551566dddfa407f3383e638",
+            "proposal": "source:3",
+            "evidence_ids": [
+              "pycparser-source-3"
+            ],
+            "score": 0.0028540438902070545,
+            "remaining_read_steps": 2
+          }
+        ],
+        "shadow": {
+          "state": "COMPLETED_SHADOW",
+          "reason": "exact scoped evidence verified",
+          "steps": [
+            {
+              "step": 1,
+              "depends_on": [],
+              "action": "SELECT_PROCEDURE",
+              "procedure": "read_fact-v1"
+            },
+            {
+              "step": 2,
+              "depends_on": [
+                1
+              ],
+              "action": "READ",
+              "source_id": "pycparser-source-1",
+              "source_revision": 1,
+              "sha256": "a0889f55274cb2930c28758f518c963213ec2ff0b86e1b25aafd421efb2abfd7"
+            },
+            {
+              "step": 3,
+              "depends_on": [
+                2
+              ],
+              "action": "ASSERT_EVIDENCE",
+              "verified": true,
+              "outcome": "completed",
+              "cost": {
+                "engine_us": 110369.9,
+                "process_ms": 295.8968,
+                "host_working_set": 77070336
+              }
+            }
+          ],
+          "evidence": {
+            "source_id": "pycparser-source-1",
+            "sha256": "a0889f55274cb2930c28758f518c963213ec2ff0b86e1b25aafd421efb2abfd7",
+            "span": {
+              "line": 1,
+              "start": 16,
+              "length": 9
+            },
+            "extracted": "pycparser"
+          },
+          "scope": "pycparser",
+          "external_inference_calls": 0,
+          "authority": "read-only shadow"
+        },
+        "authoritative_host": {
+          "state": "needs clarification",
+          "relevance": "unsupported",
+          "process_ms": 282.695
+        },
+        "external_inference_calls": 0
+      }
+    }
+  ],
+  "external_inference_calls": 0
+}

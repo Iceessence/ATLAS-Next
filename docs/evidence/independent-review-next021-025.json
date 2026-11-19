@@ -1,0 +1,463 @@
+{
+  "schema": 1,
+  "review": "Master Plan v3.3 installation and native-original NEXT-021 through NEXT-025",
+  "reviewer": "Gemini Neon Orchestrator",
+  "reviewer_role": "Independent reviewer (Argon/Neon reciprocal review protocol)",
+  "product_author": "GPT-6.2 Sol",
+  "reviewed_at_utc": "2026-11-19T21:54:06Z",
+  "transfer_handoff": "525a4441bcd49feb75c5f65585c0ab7fe781f70f",
+  "preregistered_protocol": "ea2bac830121f310ab4d5292275a2e380732ea17",
+  "canonical_master_plan": {
+    "edition": "v3.3",
+    "documentation_commit": "f5f8f75a29ee02dc72da26dcc15a88fe14d42603",
+    "verdict": "ACCEPTED",
+    "note": "Documentation-only installation accepted; does not constitute product functionality acceptance.",
+    "canonical_sha256": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b",
+    "index_sha256": "11fae4762e3c84b14da9562c64cbcaafeabbb127ea295a9fd93d7dd98c38aa39",
+    "archive_zip_sha256": "cbc7a3b0b02e11eb1718f028c0e8dd2c93c2138a046c02942812d199309142d4",
+    "archive_zip_bytes": 13582041,
+    "verified_zip_members": 65,
+    "zip_testzip_errors": null,
+    "sha256sums_exact_match": true,
+    "originals_verified": 18,
+    "transcripts_verified": 18,
+    "previous_editions_verified": 3,
+    "v3_1_inner_zip_members": 53,
+    "v3_2_chapters_unchanged": "166/166",
+    "indexed_sections_verified": 301,
+    "chapters": 192,
+    "parts": 23,
+    "appendices": 23,
+    "sub_appendices": 8,
+    "canonical_lines": 3983,
+    "canonical_words": 73432,
+    "historical_requirement_ids": 50,
+    "v3_3_requirement_ids": 26,
+    "consulted_sections": [
+      "CH-015",
+      "CH-169",
+      "CH-172",
+      "CH-174",
+      "CH-175",
+      "CH-176",
+      "CH-182",
+      "CH-183",
+      "CH-184",
+      "CH-185",
+      "CH-186",
+      "CH-190",
+      "CH-192",
+      "APPENDIX-Q",
+      "APPENDIX-S",
+      "APPENDIX-V"
+    ],
+    "cold_startup_tests": "tools/check_master_plan.py PASS; lab/test_master_spec.py 2/2 PASS"
+  },
+  "prior_accepted_baseline": "6dbf726443e9afd3c527f99d4851440e1404f4bb",
+  "new_accepted_baseline": "cea141cf9cb0bc0c1d2918c97a60cc8aed903833",
+  "packaged_desktop_baseline_note": "Packaged Windows desktop baseline remains equivalent to NEXT-020 (6dbf726443e9afd3c527f99d4851440e1404f4bb) pending NEXT-023R/NEXT-024R repairs and integrated NEXT-025 promotion.",
+  "overall_integrated_verdict": "REPAIRS_REQUIRED",
+  "overall_rationale": "Master Plan v3.3 documentation-only installation (f5f8f75a) passes all SHA-256, index, requirements-trace, archive, and cold-startup checks (ACCEPTED). NEXT-021 (7adf742a) and NEXT-022 (cea141cf) pass independent clean-checkout verification, resolve NR-016-1 and NR-020-1, reproduce all 504 Foundry actions and the random-init 6,211-param text encoder byte-for-byte, and advance the independently accepted baseline to NEXT-022 (cea141cf). However, blocking defect NR-023-1 in NEXT-023 (atlas_planner.rank_policy) and NEXT-024 (atlas_team.route) silently drops Primary's 'withhold' prediction (observed score=0.9983 on live refusal phrasing outside disallowed()), causing both atlas_planner.py query --policy procedure and atlas_team.py query to execute READ and emit COMPLETED_SHADOW on an unsafe/refusal request while the authoritative host returned needs clarification. Per ATLAS review protocol, unaccepted NEXT-023/NEXT-024 block baseline promotion of downstream NEXT-025 (19f3f468, which passes in isolation) and the integrated batch.",
+  "per_update_verdicts": [
+    {
+      "id": "NEXT-021",
+      "product": "7adf742aedc15997a8e81fc40240e64412a7fe59",
+      "author_evidence": "e8dcc83ce17c72f307d0c6a160d674afee2e1787",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "291/291",
+      "clean_python_checks": "6/6 test_foundry.py; 7/7 test_native_data.py; 3/3 test_native_review.py",
+      "measured_actions": 504,
+      "families": 14,
+      "observed_tasks": 56,
+      "authored_controls": 28,
+      "foundry_manifest_sha256": "ccc36ca7182874bb00423f9a90b5096761237d9145d0452fe38a81ba35248635",
+      "exact_manifest_match": true,
+      "partition_sha256": {
+        "train": "e8b260ad550bcde8650df69bf88595dc7d2aa6f4e7edc7a76989c635cb400f24",
+        "validation": "bcf7dc184f6697277848c20a4c46b29be5c568f7dd5d0cf971e5e6e2f63e4766",
+        "evaluation": "3c85048116c7cb2bd42288e1838b6348739382b4ba7826cec1384823b464f4ce",
+        "acquisition": "532cbb5c33698570f7c94a038a98e7a2652f18b4163a7b7e00c4aa75427ba7b5"
+      },
+      "knowledge_sha256": "53dbbb0f297748f9490e84f3e5fa138ffda326ab3486ca85c44994d365390682",
+      "prior_hygiene_resolved": {
+        "NR-016-1": "verified resolved in native_data.validate_cases() and foundry.intake() via family_key()",
+        "NR-020-1": "verified resolved via native_review.py --master / --master-sha (external report sha256 b2fac6108e9f4a9a65ef982fb12663c2256e3daf9caa6f70dc8ab26f8c8e181b, 4/4 useful, 0 wrong; unpaired & bad-sha rejected)"
+      },
+      "non_blocking_hygiene": "NR-021-1",
+      "notes": "Reproduces all 504 Foundry host actions and knowledge index byte-for-byte with 0 quarantined rows and strong forged-receipt/stale-source/revocation gates. Resolves NR-016-1 and NR-020-1."
+    },
+    {
+      "id": "NEXT-022",
+      "product": "cea141cf9cb0bc0c1d2918c97a60cc8aed903833",
+      "author_evidence": "c8849b7acc00c3f1d572cceb4d7a7d973638a3a6",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "291/291",
+      "clean_python_checks": "3/3 test_atlas_language.py",
+      "checkpoint_sha256": "d8bfcc543cf7b2d803d3047277fa95956e589956d9a042a5c5e0b7769981111e",
+      "checkpoint_bytes": 494787,
+      "exact_byte_match": true,
+      "parameters": {
+        "native": 6211,
+        "linear": 1155,
+        "vocab": 384,
+        "seed": 37,
+        "adam_steps": 400
+      },
+      "public_evaluation_useful": {
+        "host_raw": "8/24 (0 completed, 8 withholds, 16 false abstentions, 0 wrong)",
+        "exact_typed": "24/24 (16 completed, 8 withholds, 0 wrong)",
+        "tfidf": "24/24 (16 completed, 8 withholds, 20 intent matches, 0 wrong)",
+        "linear": "24/24 (16 completed, 8 withholds, 24 intent matches, 0 wrong)",
+        "previous_original": "12/24 (4 completed, 8 withholds, 11 intent matches, 0 wrong)",
+        "native": "24/24 (16 completed, 8 withholds, 24 intent matches, 0 wrong; 11/12 validation)"
+      },
+      "protected_evaluation_aggregate": {
+        "total": 24,
+        "native": "19/24 useful (11 completed, 8 withholds, 3 false abstentions, 2 wrong shadow proposals, raw intent 19/24, Brier 0.4168)",
+        "linear": "19/24 useful (11 completed, 8 withholds, 3 false abstentions, 2 wrong shadow proposals, raw intent 18/24, Brier 0.4108)",
+        "exact_typed": "17/24 useful (11 completed, 6 withholds, 3 false abstentions, 4 wrong shadow proposals)",
+        "tfidf": "16/24 useful (9 completed, 7 withholds, 5 false abstentions, 3 wrong shadow proposals, raw intent 15/24)",
+        "previous_original": "14/24 useful (6 completed, 8 withholds, 8 false abstentions, 2 wrong shadow proposals, raw intent 11/24)",
+        "host_raw": "10/24 useful (0 completed, 10 withholds, 14 false abstentions, 0 authoritative wrong)"
+      },
+      "non_blocking_hygiene": "NR-022-1",
+      "notes": "Reproduces exact 6,211-param random-init checkpoint, seed-37 initialization digest, Adam moments, and non-timing reports with 0 external inference calls. Caught 2/4 hard protected refusals missed by exact_typed regex, but tied linear end-to-end (19/24) and produced 2 wrong shadow proposals on ungrounded refusal phrasings. Strictly shadow-only."
+    },
+    {
+      "id": "NEXT-023",
+      "product": "076627316c72fc51fbae087aea9cdffcc7c19fad",
+      "author_evidence": "4573386bdaf42d09099ecd338158d7b6bcf9c936",
+      "verdict": "REPAIRS_REQUIRED",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "291/291",
+      "clean_python_checks": "3/3 test_atlas_planner.py",
+      "checkpoint_sha256": "1834e999a7ab5268b98ffe7db4d6ab18d9327cb5ce584b62deefe4205d9a9f91",
+      "checkpoint_bytes": 11417,
+      "exact_byte_match": true,
+      "parameters": 61,
+      "public_evaluation_useful": {
+        "fixed": "16/24 (8 completed, 28 reads, 4 recoveries)",
+        "lexical": "24/24 (16 completed, 16 reads, 0 recoveries)",
+        "learned": "24/24 (16 completed, 16 reads, 0 recoveries)",
+        "procedure": "24/24 (16 completed, 16 reads, 0 recoveries)"
+      },
+      "live_queries_reproduced": "procedure=3 steps (COMPLETED_SHADOW, 'pycparser'), fixed=5 steps with 1 failed check recovery (COMPLETED_SHADOW, 'pycparser')",
+      "blocking_findings": [
+        "NR-023-1"
+      ],
+      "notes": "Reproduces exact 61-param planner checkpoint, non-timing evaluation report, budget/replan bounds, and live traces. However, rank_policy() calls infer(language, question) when policy=='procedure' and looks up knowledge['procedures'].get(mode); when Primary predicts 'withhold', card is None and rank_policy silently falls through to read candidates, causing atlas_planner.py query --policy procedure on live refusal phrasing outside disallowed() to execute READ and emit COMPLETED_SHADOW while original_host returned needs clarification."
+    },
+    {
+      "id": "NEXT-024",
+      "product": "eea0c32b8b0bea5496016bc53098eb6289618d47",
+      "author_evidence": "8d02cb894de7bf5b089e69a6c16c354b02723a94",
+      "verdict": "REPAIRS_REQUIRED",
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "291/291",
+      "clean_python_checks": "3/3 test_atlas_team.py",
+      "checkpoint_sha256": "7e5e3e48962683e41310818abb5a406651081aba5551566dddfa407f3383e638",
+      "checkpoint_bytes": 12898,
+      "exact_byte_match": true,
+      "distinct_role_heads": {
+        "Primary": "reused 6,211-param text checkpoint (d8bfcc54...)",
+        "Research": "61 params, seed 11, 108 factual actions (18 positives)",
+        "Engineering": "61 params, seed 73, 36 declaration actions (6 positives)"
+      },
+      "live_compound_reproduced": "6 steps, state=COMPLETED_SHADOW, goals=['parse', 'pycparser'], external_inference_calls=0",
+      "public_ablations": "Full team (24/24, 16 completed, 16 reads, changed_first_actions=0, paired_net_gain_vs_lexical=0) tied lexical, incumbent planner, Primary+Research, and Research+Engineering",
+      "protected_ablations": "Full team (21/24, 11 completed, 21 reads) tied lexical, incumbent planner, Primary+Research, and Research+Engineering; single roles Research=17/24, Engineering=16/24, Primary=19/24",
+      "blocking_findings": [
+        "NR-023-1"
+      ],
+      "dependencies_unaccepted": [
+        "NEXT-023"
+      ],
+      "notes": "Reproduces distinct role checkpoints, multi-.py Engineering discrimination, live 6-step compound trace, and public/protected 11-arm ablations. Blocked both by upstream NEXT-023 dependency and directly by NR-023-1 in atlas_team.route(), which logs Primary's 'withhold' message (score 0.9983) on live refusal phrasing outside disallowed() yet returns an active candidate order instead of withholding, causing atlas_team.py query to READ and emit COMPLETED_SHADOW (and wasting 2 reads each on protected refusal cases that Primary already classified as 'withhold')."
+    },
+    {
+      "id": "NEXT-025",
+      "product": "19f3f468b404d7642a2370a9eb19e6e5b2f4aff8",
+      "author_evidence": "78d4e0ea52b861e7f6afc4a06123ba4bd9c53129",
+      "verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "isolated_verdict": "ACCEPTED_WITH_LIMITATIONS",
+      "promotion_blocked_by": [
+        "NEXT-023",
+        "NEXT-024"
+      ],
+      "clean_build": "0W/0E",
+      "clean_windows_checks": "292/292",
+      "clean_python_checks": "53/53 unittest discover (30.008 s)",
+      "refit_candidate_sha256": "3c75904e75e4c7774fa4260642c55092a44a5756bbc54353f2123e74e3414a2b",
+      "refit_candidate_bytes": 497487,
+      "refit_exact_byte_match": true,
+      "public_refit_disposition": "rejected (12/12 validation vs 11/12, 24/24 public evaluation with 0 gains and worse multiclass Brier 0.040365 vs 0.000231; incumbent d8bfcc54... unchanged)",
+      "protected_refit_disposition": "confirmed non-improving (19/24 useful vs 19/24 incumbent native and linear, 0 gains, 0 regressions, 2 wrong shadow proposals, raw Brier 0.4245 vs 0.4168)",
+      "packaged_offline_wpf": "4/4 PASS (shipped + rebuilt PS 5.1 and PS 7.6.9, 522 inventory hashes, 28 Roslyn, lab=0, shadow)",
+      "non_blocking_hygiene": "NR-025-1",
+      "notes": "Passes in isolation: reproduces exact rejected refit bytes, enforces external custody checks via lab/atlas_language_review.py, pins assets/experiments/next-025.json (09d865ad..., 1-byte tamper fails closed), passes all 292 Windows checks, 53/53 Python tests, prior regressions, and 4/4 WPF package runs. Baseline promotion remains blocked until NEXT-023R/NEXT-024R resolve NR-023-1."
+    }
+  ],
+  "prior_public_regressions": {
+    "product": "19f3f468b404d7642a2370a9eb19e6e5b2f4aff8",
+    "outcomes_py": "31/31 PASS",
+    "project_audit_py": "10/10 audits reproduced",
+    "evaluate_py": "rule 48/72, exemplar 42/72, native 54/72, linear 54/72",
+    "project_specialist_py": "host 16/16, tfidf 16/16, linear 14/16, native 15/16 (0 wrong)",
+    "code_navigation_py_host": "8/8 conversations (12 exact, 4 abstentions, 0 wrong, 235.84 ms)",
+    "code_depth_py_host": "13/13 conversations (14 exact, 12 withholds, 0 wrong)",
+    "project_work_host_py": "17/17 host vs 7/17 search (+2 wrong search)",
+    "code_conversation_host_py": "12/14 host (18 exact, 5 withholds, 2 abstentions, 0 wrong) vs 9/14 search (+3 wrong search)",
+    "research_recheck_host_py": "7/7 PASS (0 wrong, 0 false abstentions, 22.97 ms first / 20.60 ms warm)",
+    "model_lab_fit_gate": "exit 2 (blocked: newlyEligibleTrainingRows=0, publicConversationRows=6)",
+    "native_data_measure": "360 actions and all 4 historic SHA-256s reproduced (train 43301407..., validation f2ded1a2..., evaluation cacc952f..., acquisition 0126e187...)"
+  },
+  "windows_packages": {
+    "summary_log": "next-021-025-review/package-summary.json",
+    "shipped_ps51": {
+      "result": "PASS",
+      "bytes": 95203011,
+      "sha256": "dfd1befb7e23c7626e19d1bab378b76ffeda805775c00ba56927fe405c876162",
+      "inventory_entries": 522,
+      "roslyn_files": 28,
+      "lab_files": 0,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "next025_asset_sha256": "09d865ad525243cbba42fc0c9e8a6cd802f7c8cf88e9e45ae0cc1e1145286541",
+      "log": "next-021-025-review/pkg-shipped-ps51.txt"
+    },
+    "shipped_ps7": {
+      "result": "PASS",
+      "bytes": 112864343,
+      "sha256": "e2ab592ad454af4e92150932b28f95893d304234488d3aef2f0b346bc0d0aa13",
+      "inventory_entries": 522,
+      "roslyn_files": 28,
+      "lab_files": 0,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "next025_asset_sha256": "09d865ad525243cbba42fc0c9e8a6cd802f7c8cf88e9e45ae0cc1e1145286541",
+      "log": "next-021-025-review/pkg-shipped-ps7.txt"
+    },
+    "rebuilt_ps51": {
+      "result": "PASS",
+      "bytes": 95203024,
+      "sha256": "7a9aab534757ddb325eaee25a176c13545a0a4a09d40bc86ad9501475cc63bec",
+      "inventory_entries": 522,
+      "roslyn_files": 28,
+      "lab_files": 0,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "next025_asset_sha256": "09d865ad525243cbba42fc0c9e8a6cd802f7c8cf88e9e45ae0cc1e1145286541",
+      "log": "next-021-025-review/pkg-rebuilt-ps51-verify.txt"
+    },
+    "rebuilt_ps7": {
+      "result": "PASS",
+      "bytes": 112864403,
+      "sha256": "c3e6c9c8564a8abd717b5e2ed60e4b79465d64dac5b750296984ab2d9b7c140a",
+      "inventory_entries": 522,
+      "roslyn_files": 28,
+      "lab_files": 0,
+      "native_json_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+      "next025_asset_sha256": "09d865ad525243cbba42fc0c9e8a6cd802f7c8cf88e9e45ae0cc1e1145286541",
+      "log": "next-021-025-review/pkg-rebuilt-ps7-verify.txt"
+    },
+    "leftover_atlasnext_processes": 0
+  },
+  "protected_evaluator_summary": {
+    "private_custody": "All protected manifests, unfamiliar family names, questions, source fixtures, and raw JSON reports remained strictly outside Git in temporary storage and were removed after scoring.",
+    "next025_mixed_suite": {
+      "cases": 24,
+      "unfamiliar_families": 6,
+      "strata": {
+        "A_md_in_scope": 8,
+        "B_py_in_scope": 4,
+        "C_std_negative": 6,
+        "D_hard_negative": 4,
+        "D_hard_positive": 2
+      },
+      "suite_sha256": "5373a431b841653d5466d4e72082aaae20a37048f75f5c4e350071605aecdf13",
+      "report_sha256": "eae131e19a23b6252a6ef771115d501ad1e6e203aa75c93bc69b38008f6a937d",
+      "incumbent_022_grounded": {
+        "native": {
+          "useful": 19,
+          "completed": 11,
+          "withholds": 8,
+          "false_abstentions": 3,
+          "wrong_shadow_proposals": 2
+        },
+        "linear": {
+          "useful": 19,
+          "completed": 11,
+          "withholds": 8,
+          "false_abstentions": 3,
+          "wrong_shadow_proposals": 2
+        },
+        "exact_typed": {
+          "useful": 17,
+          "completed": 11,
+          "withholds": 6,
+          "false_abstentions": 3,
+          "wrong_shadow_proposals": 4
+        },
+        "tfidf": {
+          "useful": 16,
+          "completed": 9,
+          "withholds": 7,
+          "false_abstentions": 5,
+          "wrong_shadow_proposals": 3
+        },
+        "previous_original": {
+          "useful": 14,
+          "completed": 6,
+          "withholds": 8,
+          "false_abstentions": 8,
+          "wrong_shadow_proposals": 2
+        },
+        "host_raw": {
+          "useful": 10,
+          "completed": 0,
+          "withholds": 10,
+          "false_abstentions": 14,
+          "wrong_authoritative_deliveries": 0
+        }
+      },
+      "refit_025_grounded": {
+        "native": {
+          "useful": 19,
+          "completed": 11,
+          "withholds": 8,
+          "false_abstentions": 3,
+          "wrong_shadow_proposals": 2
+        },
+        "linear": {
+          "useful": 19,
+          "completed": 11,
+          "withholds": 8,
+          "false_abstentions": 3,
+          "wrong_shadow_proposals": 2
+        }
+      },
+      "raw_model_only_intent": {
+        "incumbent_022_native": {
+          "intent_matches": "19/24",
+          "brier": 0.4168
+        },
+        "incumbent_022_linear": {
+          "intent_matches": "18/24",
+          "brier": 0.4108
+        },
+        "incumbent_022_tfidf": {
+          "intent_matches": "15/24"
+        },
+        "incumbent_022_previous_original": {
+          "intent_matches": "11/24"
+        },
+        "refit_025_native": {
+          "intent_matches": "19/24",
+          "brier": 0.4245
+        },
+        "refit_025_linear": {
+          "intent_matches": "19/24",
+          "brier": 0.3356
+        }
+      },
+      "master_ablations_11_arms": {
+        "host_raw": "10/24 useful (0 completed, 0 wrong, 0 reads, 0 recoveries)",
+        "fixed": "15/24 useful (5 completed, 0 wrong, 30 reads, 3 recoveries)",
+        "lexical": "21/24 useful (11 completed, 0 wrong, 21 reads, 0 recoveries)",
+        "incumbent_planner": "21/24 useful (11 completed, 0 wrong, 21 reads, 0 recoveries)",
+        "Primary": "19/24 useful (9 completed, 0 wrong, 26 reads, 3 recoveries)",
+        "Research": "17/24 useful (7 completed, 0 wrong, 25 reads, 0 recoveries)",
+        "Engineering": "16/24 useful (6 completed, 0 wrong, 28 reads, 2 recoveries)",
+        "Primary+Research": "21/24 useful (11 completed, 0 wrong, 21 reads, 0 recoveries)",
+        "Primary+Engineering": "19/24 useful (9 completed, 0 wrong, 26 reads, 3 recoveries)",
+        "Research+Engineering": "21/24 useful (11 completed, 0 wrong, 21 reads, 0 recoveries)",
+        "Primary+Research+Engineering": "21/24 useful (11 completed, 0 wrong, 21 reads, 0 recoveries)"
+      }
+    },
+    "nr020_master_suite": {
+      "cases": 4,
+      "unfamiliar_families": 2,
+      "extensions": ".md",
+      "report_sha256": "b2fac6108e9f4a9a65ef982fb12663c2256e3daf9caa6f70dc8ab26f8c8e181b",
+      "confidence_gate": "4/4 useful (0 wrong)",
+      "linear_gate": "4/4 useful (0 wrong)",
+      "original_master": "4/4 useful (0 wrong)"
+    }
+  },
+  "adversarial_probes": {
+    "passed": 36,
+    "total": 36,
+    "desktop_asset_pin_tamper_failed_closed": true,
+    "note": "Covers NR-016-1 separator aliases, NR-020-1 --master/--master-sha & unpaired/bad-sha rejections, Foundry forged eligible_for_training/action_proposed/grant/revision/protected_eval/source-digest overlap, seed-37 initialization hash, Language/Planner/Team checkpoint tamper rejections, step/wall/bool-index/duplicate-index/unsafe-procedure bounds, multi-.py Engineering discrimination, external custody path/extension/key-injection/wrong-SHA rejections, Refit decide() regression/wrong-delivery rejection, and ModelEvidenceWindow next-025.json tamper fail-closed."
+  },
+  "consolidated_repair_register": [
+    {
+      "id": "NR-023-1",
+      "severity": "high",
+      "blocking": true,
+      "affects": [
+        "NEXT-023",
+        "NEXT-024"
+      ],
+      "location": "lab/atlas_planner.py (rank_policy, plan) and lab/atlas_team.py (route, evaluate, live_team)",
+      "finding": "When Primary (atlas_language.infer) predicts 'withhold', atlas_planner.rank_policy('procedure') looks up knowledge['procedures'].get('withhold') -> None and falls through with the source candidate list, and atlas_team.route() logs Primary's 'withhold' message while still returning an active read order without propagating a withhold verdict to plan(). Reproduced live against installed public family 'pycparser': Primary predicted 'withhold' (p=0.9983), yet both atlas_planner.py query --policy procedure and atlas_team.py query executed READ and emitted COMPLETED_SHADOW ('3.12') while original_host / authoritative_host returned 'needs clarification'. Also observed in the protected suite where Primary classified 2/4 hard refusal cases as 'withhold' yet atlas_team still wasted 2 READ attempts per task before disallowing at plan().",
+      "recommendation": "Propagate Primary's explicit 'withhold' intent (or fail-closed veto signal) out of rank_policy('procedure') and atlas_team.route() so neither planner nor team attempts READ when Primary predicts 'withhold' or when request grounding fails.",
+      "dependencies": "Blocks acceptance of NEXT-023R, NEXT-024R, and downstream promotion of integrated NEXT-025."
+    },
+    {
+      "id": "NR-022-1",
+      "severity": "medium",
+      "blocking": false,
+      "affects": [
+        "NEXT-022",
+        "NEXT-025"
+      ],
+      "location": "lab/atlas_language.py (disallowed lines 174-178; host built-in precedence in atlas_language_review)",
+      "finding": "disallowed() relies on a closed English regex list ('if|unless|not|never|no|instead|skip|omit|change|rebuild|build|install|execute|run|don't') and exact_typed missed all 4 hard protected refusal verbs outside that list (4 wrong shadow proposals; incumbent native and linear missed 2/4 = 2 wrong shadow proposals). In addition, deterministic host built-in catalog keys (e.g. 'export format') preempt an imported .md key of the same name when evaluated under host observation, yielding 1 protected false abstention alongside benign literal/collision sensitivity.",
+      "recommendation": "Broaden adversarial refusal/mutation coverage in the next language & grounding batch without keyword overfitting, and explicitly exclude or disambiguate built-in handbook key collisions in project-scoped reads."
+    },
+    {
+      "id": "NR-021-1",
+      "severity": "low",
+      "blocking": false,
+      "affects": [
+        "NEXT-021",
+        "NEXT-023",
+        "NEXT-024"
+      ],
+      "location": "lab/foundry_sources.py (typed_request lines 143-148)",
+      "finding": "typed_request('locate_definition', key) strips class qualifiers using key.split('.')[-1] ('Where is parse defined?'). Adversarial probe on a two-class Python file defining Alpha.parse and Beta.parse confirmed the host correctly withholds as 'ambiguous', so single-class Foundry sources work today, but multi-class overloaded Python definitions would fail if typed_request drops the owner qualifier.",
+      "recommendation": "Preserve qualified symbol syntax ('Where is Alpha.parse defined?') in typed_request when a dot qualifier is present."
+    },
+    {
+      "id": "NR-025-1",
+      "severity": "low",
+      "blocking": false,
+      "affects": [
+        "NEXT-025"
+      ],
+      "location": "lab/atlas_refit.py (line 77 weakness trigger)",
+      "finding": "atlas_refit.py line 77 compares diag['useful'] > control['useful'] rather than >=, though the current validation trigger works as designed because incumbent native scored 11/12 vs 12/12 exact_typed. On protected evaluation, NEXT-025 refit remained strictly non-improving (19/24 useful, 0 gains, 0 regressions, 2 wrong shadow proposals, worse multiclass Brier 0.4245 vs 0.4168), independently validating Sol's refit rejection.",
+      "recommendation": "Track future intervention triggers using held-out calibration + protected gap diagnostics beyond validation parity."
+    }
+  ],
+  "resolved_from_prior_review": [
+    "NR-016-1",
+    "NR-020-1"
+  ],
+  "core_utility_assessment": "Without pretrained inference, ATLAS's original scratch-trained weights correctly classified 24/24 public evaluation intents and caught 2/4 hard protected refusal phrasings missed by the exact_typed regex (bringing protected shadow usefulness from 17/24 for exact_typed and 14/24 for previous_original to 19/24 for native, 0 authoritative host errors). However, the 6,211-parameter native encoder merely tied the 1,155-parameter linear classifier (19/24 protected, 24/24 public), the NEXT-023/NEXT-024 planner and three-Master team exactly tied deterministic lexical ordering (24/24 public, 21/24 protected) with zero net utility gain, NEXT-025's refit was honestly rejected (and confirmed non-improving at 19/24 protected with worse Brier 0.4245 vs 0.4168), and NR-023-1 prevents accepting the NEXT-023/024 routing layers until Primary's withhold verdict is respected.",
+  "guardrails": {
+    "native_models_shadow_only": true,
+    "host_execution_disabled": true,
+    "host_capability": "read owner-imported text",
+    "external_inference_calls": 0,
+    "evaluator_custody_outside_git": true,
+    "legacy_atlas_head_untouched": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "git_push_performed": false
+  },
+  "next_assignment": {
+    "accepted_baseline_established": "cea141cf9cb0bc0c1d2918c97a60cc8aed903833",
+    "packaged_desktop_baseline": "6dbf726443e9afd3c527f99d4851440e1404f4bb",
+    "next_writer": "GPT-6.2 Sol Extra High",
+    "task": "Fix blocking NR-023-1 in NEXT-023R and NEXT-024R (propagate Primary 'withhold' veto in rank_policy/atlas_team.route and block READ execution on withhold), optionally address NR-022-1 / NR-021-1, re-verify integrated NEXT-025, clean Release/Windows/Python checks, live traces, and sequential PS 5.1 & PS 7.6.9 WPF packages, and then provisionally advance into the next five-update native-intelligence batch focused on surpassing deterministic/linear baselines on harder paraphrased/ambiguous tasks."
+  }
+}

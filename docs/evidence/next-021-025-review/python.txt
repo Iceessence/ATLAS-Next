@@ -1,0 +1,94 @@
+﻿python.exe : test_fit_cannot_take_evaluation_roles 
+(test_atlas_language.LanguageChecks.test_fit_cannot_take_evaluation_roles) ... ok
+At line:51 char:21
++ ...     $pOut = & $py -B -m unittest discover -s lab -p "test_*.py" -v 2> ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_fit_cannot...n_roles) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_literal_reference_limits_and_negation 
+(test_atlas_language.LanguageChecks.test_literal_reference_limits_and_negation) ... ok
+test_reproducible_original_weights_and_optimizer 
+(test_atlas_language.LanguageChecks.test_reproducible_original_weights_and_optimizer) ... ok
+test_scoped_replan_recovers_after_inappropriate_source 
+(test_atlas_planner.PlannerTests.test_scoped_replan_recovers_after_inappropriate_source) ... ok
+test_stale_source_and_bad_candidate_do_not_read 
+(test_atlas_planner.PlannerTests.test_stale_source_and_bad_candidate_do_not_read) ... ok
+test_wall_budget_reaches_host_and_prevents_second_attempt 
+(test_atlas_planner.PlannerTests.test_wall_budget_reaches_host_and_prevents_second_attempt) ... ok
+test_paired_outcome_regression_and_bounded_identity 
+(test_atlas_refit.RefitReviewChecks.test_paired_outcome_regression_and_bounded_identity) ... ok
+test_separate_path_custody_and_mixed_extensions 
+(test_atlas_refit.RefitReviewChecks.test_separate_path_custody_and_mixed_extensions) ... ok
+test_cannot_compose_two_factual_goals (test_atlas_team.MasterRoleChecks.test_cannot_compose_two_factual_goals) ... ok
+test_composition_budgets_and_connects_independent_goals 
+(test_atlas_team.MasterRoleChecks.test_composition_budgets_and_connects_independent_goals) ... ok
+test_disagreement_requests_independent_review 
+(test_atlas_team.MasterRoleChecks.test_disagreement_requests_independent_review) ... ok
+test_duplicate_or_unenrolled_task_is_preserved 
+(test_foundry.FoundryChecks.test_duplicate_or_unenrolled_task_is_preserved) ... ok
+test_lexical_overlap (test_foundry.FoundryChecks.test_lexical_overlap) ... ok
+test_poisoned_and_missing_source (test_foundry.FoundryChecks.test_poisoned_and_missing_source) ... ok
+test_revocation_and_unknown_fields (test_foundry.FoundryChecks.test_revocation_and_unknown_fields) ... ok
+test_unearned_label_and_negative (test_foundry.FoundryChecks.test_unearned_label_and_negative) ... ok
+test_verified_receipt_and_swapped_request (test_foundry.FoundryChecks.test_verified_receipt_and_swapped_request) ... ok
+test_blind_comparison_refuses_public_or_existing_destinations 
+(test_integrity.Integrity.test_blind_comparison_refuses_public_or_existing_destinations) ... ok
+test_checkpoint_and_lineage (test_integrity.Integrity.test_checkpoint_and_lineage) ... ok
+test_claim_key_features_respect_import_syntax (test_integrity.Integrity.test_claim_key_features_respect_import_syntax) 
+... ok
+test_code_baseline_keeps_multiline_oracle_independent 
+(test_integrity.Integrity.test_code_baseline_keeps_multiline_oracle_independent) ... ok
+test_conversational_coding_comparator_and_generic_oracle 
+(test_integrity.Integrity.test_conversational_coding_comparator_and_generic_oracle) ... ok
+test_correct_text_with_wrong_span_or_verdict_fails_outcome 
+(test_integrity.Integrity.test_correct_text_with_wrong_span_or_verdict_fails_outcome) ... ok
+test_ledger_rejects_mismatched_and_swapped_requests_with_matching_report_hash 
+(test_integrity.Integrity.test_ledger_rejects_mismatched_and_swapped_requests_with_matching_report_hash) ... ok
+test_outcome_suite_provenance_and_digest (test_integrity.Integrity.test_outcome_suite_provenance_and_digest) ... ok
+test_project_measurement_and_family_boundaries 
+(test_integrity.Integrity.test_project_measurement_and_family_boundaries) ... ok
+test_project_model_is_lab_only (test_integrity.Integrity.test_project_model_is_lab_only) ... ok
+test_python_header_grammar_against_cpython_oracle 
+(test_integrity.Integrity.test_python_header_grammar_against_cpython_oracle) ... ok
+test_qualified_comparator_pins_scope_and_overloads 
+(test_integrity.Integrity.test_qualified_comparator_pins_scope_and_overloads) ... ok
+test_split_identity (test_integrity.Integrity.test_split_identity) ... ok
+test_unsupported_provenance_is_rejected (test_integrity.Integrity.test_unsupported_provenance_is_rejected) ... ok
+test_changed_bytes_or_missing_navigation_refused 
+(test_master_spec.MasterContractTests.test_changed_bytes_or_missing_navigation_refused) ... ok
+test_pinned_edition_and_navigation (test_master_spec.MasterContractTests.test_pinned_edition_and_navigation) ... ok
+test_conversation_labels_never_enrolled (test_model_lab.TestEligibility.test_conversation_labels_never_enrolled) ... ok
+test_distinct_and_pinned_split_shape (test_model_lab.TestEligibility.test_distinct_and_pinned_split_shape) ... ok
+test_synthetic_rows_refused (test_model_lab.TestEligibility.test_synthetic_rows_refused) ... ok
+test_author_inventory (test_native_data.EligibilityChecks.test_author_inventory) ... ok
+test_cross_project_source_duplicate_rejected 
+(test_native_data.EligibilityChecks.test_cross_project_source_duplicate_rejected) ... ok
+test_failed_capture_never_publishes_partial_data 
+(test_native_data.EligibilityChecks.test_failed_capture_never_publishes_partial_data) ... ok
+test_family_overlap (test_native_data.EligibilityChecks.test_family_overlap) ... ok
+test_family_separator_alias_does_not_cross_partitions 
+(test_native_data.EligibilityChecks.test_family_separator_alias_does_not_cross_partitions) ... ok
+test_prompt_duplicate_and_fixture_rejected 
+(test_native_data.EligibilityChecks.test_prompt_duplicate_and_fixture_rejected) ... ok
+test_request_and_restriction_binding (test_native_data.EligibilityChecks.test_request_and_restriction_binding) ... ok
+test_family_never_in_own_training_fold (test_native_master.MasterChecks.test_family_never_in_own_training_fold) ... ok
+test_low_master_score_routes_to_host (test_native_master.MasterChecks.test_low_master_score_routes_to_host) ... ok
+test_rank_preserves_abstention (test_native_models.LearningChecks.test_rank_preserves_abstention) ... ok
+test_reject_unobserved_class_and_roles (test_native_models.LearningChecks.test_reject_unobserved_class_and_roles) ... 
+ok
+test_seeded_weights_optimizer_and_replay (test_native_models.LearningChecks.test_seeded_weights_optimizer_and_replay) 
+... ok
+test_custody_rejects_family_prompt_and_source_leaks 
+(test_native_review.ReviewChecks.test_custody_rejects_family_prompt_and_source_leaks) ... ok
+test_evaluator_custody_excludes_checkout (test_native_review.ReviewChecks.test_evaluator_custody_excludes_checkout) 
+... ok
+test_rejects_lost_completion_and_wrong_delivery 
+(test_native_review.ReviewChecks.test_rejects_lost_completion_and_wrong_delivery) ... ok
+test_only_explicit_bounded_sources (test_native_task.NativeTaskChecks.test_only_explicit_bounded_sources) ... ok
+test_verified_delivery_and_conflict (test_native_task.NativeTaskChecks.test_verified_delivery_and_conflict) ... ok
+
+----------------------------------------------------------------------
+Ran 53 tests in 30.008s
+
+OK

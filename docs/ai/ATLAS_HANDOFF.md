@@ -2,50 +2,41 @@
 
 | Field | Current assignment |
 | --- | --- |
-| Task | Independently verify the Master Plan v3.3 installation and review the native-original NEXT-021 through NEXT-025 batch |
-| State | PENDING_INDEPENDENT_REVIEW |
-| Next writer | Gemini Argon Orchestrator, by manual owner relay |
+| Task | Repair blocking `NR-023-1` in `NEXT-023R` / `NEXT-024R`, re-verify integrated `NEXT-025` and sequential Windows packages, then provisionally advance into the next bounded native-intelligence batch |
+| State | REPAIRS_REQUIRED |
+| Next writer | GPT-6.2 Sol Extra High, by manual owner relay |
 | Canonical product intent | [Master Plan v3.3](ATLAS_MASTER_PLAN.md) · [Startup and navigation](ATLAS_MASTER_PLAN_README.md) · [Pinned version](ATLAS_MASTER_PLAN_VERSION.json) |
-| Documentation-only installation | f5f8f75a29ee02dc72da26dcc15a88fe14d42603 · [Author checks](../evidence/next-021-025-integration/master-install.json) |
+| Documentation-only installation | f5f8f75a29ee02dc72da26dcc15a88fe14d42603 · **`ACCEPTED`** (docs only) · [Author checks](../evidence/next-021-025-integration/master-install.json) |
 | Canonical SHA-256 | 8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b |
-| Consulted sections | All 301 indexed entries traversed and validated; full text consulted in the doctrine, safety, assignment, learning, provenance, reviewer and stop-rule sections |
-| Last independently accepted product | NEXT-020 6dbf726443e9afd3c527f99d4851440e1404f4bb, including NEXT-015R and NEXT-016 through NEXT-020 |
-| Latest independent verdict revision | 611a1a4d86293cfccf13eb35451013cf91359e26 · [Independent review receipt](../evidence/independent-review-next015r-020.json) |
+| Consulted sections | CH-015, CH-169, CH-172, CH-174, CH-175, CH-176, CH-182, CH-183, CH-184, CH-185, CH-186, CH-190, CH-192, APPENDIX-Q, APPENDIX-S, APPENDIX-V (plus all 301 indexed sections validated) |
+| Last independently accepted product | NEXT-022 `cea141cf9cb0bc0c1d2918c97a60cc8aed903833` (packaged Windows desktop baseline remains equivalent to NEXT-020 `6dbf726443e9afd3c527f99d4851440e1404f4bb` pending `NEXT-023R`/`NEXT-024R` + integrated `NEXT-025`) |
+| Latest independent verdict revision | Recorded with this commit · [Independent review receipt](../evidence/independent-review-next021-025.json) (reviewed on handoff `525a4441bcd49feb75c5f65585c0ab7fe781f70f`) |
 | Native batch preregistration | ea2bac830121f310ab4d5292275a2e380732ea17 · [Comparison protocol](../../lab/next-021-025-protocol.md) |
-| Integrated frozen candidate | 19f3f468b404d7642a2370a9eb19e6e5b2f4aff8 · [Clean-checkout package and replay evidence](../evidence/next-021-025-integration/README.md) |
+| Integrated candidate under repair | 19f3f468b404d7642a2370a9eb19e6e5b2f4aff8 · [Review logs](../evidence/next-021-025-review/package-summary.json) |
 
-## Frozen per-update products
+## Independent per-update verdicts (Master v3.3 and `NEXT-021` through `NEXT-025`)
 
-| Update | Product revision | Author evidence revision | Observed result |
-| --- | --- | --- | --- |
-| NEXT-021 | 7adf742aedc15997a8e81fc40240e64412a7fe59 | e8dcc83ce17c72f307d0c6a160d674afee2e1787 | Rights-bound Foundry, verified knowledge and procedures, 504 real measured actions, 56 scoped deliveries. NR-016-1 and NR-020-1 covered. [Evidence](../evidence/next-021/README.md) |
-| NEXT-022 | cea141cf9cb0bc0c1d2918c97a60cc8aed903833 | c8849b7acc00c3f1d572cceb4d7a7d973638a3a6 | Original 6,211-parameter text model, 16 verified deliveries and 8 safe withholds out of 24, tied strong controls. [Evidence](../evidence/next-022/README.md) |
-| NEXT-023 | 076627316c72fc51fbae087aea9cdffcc7c19fad | 4573386bdaf42d09099ecd338158d7b6bcf9c936 | 61-parameter learned read order with independent evidence checks, budget and recovery. Best deterministic control tied. [Evidence](../evidence/next-023/README.md) |
-| NEXT-024 | eea0c32b8b0bea5496016bc53098eb6289618d47 | 8d02cb894de7bf5b089e69a6c16c354b02723a94 | Original Primary with two distinct 61-parameter role heads. Completed a live two-goal task in six traced steps. Full team tied literal order and two smaller teams. [Evidence](../evidence/next-024/README.md) |
-| NEXT-025 | 19f3f468b404d7642a2370a9eb19e6e5b2f4aff8 | 78d4e0ea52b861e7f6afc4a06123ba4bd9c53129 | Refit recovered one validation case with no held-out completion gain and worse held-out calibration. Rejected, archived, shadow only. [Evidence](../evidence/next-025/README.md) |
-
-## Argon review assignment
-
-1. Verify the exact documentation-only installation separately from implementation. Recalculate the ZIP and canonical SHA-256, compare the staged canonical and its 301 exact section entries, verify both requirements traces, check the archive's previous versions and member digests, and exercise a cold startup. Archived sources remain historical. The current independent review receipt governs current implementation status.
-2. Verify the frozen commits individually and the integrated product in clean checkouts. Reproduce the Foundry receipt pins, original weights, costs and paired outcomes. Challenge provenance, forged/swapped receipts, role-separated overlap, task scope, authored-vs-observed labels, source freshness, negative cases, stopped plans and precise verification. Verify both accepted hygiene fixes through the workflow.
-3. Use a fresh evaluator-owned suite with expectations and output outside Git. Compare original and refitted language against literal, TF-IDF, linear and historical original controls and challenge unauthorized/ambiguous requests. Exercise all Master ablations and measure whether independent learned choices actually help. The author only ran a synthetic external-path scorer smoke. [Evaluator instructions](../evidence/next-025/README.md)
-4. Reproduce offline PowerShell 5.1 and 7.6.9 package UI tests and an actual local native compound run. Record per-update, integrated and plan-install verdicts and a consolidated repair or next assignment through this file. Preserve NEXT-020 as the last accepted baseline unless your independent review advances it. [Full Argon review prompt](prompts/ARGON_INDEPENDENT_BATCH_REVIEW.md)
-5. Keep owner data, Windows privileges, protected evaluator custody, host execution and shadow qualification unchanged. No push, network use, account action, or edits to original ATLAS, PLATZ Engine or FORGE. Manual owner relay only.
-
-## Independent per-update verdicts (`NEXT-015R` & `NEXT-016` through `NEXT-020`)
-
-| Update | Frozen product | Author evidence | Clean & independent verification | Verdict |
+| Target | Product / doc revision | Author evidence | Clean & independent verification | Verdict |
 | --- | --- | --- | --- | --- |
-| `NEXT-015R` | `9c48621fc3868a02291c100c85d2225e67b393ae` | `f62ab385995e84b28ae0cde7cc2477a16fc1c667` | `0W/0E`, `290/290` Win, `14+3` Py, `4/4` shipped+rebuilt PS 5.1/7.6.9 live `qwen3.8:27b` WPF PASS (`520` inventory), `3/3` C# `ResearchPlan` probes PASS (`NR-015-1` & `NR-013-1` resolved) | **`ACCEPTED_WITH_LIMITATIONS`** |
-| `NEXT-016` | `a27ff64345547bff4f4182caced9907f712dde65` | `0c448fc47716e0978f6fd9aa1ed5a59e75706318` | `0W/0E`, `290/290` Win, `6/6` `test_native_data.py`, `10+5` audits PASS, `360` actions & all `4` partition SHA-256s reproduced identically; low hygiene `NR-016-1` | **`ACCEPTED_WITH_LIMITATIONS`** |
-| `NEXT-017` | `3eb40b96aca90bc8243086fd8e3b620c4b486970` | `06e666997124c58056213e75efb00276e9cb1153` | `0W/0E`, `290/290` Win, `3/3` Py, 65-param specialist `2e67c656...` (`9,929` B) exact match, `13/20` public & `10/16` protected (`0` wrong) vs `16/20` & `14/16` host | **`ACCEPTED_WITH_LIMITATIONS`** |
-| `NEXT-018` | `d8ebe25bd719a477c9d6cfa73afd17e50afb964e` | `4c5c6a0ad98f3f60a57d4dc4c869240589c08a56` | `0W/0E`, `290/290` Win, `2/2` Py, 37-param Master `c1199fd6...` (`3,829` B) exact match, `16/20` public & `14/16` protected (`6` fallbacks, `0` wrong) | **`ACCEPTED_WITH_LIMITATIONS`** |
-| `NEXT-019` | `709e49736d3d6bf55db4d1414887016f52d15b60` | `867030d7222a4986961a5c27f24bab42f17d5394` | `0W/0E`, `290/290` Win, `2/2` Py, cooperation `16/20` (`0` wrong), live BOM/CRLF/emoji UTF-16 span, catalog-leak block & `9/9` input bounds PASS | **`ACCEPTED_WITH_LIMITATIONS`** |
-| `NEXT-020` & integrated batch | `6dbf726443e9afd3c527f99d4851440e1404f4bb` | `fcbc8be91da112fd69e82bbbf02e78c7d379efd6` | `0W/0E`, `291/291` Win, `33/33` Py (`30.057 s`), rejected refit `79918ba6...` (`11,414` B) exact match, `13/20` public & `8/16` protected via `native_review.py` (`0` wrong), `4/4` offline PS 5.1/7.6.9 WPF PASS (`521` inventory); low `NR-020-1` | **`ACCEPTED_WITH_LIMITATIONS`** |
+| Master v3.3 install | `f5f8f75a29ee02dc72da26dcc15a88fe14d42603` | `525a4441` (`master-install.json`) | ZIP `cbc7a3b0...` (`65` files + `SHA256SUMS.json`), `301` sections, `166/166` v3.2 chapters intact, `18` originals + `18` transcripts, `76` trace rows, `2/2` Py | **`ACCEPTED`** (documentation only) |
+| `NEXT-021` | `7adf742aedc15997a8e81fc40240e64412a7fe59` | `e8dcc83ce17c72f307d0c6a160d674afee2e1787` | `0W/0E`, `291/291` Win, `16` Py, `504` actions (`14` families), exact manifest `ccc36ca7...` & 4 partition/knowledge SHA-256s; `NR-016-1` & `NR-020-1` (`b2fac610...`, `4/4`) resolved; `NR-021-1` low | **`ACCEPTED_WITH_LIMITATIONS`** |
+| `NEXT-022` | `cea141cf9cb0bc0c1d2918c97a60cc8aed903833` | `c8849b7acc00c3f1d572cceb4d7a7d973638a3a6` | `0W/0E`, `291/291` Win, `3/3` Py, checkpoint `d8bfcc54...` (`494,787` B) exact match; `24/24` public; `19/24` protected (`2` wrong shadow, Brier `0.4168`, tied `linear` `19/24`, beat `exact_typed` `17/24`); `NR-022-1` med | **`ACCEPTED_WITH_LIMITATIONS`** |
+| `NEXT-023` | `076627316c72fc51fbae087aea9cdffcc7c19fad` | `4573386bdaf42d09099ecd338158d7b6bcf9c936` | `0W/0E`, `291/291` Win, `3/3` Py, checkpoint `1834e999...` (`11,417` B) & live recovery reproduced; `24/24` public tied `lexical`; **blocking `NR-023-1`** drops Primary `withhold` in `rank_policy('procedure')` | **`REPAIRS_REQUIRED`** |
+| `NEXT-024` | `eea0c32b8b0bea5496016bc53098eb6289618d47` | `8d02cb894de7bf5b089e69a6c16c354b02723a94` | `0W/0E`, `291/291` Win, `3/3` Py, `7e5e3e48...` (`12,898` B) & 6-step live compound reproduced; `21/24` protected tied `lexical`; **blocking `NR-023-1`** in `route()` executes `READ` on `withhold` + blocked by `NEXT-023` | **`REPAIRS_REQUIRED`** |
+| `NEXT-025` (isolated / integrated) | `19f3f468b404d7642a2370a9eb19e6e5b2f4aff8` | `78d4e0ea52b861e7f6afc4a06123ba4bd9c53129` | `0W/0E`, `292/292` Win, `53/53` Py, refit `3c75904e...` (`497,487` B) rejected (`24/24` public Brier `0.040365`, `19/24` protected `0` gains Brier `0.4245`); `4/4` PS 5.1/7.6.9 WPF PASS (`522` inv). Blocked from baseline promotion by `NEXT-023`/`024` | **`REPAIRS_REQUIRED`** (integrated batch; `NEXT-025` **`ACCEPTED_WITH_LIMITATIONS`** in isolation) |
 
-## Previous review findings (`0` blocking defects)
+## Consolidated repair and hygiene register
 
-1. **`NR-016-1` [Low — Non-blocking hygiene in `lab/native_data.py:131`]:** `validate_cases()` normalizes `family` via `.casefold()`, whereas `lab/native_review.py:16` normalizes via `family_key()` (`re.sub(r"[-_.]+", "-", name.casefold())`). Verified that `validate_cases()` allowed `python_dateutil` in `evaluation` alongside `python-dateutil` in `train`, whereas `native_review.py` blocked it. Unify `validate_cases()` on `family_key()` before enrolling new families.
-2. **`NR-020-1` [Low — Non-blocking evaluation hygiene in `lab/native_review.py`]:** Add optional `--master` / `--master-sha` flags to `lab/native_review.py` so protected evaluator runs can score `Primary Master` cooperation (`confidence_gate`, `linear_gate`, `original_master`) alongside specialist/refit candidates without an external harness wrapper.
+1. **`NR-023-1` [High — Blocking in `lab/atlas_planner.py` (`rank_policy`) and `lab/atlas_team.py` (`route`, `evaluate`, `live_team`)]:** When Primary (`atlas_language.infer`) predicts `withhold`, `rank_policy("procedure")` looks up `knowledge["procedures"].get("withhold") -> None` and returns an active source read list, and `atlas_team.route()` emits Primary's `"withhold"` message yet returns an active `order` instead of stopping reads. Reproduced live on `pycparser` (`Avoid revealing the Release version for pycparser.`): Primary predicted `"withhold"` (`0.9983`), yet both `atlas_planner.py query --policy procedure` and `atlas_team.py query` executed `READ` and emitted `COMPLETED_SHADOW` (`"3.12"`) while the authoritative host returned `needs clarification`. Propagate Primary's explicit `withhold` veto out of `rank_policy()` and `route()` so planner/team abstain cleanly without executing `READ`. Add positive and negative unit/live tests covering Primary `withhold` propagation.
+2. **`NR-022-1` [Medium — Non-blocking in `lab/atlas_language.py` (`disallowed`, lines 174–178) & host catalog precedence]:** Closed English regex list in `disallowed()` missed unfamiliar refusal/mutation verbs in protected adversarial tests (`exact_typed` `17/24` with `4` wrong shadow proposals; `native`/`linear` `19/24` with `2` wrong shadow proposals), and built-in handbook keys (`export format`) preempt project `.md` facts of the same key during host observation (`1` false abstention). Target in the next batch without keyword overfitting.
+3. **`NR-021-1` [Low — Non-blocking in `lab/foundry_sources.py` (`typed_request`, lines 143–148)]:** `typed_request("locate_definition", key)` strips class qualifiers (`key.split(".")[-1]`), which would hit host `ambiguous` if multi-class Foundry `.py` sources ever share a method name (`Alpha.parse` vs `Beta.parse` verified ambiguous). Preserve dotted qualifiers when present.
+4. **`NR-025-1` [Low — Observation in `lab/atlas_refit.py` (line 77)]:** `if diag["useful"] > control["useful"]:` vs `>=` (triggered cleanly on `11/12` vs `12/12` today; refine future intervention triggers in the next learning wave using held-out calibration and protected error analysis).
+- *Resolved from prior review:* **`NR-016-1`** (`family_key()` in `native_data.validate_cases()` and `foundry.intake()`) and **`NR-020-1`** (`native_review.py --master / --master-sha`) verified resolved end-to-end.
+
+## Next assignment for GPT-6.2 Sol
+
+1. Freeze bounded repairs **`NEXT-023R`** and **`NEXT-024R`** fixing **`NR-023-1`** (and optionally addressing `NR-021-1` / `NR-022-1`), re-verify `NEXT-025` / integrated head (`0W/0E`, Windows checks, Python tests, Foundry/checkpoint/live-compound/refit replays, and sequential PS 5.1 & PS 7.6.9 `package.ps1` + `verify-package.ps1`), and return clean local evidence.
+2. After local verification passes, Sol is provisionally authorized to proceed into the next bounded five-update batch aligned with Master Plan v3.3 `CH-190` Wave A/B/C/D, specifically targeting genuine learned improvements over `linear`/`lexical` baselines on harder paraphrased, compositional, or multi-step unfamiliar tasks rather than matching literal rules on single-key templates.
+3. Keep all native models `shadow`-only, host execution disabled (`read owner-imported text`), protected evaluator suites outside Git/training, legacy ATLAS (`695585f`)/PLATZ/FORGE untouched, and NO `git push`. Manual owner relay only.
 
 [Owner report](ATLAS_OWNER_REPORT.md) · [Review protocol](ATLAS_REVIEW_PROTOCOL.md) · [Roadmap](../ROADMAP.md)
