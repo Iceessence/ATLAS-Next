@@ -13,6 +13,10 @@ public static class AtlasTestDialog {
     public static extern IntPtr SendMessage(IntPtr hwnd, uint msg, IntPtr wparam, string text);
     [DllImport("user32.dll")]
     public static extern bool PostMessage(IntPtr hwnd, uint msg, IntPtr wparam, IntPtr lparam);
+    [DllImport("user32.dll")]
+    public static extern bool IsWindow(IntPtr hwnd);
+    [DllImport("user32.dll")]
+    public static extern uint GetWindowThreadProcessId(IntPtr hwnd, out uint processId);
 }
 "@
 $root=Join-Path ([IO.Path]::GetTempPath()) ("atlas-next-package-"+[guid]::NewGuid().ToString("N"))
@@ -141,8 +145,41 @@ function Wait-AtlasText($reader,$pattern,$seconds=8) {
     }while([DateTime]::UtcNow -lt $until)
     throw "Expected UI text $pattern, saw '$actual'"
 }
-function Close-Dialog($dialog){
-    $dialog.GetCurrentPattern([System.Windows.Automation.WindowPattern]::Pattern).Close()
+function Wait-DialogClosed($handle,[int]$milliseconds) {
+    $until=[DateTime]::UtcNow.AddMilliseconds($milliseconds)
+    while([AtlasTestDialog]::IsWindow($handle) -and [DateTime]::UtcNow -lt $until){
+        Start-Sleep -Milliseconds 50
+    }
+    return ![AtlasTestDialog]::IsWindow($handle)
+}
+function Close-Dialog($dialog,$session){
+    $handle=[IntPtr]$dialog.Current.NativeWindowHandle
+    if($handle -eq [IntPtr]::Zero -or $dialog.Current.ProcessId -ne $session.Process.Id){
+        throw 'Dialog does not belong to the packaged process'
+    }
+    try {
+        $modelId=[System.Windows.Automation.PropertyCondition]::new([System.Windows.Automation.AutomationElement]::AutomationIdProperty,'Model')
+        $picker=$dialog.FindFirst([System.Windows.Automation.TreeScope]::Descendants,$modelId)
+        if($picker){
+            $expand=$picker.GetCurrentPattern([System.Windows.Automation.ExpandCollapsePattern]::Pattern)
+            if($expand.Current.ExpandCollapseState -eq 'Expanded'){$expand.Collapse()}
+        }
+        $dialog.GetCurrentPattern([System.Windows.Automation.WindowPattern]::Pattern).Close()
+    } catch [System.Windows.Automation.ElementNotAvailableException], [System.InvalidOperationException] {
+        # WPF can dismiss the popup or dialog before the UIA provider returns.
+    }
+    if(Wait-DialogClosed $handle 1200){return}
+    [uint32]$ownerId=0
+    $threadId=[AtlasTestDialog]::GetWindowThreadProcessId($handle,[ref]$ownerId)
+    if($threadId -eq 0 -and ![AtlasTestDialog]::IsWindow($handle)){return}
+    if($threadId -eq 0 -or $ownerId -ne $session.Process.Id){
+        throw 'Dialog handle no longer belongs to the packaged process'
+    }
+    if(![AtlasTestDialog]::PostMessage($handle,0x0010,[IntPtr]::Zero,[IntPtr]::Zero)){
+        if(![AtlasTestDialog]::IsWindow($handle)){return}
+        throw 'Could not close the packaged dialog'
+    }
+    if(!(Wait-DialogClosed $handle 2500)){throw 'Packaged dialog did not close'}
 }
 function Read-Value($window,$id){
     (Control $window $id).GetCurrentPattern([System.Windows.Automation.ValuePattern]::Pattern).Current.Value
@@ -434,7 +471,7 @@ try {
     Invoke-Control $window 'ShowModels'
     $models=Find-AtlasDialog $session 'ATLAS Next Model Evidence'
     Wait-AtlasText {Read-Value $models 'ModelReport'} '*specialist*shadow*fitting blocked*native*15/16*'
-    Close-Dialog $models
+    Close-Dialog $models $session
 
     $promptBox.SetValue('Where is Store.Load(IReadOnlyList<int>) defined?')
     Invoke-Control $window 'Search'
@@ -448,8 +485,8 @@ try {
     $draft=Find-AtlasDialog $session 'ATLAS Next Local Chat'
     if((Control $draft 'Discover').Current.IsEnabled -or (Control $draft 'SendChat').Current.IsEnabled){throw 'Reference transport must start disabled'}
     Wait-AtlasText {Read-Value $draft 'AttachmentPreview'} '*IReadOnlyList<int> ids*'
-    Close-Dialog $draft
-    Close-Dialog $coding
+    Close-Dialog $draft $session
+    Close-Dialog $coding $session
 
     Invoke-Control $window 'ShowResearch'
     $research=Find-AtlasDialog $session 'ATLAS Next Local Research'
@@ -463,7 +500,7 @@ try {
     Invoke-Control $research 'VerifyStudy'
     Wait-AtlasText {Read-Value $research 'StudyEvidence'} '*package retention: 4 days*limits.md*revision 3*'
     Wait-AtlasText {(Control $research 'StudyStatus').Current.Name} 'Verified*'
-    Close-Dialog $research
+    Close-Dialog $research $session
 
     Invoke-Control $window 'ShowReference'
     $chat=Find-AtlasDialog $session 'ATLAS Next Local Chat'
@@ -475,6 +512,7 @@ try {
         $picker=Control $chat 'Model'
         $picker.GetCurrentPattern([System.Windows.Automation.ExpandCollapsePattern]::Pattern).Expand()
         Select-AtlasItem $picker $ReferenceModel
+        Wait-AtlasText {$picker.GetCurrentPattern([System.Windows.Automation.ExpandCollapsePattern]::Pattern).Current.ExpandCollapseState.ToString()} 'Collapsed'
         Write-Value $chat 'ChatInput' 'Reply with exactly BRIDGE and no punctuation.'
         Invoke-Control $chat 'SendChat'
         Wait-AtlasText {Read-Value $chat 'ChatTranscript'} '*Reference model*unverified*BRIDGE*' 65
@@ -483,7 +521,7 @@ try {
         Wait-AtlasText {Read-Value $chat 'ChatTranscript'} '*BRIDGE-LOCAL*' 65
         "PASS packaged two-turn local reference-model conversation using $ReferenceModel"
     }
-    Close-Dialog $chat
+    Close-Dialog $chat $session
     Close-Session $session
     $session=Launch
     $proc=$session.Process
@@ -494,7 +532,7 @@ try {
     $research=Find-AtlasDialog $session 'ATLAS Next Local Research'
     Select-AtlasItem (Control $research 'Studies') 'Verified*Verify package quality*'
     Wait-AtlasText {Read-Value $research 'StudyEvidence'} '*package retention: 4 days*'
-    Close-Dialog $research
+    Close-Dialog $research $session
     "PASS workspace coding, model evidence, verified research history and active project survive relaunch"
     "PowerShell $($PSVersionTable.PSVersion) verified ZIP $((Get-FileHash -LiteralPath $Zip).Hash)"
     "PASS $($inventory.Count) inventory hashes, private runtime, PID/title window discovery across relaunches"

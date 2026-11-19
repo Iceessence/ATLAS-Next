@@ -49,7 +49,11 @@ internal sealed class Engine(string profile) : IDisposable
     public Work Study(Guid id,ResearchPlan plan)
     {
         if(!plan.IsValid()) throw new ArgumentException("Enter an objective, two to four fields and select two to eight text sources.");
-        var validated=plan with {SourceIds=plan.SourceIds.Order(StringComparer.Ordinal).ToArray()};
+        var validated=plan with {
+            Objective=plan.Objective.Trim(),
+            Fields=plan.Fields.Trim(),
+            SourceIds=plan.SourceIds.Order(StringComparer.Ordinal).ToArray()
+        };
         return SubmitCore(id,validated.Request,null,null,validated);
     }
 

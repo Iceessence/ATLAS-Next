@@ -24,6 +24,11 @@ internal static class StudyChecks
         check(pending is {State:"review",Dependencies.Length:3} && success is {State:"completed",ResearchReview.Sources.Length:2} &&
              success.Result=="build status: clean\nrelease channel: stable" && success.ResearchReview.Sources.All(c=>c.Id!=decoy.Id),
              "multi-step study evaluates owner-authorized sources and preserves exact provenance");
+        var padded=engine.Study(Guid.NewGuid(),plan with {Objective=" "+plan.Objective+" ",Fields=" "+plan.Fields+" "});
+        var normalized=engine.Finish(padded.Id);
+        check(normalized is {State:"completed",Plan:not null} && normalized.Plan.Objective==plan.Objective &&
+            normalized.Plan.Fields==plan.Fields && normalized.Request==normalized.Plan.Request && normalized.Result==success.Result,
+            "study stores and finishes the same normalized plan and request");
         var conflict=engine.Study(Guid.NewGuid(),plan with {SourceIds=[a.Id,b.Id,decoy.Id]});
         check(conflict is {State:"needs clarification",ResearchReview.Verdict:"contradiction"} && conflict.Result!=success.Result,
             "selecting contradictory evidence prevents a conclusion");

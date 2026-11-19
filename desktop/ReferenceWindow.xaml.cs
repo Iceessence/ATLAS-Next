@@ -53,6 +53,7 @@ public partial class ReferenceWindow : Window
 
     private void ModelChanged(object sender,System.Windows.Controls.SelectionChangedEventArgs e)
     {
+        Model.IsDropDownOpen=false;
         ClearHistory();
         ModelIdentity.Text=Model.SelectedItem is ReferenceModel model ?
             $"External reference · {model.Name} · SHA-256 {model.Digest}" : "";
