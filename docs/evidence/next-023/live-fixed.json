@@ -1,0 +1,93 @@
+{
+  "canonical_master_sha256": "8d32beb651deec0df5df8593f442801cfda9637ea5751f85b57e69064384b78b",
+  "sections_consulted": [
+    "CH-015",
+    "CH-073",
+    "CH-136",
+    "CH-163",
+    "CH-182",
+    "CH-183"
+  ],
+  "request_sha256": "6a6035c9425f9834b2a6bbed2f3e7cd780e715e361176c8f9c5e42236280728c",
+  "request": "Show the evidence for this installation's published name (pycparser).",
+  "project": "pycparser",
+  "original_host": {
+    "state": "needs clarification",
+    "relevance": "unsupported",
+    "process_ms": 273.975
+  },
+  "shadow": {
+    "state": "COMPLETED_SHADOW",
+    "reason": "exact scoped evidence verified",
+    "steps": [
+      {
+        "step": 1,
+        "depends_on": [],
+        "action": "SELECT_READ_PATH",
+        "procedure": null
+      },
+      {
+        "step": 2,
+        "depends_on": [
+          1
+        ],
+        "action": "READ",
+        "source_id": "pycparser-source-0",
+        "source_revision": 1,
+        "sha256": "0f2e7c427caa60183311e487e7e4b1eb28e81ecc1fecf72038da03abc4ad2755"
+      },
+      {
+        "step": 3,
+        "depends_on": [
+          2
+        ],
+        "action": "ASSERT_EVIDENCE",
+        "verified": false,
+        "outcome": "completed",
+        "cost": {
+          "engine_us": 106365.2,
+          "process_ms": 286.0265,
+          "host_working_set": 77443072
+        }
+      },
+      {
+        "step": 4,
+        "depends_on": [
+          3
+        ],
+        "action": "READ",
+        "source_id": "pycparser-source-1",
+        "source_revision": 1,
+        "sha256": "a0889f55274cb2930c28758f518c963213ec2ff0b86e1b25aafd421efb2abfd7"
+      },
+      {
+        "step": 5,
+        "depends_on": [
+          4
+        ],
+        "action": "ASSERT_EVIDENCE",
+        "verified": true,
+        "outcome": "completed",
+        "cost": {
+          "engine_us": 108399.4,
+          "process_ms": 289.3978,
+          "host_working_set": 77340672
+        }
+      }
+    ],
+    "evidence": {
+      "source_id": "pycparser-source-1",
+      "sha256": "a0889f55274cb2930c28758f518c963213ec2ff0b86e1b25aafd421efb2abfd7",
+      "span": {
+        "line": 1,
+        "start": 16,
+        "length": 9
+      },
+      "extracted": "pycparser"
+    },
+    "scope": "pycparser",
+    "external_inference_calls": 0,
+    "authority": "read-only shadow"
+  },
+  "external_inference_calls": 0
+}
