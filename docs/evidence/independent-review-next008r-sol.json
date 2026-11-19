@@ -1,0 +1,201 @@
+{
+  "schema": 1,
+  "review": "NEXT-008R Sol literal repair",
+  "verdict": "ACCEPTED_WITH_LIMITATIONS",
+  "reviewer": "Gemini Argon Orchestrator",
+  "product_author": "GPT-6.2 Sol",
+  "reviewed_at_utc": "2026-11-19T04:44:00Z",
+  "frozen_product": "112f9fb071698b5d6b256184f3debda54dd9e305",
+  "author_evidence": "3110a931b80ac15f9e14708c91cf68f4302f7d38",
+  "prior_independent_verdict": "b3f250a2ddeab87e4323a521f9ec796f3271fbeb",
+  "prior_accepted_baseline": "2011be05e61a7c7107bce3496cb0bf072e262341",
+  "git_checks": {
+    "detached_clean_review_checkouts": 2,
+    "product_to_handoff_diffs_docs_only": true,
+    "native_model_files_match_accepted_baseline": true,
+    "native_model_sha256": "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+    "shadow_checkpoint_sha256": "5c476024d16fdc7054d901551bc66373639997b984f49cf89f74623f471d6a07",
+    "legacy_repo_head": "695585fedc38c72d77bf355ea595f42fcf7a9e07",
+    "legacy_repo_untouched_by_review": true
+  },
+  "scope_note": "Independent review verifies Sol's frozen NEXT-008R Python literal-escape repair (112f9fb) and clean-clone public and evaluator checks against CPython compilation without execution. It does not assert retrospective independent review of earlier Argon-authored NEXT-008 code covered by Sol's prior reviews.",
+  "public_replays": {
+    "release_build": {
+      "warnings": 0,
+      "errors": 0,
+      "log": "next-008r-sol-review/build.txt"
+    },
+    "windows": {
+      "passed": 240,
+      "total": 240,
+      "log": "next-008r-sol-review/windows.txt"
+    },
+    "python_integrity": {
+      "passed": 14,
+      "total": 14,
+      "duration_s": 29.32,
+      "log": "next-008r-sol-review/integrity.txt"
+    },
+    "public_factual": {
+      "passed": 31,
+      "total": 31,
+      "log": "next-008r-sol-review/outcomes.txt"
+    },
+    "distribution_audit": {
+      "passed": 10,
+      "total": 10,
+      "log": "next-008r-sol-review/audit.txt"
+    },
+    "synthetic_shadow_router": {
+      "rule": "48/72",
+      "exemplar": "42/72",
+      "native": "54/72",
+      "linear": "54/72",
+      "native_qualification": "shadow",
+      "log": "next-008r-sol-review/routing.txt"
+    },
+    "frozen_specialist": {
+      "order": [
+        "host",
+        "tfidf",
+        "linear",
+        "native"
+      ],
+      "real_observations": [
+        16,
+        16,
+        14,
+        15
+      ],
+      "total_real": 16,
+      "constructed_controls": [
+        31,
+        31,
+        29,
+        30
+      ],
+      "total_controls": 31,
+      "wrong_deliveries": 0,
+      "linear_brier": 0.06254831836992278,
+      "linear_ece": 0.09853221002154794,
+      "native_brier": 0.03764230614967519,
+      "native_ece": 0.06682825495443676,
+      "log": "next-008r-sol-review/specialist.txt"
+    },
+    "earlier_code_replays": {
+      "next005": "8/8",
+      "next005_log": "next-008r-sol-review/prev5.txt",
+      "next006": "13/13",
+      "next006_log": "next-008r-sol-review/prev6.txt",
+      "next007": "17/17",
+      "next007_verify_only": "PASS 5",
+      "next007_log": "next-008r-sol-review/prev7.txt",
+      "wrong_deliveries": 0
+    },
+    "next008_conversation": {
+      "search_complete": "9/14",
+      "host_complete": "12/14",
+      "host_exact_deliveries": 18,
+      "host_correct_withholds": 5,
+      "host_wrong_deliveries": 0,
+      "host_false_abstentions": 2,
+      "abstention_reason": "Two C# calls whose frozen sources omit explicit using directives",
+      "first_turn_ms": 55.9656,
+      "warm_turn_ms": 15.6638,
+      "process_ms": 329.755649989238,
+      "max_sampled_working_set_bytes": 125390848,
+      "external_inference_calls": 0,
+      "log": "next-008r-sol-review/host8.txt"
+    },
+    "ledger": {
+      "real_source_rows": "6/6",
+      "matching_digest_negative_cases_rejected": "4/4",
+      "rejected": [
+        "altered_request_matching_digest",
+        "swapped_turn_requests_matching_digest",
+        "altered_summary_matching_digest",
+        "missing_dependency_matching_digest"
+      ],
+      "log": "next-008r-sol-review/ledger8.txt"
+    }
+  },
+  "packages": {
+    "summary_log": "next-008r-sol-review/package-summary.json",
+    "shipped_ps51": {
+      "status": "PASS",
+      "path": "out/NEXT-008R-Sol/ATLAS-Next-win-x64-ps51.zip",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95153836,
+      "zip_sha256": "95c2e4100afc0ad25e9e4ee33d1e204d5d7d54d070672e73e7b21d64b4ea30bf",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "wpf": "PASS",
+      "log": "next-008r-sol-review/shipped-ps51.txt"
+    },
+    "rebuilt_ps51": {
+      "status": "PASS",
+      "shell": "Windows PowerShell 5.1.26100.9818",
+      "bytes": 95153841,
+      "zip_sha256": "e4c320718a78632cc04d4135b7996c9897bfbeac500139d41e8ee0d910f0a1b5",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "wpf": "PASS",
+      "log": "next-008r-sol-review/rebuilt-ps51.txt"
+    },
+    "shipped_ps7": {
+      "status": "PASS",
+      "path": "out/NEXT-008R-Sol/ATLAS-Next-win-x64-ps7.zip",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112807110,
+      "zip_sha256": "fb10bc6daca2e8d52039c1499c3d70af7a680f727aaf5e70860aa4e49c1de616",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "wpf": "PASS",
+      "log": "next-008r-sol-review/shipped-ps7.txt"
+    },
+    "rebuilt_ps7": {
+      "status": "PASS",
+      "shell": "PowerShell 7.6.9",
+      "bytes": 112807133,
+      "zip_sha256": "27d2a55b9e1846d02328dd428d2a3d675e22946d8f43f7a6380b2ae0175a9662",
+      "inventory_hashes": 519,
+      "roslyn_files": 28,
+      "lab_entries": 0,
+      "wpf": "PASS",
+      "log": "next-008r-sol-review/rebuilt-ps7.txt"
+    }
+  },
+  "evaluator_custody": {
+    "receipt_sha256": "2f036dc07553d994eaa7789244cb3e70b5d8f04d1ae20c48a145d9c744c1d955",
+    "valid_complex_python_cases": {
+      "cases": 14,
+      "wrong_deliveries": 0,
+      "false_abstentions": 0
+    },
+    "malformed_python_headers_cpython_rejected": {
+      "cases": 43,
+      "withheld_events": 1256,
+      "wrong_deliveries": 0
+    },
+    "conservative_fail_closed_escapes": {
+      "cases": 5,
+      "withheld_events": 10,
+      "wrong_deliveries": 0,
+      "note": "Includes valid \\N{GREEK SMALL LETTER LAMDA} named Unicode escape and unvalidated escape patterns that cleanly withhold in the supported subset."
+    },
+    "unfamiliar_real_packages": {
+      "packaging": "Version.major -> int; Version.__lt__ -> bool",
+      "openpyxl": "Workbook.create_sheet -> (self, title=None, index=None); unannotated return withheld cleanly"
+    },
+    "csharp_competing_extension_differential": "PASS (4/4)",
+    "private_scope": "Raw evaluator inputs, scripts and receipts are kept outside Git."
+  },
+  "limitations": [
+    "Supported Python header literal subset conservatively withholds named Unicode escapes and unknown escapes (fail closed).",
+    "C# cross-file call binding remains scoped to explicit source using directives and imported files, leaving two absent-using turns in host8 as conservative abstentions.",
+    "Both native models remain shadow-only and unpromoted; host execution remains disabled (read owner-imported text)."
+  ]
+}

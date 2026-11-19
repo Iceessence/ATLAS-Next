@@ -1,0 +1,5 @@
+PASS 6 real-source multi-turn outcomes, report summaries, and request integrity
+PASS altered_request_matching_digest: Delivered receipt request differs from preregistered turn
+PASS swapped_turn_requests_matching_digest: Delivered receipt request differs from preregistered turn
+PASS altered_summary_matching_digest: Report conversation completion flag mismatch
+PASS missing_dependency_matching_digest: Missing or mismatched follow-up parent/dependency linkage

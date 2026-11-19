@@ -1,0 +1,34 @@
+{
+    "shipped_ps51_meta":  {
+                              "bytes":  95153836,
+                              "sha256":  "95c2e4100afc0ad25e9e4ee33d1e204d5d7d54d070672e73e7b21d64b4ea30bf",
+                              "inventory":  519,
+                              "roslyn":  28,
+                              "native":  "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+                              "lab":  0
+                          },
+    "rebuilt_ps51_meta":  {
+                              "bytes":  95153841,
+                              "sha256":  "e4c320718a78632cc04d4135b7996c9897bfbeac500139d41e8ee0d910f0a1b5",
+                              "inventory":  519,
+                              "roslyn":  28,
+                              "native":  "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+                              "lab":  0
+                          },
+    "shipped_ps7_meta":  {
+                             "bytes":  112807110,
+                             "sha256":  "fb10bc6daca2e8d52039c1499c3d70af7a680f727aaf5e70860aa4e49c1de616",
+                             "inventory":  519,
+                             "roslyn":  28,
+                             "native":  "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+                             "lab":  0
+                         },
+    "rebuilt_ps7_meta":  {
+                             "bytes":  112807133,
+                             "sha256":  "27d2a55b9e1846d02328dd428d2a3d675e22946d8f43f7a6380b2ae0175a9662",
+                             "inventory":  519,
+                             "roslyn":  28,
+                             "native":  "6b9b23fcf890807f2a1d989f1b9870660bcf3030ce6e729674844e9f722076c4",
+                             "lab":  0
+                         }
+}

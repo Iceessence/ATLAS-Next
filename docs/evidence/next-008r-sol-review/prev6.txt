@@ -1,0 +1,1 @@
+{'policy': 'host', 'conversations': 13, 'complete': 13, 'exact_deliveries': 14, 'wrong_deliveries': 0, 'correct_withholds': 12, 'first_ms': [52.502, 17.2086], 'warm_ms': [12.9168, 15.1911], 'max_sampled_working_set': 55865344, 'external_inference_calls': 0}
