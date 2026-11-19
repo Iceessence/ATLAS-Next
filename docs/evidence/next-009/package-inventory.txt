@@ -1,0 +1,5 @@
+NEXT-008R-Sol ps51 95153836 95c2e4100afc0ad25e9e4ee33d1e204d5d7d54d070672e73e7b21d64b4ea30bf 519 exact members, 28 Roslyn files, native checkpoint shadow
+NEXT-008R-Sol ps7 112807110 fb10bc6daca2e8d52039c1499c3d70af7a680f727aaf5e70860aa4e49c1de616 519 exact members, 28 Roslyn files, native checkpoint shadow
+NEXT-009 ps51 95155883 5328b071a4f5b8f065c065c23a23feccce0ffbcb2e7eb688c5532235da14fe8a 519 exact members, 28 Roslyn files, native checkpoint shadow
+NEXT-009 ps7 112809729 3018d9e5ce2270ea10a1cee1bd627bd2c73cef526622a0ffe088519c3d55fc92 519 exact members, 28 Roslyn files, native checkpoint shadow
+PASS all seven frozen search case results reproduced

@@ -1,0 +1,1 @@
+{'policy': 'host', 'origin': 'author-public source observation', 'external_inference_calls': 0, 'author_and_evaluator_assistance': 'external developer authored requests, harness and implementation', 'turns': 16, 'verified_deliveries': 12, 'wrong_deliveries': 0, 'correct_abstentions': 4, 'conversations_correct': 8, 'median_wall_ms': 243.1772, 'max_working_set': 49565696}
